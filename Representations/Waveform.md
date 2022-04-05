@@ -1,13 +1,5 @@
 # Waveform
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 Speech signals are sound signals, defined as pressure variations
 travelling through the air. These variations in pressure can be
 described as waves and correspondingly they are often called sound
@@ -16,25 +8,17 @@ and processing of such waveforms in digital systems. We will therefore
 always assume that the acoustic speech signals have been captured by a
 microphone and converted to a digital form.
 
-A speech signal is then represented by a sequence of numbers \\( x_n \\)
-, which represent the relative air pressure at time-instant \\(
-n\\in{\\mathbb N} \\) .  This representation is known as [pulse code
+A speech signal is then represented by a sequence of numbers $ x_n $
+, which represent the relative air pressure at time-instant $
+n\in{\mathbb N} $ .  This representation is known as [pulse code
 modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) often
 abbreviated as *PCM*. The accuracy of this representation is then
 specified by two factors; 1) the sampling frequency (the step in time
-between *n* and *n+1*) and 2) the accuracy and distribution of
-amplitudes of *x<sub>n</sub>*.
+between $n$ and $n+1$) and 2) the accuracy and distribution of
+amplitudes of $x_n$.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148294912/148294966.png"
-data-image-src="attachments/148294912/148294966.png"
+<img src="../attachments/148294912/148294966.png"
+data-image-src="../attachments/148294912/148294966.png"
 data-unresolved-comment-count="0" data-linked-resource-id="148294966"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="sample_sentence-1.png"
@@ -43,25 +27,14 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148294912"
 data-linked-resource-container-version="30" height="250" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Sampling rate
 
 [Sampling](https://en.wikipedia.org/wiki/Sampling_(signal_processing))
 is a classic topic of signal processing. Here the most important aspect
 is the Nyquist frequency, which is half the sampling rate
-*F<sub>s</sub>* and defines the upper end of the largest bandwidth \\(
-\\left\[0, \\frac{F_s}2\\right\] \\) which can be uniquely represented.
+$F_s$ and defines the upper end of the largest bandwidth $
+\left[0, \frac{F_s}2\right] $ which can be uniquely represented.
 In other words, if the sampling frequency would be 8000 Hz, then signals
 in the frequency range 0 to 4000 Hz can be uniquely described with this
 sampling frequency. The AD-converter would then have to contain a
@@ -83,18 +56,11 @@ music and generic audio.
 
   
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Frequency-range of different bandwidth-definitions
 
-<img src="attachments/148296254/175528670.png"
-data-image-src="attachments/148296254/175528670.png"
+<img src="../attachments/148296254/175528670.png"
+data-image-src="../attachments/148296254/175528670.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175528670"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="bandwidth-1.png"
@@ -107,7 +73,6 @@ data-linked-resource-container-version="24" width="600" />
 
 Sound samples at different sampling rates / bandwidths
 
-<div class="table-wrap">
 
 <table class="wrapped confluenceTable">
 <tbody>
@@ -121,7 +86,7 @@ Sound samples at different sampling rates / bandwidths
 <p>Narrowband (300 Hz to 3.3 kHz)</p>
 </div></td>
 <td class="confluenceTd"><div class="content-wrapper">
-<p><a href="attachments/148296254/203122322.wav"
+<p><a href="../attachments/148296254/203122322.wav"
 data-linked-resource-id="203122322" data-linked-resource-version="1"
 data-linked-resource-type="attachment"
 data-linked-resource-default-alias="speechexample_300_3300.wav"
@@ -134,7 +99,7 @@ data-linked-resource-container-version="24">speechexample_300_3300.wav</a></p>
 <tr class="even">
 <td class="confluenceTd">Wideband (50 Hz to 7 kHz)</td>
 <td class="confluenceTd"><div class="content-wrapper">
-<p><a href="attachments/148296254/203122321.wav"
+<p><a href="../attachments/148296254/203122321.wav"
 data-linked-resource-id="203122321" data-linked-resource-version="1"
 data-linked-resource-type="attachment"
 data-linked-resource-default-alias="speechexample_50_7000.wav"
@@ -149,7 +114,7 @@ data-linked-resource-container-version="24">speechexample_50_7000.wav</a></p>
 Hz to 16 kHz)</td>
 <td class="confluenceTd" style="text-align: center;"><div
 class="content-wrapper">
-<p><a href="attachments/148296254/203122319.wav"
+<p><a href="../attachments/148296254/203122319.wav"
 data-linked-resource-id="203122319" data-linked-resource-version="1"
 data-linked-resource-type="attachment"
 data-linked-resource-default-alias="speechexample_50_16000.wav"
@@ -162,7 +127,7 @@ data-linked-resource-container-version="24">speechexample_50_16000.wav</a></p>
 <tr class="even">
 <td class="confluenceTd">Fullband (50 Hz to 22 kHz)</td>
 <td class="confluenceTd"><div class="content-wrapper">
-<p><a href="attachments/148296254/203122318.wav"
+<p><a href="../attachments/148296254/203122318.wav"
 data-linked-resource-id="203122318" data-linked-resource-version="1"
 data-linked-resource-type="attachment"
 data-linked-resource-default-alias="speechexample_50_22000.wav"
@@ -175,7 +140,7 @@ data-linked-resource-container-version="24">speechexample_50_22000.wav</a></p>
 <tr class="odd">
 <td class="confluenceTd">Original (0 to 22050 Hz)</td>
 <td class="confluenceTd"><div class="content-wrapper">
-<p><a href="attachments/148296254/203122316.wav"
+<p><a href="../attachments/148296254/203122316.wav"
 data-linked-resource-id="203122316" data-linked-resource-version="1"
 data-linked-resource-type="attachment"
 data-linked-resource-default-alias="speechexample.wav"
@@ -188,19 +153,6 @@ data-linked-resource-container-version="24">speechexample.wav</a></p>
 </tbody>
 </table>
 
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Accuracy and distribution of steps on the amplitude axis
 
@@ -208,60 +160,30 @@ In digital representations of a signal you are forced to use a finite
 number of steps to describe the amplitude. In practice, we must quantize
 the signal to some discrete levels.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Linear quantization
 
-Linear quantization with a step size \\( \\Delta q \\) would correspond
+Linear quantization with a step size $\Delta q $ would correspond
 to defining the quantized signal as 
-
-\\\[ \\hat x = \\Delta q\\,\\cdot {\\mathrm{round}}(x/\\Delta q). \\\]
-
-The intermediate representation, \\( y={\\mathrm{round}}(x/\\Delta q),
-\\) can then be taken to represent, for example, signed 16-bit integers.
-Consequently, the quantization step size  \\( \\Delta q \\) has to be
-then chosen such that *y* remains in the range  \\(
-y\\in(-2^{15},\\,2^{15}\] \\) to avoid numerical overflow.
+$$ \hat x = \Delta q\,\cdot {\mathrm{round}}(x/\Delta q). $$
+The intermediate representation, $ y={\mathrm{round}}(x/\Delta q),
+$ can then be taken to represent, for example, signed 16-bit integers.
+Consequently, the quantization step size  $ \Delta q $ has to be
+then chosen such that $y$ remains in the range  $
+y\in(-2^{15},\,2^{15}] $ to avoid numerical overflow.
 
 The beauty of this approach is that it is very simple to implement. The
 drawback is that this approach is sensitive to the choice of the
 quantization step size. To make use of the whole range and thus get best
-accuracy for *x*, we should choose the smallest  \\( \\Delta q \\) where
+accuracy for $x$, we should choose the smallest  $ \Delta q $ where
 we still remain within the bounds of integers. This is difficult because
 the amplitudes of speech signals vary on a large range. 
 
   
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/149882928.png"
-data-image-src="attachments/148296254/149882928.png"
+<img src="../attachments/148296254/149882928.png"
+data-image-src="../attachments/148296254/149882928.png"
 data-unresolved-comment-count="0" data-linked-resource-id="149882928"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="quantization_uniform.png-1.png"
@@ -272,61 +194,41 @@ data-linked-resource-container-version="24" height="150" />
 
   
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Logarithmic quantization and mu-law
 
 To retain equal accuracy for loud and weak signals, we *could* quantize
 on an logarithmic scale as 
-
-\\\[ \\hat x = {\\mathrm{sign}}(x)\\cdot\\exp\\left\[ \\Delta
-q\\cdot\\,{\\mathrm{round}} \\left(\\log\\left(\|x\|\\right)/\\Delta
-q\\right) \\right\]. \\\]
-
+$$ \hat x = {\mathrm{sign}}(x)\cdot\exp\left[ \Delta
+q\cdot\,{\mathrm{round}} \left(\log\left(\|x\|\right)/\Delta
+q\right) \right]. $$
 Such operations which limit the detrimental effects of limited range are
 known as *[companding](https://en.wikipedia.org/wiki/Companding)*
 algorithms.
 
-Here the intermediate representation is  \\( y = {\\mathrm{round}}
-\\left(\\log\\left(\|x\|\\right)/\\Delta q\\right) \\) which can be
-reconstructed by  \\( \\hat x = {\\mathrm{sign}}(x)\\cdot\\exp\\left\[
-\\Delta q\\cdot\\,\|y\| \\right\]. \\) A benefit of this approach would
+Here the intermediate representation is  $ y = {\mathrm{round}}
+\left(\log\left(\|x\|\right)/\Delta q\right) $ which can be
+reconstructed by  $ \hat x = {\mathrm{sign}}(x)\cdot\exp\left[
+\Delta q\cdot\,\|y\| \right]. $ A benefit of this approach would
 be that we can encode signals on a much larger range and the
 quantization accuracy is relative to the signal magnitude.
 Unfortunately, very small values cause catastrophic problems. In
-particular, for *x=0*, the intermediate value goes to negative infinity 
-\\( y=-\\infty, \\) which is not realizable in finite digital systems.
+particular, for $x=0$, the intermediate value goes to negative infinity 
+$ y=-\infty, $ which is not realizable in finite digital systems.
 
 A practical solution to this problem is quantization with the mu-law
 algorithm, which defines a modified logarithm as
 
-\\\[
-F(x):={\\mathrm{sign}}(x)\\cdot\\,\\frac{\\log\\left(1+\\mu\|x\|\\right)}{\\left(1+\\mu\\right)}.
-\\\]
+$$
+F(x):={\mathrm{sign}}(x)\cdot\,\frac{\log\left(1+\mu\|x\|\right)}{\left(1+\mu\right)}.
+$$
 
-By replacing the logarithm with *F(x)*, we retain the properties of the
-logarithm for large *x*, but avoid the problems when *x* is small.
+By replacing the logarithm with $F(x)$, we retain the properties of the
+logarithm for large $x$, but avoid the problems when $x$ is small.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/149882926.png"
-data-image-src="attachments/148296254/149882926.png"
+<img src="../attachments/148296254/149882926.png"
+data-image-src="../attachments/148296254/149882926.png"
 data-unresolved-comment-count="0" data-linked-resource-id="149882926"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="quantization_log.png-1.png"
@@ -335,8 +237,8 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" height="150" />
 
-<img src="attachments/148296254/149882927.png"
-data-image-src="attachments/148296254/149882927.png"
+<img src="../attachments/148296254/149882927.png"
+data-image-src="../attachments/148296254/149882927.png"
 data-unresolved-comment-count="0" data-linked-resource-id="149882927"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="quantization_mulaw.png-1.png"
@@ -345,17 +247,6 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" height="150" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Wav-files
 
@@ -369,27 +260,6 @@ require a lot of disk space. For example, an hour of mono (single
 channel) sound with a sampling rate of 44.1kHz requires 160 MB of disk
 space.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Adaptive quantization, APCM
 
@@ -406,16 +276,9 @@ space.
     quantization step size is to apply an adaptive gain to the input
     signal before quantization.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529208.png"
-data-image-src="attachments/148296254/175529208.png"
+<img src="../attachments/148296254/175529208.png"
+data-image-src="../attachments/148296254/175529208.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529208"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="apcm_ff_q_re-1.png"
@@ -424,8 +287,8 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="450" />
 
-<img src="attachments/148296254/175529206.png" class="image-center"
-data-image-src="attachments/148296254/175529206.png"
+<img src="../attachments/148296254/175529206.png" class="image-center"
+data-image-src="../attachments/148296254/175529206.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529206"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="apcm_ff_g_re-1.png"
@@ -434,17 +297,6 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="500" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Adaptive quantization with the feed-forward algorithm using an adaptive quantization step
 
@@ -456,16 +308,9 @@ data-linked-resource-container-version="24" width="500" />
         whereby the feed-forward algorithm is not optimal for
         applications which try to minimize transmission rate.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529207.png"
-data-image-src="attachments/148296254/175529207.png"
+<img src="../attachments/148296254/175529207.png"
+data-image-src="../attachments/148296254/175529207.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529207"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="apcm_ff_q2_re-1.png"
@@ -474,40 +319,18 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="500" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)
 
 -   In *feed-backward* algorithms the quantization step or
     gain-coefficient is determined from previous samples which are
     already quantized.
-    -   Since the previous samples are available also at the decoder,
-        the quantization step or gain-coefficient can be determined also
-        at the decoder without extra transmitted information.
-    -   If the signal grows very rapidly, this approach can however not
-        guarantee that there are no numerical overflows, since
-        adaptation is performed only after quantization.
+-   Since the previous samples are available also at the decoder, the quantization step or gain-coefficient can be determined also at the decoder without extra transmitted information.
+-   If the signal grows very rapidly, this approach can however not guarantee that there are no numerical overflows, since adaptation is performed only after quantization.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529205.png"
-data-image-src="attachments/148296254/175529205.png"
+<img src="../attachments/148296254/175529205.png"
+data-image-src="../attachments/148296254/175529205.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529205"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="apcm_ff_g2_re-1.png"
@@ -516,37 +339,17 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="500" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Adaptive quantization with the feed-backward algorithm using an adaptive quantization step
 
--   Note that the feed-forward algorithms all require transmission of
-    the scaling or gain coefficient, which can increase demand on
-    bandwidth and adds to the complexity of the system.
+-   Note that the feed-forward algorithms all require transmission of the scaling or gain coefficient, which can increase demand on bandwidth and adds to the complexity of the system.
 -   The parallel transmission line can be avoided by predicting those
     coefficients from previously transmitted elements, with a
     feed-backward algorithm.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529204.png" class="image-center"
-data-image-src="attachments/148296254/175529204.png"
+<img src="../attachments/148296254/175529204.png" class="image-center"
+data-image-src="../attachments/148296254/175529204.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529204"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="apcm_fb_q_re-1.png"
@@ -555,33 +358,15 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="500" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient
 
 -   The feed-backward algorithm can naturally be applied on gain
     adaptation as well.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529203.png"
-data-image-src="attachments/148296254/175529203.png"
+<img src="../attachments/148296254/175529203.png"
+data-image-src="../attachments/148296254/175529203.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529203"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="apcm_fb_g_re-1.png"
@@ -590,64 +375,28 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="550" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 #### Differential quantization DPCM
 
 -   In *differential quantization* we predict the subsequent sample,
     whereby we can quantize only the difference between the prediction
     and the actual sample.
-
-<!-- -->
-
--   -   If the predictor is simply \\( \\tilde x_k:=x\_{k-1}, \\) then
-        the error is \\( e_k = x_k - \\tilde x_k = x_k - x\_{k-1}. \\)
-
-    -   The first difference (delta modulation) is the simplest
-        predictor, which uses the assumption that subsequent samples are
-        highly correlated.
-
-    -   The reconstruction is obtained by reorganization of terms as \\(
-        x_k = e_k + x\_{k-1}. \\)
-
-    -   Observe that the reconstruction is needed at both the encoder
-        and decoder, to feed the predictor.
-
-    -   NB: At this point the flow-graphs start to get a bit complicated
-        as there are several feedback loops.
-
--   More generally, we can use a predictor *P*, which predicts a sample
+-   If the predictor is simply $ \tilde x_k:=x\_{k-1}, $ then
+        the error is $ e_k = x_k - \tilde x_k = x_k - x\_{k-1}. $
+-   The first difference (delta modulation) is the simplest  predictor, which uses the assumption that subsequent samples are highly correlated.
+-   The reconstruction is obtained by reorganization of terms as $ x_k = e_k + x\_{k-1}. $
+-   Observe that the reconstruction is needed at both the encoder and decoder, to feed the predictor.
+-   NB: At this point the flow-graphs start to get a bit complicated         as there are several feedback loops.
+-   More generally, we can use a predictor $P$, which predicts a sample
     based on a weighted sum of previous samples
+    $$ \tilde x_k = -\sum\_{h=1}^M a_h x\_{k-h}, $$
+    where the scalars  $ a_h $  are the predictor parameters.
+-   A feed-backward would here use the past quantized samples $ \hat
+    x_k. $
 
-    \\\[ \\tilde x_k = -\\sum\_{h=1}^M a_h x\_{k-h}, \\\]
 
-    where the scalars  \\( a_h \\)  are the predictor parameters.
-
-<!-- -->
-
--   A feed-backward would here use the past quantized samples \\( \\hat
-    x_k. \\)
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529209.png"
-data-image-src="attachments/148296254/175529209.png"
+<img src="../attachments/148296254/175529209.png"
+data-image-src="../attachments/148296254/175529209.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529209"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="dpcm_re-1.png"
@@ -656,38 +405,15 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="550" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Adaptive and differential quantization with feed-forward
 
--   The differential, source-model based quantization can naturally be
-    combined with adaptive, perception-based quantization.
-    -   The adaptive differential PCM (ADPCM) adaptively predicts the
-        signal and adaptively choosing the quantization step.
+-   The differential, source-model based quantization can naturally be combined with adaptive, perception-based quantization.
+-   The adaptive differential PCM (ADPCM) adaptively predicts the signal and adaptively choosing the quantization step.
 
-  
-  
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529202.png" class="image-center"
-data-image-src="attachments/148296254/175529202.png"
+<img src="../attachments/148296254/175529202.png" class="image-center"
+data-image-src="../attachments/148296254/175529202.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529202"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="adpcm_re-1.png"
@@ -696,22 +422,10 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="600" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Adaptive differential quantization with feed-backward
 
--   The ADPCM can again, naturally, be implemented as a feed-backward
-    algorithm as well.
+-   The ADPCM can again, naturally, be implemented as a feed-backward algorithm as well.
 
 ### Adaptive differential quantization w/ adaptive predictor
 
@@ -720,24 +434,17 @@ data-linked-resource-container-version="24" width="600" />
 -   The predictor learns adaptively properties of the signal.
 -   The flow-graph becomes complicated and is omitted here.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529201.png"
-data-image-src="attachments/148296254/175529201.png"
+<img src="../attachments/148296254/175529201.png"
+data-image-src="../attachments/148296254/175529201.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529201"
 data-linked-resource-version="2" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="adpcm_fb_re-1.png"
 data-base-url="https://wiki.aalto.fi"
 data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
-data-linked-resource-container-version="24" width="650" /><img src="attachments/148296254/175529201.png"
-data-image-src="attachments/148296254/175529201.png"
+data-linked-resource-container-version="24" width="650" /><img src="../attachments/148296254/175529201.png"
+data-image-src="../attachments/148296254/175529201.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529201"
 data-linked-resource-version="2" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="adpcm_fb_re-1.png"
@@ -746,17 +453,6 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" width="650" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Comparison of the SNR of different quantizers (not perceptual)
 
@@ -775,16 +471,8 @@ data-linked-resource-container-version="24" width="650" />
 
   
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529210.png"
-data-image-src="attachments/148296254/175529210.png"
+<img src="../attachments/148296254/175529210.png"
+data-image-src="../attachments/148296254/175529210.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529210"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="quant_comp_re.png"
@@ -797,18 +485,6 @@ data-linked-resource-container-version="24" height="400" />
 1975.](https://doi.org/10.1002/j.1538-7305.1975.tb02053.x)
 
   
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Source modelling in quantization
 
@@ -832,16 +508,9 @@ data-linked-resource-container-version="24" height="400" />
     would be 44kbit/s improvement in bitrate, which is definitely
     noticeable.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148296254/175529216.png" class="image-center"
-data-image-src="attachments/148296254/175529216.png"
+<img src="../attachments/148296254/175529216.png" class="image-center"
+data-image-src="../attachments/148296254/175529216.png"
 data-unresolved-comment-count="0" data-linked-resource-id="175529216"
 data-linked-resource-version="1" data-linked-resource-type="attachment"
 data-linked-resource-default-alias="puhesignaali-1.png"
@@ -850,17 +519,6 @@ data-linked-resource-content-type="image/png"
 data-linked-resource-container-id="148296254"
 data-linked-resource-container-version="24" height="400" />
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Conclusion
 
@@ -891,100 +549,3 @@ data-linked-resource-container-version="24" height="400" />
   
   
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[quantization_uniform.pdf](attachments/148296254/149882922.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[quantization_log.pdf](attachments/148296254/149882923.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[quantization_mulaw.pdf](attachments/148296254/149882924.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[quantization_log.png-1.png](attachments/148296254/149882926.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[quantization_mulaw.png-1.png](attachments/148296254/149882927.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[quantization_uniform.png-1.png](attachments/148296254/149882928.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[bandwidth-1.png](attachments/148296254/175528670.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ex_50to7000.wav](attachments/148296254/175528672.wav) (audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ex_50to16000.wav](attachments/148296254/175528673.wav) (audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ex_50to22000.wav](attachments/148296254/175528674.wav) (audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ex_300to3300.wav](attachments/148296254/175528675.wav) (audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[adpcm_fb_re.pdf](attachments/148296254/175529200.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[adpcm_fb_re-1.png](attachments/148296254/175529214.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[adpcm_re-1.png](attachments/148296254/175529202.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[apcm_fb_g\_re-1.png](attachments/148296254/175529203.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[apcm_fb_q\_re-1.png](attachments/148296254/175529204.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[apcm_ff_g2_re-1.png](attachments/148296254/175529205.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[apcm_ff_g\_re-1.png](attachments/148296254/175529206.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[apcm_ff_q2_re-1.png](attachments/148296254/175529207.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[apcm_ff_q\_re-1.png](attachments/148296254/175529208.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[dpcm_re-1.png](attachments/148296254/175529209.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[quant_comp_re.png](attachments/148296254/175529210.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[adpcm_fb_re-1.png](attachments/148296254/175529201.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[puhesignaali-1.png](attachments/148296254/175529216.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechexample.wav](attachments/148296254/203122316.wav) (audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechexample_50_22000.wav](attachments/148296254/203122318.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechexample_50_16000.wav](attachments/148296254/203122319.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechexample_50_7000.wav](attachments/148296254/203122321.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechexample_300_3300.wav](attachments/148296254/203122322.wav)
-(audio/x-wav)  
-
-</div>
