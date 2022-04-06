@@ -1,12 +1,12 @@
 # Introduction to Speech Processing
 
+--------------
 
-------------------------------------------------------------------------
+### 2nd Edition
 
-List of authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr%C3%B6m), [Okko Räsänen](https://researchportal.tuni.fi/en/persons/okko-r%C3%A4s%C3%A4nen), [Abraham Zewoudie](https://research.aalto.fi/en/persons/abraham-zewoudie), Pablo
-Pérez Zarazaga, Liisa Koivusalo
 
-Includes contributions from Sneha Das
+Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr%C3%B6m), [Okko Räsänen](https://researchportal.tuni.fi/en/persons/okko-r%C3%A4s%C3%A4nen), [Abraham Zewoudie](https://research.aalto.fi/en/persons/abraham-zewoudie), Pablo
+Pérez Zarazaga, Liisa Koivusalo, Sneha Das
 
 
 ## Table of contents
@@ -31,8 +31,8 @@ Includes contributions from Sneha Das
         communication](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/)
         (external)
 2.  [Basic representations and
-    models](Basic_representations_and_models)  
-    1.  [Waveform](Representations/Waveform.md)
+    models](Representations/Basic_representations_and_models.md)  
+    1.  [Waveform](Representations/Waveform.ipynb)
     2.  [Windowing](Representations/Windowing.md)
     3.  [Signal energy, loudness and
         decibel](Representations/Signal_energy_loudness_and_decibel.md)

@@ -1,3 +1,5 @@
+# Deprecated! Pending to be removed
+
 # Waveform
 
 Speech signals are sound signals, defined as pressure variations
