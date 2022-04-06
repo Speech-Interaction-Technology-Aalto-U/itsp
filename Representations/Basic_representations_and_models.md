@@ -1,6 +1,6 @@
 ## Basic representations and models
 
-1.  [Waveform](Waveform.md)
+1.  [Waveform](Waveform.ipynb) <!-- checked and updated -->
 2.  [Windowing](Windowing.md)
 3.  [Signal energy, loudness and decibel](Signal_energy_loudness_and_decibel.md)
 4.  [Spectrogram and the STFT](Spectrogram_and_the_STFT.md)
