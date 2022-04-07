@@ -95,16 +95,13 @@ Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr
     6.  [Beamforming](Enhancement/Multi-channel_speech_enhancement_and_beamforming.md)
 13. [Chatbots / Conversational design](https://landbot.io/blog/guide-to-conversational-design/) (external link)
 14. [Computational models of human language processing](Computational_models_of_human_language_processing.md)
-15. [Security and privacy in speech technology](Security_and_privacy_in_speech_technology.md)
+15. [Security and privacy in speech technology](Security_and_privacy_in_speech_technology.md) <!-- checked -->
 
 
 
 
 ## Licence
 
-[<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
-style="border-width: 0;" alt="Creative Commons License" />](http://creativecommons.org/licenses/by-sa/4.0/)  
-This work is licensed under a [Creative Commons Attribution-ShareAlike
-4.0 International
-License](http://creativecommons.org/licenses/by-sa/4.0/).
+[<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />](http://creativecommons.org/licenses/by-sa/4.0/)  
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
