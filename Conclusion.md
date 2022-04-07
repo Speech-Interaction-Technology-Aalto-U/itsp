@@ -1,13 +1,5 @@
 # Conclusion
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 Speech is our most important signal. Everything important in life is
 communicated with speech. Any time we want to interact with someone, the
 preferred method is speech. That is how humans are built (with the
@@ -56,20 +48,3 @@ Overall, speech processing is an exciting field of engineering, where
 signal processing and machine learning methods to solve practical,
 important and meaningful problems.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

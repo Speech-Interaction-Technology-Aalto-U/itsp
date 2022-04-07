@@ -1,12 +1,5 @@
 # Security and privacy in speech technology
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ***DISCLAIMER:*** *This document is meant to be an introduction to
 questions in security and privacy in speech technology for engineering
@@ -29,7 +22,6 @@ application.
 
 From the perspective of speech technology, security and privacy has two
 principal aspects;
-
 -   Security and privacy of data related to speech signals and
 -   Protection against attacks which use speech signals as a tool.
 
@@ -50,27 +42,6 @@ listening is usually allowed only for the police and even for them only
 in specially regulated situations, such as with a permission granted by
 a court or judge.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Information contained in speech signals
 
@@ -84,10 +55,8 @@ which speech at least contains includes for example;
     -   If you reveal private information about yourself in a
         conversation, then clearly that information is contained in a
         transcription of the conversation.
-    -   Word-choices and manners of speaking [can reveal things about
-        the
-        speaker](https://www.theguardian.com/lifeandstyle/2009/mar/08/language-voice),
-        without the speaker realizing it himself or herself.
+    -   Word-choices and manners of speaking [can reveal things about the
+        speaker](https://www.theguardian.com/lifeandstyle/2009/mar/08/language-voice), without the speaker realizing it himself or herself.
 -   Para-linguistic (i.e. non-linguistic viz. non-text) content has a
     wide variety of information:
     -   Speaker identity
@@ -115,27 +84,6 @@ about, can be spoken. Conversely, if we find that (and we do find that)
 privacy is important, then speech is among the most important signals to
 protect.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Types of privacy
 
@@ -177,30 +125,8 @@ into these sub-topics. Whether someone has a right to privacy is a
 society-level decision and political choice, where psychological and
 cultural aspects play a big role.
 
-*Above list is due to [**Seven** **Types** **of**
-**Privacy.**](https://www.researchgate.net/publication/258892458_Seven_Types_of_Privacy)*
+*Above list is due to [**Seven Types of Privacy.**](https://www.researchgate.net/publication/258892458_Seven_Types_of_Privacy)*
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Threat and attack scenarios
 
@@ -243,27 +169,6 @@ as the stakeholders. In particular,
         access to past commands of all users, also when speech commands
         have been made in private.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Privacy and security scandals
 
@@ -295,27 +200,6 @@ Note that the fact that many of the above examples are related to
 Amazon/Alexa is probably more coincidence than an indication that Alexa
 would treat privacy differently than its competitors.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Approaches for safeguarding privacy in and improving usability of speech technology
 
@@ -447,9 +331,9 @@ Central limitations of edge processing are
 Even when operating with aggregate data, like the mean user age, it is
 still possible to extract private information in some scenarios. For
 example, if we know the mean user age and the number of users at a time
-*t*, and we also know that the age of user X was added to the mean at
-time *t+1*, as well as the mean user age at *t+1*, then we can deduce
-the age of user X with basic algebra. As a safeguard against such
+$t$, and we also know that the age of user $X$ was added to the mean at
+time $t+1$, as well as the mean user age at $t+1$, then we can deduce
+the age of user $X$ with basic algebra. As a safeguard against such
 differential attacks, to provide [differential
 privacy](https://en.wikipedia.org/wiki/Differential_privacy), it is
 possible to add noise to any data transfers. Individual data points are
@@ -522,27 +406,6 @@ point of weakness. Should someone gain illegitimate access to the
 storage, then all your data would be compromised. Distributing data to
 several different storage locations might therefore be reasonable.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Design goals, human computer interfaces and user experience
 
@@ -554,8 +417,7 @@ their effects become apparent only when it already is too late. Another
 argument is "*privacy is* *not my concern* *because I haven't seen any
 privacy problems*", which is like saying that "*rape is not my concern
 because I haven't seen any rapes".* This is thus an absurd argument.
-Privacy safeguards are meant to protect users and developers from [very
-bad
+Privacy safeguards are meant to protect users and developers from [very bad
 consequences](https://www.reuters.com/article/us-apple-cyber-idUSKCN1VR29K).
 These problems are real. *You* cannot ignore them.
 
@@ -595,27 +457,6 @@ These goals are best illustrated by examples;
     secrets to them? Who else has he told my secrets to? It takes a very
     long time to patch such breaches of trust.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Ethical dilemmas
 
@@ -651,27 +492,6 @@ arise in the design of speech operated systems:
     friends. For example, your friends do not follow you to the toilet
     or the bedroom; is it ok if your device does that?
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Security and privacy in speech research
 
@@ -807,29 +627,8 @@ computer system, which means that access to the data requires that
 researchers physically come to the computer (no network access). This
 level of security is usually the domain of military-grade systems.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-## Resources
+## References
 
 -   [TechDispatch #1: Smart Speakers and Virtual
     Assistants](https://edps.europa.eu/data-protection/our-work/publications/techdispatch/techdispatch-1-smart-speakers-and-virtual_en)
@@ -842,20 +641,3 @@ level of security is usually the domain of military-grade systems.
 -   ISCA Special Interest Group "Security and Privacy in Speech
     Communication", <https://www.spsc-sig.org/>
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
