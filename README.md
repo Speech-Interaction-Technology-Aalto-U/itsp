@@ -41,6 +41,7 @@ Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr
     4.  [Voice activity detection (VAD)](Recognition/Voice_activity_detection_VAD_.md)
     5.  [Speech enhancement](Speech_enhancement.md)
 4.  [Modelling tools in speech processing](Modelling_tools_in_speech_processing.md)
+    1.  [Source and perceptual modelling](Modelling/Source_modelling_and_perceptual_modelling.md)
     1.  [Linear regression](Modelling/Linear_regression.md)
     2.  [Sub-space models](Modelling/Sub-space_models.md)
     3.  [Vector quantization (VQ)](Modelling/Vector_quantization_VQ_.md)
