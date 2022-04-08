@@ -1,13 +1,5 @@
 # Subjective quality evaluation
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 In speech processing applications where humans are the end-users, there
 humans are also the ultimate measure of performance and quality.
 *Subjective evaluation* refers to evaluation setups where human subjects
@@ -33,37 +25,10 @@ refers to evaluation through the subjects' senses, which in this context
 refers primarily to *hearing*. In other words, in a typical experiment
 setup, subjects listen to sound samples and evaluate their quality.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/155470260/155472510.jpg" class="image-center"
-data-image-src="attachments/155470260/155472510.jpg"
-data-unresolved-comment-count="0" data-linked-resource-id="155472510"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="anthony-brolin-aiPlQ7x1bio-unsplash.jpg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="155470260"
-data-linked-resource-container-version="12" width="200" />
+<img src="attachments/155470260/155472510.jpg" class="image-center" width="200" />
 
 Photo by Anthony Brolin on Unsplash
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Aspects of quality
 
@@ -86,27 +51,6 @@ respect to
     network coverage, user interface, visual and tactual design of
     devices etc.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Sound and speech quality
 
@@ -172,35 +116,8 @@ described, for example, through concepts such as
   
   
 
-</div>
+<img src="attachments/155470260/175522003.png" height="250" />
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/155470260/175522003.png"
-data-image-src="attachments/155470260/175522003.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175522003"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="qualityaspects.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470260"
-data-linked-resource-container-version="12" height="250" />
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Choosing subjects - Naïve or expert?
 
@@ -261,27 +178,6 @@ not lead to tampering of results (i.e. scientific misconduct). Any
 listeners removed in post-screening and the motivations for
 post-screening have to therefore be documented accurately.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Experimental design
 
@@ -409,27 +305,6 @@ different ways, for example:
         and high quality anchors are then respectively known as
         *low-anchor* and *high-anchor*.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Some use cases
 
@@ -470,27 +345,6 @@ different ways, for example:
     we need to monitor quality. Often such monitoring is based on
     automated objective tests.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Frequently used standards and recommendations for quality evaluation
 
@@ -531,32 +385,12 @@ different ways, for example:
     BS.1116-3 (ABC/HR) is recommended instead of MUSHRA (see
     <https://www.itu.int/rec/R-REC-BS.1116-3-201502-I/en>).
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 For illustrations and examples of the MUSHRA test, see
 <https://www.audiolabs-erlangen.de/resources/webMUSHRA>
 
   
 
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Naïve listeners
 
@@ -575,20 +409,14 @@ For illustrations and examples of the MUSHRA test, see
     uses an integer scale 1-5 known as [mean opinion score
     (MOS)](https://en.wikipedia.org/wiki/Mean_opinion_score). Each grade
     is given a characterisation such as
-
-    <div class="table-wrap">
-
-    |        |           |
-    |--------|-----------|
     | Rating | Label     |
+    |--------|-----------|
     | 1      | Excellent |
     | 2      | Good      |
     | 3      | Fair      |
     | 4      | Poor      |
     | 5      | Bad       |
-
-    </div>
-
+    
     This makes the ratings more concrete and easier to understand for
     users. A downside of labelling the ratings is that such labels are
     specific to each language and the MOS scores given in different
@@ -596,6 +424,7 @@ For illustrations and examples of the MUSHRA test, see
     whether *excellent*, *erinomainen*, ممتاز, and маш сайн mean exactly
     the same thing? (Those are english, finnish, arabic and mongolian,
     in case you are wondering.)  
+    
     P.800 is further split into
 
     -   *Conversation opinion tests*, where participants grade the
@@ -620,28 +449,23 @@ For illustrations and examples of the MUSHRA test, see
         pairs (A-B-A-B) where A is the quality reference and B the
         degraded sample. Rating labels cane be for example
 
-        <div class="table-wrap">
 
-        |        |                                         |
-        |--------|-----------------------------------------|
         | Rating | Label                                   |
+        |--------|-----------------------------------------|
         | 1      | Degradation is inaudible                |
         | 2      | Degradation is audible but not annoying |
         | 3      | Degradation is slightly annoying        |
         | 4      | Degradation is annoying                 |
         | 5      | Degradation is very annoying            |
 
-        </div>
 
     -   *Comparison category rating (CCR)*, is similar to DCR, but such
         that the processed sample B can be also better than A. Rating
         labels can then be for example
 
-        <div class="table-wrap">
 
-        |        |                 |
-        |--------|-----------------|
         | Rating | Label           |
+        |--------|-----------------|
         | 3      | Much better     |
         | 2      | Better          |
         | 1      | Slightly better |
@@ -650,7 +474,6 @@ For illustrations and examples of the MUSHRA test, see
         | -2     | Worse           |
         | -3     | Much worse      |
 
-        </div>
 
 -   P.804 Subjective diagnostic test method for conversational speech
     quality analysis 
@@ -671,38 +494,12 @@ For illustrations and examples of the MUSHRA test, see
 
 -   And many more, see <https://www.itu.int/rec/T-REC-P/en>
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Holding a phone on one ear
 
-<img src="attachments/155470260/155472516.jpg" class="image-center"
-data-image-src="attachments/155470260/155472516.jpg"
-data-unresolved-comment-count="0" data-linked-resource-id="155472516"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="fezbot2000-V4CU3OBsrEk-unsplash.jpg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="155470260"
-data-linked-resource-container-version="12" height="250" />Photo by
+<img src="attachments/155470260/155472516.jpg" class="image-center" height="250" />Photo by
 Fezbot2000 on Unsplash
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Intelligibility testing
 
@@ -765,7 +562,7 @@ where we use the notation S - substitution, I - insertion, D - deletion.
 The [word error rate](https://en.wikipedia.org/wiki/Word_error_rate)
 would then be
 
-\\\[ WER = 100\*\\frac{S+D+I}{N} \\\]
+$$ WER = 100\*\\frac{S+D+I}{N} $$
 
 where N is the total number of words. In the above example we thus have
 WER = 100%.
@@ -778,7 +575,7 @@ If we would go letter by letter, than instead we would have
 
 Here we would then define the letter error rate as
 
-\\\[ LER = 100\*\\frac{S+D+I}{N} \\\]
+$$ LER = 100\times\frac{S+D+I}{N} $$
 
 where N is the total number of letters. The value in the above example
 would then be 33%.
@@ -794,40 +591,3 @@ measures, in speech recognition experiments, as well as a subjective
 measure, where human subjects evaluate the quality of sounds.
 
   
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[anthony-brolin-aiPlQ7x1bio-unsplash.jpg](attachments/155470260/155472510.jpg)
-(image/jpeg)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[fezbot2000-V4CU3OBsrEk-unsplash.jpg](attachments/155470260/155472516.jpg)
-(image/jpeg)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[qualityaspects.png](attachments/155470260/175522003.png) (image/png)  
-
-</div>

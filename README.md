@@ -24,7 +24,7 @@ Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr
     1.  [Waveform](Representations/Waveform.ipynb) <!-- checked -->
     2.  [Windowing](Representations/Windowing.md)
     3.  [Signal energy, loudness and decibel](Representations/Signal_energy_loudness_and_decibel.md)
-    4.  [Spectrogram and the STFT](Representations/Spectrogram_and_the_STFT.md)
+    4.  [Spectrogram and the STFT](Representations/Spectrogram_and_the_STFT.ipynb)
     5.  [Autocorrelation and autocovariance](Representations/Autocorrelation_and_autocovariance.md)
     6.  [Cepstrum and MFCC](Representations/Cepstrum_and_MFCC.md)
     7.  [Linear prediction](Representations/Linear_prediction.md)
