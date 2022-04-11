@@ -1,13 +1,5 @@
 # Zero-crossing rate
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 By looking at different speech and audio waveforms, we can see that
 depending on the content, they vary a lot in their smoothness. For
 example, voiced speech sounds are more smooth than unvoiced ones.
@@ -21,7 +13,7 @@ crossing per second.
 
 To calculate of the zero-crossing rate of a signal you need to compare
 the sign of each pair of consecutive samples. In other words, for a
-length *N* signal you need *O(N)* operations. Such calculations are also
+length $N$ signal you need $O(N)$ operations. Such calculations are also
 extremely simple to implement, which makes the zero-crossing rate an
 attractive measure for low-complexity applications. However, there are
 also many drawbacks with the zero-crossing rate:
@@ -37,24 +29,7 @@ also many drawbacks with the zero-crossing rate:
 An alternative to the zero-crossing rate is to calculate the
 [autocorrelation](Autocorrelation_and_autocovariance) at lag-1. It can
 be estimated also from short segments, it is continuous-valued and
-arithmetic complexity is also *O(N)*.
+arithmetic complexity is also $O(N)$.
 
   
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
