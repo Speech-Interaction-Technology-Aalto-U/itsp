@@ -1,8 +1,8 @@
-# Introduction
+# Background to this book
 
-## Background of this book
+## First Edition
 
-By Tom Bäckström:
+Foreword by Tom Bäckström
 
 As I was teaching the course "Speech processing" at Aalto University, I
 was always looking for good teaching material. I was not really content
@@ -34,27 +34,6 @@ material would find multiple contributors, to improve the content. To
 follow the old, worn but accurate adage; to stand on the shoulders of
 giants, and so forth. By collaboration we can do better.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 The way I intend to use this in my own teaching is that the on-line
 version of the document follows its own natural grouping of topics.
@@ -67,44 +46,25 @@ material to give sufficient background to the exercises. In this
 web-based document this is no problem. I'll just create a new table of
 contents, where the ordering of chapters and sections is reorganized.
 
-</div>
 
-</div>
+    
+## 2nd Edition
 
-<div class="cell normal" data-type="normal">
+Foreword by Tom Bäckström
 
-<div class="innerCell">
+I have been positively encouraged and surprised by the feedback I have received for the first edition. So many people have spontaneously given feedback. I find it safe to assume that many more have used this material than those who have contacted me. I therefore conclude that the impact of this material has been much larger than I anticipated. Great! This encourages me to continue putting effort into the document, to make it better and expand it.
 
-  
+For the second edition, I wanted to address the following issues:
 
-</div>
+- Platform:
 
-</div>
+    - Integration with [JupyterLab](https://jupyter.org/) and other similar platforms for interactive coding examples and visualizations are not easily possible on the original platform. Still, in my own teaching I have found such tools mmensly effective and popular among the students.
+    - Though the material was published as Open access with a Creative Commons license, the original platform did not allow for easy porting to other formats. Especially mathematical notation and equations required extra effort when porting. This is a clear contradiction to our open access intentions and desires. 
 
-</div>
+   Clearly both arguments lead to the conclusion that we have to switch platforms. Delaying the switch further will make it only harder. Currently the dominant way of sharing evovling community projects is [git](https://en.wikipedia.org/wiki/Git) and consequently, that is the obvious choice. Additional benefits from git-based platforms is that they have many practical tools integrated, like merge-requests, discussion boards etc.
 
-<div class="columnLayout two-equal" layout="two-equal">
+- Content:
 
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    - Machine learning in speech processing was not well-enough represented. Have to add and improve the content in that area. 
+    - I am developing and have recently particpated in generation of additional content both for a Bachelor-level introductory course as well as a course about design of speech interaction technology. Those should be added here.
+    - There are also many other areas which would benefit from additions, like speech recognition and NLP. I hope we find someone to contribute material also there.
