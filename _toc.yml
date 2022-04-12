@@ -3,3 +3,26 @@ format: jb-book
 root: README.md
 chapters:
 - file: Introduction/Introduction.md
+  sections:
+  - file: Introduction/Why_speech_processing.md
+  - file: Introduction/Speech_production_and_acoustic_properties.md
+  - url: https://en.wikipedia.org/wiki/Speech_perception
+  - file: Introduction/Linguistic_structure_of_speech.md
+  - url: https://en.wikipedia.org/wiki/Speech-language_pathology
+  - file: Introduction/Applications_and_systems_structures
+  - url: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/
+- file: Representation/Representation.md
+  sections:
+  - file: Representations/Waveform.ipynb
+  - file: Representations/Windowing.md
+  - file: Representations/Signal_energy_loudness_and_decibel.md
+  - file: Representations/Spectrogram_and_the_STFT.ipynb
+  - file: Representations/Autocorrelation_and_autocovariance.md
+  - file: Representations/Cepstrum_and_MFCC.md
+  - file: Representations/Linear_prediction.md
+  - file: Representations/Fundamental_frequency_F0.md
+  - file: Representations/Zero-crossing_rate.md
+  - file: Representations/Deltas_and_Delta-deltas.md
+  - file: Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.md
+  - file: Representations/Jitter_and_shimmer.md  
+  - url: https://en.wikipedia.org/wiki/Crest_factor
