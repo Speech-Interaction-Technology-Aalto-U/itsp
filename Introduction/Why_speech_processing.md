@@ -27,16 +27,7 @@ Speech interaction is part of a large research in its own right (see
 e.g. the book [Message
 processing](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/)).
 
-
-<img src="../attachments/148294317/148294653.jpg"
-data-image-src="../attachments/148294317/148294653.jpg"
-data-unresolved-comment-count="0" data-linked-resource-id="148294653"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="interaction.jpg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="148294317"
-data-linked-resource-container-version="12" height="250" />
+![interaction](attachments/148294653.jpg)
 
 
 ## Early communications technology
@@ -54,16 +45,7 @@ writings by Plato. Innovations in communications technology, such as
 cave paintings, book printing and the Internet, have been so important
 that they characterize historical eras.
 
-
-<img src="../attachments/148294317/148294605.jpg" class="image-center"
-data-image-src="../attachments/148294317/148294605.jpg"
-data-unresolved-comment-count="0" data-linked-resource-id="148294605"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="www.maxpixel.net-Painting-Stone-Age-Mural-Lascaux-Cave-Paintings-2115390.jpg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="148294317"
-data-linked-resource-container-version="12" height="150" />
+![cavepainting](attachments/148294605.jpg)
 
 
 ## Evolution of speech technology
@@ -98,11 +80,8 @@ changes in our behaviour which are a consequence of the new technology:
 In both cases, we are more flexible in our scheduling, making for more
 efficient use of time.
 
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Telefono_di_Meucci_-_Museo_scienza_tecnologia_Milano_02148-02147_dia.jpg"
-data-image-src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Telefono_di_Meucci_-_Museo_scienza_tecnologia_Milano_02148-02147_dia.jpg"
-height="150"
-alt="The world&#39;s first telephone invented by Antonio Meucci in 1849." />
+![https://upload.wikimedia.org/wikipedia/commons/6/6a/Telefono_di_Meucci_-_Museo_scienza_tecnologia_Milano_02148-02147_dia.jpg](attachments/Telefono.jpg)
+
 
 
 ## Further development

@@ -1,12 +1,5 @@
 # Why speech processing?
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Why speech?
 
@@ -34,35 +27,8 @@ Speech interaction is part of a large research in its own right (see
 e.g. the book [Message
 processing](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/)).
 
-</div>
+![interaction](attachments/148294653.jpg)
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148294317/148294653.jpg"
-data-image-src="attachments/148294317/148294653.jpg"
-data-unresolved-comment-count="0" data-linked-resource-id="148294653"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="interaction.jpg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="148294317"
-data-linked-resource-container-version="12" height="250" />
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Early communications technology
 
@@ -79,35 +45,8 @@ writings by Plato. Innovations in communications technology, such as
 cave paintings, book printing and the Internet, have been so important
 that they characterize historical eras.
 
-</div>
+![cavepainting](attachments/148294605.jpg)
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/148294317/148294605.jpg" class="image-center"
-data-image-src="attachments/148294317/148294605.jpg"
-data-unresolved-comment-count="0" data-linked-resource-id="148294605"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="www.maxpixel.net-Painting-Stone-Age-Mural-Lascaux-Cave-Paintings-2115390.jpg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="148294317"
-data-linked-resource-container-version="12" height="150" />
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Evolution of speech technology
 
@@ -141,31 +80,9 @@ changes in our behaviour which are a consequence of the new technology:
 In both cases, we are more flexible in our scheduling, making for more
 efficient use of time.
 
-</div>
+![https://upload.wikimedia.org/wikipedia/commons/6/6a/Telefono_di_Meucci_-_Museo_scienza_tecnologia_Milano_02148-02147_dia.jpg](attachments/Telefono.jpg)
 
-</div>
 
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Telefono_di_Meucci_-_Museo_scienza_tecnologia_Milano_02148-02147_dia.jpg"
-data-image-src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Telefono_di_Meucci_-_Museo_scienza_tecnologia_Milano_02148-02147_dia.jpg"
-height="150"
-alt="The world&#39;s first telephone invented by Antonio Meucci in 1849." />
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Further development
 
@@ -197,36 +114,3 @@ can improve the technology used by those 8 billion people, by say,
 reducing energy consumption, then the impact of such improvements would
 be majestic.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[www.maxpixel.net-Painting-Stone-Age-Mural-Lascaux-Cave-Paintings-2115390.jpg](attachments/148294317/148294605.jpg)
-(image/jpeg)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[interaction.jpg](attachments/148294317/148294653.jpg) (image/jpeg)  
-
-</div>
