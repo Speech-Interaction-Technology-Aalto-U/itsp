@@ -5,7 +5,7 @@ chapters:
 - file: Introduction/Introduction.md
   sections:
   - file: Introduction/Why_speech_processing.md
-  - file: Introduction/Speech_production_and_acoustic_properties.md
+  - file: Introduction/Speech_production_and_acoustic_properties.ipynb
   - url: https://en.wikipedia.org/wiki/Speech_perception
   - file: Introduction/Linguistic_structure_of_speech.md
   - url: https://en.wikipedia.org/wiki/Speech-language_pathology

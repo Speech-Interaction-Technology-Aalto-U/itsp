@@ -388,6 +388,8 @@ glottal flow pulses (corresponding sound below).
             Your browser does not support the
             <code>audio</code> element.
 </audio>
+from IPython.display import *
+    Audio("linktomp3.mp3", autoplay=True)
 
 ### Lip radiation
 
