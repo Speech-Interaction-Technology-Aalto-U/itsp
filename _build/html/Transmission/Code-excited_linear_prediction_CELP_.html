@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code-excited linear prediction (CELP) &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Transmission/Code-excited_linear_prediction_CELP_.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encoder-decoder-structure">
+   Encoder/decoder structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perceptual-quality-evaluation">
+   Perceptual quality evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#noise-modelling-and-algebraic-coding">
+   Noise modelling and algebraic coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Code-excited linear prediction (CELP)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encoder-decoder-structure">
+   Encoder/decoder structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perceptual-quality-evaluation">
+   Perceptual quality evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#noise-modelling-and-algebraic-coding">
+   Noise modelling and algebraic coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="code-excited-linear-prediction-celp">
+<h1>Code-excited linear prediction (CELP)<a class="headerlink" href="#code-excited-linear-prediction-celp" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The most famous speech coding paradigm is code-excited linear prediction
+(CELP). It was first invented in 1985 and is the basis of all
+main-stream codecs dedicated to speech. Its most prominent variant is
+the algebraic CELP, which uses an algebraic codebook to encode the noise
+residual. Codecs such as
+<a class="reference external" href="https://en.wikipedia.org/wiki/Adaptive_Multi-Rate_audio_codec">AMR</a>,
+<a class="reference external" href="https://en.wikipedia.org/wiki/Enhanced_Voice_Services">EVS</a>,
+<a class="reference external" href="https://en.wikipedia.org/wiki/G.718">G.718</a> and
+<a class="reference external" href="https://en.wikipedia.org/wiki/Speex">Speex</a> (superseded by
+<a class="reference external" href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a>) are all based
+on variants of CELP.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>As an overview, CELP is based on a source-filter model of speech, where
+<span class="xref myst">linear prediction</span> is used to model the filtering
+effect of the vocal tract (and other effects) and this filter is excited
+by the speech source, viz. the glottal source and turbulent noise.
+Typically, the <span class="xref myst">pitch or fundamental frequency
+model</span> is a long-term prediction (LTP)
+filter, which is just a linear predictor with a long delay. To model
+noise, CELP codecs usually use a <span class="xref myst">vector
+codebook</span>. The codebook contribution is often
+optimized with analysis-by-synthesis, where the output of different
+quantizations are synthesised and the synthesised outputs are evaluated
+to choose the best quantization. The evaluation uses <a class="reference internal" href="Perceptual_modelling_in_speech_and_audio_coding.html"><span class="doc std std-doc">perceptual
+weighting</span></a> such that
+the subjective, perceptual quality can be compared.</p>
+<p>Since <span class="xref myst">linear prediction</span> and <span class="xref myst">fundamental frequency
+modelling</span> are described in detail elsewhere,
+below we will discuss only overall encoder/decoder structure, perceptual
+evaluation, noise modelling and analysis-by-synthesis.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><img src="attachments/149889236/175511854.png" class="image-center"
+data-image-src="attachments/149889236/175511854.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175511854"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="celp.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149889236"
+data-linked-resource-container-version="15" width="400" /></p>
+<p>The source-filter model of CELP codecs.</p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="section" id="encoder-decoder-structure">
+<h2>Encoder/decoder structure<a class="headerlink" href="#encoder-decoder-structure" title="Permalink to this headline">¶</a></h2>
+<p>The decoder (see image on the right) very closely implements the idea of
+the source-filter model (see above). The only refinement are two
+multiplications with scalar gains, where the noise codebook and pitch
+contribution are scaled to the desired magnitude. Observe that here we
+abbreviate linear predictive coding with LPC.</p>
+<p>The encoder and decoder typically operate in frames of 20 ms length,
+which are further subdivided into 5 ms subframes. Operations described
+above are thus performed on vectors whose length correspond to 5 ms,
+which at a sampling-rate of 12.8 kHz corresponds to 64 samples.</p>
+<p>The encoder (see figure on the right) first estimate the linear
+predictive (LPC) model, then removes its effect from the input. In other
+words, since linear prediction is IIR-filtering, we can remove the
+effect from the speech signal with the corresponding FIR-filter to
+obtain the LPC-residual. We can then similarly estimate the fundamental
+frequency (F0) from the residual and again remove its effect to obtain
+the F0-residual.</p>
+<p>The F0-residual closely resembles white noise (following the Laplacian
+distribution). We can thus quantize it with a noise-quantizer (described
+below) as well as the pitch and noise gains. To evaluate the output
+quality of the signal, we then decode the quantized signal and calculate
+a perceptually weighted error. Since LPC-filtering is autoregressive
+(IIR), it however has a non-linear effect on the output such that
+quantization has a non-linear effect on the output. We therefore cannot
+know which quantization is the best one without trying out <em>all of
+them</em>. To get best possible performance, in theory, we should try every
+possible quantization! However, in practice, we choose a group of
+potentially-good quantization and find the best out of them. This is
+known as the <em>analysis-by-synthesis</em> method.</p>
+<p>Analysis-by-synthesis is a celebrated method because it enables
+optimization of CELP and achieves relatively high quality. Since CELP is
+arguably more efficient than competing frequency-domain codecs, and
+analysis-by-synthesis enables optimization of CELPs, it is important.
+However, observe that this is a brute-force method, which has an
+inherent penalty in computational complexity.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><img src="attachments/149889236/175511877.png"
+data-image-src="attachments/149889236/175511877.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175511877"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="celp2.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149889236"
+data-linked-resource-container-version="15" width="400" /></p>
+<p>CELP decoder structure</p>
+<p><img src="attachments/149889236/175511879.png"
+data-image-src="attachments/149889236/175511879.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175511879"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="celp3.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149889236"
+data-linked-resource-container-version="15" width="400" /></p>
+<p>CELP encoder structure</p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="perceptual-quality-evaluation">
+<h2>Perceptual quality evaluation<a class="headerlink" href="#perceptual-quality-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Perceptual quality in CELP codecs is evaluated with a weighted norm.
+Suppose <em>W</em> is a convolution matrix corresponding to the perceptual
+weighting filter, then the weighted norm between the true and quantized
+residual signals <em>x</em> and \( \hat x \) , respectively, is</p>
+<p>\[ d_W(x,\hat x):=\left\| W(x-\hat x)\right\|^2 = (x-\hat
+x)^T W^T W (x-\hat x). \]</p>
+<p>Though this is a quadratic form, whose minimization is simple, notice
+that we consider quantized vectors, such that the minimization is an
+integer-valued minimization problem, which does not have an analytic
+solution.</p>
+<p>Further, the quantized signal is the sum of noise and pitch
+contributions, both multiplied with scaling factors</p>
+<p>\[ \hat x := \gamma_{F0} x_{F0} + \gamma_{noise} x_{noise}.
+\]</p>
+<p>When estimating the F0, we can set the noise contribution to zero, such
+that we minimize</p>
+<p>\[ \arg\min_{x_{F0}}\, d_W(x,\gamma_{F0}x_{F0}):=
+\arg\min_{x_{F0}}(x-\gamma_{F0}x_{F0})^T W^T W
+(x-\gamma_{F0}x_{F0}). \]</p>
+<p>To compare different pitch contributions, we further need to exclude the
+gain from the problem, which is achieved by setting the derivative with
+respect to \( \gamma_{F0} \) to zero (left as an exercises), which
+gives the optimal gain as</p>
+<p>\[ \gamma_{F0}^* = \frac{x^TW^T W x_{F0}}{x_{F0}^TW^T W
+x_{F0}}. \]</p>
+<p>Substituting back to the original problem, after removing constants,
+yields</p>
+<p>\[ x_{F0}^*:=\arg\min_{x_{F0}}\,
+d_W(x,\gamma_{F0}^*x_{F0}):= \arg\max_{x_{F0}}
+\frac{\left(x^TW^T W x_{F0}\right)^2}{x_{F0}^TW^T W x_{F0}}. \]</p>
+<p>Observe that this equation thus evaluates the weighted correlation
+between the original signal <em>x</em> and the pitch contribution. In other
+words, different F0’s can be evaluated with this function and the one
+with the highest correlation is chosen as the F0.</p>
+<p>Once the F0 has been chosen, we calculate the optimal gain and subtract
+it from the original residual signal, \( x’:=x - \gamma_{F0}^*
+x_{F0}^*. \) This F0-residual is then approximately white noise and
+can be modelled with the noise codebook. Similarly as above, we assume
+that the noise-gain is optimal such that the noise codebook can be
+optimized with</p>
+<p>\[ \gamma_{noise}^* = \frac{x^TW^T W x_{noise}}{x_{noise}^TW^T W
+x_{noise}} \]</p>
+<p>and</p>
+<p>\[ x_{noise}^*:=\arg\min_{x_{noise}}\,
+d_W(x’,\gamma_{noise}^*x_{noise}):= \arg\max_{x_{noise}}
+\frac{\left(x^TW^T W x_{noise}\right)^2}{x_{noise}^TW^T W
+x_{noise}}. \]</p>
+<p>We have thus quantized the pitch and noise contributions, but for the
+two gains we have optimal values, but not optimal <em>quantized</em> values.
+Again, since quantized values are not continuous, we do not have an
+analytic solution but must search for the best quantization among all
+possible values. The optimization problem is</p>
+<p>\[ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
+d_W(x,\gamma_{F0}x_{F0}^* + \gamma_{noise}x_{noise}^*) =
+\arg\min_{\gamma_{F0},\gamma_{noise}}\,(x-\gamma_{F0}x_{F0}^* -
+\gamma_{noise}x_{noise}^*)^T W^T W (x-\gamma_{F0}x_{F0}^* -
+\gamma_{noise}x_{noise}^*). \]</p>
+<p>We note that the above equation is a polynomial of the two scalar gains
+and all vector and matrix terms reduce to constants, such that</p>
+<p>\[ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
+d_W(x,\gamma_{F0}x_{F0}^* + \gamma_{noise}x_{noise}^*) = c_0 +
+\gamma_{F0}c_1 + \gamma_{F0}^2c_2 +\gamma_{noise}c_3 +
+\gamma_{noise}\gamma_{F0}c_4 + \gamma_{noise}^2c_5. \]</p>
+<p>In difference to the optimization of the residual vectors, this
+optimization is computationally relatively simple such that we can
+exhaustively search for the best gains. The gains are usually quantized
+with 8 to 10 bits, such that this involves only 256 to 1024 polynomial
+evaluations.<br />
+The final quantized residual is then</p>
+<p>\[ \hat x^* = \gamma_{F0}^* x_{F0}^* + \gamma_{noise}^*
+x_{noise}^*. \]</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="noise-modelling-and-algebraic-coding">
+<h2>Noise modelling and algebraic coding<a class="headerlink" href="#noise-modelling-and-algebraic-coding" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, the residual after LPC filtering and F0 modelling is
+approximately stationary white noise, that is, it is constant variance
+and samples are uncorrelated. We would like to quantize this
+effectively. White noise signals have however no structure left, except
+their probability distribution. We can assume that the residual samples
+\( \xi_k \) follow the Laplacian distribution with zero mean,</p>
+<p>\[ f(\xi_k)= C \exp\left(-\frac{|\xi_k|}{s}\right). \]</p>
+<p>The joint log-likelihood is</p>
+<p>\[ \log\prod_k f(\xi_k)= C’- \sum_k\frac{|\xi_k|}{s} = C’ -
+\frac1s \|x_{noise}\|_1, \]</p>
+<p>where \( x_{noise}:= [\xi_1,\dotsc,\,\xi_{K}]. \) and \(
+\|x\|_1 \) is the 1-norm (absolute sum). In other words, if we
+model constant-probability vectors \( x_{noise}, \)  then that is
+equivalent with modelling vectors with a constant 1-norm, \(
+\|x_{noise}\|_1=\text{constant}. \) We can thus build a codebook
+which has constant 1-norm. For example, if we quantize to integer
+values, then the absolute sum of the quantized signal is a fixed
+integer.</p>
+<p>In the simplest case, we can quantize \( x_{noise} \) to have one
+signed pulse at location <em>k</em>, and otherwise all samples are zero. The
+location of the pulse can be encoded with \( \log_2 K \) bits, and
+the sign with one bit, such that the overall bit-consumption is \(
+1+\log_2 K. \) This encoding strategy can be readily extended by
+adding more pulses. The bit-consumption of multi-pulse vectors however
+becomes more complicated. The issue is that if apply a naive encoding
+where we directly encode the position and sign of each pulse, then we
+use more bits than necessary for two reasons. Firstly, if two pulses
+overlap, then they must have the same sign otherwise they would cancel.
+Secondly, pulses are indistinguishable, such that their ordering does
+not matter, such that if we encode pulses one by one, changing their
+order would give different bit-streams but the encoded signal would
+remain the same. Both imply that we are using too many bits when using
+such encodings for multiple pulses. Solutions exist for optimal encoding
+of such multi-pulse vectors, but the algorithm becomes involved.</p>
+<p>In any case, the outcome is that it is possible to generate
+quantizations of residual signals with algorithmic methods. That is, we
+have an algorithm or algebraic rule which defines all possible
+quantizations and consequently, such quantization is known as algebraic
+coding. The encoding can be chosen to have optimal bit-consumption for a
+given number of pulses and it is thus (with loose assumptions) the best
+possible quantization for the residual vector when using a fixed
+bitrate. It is computationally efficient since the residual vectors are
+mostly zeros, such that evaluation of the optimization function is
+straightforward to calculate. It also efficient in the sense that
+codebooks do not have to be stored, but can be generated on the fly by
+an algorithm.</p>
+<p>Algebraic coding is so central to CELP codecs that CELP codecs using
+algebraic coding are known as algebraic CELP or ACELP. Most main stream
+codecs, such as AMR, EVS and USAC use ACELP. Some codecs use also other
+residual codebooks, but even then, algebraic codes are always the first
+choice.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+<div class="pageSectionHeader">
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[celp.png](attachments/149889236/175511854.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[celp2.png](attachments/149889236/175511883.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[celp3.png](attachments/149889236/175511879.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[celp2.png](attachments/149889236/175511877.png) (image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Transmission"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

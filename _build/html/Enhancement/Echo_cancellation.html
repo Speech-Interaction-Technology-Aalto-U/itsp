@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echo cancellation &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Enhancement/Echo_cancellation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#echo-cancellation-solutions">
+   <strong>
+    Echo cancellation solutions:
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Echo cancellation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#echo-cancellation-solutions">
+   <strong>
+    Echo cancellation solutions:
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="echo-cancellation">
+<h1>Echo cancellation<a class="headerlink" href="#echo-cancellation" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>A frequently occurring distortion in speech telecommunication scenarios
+is echoes, which have either an electric or acoustic cause. Electric
+echoes appear in analogue networks at points of impedance mismatch.
+Since a majority of telecommunication networks today are digital, such
+electric echoes are mostly of historical interest and not discussed here
+further. Acoustic echoes however is a problem which has become more 
+important, especially with the increasing use of teleconferencing
+services. Such acoustic echoes appear when the speech of a person A is
+played through the loudspeakers for a person B, such that the
+loudspeaker sound is picked up by the microphone of person B and
+transmitted back to person A. If the delay would be mere milliseconds,
+then person A would perceive the feedback signal as reverberation, which
+is <em>not</em> too disturbing (in some circumstances such an effect, known as
+<em>side-talk</em>, could actually be a useful feature indicating that the
+microphone is recording). However, typically the transmission delay is
+above 100ms, such that the feedback is perceived as an echo, which is
+usually highly disconcerting and disturbing. Even worse, sometimes the
+acoustic echo signal completes the feedback loop and goes in a circle,
+again and again. If the feedback signal is attenuated on each loop, then
+the feedback slowly diminishes, but sometimes the feedback loop can
+amplify the signal such that the signal quickly escalates up to the
+physical limit of hardware or until the loudspeakers blow up. It is thus
+clear that echoes must be avoided in real-life systems.</p>
+<p>Fortunately, <em>echo cancellation</em> is well-understood problem with
+“standard” solutions available. In short, these methods are based on
+estimating the acoustic room-impulse-response (RIR), filtering the
+loudspeaker signal with the RIR to obtain an estimate of the acoustic
+echo, and subtracting the estimated echo from the microphone signal.
+Though it is a classic problem with off-the-shelf solutions available,
+it remains a difficult problem. Central difficulties include:</p>
+<ul class="simple">
+<li><p>The RIR is not stationary and must therefore be estimated on-line as
+an <em>adaptive filter</em>. The RIR changes whenever a door or window is
+opened or closed, furniture are moved or people move within the
+room, and even when the temperature of the room changes. Changes are
+even more rapid when using mobile, handheld or wearable devices,
+when the location of the device can change rapidly. In the worst
+case, the microphone and loudspeaker can be on different devices
+such that their acoustic distance can change rapidly.</p></li>
+<li><p>When the RIR has a long tail, that is, when the room has a long
+reverberation, then the corresponding filters must be long, which
+increases <em>computational complexity</em>. Fast adaptation to changing
+RIRs also increases computational requirements.</p></li>
+</ul>
+<p>Observe that echo <em>cancellation</em> methods refer to <em>subtracting</em> the
+estimated echo from the microphone signal. In contrast, <span class="xref myst">noise
+attenuation</span> methods <em>multiply</em> the microphone
+signal with a positive scalar, such that the output signal approximates
+the echo-free signal. The essential difference is that multiplicative
+methods generally estimate only the energy/magnitude of the signal,
+while subtractive methods try to match both magnitude and phase. The
+benefit of subtractive methods is that the output quality is generally
+better since the removal-method matches the physical process which
+creates the signal. Multiplicative methods however are much more robust
+than subtractive methods; in particular, if the phase is incorrectly
+estimated, then a subtractive method can <em>increase</em> the amount of noise
+in a signal. In the worst case, an echo canceller poorly matched to the
+room response can generate a catastrophic feedback loop, whereas
+multiplicative methods can be designed to never increase the amount of
+noise.</p>
+<p><em>Echo suppression</em> methods use this insight to remove acoustic echo with
+a multiplicative method similar to that of spectral subtraction or
+Wiener filtering used in noise attenuation.</p>
+<div class="section" id="echo-cancellation-solutions">
+<h2><strong>Echo cancellation solutions:</strong><a class="headerlink" href="#echo-cancellation-solutions" title="Permalink to this headline">¶</a></h2>
+<p>As it is mentioned above, the problem that echo cancellation needs to
+solve is the effect of the room in the path from a loudspeaker to the
+microphone used in the communication. This means that the signal played
+by the loudspeaker enters the system with a certain delay and multiple
+echo paths (Room impulse response). From now on, we will refer to the
+received signal played by the loudspeaker as far-end (<em>x(n)</em>), and the
+useful speech signal from the user will be called near-end signal
+(<em>s(n)</em>). The mixture recorded by the microphone that would be sent to
+the other end of the call can be represented as:</p>
+<p>\[ d(n) = s(n) + h(n)*x(n) + v(n) \]</p>
+<p>where <em>v(n)</em> represents additive noise in the scene and, for simplicity,
+will be considered part of <em>s(n)</em>. The effect of the room on the far-end
+signal can be modelled as an FIR filter <em>h(n)</em>, added to the far-end
+signal using a convolution. The idea of echo cancellation is to find an
+estimation of this FIR filter, and applying it to the received far-end
+signal, we can then subtract it from <em>d(n)</em> to extract the useful
+near-end signal.</p>
+<p>The estimation of the echo path model is done by <em>minimizing</em> the <em>mean
+square error</em> (MMSE) between the recorded signal and the estimated
+filtered far-end, assuming that s(n) is not present. However, only one
+estimation is not possible due to multiple factors.</p>
+<ol class="simple">
+<li><p>The echo path is unknown at the beginning of the communication,
+additionally, any changes in the echo path can be catastrophic in
+the estimation.</p></li>
+<li><p>The non-stationariety of the speech signal makes the estimation of
+the echo path a complex task.</p></li>
+<li><p>It is very likely that <em>s(n)</em> is present in the recorded signal,
+causing the estimation to be flawed (Double-talk).</p></li>
+</ol>
+<p>These three issues require a continuous monitoring of the quality of the
+estimation and the filter must be periodically updated in order to
+accurately represent the echo path. For that reason the MMSE method must
+be calculated iteratively as we receive more information from the
+far-end and recorded signals. The most popular algorithm to calculate
+this adaptive filter is Least Mean Squares (LMS) and its multiple
+variants. The expression to minimise is:</p>
+<p>\[ MMSE = min |d(n) - \hat{h}(n)*x(n)|^2 \]</p>
+<p>The objective is to find the coefficients of the estimated filter that
+minimise the previous equation, and a simple depiction of the iterative
+LMS algorithm used to update the filter can be divided in three steps:</p>
+<ul class="simple">
+<li><p>Estimate the recorded echo signal:</p></li>
+</ul>
+<p>\[ \hat{y}(n) = \sum_{i} \hat{h}(n-i)*x(n-i) \]</p>
+<ul class="simple">
+<li><p>Estimate the error:</p></li>
+</ul>
+<p>\[ e(n) = d(n) - \hat{y}(n) \]</p>
+<ul class="simple">
+<li><p>Update the filter weights:</p></li>
+</ul>
+<p>\[ \hat{h}_{t+1}(n) = \hat{h}_{t}(n) + \mu \cdot e^H(n) \cdot
+x(n) \]</p>
+<p>The term <em>μ</em> represents the learning rate of the algorithm. Higher
+values will make the algorithm converge faster, but might converge to a
+bigger error value, while smaller learning rate will converge slower and
+it might not be able to follow the changes in the echo path. It has been
+proven that an adaptive learning rate provides the best results and most
+modifications on this method, focus on handling an adaptive learning
+rate according to the required specifications. As we can see in the
+second equation, the estimation error of the adaptation algorithm is
+also the signal that will be used as output and that will contain the
+corresponding <em>s(n)</em> in an optimal case.</p>
+<p>This first approach of the LMS adaptive filter is proposed to be applied
+on the time domain of the audio signal. If the filter updates on every
+sample of the received audio signal, accurately modelling a room impulse
+response will require a filter of a few thousand samples. Updating the
+filter on every new sample becomes computationally expensive, and for
+these reasons other methods are proposed based on this approach:</p>
+<ul class="simple">
+<li><p>BlockLMS: Reduce the rate of updates in the algorithm, such that the
+update is only applied once every certain number of samples can help
+considerably reduce the complexity of the algorithm. However, the
+block processing can affect the convergence of the algorithm and
+reduce its responsiveness.</p></li>
+<li><p>Frequency Domain Adaptive Filters (FDAF): The simplest case of FDAF
+consists in converting the audio signal to the frequency domain
+using an STFT, and then apply an independent LMS filter on each of
+the frequency components of the signal. This alllows to represent
+the echo path with a much smaller amount of samples. Considering the
+algorithm with quadratic complexity, it is preferable to have many
+short filters than having just a long one.</p></li>
+</ul>
+<p>Finally, as we mention above, the main problem that adaptive filters
+face in real-life communication applicatoins is double talk. In a common
+interaction between two people, it is very likely that both speakers are
+active at the same time. In the echo cancellation framework, that means
+that both far-end signal <em>x(n)</em> and near-end <em>s(n)</em> will be present in
+the mixture. As the adaptive filter tries to minimize the error between
+the far-end signal and the recorded one, in the presence of double-talk
+the filter will likely diverge and remove or distort the near-end signal
+instead of reducing the echo feedback.</p>
+<p>To reduce the effect of double-talk in the adaptation process, it is
+important to detect when double-talk starts and stop the adaptation.
+Assuming that the filter had converged before the double-talk segment,
+the the far-end signal should still be removed, while the near-end
+speaker would pass through. Many methods have been presented to control
+the learning rate of the adaptative filter depending on the detected
+double-talk, but most of them are based on three main ideas:</p>
+<ul class="simple">
+<li><p>Energy based detection (Geigel detector):</p>
+<ul>
+<li><p>This detector assumes that, if the energy ratio between the
+far-end signal and the recorded one will remain almnost constant
+until an additional voice is added from the near-end signal.
+When the ratio between far-end and recorded signals changes, we
+can assume that there is double-talk.</p></li>
+<li><p>It is a very simple method that barely adds any computational
+complexity to the system.</p></li>
+<li><p>The detector assumes that the echo level is clearly different
+than the near-end speech. Therefore, this method is highley
+influenced by noise and signal misalignment.</p></li>
+<li><p>The method also requires to be tuned for each specific
+configuration and changes in the echo path during communication
+might trigger the double-talk detection.</p></li>
+</ul>
+</li>
+<li><p>Normalized Cross-Correlation (NCC):</p>
+<ul>
+<li><p>This method measures the similarity between the input and
+processed signals.</p></li>
+<li><p>It is more robust to noise than the energy levels.</p></li>
+<li><p>The value of NCC will be close to 1 when double-talk is present,
+and 0 when it is not. Therefore, the NCC can be used as a
+scaling factor for the learning rate.</p></li>
+</ul>
+</li>
+</ul>
+<p>\[ NCC = \frac{\sigma^{2}_{ed}(n)}{\sigma_{e}(n)\sigma_{d}(n)}
+\] \[ \sigma^{2}_{x} = E[xx^H] \] \[ \sigma^{2}_{x}(n) =
+\lambda\sigma^{2}_{x}(n - 1) + (1 - \lambda)\sigma^{2}_{x} \]
+\[ \mu_{NCC} = (1 - NCC)\mu_{max} \]</p>
+<ul class="simple">
+<li><p>Two-path Echo Cancellation:</p>
+<ul>
+<li><p>Two filters, background and foreground, process the echo signal
+simultaneously. The background filter is continuously adapting
+on every step, while the foreground one remains fixed. A control
+module then decides if there is double-talk and the better
+solution is to update the coefficients or keep them unmodified
+based on the output of the backround and foreground filters.</p></li>
+<li><p>It is the most robust of the presented methods.</p></li>
+<li><p>Requires additional computational complexity, as the far-end
+signal needs to be filtered twice before deciding if ther is
+double-talk.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The acoustic feedback loop in telecommunication applications.</p>
+<p><img src="attachments/175509261/175509295.png" class="image-center"
+data-image-src="attachments/175509261/175509295.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175509295"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="echocancellation.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="175509261"
+data-linked-resource-container-version="9" height="150" /></p>
+<p>Model of the echo path and estimated filter</p>
+<p><img src="attachments/175509261/203126383.png" class="image-center"
+data-image-src="attachments/175509261/203126383.png"
+data-unresolved-comment-count="0" data-linked-resource-id="203126383"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="image2022-2-8_12-22-30.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="175509261"
+data-linked-resource-container-version="9" height="400" /></p>
+<p>Feedback loop for echo cancellation</p>
+<p><img src="attachments/175509261/203126386.png"
+data-image-src="attachments/175509261/203126386.png"
+data-unresolved-comment-count="0" data-linked-resource-id="203126386"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="image2022-2-8_12-24-18.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="175509261"
+data-linked-resource-container-version="9" height="400" /></p>
+<p>Two-path echo cancellation model</p>
+<p><img src="attachments/175509261/203126388.png"
+data-image-src="attachments/175509261/203126388.png"
+data-unresolved-comment-count="0" data-linked-resource-id="203126388"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="image2022-2-8_12-25-23.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="175509261"
+data-linked-resource-container-version="9" height="400" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="pageSectionHeader">
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[echocancellation.png](attachments/175509261/175511342.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[echocancellation.png](attachments/175509261/175509295.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2022-2-8_12-22-4.png](attachments/175509261/203126381.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2022-2-8_12-22-30.png](attachments/175509261/203126383.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2022-2-8_12-24-18.png](attachments/175509261/203126386.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2022-2-8_12-25-23.png](attachments/175509261/203126388.png)
+(image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Enhancement"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

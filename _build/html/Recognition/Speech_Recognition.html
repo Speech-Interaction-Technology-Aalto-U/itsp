@@ -1,0 +1,733 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Recognition &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Recognition/Speech_Recognition.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-asr">
+   1. Introduction to ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-asr">
+   3. Types of ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models-for-large-vocabulary-speech-recognition-lvcsr">
+   4. Models for Large Vocabulary Speech Recognition (LVCSR)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hmm-based-model">
+   4.1. HMM-Based Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-to-end-model">
+   4.2.  End-to-End Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-errors-made-by-speech-recognizers">
+   5. Types of errors made by speech recognizers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenges-of-asr">
+   6. Challenges of ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   7. Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Speech Recognition</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-asr">
+   1. Introduction to ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-asr">
+   3. Types of ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models-for-large-vocabulary-speech-recognition-lvcsr">
+   4. Models for Large Vocabulary Speech Recognition (LVCSR)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hmm-based-model">
+   4.1. HMM-Based Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-to-end-model">
+   4.2.  End-to-End Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-errors-made-by-speech-recognizers">
+   5. Types of errors made by speech recognizers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenges-of-asr">
+   6. Challenges of ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   7. Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="speech-recognition">
+<h1>Speech Recognition<a class="headerlink" href="#speech-recognition" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-to-asr">
+<h2>1. Introduction to ASR<a class="headerlink" href="#introduction-to-asr" title="Permalink to this headline">¶</a></h2>
+<p>An ASR system produces the most likely word sequence given an incoming
+speech signal.  The statistical approach for speech recognition has
+dominated Automatic Speech Recognition (ASR) research over the last few
+decades leading to a number of successes. The problem of speech
+recognition is defined as the conversion of spoken utterances into
+textual sentences by a machine.  In the statistical framework, the
+Bayesian decision rule is employed to find the most probable word
+sequence, \( \hat H \) , given the observation sequence \( O = (o_1,
+… , o_T ) \) :</p>
+<p>\[ \hat H= \operatorname*{argmax}_H \;P(H|O) \]</p>
+<p>Following Bayes’ rule, the posterior probability in the above equation
+can be expressed as a conditional probability of the word sequence given
+the acoustic observations,  \( P(O|H) \) , multiplied by a prior
+probability of the word sequence,  \( P(H) \) , and normalized by the
+marginal likelihood of observation sequences, \( P(O) \) :</p>
+<p>\[ \hat H= \operatorname*{argmax}_H \; \frac {P(O|H)\;P(H)}
+{P(O)} \] \[ \hat H= \operatorname*{argmax}_H \; P(O|H)\;P(H)
+\]</p>
+<p>The marginal probability, \( P(O) \) , is discarded in the second
+equation since it is constant with respect to the ranking of hypotheses,
+and hence does not alter the search for the best hypothesis.  \(
+P(O|H) \) is calculated by the acoustic model and  \( P(H) \) is
+modeled by the language model.</p>
+<p><strong>2. Component of ASR</strong></p>
+<ul class="simple">
+<li><p>Feature Extraction: It converts the speech signal into a sequence of
+acoustic feature vectors. These observations should be compact and
+carry sufficient information for recognition in the later stage.</p></li>
+<li><p>Acoustic Model: It Contains a statistical representation of the
+distinct sounds that make up each word in the Language Model or
+Grammar.  Each distinct sound corresponds to a phoneme.</p></li>
+<li><p>Language Model: It contain a very large list of words and their
+probability of occurrence in a given sequence.</p></li>
+<li><p>Decoder: It is a software program that takes the sounds spoken by a
+user and searches the acoustic Model for the equivalent sounds. 
+When a match is made, the decoder determines the phoneme
+corresponding to the sound.  It keeps track of the matching phonemes
+until it reaches a pause in the users speech.  It then searches the
+language model  for the equivalent series of phonemes.  If a match
+is made, it returns the text of the corresponding word or phrase to
+the calling program.</p></li>
+</ul>
+<p><img src="attachments/165125762/165127140.png" class="image-center"
+data-image-src="attachments/165125762/165127140.png"
+data-unresolved-comment-count="0" data-linked-resource-id="165127140"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="ASR.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="165125762"
+data-linked-resource-container-version="56" height="250" />Architecture
+of an ASR system</p>
+</div>
+<div class="section" id="types-of-asr">
+<h2>3. Types of ASR<a class="headerlink" href="#types-of-asr" title="Permalink to this headline">¶</a></h2>
+<p>Speech recognition systems can be classified on the basis of the
+constraints under which they are developed and which they consequently
+impose on their users. These constraints include: speaker dependence,
+type of utterance, size of the vocabulary, linguistic constraints, type
+of speech and environment of use. We will describe each constraint as
+follows:</p>
+<p><strong>Speaker Dependence</strong>: Speaker dependent speech recognition system
+requires the user to be involved in its development whereas speaker
+independent systems do not. Speaker independent systems can be used by
+anybody. Speaker dependent systems usually perform much better than
+speaker independent systems. This is due to the fact that the acoustic
+variations among different speakers are very difficult to describe and
+model. There are approaches to make a system speaker independent. The
+first one is the use of multiple representations for each reference to
+capture the speaker variation and the second one is the speaker
+adaptation approach.</p>
+<p><strong>Type of Utterance</strong>: A speech recognizer may recognize every word
+independently. It may require its user to speak each word in a sentence
+separating them by artificial pause or it may allow the user to speak in
+a natural way. The first type of system is categorized as an isolated
+word recognition system. It is the simplest form of a recognition
+strategy. It can be developed using word-based acoustic models without
+any language model. If, however, the vocabulary increases sentences
+composed of isolated words to be recognized, the use of sub-word
+acoustic models and language models become important. The second one is
+the continuous speech recognition systems. It allows the users to utter
+the message in a relatively or completely unconstrained manner. Such
+recognizers must be capable of performing well in the presence of all
+the co-articulatory effects. Developing continuous speech recognition
+systems is, therefore, the most difficult task. This is due to the
+following properties of continuous speech:  word boundaries are unclear
+in continuous speech; and co-articulatory effects are much stronger in
+continuous speech</p>
+<p><strong>Vocabulary Size</strong>: The number of words in the vocabulary is a
+constraint that makes a speech recognition system small, medium or
+large. As a rule of thumb, small vocabulary systems are those which have
+a vocabulary size in the range of 1-99 words; medium, 100-999 words; and
+large, 1000 words or more. Large vocabulary speech recognition systems
+perform much worse compared to small vocabulary systems due to different
+factors such as word confusion that increases with the number of words
+in the vocabulary. For small vocabulary recognizer, each word can be
+modeled. However, it is not possible to train acoustic models for
+thousands of words separately because we cannot have enough training
+speech and storage for parameters of the speech that is needed. The
+development of large vocabulary recognizer, therefore, requires the use
+of sub-word units. On the other hand, the use of sub-word units results
+in performance degradation since they cannot capture co-articulatory
+effects as words do. The search process in large vocabulary recognizer
+also uses pruning instead of performing a complete search.</p>
+<p><strong>Type of Speech:</strong> A speech recognizer can be developed to recognize
+only read speech or to allow the user speak spontaneously. The latter is
+more difficult to build than the former due to the fact that spontaneous
+speech is characterized by false starts, incomplete sentences, unlimited
+vocabulary and reduced pronunciation quality. The primary difference in
+recognition error rates between read and spontaneous speech are due to
+disfluencies in spontaneous speech. Disfluencies in spontaneous speech
+can be characterized by long pauses and mispronunciations. Spontaneous
+is, therefore, both acoustically and grammatically difficult to
+recognize.</p>
+<p><strong>Environment</strong>: Speech recognizer may require the speech to be clean
+from environmental noises, acoustic distortions, microphones and
+transmission channel distortions or they may ideally handle any of these
+problems. While current speech recognizer give acceptable performance in
+carefully controlled environments, their performance degrades rapidly
+when they are applied in noisy environments. This noise can take the
+form of speech from other speakers; equipment sounds, air conditioners
+or others. The noise might also be created by the speaker himself in a
+form of lip smacks, coughs or sneezes.</p>
+</div>
+<div class="section" id="models-for-large-vocabulary-speech-recognition-lvcsr">
+<h2>4. Models for Large Vocabulary Speech Recognition (LVCSR)<a class="headerlink" href="#models-for-large-vocabulary-speech-recognition-lvcsr" title="Permalink to this headline">¶</a></h2>
+<p>LVCSR can be divided into two categories: HMM-based model and the
+end-to-end model.</p>
+</div>
+<div class="section" id="hmm-based-model">
+<h2>4.1. HMM-Based Model<a class="headerlink" href="#hmm-based-model" title="Permalink to this headline">¶</a></h2>
+<p>The HMM-based model has been the main LVCSR model for many years with
+the best recognition accuracy. An HMM-based model is divided into three
+parts:acoustic, pronunciation and language model. In HMM based model,
+each model is independent of each other and plays a different role.
+While the acoustic model models the mapping between speech input and
+feature sequence, the pronunciation model maps between phonemes (or
+sub-phonemes) to graphemes, and the language model maps the character
+sequence to fluent final transcription.</p>
+<p>****Acoustic Model:  ****In the acoustic model, the observation
+probability  is generally represented by GMM. The posterior probability
+distribution of hidden state can be calculated by DNN method. These two
+different calculations result into two different models, namely HMM-GMM
+and HMM-DNN. HMM-GMM model was a general structure for many speech
+recognition systems. However, with the development of deep learning
+technology, DNN is introduced into speech recognition for acoustic
+modeling. DNN has been used to calculate the posterior probability of
+the HMM state replacing the conventional GMM observation probability.
+Thus, HMM-GMM model is replaced by HMM-DNN since HMM-GMM provides better
+results compared to HMM-GMM and becomes state-of-the-art ASR model. In
+the HMM-based model, different modules use different technologies and
+have different roles. While the HMM is mainly used to do dynamic time
+warping at the frame level, GMM and DNN are used to calculate emission
+probability of HMM hidden states.</p>
+<p>**Pronunciation Model: ** Its main objective is achieve the connection
+between acoustic sequence and language sequence. The dictionary includes
+various levels of mapping, such as pronunciation to phone, phone to
+trip-hone. The dictionary is used to achieve structural mapping and map
+the probability calculation relationship.</p>
+<p><strong>Language Model:</strong> It contains rudimentary syntactic information. Its
+aim is to predict the likelihood of specific words occurring one after
+another in a given language. Typical recognizers use n-gram language
+models. An n-gram contains the prior probability of the occurrence of a
+word (unigram), or of a sequence of words (bigram, trigram etc.):</p>
+<p>unigram probability \( P(w_i) \)</p>
+<p>bigram probability \( P(w_i|w_{i−1}) \)</p>
+<p>ngram probability \( P(w_n|w_{n−1},w_{n−2}, …,w_1) \)</p>
+<p><strong>Limitations of HMM-models</strong></p>
+<ul class="simple">
+<li><p>The training process is complex and difficult to be globally
+optimized. HMM-based model often uses different training methods and
+data sets to train different modules. Each module is independently
+optimized with their own optimization objective functions which are
+generally different from the true LVCSR performance evaluation
+criteria. So the optimality of each module does not necessarily
+bring global optimality.</p></li>
+<li><p>Conditional independence assumptions. To simplify the model’s
+construction and training, the HMM-based model uses conditional
+independence assumptions within HMM and between different modules.
+This does not match the actual situation of LVCSR.</p></li>
+</ul>
+</div>
+<div class="section" id="end-to-end-model">
+<h2>4.2.  End-to-End Model<a class="headerlink" href="#end-to-end-model" title="Permalink to this headline">¶</a></h2>
+<p>Because of the  above-mentioned shortcomings of the HMM-based model and
+coupled with the promotion of deep learning technology, more and more
+works began to study end-to-end LVCSR. The end-to-end model is a system
+that directly maps input audio sequence to sequence of words or other
+graphemes.</p>
+<p><img src="attachments/165125762/165127650.png"
+data-image-src="attachments/165125762/165127650.png"
+data-unresolved-comment-count="0" data-linked-resource-id="165127650"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="untitled.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="165125762"
+data-linked-resource-container-version="56" height="250" /></p>
+<p>Function structure of end-to-end model</p>
+<p>Most end-to-end speech recognition models include the following parts:
+the encoder maps speech input sequence to feature sequence; the aligner
+realizes the alignment between feature sequence and language; the
+decoder decodes the final identification result. Note that this division
+does not always exist since end-to-end itself is a complete
+structure. Contrary to the HMM-based model that  consists of multiple
+modules, the end-to-end model replaces multiple modules with a deep
+network, realizing the direct mapping of acoustic signals into label
+sequences without carefully-designed intermediate states. In addition to
+this, there is no need to perform posterior processing on the output.</p>
+<p>Compared to HMM-based model, the main characteristics of end-to-end
+LVCSR are:</p>
+<ul class="simple">
+<li><p>Multiple modules are merged into one network for joint training. The
+benefit of merging multiple modules is there is no need to design
+many modules to realize the mapping between various intermediate
+states. Joint training enables the end-to-end model to use a
+function that is highly relevant to the final evaluation criteria as
+a global optimization goal, thereby seeking globally optimal
+results.</p></li>
+<li><p>It directly maps input acoustic signature sequence to the text
+result sequence, and does not require further processing to achieve
+the true transcription or to improve recognition performance . But,
+in the HMM-based models, there is usually an internal representation
+for pronunciation of a character chain.</p></li>
+</ul>
+<p>These features of of end-to-end LVCSR model enables to greatly simplify
+the construction and training of speech recognition models.</p>
+<p>The end-to-end model are mainly divided into three different categories
+depending on their implementations of soft alignment:</p>
+<ul class="simple">
+<li><p>CTC-based: It first enumerates all possible hard alignments. Then,
+it achieves soft alignment by aggregating these hard alignments. CTC
+assumes that output labels are independent of each other when
+enumerating hard alignments.</p></li>
+<li><p>RNN-transducer: It also enumerates all possible hard alignments and
+then aggregates them for soft alignment. But unlike CTC,
+RNN-transducer does not make independent assumptions about labels
+when enumerating hard alignments. Thus, it is different from CTC in
+terms of path definition and probability calculation.</p></li>
+<li><p>Attention-based: This method no longer enumerates all possible hard
+alignments, but uses attention mechanism to directly calculate the
+soft alignment information between input data and output label.</p></li>
+</ul>
+<p>CTC-Based End-to-End Model</p>
+<p>Although HMM-DNN provides still state-of-the-art results, the role
+played by DNN is limited. It is mainly used to model the posterior state
+probability of HMM’s hidden state. The time-domain feature is still
+modeled by HMM. When attempting to model time-domain features using RNN
+or CNN instead of HMM, it faces a data alignment problem: both RNN and
+CNN’s loss functions are defined at each point in the sequence, so in
+order to be able to perform training, it is necessary to know the
+alignment relation between RNN output sequence and target sequence.</p>
+<p>CTC makes it possible to make fuller use of DNN in speech recognition
+and build end-to-end models, which is a breakthrough in the development
+of end-to-end method. Essentially, CTC is a loss function, but it solves
+hard alignment problem while calculating the loss. CTC mainly overcomes
+the following two difficulties for end-to-end LVCSR models:</p>
+<ul class="simple">
+<li><p>Data alignment problem. CTC no longer needs to segment and align
+training data. This solves the alignment problem so that DNN can be
+used to model time-domain features, which greatly enhances DNN’s
+role in LVCSR tasks.</p></li>
+<li><p>Directly output the target transcriptions. Traditional models often
+output phonemes or other small units, and further processing is
+required to obtain the final transcriptions. CTC eliminates the need
+for small units and direct output in final target form, greatly
+simplifying the construction and training of end-to-end model.</p></li>
+</ul>
+<p><strong>RNN-Transducer End-to-End Model</strong></p>
+<p>CTC has two main deficiencies in CTC which hinder its effectiveness:</p>
+<ul class="simple">
+<li><p>CTC cannot model interdependencies within the output sequence
+because it assumes that output elements are independent of each
+other. Therefore, CTC cannot learn the language model. The speech
+recognition network trained by CTC should be treated as only an
+acoustic model.</p></li>
+<li><p>CTC can only map input sequences to output sequences that are
+shorter than it. Thus, it is powerless for scenarios where output
+sequence is longer.</p></li>
+</ul>
+<p>For speech recognition, the first point has huge impact. RNN-transducer
+was proposed to solve the above-mentioned shortcomings of CTC.
+Theoretically, it can map an input to any finite, discrete output
+sequence. Interdependencies between input and output and within output
+elements are also jointly modeled.</p>
+<p>The RNN-transducer has many similarities with CT: their main goals is to
+solve the forced segmentation alignment problem in speech recognition;
+they both introduce a “blank” label; they both calculate the probability
+of all possible paths and aggregate them to get the label sequence.
+However, their path generation processes and the path probability
+calculation methods are completely different. This gives rise to the
+advantages of RNN-transducer over CTC.</p>
+</div>
+<div class="section" id="types-of-errors-made-by-speech-recognizers">
+<h2>5. Types of errors made by speech recognizers<a class="headerlink" href="#types-of-errors-made-by-speech-recognizers" title="Permalink to this headline">¶</a></h2>
+<p>Though ASR research has come a long way, today’s systems are far from
+being perfect. Speech recognizer are brittle and make errors due to
+various causes. Most errors made by ASR systems fall into one of the
+following categories:</p>
+<ul class="simple">
+<li><p><strong>Out-of-vocabulary (OOV) errors</strong>: Current state of the art speech
+recognizers have closed vocabularies. This means that they are
+incapable of recognizing words outside their training vocabulary.
+Besides misrecognition, the presence of an out-of-vocabulary word in
+input utterance causes the system to err to a similar word in its
+vocabulary. Special techniques for handling OOV words have been
+developed for HMM-GMM and neural ASR systems (see, e.g., Zhang,
+2019).</p></li>
+<li><p><strong>Homophone substitution</strong>: These errors can occur if more than one
+lexical entry has the same pronunciation (phone sequence), i.e.,
+they are homophones. While decoding, homophones may be confused with
+one another causing errors. In general, a well-functioning language
+model should disambiguate homophones based on the context.</p></li>
+<li><p><strong>Language model bias</strong>: Because of an undue bias  towards the
+language model (effected by a high relative weight on the language
+model), the decoder may be forced to reject the true hypothesis in
+favor of a spurious candidate with high language model probability.
+These errors may occur along with analogous acoustic model bias.</p></li>
+<li><p><strong>Multiple acoustic problems</strong>: This is a broad category of errors
+comprising those due to bad pronunciation entries; disfluency,
+mispronunciation by the speaker himself/herself, or errors made by
+acoustic models (possibly due to acoustic noise, data mismatch
+between training and usage etc.).</p></li>
+</ul>
+</div>
+<div class="section" id="challenges-of-asr">
+<h2>6. Challenges of ASR<a class="headerlink" href="#challenges-of-asr" title="Permalink to this headline">¶</a></h2>
+<p>Recent advances in ASR has brought automatic speech recognition accuracy
+close to human performance in many practical tasks. However, there are
+still challenges:</p>
+<ul class="simple">
+<li><p>Out-of-vocabulary words are difficult to recognize correctly</p></li>
+<li><p>Varying environmental noises impair recognition accuracy.</p></li>
+<li><p>Overlapping speech is problematic for ASR system.</p></li>
+<li><p>Recognizing children’s speech and the speech of people with speech
+production disabilities is suboptimal with regular training data.</p></li>
+<li><p>DNN-based models usually require a lot of data for training, in the
+order of thousands of hours. End-to-end models may need up to
+100,000h of speech to reach high performance.</p></li>
+<li><p>Uncertainty self-awareness is limited: typical ASR systems always
+output the most likely word sequence instead of reporting if some
+part of the input was incomprehensible or highly uncertain.</p></li>
+</ul>
+</div>
+<div class="section" id="evaluation">
+<h2>7. Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<p>The performance of an ASR system is measured by comparing the
+hypothesized transcriptions and reference transcriptions. Word error
+rate (WER) is the most widely used metric. The two word sequences are
+first aligned using a dynamic programming-based string alignment
+algorithm. After the alignment, the number of deletions (D),
+substitutions (S), and insertions (I) are determined. The
+deletions, substitutions and insertions are all considered as errors,
+and the WER is calculated by the rate of the number of errors to the
+number of words (N) in the reference.</p>
+<p>\[ WER = \frac{I + D + S}{N} * 100\% \]</p>
+<p>Sentence Error Rate (SER) is also sometime used to evaluate the
+performance of ASR systems. SER computes the percentage of sentences
+with at least one error.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Zhang, X. (2019). <em>Strategies for Handling Out-of-vocabulary Words in
+Automatic Speech Recognition</em>. Doctoral dissertation, The Johns Hopkins
+University, Baltimore, Maryland.</p>
+<div>
+</div>
+<div class="pageSectionHeader">
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[ASR.png](attachments/165125762/165127143.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[ASR.png](attachments/165125762/165127140.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2020-1-22_13-52-42.png](attachments/165125762/165127639.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[untitled.png](attachments/165125762/165127650.png) (image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Recognition"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

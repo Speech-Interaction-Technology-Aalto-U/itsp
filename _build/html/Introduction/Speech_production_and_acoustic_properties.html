@@ -1,0 +1,814 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech production and acoustic properties &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Introduction/Speech_production_and_acoustic_properties.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#physiological-speech-production">
+   Physiological speech production
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-vocal-folds">
+     The vocal folds
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-vocal-tract">
+     The vocal tract
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acoustic-properties-of-speech-signals">
+   Acoustic properties of speech signals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#physiological-modelling">
+   Physiological modelling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vocal-tract">
+     Vocal tract
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-models">
+       Simple models
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#advanced-models">
+       Advanced models
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#glottal-activity">
+     Glottal activity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lip-radiation">
+     Lip radiation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Speech production and acoustic properties</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#physiological-speech-production">
+   Physiological speech production
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-vocal-folds">
+     The vocal folds
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-vocal-tract">
+     The vocal tract
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acoustic-properties-of-speech-signals">
+   Acoustic properties of speech signals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#physiological-modelling">
+   Physiological modelling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vocal-tract">
+     Vocal tract
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-models">
+       Simple models
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#advanced-models">
+       Advanced models
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#glottal-activity">
+     Glottal activity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lip-radiation">
+     Lip radiation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="speech-production-and-acoustic-properties">
+<h1>Speech production and acoustic properties<a class="headerlink" href="#speech-production-and-acoustic-properties" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="physiological-speech-production">
+<h2>Physiological speech production<a class="headerlink" href="#physiological-speech-production" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>When a person has the urge or intention to speak, her or his brain forms
+a sentence with the intended meaning and maps the sequence of words into
+physiological movements required to produce the corresponding sequence
+of speech sounds. The neural part of speech production is not discussed
+further here.</p>
+<p>The physical activity begins by contracting the lungs, pushing out air
+from the lungs, through the throat, oral and nasal cavities. Airflow in
+itself is not audible as a sound - sound is an oscillation in air
+pressure. To obtain a sound, we therefore need to obstruct airflow to
+obtain an oscillation or turbulence. Oscillations are primarily produced
+when the <a class="reference external" href="https://en.wikipedia.org/wiki/Vocal_cords"><em>vocal folds</em></a> are
+tensioned appropriately. This produces <em>voiced sounds</em> and is perhaps
+the most characteristic property of speech signals. Oscillations can
+also be produced by other parts of the speech production organs, such as
+letting the tongue oscillate against the teeth in a rolling /r/, or by
+letting the uvula oscillate in the airflow, known as the uvular trill
+(viz. something like a guttural /r/). Such trills, both with the tongue
+and the uvula, should however not be confused with voiced sounds, which
+are always generated by oscillations in the vocal folds. Sounds without
+oscillations in the vocal folds are known as <em>unvoiced sounds.</em></p>
+<p>Most typical unvoiced sounds are caused by turbulences produced by
+static constrictions of airflow in any part of the air spaces above the
+vocal folds (viz. larynx, pharynx and oral or nasal cavities). For
+example, by letting the tongue rest close to the teeth, we obtain the
+consonant /s/, and by stopping and releasing airflow by closing and
+opening the lips, we obtain the consonant /p/. A further particular
+class of phonemes are nasal consonants, where airflow through the mouth
+is stopped entirely or partially, such that a majority of the air flows
+through the nose.</p>
+</div>
+<div class="section" id="the-vocal-folds">
+<h3>The vocal folds<a class="headerlink" href="#the-vocal-folds" title="Permalink to this headline">¶</a></h3>
+<p>The <em>vocal folds,</em> also known as vocal cords, are located in the throat
+and oscillate to produce voiced sounds. The opening between the vocal
+folds (the empty space between the vocal folds) is known as the
+<em>glottis</em>. Correspondingly, the airspace between the vocal folds and the
+lungs is known as the <em>subglottal</em> area.</p>
+<p>When the pressure below the glottis, known as the <em>subglottal pressure</em>
+increases, it pushes open the vocal folds. When open, air rushes through
+the vocal folds. The return movement, again closing the vocal folds is
+mainly caused by the <a class="reference external" href="https://en.wikipedia.org/wiki/Venturi_effect">Venturi
+effect</a>, which causes a
+drop in air pressure between the vocal folds when air is flowing through
+them. As the vocal folds are closing, they will eventually clash
+together. This sudden stop of airflow is the largest acoustic event in
+the vocal folds and is known as the <em>glottal excitation</em>.</p>
+<p>In terms of airflow, the effect is that during the <em>closed phase</em> (when
+the vocal folds are closed), there is no airflow. At the beginning of
+the <em>open phase</em> (when the vocal fold are open), air starts to flow
+through the glottis and obviously, with the closing of the vocal folds
+also air flow is decreasing. However, due to the momentum of air itself,
+the movement of air occurs slightly after the vocal folds. In other
+words, there is a phase-difference between vocal folds movement and
+glottal airflow waveform.</p>
+<p>The frequency of vocal folds oscillation is dependent on three main
+components; amount of lengthwise tension in the vocal folds, pressure
+differential above and below the vocal folds, as well as length and mass
+of the vocal folds. Pressure and tension can be intentionally changed to
+cause a change in frequency. The length and mass of the vocal folds are
+in turn correlated with overall body size of the speaker, which explains
+the fact that children and females have on average a higher pitch than
+male speakers.</p>
+<p>Note that the frequency of the vocal folds refers to the actual physical
+phenomenon, whereas <em>pitch</em> refers to the perception of frequency. There
+are many cases where these two may differ, for example, resonances in
+the vocal tract can emphasise harmonics of the fundamental frequency
+such that the harmonics are louder than the fundamental, and such that
+we perceive one of the harmonics as the fundamental. The perceived pitch
+is then the frequency of the harmonic instead of the fundamental.</p>
+</div>
+<div class="section" id="the-vocal-tract">
+<h3>The vocal tract<a class="headerlink" href="#the-vocal-tract" title="Permalink to this headline">¶</a></h3>
+<p>The vocal tract, including the larynx, pharynx and oral cavities, have a
+great effect on the timbre of the sound. Namely, the shape of the vocal
+tract determines the resonances and anti-resonances of the acoustic
+space, which boost and attenuate different frequencies of the sound. The
+shape is determined by a multitude of components, in particular by the
+position of the jaw, lips and tongue. The resonances are easily modified
+by the speaker and perceived by the listener, and they can thus be used
+in communication to convey information. Specifically, the acoustic
+features which differentiate <em>vowels</em> from each other are the
+frequencies of the resonances in the vocal tract, corresponding to
+specific <em>places</em> of articulation primarily in terms of tongue position.
+Since the air can flow relatively unobstructed, vowel sounds tend to
+have high energy and loudness compared to <em>consonants</em>.</p>
+<p>In <em>consonant</em> sounds, there is a partial or full obstruction at some
+part of the vocal tract. For instance, <em>fricative consonants</em> are
+characterized by a narrow gap between the tongue and front/top of the
+mouth, leading to hiss-like turbulent air flow. In plosives, the airflow
+in the vocal tract is fully temporarily obstructed. As an example,
+<em>bilabial plosives</em> are characterized by temporary closure of the lips,
+which leads to accumulation of air pressure in the vocal tract due to
+sustained lung pressure. When the lips are opened, the accumulated air
+is released together with a short <em>burst</em> sound (plosion) that has
+impulse- and noise-like characteristics. Similarly to vowels, the
+<em>place</em> of the obstruction in the mouth (i.e., place of articulation)
+will affect the acoustic characteristics of the consonant sound by
+modifying the acoustic characteristics of the vocal tract. In addition,
+<em>manner</em> of articulation is used to characterize different consonant
+sounds, as there are several ways to produce speech while the position
+of the primary obstruction can remain the same (e.g., short <em>taps</em> and
+<em>flaps</em>, repeated <em>trills,</em> or already mentioned narrow constrictions
+for <em>fricatives</em>).</p>
+<p>In terms of vocal tract shape, a special class of consonants are the
+<em>nasals</em>, which are produced with velum (a soft structure at the back
+top of the oral cavity) open, thereby allowing air to flow to the <em>nasal
+cavity</em>. When the velum is open, the vocal tract can be viewed as a
+shared tube from the larynx to the back of the mouth, after which the
+tract is divided into two parallel branches consisting of the oral and
+nasal cavities. Coupling of the nasal cavity to the vocal tract has a
+pronounced impact on the resonances and anti-resonance of the tract.
+This is commonly perceived as <em>nasalization</em> of speech sounds by
+listeners.</p>
+<p>Side-view of the speech production organs.</p>
+<p><img src="../attachments/148294391/155469911.png" class="image-center"
+data-image-src="../attachments/148294391/155469911.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155469911"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="head_neck_mod.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25" width="400" /></p>
+<p><img src="../attachments/148294391/201855184.png" class="image-center"
+data-image-src="../attachments/148294391/201855184.png"
+data-unresolved-comment-count="0" data-linked-resource-id="201855184"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="Blausen_0861_Tonsils&amp;Throat_Anatomy2.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25" width="400" /></p>
+<p>By BruceBlaus. When using this image in external sources it can be cited
+as:<a class="reference external" href="http://Blausen.com">Blausen.com</a> staff (2014). “Medical gallery
+of Blausen Medical 2014”. WikiJournal of Medicine 1 (2).
+DOI:10.15347/wjm/2014.010. ISSN 2002-4436. - Own work, CC BY 3.0,
+<a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=29294598">https://commons.wikimedia.org/w/index.php?curid=29294598</a></p>
+<hr class="docutils" />
+<p>Vocal folds as seen from above.</p>
+<p><img
+src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Larynx_%28top_view%29.jpg"
+class="image-center"
+data-image-src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Larynx_%28top_view%29.jpg"
+height="250" /></p>
+<hr class="docutils" />
+<p>The motion of vocal folds seen from the front (or back).</p>
+<p><img src="../attachments/148294391/155469942.gif" class="image-center"
+data-image-src="../attachments/148294391/155469942.gif"
+data-unresolved-comment-count="0" data-linked-resource-id="155469942"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="Vocal_fold_animated.gif"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/gif"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25" height="250" /></p>
+<hr class="docutils" />
+<p>Organs in the mouth.</p>
+<p><img src="../attachments/148294391/155469920.jpg" class="image-center"
+data-image-src="../attachments/148294391/155469920.jpg"
+data-unresolved-comment-count="0" data-linked-resource-id="155469920"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="Tonsils_diagram.jpg"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/jpeg"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25" height="250" /></p>
+<p>The four images above are from Wikipedia.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="acoustic-properties-of-speech-signals">
+<h2>Acoustic properties of speech signals<a class="headerlink" href="#acoustic-properties-of-speech-signals" title="Permalink to this headline">¶</a></h2>
+<p>The most important acoustic features of a speech signal are (roughly
+speaking)</p>
+<ul class="simple">
+<li><p>The <em>resonance of the vocal tract</em>, especially the two lowest
+resonances, known as the <em>formants</em> F1 and F2 (see figure below). The resonance structure can be easily examined by drawing an
+“<em>envelope”</em> above the spectrum, that is, to draw a smooth line
+which goes just above the spectrum, as seen on the figure below. We thus obtain the <em>spectral envelope</em>, which characterizes
+the macro-shape of the spectrum of a speech signal, and which is
+often used to model speech signals.</p></li>
+<li><p>The <em>fundamental frequency</em> of a speech signal or its absence
+carries a lot of information. Per definition, voiced and unvoiced
+phonemes, respectively, are those with or without an oscillation in
+the vocal folds. Due to its prominence, we categorize phonemes
+according to whether they are voiced or unvoiced.<br />
+The airflow which passes through the oscillating vocal folds will
+generally have a waveform which resembles a <a class="reference external" href="https://en.wikipedia.org/wiki/Rectifier#Half-wave_rectification">half-wave rectified
+sinusoid</a>.
+That is, airflow is zero when the vocal folds are closed (closed
+phase) and during the open time (open phase) the waveform resembles
+(somewhat) the shape of the upper part of a sinusoid. The spectrum
+of this waveform will therefore have the structure of a harmonic
+signal, that is, the spectrum will have peaks at the fundamental
+frequency and its integer multiples (see figure below).<br />
+In most languages, pitch does not differentiate between phonemes.
+However, in languages that are known as <em>tonal</em> languages, the shape
+of the pitch contour over time does bear semantic meaning (see
+<a class="reference external" href="https://en.wikipedia.org/wiki/Tone_(linguistics)">Wikipedia:Tone
+(linguistics)</a> for
+a nice sound sample). Pitch contours are however often used to
+encode <em>emphasis</em> in a sentence. Roughly speaking, exerting more
+physical effort on a phoneme raises its pitch and intensity, and
+that is usually interpreted as emphasis, that is, the word (or
+phoneme) with emphasis is more important than other words (or
+phonemes) in a sentence.</p></li>
+<li><p>Signal <em>amplitude</em> or <em>intensity</em> over time is another important
+characteristic and in its most crude form can be the difference
+between speech and silence (see also <span class="xref myst">Voice activity detection
+(VAD)</span>). Furthermore, there are
+phonemes characterized by their temporal structure; in particular,
+<em>stop</em> and <em>plosive-consonants</em>, where airflow is stopped and
+subsequently released (e.g. /p/, /t/ and /k/). While the stop-part
+is not prominently audible, it is the contrast of a silence before a
+burst of energy which characterizes these consonants.</p></li>
+</ul>
+<p>The spectrum of a speech segment annotated with its formants <span class="math notranslate nohighlight">\(F_k\)</span> (for <span class="math notranslate nohighlight">\( k\geq 1 \)</span> ) as well as the fundamental frequency <span class="math notranslate nohighlight">\(F_0\)</span> and
+its integer multiples <span class="math notranslate nohighlight">\(kF_0\)</span>. Note that it is not always clear
+where the formants are; here formants F4 and F5 are not prominent and
+therefore difficult to
+locate.
+<img src="../attachments/148294391/149889168.png" class="image-center"
+data-image-src="../attachments/148294391/149889168.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149889168"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="f0_formants.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25" width="640" /></p>
+<p>The waveform of a sentence of speech, illustrating variations in
+amplitude and intensity.</p>
+<p><img src="../attachments/148294912/148294966.png"
+data-image-src="../attachments/148294912/148294966.png"
+data-unresolved-comment-count="0" data-linked-resource-id="148294966"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="sample_sentence-1.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="148294912"
+data-linked-resource-container-version="30" height="250" /></p>
+</div>
+<div class="section" id="physiological-modelling">
+<h2>Physiological modelling<a class="headerlink" href="#physiological-modelling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vocal-tract">
+<h3>Vocal tract<a class="headerlink" href="#vocal-tract" title="Permalink to this headline">¶</a></h3>
+<p>Vowels are central to spoken communication, and vowels are determined by
+the shape of the vocal tract. Modelling the vocal tract is therefore of
+particular interest.</p>
+<div class="section" id="simple-models">
+<h4>Simple models<a class="headerlink" href="#simple-models" title="Permalink to this headline">¶</a></h4>
+<p>The vocal tract is essentially a tube of varying length. It has a
+90-degree bend, where the throat turns into the mouth, but the acoustic
+effect of that bend is minor and can be ignored in simple models. The
+tube has two pathways, through the oral and nasal cavities. The acoustic
+effect of the oral cavity dominates the output signal such that, roughly
+speaking, the oral cavity generates resonances to the output sound,
+while the nasal cavities contributes mainly anti-resonances (dips or
+valleys) to the spectral envelope. Presence of energy is perceptually
+more important than absence of energy and anti-resonances can therefore
+be ignored in simple models.</p>
+<p>A very simple model is thus a straight cylindrical tube sub-divided into
+constant radius segments of equal length (see illustration below). If we further assume that the tube-segments are lossless, then
+this tube is analytically equivalent with a <span class="xref myst">linear
+predictor</span>. This is a fantastic simplification in the
+sense that from a physiologically motivated model we obtain a
+analytically reasonable model whose parameters we can readily estimate
+from observed signals. In fact, the temporal correlation of speech
+signals can be very efficiently modelled with linear predictors. It
+offers a very attractive connection between physiological and signal
+modelling. Unfortunately, it is not entirely accurate.</p>
+<p>Though speech signals are very efficiently modelled by linear
+predictors, and linear predictors are analytically equivalent with
+tube-models, <em>linear predictors estimated from sound signals need not
+correspond to the tube which generated the sound</em>. The mismatch in the
+shape of estimated and real tubes is due to two primary reasons;</p>
+<ol class="simple">
+<li><p>Estimation of linear predictive coefficients assumes that the
+excitation, viz. the glottal excitation, is uncorrelated (white
+noise). This is certainly an incorrect assumption. Though the
+periodic structure of the glottal excitation does not much bias
+linear predictors, glottal excitations are also dominated by
+low-frequency components which will bias the linear predictor. The
+linear predictor cannot make a distinction between features of the
+glottal excitation and contributions of the vocal tract, but model
+both indiscriminately. We also do not know the precise contribution
+of the glottal excitation such that it is hard to compensate for it.</p></li>
+<li><p>The analytical relationship between coefficients of the linear
+predictor and the radii of the tube-model segments is highly
+non-linear and sensitive to estimation errors. Small errors in
+predictor parameters can have large consequences in the shape of the
+tube model.</p></li>
+</ol>
+<p>Still, since linear predictors are efficient for modelling speech, they
+are useful in speech modelling even if the connection to tube-modelling
+is sensitive to errors. Linear prediction is particularly attractive
+because it gives computationally efficient algorithms.</p>
+</div>
+<div class="section" id="advanced-models">
+<h4>Advanced models<a class="headerlink" href="#advanced-models" title="Permalink to this headline">¶</a></h4>
+<p>When more accurate modelling of the vocal tract is required, we have to
+re-evaluate our assumptions. With <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_waveguide_synthesis">digital
+waveguides</a>
+we can readily formulate models which incorporate a second pathway
+corresponding to the nasal tract. A starting point for such models is
+linear prediction, written as a delay-line with reflections
+corresponding to the interfaces between tube-segments. The nasal tract
+can then be introduced by adding a second delay line. Such models are
+computationally efficient in synthesis of sounds, but estimating their
+parameters from real sounds can be difficult.</p>
+<p>Stepping up the accuracy, we then already go into full-blown physical
+modelling such as <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method">finite-element
+methods</a> (FEM).
+Here, for example, the air-volume of the vocal tract can be split into
+small interacting elements governed by <a class="reference external" href="https://en.wikipedia.org/wiki/Fluid_dynamics">fluid
+dynamics</a>. The more dense
+the mesh of the elements is, the more accurately the model corresponds
+to physical reality. Measuring and modelling the vocal tract with this
+method is involved and an <a class="reference external" href="http://speech.math.aalto.fi/about.html">art form of its
+own</a>.</p>
+<p><img src="../attachments/148294391/149889201.png"
+data-image-src="../attachments/148294391/149889201.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149889201"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="tubemodel.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25" height="250" /></p>
+<p>Illustration of a vocal-tract tube-model consisting of piece-wise
+constant-radius tube-segments.</p>
+</div>
+</div>
+<div class="section" id="glottal-activity">
+<h3>Glottal activity<a class="headerlink" href="#glottal-activity" title="Permalink to this headline">¶</a></h3>
+<p>As characterization of the glottal flow, we define events of a single
+glottal period as follows (illustrated in the figure below):</p>
+<ul class="simple">
+<li><p><em>Opening and closing time</em> (or instant), are the points in time
+where respectively, glottal folds open and close, and where glottal
+flow starts and ends.</p></li>
+<li><p><em>Open and closed</em> <em>phase</em>, are the periods during which the glottis
+is open and closed, respectively.</p></li>
+<li><p>The length of time when glottis is open and closed are,
+respectively,  known as <em>open time (OT)</em> and <em>closed time (CT)</em>.
+Consequently, the period length is <span class="math notranslate nohighlight">\(T=OT+CT\)</span>.</p></li>
+<li><p><em>Opening and closing phases</em> are the portions of the open phase,
+when the glottis is opening and closing, respectively.</p></li>
+<li><p>The steepness of the closing phase is related to the “agressiveness”
+of the pulse, that is, it relates to the tension of glottal folds
+and is characterized by the (negative) <em>peak of the glottal flow
+derivative</em>.</p></li>
+<li><p>All parameters describing a length in time are often further
+normalized by the period length <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+</ul>
+<p>Like modelling of the vocal tract, also in modelling glottal activity,
+there is a range of models of different complexity:</p>
+<ul class="simple">
+<li><p><em>Maximum-phase linear prediction</em>; The most significant event in a
+single glottal flow pulse is its closing instant; the preceding
+waveform is smooth but the closing event is abrupt. The waveform can
+thus be interpreted as the impulse response of an IIR filter but
+turned backwards, which also known as the impulse response of a
+maximum-phase linear predictor (the figure on the right was
+generated with this method). The beauty of this method is that it is
+similar to vocal tract modelling with linear prediction, such that
+we are already familiar with the method and computational complexity
+is simple. Observe, however, that maximum-phase filters are by
+definition unstable (not realizable), but we have to always process
+the signal backwards, which complicates systems design.</p></li>
+<li><p>The <em>Liljencrantz-Fant (LF) -model</em> is a classical model of the
+glottal flow, the original form of which is a function of four
+parameters (<a class="reference external" href="http://www.speech.kth.se/prod/publications/files/qpsr/1985/1985_26_4_001-013.pdf">defined in
+article</a>).
+It is very useful and influential because it parametrizes the flow
+with a low number of easily understandable parameters. The
+compromise is that the parameters are not easily estimated from real
+signals and that it is based on anecdotal evidence of glottal flow
+shapes and if it were presented today, to be widely accepted, we
+would require more evidence to support it.</p></li>
+<li><p><em><a class="reference external" href="https://en.wikipedia.org/wiki/Harmonic_oscillator#Spring/mass_system">Mass-spring
+systems</a></em>;
+the opposing glottal folds can be modelled as simple point-masses
+connected with damped springs to fixed points. When subjected to the
+Venturi-forces generated by the airflow, these masses can be brought
+to oscillate like the vocal folds. Such models are attractive
+because, again, their parameters have physical interpretations, but
+since their parameters are difficult to estimate from real-world
+data and they oscillate only a limited range of the parameters,
+their usefulness in practical applications is limited.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method"><em>Finite-element methods
+(FEM)</em></a> are
+again the ultimate method for accurate analysis, suitable for
+example in medical analysis, yet the computational complexity is
+prohibitively large for consumer applications.</p></li>
+</ul>
+<p><img src="../attachments/148294391/175513693.png" class="image-center"
+data-image-src="../attachments/148294391/175513693.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175513693"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="glottal_flow.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25" width="450" /></p>
+<p>Illustration of a glottal flow pulse, its derivative and a sequence of
+glottal flow pulses (corresponding audio
+<a href="../attachments/148294391/175513696.wav"
+data-linked-resource-id="175513696" data-linked-resource-version="1"
+data-linked-resource-type="attachment"
+data-linked-resource-default-alias="glottal_flow.wav"
+data-nice-type="Multimedia"
+data-linked-resource-content-type="audio/x-wav"
+data-linked-resource-container-id="148294391"
+data-linked-resource-container-version="25">glottal_flow.wav</a>).</p>
+</div>
+<div class="section" id="lip-radiation">
+<h3>Lip radiation<a class="headerlink" href="#lip-radiation" title="Permalink to this headline">¶</a></h3>
+<p>Having travelled through the vocal tract, air exits primarily through
+the mouth and in some extent through the nose. In leaving this tube, it
+enters the free field where airflow in has little effect. Recall that
+sounds are, instead, variations in air pressure. At the transition from
+the tube to the free field, variations in air flow become variations in
+air pressure.</p>
+<p>The physics of this phenomenon are governed by <a class="reference external" href="https://en.wikipedia.org/wiki/Fluid_dynamics">fluid
+dynamics</a>, an advanced
+topic, but heuristically we can imagine that variations air pressure is
+related to variations in airflow. Thus if we take the derivative of the
+airflow, we get an approximation of its effect on air pressure
+$<span class="math notranslate nohighlight">\( sound(t) \approx \frac d{dt} flow(t), \)</span><span class="math notranslate nohighlight">\(
+where \)</span>t$ is time.</p>
+<p>Often we deal with signals sampled at time indices <span class="math notranslate nohighlight">\(n\)</span>, where the
+derivative can be further approximated by the first difference
+$<span class="math notranslate nohighlight">\( 
+sound(n) \approx g \left[flow(n) - flow(n-1)\right], 
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>g&gt;0$ is a scalar gain coefficient.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

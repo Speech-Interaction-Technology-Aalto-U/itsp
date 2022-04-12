@@ -1,0 +1,1193 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis of evaluation results &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Evaluation/Analysis_of_evaluation_results.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#informal-analysis">
+   Informal analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     **Example 1 **
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informative-illustrations-1">
+     Informative illustrations 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#histograms">
+       Histograms
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scatter-plots">
+       Scatter plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#box-plots">
+       Box plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#confusion-matrix">
+       Confusion matrix
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     **Example 2 **
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informative-illustrations-2">
+     Informative illustrations 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parallel-plots">
+       Parallel plots
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-hidden-structures">
+     Extracting hidden structures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deltas">
+       Deltas
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-tests">
+   Statistical tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#student-s-t-test">
+     Student’s t-test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normality-tests">
+     Normality tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anova">
+     ANOVA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation-tests">
+     Correlation tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Analysis of evaluation results</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#informal-analysis">
+   Informal analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     **Example 1 **
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informative-illustrations-1">
+     Informative illustrations 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#histograms">
+       Histograms
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scatter-plots">
+       Scatter plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#box-plots">
+       Box plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#confusion-matrix">
+       Confusion matrix
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     **Example 2 **
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informative-illustrations-2">
+     Informative illustrations 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parallel-plots">
+       Parallel plots
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-hidden-structures">
+     Extracting hidden structures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deltas">
+       Deltas
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-tests">
+   Statistical tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#student-s-t-test">
+     Student’s t-test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normality-tests">
+     Normality tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anova">
+     ANOVA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation-tests">
+     Correlation tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="analysis-of-evaluation-results">
+<h1>Analysis of evaluation results<a class="headerlink" href="#analysis-of-evaluation-results" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>To determine the quality and performance of speech processing methods,
+we often use <a class="reference internal" href="Subjective_quality_evaluation.html"><span class="doc std std-doc">subjective</span></a> and <a class="reference internal" href="Objective_quality_evaluation.html"><span class="doc std std-doc">objective
+evaluation</span></a> methods. These methods however
+give an array of results, one result for each sound sample for objective
+methods, and in the case of subjective listening tests, one result for
+each sounds sample per listener. Invariably, the results are noisy in
+the sense that each sound sample and each listener will give a different
+result. How do we then determine whether one method is better than the
+other? In short, we have to perform statistical analysis of results. The
+types of question we can answer with statistical analysis include:
+“Based on measurement results, which result is most probable, that A is
+better than B, that B is better than A, or is it impossible to
+determine?”</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="section" id="informal-analysis">
+<h2>Informal analysis<a class="headerlink" href="#informal-analysis" title="Permalink to this headline">¶</a></h2>
+<p>In practical laboratory work, after an experiment, you would always like
+to get a first impression of the results as quickly as possible. With
+informal analysis, we here refer to quick-and-dirty evaluation of data
+to determine whether there it is worth investing time in a more formal
+analysis. That is, if we already in the informal analysis determine that
+our new method is not really better than past methods, then it more
+productive to improve the method rather than perform a detailed analysis
+of results. On the other hand, a detailed analysis can sometimes reveal
+effects which are not visible in informal analysis and which could be
+used to improve the method in question. In any case, when reporting
+results (in a publication or even just to your superior), informal
+analysis should never replace properly applied statistical tests.
+Informal tests just given an indication of how much work will be
+required for proper tests.</p>
+<div class="section" id="example-1">
+<h3>**Example 1 **<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we want to compare methods A and B, and we have already applied
+PESQ on the outputs of both methods for 100 speech samples. How do we
+know if A is better than B?</p>
+<p><strong>First idea:</strong> Calculate the mean and standard deviation of both
+measurements. Which method has a higher (better) mean? Is the standard
+deviation clearly smaller than the difference in means?</p>
+<ul class="simple">
+<li><p>Suppose the mean of PESQ scores for A and B are 4.5 and 3.1, and
+their corresponding standard deviations are 0.2 and 0.15. Clearly A
+has a higher (better) PESQ score than B. The standard deviations are
+small which indicates that the measurement rarely diverge far from
+the mean. <em>This is the best case scenario</em> but unfortunately it
+happens rarely in practice.</p></li>
+<li><p>Suppose the mean of PESQ scores for A and B are 3.5 and 3.1, and
+their corresponding standard deviations are 0.2 and 0.15.  Clearly
+<em>the mean</em> PESQ score is higher (better) for A than B. In this case
+it is however not immediately clear whether we can draw any definite
+conclusions. Is the difference significant? The standard deviations
+are not much smaller than the difference between the means,
+indicating that sometimes A could be worse than B! <em>Further analysis
+is required.</em></p></li>
+</ul>
+<p>Note that here we have chosen to discuss the <em>standard deviations</em>,
+although we could equivalently present the <em>variances</em> of measurements.
+The benefit of the standard deviation is that it is expressed in the
+same units as the mean, such that we can directly get an intuitive
+impression of the magnitude of the differences in means in comparison to
+the standard deviations.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout three-equal" layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="informative-illustrations-1">
+<h3>Informative illustrations 1<a class="headerlink" href="#informative-illustrations-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="histograms">
+<h4>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h4>
+<p>By plotting the histograms of two measurements, we can study the
+distribution of measurements.  For example in Histogram 1 on the right,
+we can see two distributions (blue and green), whose means are 2.8 and
+2.2. We can clearly see that the means of the sample are different, but
+it is not immediately clear whether that is just a random coincidence or
+if this is statistically significant. In Histogram 2 on the right, we
+see a much clearer difference. Though the means are the same, 2.8 and
+2.2, the standard deviations are now smaller 0.25 instead of 1.0, such
+that we can be fairly confident that the difference in means is
+<a class="reference external" href="http://significant.In">significant.In</a> Histogram 3, there is not doubt left, the distributions
+are not overlapping and a statistical test would for sure show a
+significant difference.</p>
+<p>If we then compare histograms 2 and 4, we see that they have the same
+means and standard deviations. However, while from histogram 2 we might
+not be entirely certain that the difference is significant, in histogram
+4 the amount of overlap is much reduced because the distributions are
+skewed. Therefore already in informal analysis, we can be rather
+confident that there is a significant difference in distributions. This
+example thus demonstrates that the histograms can reveal properties of
+the measurements which cannot be captured by the mean and standard
+deviation.</p>
+<p>A further example which demonstrates how some differences are not
+captured by the mean and standard deviation is illustrated in Histogram
+5. Here both measurements have the same mean, which could give the
+impression that both measurements are “the same”. However, by looking at
+the histogram, we find that the blue curve actually has two peaks, one
+clearly lower and another higher than the green curve. Further analysis
+is thus needed to determine the cause for the strange distribution.
+Typically, for example, some methods behave differently for different
+inputs. A speech enhancement method could be for example be effective
+for voiced sounds, but fail for unvoiced sounds, such that the output
+SNR has two peaks corresponding to respective classes of sounds.</p>
+<p>These two last examples, Histograms 4 and 5, illustrate why it is in
+general important to test whether evaluation results follow a Gaussian
+(normal) distribution. Analysis of approximately Gaussian results is
+less complicated then the analysis of skewed and multi-modal
+distributions. However, applying methods which assume Gaussian
+distributions on data which does not follow Gaussian distributions will
+<em>often lead to incorrect conclusions</em>.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Histogram 1: Large overlap between distributions A (blue) and B (green)</p>
+<p><img src="attachments/155470607/155473463.png"
+data-image-src="attachments/155470607/155473463.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473463"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="hist1.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+<p>Histogram 3: Very small overlap between distributions</p>
+<p><img src="attachments/155470607/155473465.png"
+data-image-src="attachments/155470607/155473465.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473465"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="hist3.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+<p>Histogram 5: Bimodal distribution for A, that is, the blue curve has two
+peaks.</p>
+<p><img src="attachments/155470607/155473467.png"
+data-image-src="attachments/155470607/155473467.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473467"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="hist5.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Histogram 2: Smaller overlap between distributions</p>
+<p><img src="attachments/155470607/155473464.png"
+data-image-src="attachments/155470607/155473464.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473464"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="hist2.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+<p>Histogram 4: Skewed distributions such that overlap is smaller than
+standard deviation would indicate</p>
+<p><img src="attachments/155470607/155473466.png"
+data-image-src="attachments/155470607/155473466.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473466"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="hist4.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout three-equal" layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="scatter-plots">
+<h4>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h4>
+<p>A useful tool for determining whether there are in hidden structures
+between the results of two methods is to plot a scatter plot of the
+results, where we plot dots (or other symbols) in a graph whose x- and
+y- axis correspond to the evaluation results of two methods. Scatter
+plots 1-3 on the right illustrate different typical scenarios. Plot 1
+shows measurements in a circular area, indicating that the measurements
+are uncorrelated. In speech and audio experiments this is highly
+unusual. Scatter plot 2 is much more common, where measurements form a
+tight band. This means that measurements are correlated. For example, in
+a speech coding scenario, it could be that some speech samples are easy
+to encode with high quality, such that methods A and B both give high
+scores. Our objective is however to determine whether A or B is better,
+and therefore we want to cancel out the effect of these correlations. We
+can then take the difference between A and B to get the relative quality
+of the two methods (see histogram on the right).</p>
+<p>Another typical scenario is illustrated in Scatter plot 3, where the
+scatter plot seems to form two distinctive groups. This would indicate
+that there are some underlying categories in the data (such as
+male/female, voiced/unvoiced, speech/silence) where performance is
+different. Typically we would then like to find out what the categories
+to determine if we can improve performance based on that information.
+For example, if performance is bad for unvoiced sounds, we could have a
+detector for unvoiced sounds, and perform different processing for such
+sounds. See also section “Parallel plots” below.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Scatter plot 1: Two uncorrelated measurements A and B.</p>
+<p><img src="attachments/155470607/155473529.png"
+data-image-src="attachments/155470607/155473529.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473529"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="scatter1.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+<p>Scatter plot 3: Two somewhat separate groups with different means and
+correlations.</p>
+<p><img src="attachments/155470607/155473532.png"
+data-image-src="attachments/155470607/155473532.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473532"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="scatter3.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Scatter plot 2 illustrating two measurements with slightly differing
+means but high correlation (measurements form a tight group). In such a
+case, the difference between the two measurements can often be very
+informative, illustrated in the histogram below. We see that the mean
+difference is 0.6 with a standard deviation of 0.21 and that the
+distribution is clearly separated from 0 (=clearly separated from the
+null-hypothesis “no difference between A and B”).</p>
+<p><img src="attachments/155470607/155473530.png"
+data-image-src="attachments/155470607/155473530.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473530"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="scatter2.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /><img src="attachments/155470607/155473531.png"
+data-image-src="attachments/155470607/155473531.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473531"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="scatter2_hist.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="box-plots">
+<h4>Box plots<a class="headerlink" href="#box-plots" title="Permalink to this headline">¶</a></h4>
+<p>For comparison of distributions of several different measurements, we
+often use box-plots (see Figure on the right). Here we have the sound
+samples on x-axis (here called “Items”) and the improvement in POLQA
+scores on the y-axis (for more about delta scores, see section “Delta”
+below). The red line in the midle represent the median of all scores,
+the blue box contains 50% of all measurements and the black horizontal
+lines indicate the largest and lowest scores. In other words, each
+quartile which contains 25% of measurements, is indicated by an
+interval. An exception are <em>outliers</em>, that is, those measurements which
+are deemed <em>exceptional</em> in some sense, are marked with red plus-signs.
+Note that the choice of outliers is an sensitive issue; you cannot just
+choose which values are exceptional, but have to apply formal methods
+(it is an advanced topic which is not discussed here).</p>
+<p>Note that box-plots are visualization methods and cannot be used alone
+to make conclusions about statistical significance. Instead, they
+valuable for descriptive analysis of results. For example in the figure
+on the right, female and male speakers are the three items on the left
+and right, respectively. Clearly we get an impression that the delta
+scores of the female speakers are higher than those of male speakers.
+However, the distributions are overlapping to such an extent that we
+would need proper statistical analysis to determine how likely it is
+that this is not just a coincidence.</p>
+<p>In any case, box plots are useful in illustration of for example MUSHRA,
+POLQA and PESQ scores as well as their delta scores. Box plots contain
+less information than the corresponding histograms, but that omission
+reduces clutter; We can easily display 20 items side by side with a
+box-plot, whereas histograms of 20 items would be a mess.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><img src="attachments/155470607/155473908.png"
+data-image-src="attachments/155470607/155473908.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473908"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="delta_polqa.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" height="400" /></p>
+<p>Image by Sneha Das (with permission)</p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="confusion-matrix">
+<h4>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h4>
+<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a> is
+the equivalent of a scatter plot for categorical data, often either
+expressed in a table format or visualized as the as a heat-map. For
+example, suppose you have a classifier whose objective is to classify
+between speech, music and background noise. For each testing sample, you
+then have the target output and the actual output of your classifier,
+which you can write as a matrix such as:</p>
+<div class="table-wrap">
+<table class="relative-table wrapped confluenceTable">
+<tbody>
+<tr class="header">
+<th class="confluenceTh"><br />
+</th>
+<th class="confluenceTh">Actual music</th>
+<th class="confluenceTh">Actual speech</th>
+<th class="confluenceTh">Actual noise</th>
+</tr>
+<tr class="odd">
+<td class="confluenceTd"><strong>Predicted music</strong></td>
+<td class="confluenceTd"
+style="text-align: center;"><strong>78</strong></td>
+<td class="confluenceTd" style="text-align: center;">2</td>
+<td class="confluenceTd" style="text-align: center;">13</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd"><strong>Predicted speech</strong></td>
+<td class="confluenceTd" style="text-align: center;">3</td>
+<td class="confluenceTd"
+style="text-align: center;"><strong>77</strong></td>
+<td class="confluenceTd" style="text-align: center;">5</td>
+</tr>
+<tr class="odd">
+<td class="confluenceTd"><strong>Predicted noise</strong></td>
+<td class="confluenceTd" style="text-align: center;">22</td>
+<td class="confluenceTd" style="text-align: center;">18</td>
+<td class="confluenceTd"
+style="text-align: center;"><strong>83</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Often the largest value in each column is identified by bold-face. In
+this toy example, all classes are usually predicted correctly, which
+means that for each actual label, the most often predicted label matches
+the actual label. That is, music is most often classified as music (78
+times), but also quite often as noise (22 times). Similarly, speech is
+classified most often as speech (77 times) but also often as noise (18
+times). Noise, on the other hand, is rarely classified as speech (5
+times) and almost always correctly as noise (83 times).</p>
+<p>If the number of labels is large, then it is often useful to plot the
+matrix as a heat-map.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+<div class="section" id="example-2">
+<h3>**Example 2 **<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we want to compare methods A and B, and we have already
+calculated the frame-wise SNR on the outputs of both methods for a range
+of speech samples. We have also already calculated means and standard
+deviations and plotted histograms and scatter plots. The only we have
+found that there seems to be distinct categories of results indicated by
+a bimodal or multi-modal (multipeak) distribution of SNRs.</p>
+<p>How do we know if A is better than B? How does behaviour of A differ
+from B? How do we characterize the differences between A and B?</p>
+<p><strong>First idea:</strong> In the previous example we already demonstrated the
+usefulness of illustrations. One of the all-time favourite illustrations
+is to plot the original sound signal (or its spectrogram) side-by-side
+with the frame-by-frame measurement results.</p>
+</div>
+<div class="section" id="informative-illustrations-2">
+<h3>Informative illustrations 2<a class="headerlink" href="#informative-illustrations-2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="parallel-plots">
+<h4>Parallel plots<a class="headerlink" href="#parallel-plots" title="Permalink to this headline">¶</a></h4>
+<p>When doing frame-by-frame measurements such as SNR, we can plot results
+over time to see whether there are any particular structures in the
+results. Typically, for example, it could be that the SNR is high for
+some continuous sections and poor somewhere else. Such cases could be
+for example voiced and unvoiced sounds, where the speech processing
+method behaves differently. However, to determine which regions
+correspond to which types of speech, we can plot the waveform (or
+spectrogram) in parallel with the SNR.</p>
+<p>As an example, consider the output of a trivial <span class="xref myst">voice activity detector
+(VAD)</span> illustrated on the right. The
+top-pane contains the original waveform, the second pane signal energy
+and the third pane the thresholded energy as VAD output. We can
+immediately see that the VAD output is correct when signal energy is
+high. However, in low-energy parts of the speech signal, VAD output
+oscillates between speech and non-speech, even if it would make sense
+that the whole segment (between 1.1 and 2.7s) would be labelled speech.
+In the fourth pane, we see a comparison of the raw/original, desired and
+post-processed output methods (the results are shifted vertically for
+better clarity).</p>
+<p>In this way, parallel plots are very good for illustrating and
+characterizing performance of a system. We can easily relate properties
+of the speech signal with the outputs, such that we can describe which
+types of inputs give which types of outputs.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><img src="attachments/155470607/155473937.png"
+data-image-src="attachments/155470607/155473937.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473937"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="vad.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" width="500" /><img src="attachments/155470607/155473940.png"
+data-image-src="attachments/155470607/155473940.png"
+data-unresolved-comment-count="0" data-linked-resource-id="155473940"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="vad_postproc.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="155470607"
+data-linked-resource-container-version="11" width="500" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+<div class="section" id="extracting-hidden-structures">
+<h3>Extracting hidden structures<a class="headerlink" href="#extracting-hidden-structures" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="deltas">
+<h4>Deltas<a class="headerlink" href="#deltas" title="Permalink to this headline">¶</a></h4>
+<p>People are often unable to accurately grade absolute quality, even if
+they can grade relative quality very accurately. That is, for example,
+in a MUSHRA test, it is perfectly normal that three subjects would grade
+two methods A and B such that:</p>
+<div class="table-wrap">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Subject</p></td>
+<td><p>Grade for A</p></td>
+<td><p>Grade for B</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>35</p></td>
+<td><p>37</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>44</p></td>
+<td><p>48</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>51</p></td>
+<td><p>57</p></td>
+</tr>
+<tr class="row-even"><td><p>Mean</p></td>
+<td><p>43.3</p></td>
+<td><p>47.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Std</p></td>
+<td><p>8.0</p></td>
+<td><p>10.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In other words, if we look at the absolute mean value and its standard
+deviation, we find that B has a higher mean, but by only a tiny amount
+in comparison to the standard deviation. However, closer inspection
+reveals that the score of B is <em>always</em> higher than that of A. Every
+subject thought that B is better than A!</p>
+<p>Thus if we calculate the difference in scores between A and B, perhaps
+that would give us a more conclusive answer.</p>
+<div class="table-wrap">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Subject</p></td>
+<td><p>Grade for A</p></td>
+<td><p>Grade for B</p></td>
+<td><p>A-B</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>35</p></td>
+<td><p>37</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>44</p></td>
+<td><p>48</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>51</p></td>
+<td><p>57</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Mean</p></td>
+<td><p>43.3</p></td>
+<td><p>47.3</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Std</p></td>
+<td><p>8.0</p></td>
+<td><p>10.0</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Clearly we now see that the difference A-B has a mean value of 4 and the
+standard deviation is only 2. By collecting more listeners, then it
+could be possible that this is significant difference between A and B.</p>
+<p>The same approach can be applied also to other tests. For example, PESQ
+scores for two methods A and B can vary a lot between speech samples,
+but often the difference PESQ(A)-PESQ(B) can be much more consistent.</p>
+<p>A formal way to check whether it is reasonable to use delta-values would
+be a correlation test (see below).</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="section" id="statistical-tests">
+<h2>Statistical tests<a class="headerlink" href="#statistical-tests" title="Permalink to this headline">¶</a></h2>
+<p><strong>DISCLAIMER:</strong> If you have not already, <em>you should</em> take a course in
+statistical analysis. There are plenty of good courses out there. In
+this short chapter we can only skim through some basic principles, which
+can not replace a thorough understanding of methods. Applying
+statistical tests without understanding them properly will <em>regularly
+lead to incorrect conclusions</em>.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="section" id="student-s-t-test">
+<h3>Student’s t-test<a class="headerlink" href="#student-s-t-test" title="Permalink to this headline">¶</a></h3>
+<p>When we want to determine if two normally distributed sets of values
+have the same mean, we use <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-test">Student’s
+t-test</a>. To be
+applicable, it is critical that the sets really do follow the Gaussian
+distribution (see “Normality tests” below). The t-test is intended for
+small data-sets, usually with less than 30 data-points and it is not
+meaningful for larger sets. Typical applications in speech and audio
+are:</p>
+<ul class="simple">
+<li><p>Suppose we have made a MUSHRA-test, where we want to compare weather
+a new method B is better than the old method A. The mean of B is
+better (higher) than that of A, but how do we know if the result is
+statistically significant? First of all, we need to check that
+measurements follow the Gaussian distribution (see “Normality tests”
+below). If distributions are indeed Gaussian, we can apply the
+t-test. Given a threshold for significance (say 5%), the t-test
+gives an answer; either H=0, the difference between A and B is not
+significant or, H=1, that B is better than A.</p></li>
+<li><p>Similarly, we can calculate the difference between A and B, and if
+the distribution is Gaussian, we can determine whether the
+difference to zero is statistically significant.</p></li>
+</ul>
+<p>If the data sets are not normally distributed, it is often possible to
+use the <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Wilcoxon rank-sum
+test</a> or the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test">Wilcoxon signed-rank
+test</a> instead.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="normality-tests">
+<h3>Normality tests<a class="headerlink" href="#normality-tests" title="Permalink to this headline">¶</a></h3>
+<p>Many statistical tests are only applicable when the input signal follows
+a Gaussian distribution. To test whether a distribution indeed is
+Gaussian, we use a <a class="reference external" href="https://en.wikipedia.org/wiki/Normality_test">normality
+test</a>. The <a class="reference external" href="https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test">Shapiro-Wilk
+test</a> is one
+particular test of normality, which is particularly reliable. The output
+of normality tests is that, given a particular level of confidence (such
+as 5%), the given data set is Gaussian.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="anova">
+<h3>ANOVA<a class="headerlink" href="#anova" title="Permalink to this headline">¶</a></h3>
+<p>When comparing multiple data sets at the same time, <a class="reference external" href="https://en.wikipedia.org/wiki/Analysis_of_variance">analysis of
+variance</a> (ANOVA)
+can be interpreted as a generalization of the t-test. It tries to
+explain phenomenons in the data by assigning them to different sources
+of variation. Say if we observe differences between methods A and B, but
+know that some listeners have taken the test in the morning and others
+in the evening, we can analyse whether the difference is due to the the
+time of day or due to inherent differences in A and B.</p>
+<p>Again it is important to observe the assumptions of this test; namely,
+the classical version of ANOVA assumes that prediction errors are
+normal, that measurements are independent and the assigned groups of
+data have uniform statistics.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="correlation-tests">
+<h3>Correlation tests<a class="headerlink" href="#correlation-tests" title="Permalink to this headline">¶</a></h3>
+<p>Often two data sets are correlated. For example, if we analyse the
+fundamental frequency and intensity of a speech signal, we probably find
+that shouted speech has a high intensity and fundamental frequency,
+whereas silent speech has low intensity and a low fundamental. To check
+whether two data sets indeed have a meaningful correlation, we use
+correlation tests. The two most common correlation tests are</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation
+coefficient</a>
+(PCC), which essentially fits a linear regression line through the
+data, such that we can then use the t-test to determine whether the
+thus-explained data is significantly different from the original. In
+other words, the Pearson correlation coefficient assumes a linear
+correlation between variables.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman’s rank correlation
+coefficient</a>
+analyses whether data can be explained by a monotonic function.</p></li>
+</ul>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+<div class="pageSectionHeader">
+</div>
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[hist1.png](attachments/155470607/155473463.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[hist2.png](attachments/155470607/155473464.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[hist3.png](attachments/155470607/155473465.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[hist4.png](attachments/155470607/155473466.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[hist5.png](attachments/155470607/155473467.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[scatter1.png](attachments/155470607/155473529.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[scatter2.png](attachments/155470607/155473530.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[scatter2_hist.png](attachments/155470607/155473531.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[scatter3.png](attachments/155470607/155473532.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[delta_polqa.png](attachments/155470607/155473908.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[vad.png](attachments/155470607/155473937.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[vad_postproc.png](attachments/155470607/155473940.png) (image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Evaluation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

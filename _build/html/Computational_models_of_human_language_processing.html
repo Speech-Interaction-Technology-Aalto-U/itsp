@@ -1,0 +1,724 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computational models of human language processing &#8212; Introduction to Speech Processing</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Computational_models_of_human_language_processing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#human-cognition-as-a-sensorimotor-information-processing-system">
+   1.1.1. Human cognition as a sensorimotor information processing system
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-modeling-versus-cognitive-computationalism">
+     1.1.1.1.
+     <em>
+      Computational modeling versus cognitive computationalism
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#role-of-computational-models-in-scientific-research">
+   1.1.2. Role of computational models in scientific research
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-of-computational-modeling-research">
+   1.1.3.
+   <strong>
+    Examples of computational modeling research
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references-and-further-reading">
+   1.1.4.
+   <strong>
+    References and further reading
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Computational models of human language processing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#human-cognition-as-a-sensorimotor-information-processing-system">
+   1.1.1. Human cognition as a sensorimotor information processing system
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-modeling-versus-cognitive-computationalism">
+     1.1.1.1.
+     <em>
+      Computational modeling versus cognitive computationalism
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#role-of-computational-models-in-scientific-research">
+   1.1.2. Role of computational models in scientific research
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-of-computational-modeling-research">
+   1.1.3.
+   <strong>
+    Examples of computational modeling research
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references-and-further-reading">
+   1.1.4.
+   <strong>
+    References and further reading
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="computational-models-of-human-language-processing">
+<h1>Computational models of human language processing<a class="headerlink" href="#computational-models-of-human-language-processing" title="Permalink to this headline">¶</a></h1>
+<p>One area of research making use of speech technology is the study of
+human language learning and processing. Language is a highly complex
+phenomenon with physical, biological, psychological, social and cultural
+dimensions. Therefore it is also studied across several disciplines,
+such as linguistics, neuroscience, psychology, and anthropology. While
+many of these fields primarily focus on empirical and theoretical work
+on language, computational models and simulations provide another
+important aspect to the research: capability to test theoretical models
+in practice. Implementation of models capable of processing real speech
+data requires techniques from speech processing and machine learning.
+For instance, techniques for speech
+<span class="xref myst">signal</span>
+<span class="xref myst">representation</span> and
+<a class="reference internal" href="Pre-processing.html"><span class="doc std std-doc">pre-processing</span></a> are needed to interface the models with
+acoustic speech recordings. Different types of <a class="reference internal" href="Modelling_tools_in_speech_processing.html"><span class="doc std std-doc">classifiers and machine
+learning algorithms</span></a> are needed to
+implement learning mechanisms in the models or to analyze behavior of
+the developed models. In addition, model training data may be generated
+with <a class="reference internal" href="Speech_Synthesis.html"><span class="doc std std-doc">speech synthesizers</span></a> (e.g., Havard, Besacier &amp;
+Rosec, 2017), whereas linguistic reference data for model evaluation may
+be extracted from speech recordings using <span class="xref myst">automatic speech
+recognition</span>.</p>
+<p>The basic idea of computational modeling is to understand how humans
+learn and process language by implementing human-like learning and
+speech processing capabilities as computational algorithms. The models
+are then exposed to inputs similar to what humans observe, and the model
+behavior is then recorded and compared to human data (Fig. 1).
+Computational models can focus on questions such as how adult speech
+perception operates (e.g., the highly-influential TRACE model of speech
+perception; McClelland &amp; Elman, 1986), how language learning takes place
+in young children (native language aka. L1 learners; e.g., Räsänen,
+2012; Dupoux, 2018) or in second-language (L2) learners, or they may
+study the emergence and evolution of language through communicative
+coordination between multiple agents (see, e.g., Steels, 1997, or Kirby,
+2002, for overviews).</p>
+<p><img src="attachments/159749086/180302220.png" class="image-center"
+data-image-src="attachments/159749086/180302220.png"
+data-unresolved-comment-count="0" data-linked-resource-id="180302220"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="basic_modeling_.schematic.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="159749086"
+data-linked-resource-container-version="72" width="800" /><strong>Figure 1:</strong>
+A high-level schematic view of a typical computational model development
+and evaluation process.</p>
+<div class="section" id="human-cognition-as-a-sensorimotor-information-processing-system">
+<h2>1.1.1. Human cognition as a sensorimotor information processing system<a class="headerlink" href="#human-cognition-as-a-sensorimotor-information-processing-system" title="Permalink to this headline">¶</a></h2>
+<p>Computational modeling research is based on the metaphor of human brain
+as a computational information processing system. From an external
+observer viewpoint, this system perceives the environment using a number
+of input channels (senses), processes the information using some type of
+processing steps (the nervous system), and creates outputs (motor
+actions) based on the available sensory information and other internal
+states of the system. This input/output-relationship is affected by
+developmental factors and learning from earlier sensorimotor experience,
+realized as changes in the connectivity and structure of the central
+nervous system. Computational research attempts to understand the
+components of this perception-action loop by replacing the human
+physiology and neurophysiology with computational algorithms for sensory
+(or sensorimotor) information processing. Typically the aim is not to
+replicate information processing of the brain at the level of individual
+neurons, but to focus on the <em>computational and algorithmic principles</em>
+of the process, i.e., the <em>information representation</em>, <em>flow</em> and
+<em>transformation</em> within the system (see <a class="reference external" href="https://en.wikipedia.org/wiki/David_Marr_(neuroscientist)#Levels_of_analysis">Marr’s levels of
+analysis</a>;
+Marr, 1982). These processing steps could then be implemented in
+infinitely many ways using different hardware (biological neurons,
+silicon chips architectures, CPU instruction sets, quantum computing
+etc.) or translations from computational description to
+implementation-specific instructions (consider, e.g., different
+programming languages with the same CPU instruction set). Despite the
+implementation differences, the observed behavior of the system in terms
+of inputs and the resulting outputs can still be similar.</p>
+<p>To give an example, a model of adult spoken word recognition could focus
+on explaining the acoustic, phonetic and/or other linguistic factors
+that affect the process of word recognition. Such a model could focus on
+the details of how word recognition process evolves over time when a
+spoken word is heard, describing how alternative word candidates are
+being considered or rejected during this process (see, e.g., Weber &amp;
+Scharenborg, 2012, or Magnuson et al., 2020, for examples). Even if the
+model would not focus on modeling neurons of the human brain, it could
+still explain how our minds decode linguistic information from speech
+input. This explanation could include how the process is affected by
+factors such as noisy environments, misprounciations, distributional
+characteristics of the input, or non-native language background of the
+listener—all useful information to understand both theoretical
+underpinnings and practical aspects of speech communication.</p>
+<p>Another central aspect of the modeling is the relationship between human
+learning and computational methods trying to characterize the process.
+According to the present understanding, <em>human language learning is
+largely driven by</em> the interaction of <em>statistical regularities in the
+sensory input</em> available to the learner (e.g., Werker &amp; Tees, 1984;
+Saffran et al., 1996; Maye et al., 2002; Saffran &amp; Kirkham, 2008),
+<em>innate mechanisms, constraints, and biases for perception and learning</em>
+from such input, and <em>other mechanisms responsible for social,
+communicative and exploratory needs</em> <em>o</em>f the learner. By extracting the
+statistical regularities from their sensorimotor linguistic enviroment,
+children are capable of learning any of the world’s languages while
+fundamentally sharing the same basic cognitive mechanisms. A central
+topic in computational modeling of language acqusition is therefore to
+understand how much of language structure can be learned from the input
+data, and how much language-related prior knowledge needs to be built-in
+to the hard-coded mechanisms of these models. Note that human
+statistical learning is closely related to machine learning in
+computers, as both aim to extract statistical regularities from data
+using some sort of pre-specified learning principles. However, unlike
+standard speech technology systems such as <span class="xref myst">automatic speech
+recognition</span>, humans learners do not have access to
+data labels or consistent reward signals. For instance, a computational
+model of early infant word learning is essentially trying to find a
+solution to unsupervised pattern discovery problem: how to learn words
+from acoustic or multimodal input when there is no data labeling
+available. By applying a combination of speech processing and machine
+learning techniques to data representative of infant language
+experiences, explanation proposals for such a process can be created.</p>
+<div class="section" id="computational-modeling-versus-cognitive-computationalism">
+<h3>1.1.1.1. <em>Computational modeling versus cognitive computationalism</em><a class="headerlink" href="#computational-modeling-versus-cognitive-computationalism" title="Permalink to this headline">¶</a></h3>
+<p>Note that computational modeling and <em>representations</em> often studied in
+the models should not be confused with classical
+<a class="reference external" href="https://en.wikipedia.org/wiki/Computational_theory_of_mind">computationalism</a>.
+The latter is loaded with certain assumptions regarding the nature of
+the entities processed by the computational system (e.g., <em>content of
+the representations, symbols</em>) and what are the basic computational
+operations (e.g., <em>symbol manipulation</em> using Turing machines). In
+contrast, computational models are simply descriptions of the studied
+process in terms of the described assumptions, inputs, outputs, and
+processing mechanisms without prescribing further <em>meaning</em> to the
+components (unless otherwise specified). For instance, <em>representations</em>
+of typical DSP and machine-learning -based models can simply be treated
+as quantifiable states, such as artificial neuron/layer activations,
+posterior distributions, neural layer weights, distribution parameters.
+In other words, the representations are scalars, vectors, or matrices
+that are somehow causally related to the inputs of the system. Behavior
+of these representations can then be correlated and compared with
+theoretical concepts regarding the phenomenon of interest (e.g.,
+comparing selectivity of neural layer activations towards known phoneme
+categories in the acoustic input to the model; see, e.g., Nagamine et
+al., 2015) or comparing the overall model behavior to human behavior
+with similar input (e.g., Räsänen &amp; Rasilo, 2015). As long as the models
+are able to explain the data or phenomena of interest, the <em>models are a
+computational and hypothetical explanation</em> to the phenomenon without
+loading the components with additional theoretical or philosophical
+assumptions. Additional theoretical loading comes from the <em>data</em> and
+<em>evaluation protocols</em> chosen to investigate the models and in terms of
+how the modeling findings are interpreted.</p>
+</div>
+</div>
+<div class="section" id="role-of-computational-models-in-scientific-research">
+<h2>1.1.2. Role of computational models in scientific research<a class="headerlink" href="#role-of-computational-models-in-scientific-research" title="Permalink to this headline">¶</a></h2>
+<p>Computational modeling has a role in scientific theory development and
+hypothesis testing by providing the means to test high-level theories of
+language processing with practical simulations (Fig. 2). This supports
+the more traditional approaches to language research that include
+collection of empirical data on human language processing, conducting
+brain research, or running controlled behavioral experiments in the
+laboratory or as real-world intervention studies. By implementing
+high-level conceptual models of language processing using real
+algorithms operating on real-world language data, one can test whether
+the models scale up to complexity of real-world sensory data accessible
+to human listeners. In addition to explaining already collected data on
+human language processing, computational models can also lead to new
+insights and hypotheses about the human processing to be tested in
+behavioral experiments.</p>
+<p><img src="attachments/159749086/180300259.png" class="image-center"
+data-image-src="attachments/159749086/180300259.png"
+data-unresolved-comment-count="0" data-linked-resource-id="180300259"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="role_of_comp_mods.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="159749086"
+data-linked-resource-container-version="72" width="600" /><strong>Figure 2:</strong>
+Different aspects of human language processing research and how they
+interact.<br />
+Computational modeling uses data from empirical research to test and
+inform high-level theories related to the given topic.</p>
+<p>One potential advantage of computational modeling is its capability to
+address multiple processing mechanisms and language phenomena
+simultaneously. This is since <em>computational models can, and must,
+explicitly address all aspects of the information processing chain</em> from
+input data to the resulting behaviour. By first formulating theories of
+language processing in terms of computational goals and operations, then
+implementing them as functional signal processing and machine learning
+algorithms, and finally exposing them to realistic sensory data
+comparable to what real humans experience, ecological plausibility and
+validity of the underlying theories can be explicitly tested (cf. Marr,
+1982). In contrast, behavioral experiments with real humans—although
+necessary for the advancement of our scientific understanding and for
+general data collection—can usually focus on only one phenomenon at a
+time due to the need for highly-controlled experimental setups. The
+fragmentation of focus also makes it difficult to combine knowledge from
+individual studies into holistic theoretical frameworks (e.g.,
+understanding how phonemic, lexical, and syntactic learning are
+dependent on each other in early language development).</p>
+</div>
+<div class="section" id="examples-of-computational-modeling-research">
+<h2>1.1.3. <strong>Examples of computational modeling research</strong><a class="headerlink" href="#examples-of-computational-modeling-research" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Computational models of child language development</strong></em>: Computational
+models of language learning aim at understanding how human children
+learn to perceive and produce their native language. The basic idea is
+to simulate the learning of a human child, either starting from “birth”
+or from a specific stage of language development. Individual models
+typically aim to answer questions such as: how phonemic categories are
+learned, how word segmentation is achieved, how spoken words are
+associated with their referential meanings, or how syntax can be
+acquired? The grand challenge is to understand how the adult-like
+understanding of language as a discrete, symbolic, and compositional
+system can emerge from the exposure to noisy and inherently continuous
+sensorimotor environment. Typical computational modeling research
+questions include: 1) <em>to what extent are languages learnable from the
+statistics of sensory experiences</em>, 2) <em>what type of learning mechanisms
+or constraints are needed for the process</em>, and 3) <em>what kind of and how
+much data</em> (“experiences”) are required in the process (quality and
+quantity of speech, uni- vs. multimodal input etc.). A broader view
+takes into account the fact that the children are not just passive
+receivers of sensory information but can interact with their caregivers
+and their environment as active explorers and learners. Therefore it is
+also of interest 4) <em>what type of additional interaction-related
+mechanisms and dynamically created experiences are critica</em>l. The big
+and yet unaswered question is what are the critical ingredients for
+successful language learning, as all normally developing children with
+very different language experiences, environments, and also somewhat
+differing cognitive skills still manage to converge to a shared
+communicative system of their native language.<br />
+      As the short-term outcomes, models of language learning can test
+and propose different hypotheses for different aspects of language
+learning. They also produce functional algorithms for processing
+acoustic or multimodal language data in low-resource settings, where
+access to data labels is limited (e.g., Kakouros &amp; Räsänen, 2016; Kamper
+et al., 2017; Räsänen et al., 2018). Long-term outcomes from language
+acquisition modeling contribute to both basic science and practice. In
+terms of basic science, the research tries to answer the question of how
+one of the most advanced aspects of human cognition, i.e., language,
+operates. Long-term practical goals include understanding the impact of
+external factors in language development and how to ensure equally
+supportive environments for children in different social settings,
+understanding different types of language-related disorders and how to
+best respond to them, but also how to develop autonomous AI systems
+capable of human-like language learning and understanding without
+supervised training, i.e.., development of systems ultimately capable of
+<em>understanding the intentions and meaning in communication</em>. <br />
+     Computational modeling of early language acquisition is closely
+related to zero-resource speech processing (see
+<a class="reference external" href="http://www.zerospeech.com/">http://www.zerospeech.com/</a>) that aims at algorithms capable of
+unsupervised language learning from speech data.</p>
+<p><em><strong>Models of spoken word recognition</strong>:</em> Another widely studied topic is
+speech perception in adults. Computational models developed for this
+purpose attempt to explain how the brain processes incoming speech in
+order to recognize words in the input. Models in this area may focus on
+explaining the interaction between sub-word and word-level units in
+perception, on how words compete with each other during the recognition
+process, or, e.g., on how the speech perception is affected by noise in
+native and non-native listeners. Since word recognition is essentially a
+temporal process, particular attention is typically paid to the
+evolution of the recognition process as a function of time (or
+proportion of input word or utterance perceived).<br />
+    For an overview, see Weber and Scharenborg (2012). For some examples
+of models, see McClelland and Elman (1986), Norris (1994), or Magnuson
+et al. (2020).</p>
+<p>*<strong>Models of speech production</strong>: *This line of research attempts to
+explain how human speech production works in terms of articulators and
+their motor control. Some studies also focus on the acquisition of
+speech production skills. Typical speech production models involve an
+articulatory <a class="reference internal" href="Speech_Synthesis.html"><span class="doc std std-doc">speech synthesizer</span></a>—an algorithm capable
+of producing audible speech signals by modeling the physical
+characteristics of the vocal apparatus—and some type of motor control
+algorithms that are responsible for phonation and articulator movements.
+Sometimes hearing system is simulated as well. These models have various
+uses from general understanding of the articulatory basis of speech to
+understanding speech pathologies, articulatory learning in childhood or
+adulthood, or special types of sound production such as singing.<br />
+    For classical and more recent examples of articulatory models of
+speech production, see, e.g., Maeda (1988), Birkholz (2005; in German),
+or Birkholz and Martin (2015). For models of infant learning of speech
+production, see, e.g., Tourville and Guenther (2011), Howard and Messum
+(2014), or Rasilo and Räsänen (2017).</p>
+<p><em><strong>Multi-agent models of language learning, evolution and
+communication:</strong></em> Languages are essentially cultural conventions based
+on social activity, enabled by genetically coded cognitive and
+physiological mechanisms, and learned through interactions between
+people. One branch of computational modeling focuses on understanding
+how languages emerge, evolve, and are learned through multi-agent
+communication and interaction. These simulations, sometimes referred to
+as <em>language games</em> or <em>iterated learning</em> (see Kirby, 2002), focus on
+non-linear dynamical systems that result from the interaction of
+multiple communicative computational agents. These agents can be purely
+based on simulation, or they can be based on physical robots interacting
+in a shared  physical environment. By providing the agents with
+different types of innate goals, mechanisms, learning skills and
+environmental conditions, one can study the extent that language-like
+signaling systems (as a social system) or language skills (as subjective
+capabilities) can emerge from such conditions.<br />
+    For overviews, see Steels (1997) or Kirby (2002).</p>
+</div>
+<div class="section" id="references-and-further-reading">
+<h2>1.1.4. <strong>References and further reading</strong><a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Birkholz, P. (2005). <em>3D-Artikulatorische Sprachsynthese</em>. Logos Verlag,
+Berlin
+[<a class="reference external" href="http://www.vocaltractlab.de/publications/birkholz-2005-dissertation.pdf">pdf</a>]
+(in German)</p>
+<p>Birkholz, P., &amp; Martin, L. (2015). The contribution of phonatioc type to
+the perception of vocal emotions in german: An articulatory synthesis
+study. <em>The Journal of the Acoustical Society of America</em>, 137,
+1503–1512.</p>
+<p>Dupoux, E. (2018). Cognitive science in the era of artificial
+intelligence: A roadmap for reverse-engineering the infant
+language-learner. <em>Cognition</em>, 173,
+43–59. <a href="https://arxiv.org/abs/1607.08723"
+rel="nofollow">https://arxiv.org/abs/1607.08723</a></p>
+<p>Havard, W., Besacier, L., &amp; Rosec, O. (2017). SPEECH-COCO: 600k visually
+grounded spoken captions aligned to MSCOCO data set. <em>Proc.
+International Workshop on Grounding Language Understanding (GLU-2017)</em>,
+pp. 42-46, DOI: 10.21437/GLU.2017-9.</p>
+<p>Howard, I., &amp; Messum, P. (2014). Learning to pronounce first words in
+three languages: an investigation of caregiver and infant behavior using
+a computational model of an infant. PLoS ONE, 9,  e110334.
+<a class="reference external" href="https://doi.org/10.1371/journal.pone.0110334">https://doi.org/10.1371/journal.pone.0110334</a></p>
+<p>Kakouros S., &amp; Räsänen O. (2016). 3PRO - An unsupervised method for the
+automatic detection of sentence prominence in speech. <em>Speech
+Communication</em>, 82, 67–84.</p>
+<p>Kamper, H., Jansen, A., &amp; Goldwater, S. (2017). A segmental framework
+for fully-unsupervised large-vocabulary speech recognition. <em>Computer
+Speech &amp; Language</em>, 46, 154–174.</p>
+<p>Kirby, S. (2002). Natural language from artificial life. <em>Artificial
+Life</em>, 8, 185–215.</p>
+<p>Marr, D. (1982). <em>Vision: A computational approach</em>. San Francisco,
+Freeman &amp; Co.</p>
+<p>Magnuson, J., You, H., Luthra, S., Li, M., Nam, H., Escabí, M., Brown,
+K., Allopenna, P., Theodore, R., Monto, N., &amp; Rueckl, J. (2020).
+EARSHOT: A minimal neural network model of incremental human speech
+recognition. <em>Cognitive Science</em>, 44, e12823.
+<a class="reference external" href="https://doi.org/10.1111/cogs.12823">https://doi.org/10.1111/cogs.12823</a></p>
+<p>McClelland, J., &amp; Elman, J. (1986). The TRACE model of speech
+perception. <em>Cognitive Psychology</em>, 18, 1–86.</p>
+<p>Maeda, S. (1988). Improved articulatory model. <em>Journal of the
+Acoustical Society of America</em>, 84, Sup. 1, S146.</p>
+<p>Maye, J., Werker, J., &amp; Gerken, L. (2002). Infant sensitivity to
+distributional information can affect phonetic discrimination.
+<em>Cognition</em>, 82, B101–111.</p>
+<p>Nagamine, T., Seltzer, M. L., &amp; Mesgarani, N. (2015). Exploring how deep
+neural networks form phonemic categories. <em>Proc. Interspeech-2015</em>,
+Dresden, Germany, pp. 1912–1916.</p>
+<p>Norris, D. (1994). Shortlist: a connectionist model of continuous speech
+recognition. <em>Cognition</em>, 52, 189–234.</p>
+<p>Oudeyer, P-Y., Kachergis, G., &amp; Schueller, W. (2019). Computational and
+robotic models of early language development: a review.
+<a class="reference external" href="https://arxiv.org/abs/1903.10246">https://arxiv.org/abs/1903.10246</a> .</p>
+<p>Räsänen O. (2012). Computational modeling of phonetic and lexical
+learning in early language acquisition: existing models and future
+directions. <em>Speech Communication</em>, 54, 975–997.</p>
+<p>Räsänen, O., &amp; Rasilo, H. (2015). A joint model of word segmentation and
+meaning acquisition through cross-situational learning. <em>Psychological
+Review</em>, 122, 792–829.</p>
+<p>Rasilo H., &amp; Räsänen O. (2017). An online model of vowel imitation
+learning. <em>Speech Communication</em>, 86, 1–23.</p>
+<p>Räsänen, O., Doyle, G., &amp; Frank, M. C. (2018). Pre-linguistic
+segmentation of speech into syllable-like units. <em>Cognition</em>, 171,
+130–150.</p>
+<p>Saffran, J. R., Aslin, R. N., &amp; Newport, E. L. (1996). Statistical
+learning by 8-month-old infants. <em>Science</em>, 274, 1926–1928.</p>
+<p>Saffran, J. &amp; Kirkham, N. (2018). Infant statistical learning. <em>Annual
+Review of Psychology</em>, 69, 181–203.</p>
+<p>Steels, L. (1997). The synthetic modeling of language origins.
+<em>Evolution of Communication</em>, 1, 1–34.</p>
+<p>Tourville, J.A. and Guenther, F.H. (2011). <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3650855/">The DIVA model: A neural
+theory of speech acquisition and
+production.</a>
+<em>Language and Cognitive Processes,</em> 25, 952—981.</p>
+<p>Weber, A. and Scharenborg, O. (2012). Models of processing: lexicon.
+<em>WIREs Cognitive Science</em>, 3, 387–401. doi: 10.1002/wcs.1178.</p>
+<p>Werker, J. F., &amp; Tees, R. C. (1984). Cross-language speech perception:
+Evidence from perceptual reorganization during the first year of life.
+<em>Infant Behavior and Development</em>, 7, 49–63.</p>
+<p>Birkholz, P.: VocalTractLab: <a class="reference external" href="http://www.vocaltractlab.de/">http://www.vocaltractlab.de/</a> [for work
+on articulatory synthesis]</p>
+<p>Dupoux, E. et al.: Zero Resource Speech Challenge:
+<a class="reference external" href="http://www.zerospeech.com/">http://www.zerospeech.com/</a> [a challenge on unsupervised speech
+pattern learning]</p>
+<p>**<br />
+**</p>
+<div class="pageSectionHeader">
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[role_of_comp_mods.png](attachments/159749086/180300259.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[basic_modeling\_.schematic.png](attachments/159749086/180302220.png)
+(image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

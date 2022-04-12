@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cepstrum and MFCC &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Representations/Cepstrum_and_MFCC.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-cepstrum">
+   The cepstrum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mel-frequency-cepstral-coefficients-mfccs">
+   Mel-Frequency Cepstral Coefficients (MFCCs)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Cepstrum and MFCC</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-cepstrum">
+   The cepstrum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mel-frequency-cepstral-coefficients-mfccs">
+   Mel-Frequency Cepstral Coefficients (MFCCs)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="cepstrum-and-mfcc">
+<h1>Cepstrum and MFCC<a class="headerlink" href="#cepstrum-and-mfcc" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Power <span class="xref myst">spectra</span> of <a class="reference internal" href="Windowing.html"><span class="doc std std-doc">windows</span></a> of
+speech signals contain information about the most important features of
+speech signals like the identity of vowels. Unfortunately, the range of
+values is very non-uniform. In fact, by directly looking at power
+spectra, we do not really see anything informative.</p>
+<p>The logarithmic spectrum, on the other hand, is a much more accessible
+representation. It is not only more visual, but importantly, the
+logarithm approximates roughly the sensitivity of the ear, such that
+logarithmic spectra can be used to assess auditory importance of
+spectral features. The logarithmic spectrum visualizes spectral content
+such that the magnitude of values is approximately uniform throughout
+the spectrum.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Windowed speech signal<br />
+<img src="attachments/149885068/149886069.png" class="image-center"
+data-image-src="attachments/149885068/149886069.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149886069"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="windowed_speech_segment.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The only exception is zeros and other very small values in the magnitude
+spectrum, which give negative infinities or arbitrarily large negative
+values in the log spectrum. Though such values are “difficult” for
+visualizations, they are inconsequential for auditory perception and can
+be often ignored. However, for computations in the log-spectrum,
+arbitrarily large negative values are a problem.</p>
+<p>To reduce the likelihood of such problematic values, we can use for
+example an energy bias similar to the <a class="reference internal" href="Waveform.html"><span class="doc std std-doc">mu-law</span></a> rule or
+integrate energies over frequencies. Specifically, instead of
+<em>y=log(|x|<sup>2</sup>)</em>, we can use <em>y=log(</em>|x|<sup>2</sup><em>+e)</em>,
+where <em>e</em> is a small positive number. The output <em>y</em> will then never go
+lower than a threshold y≥<em>log(e)</em>.</p>
+<p>In addition, we can integrate (or sum) neighboring frequencies, for
+example as</p>
+<p>\[
+ y_k=\log\left(\gamma|x_{k-1}|^2+|x_k|^2+\gamma|x_{k+1}|^2+\epsilon\right),
+\]</p>
+<p>where 0&lt;γ&lt;1 is a scalar. The likelihood that all three coefficients,
+<em>x<sub>k-1</sub></em>, <em>x<sub>k</sub></em> and <em>x<sub>k+1</sub></em>, are all
+simultaneously near zero is much smaller than that one of them is near
+zero. The likelihood that <em>y</em> gets near the threshold y≥<em>log(e)</em> is
+therefore small. Such methods can be used to improve the robustness of
+log-spectra, such that we can make computations to them with reliable
+results.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Power spectrum of speech
+segment<img src="attachments/149885068/149886068.png" class="image-center"
+data-image-src="attachments/149885068/149886068.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149886068"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="dft_windowed_speech_segment.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="the-cepstrum">
+<h2>The cepstrum<a class="headerlink" href="#the-cepstrum" title="Permalink to this headline">¶</a></h2>
+<p>We now see that the log-spectrum has plenty of structure. It is a more
+or less continuous signal, owing to a large part, to the smoothing
+effect of windowing. In the illustration to the right, it has also a
+periodic structure, which corresponds to the harmonic structure of the
+signal caused by the fundamental frequency. Importantly, it has also a
+macro-level structure; by connecting the peaks of the harmonic
+structure, we see that the signal forms peaks and valleys, which
+correspond to the resonances of the vocal tract. These peaks are known
+as formants and they can be used to uniquely identify all vowels. They
+are therefore of particular interest. Capturing or quantifying such
+macro-level structures is important because of the connection with the
+vowel-identity.</p>
+<p>One way of evaluating periodic structures in a signal on different
+scales is to use the Fourier transform. Specifically, we can take the
+discrete Fourier transform (DFT) or the discrete cosine transform (DCT)
+of the the log-spectrum, to obtain a representation known as
+the <em>cepstrum</em>. The name attempts to be an amusing reflection of the
+fact that this representation is a complicated rearrangement of
+time-frequency transforms. In technical terms, for a time signal <em>x(t)</em>,
+the cepstrum is defined as</p>
+<p>\[ \text{power cepstrum of signal} {\displaystyle
+=\left|{\mathcal {F}}^{-1}\left\{\log \left(\left|{\mathcal
+{F}}\{x(t)\}\right|^{2}\right)\right\}\right|^{2},} \]</p>
+<p>where \( {\mathcal {F}}\{\cdot\} \) represent the Fourier
+transform and \( {\mathcal {F}}^{-1}\{\cdot\} \) its inverse.</p>
+<p>It is worth repeating that the cepstrum involves two time-frequency
+transforms. The cepstrum of a time-signal is therefore in some sense
+similar to the time-domain. The x-axis of a cepstrum is known as
+the *quefrency-*axis and it is expressed typically in the
+unit *seconds. *</p>
+<p>In the cepstrum, the low quefrencies contain information about the
+slowly-changing features of the log-spectrum. That is, information of
+the formants will lie at the low-quefrency end of the cepstrum.
+Interpretation of formant information in the cepstrum is, however,
+non-trivial. For example, locations of the formants, on the
+frequency-axis, are encoded in the cepstrum, but the information is
+distributed over several coefficients such that extracting that
+information is not easy.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Log-spectrum of speech
+segment<img src="attachments/149885068/149886067.png" class="image-center"
+data-image-src="attachments/149885068/149886067.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149886067"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="dbdft_windowed_speech_segment.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+<p>Cepstrum of speech
+segment<img src="attachments/149885068/149886066.png" class="image-center"
+data-image-src="attachments/149885068/149886066.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149886066"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="cepstrum_windowed_speech_segment.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+<p>The most visually prominent feature in this cepstrum is the peak near
+quefrency 7 ms. It corresponds to a fundamental frequency of 1000/(7 s)
+= 143 Hz. That fundamental frequency is clearly visible also in the
+log-spectrum above, where the comb-structure has peaks at approximately
+multiples of 143 Hz.</p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>A second useful piece of information in the cepstrum is the harmonic
+structure of the log-spectrum. Recall that the fundamental frequency is
+visible as a comb-structure in the log-spectrum. The comb-structure, in
+turn, is a periodic structure and the Fourier transform is an excellent
+tool for extracting such structures. We can thus expect to see a peak in
+the cepstrum at the quefrency corresponding to the pitch-period length
+(in seconds). If we assume that fundamental frequencies <em>F<sub>0</sub></em>
+are in the range 80 to 450 Hz, then the corresponding peak in the
+cepstrum should lie at quefrency <em>1/F<sub>0</sub></em> and they range from
+2.2 to 12.5 milliseconds.</p>
+<p>Estimating the fundamental frequency in the cepstrum is, in fact, very
+simple and relatively robust. We would just need to find the highest
+peak of the cepstrum in the appropriate quefrency-range. <span class="xref myst">Fundamental
+frequency estimation</span> will be
+discussed further in a separate section.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="mel-frequency-cepstral-coefficients-mfccs">
+<h2>Mel-Frequency Cepstral Coefficients (MFCCs)<a class="headerlink" href="#mel-frequency-cepstral-coefficients-mfccs" title="Permalink to this headline">¶</a></h2>
+<p>To further improve on the cepstral representation, we can include more
+information about auditory perception into the model. Specifically, by
+introducing information about human perception, we focus the model on
+that part of the information which human listeners would find important.
+The log-spectrum already takes into account perceptual sensitivity on
+the magnitude axis, by expressing magnitudes on the logarithmic-axis.
+The other dimension is then the frequency axis.</p>
+<p>There exists a multitude of different criteria with which to quantify
+accuracy on the frequency scale and there are, correspondingly, a
+multitude of perceptually motivated frequency scales including the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Equivalent_rectangular_bandwidth">equivalent rectangular
+bandwidth</a>
+(ERB) scale, the <a class="reference external" href="https://en.wikipedia.org/wiki/Bark_scale">Bark</a> scale,
+and the <a class="reference external" href="https://en.wikipedia.org/wiki/Mel_scale">mel</a>-scale. Probably
+through an abritrary choice mainly due to tradition, in this context we
+will focus on the mel-scale. This scale describes the perceptual
+distance between pitches of different frequencies.</p>
+<p>A classical approximation is to define the frequency-to-mel transform
+function for a frequency *f *as</p>
+<p>\[ m=2595\,\log_{10}\left(1+\frac f{700}\right). \]</p>
+<p>The inverse transform can be readily derived as</p>
+<p>\[ f = 700\,\left(10^{\frac m{2595}}-1\right). \]</p>
+<p>By taking equally spaced points <em>m<sub>k</sub></em>, using the above
+formula, we can then find frequency points *f<sub>k </sub>*whose
+perceptual distance is equal. In other words, to sample the log-spectrum
+with a perceptual scale, we pick samples at frequencies <em>f<sub>k</sub></em>.
+(An implementation detail is that usually, we want to avoid that the
+distance between subsequent <em>f<sub>k</sub></em> would be smaller than the
+highest distance between harmonic peaks, such that the model focuses on
+the macro structure and ignores the fundamental frequency. Usually, a
+minimum threshold is therefore applied on <em>f<sub>k</sub></em>.)</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Mel scale</p>
+<p><img src="attachments/149885068/149886076.png"
+data-image-src="attachments/149885068/149886076.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149886076"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="melscale.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>However, if we would only pick samples at frequencies <em>f<sub>k</sub></em>,
+we would loose all the other information. Therefore, similarly as in the
+frequency-integration approach above, we take a weighted sum of energies
+near the target frequency <em>f<sub>k</sub></em> as</p>
+<p>\[ u_k = \sum_{h=f_{k-1}+1}^{f_{k+1}-1} w_{k,h} |x_h|^2, \]</p>
+<p>where scalars <em>w<sub>k,h</sub></em> are a weighting parameters. Then we get,
+simultaneously, the benefit of a robust estimate due to energy
+integration, but also apply a perceptual frequency scale.</p>
+<p>Finally, by taking the discrete cosine transform (DCT) of the parameters
+<em>u<sub>k</sub></em>, we obtain the representation known as *mel-frequency
+cepstral coefficients *(MFCCs). The benefit of the DCT at the end is to
+approximately decorrelate the signal, such that the MFC coefficients are
+not correlated with each other.</p>
+<p>The weighting coefficients <em>w<sub>k,h</sub></em> are usually chosen as
+triangular functions as</p>
+<p>\[ w_{k,h} = \begin{cases} \frac{h-f_{k-1}}{f_k - f_{k-1}} &amp;
+\text{for}\quad f_{k-1}&lt; h\leq f_k, \ \frac{f_{k+1}
+-h}{f_{k+1} - f_{k}} &amp; \text{for}\quad f_{k}&lt; h\leq f_{k+1},
+\0 &amp; \text{otherwise}. \end{cases} \]</p>
+<p>The process of acquiring MFCCs from a spectrogram is illustrated on the
+right, where on the top, there is a triangular filterbank placed at
+linear steps on the mel-frequency scale. The second figure shows the
+spectrogram of a speech segment. When each window of that spectrogram is
+multiplied with the triangular filterbank, we obtain the mel-weighted
+spectrum, illustrated in the third figure. Here we see that the
+gross-shape of the spectrogram is retained, but the fine-structure has
+been smoothed out. In essence, this process thus removes the details
+related to the harmonic structure. Since the identity of phonemes such
+as vowels is determined based on macro-shapes in the spectrum, the MFCCs
+thus preserve that type of information and remove “unrelated”
+information such as the pitch.</p>
+<p>The fourth figure illustrates the outcome once the mel-weighted
+spectrogram is multiplied with a DCT to obtain the final MFCCs. Where
+the mel-weighted spectrogram does retain the original shape of the
+spectrum, the MFCCs do not offer such easy interpretations. It is an
+abstract domain, which contains information about the spectral envelope
+of the speech signal.</p>
+<p>Though the argumentation for the MFCCs is not without problems, it has
+become <em>the most used feature</em> in speech and audio recognition
+applications. It is used because it works and because it has relatively
+low complexity and it is straightforward to implement. Simply stated,</p>
+<p>if you’re unsure which inputs to give to a speech and audio recognition
+engine, try first the MFCCs.</p>
+<p>The beneficial properties of the MFCCs include:</p>
+<ul class="simple">
+<li><p>Quantifies the gross-shape of the spectrum (the spectral envelope),
+which is important in, for example, identification of vowels. At the
+same time, it removes fine spectral structure (micro-level
+structure), which is often less important. It thus focuses on that
+part of the signal which is typically most informative.</p></li>
+<li><p>Straightforward and computationally reasonably efficient
+calculation.</p></li>
+<li><p>Their performance is well-tested and -understood.</p></li>
+</ul>
+<p>Some of the issues with the MFCC include:</p>
+<ul class="simple">
+<li><p>The choice of perceptual scale is not well-motivated. Scales such as
+the ERB or gamma-tone filterbanks might be better suited. However,
+these alternative filterbanks have not demonstrated consistent
+benefit, whereby the mel-scale has persisted.</p></li>
+<li><p>MFCCs are not robust to noise. That is, the performance of MFCCs in
+presence of additive noise, in comparison to other features, has not
+always been good.</p></li>
+<li><p>The choice of triangular weighting filters <em>w<sub>k,h</sub></em> is
+arbitrary and not based on well-grounded motivations. Alternatives
+have been presented, but they have not gained popularity, probably
+due to minor effect on outcome.</p></li>
+<li><p>The MFCCs work well in analysis but for synthesis, they are
+problematic. Namely, it is difficult to find an inverse transform
+(from MFCCs to power spectra) which is simultaneously unbiased
+(=accurate) and congruent with its physical representation (=power
+spectrum must be positive).</p></li>
+</ul>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Triangular filterbank <em>w<sub>k,h</sub></em></p>
+<p><img src="attachments/149885068/149886080.png"
+data-image-src="attachments/149885068/149886080.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149886080"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="melfilterbank.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+<p>Spectrogram of a segment of speech<br />
+<img src="attachments/149885068/151503131.png"
+data-image-src="attachments/149885068/151503131.png"
+data-unresolved-comment-count="0" data-linked-resource-id="151503131"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="spectrogram.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+<p>Spectrogram after multiplication with mel-weighted filterbank</p>
+<p><img src="attachments/149885068/151503197.png"
+data-image-src="attachments/149885068/151503197.png"
+data-unresolved-comment-count="0" data-linked-resource-id="151503197"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="melspectrogram.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+<p>Corresponding MFCCs</p>
+<p><img src="attachments/149885068/151503198.png"
+data-image-src="attachments/149885068/151503198.png"
+data-unresolved-comment-count="0" data-linked-resource-id="151503198"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="mfcc.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149885068"
+data-linked-resource-container-version="25" height="250" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="pageSectionHeader">
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[sample_windowed_dft2-1.png](attachments/149885068/149885445.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[sample_windowed_dftdb-1.png](attachments/149885068/149885446.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[cepstrum_windowed_speech_segment.png](attachments/149885068/149886066.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[dbdft_windowed_speech_segment.png](attachments/149885068/149886067.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[dft_windowed_speech_segment.png](attachments/149885068/149886068.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[windowed_speech_segment.png](attachments/149885068/149886069.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[melscale.png](attachments/149885068/149886076.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[melfilterbank.png](attachments/149885068/149886080.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[spectrogram.pdf](attachments/149885068/151503108.pdf)
+(application/pdf)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[spectrogram.png](attachments/149885068/151503196.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[spectrogram.png](attachments/149885068/151503131.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[melspectrogram.png](attachments/149885068/151503197.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[mfcc.png](attachments/149885068/151503198.png) (image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

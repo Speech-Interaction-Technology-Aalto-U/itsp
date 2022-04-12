@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concatenative speech synthesis &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Synthesis/Concatenative_speech_synthesis.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps-of-concatenative-synthesis">
+   Steps of concatenative synthesis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#css-training">
+   CSS training
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Concatenative speech synthesis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps-of-concatenative-synthesis">
+   Steps of concatenative synthesis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#css-training">
+   CSS training
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="concatenative-speech-synthesis">
+<h1>Concatenative speech synthesis<a class="headerlink" href="#concatenative-speech-synthesis" title="Permalink to this headline">¶</a></h1>
+<p><em>Concantenative speech synthesis</em> (CSS), also known as <em>unit selection
+speech synthesis</em>, is one of the two primary modern speech synthesis
+techniques together with <a class="reference internal" href="Statistical_parametric_speech_synthesis.html"><span class="doc std std-doc">statistical parametric speech
+synthesis</span></a>. As the name
+suggests, CSS is based on concatenation of pre-recorded speech segments
+in order to create intelligible high-quality speech. The advantage of
+this approach is extremely high naturalness of the produced speech, as
+long as the system is well-designed and suitable speech data are
+available for its development. The drawback is limited flexibility as
+all the used speech segments have to be pre-recorded, limiting the
+choice of speaker voices or other modifications to the verbal
+expression.</p>
+<p>The most simple CSS system imaginable could be developed using
+concatenation of pre-recorded word waveforms. However, as Rabiner &amp;
+Schafer (2007) note, such an approach would suffer from two primary
+problems. First, concatenation of word-level waveforms would sound
+unnatural, as coarticulatory effects between words would be absent from
+the data. In addition, the system would be limited to very restrictive
+scenarios only, as there can be tens or hundreds of thousands of lexical
+items and millions of proper names in any language—way more than what
+can be reasonably pre-recorded by any individual speaker. The problem is
+even worse for agglutinative languages such as Finnish, where word
+meanings are constructed and adjusted by extending word root forms with
+various suffixes. Since words can also participate to utterances in
+various positions and roles, prosodic characteristics (e.g., F0) of the
+same word can differ from context to another. This means that
+pre-recording all possible words is not a practical option.</p>
+<p>To solve the issues of scalability and coarticulation, practical modern
+CSS systems are based on sub-word units. In principle, there are only
+few phones per language (e.g., around 40–50 for English), but their
+acoustic characteristics are also highly dependent on the surrounding
+context due to coarticulation. Context-dependent phones such as diphones
+(pairs of phones) or triphones (phone triplets) are therefore utilized.
+In order to build a CSS system, speech dataset has to be first carefully
+annotated and segmented for the units of interest. These segments can
+then be stored as acoustic parameters (e.g., speech codec parameters) to
+save space and to allow easy characterization and manipulation.</p>
+<div class="section" id="steps-of-concatenative-synthesis">
+<h2>Steps of concatenative synthesis<a class="headerlink" href="#steps-of-concatenative-synthesis" title="Permalink to this headline">¶</a></h2>
+<p>Once a database of units exists, synthesis with CSS consists of the
+following basic steps: <strong>1)</strong> <em>conversion of input text to a target
+specification</em>, which includes the string of phones to be synthesized
+together with additional prosodic specifications such as pitch,
+duration, and power, <strong>2)</strong> <em>unit selection</em> for each phone segment
+according to the specification, and <strong>3)</strong> <em>post-processing</em> to reduce
+the impact of potential concatenation artefacts.</p>
+<p>While the text processing stage is largely similar to pre-processing in
+<a class="reference internal" href="Statistical_parametric_speech_synthesis.html"><span class="doc std std-doc">statistical parametric speech synthesis
+systems</span></a>, the main part of CSS
+is to perform unit selection in such a manner that the output speech
+matches the specification with high naturalness of the sound. As
+described by Hunt &amp; Black (1996), unit selection is achieved by cost
+minimization using two cost functions (Fig. 1): <em>target cost
+C<sup>t</sup></em>(<em>u<sub>i</sub></em>,<em>t<sub>i</sub></em>) and <em>concatenation cost
+C</em><sup>c</sup>(<em>u</em><sub><em>i</em>-1</sub>,<em>u<sub>i</sub></em>). Target cost
+describes the mismatch between the target speech unit specification
+<em>t<sub>i</sub></em> and a candidate unit <em>u<sub>i</sub></em> from the database.
+Concatenation cost describes the mismatch (e.g., acoustic or perceptual)
+of the join between the candidate unit <em>u<sub>i</sub></em> and the preceding
+unit <em>u<sub>i</sub></em><sub>-1</sub>. In other words, an ideal solution
+would find all the target units according to the specification without
+introducing acoustic mismatches at the edges of concatenated units.</p>
+<p>**<br />
+**</p>
+<p>Figure 1: An illustration of the selection cost Ct and concenation cost
+Cc in diphone-based unit selection for synthesis of word “cat” [k ae
+t]. In practice, diphones with different initial phones but similar
+coarticulatory effects on the target phone can be considered in the
+selection process to overcome the issue of data sparsity. Adapted from
+Hunt &amp; Black (1996).</p>
+<p>Since the target specification consists of many characteristics such as
+target and context phone(s) identity, pitch, duration, and power, the
+target cost can be divided into multiple subcosts <em>j</em> as*</p>
+<ul class="simple">
+<li><p>\( C_{j}^{t}(t_{i},u_{i}) \) . For instance, the contextual
+phone(s) (e.g., [ae] in the last unit [ae t] of “cat” in Fig. 1) can
+be represented by a number of features describing the manner and place
+of articulation, so that the specification can be compared to different
+candidate units in the database (Hunt &amp; Black, 1996). This enables the
+use of different context phones with similar coarticulatory effects on
+the target phone. Similarly, costs for segment power and pitch can be
+measured, e.g., in terms of the differences in mean log-power and mean
+F0. Cost for the target phone ([t] in [ae t] of Fig. 1) is usually a
+binary indicator that forces the phonemic identity of the chosen unit to
+match with that of the target specification. The total cost can then be
+written as</p></li>
+</ul>
+<p></p>
+<p>\(
+C^{t}(t_i,u_i)=\sum_{j=1}^{P}w_{j}^{t}C_{j}^{t}(t_{j},u_{i}) \)
+       (1)</p>
+<p>where <strong>w</strong>*<sup>t</sup>* = [<em>w<sup>t</sup></em><sub>1</sub>,
+<em>w<sup>t</sup></em><sub>2</sub>, …, <em>w<sup>t</sup><sub>P</sub></em>] are the
+relative weights of each subcost.</p>
+<p>Concatenation cost <em>C</em><sup>c</sup>(<em>u</em><sub><em>i</em>-1</sub>,<em>u<sub>i</sub></em>)
+can be derived in a similar manner to Eq. (1) by decomposing the the
+total cost to <em>Q</em> subcosts, and then calculating a weighted sum of the
+subcosts:</p>
+<p>\(
+C^{c}(u_{i-1},u_i)=\sum_{j=1}^{Q}w_{j}^{c}C_{j}^{c}(u_{i-1},u_{i})
+\)         (2)</p>
+<p>Note that the subcosts and their weights <strong>w</strong>*<sup>c</sup>* for
+<em>C</em><sup>c</sup> do not need match those of <em>C<sup>t</sup></em>, as the
+concatenation cost specifically focuses on the acoustic compatibility of
+the subsequent units. Therefore
+subcosts  <em>C</em><sup>c</sup><em><sub>j</sub>(u</em><sub><em>i</em>-1</sub>,<em>u<sub>i</sub></em>)
+associated with continuity of the spectrum (or cepstrum), segment power,
+and pitch in the segment and/or at the concenation point should be
+considered.</p>
+<p>The total cost of the selection process is the sum of the target and
+concenation costs across all <em>n</em> units:</p>
+<p>\(
+C(t_{1}^{n},u_{1}^{n})=\sum_{i=1}^{n}C^t(t_i,u_i)+\sum_{i=2}^{n}C^c(u_{i-1},u_i)+C^c(\#,u_1)+C^c(u_n,\#)
+\)</p>
+<p>\( =
+\sum_{i=1}^{n}\sum_{j=1}^{P}w_{j}^{t}C_{j}^{t}(t_{i},u_{i})+\sum_{i=2}^{n}\sum_{j=1}^{Q}w_{j}^{c}C_{j}^{c}(u_{i-1},u_{i})+C^c(\#,u_1)+C^c(u_n,\#)
+\)         (3)</p>
+<p>where \( t_{1}^{n} \) are the targets,  \( u_{1}^{n} \) are the
+selected units, and # denotes silence (Hunt &amp; Black, 1996). The two
+extra terms stand for transition from preceding silence to the utterance
+and from utterance to the trailing silence. The aim of the selection
+process is then to find units \( \bar{u}_{1}^{n} \) that minimize
+the total cost in Eq. (3). The selection process can be represented as a
+fully connected trellis, as shown in Fig. 3, where each edge to a node
+has a basic cost of the given node to be chosen (the target cost) and an
+additional cost depending on the previous unit (the concatenation cost).
+Given the trellis, the optimal selection can be carried out with
+<em><a class="reference external" href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Viterbi search</a></em>—a
+dynamic programming algorithm that calculates the least cost path
+through the trellis. To make the search computationally feasible for
+large databases, less likely candidates for each target can be pruned
+from the trellis. In addition, <a class="reference external" href="https://en.wikipedia.org/wiki/Beam_search"><em>beam
+search</em></a> with only a fixed
+number of most likely nodes for each step can be applied for further
+speedup.</p>
+<p><img src="attachments/180302345/180303620.png" class="image-center"
+data-image-src="attachments/180302345/180303620.png"
+data-unresolved-comment-count="0" data-linked-resource-id="180303620"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="CSS_search_trellis.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="180302345"
+data-linked-resource-container-version="61" width="600" /></p>
+<p><strong>Figure 3:</strong> An example of unit selection search trellis for word
+“<em>cat</em>” [<em>k ae t</em>]. Each edge is associated with basic target cost of
+the selected unit and concatenation cost dependent on the previous unit.
+Adapted from Rabiner &amp; Schafer (2007).</p>
+<p>After the speech units have been concatenated to form the intended
+utterance, postprocessing techniques can be used to smooth the potential
+discontinuities in F0, energy and spectrum at the unit boundaries. Note
+that aggressive signal processing based modification of the segments
+also often tends to decrease the naturalness of the sound.
+Straightforward modification of the segments’ acoustic parameters (e.g.
+with vocoding) is not therefore a recommended strategy to overcome the
+issues of poor unit selection or low quality source data.</p>
+</div>
+<div class="section" id="css-training">
+<h2>CSS training<a class="headerlink" href="#css-training" title="Permalink to this headline">¶</a></h2>
+<p>The above formulation enables mathematically principled and optimal unit
+selection process from a given speech database. However, the synthesis
+output is highly dependent on the choice of features and functions used
+for the subcosts, and also on the weights chosen for each feature. While
+the cost functions and their underlying features can be largely designed
+based on knowledge in signal processing and speech processing, the
+weights need to be either adjusted through trial and error, or they can
+be automatically optimized using some kind of quality criterion.</p>
+<p>As examples of automatic weight estimation, Hunt &amp; Black (1996) propose
+two alternative ways to automatically acquire cost function weights:</p>
+<p>1) Using a <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search">grid
+search</a>
+across different weight values by synthesizing utterances using the
+target specifications of held-out utterances from the training database,
+and then comparing the synthesized waveform to the real waveform of the
+held-out utterance using an objective metric. The weights that lead to
+the best overall performance are then chosen.</p>
+<p>2) Using regression models to predict best values for the weight. Hunt
+&amp; Black (1995, 1996) report that cepstral distance and power difference
+across the concanation point can be used as predictors for reported
+perceptual quality of the concatenation in a linear regression model,
+and therefore the linear regression weights can be directly used as
+perceptually motivated the cost weights.  For the target weights, they
+propose and approach where each unit in the database is considered as
+the target specification at a time, and <em>K</em> best matching other units
+are then searched for the target using an objective distance measure.
+Then the sub-costs between the target and the <em>K</em> matches are calculated
+and recorded. This process is repeated for all exemplars of the same
+phonetic unit in the database, recording the <em>K</em> x <em>Q</em> subcosts and the
+related <em>K</em> distances for each exemplar. Linear regression is then
+applied to predict the recorded objective perceptual distances using the
+associated sub-costs, linear regression coefficients again revealing the
+optimal weights for each of the subcosts. A specific advantage of the
+regression approach for subcost weight estimation is that it allows
+estimation of phoneme-specific weights for each subcost, as the
+perceptually critical cues may differ from a phonetic context to
+another.</p>
+</div>
+<div class="section" id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Hunt, A. J., &amp; Black, A. W. (1996). Unit selection in concetenative
+speech synthesis system using a large speech database. <em>Proc.
+ICASSP-96</em>, Atlanta, Georgia, USA, pp. 373–376.</p>
+<p>Rabiner, L. R., &amp; Schafer, R. W. (2007). Introduction to digital speech
+processing. <em>Foundations and Trends in Signal Processing</em>, 1, 1–194.</p>
+<div class="pageSectionHeader">
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[CSS_cost_schematic.png](attachments/180302345/180303393.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[CSS_cost_schematic.png](attachments/180302345/180303625.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[CSS_search_trellis.png](attachments/180302345/180303624.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[CSS_search_trellis.png](attachments/180302345/180303620.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[CSS_cost_schematic.png](attachments/180302345/180303685.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[CSS_cost_schematic.png](attachments/180302345/180303689.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[CSS_cost_schematic.png](attachments/180302345/180303384.png)
+(image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Synthesis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

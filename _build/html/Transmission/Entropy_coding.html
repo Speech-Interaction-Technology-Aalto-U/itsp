@@ -1,0 +1,836 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entropy coding &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Transmission/Entropy_coding.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vector-coding">
+   Vector coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-length-and-huffman-coding">
+   Variable length and Huffman coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arithmetic-coding">
+   Arithmetic coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parametric-coding">
+   Parametric coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algebraic-coding">
+   Algebraic coding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Entropy coding</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vector-coding">
+   Vector coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-length-and-huffman-coding">
+   Variable length and Huffman coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arithmetic-coding">
+   Arithmetic coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parametric-coding">
+   Parametric coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algebraic-coding">
+   Algebraic coding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="entropy-coding">
+<h1>Entropy coding<a class="headerlink" href="#entropy-coding" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>In transmission and storage of data, it is useful if we can minimize the
+number of bits needed to uniquely represent the input. With <em>entropy
+coding</em>, we refer to methods which use statistical methods to compress
+data. The target is <em>lossless</em> encoding, where the original data can be
+perfectly reconstructed from the compressed representation. With <em>lossy</em>
+coding, similarly, we refer to compression where, for example, we have a
+limited number of bits to use and we try to reproduce a signal as
+similar as possible to the original, but not necessarily exactly the
+same. In speech and audio, coding usually refers to lossy coding. The
+objective is to compress the coded signal such that it remains
+perceptually indistinguishable from the original or such that the
+perceptual effect of quantization is minimized. Such coding is known as
+<em><a class="reference internal" href="Perceptual_modelling_in_speech_and_audio_coding.html"><span class="doc std std-doc">perceptual coding</span></a></em>.
+Often, perceptual coding is performed in two steps; 1) quantization of
+the signal such that the perceptually degrading effect of quantization
+is minimized and 2) lossless coding of the quantized signal. In this
+sense, even if lossless and lossy coding are clearly different methods,
+a lossless coding module is often included also in lossy codecs.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Entropy coding operates on an abstract level such that it can operate on
+any set of symbols as long as we have information about the
+probabilities of each symbol. For example, consider a integer-valued
+scalar <em>x</em>, which can attain values -1, 0, and +1, with respecitve
+probabilities 0.25, 0.5, 0.25. That is, if we repeatedly draw scalars
+<em>x</em> from this distribution, then on average, 25% of them are -1’s. It is
+then irrelevant what the numerical values of <em>x</em> are, we can
+equivalently name the distinct elements according to symbols of the
+alphabet as <em>a, b</em> and *c.<br />
+*The table on the right demonstrates a possible encoding of these
+numbers. Clearly we need more than one bit to encode three symbols, and
+hence this encoding uses 2 bits per symbol. Observe, however, that the
+bit-string 11 is not used, which means that the encoding is inefficient.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>A naive encoding of a set of numbers, with 2 bits per symbol.</p>
+<div class="table-wrap">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number</p></td>
+<td><p>symbol</p></td>
+<td><p>bit-string</p></td>
+<td><p>length</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>a</p></td>
+<td><p>00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>b</p></td>
+<td><p>01</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>+1</p></td>
+<td><p>c</p></td>
+<td><p>10</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="section" id="vector-coding">
+<h2>Vector coding<a class="headerlink" href="#vector-coding" title="Permalink to this headline">¶</a></h2>
+<p>To take better use of all bits, we can instead of single symbols,
+consider a vector of symbols \( x_1,x_2,x_3 \) . With 3 possible
+symbols for each element, we have 3<sup>3</sup>=27 possible
+combinations. To encode it we thus need \(
+{\mathrm{ceil}}(\log_2(27))=5 \) bits, or 1.66 bits per sample. In
+comparison to the original 2 bits per sample above, this is a clear
+improvement. However, we still have 5 unused bit-strings, which shows
+that this encoding is sub-optimal.</p>
+<p>Note that there are immediate parallels with <em><span class="xref myst">vector quantization
+(VQ)</span></em> though the two methods are not the same.
+In short, vector quantization is lossy coding, which finds the best
+quantization with a given set of symbols, whereas vector coding is
+lossless coding of vectors of symbols.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>A naive encoding of a set of numbers, with 2 bits per symbol.</p>
+<div class="table-wrap">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>numbers</p></td>
+<td><p>symbols</p></td>
+<td><p>bit-string</p></td>
+<td><p>length</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1, -1, -1</p></td>
+<td><p>aaa</p></td>
+<td><p>00000</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>-1, -1, 0</p></td>
+<td><p>aab</p></td>
+<td><p>00001</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1, -1, +1</p></td>
+<td><p>aac</p></td>
+<td><p>00010</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>-1, 0 -1</p></td>
+<td><p>aba</p></td>
+<td><p>00011</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1, 0, 0</p></td>
+<td><p>abb</p></td>
+<td><p>00100</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>+1, +1, +1</p></td>
+<td><p>ccc</p></td>
+<td><p>11011</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="variable-length-and-huffman-coding">
+<h2>Variable length and Huffman coding<a class="headerlink" href="#variable-length-and-huffman-coding" title="Permalink to this headline">¶</a></h2>
+<p>A central concept in entropy coding <em>variable length</em> coding, where
+symbols can be encoded with bit-strings of varying lengths. In our above
+example, an optimal coding (i.e. optimal bit-strings) is listed in the
+table on the right.</p>
+<p>The average number of bits per symbol is then the sum of the length of
+each bit-string multiplied with the corresponding probability, that is,</p>
+<p>\[ E[bits/symbol] = \sum_{k\in\{a,b,c\}}P_k L_k = 0.25\times
+2 + 0.5\times 1 + 0.25\times 2 = 1.5. \]</p>
+<p>From the bit-strings 00, 01 and 1, we can clearly decode the original
+symbols; if the first bit is one, then the symbol is <em>b</em>, otherwise the
+second bit determines whether the symbol is <em>a</em> or <em>c.</em></p>
+<p>Such variable length codes can be readily constructed when the
+probabilities are negative powers of 2. This is a classic approach known
+as <a class="reference external" href="https://en.wikipedia.org/wiki/Huffman_coding"><em>Huffman</em> coding</a>. It
+is very simple to implement, which makes it an attractive choice when
+probabilities are negative powers of 2. However, when the probabilities
+of the symbols are arbitrary, then Huffman coding is no longer
+applicable without approximations of probabilities, which make the
+coding suboptimal.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>An illustrative encoding of a set of numbers, with 1.5 bits per symbol.</p>
+<div class="table-wrap">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number</p></td>
+<td><p>symbol</p></td>
+<td><p>probability <em>P<sub>k</sub></em></p></td>
+<td><p>bit-string</p></td>
+<td><p>length <em>L<sub>k</sub></em></p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>a</p></td>
+<td><p>0.25</p></td>
+<td><p>00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>b</p></td>
+<td><p>0.5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>+1</p></td>
+<td><p>c</p></td>
+<td><p>0.25</p></td>
+<td><p>01</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="arithmetic-coding">
+<h2>Arithmetic coding<a class="headerlink" href="#arithmetic-coding" title="Permalink to this headline">¶</a></h2>
+<p>To further improve on coding efficiency, we can combine vector coding
+with Huffman coding in a method known as <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_coding"><em>arithmetic
+coding</em></a>. It uses the
+probability of symbols to jointly encode a sequence symbols. For
+example, consider the set of symbols 0….5 on the right with
+corresponding occurrence probabilities <em>P<sub>k</sub></em>. Further suppose
+that we are supposed to encode the string “130”. The first step is to
+assign every symbol to a unique segment  \( [s_k,\,s_{k+1}] \) of
+the interval \( [0,\,1] \) such that the width of the segment
+matches the probability of the symbol \( P_k = s_{k+1}-s_k \) .</p>
+<p>The first symbol is “1” whereby we are assigned to the interval 0.40 …
+0.67, which we will call the current interval. The central idea of
+arithmetic coding is that next symbol is encoded inside the current
+interval. That is, we shift and scale the <em>s<sub>k</sub></em>’s such that
+they perfectly fit within the current interval 0.40 … 0.67. In
+mathematical terms, if the current symbol is <em>h</em>, then the current
+interval is <em>s<sub>h</sub> … s<sub>h+1</sub></em>, and the intervals of
+the next symbol are shifted and scaled as</p>
+<p>\[ s’_k = s_h + s_k(s_{h+1}-s_h) = s_h + s_kP_k. \]</p>
+<p>The second symbol was “3”, such that the current interval is 0.6133 …
+0.6349. For the third symbol, the intervals are then shifted and scaled
+as</p>
+<p>\[ s’’_k = s’_3 + s’_k(s_4-s_3) = 0.6133 + s’_k\times 0.08\times
+0.27. \]</p>
+<p>The new intervals are listed on the right. The third symbol is “0” such
+that the last current interval is 0.6133 … 0.6219, which we will
+denote as \( s_{left} … s_{right} \) .</p>
+<p>The remaining step is to translate the last interval into a string of
+bits. Let us divide the whole interval 0 … 1 into <em>2<sup>B</sup></em>
+quantization levels on a uniform grid. such that the <em>k</em>th level is \(
+k 2^{-B}. \) We then find the largest <em>B</em> such that there is a <em>k</em> with
+which <em>k2<sup>-B</sup></em> is inside the last current segment \( s_{left}
+… s_{right} \) that is, \( s_{left} \leq k2^{-B} \leq s_{right}
+\) . Then <em>k</em> is the index to our quantization position, that is, it
+uniquely describes the interval and thus uniquely describes the sequence
+of symbols “130”. Specifically, with <em>B=7</em>, we find that <em>k=79</em>,
+fulfills the criteria</p>
+<p>\[ s_{left}=0.6133 \leq k2^{-B} = 0.6172 \leq s_{right} = 0.6219.
+\]</p>
+<p>Decoding the sequence is then straightforward at the decoder.</p>
+<p>A few additional points:</p>
+<ul class="simple">
+<li><p>The average bit-rate is \( -\sum_k P_k \log_2 P_k \approx 2.2
+\) bits per sample. In the example above we needed B=7 bits to
+encode 3 samples, which gives 2.3 bits per sample. The actual number
+of bits thus does not perfectly coincide with the average bit-rate.</p></li>
+<li><p>In <a class="reference internal" href="Implementation_of_an_Arithmetic_Coder.html"><span class="doc std std-doc">a practical
+implementation</span></a> of a decoder,
+we need to either know the number of symbols or bits, transmit the
+number of symbols or bits separately, or we need to use a special
+symbol which signifies end-of-string.</p></li>
+<li><p>Usually the last current segment does not exactly align with
+<em>k2<sup>-B</sup></em> , which means that there are small unused spaces
+in between the bitstring and the last current segment. This is an
+inherent inefficiency of arithmetic coding. Heuristically it is easy
+to understand that we must send an integer number of bits, but the
+data might not be exactly an integer number of bits. The loss is
+always less than 1 bit for the whole string, which is acceptable
+when we send a large amount of symbols in a string.</p></li>
+<li><p>Direct <a class="reference internal" href="Implementation_of_an_Arithmetic_Coder.html"><span class="doc std std-doc">implementation</span></a> of
+the above description would be cumbersome since the intervals
+rapidly become smaller than what can be expressed by discrete
+arithmetic (fixed or floating point). Usually therefore algorithms
+are designed to use an intermediate interval, from which we output
+bits once they become known. For example, in the above example,
+after the first symbol we already know that the interval is above
+0.5, such that the first bit has to be 1, corresponding to the
+interval 0.5 … 0.1.</p></li>
+<li><p>The specific <a class="reference internal" href="Implementation_of_an_Arithmetic_Coder.html"><span class="doc std std-doc">implementation</span></a>
+is rather involved and sensitive to errors.</p></li>
+<li><p>Algorithmic complexity of an arithmetic coder is usually reasonable,
+provided that the probabilities <em>P<sub>k</sub></em> are readily
+available. If the probabilities need to be calculated online
+(parametric probability model), then complexity increases
+considerably.</p></li>
+</ul>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Illustrative set of symbols and their corresponding probabilities.</p>
+<div class="table-wrap">
+<table class="relative-table wrapped confluenceTable"
+style="margin-left: auto;margin-right: auto;width: 48.6654%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 22%" />
+<col style="width: 29%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="header">
+<th class="confluenceTh"><p>symbol<br />
+<em>k</em></p></th>
+<th class="confluenceTh">probability <em>P<sub>k</sub></em></th>
+<th class="confluenceTh"><p>interval<br />
+<em>s<sub>k</sub> ... s<sub>k+1</sub></em></p></th>
+<th class="confluenceTh">bits per symbol
+<em>log<sub>2</sub>(P<sub>k</sub>)</em></th>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">0</td>
+<td class="confluenceTd">0.40</td>
+<td class="confluenceTd">0.00 ... 0.40</td>
+<td class="confluenceTd">1.32</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">1</td>
+<td class="confluenceTd">0.27</td>
+<td class="confluenceTd">0.40 ... 0.67</td>
+<td class="confluenceTd">1.89</td>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">2</td>
+<td class="confluenceTd">0.12</td>
+<td class="confluenceTd">0.67 ... 0.79</td>
+<td class="confluenceTd">3.05</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">3</td>
+<td class="confluenceTd">0.08</td>
+<td class="confluenceTd">0.79 ... 0.87</td>
+<td class="confluenceTd">3.64</td>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">4</td>
+<td class="confluenceTd">0.07</td>
+<td class="confluenceTd">0.87 ... 0.94</td>
+<td class="confluenceTd">3.84</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">5</td>
+<td class="confluenceTd">0.06</td>
+<td class="confluenceTd">0.94 ... 1.00</td>
+<td class="confluenceTd">4.06</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The intervals of the second symbol.</p>
+<div class="table-wrap">
+<table class="relative-table wrapped confluenceTable"
+style="margin-left: auto;margin-right: auto;width: 46.954%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 82%" />
+</colgroup>
+<tbody>
+<tr class="header">
+<th class="confluenceTh"><p>symbol<br />
+<em>k</em></p></th>
+<th class="confluenceTh"><p>interval<br />
+<em>s<sub>k</sub>' ... s<sub>k+1</sub>'</em></p></th>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">0</td>
+<td class="confluenceTd">0.4000 ... 0.5080</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">1</td>
+<td class="confluenceTd">0.5080 ... 0.5809</td>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">2</td>
+<td class="confluenceTd">0.5809 ... 0.6133</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">3</td>
+<td class="confluenceTd">0.6133 ... 0.6349</td>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">4</td>
+<td class="confluenceTd">0.6349 ... 0.6538</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">5</td>
+<td class="confluenceTd">0.6538 ... 0.6700</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The intervals of the third symbol.</p>
+<div class="table-wrap">
+<table class="relative-table wrapped confluenceTable"
+style="margin-left: auto;margin-right: auto;width: 46.8317%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 82%" />
+</colgroup>
+<tbody>
+<tr class="header">
+<th class="confluenceTh"><p>symbol<br />
+<em>k</em></p></th>
+<th class="confluenceTh"><p>interval<br />
+<em>s<sub>k</sub>'' ... s<sub>k+1</sub>''</em></p></th>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">0</td>
+<td class="confluenceTd">0.6133 ... 0.6219</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">1</td>
+<td class="confluenceTd">0.6219 ... 0.6278</td>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">2</td>
+<td class="confluenceTd">0.6278 ... 0.6304</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">3</td>
+<td class="confluenceTd">0.6404 ... 0.6321</td>
+</tr>
+<tr class="odd">
+<td class="confluenceTd">4</td>
+<td class="confluenceTd">0.6321 ... 0.6336</td>
+</tr>
+<tr class="even">
+<td class="confluenceTd">5</td>
+<td class="confluenceTd">0.6336 ... 0.6439</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="parametric-coding">
+<h2>Parametric coding<a class="headerlink" href="#parametric-coding" title="Permalink to this headline">¶</a></h2>
+<p>In the examples above, we used a table to list the probabilities of each
+symbol. That leads to a rigid system, which cannot adapt to changes in
+the signal. If we want to, for example, use a perceptual model to choose
+the quantization accuracy of different samples, we need the ability to
+adapt quantization bin widths and consequently, to adapt the
+probabilities of each quantization bin. A simple approach is to model
+the probability distribution of the signal and calculate probabilities
+of each symbol on-line. We thus use a parametric model of the
+probability distribution and correspondingly, we call a coding with
+parametric models a <em>parametric coding</em>.</p>
+<p>In speech coding, parametric coding is typically used in
+frequency-domain coding to encode individual spectral components. We can
+then assume that spectral components follow a Laplacian distribution and
+derive the probabilities <em>P<sub>k</sub></em> using that distribution. More
+refined alternatives include for example <span class="xref myst">Gaussian mixture models
+(GMMs).</span></p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="algebraic-coding">
+<h2>Algebraic coding<a class="headerlink" href="#algebraic-coding" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we would like to encode a string like “00010000”, where “0”s
+happen with a high likelihood and there is only a single “1”. We could
+then use arithmetic and parametric coding to encode the probabilities of
+0’s and 1’s to develop an output string. It quickly becomes awfully
+complex, when it would be much simpler to just encode the position of
+the single “1”. In this case, if the first position is 0, then the
+single “1” is at position 3. There are a total of 8 positions, such that
+we need 3 bits to encode the position. Very simple.</p>
+<p>This approach can be readily extended to encompass for example both +1
+and -1’s. Just encode the sign with a single extra bit. There exists
+straightforward algorithms to include multiple non-zero elements as
+well, as long as the number of non-zeros is small.</p>
+<p>Such encoding algorithms are known as <em>algebraic coding</em>, where we use
+an algebraic rule or explicit algorithms to encode strings. This is one
+type of vector coding, since it encodes jointly a string of symbols.
+Usually algebraic coding is fixed bitrate coding, since the number of
+bits is decided in advance.</p>
+<p>Algebraic coding works efficiently when there are a low number of
+non-zeros and the number of quantization levels is very low.
+Unfortunately these methods become increasingly complicated when higher
+accuracy is required. Moreover, for higher accuracy quantization, it
+becomes increasingly difficult to find the best quantization of a given
+vector <em>x</em>. Still, due to its simplicity and efficiency at low bitrates,
+algebraic coding is so popular in speech coding that the most commonly
+used codec type is known as <a class="reference internal" href="Code-excited_linear_prediction_CELP_.html"><span class="doc std std-doc">Algebraic code-excited linear prediction
+(ACELP)</span></a>, since it uses algebraic
+coding to encode the residual signal.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Transmission"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

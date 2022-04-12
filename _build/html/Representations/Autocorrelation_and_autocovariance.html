@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autocorrelation and autocovariance &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Representations/Autocorrelation_and_autocovariance.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Autocorrelation and autocovariance</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="autocorrelation-and-autocovariance">
+<h1>Autocorrelation and autocovariance<a class="headerlink" href="#autocorrelation-and-autocovariance" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Look at the speech signal segment to the right. On a large scale it is
+hard to discern a structure, but on a small scale, the signal seems
+continuous. Speech signals typically have such structure that samples
+near in time to each other are similar in amplitude. Such structure is
+often called short-term temporal structure.</p>
+<p>More specifically, samples of the signal are <em>correlated</em> with the
+preceding and following samples. Such structures are in statistics
+measured by covariance and correlation, defined for zero-mean variables
+x and y as</p>
+<p>\[ \begin{split} \text{covariance:} &amp; \sigma_{xy} = E[xy] \
+\text{correlation:} &amp; \rho_{xy} =
+\frac{E[xy]}{\sqrt{E[x^2]E[y^2]}}, \end{split} \]</p>
+<p>where <em>E[ ]</em> is the expectation operator.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Short segment of speech</p>
+<p><img src="attachments/149884819/149884842.png"
+data-image-src="attachments/149884819/149884842.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149884842"
+data-linked-resource-version="3" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="speech_segment.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149884819"
+data-linked-resource-container-version="8" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>For a speech signal <em>x<sub>n</sub></em>, where <em>k</em> is the time-index, we
+would like to measure the correlation between two
+time-indices <em>x<sub>n</sub></em> and <em>x<sub>h</sub></em>. Since the structure
+which we are interested in appears when <em>n</em> and <em>h</em> are near each other,
+it is better to measure the correlation
+between <em>x<sub>n</sub></em> and <em>x<sub>n-k</sub></em>. The scalar <em>k</em> is known
+as the <em>lag</em>. Furthermore, we can assume that the correlation is uniform
+over all <em>n</em> within the segment. The self-correlation and -covariances,
+known as the <em>autocorrelation</em> and <em>autocovariance</em> are defined as</p>
+<p>\[ \begin{split} \text{autocovariance:} &amp; r_{k} =
+E_n[x_nx_{n-k}] \ \text{autocorrelation:} &amp; c_{k} =
+\frac{E_n[x_nx_{n-k}]}{E_n[x_n^2]} = \frac{r_k}{r_0}.
+\end{split} \]</p>
+<p>The figure on the right illustrates the autocovariance of the above
+speech signal. We can immediately see that the short-time correlations
+are preserved - on a small scale, the autocovariance looks similar to
+the original speech signal. The oscillating structure is also accurately
+preserved.</p>
+<p>Because we assume that the signal is stationary, and as a consequence of
+the above formulations, we can readily see that autocovarinaces and
+-correlations are symmetric</p>
+<p>\[ r_k = E_n[x_nx_{n-k}] = E_n[x_{n+k}x_{n+k-k}] =
+E_n[x_{n+k}x_{n}] = r_{-k}. \]</p>
+<p>This symmetry is clearly visible in the figure to the right, where the
+curve is mirrored around lag 0.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The autocovariance of a speech segment</p>
+<p><img src="attachments/149884819/149884843.png"
+data-image-src="attachments/149884819/149884843.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149884843"
+data-linked-resource-version="3" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="speech_segment_autoc.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149884819"
+data-linked-resource-container-version="8" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The above formulas use the expectation operator <em>E[ ]</em> to define the
+autocovariance and -correlation. It is an abstract tool, which needs to
+be replaced by a proper estimator for practical implementations.
+Specifically, to estimate the autocovariance from a segment of length
+<em>N</em>, we use</p>
+<p>\[ r_k \approx \frac1{N-1} \sum_{k=1}^{N-1} x_n x_{n-k}. \]</p>
+<p>Observe that the speech signal <em>x<sub>n</sub></em> has to be
+<a class="reference internal" href="Windowing.html"><span class="doc std std-doc">windowed</span></a> before using the above formula.</p>
+<p>We can also make an on-line estimate of the autocovariance for sample
+position <em>n</em> with lag <em>k</em> as</p>
+<p>\[ \hat r_k(n) := \alpha x_n x_{n-k} + (1-\alpha) \hat r_k(n-1),
+\]</p>
+<p>where α is a small positive constant which determines how rapidly the
+estimate converges.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>It is often easier to work with vector notation instead of scalars,
+whereby we need the corresponding definitions for autocovariances.
+Suppose</p>
+<p>\[ x =
+\begin{bmatrix}x_0\x_1\\vdots\x_{N-1}\end{bmatrix}. \]</p>
+<p>We can then define the autocovariance matrix as</p>
+<p>\[ R_x := E[x x^T] = \begin{bmatrix}E[x_0^2] &amp; E[x_0x_1] &amp;
+\dots &amp; E[x_0x_{N-1}]\E[x_1x_0] &amp; E[x_1^2] &amp; \dots &amp;
+E[x_1x_{N-1}]\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\E[x_{N-1}x_0]
+&amp; E[x_{N-1}x_1] &amp; \dots &amp; E[x_{N-1}^2]\end{bmatrix} =
+\begin{bmatrix}r_0 &amp; r_1 &amp; \dots &amp; r_{N-1}\ r_1 &amp; r_0 &amp; \dots &amp;
+r_{N-2}\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\r_{N-1} &amp; r_{N-1} &amp;
+\dots &amp; r_0\end{bmatrix}. \]</p>
+<p>Clearly <em>R<sub>x</sub></em> is thus a symmetric
+<a class="reference external" href="https://en.wikipedia.org/wiki/Toeplitz_matrix">Toeplitz</a> matrix.
+Moreover, since it is a product of <em>x</em> with itself, <em>R<sub>x</sub></em> is
+also <a class="reference external" href="https://en.wikipedia.org/wiki/Definiteness_of_a_matrix">positive
+(semi-)definite</a>.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+<div class="pageSectionHeader">
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[speech_segment.png](attachments/149884819/149884849.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[speech_segment_autoc.png](attachments/149884819/149884850.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[speech_segment.png](attachments/149884819/149884861.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[speech_segment_autoc.png](attachments/149884819/149884883.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[speech_segment.png](attachments/149884819/149884842.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[speech_segment_autoc.png](attachments/149884819/149884843.png)
+(image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

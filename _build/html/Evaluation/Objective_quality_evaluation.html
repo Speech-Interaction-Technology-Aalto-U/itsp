@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objective quality evaluation &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Evaluation/Objective_quality_evaluation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective-estimators-for-perceptual-quality">
+   Objective estimators for perceptual quality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-objective-performance-criteria">
+   Other objective performance criteria
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Objective quality evaluation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective-estimators-for-perceptual-quality">
+   Objective estimators for perceptual quality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-objective-performance-criteria">
+   Other objective performance criteria
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="objective-quality-evaluation">
+<h1>Objective quality evaluation<a class="headerlink" href="#objective-quality-evaluation" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="section" id="objective-estimators-for-perceptual-quality">
+<h2>Objective estimators for perceptual quality<a class="headerlink" href="#objective-estimators-for-perceptual-quality" title="Permalink to this headline">¶</a></h2>
+<p>With “objective evaluation” we usually refer to <em>estimators of
+perceptual quality</em>, where the objective is to predict the mean output
+of a <a class="reference internal" href="Subjective_quality_evaluation.html"><span class="doc std std-doc">subjective listening</span></a> test using an
+algorithm. That is, we want a computer to listen to a sound sample and
+try to “guess” what a human listener would say about its quality (on
+average).</p>
+<p>It is then clear that <a class="reference internal" href="Subjective_quality_evaluation.html"><span class="doc std std-doc"><em>subjective
+evaluation</em></span></a> is always the “true” measure
+of performance and objective evaluation is an approximation thereof. In
+this sense, subjective evaluation is “better”. However, there are many
+good reasons to use objective instead of subjective evaluation:</p>
+<ul class="simple">
+<li><p><em>Subjective evaluation is expensive</em>; a test requires that a large
+number of persons listens to sound samples, which is both
+time-consuming and requires infrastructure. Objective evaluation is
+performed on a computer, such that you can generally test a large
+number of sound samples in a short time.</p></li>
+<li><p><em>Subjective evaluation is noisy</em>; even with a large number of expert
+listeners it is generally difficult to get exactly the same result
+in two consecutive tests. Objective evaluation always gives the same
+rating for the same input, such that testing is consistent and
+reliable. This is especially important for scientific
+reproducibility; an independent laboratory can verify and confirm
+your results, the objective measure always gives the same output.
+With subjective evaluation, independent researchers can get
+different results, and you can never be 100% certain where the
+difference in results comes from. Did one of the researchers do an
+error or is it just that subjective listeners give always slightly
+different results?</p></li>
+</ul>
+<p>Some of the most frequently used objective measures include:</p>
+<ul>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/PESQ">PESQ</a> is probably the most
+frequently used objective evaluation method and it is defined in
+<a class="reference external" href="https://www.itu.int/rec/T-REC-P.862/en">ITU-T Recommendation P.862: Perceptual evaluation of speech quality
+(PESQ): An objective method for end-to-end speech quality assessment
+of narrow-band telephone networks and speech
+codecs</a> (2001). It is thus
+an evaluation method designed explicitly for telecommunications
+applications. It estimates the mean score of an P.800 ACR test.<br />
+PESQ accepts only narrow-band input and is <em>not directly applicable</em>
+on other bandwidths. The degradation types whose effect PESQ can
+reliably predict are</p>
+<ul class="simple">
+<li><p>Speech input levels to a codec</p></li>
+<li><p>Transmission channel errors</p></li>
+<li><p>Packet loss and packet loss concealment with CELP codecs</p></li>
+<li><p>Bit rates if a codec has more than one bit-rate mode</p></li>
+<li><p>Transcodings</p></li>
+<li><p>Environmental noise at the sending side</p></li>
+<li><p>Effect of varying delay in listening only tests</p></li>
+<li><p>Short-term time warping of audio signal</p></li>
+<li><p>Long-term time warping of audio signal</p></li>
+</ul>
+<p>Observe that distortions other than those listed above can provide
+unreliable results. An important missing feature are distortions
+caused by spectral processing, such as musical noise. Specifically,
+for example, using PESQ to evaluate <span class="xref myst">speech
+enhancement</span> methods based on processing in the
+<span class="xref myst">STFT</span> domain, <em>can give unreliable
+results</em>.</p>
+</li>
+<li><p>Perceptual Objective Listening Quality Assessment
+(<a class="reference external" href="https://en.wikipedia.org/wiki/POLQA">POLQA</a>) is the
+successor of PESQ and defined in <a class="reference external" href="http://www.itu.int/rec/T-REC-P.863/en">ITU-T Recommendation P.863:
+Perceptual objective listening quality
+assessment</a>. It is important
+to notice that for most practical purposes, POLQA is better than
+PESQ. It has a wider range of applications and acceptable
+degradation types and the output is more reliable. However, from a
+scientific perspective it is extremely regrettable that
+implementations of POLQA are commercial and <em>expensive</em> products,
+rendering application of POLQA infeasible in normal scientific work.
+Even if an individual team could afford purchasing a POLQA licence,
+verification of POLQA results by independent research labs is
+possible only if they also purchase a POLQA licence. Despite of its
+limitations, PESQ has therefore remained the scientific standard in
+objective evaluation of speech.</p></li>
+<li><p>Perceptual Evaluation of Audio Quality
+(<a class="reference external" href="https://en.wikipedia.org/wiki/PEAQ">PEAQ</a>) evaluates,
+instead of only speech, also other types of audio samples. It is
+therefore less accurate with respect to distortions specific to
+speech signals, but it generalizes better to other audio such as
+music and background noises. The measure is defined in
+<a href="http://www.itu.int/rec/R-REC-BS.1387/en" rel="nofollow">ITU-R
+Recommendation BS.1387</a>: Method for objective measurements of
+perceived audio quality (PEAQ).</p></li>
+<li><p>The <a class="reference external" href="https://ieeexplore.ieee.org/document/5713237">short-term objective intelligibility
+(STOI)</a> measure
+focuses on how <em>intelligible</em> a speech sample is. It is thus clearly
+focused on lower-quality scenarios where speech is so badly
+corrupted that it is hard to understand what is said. Like all
+objective measures, it is not a completely reliable estimate of
+quality, but can be useful in combination with other measures. A
+good feature of STOI is that an <a class="reference external" href="http://amtoolbox.sourceforge.net/amt-0.9.5/doc/speech/taal2011_code.php">implementation is
+available</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="other-objective-performance-criteria">
+<h2>Other objective performance criteria<a class="headerlink" href="#other-objective-performance-criteria" title="Permalink to this headline">¶</a></h2>
+<p>There are many cases where other performance criteria are well-warranted
+than merely prediction of subjective listening test results. Most
+typically these criteria are applied when there is no user involved,
+such as speech recognition, or, when we want to have more detailed
+characterization of performance than given by predictors of subjective
+listening test results.</p>
+<p>Some examples of such performance criteria include:</p>
+<ul class="simple">
+<li><p><em><a class="reference external" href="https://en.wikipedia.org/wiki/Word_error_rate">Word error rate
+(WER)</a></em> is used in
+speech recognition to measure the proportion of words correctly
+recognized from a test signal.</p></li>
+<li><p><em><a class="reference external" href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio">Signal to noise ratio
+(SNR)</a></em> is used
+to measure the proportion of the desirable speech signal and
+undesirable noise components (which includes for example background
+noises, distortions caused by processing algorithms and
+transmission, as well as undesirable competing speakers).</p></li>
+<li><p><em>Perceptual signal to noise ratio (pSNR)</em> measures SNR in a
+perceptually motivated domain. Essentially distortions are weighted
+such that they approximately correspond to human perception. This is
+similar to the above predictors of subjective listening tests, but
+works also on small segments of speech. It can be used to for
+detailed analysis of distortions to, for example, which parts of the
+signal contain undesirable distortions.</p></li>
+<li><p><em>The speech distortion index (SDI)</em> measures the amount by which a
+desirable speech signal is distorted. In <span class="xref myst">speech
+enhancement</span>, it is often used in combination
+with the <em>noise attenuation factor</em> (NAF), which measures the amount
+by which undesirable noises are removed. It is clear that by doing
+nothing, we obtain a perfect SDI and by setting the output to zero,
+we obtain a perfect NAF. Neither outcome is usually satisfactory. It
+is therefore usually not clear what the right balance between the
+two measures are.</p></li>
+<li><p>Unweighted and weighted average recall (UAR, WAR) are often used to
+measure performance in speech classification tasks, such as
+classifying a speech segment into one of finite number of possible
+emotions. UAR is defined as the mean of class-specific recalls (the
+proportion of class samples recognized correctly) while WAR is the
+overall proportion of samples recognized correctly across all
+classes (sometimes also referred to as <em>accuracy</em>). UAR is often
+preferred over WAR in experiments where there is a notable class
+imbalance in the test data, and where it is important to have
+systems that are also sensitive to the less-frequent classes.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">Receiver operating characteristic (ROC)
+curves</a>
+and its derivatives such as <a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve">area under the curve
+(AUC)</a>
+or equal error rate (EER) are often used to report performance of
+systems that have some type of detection threshold that can be
+varied, and when performance for each threshold value is measured in
+terms of <a class="reference external" href="https://en.wikipedia.org/wiki/Precision_and_recall">precision and
+recall</a>. For
+instance, performance of speaker verification systems is often
+evaluated using such metrics.</p></li>
+</ul>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Evaluation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design goals &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Transmission/Design_goals.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Design goals</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="design-goals">
+<h1>Design goals<a class="headerlink" href="#design-goals" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>In short, the aim of speech coding methods is primarily to enable
+natural and efficient spoken communication over a geographical distance,
+given constraints on available resources. In other words, we want to be
+able to talk with a distant person with the aid of technology. Usually
+distance refers to location, but speech coding can be (and is often)
+used for storing speech signals (such that distance refers to distance
+in <em>time</em>).</p>
+<p>In particular, aspects of quality which we can be included in our design
+goals are for example:</p>
+<ul class="simple">
+<li><p><em>Acoustic quality</em> in the sense that the the reproduced acoustical
+signal should be similar to the original signal (measured for
+example in terms of signal to noise ratio or a perceptually weighted
+variant thereof).</p></li>
+<li><p><em>Perceptual transparency</em> refers to a property of high-accuracy
+coding systems, where a human listener cannot perceive a difference
+between the original and reconstructed signals. When discussing
+transparency, we however need to accurately define the methodology
+with which we measure transparency. Namely, if we compare small
+segments of an original and reconstructed signals, we can easily
+hear minute differences, which would never be perceived in a
+realistic use-case.</p></li>
+<li><p>*Intelligibility *such that a listener can interpret the linguistic
+meaning of the reproduced signal.</p></li>
+<li><p><em>Delay</em> in the communication path, end-to-end, should be within
+reasonable limits (e.g. below 150 ms). A higher delay can impede the
+naturalness of a dialogue.</p></li>
+<li><p>*Noisyness *caused by low-accuracy quantization and background
+noises should be minimized.</p></li>
+<li><p><em>Distortions</em> of the speech signal to the amount the original signal
+is perceived to be changed by the processing.</p></li>
+<li><p><em>Naturalness</em> of the speech signal refers to high natural vs.
+non-natural a speech signal sounds. For example, some types of
+non-natural speech signals could be such which sound robotic,
+metallic or muffled.</p></li>
+<li><p><em>Listening effort</em> refers to the effort a listener needs to use a
+telecommunications system, and it should be minimized. Effort can be
+both due to properties of the user-interface, but importantly also,
+the listener might have to exert effort to understand a distorted
+speech signal.</p></li>
+<li><p><em>Annoyance</em> is closely related to listening effort, in that a signal
+which is intelligible can have so severe distortions, noisiness or
+transmission delays that it is really annoying. Usually annoyance
+thus also increase listening effort.</p></li>
+<li><p><em>Perception of distance</em> is the a feeling that the participant has
+of the distance between participants. The main contributor to the
+perception of distance is probably room acoustics, such that if the
+distance between speaker and microphone is large, than the listener
+feels distant to the speaker. It affects for example the intimacy of
+a discussion, such that it is hard to feel intimate if the distance
+is large.</p></li>
+</ul>
+<p>It is clear that different types of quality are prominent at different
+levels of coding-accuracy, which in turn is a function of available
+bitrate (bandwidth). As a rough characterization, with current
+technology, the quality-issues we optimize at different bitrates are:</p>
+<ul class="simple">
+<li><p>At extremely low bitrates (below 1kbp/s), we cannot hope to encode
+speech at high quality. At best, we can hope to retain
+<em>intelligibility</em>.</p></li>
+<li><p>At very low bitrates (1-2 kbp/s), intelligibility can usually be
+preserved, but speech signals can still be distorted and noisy, such
+that we want to minimize <em>listening effort</em>.</p></li>
+<li><p>At low rates (3-8 kbps/s), we often have to balance between avoiding
+noisyness, distortions, annoyance and naturalness. In other words,
+we can often reduce noisyness by making the signal more muffled, but
+that would reduce naturalness. It is then very much a question of
+individual taste to choose which balance of distortions is best.</p></li>
+<li><p>At medium rates (8-16 kbp/s), speech signals can already be coded
+with a high quality such that we can try to minimize the number of
+audible (perceivable) distortions. At these rates telecommunication
+systems can often, in practice, be transparent in the sense that
+users are not actively aware of any distortions, even if they would
+clearly notice distortions in a comparison with the original signal.</p></li>
+<li><p>At high rates (above 16 kbp/s), it should in general be possible to
+encode speech signals at a perceptual transparent level. However, if
+computational resources are limited and in applications which
+require extremely low delay, distortions can still be audible.</p></li>
+</ul>
+<p>Performance of a codec is however always a compromise between quality
+and resources. By increasing the amount of computational resources (or
+bandwidth) we can improve quality ad infinitum. The most important
+limited resources are</p>
+<ul class="simple">
+<li><p>Bandwidth, that is, the bit-rate at which we can transmit data. It
+is limited by</p>
+<ul>
+<li><p>physical constraints such as available radio channels,</p></li>
+<li><p>power consumption (battery, ecology and price) and</p></li>
+<li><p>infrastructure capacity (investment, complexity, power).</p></li>
+</ul>
+</li>
+<li><p>CPU, that is, the amount of operations per second that can be
+performed, which is further limited by</p>
+<ul>
+<li><p>investment cost and</p></li>
+<li><p>power consumption (battery, ecology and price).</p></li>
+</ul>
+</li>
+<li><p>Memory, that is, the amount of RAM and ROM which is needed for the
+system, which are limited by</p>
+<ul>
+<li><p>investment cost and</p></li>
+<li><p>power consumption (battery, ecology and price).</p></li>
+</ul>
+</li>
+</ul>
+<p>Furthermore, the use-case of the intended speech (and audio) codec has
+many important effects on the overall design. For example, the systems
+configuration can be one of the following:</p>
+<ul class="simple">
+<li><p><em>One-to-one</em>; the classic telephony conversation, where two phones
+transmit speech between them.</p></li>
+<li><p><em>One-to-many</em>; could be applicable for example in a setting like a
+radio-broadcast or in a storage application, where we encode once
+and have potentially multiple receivers/decoders. Since there are
+many receivers, we would then prefer that decoding the signal does
+not require much resources. In practice that means that the sender
+side (encoder) can use proportionally more resources.</p></li>
+<li><p><em>Many-to-many;</em> the typical teleconferencing application, often
+implemented with a cloud-server, such that merging of individual
+speakers can be done centrally, such that bandwidth to the many
+receivers can be saved.</p></li>
+<li><p>*Many-to-one; *could be a distributed sensor-array scenario, where
+multiple devices in a room jointly record speech. Since we then have
+many encoders, they should be very simple and a majority of the
+intelligence and computational resources should be at the receiver
+end.</p></li>
+</ul>
+<p>The overall design is also influenced by the type of transmission link.
+In particular, the first few generations of digital mobile phones
+operated with
+<a class="reference external" href="https://en.wikipedia.org/wiki/Circuit_switching">circuited-switched</a>
+networks, where a fixed amount of bandwidth is allocated to every
+connection. Newer networks are however based on
+<a class="reference external" href="https://en.wikipedia.org/wiki/Packet_switching">packet-switched</a>
+designs, where data is transmitted essentially over the internet and
+capacity and routing is optimized on the fly. Packet-switched networks
+can in practice be much better optimized for overall cost and
+performance. However, a packet-switched network cannot guarantee a
+steady flow of packets, such that the receiver has to tolerate both
+delayed or missing packets as well as packets which arrive in the wrong
+order. Clearly this has an impact on both overall transmission delay of
+the system, as well as increases the computational complexity of the
+receiver. The costs are however usually balanced by the savings gained
+in network optimization.</p>
+<p>A further important related aspect are assumptions about lost packets in
+general. In many storage and broadcast applications we can assume that
+packets are not lost and that all data is available at the receiver. It
+however much more common that we must assume that some packets are lost.
+Among the most important consequences of lost packets for the design is
+that in decoding the signal, we cannot assume that we have access to
+previous packets. Specifically, if decoding of the current packet
+depends on the previous packet, then a single lost packet would make us
+unable to decode any of the following packets. Clearly such sensitivity
+to lost packets is unacceptable in most real-world transmission systems.
+However, we could encode speech with much higher efficiency, if we were
+allowed to use previous packets to predict the current packet. The
+likelihood of lost packets thus dictates the compromise between
+sensitivity to lost packets and coding (compression) efficiency.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Transmission"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

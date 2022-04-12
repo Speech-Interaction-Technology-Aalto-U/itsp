@@ -1,0 +1,20 @@
+# In _config.yml
+title: Introduction to Speech Processing
+author: Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das
+logo: logo.png
+execute:
+  execute_notebooks: auto
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+html:
+  extra_footer: |
+    <p>
+    <img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+    This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+sphinx:
+  config:
+    html_show_copyright: false

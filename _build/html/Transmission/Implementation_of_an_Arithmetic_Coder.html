@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementation of an Arithmetic Coder &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Transmission/Implementation_of_an_Arithmetic_Coder.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-accuracy">
+   Numerical accuracy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encoder">
+   Encoder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decoder">
+   Decoder
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Implementation of an Arithmetic Coder</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-accuracy">
+   Numerical accuracy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encoder">
+   Encoder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decoder">
+   Decoder
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="implementation-of-an-arithmetic-coder">
+<h1>Implementation of an Arithmetic Coder<a class="headerlink" href="#implementation-of-an-arithmetic-coder" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="section" id="numerical-accuracy">
+<h2>Numerical accuracy<a class="headerlink" href="#numerical-accuracy" title="Permalink to this headline">¶</a></h2>
+<p>The basic idea of an arithmetic coder is not particularly difficult to
+comprehend and this can give the deceptive expectation that also
+implementation would be easy. It is not easy. The crux of error-free
+implementation is that arithmetic coding is based on a recursive
+algorithm, which in principle requires infinite numerical accuracy,
+which is obviously impossible. Implementation on a practical devices
+requires that all intermediate operations are performed with
+fixed-accuracy operations.</p>
+<p>To further complicate the issue, it is paramount that the coder works
+<em>exactly</em> the same at both the encoder and decoder. Since we are working
+with “infinite accuracy”, any small deviation, a single incorrect bit
+somewhere, would corrupt the whole remaining bitstream. Different CPUs
+have often different accuracy in their floating-point operations and
+low-cost CPUs often do not even feature floating-point operations, such
+that floating-point computations are usually not applicable. The
+remaining choice is <a class="reference external" href="https://en.wikipedia.org/wiki/Fixed-point_arithmetic">fixed-point
+arithmetic</a>, where
+we use integer operations only, such that the decimal comma is at a
+pre-determined location.</p>
+<p>Many modern CPUs feature 64-bit integer operations, but we usually need
+to implement algorithms such that they work also on low-cost CPUs and
+therefore choose to use 32-bit operations only. However, since the
+output of a multiplication of two N-bit values will have 2N bits, the
+range of input values must be 16 bits on a 32-bit CPU. To allow for
+signed integers, we reduce that to 15 bits. In some rare cases,
+behaviour in overflow situations or rounding of the least significant
+bit will differ across CPUs, such that we need to avoid also those and
+reduce the effective length of representations to 14 bits. In other
+words, all input values to an arithmetic coder must remain in the
+interval 0 to (2^14)-1 = 16383. As we shall see, there will be some
+further restrictions down the line, put on the difference between
+adjacent values.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="encoder">
+<h2>Encoder<a class="headerlink" href="#encoder" title="Permalink to this headline">¶</a></h2>
+<p>Recall that arithmetic coding is based on range-coding, where the
+likelihood of a symbol corresponds to the width of the corresponding
+range. A particular symbol is thus encoded by any number which falls
+into the range assigned to that symbol. For example, if we have three
+symbols, <em>a, b</em> and <em>c</em>, with likelihoods 0.22, 0.55 and 0.23, then we
+can choose that all number in the range 0 to 0.22 correspond to symbol
+<em>a</em>, all numbers in 0.22 to 0.77 to <em>b</em> and 0.77 to 1.0 to <em>c</em>. Notice
+that the width of each range thus corresponds to the corresponding
+likelihood.</p>
+<p>These ranges must however be represented as fixed-point values. Since
+all numbers are within the interval 0 to 1.0, we can map these numbers
+to integer values in the range 0 to 16384 (note that 16384 has in fact
+15 bits, but since it signifies a border value, this does not cause
+problems). The three ranges are thus rounded to 0 to 3604, 3604 to
+12616, and 12616 to 16384.</p>
+<p>If we would start by encoding a symbol <em>a</em>, then the remaining range is
+0 to 3604. If we would continue encoding within that range, then the
+numerical accuracy would be much smaller than 14 bits (effectively only
+log2(3604)=11 bits). The first key idea here is to scale up the
+numerical range by encoding bits which are already known. If the range 0
+to 16384 is split into two, such that the two ranges are \( 0 \leq x
+&lt; 8192 \) and \( 8192 \leq x &lt; 16384 \) we can encode a first bit
+with 0 and 1, respectively. Once we have encoded the first bit, we map
+the interval back to 0 to 16384. That is, if first bit is 0, then we
+remap \( x:=2x \) , otherwise \( x:=2(x-8192) \) . In our case, the
+range 0 to 3604 is below 8192, we encode a 0 and the range is mapped to
+0 to 7208. This is still below 8192, so we encode a second 0 and remap
+again to get a range 0 to 14416. The numerical range is now less than
+the full 14 bits, but it is the best we can do with a 14 bit
+representation for a range which is not aligned with a power of 2.</p>
+<p>Similarly, if we would want to encode a symbol <em>c</em>, we would have the
+remaining range 12616 to 16384, encode a 1 and remap to 8838 to 16384,
+encode a second 1 and remap to 1312 to 16384.</p>
+<p>If we however encode a symbol <em>b</em>, the remaining range is 3604 to 12616,
+where the lower limit is below 8192 and the upper limit is above 8192,
+so we cannot encode a bit directly, but should continue to encoding the
+next symbol.</p>
+<p>We then need to remap the ranges of the three symbols, from 0, 3604,
+12616, 16384 to the range 3604 to 12616. To map the borders
+<em>b<sub>0</sub></em>, to <em>b<sub>N</sub></em>, to the range \( [r_0,\,r_1] \)
+we use the formula</p>
+<p>\[ b_k’ := r_0 + \left\lfloor \frac{b_k (r_1-r_0)}{b_N-b_0}
+\right\rceil \]</p>
+<p>such that the new intervals are 3604, 5586, 10543, 12616 and where the
+brackets \( \lfloor\cdot\rceil \) signify rounding to nearest
+integer. Observe that 16384 = 2^14, such that the division can be
+replaced by a right-shift of 14 steps, for a large reduction in
+computation time.</p>
+<p>We can then proceed to encoding the second symbol:</p>
+<ul class="simple">
+<li><p>If second symbol is <em>a</em>, then the new range is 3604 to 5586, we
+encode a 0, and remap to 7208 to 11172.</p></li>
+<li><p>If second symbol is <em>b</em>, then the new range is 5585 to 10543.</p></li>
+<li><p>If second symbol is <em>c</em>, then the new range is 10543 to 12616, we
+encode a 1, and remap to 4702 to 8848.</p></li>
+</ul>
+<p>In all three cases, we cannot proceed further, since the remaining range
+includes the mid-point 8192. However, in all three cases, the width of
+the range is now rather small (respectively, 3964, 4957 and 4146), such
+that if we remap the next symbols into that range, then their accuracy
+would be significantly reduced. In fact, we can readily find examples
+where the range diminishes so much that we do not have unique ranges for
+all the symbols any more, such that the string of symbols cannot be
+decoded any more.</p>
+<p>We therefore need an additional option, in addition to encoding a 0 or
+1, which allows extending the current range to maintain numerical
+accuracy. A practical solution is to find a new category of “postponed
+bits”, where some bits are stored into a queue, whose value is
+determined only later.</p>
+<p>Specifically, let the current range be \( [r_0,\,r_1] \) and the
+upper limit of numerical range be <em>R</em>. If \( r_0 &gt; R/4 \) , and \(
+r_1 &lt; 3R/4 \) , then we postpone one bit and remap the range as</p>
+<p>\[ r_k’:=2(r_k-N/4). \]</p>
+<p>In essence, we discard the quarters at the left and right ends, and
+extend the middle of the range to cover the whole available range.</p>
+<p>All postponed bits get encoded when we next time get a bit to encode.
+Specifically, if the number of postponed bits is p, and the next bit to
+encode is 0, then we encode a 0 and p 1’s. Similarly, if the next bit to
+encode is a 0, then we encode a 1 and p 0’s.</p>
+<p>With these rules we can encode any string of symbols. However, as the
+string of symbols comes to an end, the remaining range still contains
+information which is not encoded to the bit stream. We thus have to
+flush the range with the smallest of number bits. We achieve this as
+follows. Suppose the remaining range is \( [r_0,\,r_1] \) . By
+necessity, the range must include the mid-point <em>R/2</em>, where <em>R</em> is the
+upper limit of the numerical range. We would like to encode the shortest
+bitstream which uniquely identifies this range. Out of the ranges \(
+[r_0,\,R] \) and \( [R,\,r_1] \) , we therefore choose to
+encode the range which is larger (=more likely);</p>
+<ul class="simple">
+<li><p>If \( R-r_0 &gt; r_1-R \) , then we encode a 0 and the new current
+range is 0 to <em>2r<sub>0</sub></em>.</p></li>
+<li><p>If \( R-r_0 &lt;= r_1-R \) , then we encode a 1 and the new current
+range is <em>2(r<sub>1</sub>-R/2)</em> to 1.</p></li>
+</ul>
+<p>We continue encoding bits iteratively with this rule until the current
+range covers the whole interval 0 to <em>R</em>.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+<div class="section" id="decoder">
+<h2>Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h2>
+<p>At the decoder we in principle revert the operations of the encoder.
+However, as was demonstrated with flushing of the bitstream, which is
+required as the last step of encoding, the current range includes
+information about symbols which have not yet been written into the
+bitstream. We therefore have to decode the bits corresponding to the
+steps in the encoder, but also metaphorically, flush the bitstream for
+every iteration, to decode the information left in the range. In
+pseudo-code, the algorithm can be stated as</p>
+<ol class="simple">
+<li><p>As long as there are bits left</p>
+<ol class="simple">
+<li><p>Save current state of the bitstream</p></li>
+<li><p>Decode as many bits as required to determine current symbol</p></li>
+<li><p>Restore state of the bitstream</p></li>
+<li><p>Repeat the range-remapping steps of the encoder and remove the
+corresponding number of bits from the bitstream</p></li>
+</ol>
+</li>
+</ol>
+<p>As an example, consider the same example as above, where the intervals
+for <em>a,b</em> and <em>c</em> are 0, 3604, 12616, 16384 and the first symbol is <em>b</em>.
+At the encoder, we did not encode any bits for <em>b</em> but the range was
+updated to 3604 and 12616. At the decoder, the initial range is 0 to
+16384 and we therefore have to decode several bits until we can
+determine that the symbol is <em>b</em>. However, to make sure that we have
+exactly the same coder state as at the encoder, we then restore the bits
+to the bitstream, and proceed as we would not have decoded any bits when
+decoding the second symbol from range 3604 to 12616.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Transmission"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

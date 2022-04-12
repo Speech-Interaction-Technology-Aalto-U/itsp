@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neural networks &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Modelling/Neural_networks.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#network-structures">
+   Network structures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deep-neural-networks-dnns">
+     Deep Neural Networks (DNNs)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basics-of-neural-networks">
+     Basics of Neural Networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convolutional-neural-networks">
+     Convolutional neural networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recurrent-neural-networks-rnns">
+     Recurrent neural networks (RNNs)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Neural networks</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#network-structures">
+   Network structures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deep-neural-networks-dnns">
+     Deep Neural Networks (DNNs)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basics-of-neural-networks">
+     Basics of Neural Networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convolutional-neural-networks">
+     Convolutional neural networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recurrent-neural-networks-rnns">
+     Recurrent neural networks (RNNs)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="neural-networks">
+<h1>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>An Artificial Neural Network (ANN) is a mathematical model that tries to simulate the structure and functionalities of biological neural networks. Basic building block of every artificial neural network is artificial neuron, that is, a simple mathematical model
+(function).  Artificial neuron is a basic building block of every
+artificial neural network. Its design and functionalities are derived from observation of a biological neuron that is basic building block of biological neural networks (systems) which includes the brain, spinal
+cord and peripheral ganglia.</p>
+<p>Computational modelling using neural networks was started in the 1940’s
+and has gone through several waves of innovation and subsequent decline.
+The recent boom of deep neural networks (DNNs) - which roughly means
+that the network has more layers of non-linearities than previous
+models - happened probably due to the increase in available
+computational power and availability of large data-sets. It has fuelled
+a flurry of incremental innovation in all directions, and in many
+modelling tasks, deep neural networks currently give much better results
+than any competing method.</p>
+<p>Despite its successes, application of DNNs in speech processing does not
+come without its fair share of problems. For example,</p>
+<ul class="simple">
+<li><p>Training DNNs for a specific task on a particular set of data often
+does not increase our understanding of the problem. It is a black
+box. How are we to know whether the model is reliable? A trained
+speech recognizer on a language A does not teach much about speech
+recognition for language B (though the process of designing a
+recognizers does teach us about languages).</p></li>
+<li><p>Training of DNNs is sensitive to the data on which it is trained on.
+Models can for example be susceptible to hidden biases, such that
+performance degrades for particular under-represented groups of
+people.</p></li>
+<li><p>A trained DNN is “a solution” to a particular problem, but it does
+not directly give us information about how good of a solution it is.
+For example, if a data-set represents a circle in the 2D-plane, then
+it is possible to accurately model that data-set with a neural
+network where the non-linearities are sigmoids. The neural network
+just has to be large enough and it can do the job. However, the
+network is then several orders of magnitude more complex than the
+equation of the circle. That is, though training of the network was
+successful, and the model is relatively accurate, it gives no
+indication if the complexity of the network is of similar scale as
+the complexity of the problem.</p></li>
+</ul>
+<p>To combat such problems, a recent trend in model design has been to
+return to classical design paradigms, where models are based on thorough
+understanding of the problem. The parameters of such models are then
+trained using methods from machine learning.</p>
+</div>
+<div class="section" id="network-structures">
+<h2>Network structures<a class="headerlink" href="#network-structures" title="Permalink to this headline">¶</a></h2>
+<p>Neural networks are, in principle, built from simple building blocks,
+where the most common type of building block is</p>
+<div class="math notranslate nohighlight">
+\[ y = f(A x + b) \]</div>
+<p>where <em>x</em> is an input vector, matrix <em>A</em> and vector <em>b</em> are constants,
+<em>f</em> is a non-linear function such as the element-wise sigmoid, and <em>y</em>
+is the output. This is often referred to as a <em>layer</em>. Layers can then
+be stacked after each other such that, for example, a three layer
+network would be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{matrix} y_1 &amp;= f(A_1 x + b_1)\\ y_2 &amp;= f(A_2 y_1 +
+b_3)\\ y_{out} &amp;= f(A_3 y_2 + b_3). \end{matrix} \end{split}\]</div>
+<div class="section" id="deep-neural-networks-dnns">
+<h3>Deep Neural Networks (DNNs)<a class="headerlink" href="#deep-neural-networks-dnns" title="Permalink to this headline">¶</a></h3>
+<p>Deep Neural Network (DNNs) are an artificial neural network (ANN) with
+multiple layers between the input and output layers. Many experts define
+deep neural networks as networks that have an input layer, an output
+layer and at least one hidden layer in between. Each layer performs
+specific types of sorting and ordering in a process that some refer to
+as “feature hierarchy.” One of the key uses of these sophisticated
+neural networks is dealing with unlabeled or unstructured data. The
+phrase “deep learning” is also used to describe these deep neural
+networks, as deep learning represents a specific form of machine
+learning where technologies using aspects of artificial intelligence
+seek to classify and order information in ways that go beyond simple
+input/output protocols.</p>
+</div>
+<div class="section" id="basics-of-neural-networks">
+<h3>Basics of Neural Networks<a class="headerlink" href="#basics-of-neural-networks" title="Permalink to this headline">¶</a></h3>
+<p>Neurons: It forms the basic structure of a neural network. When we get
+the information, we process it and then we generate an output.
+Similarly, a neuron receives an input, processes it and generates an
+output which is either sent to other neurons for further processing or
+it is the final output.</p>
+<p>Weights: When an input enters a neuron, it is multiplied by a weight.
+Initially, the weights are initialized and they are updated during the
+model training process. When the training is over, the neural network
+assigns a higher weight value to the input it considers more important
+as compared to the ones which are considered less important.</p>
+<p>Bias: In addition to the weights, another linear component is applied to
+the input, called as the bias. It is added to the result of weight
+multiplication to the input. The bias is basically added to change the
+range of the weight multiplied input.</p>
+<p>Activation Function:</p>
+<ol>
+<li><p>Sigmoid: It allows a reduction in extreme or atypical values in
+valid data without eliminating them: it converts independent
+variables of almost infinite range into simple probabilities between
+0 and 1. Most of its output will be very close to the extremes of 0
+or 1.</p>
+<div class="math notranslate nohighlight">
+\[ sigmoid(x) = \frac{1}{1+e^{-x}} \]</div>
+</li>
+<li><p>ReLU(Rectified Linear Unit): It has output 0 if the input is less
+than 0, and raw output otherwise. That is, if the input is greater
+than 0, the output is equal to the input. The operation of ReLU is
+closer to the way our biological neurons work.</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \max(x,0) \]</div>
+</li>
+<li><p>Softmax: It is a good activation function since it not only maps our
+output to a <span class="math notranslate nohighlight">\([0,1]\)</span> range but also maps each output in such a way
+that the total sum is 1. The output of Softmax is therefore
+a probability distribution.</p></li>
+<li><p>Input / Output / Hidden Layer : The input layer receives the input
+and is the first layer of the network. The output layer is the one which
+generates the output and is the final layer of the network. The
+processing layers are the hidden layers within the network. These hidden
+layers are the ones which perform specific tasks on the incoming data
+and pass on the output generated by them to the next layer. The input
+and output layers are the ones visible to us, while are the intermediate
+layers are hidden.</p></li>
+<li><p>MLP (Multi Layer perceptron): In the simplest network, we would have
+an input layer, a hidden layer and an output layer. Each layer has
+multiple neurons and all the neurons in each layer are connected to all
+the neurons in the next layer. These networks can also be called as
+fully connected networks.</p></li>
+<li><p>Cost Function: When we train a network, its main objective is to  to
+predict the output as close as possible to the actual value. Hence, the
+cost/loss function is used to measure this accuracy. The cost or loss
+function penalizes the network when it makes errors. The main objective
+while running the network is to increase the prediction accuracy and to
+reduce the error, thus minimizing the cost function.</p></li>
+<li><p>Gradient Descent: It is an optimization algorithm used to minimize
+some function by iteratively moving in the direction of steepest descent
+as defined by the negative of the gradient.</p></li>
+<li><p>Learning Rate: The learning rate is a hyperparameter that controls
+how much to change the model in response to the estimated error each
+time the model weights are updated. Choosing the learning rate is
+challenging as a value too small may result in a long training process
+that could get stuck, whereas a value too large may result in learning a
+sub-optimal set of weights too fast or an unstable training process. The
+learning rate may be the most important hyperparameter when configuring
+neural network. Therefore, it is important  to know how to investigate
+the effects of the learning rate on model performance and to build an
+intuition about the dynamics of the learning rate on model behavior.</p></li>
+<li><p>Backpropagation: When we define a neural network, we assign random
+weights and bias values to our nodes. Once we have received the output
+for a single iteration, we can calculate the error of the network. This
+error is then fed back to the network along with the gradient of the
+cost function to update the weights of the network. These weights are
+then updated so that the errors in the subsequent iterations is reduced.
+This updating of weights using the gradient of the cost function is
+known as back-propagation. In back-propagation the movement of the
+network is backwards, the error along with the gradient flows back from
+the out layer through the hidden layers and the weights are updated.</p></li>
+<li><p>Batches: While training a neural network, instead of sending the
+entire input in one go, we divide in input into several chunks of equal
+size randomly. Training the data on batches makes the model more
+generalized as compared to the model built when the entire data set is
+fed to the network in one go.</p></li>
+<li><p>Epochs: An epoch is is a single training iteration of all batches
+in both forward and back propagation. Thus, 1 epoch is a single forward
+and backward pass of the entire input data. Although it is highly likely
+that more number of epochs would show higher accuracy of the network, it
+would also take longer for the network to converge. You should also take
+into account that if the number of epochs are too high, the network
+might over-fit.</p></li>
+<li><p>Dropout: It is a regularization technique to prevent over-fitting
+of the network. While training, a number of neurons in the hidden layer
+are randomly dropped.</p></li>
+<li><p>Batch Normalization: It normalizes the input layer by adjusting and
+scaling the activations. For example, if we have features from 0 to 1
+and some from 1 to 1000, we should normalize them to speed up learning.</p></li>
+</ol>
+<p>Classification of Neural Networks</p>
+<ol class="simple">
+<li><p><strong>Shallow neural network</strong>: It has only one hidden layer between the
+input and output.</p></li>
+<li><p><strong>Deep neural network</strong>: it has more than one layer.</p></li>
+</ol>
+<p>Types of Deep Learning Networks</p>
+<p><img
+src="https://www.guru99.com/images/tensorflow/083018_0542_WhatisDeepl3.png"
+class="image-center"
+data-image-src="https://www.guru99.com/images/tensorflow/083018_0542_WhatisDeepl3.png" /></p>
+<ul class="simple">
+<li><p>Feed forward neural networks: They are artificial neural networks
+where the connections between units do not form a cycle. Feedforward
+neural networks were the first type of artificial neural network
+invented and are simpler than their counterpart, recurrent neural
+networks (see below ). They are called feedforward because
+information only travels forward in the network.  Firstly, it goes
+through the input nodes, then through the hidden nodes and finally
+through the output nodes.</p></li>
+</ul>
+</div>
+<div class="section" id="convolutional-neural-networks">
+<h3>Convolutional neural networks<a class="headerlink" href="#convolutional-neural-networks" title="Permalink to this headline">¶</a></h3>
+<p>CNN was first proposed by [1].  It has first been successfully used by
+[2]  for handwritten digit classification problem. It is currently the
+most popular neural network model being used for image classification
+problem. The advantages of CNNs over DNNs include CNNs are highly
+optimized for processing 2D and 3D images, and are effective to learn
+and extract abstractions of 2D features. In addition to these, CNNs have
+significantly fewer parameters than a fully connected network of similar
+size.</p>
+<p>Figure 4.1. shows the overall architecture of CNNs. CNNs consists mainly
+of two  parts: feature extractors and classifier. In the feature
+extraction module, each layer of the network receives the output from
+its immediate previous layer as its input and passes its output as the
+input to the next layer. The CNN architecture mainly consists of three
+types of layers: convolution, pooling, and classification.</p>
+<p>Figure 4.1. An overall architecture of the Convolutional Neural Network.</p>
+<p>The main layers in Convolutional Neural Networks are:</p>
+<ul class="simple">
+<li><p>Convolutional layer: A “filter” passes over the image, scanning a
+few pixels at a time and creating a feature map that predicts the
+class to which each feature belongs. Thus, in this layer, feature
+maps from previous layers are convolved with learnable kernels. The
+output of the kernels goes through a linear or non-linear activation
+function, such as sigmoid, hyperbolic tangent, Softmax, rectified
+linear, and identity functions) to form the output feature maps.
+Each of the output feature maps can be combined with more than one
+input feature map.</p></li>
+<li><p>Pooling layer: It reduces the amount of information in each feature
+obtained in the convolutional layer while maintaining the most
+important information (there are usually several rounds of
+convolution and pooling).</p></li>
+<li><p>Fully connected input layer (flatten): It takes the output of the
+previous layers, “flattens” them and turns them into a single vector
+that can be an input for the next stage.</p></li>
+<li><p>The first fully connected layer: It takes the inputs from the
+feature analysis and applies weights to predict the correct label.</p></li>
+<li><p>Fully connected output layer: It gives the final probabilities for
+each label.</p></li>
+</ul>
+<p>Higher-level features are derived from features propagated from lower
+level layers. As the features propagate to the highest layer or level,
+the dimensions of features are reduced based on the size of the kernel
+for the convolution and pooling operations respectively. However, the
+number of feature maps usually increase for representing better features
+of the input images for ensuring classification accuracy. The output of
+the last layer of the CNN is used as the input to a fully connected
+network. Feed-forward neural networks are used as the classification
+layer since they provide better performance.</p>
+<p>Figure 4.2 Popular CNN architectures. The Figure is taken from
+<a class="reference external" href="https://www.aismartz.com/blog/cnn-architectures/">https://www.aismartz.com/blog/cnn-architectures/</a>.</p>
+<p>Applications of CNNs:</p>
+<ul class="simple">
+<li><p>Image Processing and Computer Vision: CNNs have been successfully
+used in different image classification tasks [7–11].</p></li>
+<li><p>Speech Processing: CNNs have been successfully used in different
+speech processing applications such as speech enhancement [8] and
+audio tagging [9].</p></li>
+<li><p>Medical Imaging: CNNs have also been widely used in different
+medical image processing including classification, detection, and
+segmentation tasks [10].</p></li>
+</ul>
+<p>Training Techniques</p>
+<ol class="simple">
+<li><p>Sub-Sampling Layer or Pooling Layer:  Two different techniques have
+been used for the implementation of deep networks in the
+sub-sampling or pooling layer: average and max-pooling.  While the
+average Pooling calculate the average value for each patch on the
+feature map, the max pooling calculate the maximum value for each
+patch of the feature map.</p></li>
+<li><p>Padding: It adds extra layer of zeros across the images so that the
+output image has the same size as the input.</p></li>
+<li><p>Data Augmentation: It is the addition of new data derived from the
+given data. This might prove to be beneficial for prediction. It
+includes rotation, shearing, zooming, cCropping, flipping and
+changing the brightness level.</p></li>
+</ol>
+<p>Note that the performance of CNNs depends heavily on multiple
+hyperparameters: number of layers, number of feature maps in each layer,
+the use of dropouts, batch normalization, etc. Thus, it’s important that
+you should first fine-tune the model hyperparameters by conducting lots
+of experiments. Once you find the right set of hyperparameters, you need
+to train the model for a number of epochs.</p>
+</div>
+<div class="section" id="recurrent-neural-networks-rnns">
+<h3>Recurrent neural networks (RNNs)<a class="headerlink" href="#recurrent-neural-networks-rnns" title="Permalink to this headline">¶</a></h3>
+<p>Topics to be covered:</p>
+<ul class="simple">
+<li><p>Basics of RNNs</p></li>
+<li><p>Vanishing and exploding gradient problem</p></li>
+<li><p>Long short-term memory (LSTM)</p></li>
+</ul>
+<p><strong>Basics of RNNs</strong></p>
+<p>The standard feedforward neural networks (i.e,, DNNs and CNNs) are
+function generators associating appropriate output to input. However,
+certain types of data are serial in nature. A recurrent neural network
+(RNN) processes sequences such as stock prices, sentences one element at
+a time while retaining a memory (called a state) of what has come
+previously in the sequence. Recurrent means the output at the current
+time step becomes the input to the next time step. At each element of
+the sequence, the model considers not just the current input, but what
+it remembers about the preceding elements. This memory allows the
+network to learn long-term dependencies in a sequence which means it can
+take the entire context into account when making a prediction such as
+predicting the next word in a sentence. A RNN is designed to mimic the
+human way of processing sequences: we consider the entire sentence when
+we form a response instead of words by themselves. For example, consider
+the following sentence:</p>
+<p>“The concert was boring for the first few minutes but then was terribly
+exciting.”</p>
+<p>A machine learning model that considers the words in isolation would
+probably conclude this sentence is negative. An RNN by contrast should
+be able to see the words “but” and “terribly exciting” and realize that
+the sentence turns from negative to positive because it has looked at
+the entire sequence. Reading a whole sequence gives us a context for
+processing its meaning, a concept encoded in recurrent neural networks.</p>
+<p>Figure 4.3 General form of RNN</p>
+<p>The left part of Figure 4.3 shows that the input-output relation of a
+standard neural network is altered so that the output is fed into the
+input. But, the right part of Figure 4.3 shows that the scheme unwrapped
+through time. The input is the serial data  <span class="math notranslate nohighlight">\( (x_1,........,x_T) \)</span>
+and the output is <span class="math notranslate nohighlight">\( (o_1,........,o_T) \)</span> . The output of a neural
+network is fed into the next constituent neural network in the next
+stage as part of the input. So the output  <span class="math notranslate nohighlight">\( o_t \)</span> depends on all
+the inputs  <span class="math notranslate nohighlight">\( (x_1,........,x_T) \)</span> . It may be the case that it is
+not a good idea to make the output  <span class="math notranslate nohighlight">\( o_1 \)</span></p>
+<p>dependent only on  <span class="math notranslate nohighlight">\( x_1 \)</span> . In fact  <span class="math notranslate nohighlight">\( o_1 \)</span> itself should be
+produced in context.</p>
+<p>RNNs can be used in different applications such as machine translation,
+speech recognition, generating image descriptions, video tagging, and
+language modeling.</p>
+<p>Advantages of Recurrent Neural Network</p>
+<ol class="simple">
+<li><p>An RNN remembers each and every information through time. It is
+useful in time series prediction only because of the feature to
+remember previous inputs as well. This is called Long Short Term
+Memory.</p></li>
+<li><p>Recurrent neural network are even used with convolutional layers to
+extend the effective pixel neighborhood.</p></li>
+</ol>
+<p>Disadvantages of Recurrent Neural Network</p>
+<ol class="simple">
+<li><p>Gradient vanishing and exploding problems.</p></li>
+<li><p>Training an RNN is a very difficult task.</p></li>
+<li><p>It cannot process very long sequences if using tanh or relu as an
+activation function.</p></li>
+</ol>
+<p><strong>Vanishing and exploding gradient problem</strong></p>
+<p>RNNs are very hard to train. Let us see the reason. The term  <span class="math notranslate nohighlight">\( \frac{\partial E}{\partial h^l} \)</span> used in backpropagation algorithm is a
+product of a long chain of matrices: <span class="math notranslate nohighlight">\( \left( \frac {\partial
+E}{\partial h^l} \right ) = \left ( \frac {\partial
+z^{l+1}}{\partial h^l} \right ) \left ( \frac {\partial
+h^{l+1}}{\partial z^{l+1}} \right )...\left ( \frac {\partial
+h^l}{\partial z^L} \right ) \left ( \frac {\partial E}{\partial
+h^L} \right ), \)</span> For the input <span class="math notranslate nohighlight">\( x=h^0 \)</span> , this chain is the
+longest. If the activation function  <span class="math notranslate nohighlight">\( sigmoid(t) \)</span> is the sigmoid
+function <span class="math notranslate nohighlight">\( sigmoid(t) = \frac{1}{1+e^{-t}} \)</span> its derivative is <span class="math notranslate nohighlight">\(
+sigmoid'(t) = \frac{e^t} { \left( 1 + e^t \right ) ^2 } \)</span> which
+gets very small so that it practically vanishes except at a small
+interval near 0.  It is one of the reasons why people ReLU activation
+function is prefered. But it is not a solution, as negative input values
+also kill the gradient and make it stay there. Even if one avoids such
+an outright vanishing gradient problem, the long matrix multiplication
+in general may make the gradient vanish or explode. This kind of problem
+gets even more aggravated in the case of RNNs, since RNNs normally
+require long chain of backpropagation not only through the layers of
+neural networks of constituent cells but also across the different
+cells. Hence, RNNs are difficult to train.</p>
+<p><strong>Long short-term memory (LSTM)</strong></p>
+<p>The Long Short-Term Memory (LSTM) was first proposed by Hochreiter and
+Schmidhuber [10] as a solution to the vanishing gradients problem. But
+it did not attract much attention until people realized it indeed
+provides a good solution to the vanishing and exploding gradient problem
+of RNN as described above. We will only describe the architecture of its
+cell. There are many variations in the cell architecture, but we present
+only the basics.</p>
+<p>At the heart of an RNN is a layer made of memory cells. The most popular
+cell at the moment is the Long Short-Term Memory (LSTM) which maintains
+a cell state as well as a carry for ensuring that the signal
+(information in the form of a gradient) is not lost as the sequence is
+processed. At each time step the LSTM considers the current word, the
+carry, and the cell state. The LSTM has 3 different gates and weight
+vectors: there is a “forget” gate for discarding irrelevant information;
+an “input” gate for handling the current input, and an “output” gate for
+producing predictions at each time step. However, as Chollet points out,
+it is fruitless trying to assign specific meanings to each of the
+elements in the cell.</p>
+<p><img src="attachments/165123166.png" class="image-center"
+ height="250" /></p>
+<p>Figure 4.4. Structure of LSTM cell</p>
+<p>The structure of LSTM is shown in Figure 4.4 . The input vector is <span class="math notranslate nohighlight">\(
+x_t \)</span> . The cell state denoted by  <span class="math notranslate nohighlight">\( c_{t-1} \)</span> and the hidden
+state  <span class="math notranslate nohighlight">\( h_{t-1} \)</span> are fed into the LSTM cell and  <span class="math notranslate nohighlight">\( c_t \)</span> and 
+<span class="math notranslate nohighlight">\( h_t \)</span> are fed into the next cell. Internally, it has four states: 
+<span class="math notranslate nohighlight">\( i_t \)</span> (input),  <span class="math notranslate nohighlight">\( f_t \)</span> (forget),  <span class="math notranslate nohighlight">\( o_t \)</span> (output), and 
+<span class="math notranslate nohighlight">\( g_t \)</span> . The forget state  <span class="math notranslate nohighlight">\( f_t \)</span> is obtained as a sigmoid
+output of a network with  <span class="math notranslate nohighlight">\( x_t \)</span> and  <span class="math notranslate nohighlight">\( h_{t-1} \)</span> fed into it
+as inputs. Since  <span class="math notranslate nohighlight">\( f_t \)</span> is a sigmoid output, each element in it
+has a value between 0 and 1. If it is close to 0, it erases  <span class="math notranslate nohighlight">\(
+c_{t-1} \)</span> by multiplication; if it is close to 1, it  keeps  <span class="math notranslate nohighlight">\(
+c_{t-1} \)</span> by multiplication. Thus,  <span class="math notranslate nohighlight">\( f_t \)</span> is given the name
+”forget state” because of this property,  The input state  <span class="math notranslate nohighlight">\( i_t \)</span>
+and the output state  <span class="math notranslate nohighlight">\( o_t \)</span> are obtained by using (1) and (3),
+respectively. The state  <span class="math notranslate nohighlight">\( g_t \)</span> is also obtained similarly except
+that it is an output of the form tanh . This gives the  <span class="math notranslate nohighlight">\( \pm \)</span>
+sign. The product it  <span class="math notranslate nohighlight">\( \\otimes \)</span> gt is then added to  <span class="math notranslate nohighlight">\( c_t \)</span>
+, and this gives new information to the cell state. The hidden state ht
+is obtained as in (6), and the cell output  <span class="math notranslate nohighlight">\( y_t \)</span> is the same as
+<span class="math notranslate nohighlight">\( h_t \)</span> . The whole scheme is depicted in Figure 4.4.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{array}{lcll}
+i_t (input) &amp;=&amp; \sigma (W_{ix}x_t + W_{ih}h_{t-1} + b_i) &amp;(1) \\
+f_t (forget) &amp;=&amp; \sigma (W_{fx}x_t + W_{fh}h_{t-1} + b_f) &amp; (2) \\
+o_t (output)&amp;=&amp; \sigma (W_{ox}x_t + W_{oh}h_{t-1} + b_o) &amp; (3) \\
+g_t &amp;=&amp; tanh (W_{gx}x_t + W_{gh}h_{t-1} + b_g) &amp; (4) \\
+c_t (cell\ state) &amp;=&amp; ft\otimes c_{t-1} + i_t \otimes g_t &amp; (5)\\
+h_t (hidden\ state) &amp;=&amp; o_t \otimes tanh(c_t) &amp;(6)\\
+y_t (cell\ output) &amp;=&amp; h_t &amp; (7)
+\end{array}
+\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[1] Fukushima, K. Neocognitron: A hierarchical neural network capable
+of visual pattern recognition. Neural Netw. 1988, 1, 119–130.</p>
+<p>[2] LeCun, Y.; Bottou, L.; Bengio, Y.; Haffner, P. Gradient-based
+learning applied to document recognition. Proc. IEEE 1998, 86,
+2278–2324.</p>
+<p>[3] Krizhevsky, A.; Sutskever, I.; Hinton, G.E. Imagenet
+classification with deep convolutional neural networks. In Proceedings
+of the 25th International Conference on Neural Information Processing
+Systems, Lake Tahoe, NV, USA, 3–6 December 2012; pp. 1106–1114.</p>
+<p>[4] Zeiler, M.D.; Fergus, R. Visualizing and understanding
+convolutional networks. arXiv 2013, arXiv:1311.2901.</p>
+<p>[5] Simonyan, K.; Zisserman, A. deep convolutional networks for
+large-scale image recognition. arXiv 2014, arXiv:1409.1556.</p>
+<p>[6] Szegedy, C.; Liu, W.; Jia, Y.; Sermanet, P.; Reed, S.; Anguelov,
+D.; Erhan, D.; Vanhoucke, V.; Rabinovich, A. Going deeper with
+convolutions. In Proceedings of the IEEE Conference on Computer Vision
+and Pattern Recognition, Boston, MA, USA, 7–12 June 2015; pp. 1–9.</p>
+<p>[7] He, K.; Zhang, X.; Ren, S.; Sun, J. Deep residual learning for
+image recognition. In Proceedings of the IEEE Conference on Computer
+Vision and Pattern Recognition, Las Vegas, NV, USA, 27–30 June 2016; pp.
+770– 778.</p>
+<p>[8] Hou, J.-C.; Wang, S.; Lai, Y.; Tsao, Y.; Chang, H.; Wang, H.
+Audio-Visual Speech Enhancement Using Multimodal Deep Convolutional
+Neural Networks. arXiv 2017, arXiv:1703.10893.</p>
+<p>[9] Xu, Y.; Kong, Q.; Huang, Q.; Wang, W.; Plumbley, M.D.
+Convolutional gated recurrent neural network incorporating spatial
+features for audio tagging. In Proceedings of the 2017 International
+Joint Conference on Neural Networks (IJCNN), Anchorage, AK, USA, 14–19
+May 2017; pp. 3461–3466.</p>
+<p>[10] Hochreiter, S., Schmidhuber, J., Courville, A., Long short-term
+memory, Neural Computation 9(8):1735-80 (1997)</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+</div>
+</div>
+</div>
+</div>
+<div class="pageSectionHeader">
+</div>
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2020-1-14_12-25-18.png](attachments/155464038/165122914.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2020-1-14_15-11-3.png](attachments/155464038/165123166.png)
+(image/png)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Modelling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
