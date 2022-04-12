@@ -148,6 +148,7 @@ is known in advance.
 
 ![struct3](attachments/165139247.png)
 
+
 ## User-interfaces
 
 User interfaces can employ speech to accept speech commands and/or

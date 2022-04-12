@@ -2,6 +2,4 @@
 format: jb-book
 root: README.md
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: Introduction/Introduction.md
