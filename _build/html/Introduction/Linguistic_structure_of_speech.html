@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linguistic structure of speech &#8212; Introduction to Speech Processing</title>
+    <title>2.5. Linguistic structure of speech &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,12 +48,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Applications and systems structures" href="Applications_and_systems_structures.html" />
-    <link rel="prev" title="Speech production and acoustic properties" href="Speech_production_and_acoustic_properties.html" />
+    <link rel="next" title="2.6. Applications and systems structures" href="Applications_and_systems_structures.html" />
+    <link rel="prev" title="2.2. Physiological speech production" href="Speech_production_and_acoustic_properties.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,6 +73,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
@@ -87,45 +90,387 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
+  <a class="reference internal" href="../index.html">
    Introduction to Speech Processing
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Why_speech_processing.html">
-   Why speech processing?
+  <a class="reference internal" href="../Preface.html">
+   1. Preface
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Introduction.html">
+   2. Introduction
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Why_speech_processing.html">
+     2.1. Why speech processing?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Speech_production_and_acoustic_properties.html">
+     2.2. Physiological speech production
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
+     Speech perception (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.5. Linguistic structure of speech
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
+     Speech-language pathology (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_and_systems_structures.html">
+     2.6. Applications and systems structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
+     Social and cognitive processes in human communication (external)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Pre-processing.html">
+   3. Pre-processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Preprocessing/Pre-emphasis.html">
+     3.1. Pre-emphasis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Noise_gate">
+     Noise gate (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_range_compression">
+     Dynamic Range Compression (Wikipedia)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Modelling_tools_in_speech_processing.html">
+   4. Modelling tools in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Source_modelling_and_perceptual_modelling.html">
+     4.1. Source modelling and perceptual modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Linear_regression.html">
+     4.2. Linear regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Sub-space_models.html">
+     4.3. Sub-space models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Vector_quantization_VQ.html">
+     4.4. Vector quantization (VQ)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Gaussian_mixture_model_GMM.html">
+     4.5. Gaussian mixture model (GMM)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Neural_networks.html">
+     4.6. Neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Non-negative_Matrix_and_Tensor_Factorization.html">
+     4.7. Non-negative Matrix and Tensor Factorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Evaluation_of_speech_processing_methods.html">
+   5. Evaluation of speech processing methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Subjective_quality_evaluation.html">
+     5.1. Subjective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Objective_quality_evaluation.html">
+     5.2. Objective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Other_performance_measures.html">
+     5.3. Other performance measures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Analysis_of_evaluation_results.html">
+     5.4. Analysis of evaluation results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_analysis.html">
+   6. Speech analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Fundamental_frequency_estimation.html">
+     6.1. Fundamental frequency estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+     6.2. Inverse filtering for glottal activity estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
+     Voice and speech analysis (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
+     6.3. Measurements for medical applications
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Electroglottograph">
+       Electroglottography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Videokymography">
+       Videokymography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
+       6.3.1. Glottal inverse filtering
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Forensic_analysis.html">
+     6.4. Forensic analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Recognition_tasks_in_speech_processing.html">
+   7. Recognition tasks in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Voice_activity_detection_VAD.html">
+     7.1. Voice activity detection (VAD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Wake-word_and_keyword_spotting.html">
+     7.2. Wake-word and keyword spotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speech_Recognition.html">
+     7.3. Speech Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Recognition_and_Verification.html">
+     7.4. Speaker Recognition and Verification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Diarization.html">
+     7.5. Speaker Diarization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Paralinguistic_speech_processing.html">
+     7.6. Paralinguistic speech processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_Synthesis.html">
+   8. Speech Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Concatenative_speech_synthesis.html">
+     8.2. Concatenative speech synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Statistical_parametric_speech_synthesis.html">
+     8.3. Statistical parametric speech synthesis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Transmission_storage_and_telecommunication.html">
+   9. Transmission, storage and telecommunication
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Design_goals.html">
+     9.1. Design goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Basic_tools.html">
+     9.2. Basic tools
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Transmission/Modified_discrete_cosine_transform_MDCT.html">
+     9.3. Modified discrete cosine transform (MDCT)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Entropy_coding.html">
+       9.3.4. Entropy coding
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
+       9.3.5. Perceptual modelling in speech and audio coding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Code-excited_linear_prediction_CELP.html">
+     9.4. Code-excited linear prediction (CELP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Frequency-domain_coding.html">
+     9.5. Frequency-domain coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_enhancement.html">
+   10. Speech enhancement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Echo_cancellation.html">
+     10.1. Echo cancellation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Bandwidth_extension_BWE.html">
+     10.2. Bandwidth extension (BWE)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Multi-channel_speech_enhancement_and_beamforming.html">
+     10.3. Multi-channel speech enhancement and beamforming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
+   Chatbots / Conversational design (external link)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Speech_production_and_acoustic_properties.html">
-   Speech production and acoustic properties
+  <a class="reference internal" href="../Computational_models_of_human_language_processing.html">
+   11. Computational models of human language processing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
-   https://en.wikipedia.org/wiki/Speech_perception
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Linguistic structure of speech
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
-   https://en.wikipedia.org/wiki/Speech-language_pathology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Applications_and_systems_structures.html">
-   Applications and systems structures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
-   http://pressbooks-dev.oer.hawaii.edu/messageprocessing/
+  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+   12. Security and privacy in speech technology
   </a>
  </li>
 </ul>
@@ -201,78 +546,78 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
-   Overview
+   2.5.1. Overview
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#elementary-units-of-spoken-language">
-   Elementary units of spoken language
+   2.5.2. Elementary units of spoken language
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#phones">
-     Phones
+     2.5.2.1. Phones
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#phones-vs-phonemes">
-       Phones vs. phonemes
+       2.5.2.1.1. Phones vs. phonemes
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#syllables">
-     Syllables
+     2.5.2.2. Syllables
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#words">
-     Words
+     2.5.2.3. Words
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#utterances">
-     Utterances
+     2.5.2.4. Utterances
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#morphological-units">
-     Morphological units
+     2.5.2.5. Morphological units
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#prosody-aka-suprasegmental-properties-of-speech">
-   Prosody, aka. suprasegmental properties of speech
+   2.5.3. Prosody, aka. suprasegmental properties of speech
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#intonation">
-     Intonation
+     2.5.3.1. Intonation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#stress">
-     Stress
+     2.5.3.2. Stress
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rhythm">
-     Rhythm
+     2.5.3.3. Rhythm
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#phonetic-transcription-and-speech-annotation">
-   Phonetic transcription and speech annotation
+   2.5.4. Phonetic transcription and speech annotation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References
+   2.5.5. References
   </a>
  </li>
 </ul>
@@ -297,78 +642,78 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
-   Overview
+   2.5.1. Overview
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#elementary-units-of-spoken-language">
-   Elementary units of spoken language
+   2.5.2. Elementary units of spoken language
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#phones">
-     Phones
+     2.5.2.1. Phones
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#phones-vs-phonemes">
-       Phones vs. phonemes
+       2.5.2.1.1. Phones vs. phonemes
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#syllables">
-     Syllables
+     2.5.2.2. Syllables
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#words">
-     Words
+     2.5.2.3. Words
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#utterances">
-     Utterances
+     2.5.2.4. Utterances
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#morphological-units">
-     Morphological units
+     2.5.2.5. Morphological units
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#prosody-aka-suprasegmental-properties-of-speech">
-   Prosody, aka. suprasegmental properties of speech
+   2.5.3. Prosody, aka. suprasegmental properties of speech
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#intonation">
-     Intonation
+     2.5.3.1. Intonation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#stress">
-     Stress
+     2.5.3.2. Stress
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rhythm">
-     Rhythm
+     2.5.3.3. Rhythm
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#phonetic-transcription-and-speech-annotation">
-   Phonetic transcription and speech annotation
+   2.5.4. Phonetic transcription and speech annotation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References
+   2.5.5. References
   </a>
  </li>
 </ul>
@@ -381,9 +726,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="linguistic-structure-of-speech">
-<h1>Linguistic structure of speech<a class="headerlink" href="#linguistic-structure-of-speech" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.5. </span>Linguistic structure of speech<a class="headerlink" href="#linguistic-structure-of-speech" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Besides their acoustic characteristics, speech signals can be
 characterized in terms of their <em>linguistic structure</em>. Linguistic
 structure refers to the recurring regularities in spoken language as
@@ -437,7 +782,7 @@ language of description. However, the basic relationship between
 phonetic and phonological units is also briefly discussed below.</p>
 </div>
 <div class="section" id="elementary-units-of-spoken-language">
-<h2>Elementary units of spoken language<a class="headerlink" href="#elementary-units-of-spoken-language" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5.2. </span>Elementary units of spoken language<a class="headerlink" href="#elementary-units-of-spoken-language" title="Permalink to this headline">¶</a></h2>
 <p>In terms of basic phonetic organization, speech can be seen as a
 hierarchical organization of elementary units of increasing time-scale
 (Fig. 1). At the lowest level of hierarchy, there are <em>phones</em>, which
@@ -475,7 +820,7 @@ all [r] sounds belong to the same phone type. Token refers to an
 individual realization of a type. For instance, word “roar” has two
 [r] tokens in it.</p>
 <div class="section" id="phones">
-<h3>Phones<a class="headerlink" href="#phones" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.2.1. </span>Phones<a class="headerlink" href="#phones" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Phone_(phonetics)">Phones</a> are the
 elementary units of speech, associated with <em>articulatory gestures</em>
 responsible for producing them and with <em>acoustic cues</em> that make them
@@ -572,7 +917,7 @@ language, coarticulation can have a large effect on the acoustic form
 that phones take in actual continuous speech, introducing additional
 non-phonemic variability (see below) in the acoustical form of phones.</p>
 <div class="section" id="phones-vs-phonemes">
-<h4>Phones vs. phonemes<a class="headerlink" href="#phones-vs-phonemes" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.5.2.1.1. </span>Phones vs. phonemes<a class="headerlink" href="#phones-vs-phonemes" title="Permalink to this headline">¶</a></h4>
 <p>As mentioned above, phones are sounds of a language that have an
 articulatory, and thereby also acoustic, basis. Another commonly
 encountered basic unit of speech is a <em>phoneme</em> (denoted with slashes /
@@ -604,7 +949,7 @@ discriminate both native and non-native contrasts (e.g., Werker &amp; Tees,
 </div>
 </div>
 <div class="section" id="syllables">
-<h3>Syllables<a class="headerlink" href="#syllables" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.2.2. </span>Syllables<a class="headerlink" href="#syllables" title="Permalink to this headline">¶</a></h3>
 <p>The second unit in the “size hierarchy” of spoken language is a
 syllable. Syllables are sequences of sounds (one or more), consisting of
 a syllable <em>nucleus</em> (typically a vowel) and optional initial and final
@@ -670,7 +1015,7 @@ i s] . [s a] for *cat, *or <em>nauraa:</em> [n a u].[r a:] for <em>to</em>
 vowel/consonant quantity).</p>
 </div>
 <div class="section" id="words">
-<h3>Words<a class="headerlink" href="#words" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.2.3. </span>Words<a class="headerlink" href="#words" title="Permalink to this headline">¶</a></h3>
 <p>Words are the minimum meaning-bearing units of spoken (and written)
 language, i.e., a word in isolation has some meaning attached to it. In
 contrast, isolated phones and syllables do not carry a meaning (unless
@@ -682,7 +1027,7 @@ articulatory or acoustic markers, such as pauses, whereas written text
 transparently delimits individual words by intervening whitespaces.</p>
 </div>
 <div class="section" id="utterances">
-<h3>Utterances<a class="headerlink" href="#utterances" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.2.4. </span>Utterances<a class="headerlink" href="#utterances" title="Permalink to this headline">¶</a></h3>
 <p>Utterance is the smallest unpaused act of speech produced by one
 speaker, as delineated by clear pauses (or changes of speaker). In
 contrast to written language, where <em>a sentence</em> is one grammatical
@@ -698,7 +1043,7 @@ some to reorganize their thinking in order to mentally construct the
 subsequent speech.</p>
 </div>
 <div class="section" id="morphological-units">
-<h3>Morphological units<a class="headerlink" href="#morphological-units" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.2.5. </span>Morphological units<a class="headerlink" href="#morphological-units" title="Permalink to this headline">¶</a></h3>
 <p>Besides the above-listed units of speech, there are a number other units
 and structural concepts of language that linguistic theories make use
 of. They are perhaps less frequently utilized in speech processing, but
@@ -725,7 +1070,7 @@ is called <em>a lexicon</em>.</p>
 </div>
 </div>
 <div class="section" id="prosody-aka-suprasegmental-properties-of-speech">
-<h2>Prosody, aka. suprasegmental properties of speech<a class="headerlink" href="#prosody-aka-suprasegmental-properties-of-speech" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5.3. </span>Prosody, aka. suprasegmental properties of speech<a class="headerlink" href="#prosody-aka-suprasegmental-properties-of-speech" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Prosody_(linguistics)">Prosody</a> aka.
 suprasegmental phenomena in speech refers to those patterns in speech
 that take place at time-scales larger than individual phones (segments).
@@ -737,7 +1082,7 @@ related to other information encoded in speech, such as cues for
 speaker’s emotional state, attitude, or social background. Here we only
 focus on those aspects of suprasegmentals that play a linguistic role.</p>
 <div class="section" id="intonation">
-<h3>Intonation<a class="headerlink" href="#intonation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.3.1. </span>Intonation<a class="headerlink" href="#intonation" title="Permalink to this headline">¶</a></h3>
 <p><em>Intonation</em> corresponds to variations in fundamental frequency (F0) of
 speech as a function of time in speech, as perceived in terms of pitch.
 By altering the relative pitch as a function of underlying linguistic
@@ -757,7 +1102,7 @@ an sentence or utterance (Pierrehumbert, 1980), thereby also signifying
 end of an intonational phrase.</p>
 </div>
 <div class="section" id="stress">
-<h3>Stress<a class="headerlink" href="#stress" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.3.2. </span>Stress<a class="headerlink" href="#stress" title="Permalink to this headline">¶</a></h3>
 <p><em>Stress</em> (aka. <em>accent</em>) corresponds to relative emphasis given to one
 syllable or word over the others in the given phrasal context. Stress
 can be realized by many means, including alternations in energy
@@ -779,7 +1124,7 @@ or contrast (e.g., “No, <strong>I</strong> went home” vs. “No, I went <str
 stressed word highlighted).</p>
 </div>
 <div class="section" id="rhythm">
-<h3>Rhythm<a class="headerlink" href="#rhythm" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.5.3.3. </span>Rhythm<a class="headerlink" href="#rhythm" title="Permalink to this headline">¶</a></h3>
 <p>Speech <em>rhythm</em> is a result of complex interplay of several factors in
 speech production, where the flow of chosen words is also affected by
 stress patterns, segmental and pause durations, and general syllable
@@ -802,7 +1147,7 @@ characteristics that make them distinct from the rhythm of others.</p>
 </div>
 </div>
 <div class="section" id="phonetic-transcription-and-speech-annotation">
-<h2>Phonetic transcription and speech annotation<a class="headerlink" href="#phonetic-transcription-and-speech-annotation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5.4. </span>Phonetic transcription and speech annotation<a class="headerlink" href="#phonetic-transcription-and-speech-annotation" title="Permalink to this headline">¶</a></h2>
 <p><em>Phonetic transcription</em> is the process of marking down the phonetic
 structure of speech, typically aligned with the timeline of the speech
 waveform. Transcription is usually conducted according to IPA standards.
@@ -848,7 +1193,7 @@ for word boundaries than what would be achievable by regular automatic
 speech recognition without the reference text.</p>
 </div>
 <div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Greenberg, S., Carvey, H., Hitchcock, L., and Chang, S. (2003). Temporal properties of spontaneous speech – a syllable centric perspective. <em>Speech Communication</em>, <em>31</em>, 465–485,
 <a class="reference external" href="https://doi.org/10.1016/j.wocn.2003.09.005">https://doi.org/10.1016/j.wocn.2003.09.005</a></p></li>
@@ -895,13 +1240,13 @@ speech recognition without the reference text.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Speech production and acoustic properties</p>
+            <p class="prev-next-title"><span class="section-number">2.2. </span>Physiological speech production</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Applications_and_systems_structures.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Applications and systems structures</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Applications and systems structures</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

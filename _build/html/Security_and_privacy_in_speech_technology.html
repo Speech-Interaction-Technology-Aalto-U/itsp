@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Security and privacy in speech technology &#8212; Introduction to Speech Processing</title>
+    <title>13. Security and privacy in speech technology &#8212; Introduction to Speech Processing</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,12 +48,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="12. Computational models of human language processing" href="Computational_models_of_human_language_processing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,6 +74,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
@@ -87,11 +91,468 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
+  <a class="reference internal" href="index.html">
    Introduction to Speech Processing
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preface.html">
+   1. Preface
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Introduction.html">
+   2. Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Why_speech_processing.html">
+     2.1. Why speech processing?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Speech_production_and_acoustic_properties.html">
+     2.2. Physiological speech production
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
+     Speech perception (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Linguistic_structure_of_speech.html">
+     2.5. Linguistic structure of speech
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
+     Speech-language pathology (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Applications_and_systems_structures.html">
+     2.6. Applications and systems structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
+     Social and cognitive processes in human communication (external)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Representations/Representations.html">
+   3. Representations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Waveform.html">
+     3.1. Waveform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Windowing.html">
+     3.2. Windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Signal_energy_loudness_and_decibel.html">
+     3.3. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Autocorrelation_and_autocovariance.html">
+     3.4. Autocorrelation and autocovariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Cepstrum_and_MFCC.html">
+     3.5. Cepstrum and MFCC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Linear_prediction.html">
+     3.6. Linear prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Fundamental_frequency_F0.html">
+     3.7. Fundamental frequency (F0)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Zero-crossing_rate.html">
+     3.8. Zero-crossing rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Deltas_and_Delta-deltas.html">
+     3.9. Deltas and Delta-deltas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
+     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Jitter_and_shimmer.html">
+     3.11. Jitter and shimmer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Crest_factor">
+     https://en.wikipedia.org/wiki/Crest_factor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Pre-processing.html">
+   4. Pre-processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Preprocessing/Pre-emphasis.html">
+     4.1. Pre-emphasis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Noise_gate">
+     Noise gate (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_range_compression">
+     Dynamic Range Compression (Wikipedia)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Modelling_tools_in_speech_processing.html">
+   5. Modelling tools in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Source_modelling_and_perceptual_modelling.html">
+     5.1. Source modelling and perceptual modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Linear_regression.html">
+     5.2. Linear regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Sub-space_models.html">
+     5.3. Sub-space models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Vector_quantization_VQ.html">
+     5.4. Vector quantization (VQ)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Gaussian_mixture_model_GMM.html">
+     5.5. Gaussian mixture model (GMM)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Neural_networks.html">
+     5.6. Neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Non-negative_Matrix_and_Tensor_Factorization.html">
+     5.7. Non-negative Matrix and Tensor Factorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Evaluation_of_speech_processing_methods.html">
+   6. Evaluation of speech processing methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Subjective_quality_evaluation.html">
+     6.1. Subjective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Objective_quality_evaluation.html">
+     6.2. Objective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Other_performance_measures.html">
+     6.3. Other performance measures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Analysis_of_evaluation_results.html">
+     6.4. Analysis of evaluation results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_analysis.html">
+   7. Speech analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Fundamental_frequency_estimation.html">
+     7.1. Fundamental frequency estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+     7.2. Inverse filtering for glottal activity estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
+     Voice and speech analysis (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="Analysis/Measurements_for_medical_applications.html">
+     7.3. Measurements for medical applications
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Electroglottograph">
+       Electroglottography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Videokymography">
+       Videokymography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Analysis/Glottal_inverse_filtering.html">
+       7.3.1. Glottal inverse filtering
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Forensic_analysis.html">
+     7.4. Forensic analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Recognition_tasks_in_speech_processing.html">
+   8. Recognition tasks in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Voice_activity_detection_VAD.html">
+     8.1. Voice activity detection (VAD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Wake-word_and_keyword_spotting.html">
+     8.2. Wake-word and keyword spotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speech_Recognition.html">
+     8.3. Speech Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speaker_Recognition_and_Verification.html">
+     8.4. Speaker Recognition and Verification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speaker_Diarization.html">
+     8.5. Speaker Diarization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Paralinguistic_speech_processing.html">
+     8.6. Paralinguistic speech processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_Synthesis.html">
+   9. Speech Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Synthesis/Concatenative_speech_synthesis.html">
+     9.2. Concatenative speech synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Synthesis/Statistical_parametric_speech_synthesis.html">
+     9.3. Statistical parametric speech synthesis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Transmission_storage_and_telecommunication.html">
+   10. Transmission, storage and telecommunication
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Design_goals.html">
+     10.1. Design goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Basic_tools.html">
+     10.2. Basic tools
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="Transmission/Modified_discrete_cosine_transform_MDCT.html">
+     10.3. Modified discrete cosine transform (MDCT)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Transmission/Entropy_coding.html">
+       10.3.4. Entropy coding
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
+       10.3.5. Perceptual modelling in speech and audio coding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Code-excited_linear_prediction_CELP.html">
+     10.4. Code-excited linear prediction (CELP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Frequency-domain_coding.html">
+     10.5. Frequency-domain coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_enhancement.html">
+   11. Speech enhancement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Noise_attenuation.html">
+     11.1. Noise attenuation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Echo_cancellation.html">
+     11.2. Echo cancellation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Bandwidth_extension_BWE.html">
+     11.3. Bandwidth extension (BWE)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Multi-channel_speech_enhancement_and_beamforming.html">
+     11.4. Multi-channel speech enhancement and beamforming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
+   Chatbots / Conversational design (external link)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Computational_models_of_human_language_processing.html">
+   12. Computational models of human language processing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   13. Security and privacy in speech technology
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -163,84 +624,84 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#information-contained-in-speech-signals">
-   Information contained in speech signals
+   13.1. Information contained in speech signals
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-privacy">
-   Types of privacy
+   13.2. Types of privacy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#threat-and-attack-scenarios">
-   Threat and attack scenarios
+   13.3. Threat and attack scenarios
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#privacy-and-security-scandals">
-   Privacy and security scandals
+   13.4. Privacy and security scandals
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology">
-   Approaches for safeguarding privacy in and improving usability of speech technology
+   13.5. Approaches for safeguarding privacy in and improving usability of speech technology
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basic-design-concepts">
-     Basic design concepts
+     13.5.1. Basic design concepts
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#definitions">
-     Definitions
+     13.5.2. Definitions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#local-edge-processing">
-     Local/edge processing
+     13.5.3. Local/edge processing
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#differential-privacy">
-     Differential privacy
+     13.5.4. Differential privacy
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#federated-learning">
-     Federated learning
+     13.5.5. Federated learning
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#homomorphic-encryption">
-     Homomorphic encryption
+     13.5.6. Homomorphic encryption
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mydata">
-     myData
+     13.5.7. myData
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#design-goals-human-computer-interfaces-and-user-experience">
-   Design goals, human computer interfaces and user experience
+   13.6. Design goals, human computer interfaces and user experience
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ethical-dilemmas">
-   Ethical dilemmas
+   13.7. Ethical dilemmas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#security-and-privacy-in-speech-research">
-   Security and privacy in speech research
+   13.8. Security and privacy in speech research
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References
+   13.9. References
   </a>
  </li>
 </ul>
@@ -265,84 +726,84 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#information-contained-in-speech-signals">
-   Information contained in speech signals
+   13.1. Information contained in speech signals
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-privacy">
-   Types of privacy
+   13.2. Types of privacy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#threat-and-attack-scenarios">
-   Threat and attack scenarios
+   13.3. Threat and attack scenarios
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#privacy-and-security-scandals">
-   Privacy and security scandals
+   13.4. Privacy and security scandals
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology">
-   Approaches for safeguarding privacy in and improving usability of speech technology
+   13.5. Approaches for safeguarding privacy in and improving usability of speech technology
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basic-design-concepts">
-     Basic design concepts
+     13.5.1. Basic design concepts
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#definitions">
-     Definitions
+     13.5.2. Definitions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#local-edge-processing">
-     Local/edge processing
+     13.5.3. Local/edge processing
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#differential-privacy">
-     Differential privacy
+     13.5.4. Differential privacy
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#federated-learning">
-     Federated learning
+     13.5.5. Federated learning
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#homomorphic-encryption">
-     Homomorphic encryption
+     13.5.6. Homomorphic encryption
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mydata">
-     myData
+     13.5.7. myData
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#design-goals-human-computer-interfaces-and-user-experience">
-   Design goals, human computer interfaces and user experience
+   13.6. Design goals, human computer interfaces and user experience
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ethical-dilemmas">
-   Ethical dilemmas
+   13.7. Ethical dilemmas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#security-and-privacy-in-speech-research">
-   Security and privacy in speech research
+   13.8. Security and privacy in speech research
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References
+   13.9. References
   </a>
  </li>
 </ul>
@@ -355,7 +816,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="security-and-privacy-in-speech-technology">
-<h1>Security and privacy in speech technology<a class="headerlink" href="#security-and-privacy-in-speech-technology" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">13. </span>Security and privacy in speech technology<a class="headerlink" href="#security-and-privacy-in-speech-technology" title="Permalink to this headline">¶</a></h1>
 <p><em><strong>DISCLAIMER:</strong></em> <em>This document is meant to be an introduction to
 questions in security and privacy in speech technology for engineering
 students, such that they would understand the main problematic. In
@@ -395,7 +856,7 @@ listening is usually allowed only for the police and even for them only
 in specially regulated situations, such as with a permission granted by
 a court or judge.</p>
 <div class="section" id="information-contained-in-speech-signals">
-<h2>Information contained in speech signals<a class="headerlink" href="#information-contained-in-speech-signals" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.1. </span>Information contained in speech signals<a class="headerlink" href="#information-contained-in-speech-signals" title="Permalink to this headline">¶</a></h2>
 <p>Speech signals contain a wide variety of information which are often
 potentially private or even sensitive and it is difficult or impossible
 to list all categories of potential information. However, information
@@ -445,7 +906,7 @@ privacy is important, then speech is among the most important signals to
 protect.</p>
 </div>
 <div class="section" id="types-of-privacy">
-<h2>Types of privacy<a class="headerlink" href="#types-of-privacy" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.2. </span>Types of privacy<a class="headerlink" href="#types-of-privacy" title="Permalink to this headline">¶</a></h2>
 <p>In a more general scope than just speech, privacy can be categorized
 into seven types:</p>
 <ul class="simple">
@@ -486,7 +947,7 @@ cultural aspects play a big role.</p>
 <p><em>Above list is due to <a class="reference external" href="https://www.researchgate.net/publication/258892458_Seven_Types_of_Privacy"><strong>Seven Types of Privacy.</strong></a></em></p>
 </div>
 <div class="section" id="threat-and-attack-scenarios">
-<h2>Threat and attack scenarios<a class="headerlink" href="#threat-and-attack-scenarios" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.3. </span>Threat and attack scenarios<a class="headerlink" href="#threat-and-attack-scenarios" title="Permalink to this headline">¶</a></h2>
 <p>Threats to privacy in speech communication can almost always be defined
 as covert extraction of information as well as storage, processing and
 usage of that information in ways of which the speaker is not aware,
@@ -543,7 +1004,7 @@ have been made in private.</p></li>
 </ul>
 </div>
 <div class="section" id="privacy-and-security-scandals">
-<h2>Privacy and security scandals<a class="headerlink" href="#privacy-and-security-scandals" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.4. </span>Privacy and security scandals<a class="headerlink" href="#privacy-and-security-scandals" title="Permalink to this headline">¶</a></h2>
 <p>Most of the threats and attack scenarios are not familiar to the common
 public and some of them might be too abstract to be relevant to average
 users. Typically, we can hypothesize that scenarios which do not touch
@@ -570,9 +1031,9 @@ Amazon/Alexa is probably more coincidence than an indication that Alexa
 would treat privacy differently than its competitors.</p>
 </div>
 <div class="section" id="approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology">
-<h2>Approaches for safeguarding privacy in and improving usability of speech technology<a class="headerlink" href="#approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.5. </span>Approaches for safeguarding privacy in and improving usability of speech technology<a class="headerlink" href="#approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="basic-design-concepts">
-<h3>Basic design concepts<a class="headerlink" href="#basic-design-concepts" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.1. </span>Basic design concepts<a class="headerlink" href="#basic-design-concepts" title="Permalink to this headline">¶</a></h3>
 <p>At least from the European perspective, the following design concepts
 are seen as basis of good design for privacy. In fact, they are mandated
 by the General Data Protection Regulations of the European Union.</p>
@@ -611,7 +1072,7 @@ operator could receive the information that 55% of users are male, but
 would not get the gender of any individual user.</p>
 </div>
 <div class="section" id="definitions">
-<h3>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.2. </span>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
 <p>A central problematic in privacy with speech signals is the concept of
 “uniquely identifiable”. Legal frameworks such as the GDPR state that
 private information is such data where individual users are “uniquely
@@ -657,7 +1118,7 @@ Can it change over time if new technologies are developed (probably:
 yes)?</p>
 </div>
 <div class="section" id="local-edge-processing">
-<h3>Local/edge processing<a class="headerlink" href="#local-edge-processing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.3. </span>Local/edge processing<a class="headerlink" href="#local-edge-processing" title="Permalink to this headline">¶</a></h3>
 <p>Privacy is an issue only if some other party has access to data about
 you. Data which resides on a device which is in your control is
 therefore relatively safe, assuming that no outsider has access to that
@@ -691,7 +1152,7 @@ would likely be more stable.</p></li>
 </ul>
 </div>
 <div class="section" id="differential-privacy">
-<h3>Differential privacy<a class="headerlink" href="#differential-privacy" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.4. </span>Differential privacy<a class="headerlink" href="#differential-privacy" title="Permalink to this headline">¶</a></h3>
 <p>Even when operating with aggregate data, like the mean user age, it is
 still possible to extract private information in some scenarios. For
 example, if we know the mean user age and the number of users at a time
@@ -713,7 +1174,7 @@ guess of an individual data point, but also the ensemble average is
 accurate.</p>
 </div>
 <div class="section" id="federated-learning">
-<h3>Federated learning<a class="headerlink" href="#federated-learning" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.5. </span>Federated learning<a class="headerlink" href="#federated-learning" title="Permalink to this headline">¶</a></h3>
 <p>To enable machine learning in the cloud without the need to provide
 access to private data, we can use <a class="reference external" href="https://en.wikipedia.org/wiki/Federated_learning">federated
 learning</a>, where
@@ -725,7 +1186,7 @@ of methods; some data is sent to the cloud, but can some private data
 still be traced back to the user?</p>
 </div>
 <div class="section" id="homomorphic-encryption">
-<h3>Homomorphic encryption<a class="headerlink" href="#homomorphic-encryption" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.6. </span>Homomorphic encryption<a class="headerlink" href="#homomorphic-encryption" title="Permalink to this headline">¶</a></h3>
 <p>Suppose a service provider has a proprietary model, say an analysis
 method for Alzheimer’s disease from the voice, and your doctor would
 like to analyse your voice with that method. Naturally your voice is
@@ -746,7 +1207,7 @@ dramatic. Consequently, privacy-preserving methods based on homomorphic
 encryption typically have a prohibitively high computational complexity.</p>
 </div>
 <div class="section" id="mydata">
-<h3>myData<a class="headerlink" href="#mydata" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.5.7. </span>myData<a class="headerlink" href="#mydata" title="Permalink to this headline">¶</a></h3>
 <p>In addition to privacy-preserving algorithms, we can also design
 privacy-preserving architectures. The myData paradigm is based on a
 three-tier design, where the user can choose where all his/her data is
@@ -769,7 +1230,7 @@ several different storage locations might therefore be reasonable.</p>
 </div>
 </div>
 <div class="section" id="design-goals-human-computer-interfaces-and-user-experience">
-<h2>Design goals, human computer interfaces and user experience<a class="headerlink" href="#design-goals-human-computer-interfaces-and-user-experience" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.6. </span>Design goals, human computer interfaces and user experience<a class="headerlink" href="#design-goals-human-computer-interfaces-and-user-experience" title="Permalink to this headline">¶</a></h2>
 <p>A common prejudice is that privacy and security requirements cause
 problems for developers and make systems more difficult for users to
 use. Such prejudice are unfortunate and patently misguided. The problem
@@ -818,7 +1279,7 @@ long time to patch such breaches of trust.</p></li>
 </ul>
 </div>
 <div class="section" id="ethical-dilemmas">
-<h2>Ethical dilemmas<a class="headerlink" href="#ethical-dilemmas" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.7. </span>Ethical dilemmas<a class="headerlink" href="#ethical-dilemmas" title="Permalink to this headline">¶</a></h2>
 <p>The following is a list of hypothetical questions which can (and do)
 arise in the design of speech operated systems:</p>
 <ul class="simple">
@@ -853,7 +1314,7 @@ or the bedroom; is it ok if your device does that?</p></li>
 </ul>
 </div>
 <div class="section" id="security-and-privacy-in-speech-research">
-<h2>Security and privacy in speech research<a class="headerlink" href="#security-and-privacy-in-speech-research" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.8. </span>Security and privacy in speech research<a class="headerlink" href="#security-and-privacy-in-speech-research" title="Permalink to this headline">¶</a></h2>
 <p>Scientific research is based on arguments supported by evidence, where
 evidence, in the speech sciences, is recordings of speech. Access to
 speech data is therefore a mandatory part of research in the speech
@@ -980,7 +1441,7 @@ researchers physically come to the computer (no network access). This
 level of security is usually the domain of military-grade systems.</p>
 </div>
 <div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.9. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://edps.europa.eu/data-protection/our-work/publications/techdispatch/techdispatch-1-smart-speakers-and-virtual_en">TechDispatch #1: Smart Speakers and Virtual
 Assistants</a>
@@ -1020,7 +1481,14 @@ Communication”, <a class="reference external" href="https://www.spsc-sig.org/"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Computational_models_of_human_language_processing.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">12. </span>Computational models of human language processing</p>
+        </div>
+    </a>
 </div>
             
         </div>

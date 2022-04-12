@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computational models of human language processing &#8212; Introduction to Speech Processing</title>
+    <title>12. Computational models of human language processing &#8212; Introduction to Speech Processing</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,10 +48,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Security and privacy in speech technology" href="Security_and_privacy_in_speech_technology.html" />
+    <link rel="prev" title="11.4. Multi-channel speech enhancement and beamforming" href="Enhancement/Multi-channel_speech_enhancement_and_beamforming.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -73,6 +73,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
@@ -85,11 +90,468 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
+  <a class="reference internal" href="index.html">
    Introduction to Speech Processing
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preface.html">
+   1. Preface
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Introduction.html">
+   2. Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Why_speech_processing.html">
+     2.1. Why speech processing?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Speech_production_and_acoustic_properties.html">
+     2.2. Physiological speech production
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
+     Speech perception (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Linguistic_structure_of_speech.html">
+     2.5. Linguistic structure of speech
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
+     Speech-language pathology (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Applications_and_systems_structures.html">
+     2.6. Applications and systems structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
+     Social and cognitive processes in human communication (external)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Representations/Representations.html">
+   3. Representations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Waveform.html">
+     3.1. Waveform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Windowing.html">
+     3.2. Windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Signal_energy_loudness_and_decibel.html">
+     3.3. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Autocorrelation_and_autocovariance.html">
+     3.4. Autocorrelation and autocovariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Cepstrum_and_MFCC.html">
+     3.5. Cepstrum and MFCC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Linear_prediction.html">
+     3.6. Linear prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Fundamental_frequency_F0.html">
+     3.7. Fundamental frequency (F0)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Zero-crossing_rate.html">
+     3.8. Zero-crossing rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Deltas_and_Delta-deltas.html">
+     3.9. Deltas and Delta-deltas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
+     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Jitter_and_shimmer.html">
+     3.11. Jitter and shimmer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Crest_factor">
+     https://en.wikipedia.org/wiki/Crest_factor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Pre-processing.html">
+   4. Pre-processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Preprocessing/Pre-emphasis.html">
+     4.1. Pre-emphasis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Noise_gate">
+     Noise gate (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_range_compression">
+     Dynamic Range Compression (Wikipedia)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Modelling_tools_in_speech_processing.html">
+   5. Modelling tools in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Source_modelling_and_perceptual_modelling.html">
+     5.1. Source modelling and perceptual modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Linear_regression.html">
+     5.2. Linear regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Sub-space_models.html">
+     5.3. Sub-space models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Vector_quantization_VQ.html">
+     5.4. Vector quantization (VQ)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Gaussian_mixture_model_GMM.html">
+     5.5. Gaussian mixture model (GMM)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Neural_networks.html">
+     5.6. Neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Non-negative_Matrix_and_Tensor_Factorization.html">
+     5.7. Non-negative Matrix and Tensor Factorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Evaluation_of_speech_processing_methods.html">
+   6. Evaluation of speech processing methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Subjective_quality_evaluation.html">
+     6.1. Subjective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Objective_quality_evaluation.html">
+     6.2. Objective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Other_performance_measures.html">
+     6.3. Other performance measures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Analysis_of_evaluation_results.html">
+     6.4. Analysis of evaluation results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_analysis.html">
+   7. Speech analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Fundamental_frequency_estimation.html">
+     7.1. Fundamental frequency estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+     7.2. Inverse filtering for glottal activity estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
+     Voice and speech analysis (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="Analysis/Measurements_for_medical_applications.html">
+     7.3. Measurements for medical applications
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Electroglottograph">
+       Electroglottography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Videokymography">
+       Videokymography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Analysis/Glottal_inverse_filtering.html">
+       7.3.1. Glottal inverse filtering
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Forensic_analysis.html">
+     7.4. Forensic analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Recognition_tasks_in_speech_processing.html">
+   8. Recognition tasks in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Voice_activity_detection_VAD.html">
+     8.1. Voice activity detection (VAD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Wake-word_and_keyword_spotting.html">
+     8.2. Wake-word and keyword spotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speech_Recognition.html">
+     8.3. Speech Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speaker_Recognition_and_Verification.html">
+     8.4. Speaker Recognition and Verification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speaker_Diarization.html">
+     8.5. Speaker Diarization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Paralinguistic_speech_processing.html">
+     8.6. Paralinguistic speech processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_Synthesis.html">
+   9. Speech Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Synthesis/Concatenative_speech_synthesis.html">
+     9.2. Concatenative speech synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Synthesis/Statistical_parametric_speech_synthesis.html">
+     9.3. Statistical parametric speech synthesis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Transmission_storage_and_telecommunication.html">
+   10. Transmission, storage and telecommunication
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Design_goals.html">
+     10.1. Design goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Basic_tools.html">
+     10.2. Basic tools
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="Transmission/Modified_discrete_cosine_transform_MDCT.html">
+     10.3. Modified discrete cosine transform (MDCT)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Transmission/Entropy_coding.html">
+       10.3.4. Entropy coding
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
+       10.3.5. Perceptual modelling in speech and audio coding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Code-excited_linear_prediction_CELP.html">
+     10.4. Code-excited linear prediction (CELP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Frequency-domain_coding.html">
+     10.5. Frequency-domain coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_enhancement.html">
+   11. Speech enhancement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Noise_attenuation.html">
+     11.1. Noise attenuation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Echo_cancellation.html">
+     11.2. Echo cancellation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Bandwidth_extension_BWE.html">
+     11.3. Bandwidth extension (BWE)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Multi-channel_speech_enhancement_and_beamforming.html">
+     11.4. Multi-channel speech enhancement and beamforming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
+   Chatbots / Conversational design (external link)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   12. Computational models of human language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Security_and_privacy_in_speech_technology.html">
+   13. Security and privacy in speech technology
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -161,12 +623,12 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#human-cognition-as-a-sensorimotor-information-processing-system">
-   1.1.1. Human cognition as a sensorimotor information processing system
+   12.1. 1.1.1. Human cognition as a sensorimotor information processing system
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#computational-modeling-versus-cognitive-computationalism">
-     1.1.1.1.
+     12.1.1. 1.1.1.1.
      <em>
       Computational modeling versus cognitive computationalism
      </em>
@@ -176,12 +638,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#role-of-computational-models-in-scientific-research">
-   1.1.2. Role of computational models in scientific research
+   12.2. 1.1.2. Role of computational models in scientific research
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#examples-of-computational-modeling-research">
-   1.1.3.
+   12.3. 1.1.3.
    <strong>
     Examples of computational modeling research
    </strong>
@@ -189,7 +651,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references-and-further-reading">
-   1.1.4.
+   12.4. 1.1.4.
    <strong>
     References and further reading
    </strong>
@@ -197,7 +659,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#attachments">
-   Attachments:
+   12.5. Attachments:
   </a>
  </li>
 </ul>
@@ -222,12 +684,12 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#human-cognition-as-a-sensorimotor-information-processing-system">
-   1.1.1. Human cognition as a sensorimotor information processing system
+   12.1. 1.1.1. Human cognition as a sensorimotor information processing system
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#computational-modeling-versus-cognitive-computationalism">
-     1.1.1.1.
+     12.1.1. 1.1.1.1.
      <em>
       Computational modeling versus cognitive computationalism
      </em>
@@ -237,12 +699,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#role-of-computational-models-in-scientific-research">
-   1.1.2. Role of computational models in scientific research
+   12.2. 1.1.2. Role of computational models in scientific research
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#examples-of-computational-modeling-research">
-   1.1.3.
+   12.3. 1.1.3.
    <strong>
     Examples of computational modeling research
    </strong>
@@ -250,7 +712,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references-and-further-reading">
-   1.1.4.
+   12.4. 1.1.4.
    <strong>
     References and further reading
    </strong>
@@ -258,7 +720,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#attachments">
-   Attachments:
+   12.5. Attachments:
   </a>
  </li>
 </ul>
@@ -271,7 +733,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="computational-models-of-human-language-processing">
-<h1>Computational models of human language processing<a class="headerlink" href="#computational-models-of-human-language-processing" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">12. </span>Computational models of human language processing<a class="headerlink" href="#computational-models-of-human-language-processing" title="Permalink to this headline">¶</a></h1>
 <p>One area of research making use of speech technology is the study of
 human language learning and processing. Language is a highly complex
 phenomenon with physical, biological, psychological, social and cultural
@@ -319,7 +781,7 @@ data-linked-resource-container-version="72" width="800" /><strong>Figure 1:</str
 A high-level schematic view of a typical computational model development
 and evaluation process.</p>
 <div class="section" id="human-cognition-as-a-sensorimotor-information-processing-system">
-<h2>1.1.1. Human cognition as a sensorimotor information processing system<a class="headerlink" href="#human-cognition-as-a-sensorimotor-information-processing-system" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.1. </span>1.1.1. Human cognition as a sensorimotor information processing system<a class="headerlink" href="#human-cognition-as-a-sensorimotor-information-processing-system" title="Permalink to this headline">¶</a></h2>
 <p>Computational modeling research is based on the metaphor of human brain
 as a computational information processing system. From an external
 observer viewpoint, this system perceives the environment using a number
@@ -389,7 +851,7 @@ available. By applying a combination of speech processing and machine
 learning techniques to data representative of infant language
 experiences, explanation proposals for such a process can be created.</p>
 <div class="section" id="computational-modeling-versus-cognitive-computationalism">
-<h3>1.1.1.1. <em>Computational modeling versus cognitive computationalism</em><a class="headerlink" href="#computational-modeling-versus-cognitive-computationalism" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.1.1. </span>1.1.1.1. <em>Computational modeling versus cognitive computationalism</em><a class="headerlink" href="#computational-modeling-versus-cognitive-computationalism" title="Permalink to this headline">¶</a></h3>
 <p>Note that computational modeling and <em>representations</em> often studied in
 the models should not be confused with classical
 <a class="reference external" href="https://en.wikipedia.org/wiki/Computational_theory_of_mind">computationalism</a>.
@@ -421,7 +883,7 @@ how the modeling findings are interpreted.</p>
 </div>
 </div>
 <div class="section" id="role-of-computational-models-in-scientific-research">
-<h2>1.1.2. Role of computational models in scientific research<a class="headerlink" href="#role-of-computational-models-in-scientific-research" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.2. </span>1.1.2. Role of computational models in scientific research<a class="headerlink" href="#role-of-computational-models-in-scientific-research" title="Permalink to this headline">¶</a></h2>
 <p>Computational modeling has a role in scientific theory development and
 hypothesis testing by providing the means to test high-level theories of
 language processing with practical simulations (Fig. 2). This supports
@@ -469,7 +931,7 @@ understanding how phonemic, lexical, and syntactic learning are
 dependent on each other in early language development).</p>
 </div>
 <div class="section" id="examples-of-computational-modeling-research">
-<h2>1.1.3. <strong>Examples of computational modeling research</strong><a class="headerlink" href="#examples-of-computational-modeling-research" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.3. </span>1.1.3. <strong>Examples of computational modeling research</strong><a class="headerlink" href="#examples-of-computational-modeling-research" title="Permalink to this headline">¶</a></h2>
 <p><em><strong>Computational models of child language development</strong></em>: Computational
 models of language learning aim at understanding how human children
 learn to perceive and produce their native language. The basic idea is
@@ -568,7 +1030,7 @@ capabilities) can emerge from such conditions.<br />
     For overviews, see Steels (1997) or Kirby (2002).</p>
 </div>
 <div class="section" id="references-and-further-reading">
-<h2>1.1.4. <strong>References and further reading</strong><a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.4. </span>1.1.4. <strong>References and further reading</strong><a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline">¶</a></h2>
 <p>Birkholz, P. (2005). <em>3D-Artikulatorische Sprachsynthese</em>. Logos Verlag,
 Berlin
 [<a class="reference external" href="http://www.vocaltractlab.de/publications/birkholz-2005-dissertation.pdf">pdf</a>]
@@ -656,7 +1118,7 @@ pattern learning]</p>
 <div class="pageSectionHeader">
 </div>
 <div class="section" id="attachments">
-<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.5. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="greybox" align="left">
 <img src="images/icons/bullet_blue.gif" width="8" height="8" />
@@ -693,7 +1155,21 @@ pattern learning]</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Enhancement/Multi-channel_speech_enhancement_and_beamforming.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">11.4. </span>Multi-channel speech enhancement and beamforming</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Security_and_privacy_in_speech_technology.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Security and privacy in speech technology</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

@@ -1,12 +1,5 @@
 # Inverse filtering for glottal activity estimation
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Motivation
 
@@ -72,27 +65,6 @@ efficiently modelled by a linear predictive filter. We can thus estimate
 a filter corresponding to the effect of the vocal tract, and then invert
 the effect of that filter. This process is known as *inverse filtering*.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Signal Model
 
@@ -132,20 +104,3 @@ the accuracy of the obtained curves. Since we do not have a satisfactory
 direct method for observing glottal activity, which would not bias
 results, we cannot verify our models.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

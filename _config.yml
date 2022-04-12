@@ -18,3 +18,5 @@ html:
 sphinx:
   config:
     html_show_copyright: false
+    
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]

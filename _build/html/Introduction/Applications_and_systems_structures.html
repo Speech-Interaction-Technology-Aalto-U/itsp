@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Applications and systems structures &#8212; Introduction to Speech Processing</title>
+    <title>2.6. Applications and systems structures &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,11 +48,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Linguistic structure of speech" href="Linguistic_structure_of_speech.html" />
+    <link rel="next" title="3. Pre-processing" href="../Pre-processing.html" />
+    <link rel="prev" title="2.5. Linguistic structure of speech" href="Linguistic_structure_of_speech.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -74,6 +73,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
@@ -86,45 +90,387 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
+  <a class="reference internal" href="../index.html">
    Introduction to Speech Processing
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Why_speech_processing.html">
-   Why speech processing?
+  <a class="reference internal" href="../Preface.html">
+   1. Preface
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Introduction.html">
+   2. Introduction
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Why_speech_processing.html">
+     2.1. Why speech processing?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Speech_production_and_acoustic_properties.html">
+     2.2. Physiological speech production
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
+     Speech perception (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linguistic_structure_of_speech.html">
+     2.5. Linguistic structure of speech
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
+     Speech-language pathology (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.6. Applications and systems structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
+     Social and cognitive processes in human communication (external)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Pre-processing.html">
+   3. Pre-processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Preprocessing/Pre-emphasis.html">
+     3.1. Pre-emphasis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Noise_gate">
+     Noise gate (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_range_compression">
+     Dynamic Range Compression (Wikipedia)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Modelling_tools_in_speech_processing.html">
+   4. Modelling tools in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Source_modelling_and_perceptual_modelling.html">
+     4.1. Source modelling and perceptual modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Linear_regression.html">
+     4.2. Linear regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Sub-space_models.html">
+     4.3. Sub-space models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Vector_quantization_VQ.html">
+     4.4. Vector quantization (VQ)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Gaussian_mixture_model_GMM.html">
+     4.5. Gaussian mixture model (GMM)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Neural_networks.html">
+     4.6. Neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Non-negative_Matrix_and_Tensor_Factorization.html">
+     4.7. Non-negative Matrix and Tensor Factorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Evaluation_of_speech_processing_methods.html">
+   5. Evaluation of speech processing methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Subjective_quality_evaluation.html">
+     5.1. Subjective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Objective_quality_evaluation.html">
+     5.2. Objective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Other_performance_measures.html">
+     5.3. Other performance measures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Analysis_of_evaluation_results.html">
+     5.4. Analysis of evaluation results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_analysis.html">
+   6. Speech analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Fundamental_frequency_estimation.html">
+     6.1. Fundamental frequency estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+     6.2. Inverse filtering for glottal activity estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
+     Voice and speech analysis (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
+     6.3. Measurements for medical applications
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Electroglottograph">
+       Electroglottography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Videokymography">
+       Videokymography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
+       6.3.1. Glottal inverse filtering
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Forensic_analysis.html">
+     6.4. Forensic analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Recognition_tasks_in_speech_processing.html">
+   7. Recognition tasks in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Voice_activity_detection_VAD.html">
+     7.1. Voice activity detection (VAD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Wake-word_and_keyword_spotting.html">
+     7.2. Wake-word and keyword spotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speech_Recognition.html">
+     7.3. Speech Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Recognition_and_Verification.html">
+     7.4. Speaker Recognition and Verification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Diarization.html">
+     7.5. Speaker Diarization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Paralinguistic_speech_processing.html">
+     7.6. Paralinguistic speech processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_Synthesis.html">
+   8. Speech Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Concatenative_speech_synthesis.html">
+     8.2. Concatenative speech synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Statistical_parametric_speech_synthesis.html">
+     8.3. Statistical parametric speech synthesis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Transmission_storage_and_telecommunication.html">
+   9. Transmission, storage and telecommunication
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Design_goals.html">
+     9.1. Design goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Basic_tools.html">
+     9.2. Basic tools
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Transmission/Modified_discrete_cosine_transform_MDCT.html">
+     9.3. Modified discrete cosine transform (MDCT)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Entropy_coding.html">
+       9.3.4. Entropy coding
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
+       9.3.5. Perceptual modelling in speech and audio coding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Code-excited_linear_prediction_CELP.html">
+     9.4. Code-excited linear prediction (CELP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Frequency-domain_coding.html">
+     9.5. Frequency-domain coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_enhancement.html">
+   10. Speech enhancement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Echo_cancellation.html">
+     10.1. Echo cancellation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Bandwidth_extension_BWE.html">
+     10.2. Bandwidth extension (BWE)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Multi-channel_speech_enhancement_and_beamforming.html">
+     10.3. Multi-channel speech enhancement and beamforming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
+   Chatbots / Conversational design (external link)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Speech_production_and_acoustic_properties.html">
-   Speech production and acoustic properties
+  <a class="reference internal" href="../Computational_models_of_human_language_processing.html">
+   11. Computational models of human language processing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
-   https://en.wikipedia.org/wiki/Speech_perception
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Linguistic_structure_of_speech.html">
-   Linguistic structure of speech
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
-   https://en.wikipedia.org/wiki/Speech-language_pathology
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Applications and systems structures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
-   http://pressbooks-dev.oer.hawaii.edu/messageprocessing/
+  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+   12. Security and privacy in speech technology
   </a>
  </li>
 </ul>
@@ -200,59 +546,59 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications">
-   Applications
+   2.6.1. Applications
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#systems-structures">
-   Systems structures
+   2.6.2. Systems structures
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transmission-and-storage">
-     Transmission and storage
+     2.6.2.1. Transmission and storage
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#information-extraction">
-     Information extraction
+     2.6.2.2. Information extraction
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#speech-synthesis">
-   Speech synthesis
+   2.6.3. Speech synthesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#user-interfaces">
-   User-interfaces
+   2.6.4. User-interfaces
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#processing-and-preprocessing">
-   Processing and preprocessing
+   2.6.5. Processing and preprocessing
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#voice-activity-detection">
-     Voice activity detection
+     2.6.5.1. Voice activity detection
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#keyword-spotting-or-wake-word-detection">
-     Keyword spotting or Wake-word detection
+     2.6.5.2. Keyword spotting or Wake-word detection
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#speech-enhancement">
-     Speech enhancement
+     2.6.5.3. Speech enhancement
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-signal-processing">
-     Other signal processing
+     2.6.5.4. Other signal processing
     </a>
    </li>
   </ul>
@@ -279,59 +625,59 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications">
-   Applications
+   2.6.1. Applications
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#systems-structures">
-   Systems structures
+   2.6.2. Systems structures
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transmission-and-storage">
-     Transmission and storage
+     2.6.2.1. Transmission and storage
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#information-extraction">
-     Information extraction
+     2.6.2.2. Information extraction
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#speech-synthesis">
-   Speech synthesis
+   2.6.3. Speech synthesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#user-interfaces">
-   User-interfaces
+   2.6.4. User-interfaces
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#processing-and-preprocessing">
-   Processing and preprocessing
+   2.6.5. Processing and preprocessing
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#voice-activity-detection">
-     Voice activity detection
+     2.6.5.1. Voice activity detection
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#keyword-spotting-or-wake-word-detection">
-     Keyword spotting or Wake-word detection
+     2.6.5.2. Keyword spotting or Wake-word detection
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#speech-enhancement">
-     Speech enhancement
+     2.6.5.3. Speech enhancement
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-signal-processing">
-     Other signal processing
+     2.6.5.4. Other signal processing
     </a>
    </li>
   </ul>
@@ -346,9 +692,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="applications-and-systems-structures">
-<h1>Applications and systems structures<a class="headerlink" href="#applications-and-systems-structures" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.6. </span>Applications and systems structures<a class="headerlink" href="#applications-and-systems-structures" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6.1. </span>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
 <p>Speech processing is used in, for example;</p>
 <ul class="simple">
 <li><p>Telecommunication</p>
@@ -457,9 +803,9 @@ information extraction is practically a mandatory part of speech
 operated user-interfaces.</p>
 </div>
 <div class="section" id="systems-structures">
-<h2>Systems structures<a class="headerlink" href="#systems-structures" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6.2. </span>Systems structures<a class="headerlink" href="#systems-structures" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="transmission-and-storage">
-<h3>Transmission and storage<a class="headerlink" href="#transmission-and-storage" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.2.1. </span>Transmission and storage<a class="headerlink" href="#transmission-and-storage" title="Permalink to this headline">¶</a></h3>
 <p>The objective of speech transmission systems is to compress the signal
 to as few bits as possible, while keeping the sound quality at the
 output as good as possible. This requires that the degradations that we
@@ -478,7 +824,7 @@ voice activity detection (see below).</p>
 <p><img alt="struct1" src="../_images/165138696.png" /></p>
 </div>
 <div class="section" id="information-extraction">
-<h3>Information extraction<a class="headerlink" href="#information-extraction" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.2.2. </span>Information extraction<a class="headerlink" href="#information-extraction" title="Permalink to this headline">¶</a></h3>
 <p>We can extract many types of information from a speech signal, like
 <span class="xref myst">text content</span> and <span class="xref myst">speaker
 identity</span>. Many such forms of
@@ -507,7 +853,7 @@ output is reduced correspondingly.</p>
 </div>
 </div>
 <div class="section" id="speech-synthesis">
-<h2>Speech synthesis<a class="headerlink" href="#speech-synthesis" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6.3. </span>Speech synthesis<a class="headerlink" href="#speech-synthesis" title="Permalink to this headline">¶</a></h2>
 <p>When we want to make a computer speak, we need a speech synthesiser,
 which takes text as input and outputs speech. It is thus the reverse of
 the information extraction -task, in that the roles of speech and labels
@@ -521,7 +867,7 @@ is known in advance.</p>
 <p><img alt="struct3" src="../_images/165139247.png" /></p>
 </div>
 <div class="section" id="user-interfaces">
-<h2>User-interfaces<a class="headerlink" href="#user-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6.4. </span>User-interfaces<a class="headerlink" href="#user-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>User interfaces can employ speech to accept speech commands and/or
 respond with speech. For example,</p>
 <ul class="simple">
@@ -544,7 +890,7 @@ an answer, in text from.</p>
 <p><img alt="struct4" src="../_images/165139542.png" /></p>
 </div>
 <div class="section" id="processing-and-preprocessing">
-<h2>Processing and preprocessing<a class="headerlink" href="#processing-and-preprocessing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6.5. </span>Processing and preprocessing<a class="headerlink" href="#processing-and-preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>Irrespective of application, most systems which operate with speech
 signals suffer from similar type so of problems;</p>
 <ul class="simple">
@@ -558,14 +904,14 @@ the signal prior to feeding to the main application.</p></li>
 </ul>
 <p>Such functions typically constitute the acoustic front-end.</p>
 <div class="section" id="voice-activity-detection">
-<h3>Voice activity detection<a class="headerlink" href="#voice-activity-detection" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.5.1. </span>Voice activity detection<a class="headerlink" href="#voice-activity-detection" title="Permalink to this headline">¶</a></h3>
 <p>When there is no speech, most speech processing operations are
 meaningless. <span class="xref myst">Voice activity detection</span>
 refers to the classification of signal segments according to whether
 they contain speech or not.</p>
 </div>
 <div class="section" id="keyword-spotting-or-wake-word-detection">
-<h3>Keyword spotting or Wake-word detection<a class="headerlink" href="#keyword-spotting-or-wake-word-detection" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.5.2. </span>Keyword spotting or Wake-word detection<a class="headerlink" href="#keyword-spotting-or-wake-word-detection" title="Permalink to this headline">¶</a></h3>
 <p>In most practical situations where voice operated devices are present,
 we want to be able to talk with people and not only the device. In other
 words, we need to know when the user is speaking to the device and when
@@ -577,7 +923,7 @@ wait for the user to say the wake-word “Alexa”, and only after
 identifying that word, it starts the main process.</p>
 </div>
 <div class="section" id="speech-enhancement">
-<h3>Speech enhancement<a class="headerlink" href="#speech-enhancement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.5.3. </span>Speech enhancement<a class="headerlink" href="#speech-enhancement" title="Permalink to this headline">¶</a></h3>
 <p>We can try to remove the detrimental effect of background noises and
 room echoes with speech enhancement methods. Imagine for example how
 difficult it is to understand someone on the phone, when the remote
@@ -595,7 +941,7 @@ right), though this will reduce the accuracy of voice activity and
 wake-word detection.</p>
 </div>
 <div class="section" id="other-signal-processing">
-<h3>Other signal processing<a class="headerlink" href="#other-signal-processing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.6.5.4. </span>Other signal processing<a class="headerlink" href="#other-signal-processing" title="Permalink to this headline">¶</a></h3>
 <p>Speech signals can be processed further by an array of different
 algorithms as desired. For example:</p>
 <ul class="simple">
@@ -641,8 +987,15 @@ fraud.</p></li>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Linguistic structure of speech</p>
+            <p class="prev-next-title"><span class="section-number">2.5. </span>Linguistic structure of speech</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Pre-processing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Pre-processing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

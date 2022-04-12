@@ -1,10 +1,9 @@
 # Introduction to Speech Processing
 --------------
+2nd Edition
 
-### 2nd Edition
 
 
-Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr%C3%B6m), [Okko Räsänen](https://researchportal.tuni.fi/en/persons/okko-r%C3%A4s%C3%A4nen), [Abraham Zewoudie](https://research.aalto.fi/en/persons/abraham-zewoudie), Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das
 
 
 ## Table of contents
@@ -12,13 +11,13 @@ Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr
 1.  Forewords
     1. [Preface](Preface.md) <!-- checked -->
     2. [Background](Background.md) <!-- checked -->
-1.  Introduction
+1.  [Introduction](Introduction.md)
     1.  [Why speech processing?](Introduction/Why_speech_processing.md) <!-- checked -->
     2.  [Speech production and acoustic properties](Introduction/Speech_production_and_acoustic_properties.ipynb) <!--checked -->
     3.  [Speech perception](https://en.wikipedia.org/wiki/Speech_perception) (Wikipedia)
     4.  [Linguistic structure of speech](Introduction/Linguistic_structure_of_speech.md) <!-- checked -->
     5.  [Speech-Language pathology](https://en.wikipedia.org/wiki/Speech-language_pathology) (Wikipedia)
-    6.  [Applications and systems structures](Applications_and_systems_structures) <!-- checked -->
+    6.  [Applications and systems structures](Applications_and_systems_structures.ipynb) <!-- checked -->
     7.  [Social and cognitive processes involved in human communication](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/) (external)
 2.  [Basic representations and models](Representations/Basic_representations_and_models.md)  
     1.  [Waveform](Representations/Waveform.ipynb) <!-- checked -->
@@ -44,8 +43,8 @@ Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr
     1.  [Source and perceptual modelling](Modelling/Source_modelling_and_perceptual_modelling.md)
     1.  [Linear regression](Modelling/Linear_regression.md)
     2.  [Sub-space models](Modelling/Sub-space_models.md)
-    3.  [Vector quantization (VQ)](Modelling/Vector_quantization_VQ_.md)
-    4.  [Gaussian mixture model (GMM)](Modelling/Gaussian_mixture_model_GMM_.md)
+    3.  [Vector quantization (VQ)](Modelling/Vector_quantization_VQ.md)
+    4.  [Gaussian mixture model (GMM)](Modelling/Gaussian_mixture_model_GMM.md)
     5.  [Neural networks](Modelling/Neural_networks.md)
     6.  [Non-negative Matrix and Tensor Factorization](Modelling/Non-negative_Matrix_and_Tensor_Factorization.md)
 5.  [Evaluation of speech processing methods](Evaluation_of_speech_processing_methods)
@@ -100,3 +99,6 @@ Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr
 
 
 
+
+
+Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr%C3%B6m), [Okko Räsänen](https://researchportal.tuni.fi/en/persons/okko-r%C3%A4s%C3%A4nen), [Abraham Zewoudie](https://research.aalto.fi/en/persons/abraham-zewoudie), Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das

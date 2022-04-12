@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neural networks &#8212; Introduction to Speech Processing</title>
+    <title>5.6. Neural networks &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,12 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.7. Non-negative Matrix and Tensor Factorization" href="Non-negative_Matrix_and_Tensor_Factorization.html" />
+    <link rel="prev" title="5.5. Gaussian mixture model (GMM)" href="Gaussian_mixture_model_GMM.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,6 +75,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
@@ -87,11 +92,468 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
+  <a class="reference internal" href="../index.html">
    Introduction to Speech Processing
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Preface.html">
+   1. Preface
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Introduction.html">
+   2. Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Why_speech_processing.html">
+     2.1. Why speech processing?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Speech_production_and_acoustic_properties.html">
+     2.2. Physiological speech production
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
+     Speech perception (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Linguistic_structure_of_speech.html">
+     2.5. Linguistic structure of speech
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
+     Speech-language pathology (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Applications_and_systems_structures.html">
+     2.6. Applications and systems structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
+     Social and cognitive processes in human communication (external)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Representations/Representations.html">
+   3. Representations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Waveform.html">
+     3.1. Waveform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Windowing.html">
+     3.2. Windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Signal_energy_loudness_and_decibel.html">
+     3.3. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
+     3.4. Autocorrelation and autocovariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
+     3.5. Cepstrum and MFCC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Linear_prediction.html">
+     3.6. Linear prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
+     3.7. Fundamental frequency (F0)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
+     3.8. Zero-crossing rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
+     3.9. Deltas and Delta-deltas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
+     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
+     3.11. Jitter and shimmer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Crest_factor">
+     https://en.wikipedia.org/wiki/Crest_factor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Pre-processing.html">
+   4. Pre-processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Preprocessing/Pre-emphasis.html">
+     4.1. Pre-emphasis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Noise_gate">
+     Noise gate (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_range_compression">
+     Dynamic Range Compression (Wikipedia)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Modelling_tools_in_speech_processing.html">
+   5. Modelling tools in speech processing
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Source_modelling_and_perceptual_modelling.html">
+     5.1. Source modelling and perceptual modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_regression.html">
+     5.2. Linear regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Sub-space_models.html">
+     5.3. Sub-space models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_quantization_VQ.html">
+     5.4. Vector quantization (VQ)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_mixture_model_GMM.html">
+     5.5. Gaussian mixture model (GMM)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.6. Neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Non-negative_Matrix_and_Tensor_Factorization.html">
+     5.7. Non-negative Matrix and Tensor Factorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Evaluation_of_speech_processing_methods.html">
+   6. Evaluation of speech processing methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Subjective_quality_evaluation.html">
+     6.1. Subjective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Objective_quality_evaluation.html">
+     6.2. Objective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Other_performance_measures.html">
+     6.3. Other performance measures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Evaluation/Analysis_of_evaluation_results.html">
+     6.4. Analysis of evaluation results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_analysis.html">
+   7. Speech analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Fundamental_frequency_estimation.html">
+     7.1. Fundamental frequency estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+     7.2. Inverse filtering for glottal activity estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
+     Voice and speech analysis (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
+     7.3. Measurements for medical applications
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Electroglottograph">
+       Electroglottography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Videokymography">
+       Videokymography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
+       7.3.1. Glottal inverse filtering
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Forensic_analysis.html">
+     7.4. Forensic analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Recognition_tasks_in_speech_processing.html">
+   8. Recognition tasks in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Voice_activity_detection_VAD.html">
+     8.1. Voice activity detection (VAD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Wake-word_and_keyword_spotting.html">
+     8.2. Wake-word and keyword spotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speech_Recognition.html">
+     8.3. Speech Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Recognition_and_Verification.html">
+     8.4. Speaker Recognition and Verification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Diarization.html">
+     8.5. Speaker Diarization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Paralinguistic_speech_processing.html">
+     8.6. Paralinguistic speech processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_Synthesis.html">
+   9. Speech Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Concatenative_speech_synthesis.html">
+     9.2. Concatenative speech synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Statistical_parametric_speech_synthesis.html">
+     9.3. Statistical parametric speech synthesis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Transmission_storage_and_telecommunication.html">
+   10. Transmission, storage and telecommunication
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Design_goals.html">
+     10.1. Design goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Basic_tools.html">
+     10.2. Basic tools
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Transmission/Modified_discrete_cosine_transform_MDCT.html">
+     10.3. Modified discrete cosine transform (MDCT)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Entropy_coding.html">
+       10.3.4. Entropy coding
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
+       10.3.5. Perceptual modelling in speech and audio coding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Code-excited_linear_prediction_CELP.html">
+     10.4. Code-excited linear prediction (CELP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Frequency-domain_coding.html">
+     10.5. Frequency-domain coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_enhancement.html">
+   11. Speech enhancement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Noise_attenuation.html">
+     11.1. Noise attenuation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Echo_cancellation.html">
+     11.2. Echo cancellation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Bandwidth_extension_BWE.html">
+     11.3. Bandwidth extension (BWE)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Multi-channel_speech_enhancement_and_beamforming.html">
+     11.4. Multi-channel speech enhancement and beamforming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
+   Chatbots / Conversational design (external link)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Computational_models_of_human_language_processing.html">
+   12. Computational models of human language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+   13. Security and privacy in speech technology
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -131,9 +593,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Modelling/Neural_networks.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Modelling/Neural_networks.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -151,6 +613,23 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Modelling/Neural_networks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -163,44 +642,44 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   5.6.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#network-structures">
-   Network structures
+   5.6.2. Network structures
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#deep-neural-networks-dnns">
-     Deep Neural Networks (DNNs)
+     5.6.2.1. Deep Neural Networks (DNNs)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basics-of-neural-networks">
-     Basics of Neural Networks
+     5.6.2.2. Basics of Neural Networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activation-functions">
+     5.6.2.3. Activation Functions:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#convolutional-neural-networks">
-     Convolutional neural networks
+     5.6.2.4. Convolutional neural networks
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#recurrent-neural-networks-rnns">
-     Recurrent neural networks (RNNs)
+     5.6.2.5. Recurrent neural networks (RNNs)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   Attachments:
+   5.6.3. References:
   </a>
  </li>
 </ul>
@@ -225,44 +704,44 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   5.6.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#network-structures">
-   Network structures
+   5.6.2. Network structures
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#deep-neural-networks-dnns">
-     Deep Neural Networks (DNNs)
+     5.6.2.1. Deep Neural Networks (DNNs)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basics-of-neural-networks">
-     Basics of Neural Networks
+     5.6.2.2. Basics of Neural Networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activation-functions">
+     5.6.2.3. Activation Functions:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#convolutional-neural-networks">
-     Convolutional neural networks
+     5.6.2.4. Convolutional neural networks
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#recurrent-neural-networks-rnns">
-     Recurrent neural networks (RNNs)
+     5.6.2.5. Recurrent neural networks (RNNs)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   Attachments:
+   5.6.3. References:
   </a>
  </li>
 </ul>
@@ -275,11 +754,11 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="neural-networks">
-<h1>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5.6. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>An Artificial Neural Network (ANN) is a mathematical model that tries to simulate the structure and functionalities of biological neural networks. Basic building block of every artificial neural network is artificial neuron, that is, a simple mathematical model
-(function).  Artificial neuron is a basic building block of every
+(function).  Artificial neuron is a basic building block of every
 artificial neural network. Its design and functionalities are derived from observation of a biological neuron that is basic building block of biological neural networks (systems) which includes the brain, spinal
 cord and peripheral ganglia.</p>
 <p>Computational modelling using neural networks was started in the 1940’s
@@ -322,7 +801,7 @@ understanding of the problem. The parameters of such models are then
 trained using methods from machine learning.</p>
 </div>
 <div class="section" id="network-structures">
-<h2>Network structures<a class="headerlink" href="#network-structures" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6.2. </span>Network structures<a class="headerlink" href="#network-structures" title="Permalink to this headline">¶</a></h2>
 <p>Neural networks are, in principle, built from simple building blocks,
 where the most common type of building block is</p>
 <div class="math notranslate nohighlight">
@@ -336,9 +815,9 @@ network would be</p>
 \[\begin{split} \begin{matrix} y_1 &amp;= f(A_1 x + b_1)\\ y_2 &amp;= f(A_2 y_1 +
 b_3)\\ y_{out} &amp;= f(A_3 y_2 + b_3). \end{matrix} \end{split}\]</div>
 <div class="section" id="deep-neural-networks-dnns">
-<h3>Deep Neural Networks (DNNs)<a class="headerlink" href="#deep-neural-networks-dnns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.2.1. </span>Deep Neural Networks (DNNs)<a class="headerlink" href="#deep-neural-networks-dnns" title="Permalink to this headline">¶</a></h3>
 <p>Deep Neural Network (DNNs) are an artificial neural network (ANN) with
-multiple layers between the input and output layers. Many experts define
+multiple layers between the input and output layers. Many experts define
 deep neural networks as networks that have an input layer, an output
 layer and at least one hidden layer in between. Each layer performs
 specific types of sorting and ordering in a process that some refer to
@@ -351,43 +830,84 @@ seek to classify and order information in ways that go beyond simple
 input/output protocols.</p>
 </div>
 <div class="section" id="basics-of-neural-networks">
-<h3>Basics of Neural Networks<a class="headerlink" href="#basics-of-neural-networks" title="Permalink to this headline">¶</a></h3>
-<p>Neurons: It forms the basic structure of a neural network. When we get
+<h3><span class="section-number">5.6.2.2. </span>Basics of Neural Networks<a class="headerlink" href="#basics-of-neural-networks" title="Permalink to this headline">¶</a></h3>
+<p>Neurons: It forms the basic structure of a neural network. When we get
 the information, we process it and then we generate an output.
 Similarly, a neuron receives an input, processes it and generates an
 output which is either sent to other neurons for further processing or
 it is the final output.</p>
-<p>Weights: When an input enters a neuron, it is multiplied by a weight.
+<p>Weights: When an input enters a neuron, it is multiplied by a weight.
 Initially, the weights are initialized and they are updated during the
 model training process. When the training is over, the neural network
 assigns a higher weight value to the input it considers more important
 as compared to the ones which are considered less important.</p>
-<p>Bias: In addition to the weights, another linear component is applied to
+<p>Bias: In addition to the weights, another linear component is applied to
 the input, called as the bias. It is added to the result of weight
 multiplication to the input. The bias is basically added to change the
 range of the weight multiplied input.</p>
-<p>Activation Function:</p>
-<ol>
-<li><p>Sigmoid: It allows a reduction in extreme or atypical values in
+</div>
+<div class="section" id="activation-functions">
+<h3><span class="section-number">5.6.2.3. </span>Activation Functions:<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Sigmoid: It allows a reduction in extreme or atypical values in
 valid data without eliminating them: it converts independent
 variables of almost infinite range into simple probabilities between
 0 and 1. Most of its output will be very close to the extremes of 0
-or 1.</p>
-<div class="math notranslate nohighlight">
-\[ sigmoid(x) = \frac{1}{1+e^{-x}} \]</div>
-</li>
-<li><p>ReLU(Rectified Linear Unit): It has output 0 if the input is less
-than 0, and raw output otherwise. That is, if the input is greater
+or 1.
+$<span class="math notranslate nohighlight">\( sigmoid(x) = \frac{1}{1+e^{-x}} \)</span>$</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$sigmoid(x)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural_networks_4_0.png" src="../_images/Neural_networks_4_0.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p>ReLU(Rectified Linear Unit): It has output 0 if the input is less
+than 0, and raw output otherwise. That is, if the input is greater
 than 0, the output is equal to the input. The operation of ReLU is
-closer to the way our biological neurons work.</p>
-<div class="math notranslate nohighlight">
-\[ f(x) = \max(x,0) \]</div>
-</li>
-<li><p>Softmax: It is a good activation function since it not only maps our
-output to a <span class="math notranslate nohighlight">\([0,1]\)</span> range but also maps each output in such a way
-that the total sum is 1. The output of Softmax is therefore
-a probability distribution.</p></li>
-<li><p>Input / Output / Hidden Layer : The input layer receives the input
+closer to the way our biological neurons work.
+$<span class="math notranslate nohighlight">\( ReLU(x) = \max(x,0) = \begin{cases} x, &amp; x&gt;0\\ 0, &amp; \text{otherwise}.\end{cases} \)</span>$</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$ReLU(x)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Neural_networks_6_0.png" src="../_images/Neural_networks_6_0.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Softmax_function">Softmax</a>: A modification
+of the regular <span class="math notranslate nohighlight">\(\max\)</span> over a vector, such that it has a continuous derivative
+everywhere. That is, it maps the
+output to the range <span class="math notranslate nohighlight">\([0,1]\)</span> and simultaenously ensures
+that the total sum is 1. The output of Softmax is therefore
+a probability distribution.
+$<span class="math notranslate nohighlight">\(  SoftMax (\mathbf {x_k} )=\frac {e^{x_k}}{\sum _{j=1}^{K}e^{x_j}}.\)</span>$</p></li>
+</ol>
+<ol class="simple">
+<li><p>Input / Output / Hidden Layer : The input layer receives the input
 and is the first layer of the network. The output layer is the one which
 generates the output and is the final layer of the network. The
 processing layers are the hidden layers within the network. These hidden
@@ -395,31 +915,31 @@ layers are the ones which perform specific tasks on the incoming data
 and pass on the output generated by them to the next layer. The input
 and output layers are the ones visible to us, while are the intermediate
 layers are hidden.</p></li>
-<li><p>MLP (Multi Layer perceptron): In the simplest network, we would have
+<li><p>MLP (Multi Layer perceptron): In the simplest network, we would have
 an input layer, a hidden layer and an output layer. Each layer has
 multiple neurons and all the neurons in each layer are connected to all
 the neurons in the next layer. These networks can also be called as
 fully connected networks.</p></li>
-<li><p>Cost Function: When we train a network, its main objective is to  to
+<li><p>Cost or loss function: When we train a network, its main objective is to  to
 predict the output as close as possible to the actual value. Hence, the
 cost/loss function is used to measure this accuracy. The cost or loss
 function penalizes the network when it makes errors. The main objective
 while running the network is to increase the prediction accuracy and to
 reduce the error, thus minimizing the cost function.</p></li>
-<li><p>Gradient Descent: It is an optimization algorithm used to minimize
+<li><p>Gradient Descent: It is an optimization algorithm used to minimize
 some function by iteratively moving in the direction of steepest descent
 as defined by the negative of the gradient.</p></li>
-<li><p>Learning Rate: The learning rate is a hyperparameter that controls
+<li><p>Learning Rate: The learning rate is a hyperparameter that controls
 how much to change the model in response to the estimated error each
 time the model weights are updated. Choosing the learning rate is
 challenging as a value too small may result in a long training process
 that could get stuck, whereas a value too large may result in learning a
 sub-optimal set of weights too fast or an unstable training process. The
 learning rate may be the most important hyperparameter when configuring
-neural network. Therefore, it is important  to know how to investigate
+neural network. Therefore, it is important  to know how to investigate
 the effects of the learning rate on model performance and to build an
 intuition about the dynamics of the learning rate on model behavior.</p></li>
-<li><p>Backpropagation: When we define a neural network, we assign random
+<li><p>Backpropagation: When we define a neural network, we assign random
 weights and bias values to our nodes. Once we have received the output
 for a single iteration, we can calculate the error of the network. This
 error is then fed back to the network along with the gradient of the
@@ -429,22 +949,22 @@ This updating of weights using the gradient of the cost function is
 known as back-propagation. In back-propagation the movement of the
 network is backwards, the error along with the gradient flows back from
 the out layer through the hidden layers and the weights are updated.</p></li>
-<li><p>Batches: While training a neural network, instead of sending the
+<li><p>Batches: While training a neural network, instead of sending the
 entire input in one go, we divide in input into several chunks of equal
 size randomly. Training the data on batches makes the model more
 generalized as compared to the model built when the entire data set is
 fed to the network in one go.</p></li>
-<li><p>Epochs: An epoch is is a single training iteration of all batches
+<li><p>Epochs: An epoch is is a single training iteration of all batches
 in both forward and back propagation. Thus, 1 epoch is a single forward
 and backward pass of the entire input data. Although it is highly likely
 that more number of epochs would show higher accuracy of the network, it
 would also take longer for the network to converge. You should also take
 into account that if the number of epochs are too high, the network
 might over-fit.</p></li>
-<li><p>Dropout: It is a regularization technique to prevent over-fitting
+<li><p>Dropout: It is a regularization technique to prevent over-fitting
 of the network. While training, a number of neurons in the hidden layer
 are randomly dropped.</p></li>
-<li><p>Batch Normalization: It normalizes the input layer by adjusting and
+<li><p>Batch Normalization: It normalizes the input layer by adjusting and
 scaling the activations. For example, if we have features from 0 to 1
 and some from 1 to 1000, we should normalize them to speed up learning.</p></li>
 </ol>
@@ -465,23 +985,23 @@ where the connections between units do not form a cycle. Feedforward
 neural networks were the first type of artificial neural network
 invented and are simpler than their counterpart, recurrent neural
 networks (see below ). They are called feedforward because
-information only travels forward in the network.  Firstly, it goes
+information only travels forward in the network.  Firstly, it goes
 through the input nodes, then through the hidden nodes and finally
 through the output nodes.</p></li>
 </ul>
 </div>
 <div class="section" id="convolutional-neural-networks">
-<h3>Convolutional neural networks<a class="headerlink" href="#convolutional-neural-networks" title="Permalink to this headline">¶</a></h3>
-<p>CNN was first proposed by [1].  It has first been successfully used by
-[2]  for handwritten digit classification problem. It is currently the
+<h3><span class="section-number">5.6.2.4. </span>Convolutional neural networks<a class="headerlink" href="#convolutional-neural-networks" title="Permalink to this headline">¶</a></h3>
+<p>CNN was first proposed by [1].  It has first been successfully used by
+[2]  for handwritten digit classification problem. It is currently the
 most popular neural network model being used for image classification
-problem. The advantages of CNNs over DNNs include CNNs are highly
+problem. The advantages of CNNs over DNNs include CNNs are highly
 optimized for processing 2D and 3D images, and are effective to learn
 and extract abstractions of 2D features. In addition to these, CNNs have
 significantly fewer parameters than a fully connected network of similar
 size.</p>
 <p>Figure 4.1. shows the overall architecture of CNNs. CNNs consists mainly
-of two  parts: feature extractors and classifier. In the feature
+of two  parts: feature extractors and classifier. In the feature
 extraction module, each layer of the network receives the output from
 its immediate previous layer as its input and passes its output as the
 input to the next layer. The CNN architecture mainly consists of three
@@ -534,15 +1054,15 @@ segmentation tasks [10].</p></li>
 </ul>
 <p>Training Techniques</p>
 <ol class="simple">
-<li><p>Sub-Sampling Layer or Pooling Layer:  Two different techniques have
+<li><p>Sub-Sampling Layer or Pooling Layer:  Two different techniques have
 been used for the implementation of deep networks in the
-sub-sampling or pooling layer: average and max-pooling.  While the
+sub-sampling or pooling layer: average and max-pooling.  While the
 average Pooling calculate the average value for each patch on the
-feature map, the max pooling calculate the maximum value for each
+feature map, the max pooling calculate the maximum value for each
 patch of the feature map.</p></li>
-<li><p>Padding: It adds extra layer of zeros across the images so that the
+<li><p>Padding: It adds extra layer of zeros across the images so that the
 output image has the same size as the input.</p></li>
-<li><p>Data Augmentation: It is the addition of new data derived from the
+<li><p>Data Augmentation: It is the addition of new data derived from the
 given data. This might prove to be beneficial for prediction. It
 includes rotation, shearing, zooming, cCropping, flipping and
 changing the brightness level.</p></li>
@@ -555,7 +1075,7 @@ of experiments. Once you find the right set of hyperparameters, you need
 to train the model for a number of epochs.</p>
 </div>
 <div class="section" id="recurrent-neural-networks-rnns">
-<h3>Recurrent neural networks (RNNs)<a class="headerlink" href="#recurrent-neural-networks-rnns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.2.5. </span>Recurrent neural networks (RNNs)<a class="headerlink" href="#recurrent-neural-networks-rnns" title="Permalink to this headline">¶</a></h3>
 <p>Topics to be covered:</p>
 <ul class="simple">
 <li><p>Basics of RNNs</p></li>
@@ -565,17 +1085,17 @@ to train the model for a number of epochs.</p>
 <p><strong>Basics of RNNs</strong></p>
 <p>The standard feedforward neural networks (i.e,, DNNs and CNNs) are
 function generators associating appropriate output to input. However,
-certain types of data are serial in nature. A recurrent neural network
+certain types of data are serial in nature. A recurrent neural network
 (RNN) processes sequences such as stock prices, sentences one element at
 a time while retaining a memory (called a state) of what has come
-previously in the sequence. Recurrent means the output at the current
+previously in the sequence. Recurrent means the output at the current
 time step becomes the input to the next time step. At each element of
 the sequence, the model considers not just the current input, but what
-it remembers about the preceding elements. This memory allows the
+it remembers about the preceding elements. This memory allows the
 network to learn long-term dependencies in a sequence which means it can
 take the entire context into account when making a prediction such as
 predicting the next word in a sentence. A RNN is designed to mimic the
-human way of processing sequences: we consider the entire sentence when
+human way of processing sequences: we consider the entire sentence when
 we form a response instead of words by themselves. For example, consider
 the following sentence:</p>
 <p>“The concert was boring for the first few minutes but then was terribly
@@ -588,15 +1108,15 @@ the entire sequence. Reading a whole sequence gives us a context for
 processing its meaning, a concept encoded in recurrent neural networks.</p>
 <p>Figure 4.3 General form of RNN</p>
 <p>The left part of Figure 4.3 shows that the input-output relation of a
-standard neural network is altered so that the output is fed into the
+standard neural network is altered so that the output is fed into the
 input. But, the right part of Figure 4.3 shows that the scheme unwrapped
-through time. The input is the serial data  <span class="math notranslate nohighlight">\( (x_1,........,x_T) \)</span>
-and the output is <span class="math notranslate nohighlight">\( (o_1,........,o_T) \)</span> . The output of a neural
+through time. The input is the serial data  <span class="math notranslate nohighlight">\( (x_1,........,x_T) \)</span>
+and the output is <span class="math notranslate nohighlight">\( (o_1,........,o_T) \)</span> . The output of a neural
 network is fed into the next constituent neural network in the next
-stage as part of the input. So the output  <span class="math notranslate nohighlight">\( o_t \)</span> depends on all
-the inputs  <span class="math notranslate nohighlight">\( (x_1,........,x_T) \)</span> . It may be the case that it is
-not a good idea to make the output  <span class="math notranslate nohighlight">\( o_1 \)</span></p>
-<p>dependent only on  <span class="math notranslate nohighlight">\( x_1 \)</span> . In fact  <span class="math notranslate nohighlight">\( o_1 \)</span> itself should be
+stage as part of the input. So the output  <span class="math notranslate nohighlight">\( o_t \)</span> depends on all
+the inputs  <span class="math notranslate nohighlight">\( (x_1,........,x_T) \)</span> . It may be the case that it is
+not a good idea to make the output  <span class="math notranslate nohighlight">\( o_1 \)</span></p>
+<p>dependent only on  <span class="math notranslate nohighlight">\( x_1 \)</span> . In fact  <span class="math notranslate nohighlight">\( o_1 \)</span> itself should be
 produced in context.</p>
 <p>RNNs can be used in different applications such as machine translation,
 speech recognition, generating image descriptions, video tagging, and
@@ -618,31 +1138,31 @@ extend the effective pixel neighborhood.</p></li>
 activation function.</p></li>
 </ol>
 <p><strong>Vanishing and exploding gradient problem</strong></p>
-<p>RNNs are very hard to train. Let us see the reason. The term  <span class="math notranslate nohighlight">\( \frac{\partial E}{\partial h^l} \)</span> used in backpropagation algorithm is a
+<p>RNNs are very hard to train. Let us see the reason. The term  <span class="math notranslate nohighlight">\( \frac{\partial E}{\partial h^l} \)</span> used in backpropagation algorithm is a
 product of a long chain of matrices: <span class="math notranslate nohighlight">\( \left( \frac {\partial
 E}{\partial h^l} \right ) = \left ( \frac {\partial
 z^{l+1}}{\partial h^l} \right ) \left ( \frac {\partial
 h^{l+1}}{\partial z^{l+1}} \right )...\left ( \frac {\partial
 h^l}{\partial z^L} \right ) \left ( \frac {\partial E}{\partial
 h^L} \right ), \)</span> For the input <span class="math notranslate nohighlight">\( x=h^0 \)</span> , this chain is the
-longest. If the activation function  <span class="math notranslate nohighlight">\( sigmoid(t) \)</span> is the sigmoid
+longest. If the activation function  <span class="math notranslate nohighlight">\( sigmoid(t) \)</span> is the sigmoid
 function <span class="math notranslate nohighlight">\( sigmoid(t) = \frac{1}{1+e^{-t}} \)</span> its derivative is <span class="math notranslate nohighlight">\(
 sigmoid'(t) = \frac{e^t} { \left( 1 + e^t \right ) ^2 } \)</span> which
 gets very small so that it practically vanishes except at a small
-interval near 0.  It is one of the reasons why people ReLU activation
+interval near 0.  It is one of the reasons why people ReLU activation
 function is prefered. But it is not a solution, as negative input values
 also kill the gradient and make it stay there. Even if one avoids such
 an outright vanishing gradient problem, the long matrix multiplication
-in general may make the gradient vanish or explode. This kind of problem
+in general may make the gradient vanish or explode. This kind of problem
 gets even more aggravated in the case of RNNs, since RNNs normally
 require long chain of backpropagation not only through the layers of
 neural networks of constituent cells but also across the different
 cells. Hence, RNNs are difficult to train.</p>
 <p><strong>Long short-term memory (LSTM)</strong></p>
 <p>The Long Short-Term Memory (LSTM) was first proposed by Hochreiter and
-Schmidhuber [10] as a solution to the vanishing gradients problem. But
+Schmidhuber [10] as a solution to the vanishing gradients problem. But
 it did not attract much attention until people realized it indeed
-provides a good solution to the vanishing and exploding gradient problem
+provides a good solution to the vanishing and exploding gradient problem
 of RNN as described above. We will only describe the architecture of its
 cell. There are many variations in the cell architecture, but we present
 only the basics.</p>
@@ -661,23 +1181,23 @@ elements in the cell.</p>
  height="250" /></p>
 <p>Figure 4.4. Structure of LSTM cell</p>
 <p>The structure of LSTM is shown in Figure 4.4 . The input vector is <span class="math notranslate nohighlight">\(
-x_t \)</span> . The cell state denoted by  <span class="math notranslate nohighlight">\( c_{t-1} \)</span> and the hidden
-state  <span class="math notranslate nohighlight">\( h_{t-1} \)</span> are fed into the LSTM cell and  <span class="math notranslate nohighlight">\( c_t \)</span> and 
-<span class="math notranslate nohighlight">\( h_t \)</span> are fed into the next cell. Internally, it has four states: 
-<span class="math notranslate nohighlight">\( i_t \)</span> (input),  <span class="math notranslate nohighlight">\( f_t \)</span> (forget),  <span class="math notranslate nohighlight">\( o_t \)</span> (output), and 
-<span class="math notranslate nohighlight">\( g_t \)</span> . The forget state  <span class="math notranslate nohighlight">\( f_t \)</span> is obtained as a sigmoid
-output of a network with  <span class="math notranslate nohighlight">\( x_t \)</span> and  <span class="math notranslate nohighlight">\( h_{t-1} \)</span> fed into it
-as inputs. Since  <span class="math notranslate nohighlight">\( f_t \)</span> is a sigmoid output, each element in it
-has a value between 0 and 1. If it is close to 0, it erases  <span class="math notranslate nohighlight">\(
-c_{t-1} \)</span> by multiplication; if it is close to 1, it  keeps  <span class="math notranslate nohighlight">\(
-c_{t-1} \)</span> by multiplication. Thus,  <span class="math notranslate nohighlight">\( f_t \)</span> is given the name
-”forget state” because of this property,  The input state  <span class="math notranslate nohighlight">\( i_t \)</span>
-and the output state  <span class="math notranslate nohighlight">\( o_t \)</span> are obtained by using (1) and (3),
-respectively. The state  <span class="math notranslate nohighlight">\( g_t \)</span> is also obtained similarly except
-that it is an output of the form tanh . This gives the  <span class="math notranslate nohighlight">\( \pm \)</span>
-sign. The product it  <span class="math notranslate nohighlight">\( \\otimes \)</span> gt is then added to  <span class="math notranslate nohighlight">\( c_t \)</span>
-, and this gives new information to the cell state. The hidden state ht
-is obtained as in (6), and the cell output  <span class="math notranslate nohighlight">\( y_t \)</span> is the same as
+x_t \)</span> . The cell state denoted by  <span class="math notranslate nohighlight">\( c_{t-1} \)</span> and the hidden
+state  <span class="math notranslate nohighlight">\( h_{t-1} \)</span> are fed into the LSTM cell and  <span class="math notranslate nohighlight">\( c_t \)</span> and
+<span class="math notranslate nohighlight">\( h_t \)</span> are fed into the next cell. Internally, it has four states:
+<span class="math notranslate nohighlight">\( i_t \)</span> (input),  <span class="math notranslate nohighlight">\( f_t \)</span> (forget),  <span class="math notranslate nohighlight">\( o_t \)</span> (output), and
+<span class="math notranslate nohighlight">\( g_t \)</span> . The forget state  <span class="math notranslate nohighlight">\( f_t \)</span> is obtained as a sigmoid
+output of a network with  <span class="math notranslate nohighlight">\( x_t \)</span> and  <span class="math notranslate nohighlight">\( h_{t-1} \)</span> fed into it
+as inputs. Since  <span class="math notranslate nohighlight">\( f_t \)</span> is a sigmoid output, each element in it
+has a value between 0 and 1. If it is close to 0, it erases  <span class="math notranslate nohighlight">\(
+c_{t-1} \)</span> by multiplication; if it is close to 1, it  keeps  <span class="math notranslate nohighlight">\(
+c_{t-1} \)</span> by multiplication. Thus,  <span class="math notranslate nohighlight">\( f_t \)</span> is given the name
+”forget state” because of this property,  The input state  <span class="math notranslate nohighlight">\( i_t \)</span>
+and the output state  <span class="math notranslate nohighlight">\( o_t \)</span> are obtained by using (1) and (3),
+respectively. The state  <span class="math notranslate nohighlight">\( g_t \)</span> is also obtained similarly except
+that it is an output of the form tanh . This gives the  <span class="math notranslate nohighlight">\( \pm \)</span>
+sign. The product it  <span class="math notranslate nohighlight">\( \\otimes \)</span> gt is then added to  <span class="math notranslate nohighlight">\( c_t \)</span>
+, and this gives new information to the cell state. The hidden state ht
+is obtained as in (6), and the cell output  <span class="math notranslate nohighlight">\( y_t \)</span> is the same as
 <span class="math notranslate nohighlight">\( h_t \)</span> . The whole scheme is depicted in Figure 4.4.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -694,7 +1214,7 @@ y_t (cell\ output) &amp;=&amp; h_t &amp; (7)
 </div>
 </div>
 <div class="section" id="references">
-<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6.3. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>[1] Fukushima, K. Neocognitron: A hierarchical neural network capable
 of visual pattern recognition. Neural Netw. 1988, 1, 119–130.</p>
 <p>[2] LeCun, Y.; Bottou, L.; Bengio, Y.; Haffner, P. Gradient-based
@@ -724,29 +1244,8 @@ Convolutional gated recurrent neural network incorporating spatial
 features for audio tagging. In Proceedings of the 2017 International
 Joint Conference on Neural Networks (IJCNN), Anchorage, AK, USA, 14–19
 May 2017; pp. 3461–3466.</p>
-<p>[10] Hochreiter, S., Schmidhuber, J., Courville, A., Long short-term
+<p>[10] Hochreiter, S., Schmidhuber, J., Courville, A., Long short-term
 memory, Neural Computation 9(8):1735-80 (1997)</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-1-14_12-25-18.png](attachments/155464038/165122914.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-1-14_15-11-3.png](attachments/155464038/165123166.png)
-(image/png)  
-</div>
 </div>
 </div>
 
@@ -774,7 +1273,21 @@ memory, Neural Computation 9(8):1735-80 (1997)</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Gaussian_mixture_model_GMM.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5.5. </span>Gaussian mixture model (GMM)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Non-negative_Matrix_and_Tensor_Factorization.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.7. </span>Non-negative Matrix and Tensor Factorization</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

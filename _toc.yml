@@ -1,8 +1,11 @@
 # In _toc.yml
 format: jb-book
-root: README.md
+root: index
+options:
+  numbered: true
 chapters:
-- file: Introduction/Introduction.md
+- file: Preface
+- file: Introduction
   sections:
   - file: Introduction/Why_speech_processing.md
   - file: Introduction/Speech_production_and_acoustic_properties.ipynb
@@ -14,7 +17,7 @@ chapters:
   - file: Introduction/Applications_and_systems_structures
   - url: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/
     title: Social and cognitive processes in human communication (external)
-- file: Representation/Representation.md
+- file: Representations/Representations.md
   sections:
   - file: Representations/Waveform.ipynb
   - file: Representations/Windowing.md

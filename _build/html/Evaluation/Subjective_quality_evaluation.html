@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Subjective quality evaluation &#8212; Introduction to Speech Processing</title>
+    <title>6.1. Subjective quality evaluation &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,12 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.2. Objective quality evaluation" href="Objective_quality_evaluation.html" />
+    <link rel="prev" title="6. Evaluation of speech processing methods" href="../Evaluation_of_speech_processing_methods.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,6 +75,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
@@ -87,11 +92,468 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
+  <a class="reference internal" href="../index.html">
    Introduction to Speech Processing
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Preface.html">
+   1. Preface
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Introduction.html">
+   2. Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Why_speech_processing.html">
+     2.1. Why speech processing?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Speech_production_and_acoustic_properties.html">
+     2.2. Physiological speech production
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
+     Speech perception (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Linguistic_structure_of_speech.html">
+     2.5. Linguistic structure of speech
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
+     Speech-language pathology (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Applications_and_systems_structures.html">
+     2.6. Applications and systems structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
+     Social and cognitive processes in human communication (external)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Representations/Representations.html">
+   3. Representations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Waveform.html">
+     3.1. Waveform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Windowing.html">
+     3.2. Windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Signal_energy_loudness_and_decibel.html">
+     3.3. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
+     3.4. Autocorrelation and autocovariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
+     3.5. Cepstrum and MFCC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Linear_prediction.html">
+     3.6. Linear prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
+     3.7. Fundamental frequency (F0)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
+     3.8. Zero-crossing rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
+     3.9. Deltas and Delta-deltas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
+     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
+     3.11. Jitter and shimmer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Crest_factor">
+     https://en.wikipedia.org/wiki/Crest_factor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Pre-processing.html">
+   4. Pre-processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Preprocessing/Pre-emphasis.html">
+     4.1. Pre-emphasis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Noise_gate">
+     Noise gate (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_range_compression">
+     Dynamic Range Compression (Wikipedia)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Modelling_tools_in_speech_processing.html">
+   5. Modelling tools in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Source_modelling_and_perceptual_modelling.html">
+     5.1. Source modelling and perceptual modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Linear_regression.html">
+     5.2. Linear regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Sub-space_models.html">
+     5.3. Sub-space models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Vector_quantization_VQ.html">
+     5.4. Vector quantization (VQ)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Gaussian_mixture_model_GMM.html">
+     5.5. Gaussian mixture model (GMM)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Neural_networks.html">
+     5.6. Neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Modelling/Non-negative_Matrix_and_Tensor_Factorization.html">
+     5.7. Non-negative Matrix and Tensor Factorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Evaluation_of_speech_processing_methods.html">
+   6. Evaluation of speech processing methods
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.1. Subjective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Objective_quality_evaluation.html">
+     6.2. Objective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Other_performance_measures.html">
+     6.3. Other performance measures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis_of_evaluation_results.html">
+     6.4. Analysis of evaluation results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_analysis.html">
+   7. Speech analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Fundamental_frequency_estimation.html">
+     7.1. Fundamental frequency estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+     7.2. Inverse filtering for glottal activity estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
+     Voice and speech analysis (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
+     7.3. Measurements for medical applications
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Electroglottograph">
+       Electroglottography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Videokymography">
+       Videokymography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
+       7.3.1. Glottal inverse filtering
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Analysis/Forensic_analysis.html">
+     7.4. Forensic analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Recognition_tasks_in_speech_processing.html">
+   8. Recognition tasks in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Voice_activity_detection_VAD.html">
+     8.1. Voice activity detection (VAD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Wake-word_and_keyword_spotting.html">
+     8.2. Wake-word and keyword spotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speech_Recognition.html">
+     8.3. Speech Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Recognition_and_Verification.html">
+     8.4. Speaker Recognition and Verification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Speaker_Diarization.html">
+     8.5. Speaker Diarization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recognition/Paralinguistic_speech_processing.html">
+     8.6. Paralinguistic speech processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_Synthesis.html">
+   9. Speech Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Concatenative_speech_synthesis.html">
+     9.2. Concatenative speech synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Synthesis/Statistical_parametric_speech_synthesis.html">
+     9.3. Statistical parametric speech synthesis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Transmission_storage_and_telecommunication.html">
+   10. Transmission, storage and telecommunication
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Design_goals.html">
+     10.1. Design goals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Basic_tools.html">
+     10.2. Basic tools
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Transmission/Modified_discrete_cosine_transform_MDCT.html">
+     10.3. Modified discrete cosine transform (MDCT)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Entropy_coding.html">
+       10.3.4. Entropy coding
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
+       10.3.5. Perceptual modelling in speech and audio coding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Code-excited_linear_prediction_CELP.html">
+     10.4. Code-excited linear prediction (CELP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Transmission/Frequency-domain_coding.html">
+     10.5. Frequency-domain coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Speech_enhancement.html">
+   11. Speech enhancement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Noise_attenuation.html">
+     11.1. Noise attenuation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Echo_cancellation.html">
+     11.2. Echo cancellation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Bandwidth_extension_BWE.html">
+     11.3. Bandwidth extension (BWE)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Enhancement/Multi-channel_speech_enhancement_and_beamforming.html">
+     11.4. Multi-channel speech enhancement and beamforming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
+   Chatbots / Conversational design (external link)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Computational_models_of_human_language_processing.html">
+   12. Computational models of human language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+   13. Security and privacy in speech technology
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -163,56 +625,56 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aspects-of-quality">
-   Aspects of quality
+   6.1.1. Aspects of quality
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sound-and-speech-quality">
-     Sound and speech quality
+     6.1.1.1. Sound and speech quality
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#interaction-quality">
-     Interaction quality
+     6.1.1.2. Interaction quality
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choosing-subjects-naive-or-expert">
-   Choosing subjects - Naïve or expert?
+   6.1.2. Choosing subjects - Naïve or expert?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#experimental-design">
-   Experimental design
+   6.1.3. Experimental design
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#some-use-cases">
-   Some use cases
+   6.1.4. Some use cases
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frequently-used-standards-and-recommendations-for-quality-evaluation">
-   Frequently used standards and recommendations for quality evaluation
+   6.1.5. Frequently used standards and recommendations for quality evaluation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#expert-listeners">
-     Expert listeners
+     6.1.5.1. Expert listeners
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#naive-listeners">
-     Naïve listeners
+     6.1.5.2. Naïve listeners
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intelligibility-testing">
-   Intelligibility testing
+   6.1.6. Intelligibility testing
   </a>
  </li>
 </ul>
@@ -237,56 +699,56 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aspects-of-quality">
-   Aspects of quality
+   6.1.1. Aspects of quality
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sound-and-speech-quality">
-     Sound and speech quality
+     6.1.1.1. Sound and speech quality
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#interaction-quality">
-     Interaction quality
+     6.1.1.2. Interaction quality
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choosing-subjects-naive-or-expert">
-   Choosing subjects - Naïve or expert?
+   6.1.2. Choosing subjects - Naïve or expert?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#experimental-design">
-   Experimental design
+   6.1.3. Experimental design
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#some-use-cases">
-   Some use cases
+   6.1.4. Some use cases
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frequently-used-standards-and-recommendations-for-quality-evaluation">
-   Frequently used standards and recommendations for quality evaluation
+   6.1.5. Frequently used standards and recommendations for quality evaluation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#expert-listeners">
-     Expert listeners
+     6.1.5.1. Expert listeners
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#naive-listeners">
-     Naïve listeners
+     6.1.5.2. Naïve listeners
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intelligibility-testing">
-   Intelligibility testing
+   6.1.6. Intelligibility testing
   </a>
  </li>
 </ul>
@@ -299,7 +761,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="subjective-quality-evaluation">
-<h1>Subjective quality evaluation<a class="headerlink" href="#subjective-quality-evaluation" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1. </span>Subjective quality evaluation<a class="headerlink" href="#subjective-quality-evaluation" title="Permalink to this headline">¶</a></h1>
 <p>In speech processing applications where humans are the end-users, there
 humans are also the ultimate measure of performance and quality.
 <em>Subjective evaluation</em> refers to evaluation setups where human subjects
@@ -326,7 +788,7 @@ setup, subjects listen to sound samples and evaluate their quality.</p>
 <img src="attachments/155470260/155472510.jpg" class="image-center" width="200" />
 <p>Photo by Anthony Brolin on Unsplash</p>
 <div class="section" id="aspects-of-quality">
-<h2>Aspects of quality<a class="headerlink" href="#aspects-of-quality" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.1. </span>Aspects of quality<a class="headerlink" href="#aspects-of-quality" title="Permalink to this headline">¶</a></h2>
 <p>Observe that the appropriate evaluation questions are tightly linked to
 the application and context. For example, when designing a
 teleconferencing system for business applications, we are interested in
@@ -346,7 +808,7 @@ network coverage, user interface, visual and tactual design of
 devices etc.</p></li>
 </ul>
 <div class="section" id="sound-and-speech-quality">
-<h3>Sound and speech quality<a class="headerlink" href="#sound-and-speech-quality" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.1. </span>Sound and speech quality<a class="headerlink" href="#sound-and-speech-quality" title="Permalink to this headline">¶</a></h3>
 <p>The acoustic quality of the signal can be further described, for
 example, through concepts such as</p>
 <ul class="simple">
@@ -384,7 +846,7 @@ the middle range whereas quality is always relevant (see figure on the
 right).</p>
 </div>
 <div class="section" id="interaction-quality">
-<h3>Interaction quality<a class="headerlink" href="#interaction-quality" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.2. </span>Interaction quality<a class="headerlink" href="#interaction-quality" title="Permalink to this headline">¶</a></h3>
 <p>The quality of interaction when using speech technology can be further
 described, for example, through concepts such as</p>
 <ul class="simple">
@@ -403,7 +865,7 @@ the obvious meaning.</p></li>
 </div>
 </div>
 <div class="section" id="choosing-subjects-naive-or-expert">
-<h2>Choosing subjects - Naïve or expert?<a class="headerlink" href="#choosing-subjects-naive-or-expert" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2. </span>Choosing subjects - Naïve or expert?<a class="headerlink" href="#choosing-subjects-naive-or-expert" title="Permalink to this headline">¶</a></h2>
 <p>When designing a subjective listening test, one of the first important
 choices is whether listeners are naïve or expert listeners. With naïve
 we refer to listeners who do not have prior experience in analytic
@@ -459,7 +921,7 @@ listeners removed in post-screening and the motivations for
 post-screening have to therefore be documented accurately.</p>
 </div>
 <div class="section" id="experimental-design">
-<h2>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3. </span>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h2>
 <p>To get accurate results from an experiment, we have to design the
 experiment such that it matches the performance qualities we want to
 quantify. For example, in an extreme case, an evaluation of the
@@ -591,7 +1053,7 @@ and high quality anchors are then respectively known as
 </ul>
 </div>
 <div class="section" id="some-use-cases">
-<h2>Some use cases<a class="headerlink" href="#some-use-cases" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.4. </span>Some use cases<a class="headerlink" href="#some-use-cases" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><em>During research and development</em> of speech and audio processing
 methods, researchers have to evaluate the performance of their
@@ -632,9 +1094,9 @@ automated objective tests.</p></li>
 </ul>
 </div>
 <div class="section" id="frequently-used-standards-and-recommendations-for-quality-evaluation">
-<h2>Frequently used standards and recommendations for quality evaluation<a class="headerlink" href="#frequently-used-standards-and-recommendations-for-quality-evaluation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.5. </span>Frequently used standards and recommendations for quality evaluation<a class="headerlink" href="#frequently-used-standards-and-recommendations-for-quality-evaluation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="expert-listeners">
-<h3>Expert listeners<a class="headerlink" href="#expert-listeners" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.5.1. </span>Expert listeners<a class="headerlink" href="#expert-listeners" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>By far the most commonly used standard applied with expert listeners
 is known as <a class="reference external" href="https://en.wikipedia.org/wiki/MUSHRA">MUSHRA, or MUltiple Stimuli with Hidden Reference and
@@ -675,7 +1137,7 @@ BS.1116-3 (ABC/HR) is recommended instead of MUSHRA (see
 <a class="reference external" href="https://www.audiolabs-erlangen.de/resources/webMUSHRA">https://www.audiolabs-erlangen.de/resources/webMUSHRA</a></p>
 </div>
 <div class="section" id="naive-listeners">
-<h3>Naïve listeners<a class="headerlink" href="#naive-listeners" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.5.2. </span>Naïve listeners<a class="headerlink" href="#naive-listeners" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>P.800 is the popular name of a set of listening tests defined in the
 standard
@@ -825,7 +1287,7 @@ Fezbot2000 on Unsplash</p>
 </div>
 </div>
 <div class="section" id="intelligibility-testing">
-<h2>Intelligibility testing<a class="headerlink" href="#intelligibility-testing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.6. </span>Intelligibility testing<a class="headerlink" href="#intelligibility-testing" title="Permalink to this headline">¶</a></h2>
 <p>When a speech signal has a been corrupted by a considerable level of
 noise and/or reverberation, it’s intelligibility starts to deteriorate.
 We might miss-interpret or -understand words or entirely miss them.
@@ -928,7 +1390,21 @@ measure, where human subjects evaluate the quality of sounds.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../Evaluation_of_speech_processing_methods.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Evaluation of speech processing methods</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Objective_quality_evaluation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Objective quality evaluation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
