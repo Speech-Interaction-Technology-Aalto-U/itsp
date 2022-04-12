@@ -29,3 +29,79 @@ chapters:
   - file: Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.md
   - file: Representations/Jitter_and_shimmer.md  
   - url: https://en.wikipedia.org/wiki/Crest_factor
+- file: Pre-processing.md
+  sections:
+  - file: Preprocessing/Pre-emphasis.md 
+  - url: https://en.wikipedia.org/wiki/Noise_gate
+    title: Noise gate (Wikipedia)
+  - url: https://en.wikipedia.org/wiki/Dynamic_range_compression
+    title: Dynamic Range Compression (Wikipedia)
+  - file: Recognition/Voice_activity_detection_VAD.md
+  - file: Speech_enhancement.md
+- file: Modelling_tools_in_speech_processing.md
+  sections:
+  - file: Modelling/Source_modelling_and_perceptual_modelling.md
+  - file: Modelling/Linear_regression.md
+  - file: Modelling/Sub-space_models.md
+  - file: Modelling/Vector_quantization_VQ.md
+  - file: Modelling/Gaussian_mixture_model_GMM.md
+  - file: Modelling/Neural_networks.md
+  - file: Modelling/Non-negative_Matrix_and_Tensor_Factorization.md
+- file: Evaluation_of_speech_processing_methods
+  sections:
+  - file: Evaluation/Subjective_quality_evaluation.md
+  - file: Evaluation/Objective_quality_evaluation.md
+  - file: Evaluation/Other_performance_measures.md
+  - file: Evaluation/Analysis_of_evaluation_results.md
+- file: Speech_analysis.md
+  - file: Analysis/Fundamental_frequency_estimation.md
+  - title: Formant estimation and tracking
+  - file: Analysis/Inverse_filtering_for_glottal_activity_estimation.md
+  - url: https://en.wikipedia.org/wiki/Voice_analysis
+    title: Voice and speech analysis (Wikipedia)
+  - title: Measurements for medical applications
+    sections:
+      - url: https://en.wikipedia.org/wiki/Electroglottograph
+        title: Electroglottography (Wikipedia)
+      - url: https://en.wikipedia.org/wiki/Videokymography
+        title: Stroboscopy and videokymography (Wikipedia)
+      - title: Highspeed camera
+      - title: MRI
+      - title: Rothenberg mask
+      - file: Analysis/Glottal_inverse_filtering.md
+    - file: Analysis/Forensic_analysis.md
+- file: Recognition_tasks_in_speech_processing.md
+  sections:
+  - file: Recognition/Voice_activity_detection_VAD.md
+  - file: Recognition/Wake-word_and_keyword_spotting.md
+  - file: Recognition/Speech_Recognition.md
+  - file: Recognition/Speaker_Recognition_and_Verification.md
+  - file: Recognition/Speaker_Diarization.md
+  - file: Recognition/Paralinguistic_speech_processing.md
+- title: Natural language processing
+- file: Speech_Synthesis.md
+  - file: Synthesis/Concatenative_speech_synthesis.md
+  - file: Synthesis/Statistical_parametric_speech_synthesis.md)
+- file: Transmission_storage_and_telecommunication.md
+  sections:
+  - file: Transmission/Design_goals.md
+  - file: Transmission/Basic_tools.md
+  - file: Transmission/Modified_discrete_cosine_transform_MDCT.md
+    sections:
+    - file: Transmission/Entropy_coding.md
+    - file: Transmission/Perceptual_modelling_in_speech_and_audio_coding.md
+    - file: Transmission/Vector_quantization_VQ.md
+    - file: Transmission/Linear_prediction.md
+  - file: Transmission/Code-excited_linear_prediction_CELP.md
+  - file: Transmission/Frequency-domain_coding.md
+- file: Speech_enhancement.md
+  - file: Enhancement/Noise_attenuation.md
+  - file: Enhancement/Echo_cancellation.md
+  - file: Enhancement/Bandwidth_extension_BWE.md
+  - title: Dereverberation
+  - title: Source separation
+  - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.md
+- url: https://landbot.io/blog/guide-to-conversational-design/
+  title: Chatbots / Conversational design (external link)
+- file: Computational_models_of_human_language_processing.md
+- file: Security_and_privacy_in_speech_technology.md
