@@ -80,15 +80,8 @@ result from restrictions in the speech production and perception
 apparati or due to other shared characteristics of [natural
 languages](https://en.wikipedia.org/wiki/Natural_language).
 
-<img src="../attachments/197422825/197424504.png" class="image-center"
-data-image-src="../attachments/197422825/197424504.png"
-data-unresolved-comment-count="0" data-linked-resource-id="197424504"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hierarch_example_speech_structure.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="197422825"
-data-linked-resource-container-version="39" width="1000" />**Fig. 1:**
+![hierarcy](attachments/197424504.png)
+**Fig. 1:**
 **An example of the hierarchical organization of speech in terms of
 phones, syllables, and words for an Estonian speech sample. Two
 suprasegmental features, namely F0 and intensity, are also shown on top.
@@ -181,16 +174,7 @@ can flow freely from both sides of the tongue (e.g., \[l\] as in
 categorize them, and an interested reader is suggested to consult some
 phonetics textbook for more information.
 
-<img src="../attachments/197422825/197423276.png" class="image-center"
-data-image-src="../attachments/197422825/197423276.png"
-data-unresolved-comment-count="0" data-linked-resource-id="197423276"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="IPA_consonants_pulmonic.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="197422825"
-data-linked-resource-container-version="39" width="900" />
-
+![consonants](attachments/197423276.png)
 **Fig.3: IPA chart for pulmonic consonants (reproduced by CC BY-SA
 3.0).**
 

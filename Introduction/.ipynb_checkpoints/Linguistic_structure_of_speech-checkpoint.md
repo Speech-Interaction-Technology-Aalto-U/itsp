@@ -80,15 +80,8 @@ result from restrictions in the speech production and perception
 apparati or due to other shared characteristics of [natural
 languages](https://en.wikipedia.org/wiki/Natural_language).
 
-<img src="attachments/197422825/197424504.png" class="image-center"
-data-image-src="attachments/197422825/197424504.png"
-data-unresolved-comment-count="0" data-linked-resource-id="197424504"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hierarch_example_speech_structure.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="197422825"
-data-linked-resource-container-version="39" width="1000" />**Fig. 1:**
+![hierarcy](attachments/197424504.png)
+**Fig. 1:**
 **An example of the hierarchical organization of speech in terms of
 phones, syllables, and words for an Estonian speech sample. Two
 suprasegmental features, namely F0 and intensity, are also shown on top.
@@ -181,16 +174,7 @@ can flow freely from both sides of the tongue (e.g., \[l\] as in
 categorize them, and an interested reader is suggested to consult some
 phonetics textbook for more information.
 
-<img src="attachments/197422825/197423276.png" class="image-center"
-data-image-src="attachments/197422825/197423276.png"
-data-unresolved-comment-count="0" data-linked-resource-id="197423276"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="IPA_consonants_pulmonic.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="197422825"
-data-linked-resource-container-version="39" width="900" />
-
+![consonants](attachments/197423276.png)
 **Fig.3: IPA chart for pulmonic consonants (reproduced by CC BY-SA
 3.0).**
 
@@ -510,64 +494,26 @@ speech recognition without the reference text.
 
 ## References
 
-Greenberg, S., Carvey, H., Hitchcock, L., and Chang, S. (2003). Temporal
-properties of spontaneous speech – a syllable centric perspective.
-*Speech Communication*, *31*, 465–485,
+- Greenberg, S., Carvey, H., Hitchcock, L., and Chang, S. (2003). Temporal properties of spontaneous speech – a syllable centric perspective. *Speech Communication*, *31*, 465–485,
 <https://doi.org/10.1016/j.wocn.2003.09.005>
 
-Hallé, P., & Christia, A. (2012). Global and detailed speech
-representations in early language acquisition. In S. Fuchs, M. Weirich,
-D. Pape, & P. Perrier (Eds.). *Speech planning and dynamics*. Frankfurt
-am Main: Peter Lang.
+- Hallé, P., & Christia, A. (2012). Global and detailed speech representations in early language acquisition. In S. Fuchs, M. Weirich, D. Pape, & P. Perrier (Eds.). *Speech planning and dynamics*. Frankfurt am Main: Peter Lang.
 
-Liberman, I. Y., Shankweiler, D., Fischer, W. F., & Carter, B. (1974).
-Explicit syllable and phoneme segmentation in the young child. Journal
-of Experimental Child Psychology, 18, 201–212.
+- Liberman, I. Y., Shankweiler, D., Fischer, W. F., & Carter, B. (1974). Explicit syllable and phoneme segmentation in the young child. Journal of Experimental Child Psychology, 18, 201–212.
 
-Morais, J., Content, A., Cary, L., Mehler, J., & Segui, J. (1989).
-Syllabic segmentation and literacy. Language and Cognitive Processes,
-4(1), 56–67.
+- Morais, J., Content, A., Cary, L., Mehler, J., & Segui, J. (1989). Syllabic segmentation and literacy. Language and Cognitive Processes, 4(1), 56–67.
 
-Nespor, M., Shukla, M., & Mehler, J. (2011). Stress‐timed vs.
-syllable‐timed languages. In van Oostendorp et al. (Eds.), The Blackwell
-Companion to Phonology (pp. 1147-1159). Malden, MA: Blackwell.
+- Nespor, M., Shukla, M., & Mehler, J. (2011). Stress‐timed vs. syllable‐timed languages. In van Oostendorp et al. (Eds.), The Blackwell Companion to Phonology (pp. 1147-1159). Malden, MA: Blackwell.
 
-Nusbaum, H. C., & DeGroot, J. (1991). The role of syllables in speech
-perception. In M. S. Ziolkowski, M. Noske, & K. Deaton (Eds.). *Papers
-from the parasession on the syllable in phonetics and phonology*.
-Chicago: Chicago Linguistic Society.
+- Nusbaum, H. C., & DeGroot, J. (1991). The role of syllables in speech perception. In M. S. Ziolkowski, M. Noske, & K. Deaton (Eds.). *Papers from the parasession on the syllable in phonetics and phonology*. Chicago: Chicago Linguistic Society.
 
-Pierrehumbert, Janet B. (1980) "The Phonology and Phonetics of English
-Intonation" Ph.D. Thesis, Massachusetts Institute of Technology.
+- Pierrehumbert, Janet B. (1980) "The Phonology and Phonetics of English Intonation" Ph.D. Thesis, Massachusetts Institute of Technology. 
 
-Pike, K. (1945). The intonation of American English, vol 1. Ann Arbor:
-University of Michigan Press. pp. 34–35.
+- Pike, K. (1945). The intonation of American English, vol 1. Ann Arbor: University of Michigan Press. pp. 34–35.
 
-Werker, J. F., & Tees, R. C. (1984). Cross-language speech perception:
-Evidence for perceptual reorganization during the first year of life.
-Infant Behavior & Development, 7(1), 49–63.
-https://doi.org/10.1016/S0163-6383(84)80022-3
+- Werker, J. F., & Tees, R. C. (1984). Cross-language speech perception: Evidence for perceptual reorganization during the first year of life. Infant Behavior & Development, 7(1), 49–63. https://doi.org/10.1016/S0163-6383(84)80022-3
 
   
-
 Also, substantial reuse of materials from related
 [Wikipedia](https://www.wikipedia.org/) articles.
 
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[IPA_consonants_pulmonic.png](attachments/197422825/197423276.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[IPA_vowels.png](attachments/197422825/197423281.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hierarch_example_speech_structure.png](attachments/197422825/197424504.png)
-(image/png)  
-
-</div>
