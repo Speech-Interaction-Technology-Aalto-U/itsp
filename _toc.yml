@@ -36,8 +36,6 @@ chapters:
     title: Noise gate (Wikipedia)
   - url: https://en.wikipedia.org/wiki/Dynamic_range_compression
     title: Dynamic Range Compression (Wikipedia)
-  - file: Recognition/Voice_activity_detection_VAD.md
-  - file: Speech_enhancement.md
 - file: Modelling_tools_in_speech_processing.md
   sections:
   - file: Modelling/Source_modelling_and_perceptual_modelling.md
@@ -54,22 +52,19 @@ chapters:
   - file: Evaluation/Other_performance_measures.md
   - file: Evaluation/Analysis_of_evaluation_results.md
 - file: Speech_analysis.md
+  sections:
   - file: Analysis/Fundamental_frequency_estimation.md
-  - title: Formant estimation and tracking
   - file: Analysis/Inverse_filtering_for_glottal_activity_estimation.md
   - url: https://en.wikipedia.org/wiki/Voice_analysis
     title: Voice and speech analysis (Wikipedia)
-  - title: Measurements for medical applications
+  - file: Analysis/Measurements_for_medical_applications.md
     sections:
       - url: https://en.wikipedia.org/wiki/Electroglottograph
         title: Electroglottography (Wikipedia)
       - url: https://en.wikipedia.org/wiki/Videokymography
-        title: Stroboscopy and videokymography (Wikipedia)
-      - title: Highspeed camera
-      - title: MRI
-      - title: Rothenberg mask
+        title: Videokymography (Wikipedia)
       - file: Analysis/Glottal_inverse_filtering.md
-    - file: Analysis/Forensic_analysis.md
+  - file: Analysis/Forensic_analysis.md
 - file: Recognition_tasks_in_speech_processing.md
   sections:
   - file: Recognition/Voice_activity_detection_VAD.md
@@ -78,10 +73,10 @@ chapters:
   - file: Recognition/Speaker_Recognition_and_Verification.md
   - file: Recognition/Speaker_Diarization.md
   - file: Recognition/Paralinguistic_speech_processing.md
-- title: Natural language processing
 - file: Speech_Synthesis.md
+  sections:
   - file: Synthesis/Concatenative_speech_synthesis.md
-  - file: Synthesis/Statistical_parametric_speech_synthesis.md)
+  - file: Synthesis/Statistical_parametric_speech_synthesis.md
 - file: Transmission_storage_and_telecommunication.md
   sections:
   - file: Transmission/Design_goals.md
@@ -95,11 +90,10 @@ chapters:
   - file: Transmission/Code-excited_linear_prediction_CELP.md
   - file: Transmission/Frequency-domain_coding.md
 - file: Speech_enhancement.md
+  sections:
   - file: Enhancement/Noise_attenuation.md
   - file: Enhancement/Echo_cancellation.md
   - file: Enhancement/Bandwidth_extension_BWE.md
-  - title: Dereverberation
-  - title: Source separation
   - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.md
 - url: https://landbot.io/blog/guide-to-conversational-design/
   title: Chatbots / Conversational design (external link)
