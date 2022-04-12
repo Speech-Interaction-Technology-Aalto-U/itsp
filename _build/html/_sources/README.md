@@ -11,8 +11,8 @@ Authors: [Tom Bäckström](https://research.aalto.fi/en/persons/tom-b%C3%A4ckstr
 
 1.  Forewords
     1. [Preface](Preface.md) <!-- checked -->
-    2. [Background](Background.md)
-1.  [Introduction](Introduction.md) <!-- checked -->
+    2. [Background](Background.md) <!-- checked -->
+1.  Introduction
     1.  [Why speech processing?](Introduction/Why_speech_processing.md) <!-- checked -->
     2.  [Speech production and acoustic properties](Introduction/Speech_production_and_acoustic_properties.md) <!--checked -->
     3.  [Speech perception](https://en.wikipedia.org/wiki/Speech_perception) (Wikipedia)

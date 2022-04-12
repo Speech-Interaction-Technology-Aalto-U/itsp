@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundamental frequency (F0) &#8212; Introduction to Speech Processing</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Representations/Fundamental_frequency_F0.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fundamental frequency (F0)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attachments">
+   Attachments:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fundamental-frequency-f0">
+<h1>Fundamental frequency (F0)<a class="headerlink" href="#fundamental-frequency-f0" title="Permalink to this headline">¶</a></h1>
+<div class="contentLayout2">
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The fundamental frequency of a speech signal, often denoted by F0 or
+F<sub>0</sub>, refers to the approximate frequency of the
+(quasi-)periodic structure of voiced speech signals. The oscillation
+originates from the vocal folds, which oscillate in the airflow when
+appropriately tensed. The fundamental frequency is defined as the
+average number of oscillations per second and expressed in Hertz. Since
+the oscillation originates from an organic structure, it is not exactly
+periodic but contains significant fluctuations. In particular, amount of
+variation in period length and amplitude are known respectively as
+<em>jitter</em> and <em>shimmer</em>. Moreover, the F0 is typically not stationary,
+but changes constantly within a sentence. In fact, the F0 can be used
+for expressive purposes to signify, for example, emphasis and questions.</p>
+<p>Typically fundamental frequencies lie roughly in the range <em>80</em> to <em>450
+Hz</em>, where males have lower voices than females and children. The F0 of
+an individual speaker depends primarily on the length of the vocal
+folds, which is in turn correlated with overall body size. Cultural and
+stylistic aspects of speech naturally have also a large impact.</p>
+<p>The fundamental frequency is closely related to <em>pitch</em>, which is
+defined as our perception of fundamental frequency. That is, the F0
+describes the actual physical phenomenon, whereas pitch describes how
+our ears and brains interpret the signal, in terms of periodicity. For
+example, a voice signal could have an F0 of 100 Hz. If we then apply a
+high-pass filter to remove all signal components below 450 Hz, then that
+would remove the actual fundamental frequency. The lowest remaining
+periodic component would be 500 Hz, which correspond to the fifth
+harmonic of the original F0. However, a human listener would then
+typically still perceive a pitch of 100 Hz, even if it does not exist
+anymore. The brain somehow reconstructs the fundamental from the upper
+harmonics. This well-known phenomenon is however still not completely
+understood.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>A speech signal with a fundamental frequency of approximately F0=93Hz.</p>
+<p><img src="attachments/149890776/175515681.png"
+data-image-src="attachments/149890776/175515681.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175515681"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="aaa_wav.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149890776"
+data-linked-resource-container-version="15" height="250" /></p>
+<p>The spectrum of a speech signal with a fundamental frequency of
+approximately F0=93Hz (original) and a high-pass filtered version of it
+such that the fundamental frequency has been removed (high-pass
+filtered).</p>
+<p><img src="attachments/149890776/175515679.png"
+data-image-src="attachments/149890776/175515679.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175515679"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="aaa_highpass.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149890776"
+data-linked-resource-container-version="15" height="250" /></p>
+<p>A speech signal with a fundamental frequency of approximately F0=93Hz
+<a href="attachments/149890776/175515683.wav"
+data-linked-resource-id="175515683" data-linked-resource-version="1"
+data-linked-resource-type="attachment"
+data-linked-resource-default-alias="aaa.wav" data-nice-type="Multimedia"
+data-linked-resource-content-type="audio/x-wav"
+data-linked-resource-container-id="149890776"
+data-linked-resource-container-version="15">aaa.wav</a> and a high-pass
+filtered version of it such that the fundamental frequency has been
+removed <a href="attachments/149890776/175515684.wav"
+data-linked-resource-id="175515684" data-linked-resource-version="1"
+data-linked-resource-type="attachment"
+data-linked-resource-default-alias="aaa_highpass.wav"
+data-nice-type="Multimedia"
+data-linked-resource-content-type="audio/x-wav"
+data-linked-resource-container-id="149890776"
+data-linked-resource-container-version="15">aaa_highpass.wav</a>.</p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>If <em>F</em><sub>0</sub> is the fundamental frequency, then the length of a
+single period in seconds is</p>
+<p>\[ T=\frac{1}{F_0}. \]</p>
+<p>The speech waveform thus repeats itself after every <em>T</em> seconds.</p>
+<p>A simple way of modelling the fundamental frequency is to repeat the
+signal after a delay of <em>T</em> seconds. If a signal is sampled with a
+sampling rate of <em>F<sub>s</sub></em>, then the signal repeats after a delay
+of <em>L</em> samples where</p>
+<p>\[ L = F_s T = \frac{F_s}{F_0}. \]</p>
+<p>A signal <em>x<sub>n</sub></em> then approximately repeats itself such that</p>
+<p>\[ x_n \approx x_{n-L} \approx x_{n-2L} \approx x_{n-3L}. \]</p>
+<p>In the Z-domain this can be modelled by an IIR-filter as</p>
+<p>\[ B(z) = 1 - \gamma_L z^{-L}, \]</p>
+<p>where the scalar \( 0\leq\gamma_L\leq 1 \) scales with the accuracy
+of the period. The Z-transform of the signal <em>x<sub>n</sub></em> can then be
+written as \( X(z)=B^{-1}(z) E(z), \) where <em>E(z)</em> is the Z-transform
+of a single period.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Segment of a speech signal, with the period length <em>L</em>, and fundamental
+frequency <em>F0=1/L</em>.<img src="attachments/149890776/149891410.png"
+data-image-src="attachments/149890776/149891410.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149891410"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="f0_L.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149890776"
+data-linked-resource-container-version="15" height="250" /></p>
+<p>Spectrum of speech signal with the fundamental frequency <em>F<sub>0</sub></em>
+and harmonics <em>kF</em><sub>0</sub>**, as well as the
+formants <em>F1</em>, <em>F2</em>, <em>F3</em>… Notice how the harmonics form a regular
+comb-structure.</p>
+<p><img src="attachments/149890776/175515678.png"
+data-image-src="attachments/149890776/175515678.png"
+data-unresolved-comment-count="0" data-linked-resource-id="175515678"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="f0_formants.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149890776"
+data-linked-resource-container-version="15" height="250" /></p>
+</div>
+</div>
+</div>
+<div class="columnLayout two-equal" layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The magnitude spectrum of <em>B<sup>-1</sup>(z)</em>, has then a periodic
+comb-structure. That is, the magnitude spectrum has peaks at \( k\,F_0
+\) , for integer *k.<br />
+*For a discussion about the fundamental frequency in the cepstral
+domain, see <a class="reference internal" href="Cepstrum_and_MFCC.html"><span class="doc std std-doc">Cepstrum and MFCC</span></a>.</p>
+</div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Spectrum of fundamental frequency model <em>B<sup>-1</sup>(z)</em>, showing the
+characteristic comb-structure with harmonic peaks appearing at integer
+multiples of <em>F0</em>.</p>
+<p><img src="attachments/149890776/149891452.png"
+data-image-src="attachments/149890776/149891452.png"
+data-unresolved-comment-count="0" data-linked-resource-id="149891452"
+data-linked-resource-version="2" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="comb.png"
+data-base-url="https://wiki.aalto.fi"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="149890776"
+data-linked-resource-container-version="15" height="250" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="pageSectionHeader">
+<div class="section" id="attachments">
+<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="greybox" align="left">
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[f0_L.png](attachments/149890776/149891410.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[comb.png](attachments/149890776/149891453.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[comb.png](attachments/149890776/149891452.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[f0_formants.png](attachments/149890776/175515678.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[aaa_highpass.png](attachments/149890776/175515679.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[aaa_wav.png](attachments/149890776/175515681.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[aaa.wav](attachments/149890776/175515683.wav) (audio/x-wav)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[aaa_highpass.wav](attachments/149890776/175515684.wav) (audio/x-wav)  
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

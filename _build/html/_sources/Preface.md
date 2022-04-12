@@ -11,11 +11,6 @@ By licensing the material under creative commons (share alike), we want
 to encourage people to contribute improvements and additions to the
 content.
 
-------------------------------------------------------------------------
-
-Edit-access will be granted by
-[mailto:tom.backstrom@aalto.fi](mailto:tom.backstrom@aalto.fi)
-
 
 ## Design philosophy of this document
 
@@ -39,14 +34,4 @@ Edit-access will be granted by
     -   Better to have something than nothing. Though it is a good
         direction, reaching perfection is not a requirement.
     -   Fix errors immediately when you find one.
-
-
-## Licence
-
-[<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
-data-image-src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
-alt="Creative Commons License" />](http://creativecommons.org/licenses/by-sa/4.0/)  
-This work is licensed under a [Creative Commons Attribution-ShareAlike
-4.0 International
-License](http://creativecommons.org/licenses/by-sa/4.0/).
 

@@ -127,80 +127,39 @@ pronounced impact on the resonances and anti-resonance of the tract.
 This is commonly perceived as *nasalization* of speech sounds by
 listeners. 
 
-
+-----------
 Side-view of the speech production organs.
 
-<img src="../attachments/148294391/155469911.png" class="image-center"
-data-image-src="../attachments/148294391/155469911.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155469911"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="head_neck_mod.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" width="400" />
+![sideview](attachments/155469911.png)
+![sideview2](attachments/201855184.png)
 
   
-
-  
-
-<img src="../attachments/148294391/201855184.png" class="image-center"
-data-image-src="../attachments/148294391/201855184.png"
-data-unresolved-comment-count="0" data-linked-resource-id="201855184"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="Blausen_0861_Tonsils&amp;Throat_Anatomy2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" width="400" />
-
-By BruceBlaus. When using this image in external sources it can be cited
-as:[Blausen.com](http://Blausen.com) staff (2014). &quot;Medical gallery
+By BruceBlaus. When using this image in external sources it can be cited as:[Blausen.com](http://Blausen.com) staff (2014). &quot;Medical gallery
 of Blausen Medical 2014&quot;. WikiJournal of Medicine 1 (2).
 DOI:10.15347/wjm/2014.010. ISSN 2002-4436. - Own work, CC BY 3.0,
 <https://commons.wikimedia.org/w/index.php?curid=29294598>
 
-------------------------------------------------------------------------
+--------
 
 Vocal folds as seen from above.
 
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Larynx_%28top_view%29.jpg"
-class="image-center"
-data-image-src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Larynx_%28top_view%29.jpg"
-height="250" />
+![larynx](attachments/Larynx_(top_view).jpg)
 
-------------------------------------------------------------------------
+----------
 
 The motion of vocal folds seen from the front (or back).
 
-<img src="../attachments/148294391/155469942.gif" class="image-center"
-data-image-src="../attachments/148294391/155469942.gif"
-data-unresolved-comment-count="0" data-linked-resource-id="155469942"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="Vocal_fold_animated.gif"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/gif"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" height="250" />
+![motion](attachments/155469942.gif)
 
-------------------------------------------------------------------------
+--------
 
 Organs in the mouth.
 
-<img src="../attachments/148294391/155469920.jpg" class="image-center"
-data-image-src="../attachments/148294391/155469920.jpg"
-data-unresolved-comment-count="0" data-linked-resource-id="155469920"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="Tonsils_diagram.jpg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" height="250" />
+![motion](attachments/155469920.jpg)
 
 The four images above are from Wikipedia.
 
-------------------------------------------------------------------------
+--------
 
 
 ## Acoustic properties of speech signals
@@ -255,28 +214,12 @@ its integer multiples $kF_0$. Note that it is not always clear
 where the formants are; here formants F4 and F5 are not prominent and
 therefore difficult to
 locate.
-<img src="../attachments/148294391/149889168.png" class="image-center"
-data-image-src="../attachments/148294391/149889168.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149889168"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="f0_formants.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" width="640" />
+![formants and f0](attachments/149889168.png)
 
 The waveform of a sentence of speech, illustrating variations in
 amplitude and intensity.
 
-<img src="../attachments/148294912/148294966.png"
-data-image-src="../attachments/148294912/148294966.png"
-data-unresolved-comment-count="0" data-linked-resource-id="148294966"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="sample_sentence-1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294912"
-data-linked-resource-container-version="30" height="250" />
+![waveform](attachments/148294966.png)
 
 
 ## Physiological modelling
@@ -362,16 +305,8 @@ to physical reality. Measuring and modelling the vocal tract with this
 method is involved and an [art form of its
 own](http://speech.math.aalto.fi/about.html).
 
+![tubemodel](attachments/149889201.png)
 
-<img src="../attachments/148294391/149889201.png"
-data-image-src="../attachments/148294391/149889201.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149889201"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="tubemodel.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" height="250" />
 
 Illustration of a vocal-tract tube-model consisting of piece-wise
 constant-radius tube-segments.
@@ -441,27 +376,18 @@ there is a range of models of different complexity:
     prohibitively large for consumer applications.
 
 
-<img src="../attachments/148294391/175513693.png" class="image-center"
-data-image-src="../attachments/148294391/175513693.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175513693"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="glottal_flow.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" width="450" />
+![glottal flow](attachments/175513693.png)
+
 
 Illustration of a glottal flow pulse, its derivative and a sequence of
-glottal flow pulses (corresponding audio
-<a href="../attachments/148294391/175513696.wav"
-data-linked-resource-id="175513696" data-linked-resource-version="1"
-data-linked-resource-type="attachment"
-data-linked-resource-default-alias="glottal_flow.wav"
-data-nice-type="Multimedia"
-data-linked-resource-content-type="audio/x-wav"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25">glottal_flow.wav</a>).
+glottal flow pulses (corresponding sound below).
 
+<audio
+        controls
+        src="attachments/175513696.wav">
+            Your browser does not support the
+            <code>audio</code> element.
+</audio>
 
 ### Lip radiation
 

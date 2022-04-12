@@ -50,47 +50,11 @@ Speech processing is used in, for example;
         [Alzheimer](https://en.wikipedia.org/wiki/Alzheimer%27s_disease)
         detection)
 
-<img src="../attachments/165138598/165138615.jpeg"
-data-image-src="../attachments/165138598/165138615.jpeg"
-data-unresolved-comment-count="0" data-linked-resource-id="165138615"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="phone.jpeg"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/jpeg"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" height="150" /><img src="../attachments/165138598/165138616.png"
-data-image-src="../attachments/165138598/165138616.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165138616"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="smartspeaker.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" height="150" /><img src="../attachments/165138598/165138617.png"
-data-image-src="../attachments/165138598/165138617.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165138617"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="navigator.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" height="150" /><img src="../attachments/165138598/165138618.png"
-data-image-src="../attachments/165138598/165138618.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165138618"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="customersupport.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" height="150" /><img src="../attachments/165138598/165138684.png"
-data-image-src="../attachments/165138598/165138684.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165138684"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="microphone.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" height="150" />
+![app1](attachments/165138615.jpeg)
+![app2](attachments/165138616.png)
+![app4](attachments/165138617.png)
+![app3](attachments/165138618.png)
+![app3](attachments/165138684.png)
 
 
 Such applications can be categorized according to functionality, roughly
@@ -134,17 +98,7 @@ and dequantization.
 Pre-processing operations would typically include noise attenuation and
 voice activity detection (see below).
 
-<img src="../attachments/165138598/165138696.png"
-data-image-src="../attachments/165138598/165138696.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165138696"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="telecom-1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" width="600" />
-
-  
+![struct1](attachments/165138696.png)
 
   
 
@@ -177,16 +131,7 @@ algorithms are usually an order of magnitude simpler than machine
 learning methods, but if the task is complicated, then the accuracy the
 output is reduced correspondingly.
 
-<img src="../attachments/165138598/165138741.png"
-data-image-src="../attachments/165138598/165138741.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165138741"
-data-linked-resource-version="5" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="information_extraction-1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" width="400" />
-
+![struct2](attachments/165138741.png)
 
 ## Speech synthesis
 
@@ -201,15 +146,7 @@ sentences. Such methods are common for example in public announcement
 systems (e.g. train stations), where the range of possible announcements
 is known in advance.
 
-<img src="../attachments/165138598/165139247.png"
-data-image-src="../attachments/165138598/165139247.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165139247"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="speechsynthesis-1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" width="400" />
+![struct3](attachments/165139247.png)
 
 
 ## User-interfaces
@@ -234,18 +171,7 @@ management maps that to a specific action, implemented by the
 actuator(s), and natural language generation refers to the generation of
 an answer, in text from.
 
-  
-
-<img src="../attachments/165138598/165139542.png"
-data-image-src="../attachments/165138598/165139542.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165139542"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="speechinterface-1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" width="660" />
-
+![struct4](attachments/165139542.png)
 
 ## Processing and preprocessing
 
@@ -313,13 +239,4 @@ algorithms as desired. For example:
     fraud.
 
  
-
-<img src="../attachments/165138598/165139583.png"
-data-image-src="../attachments/165138598/165139583.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165139583"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="prepro-1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165138598"
-data-linked-resource-container-version="26" width="660" />
+![struct5](attachments/165139583.png)
