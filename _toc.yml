@@ -23,7 +23,7 @@ chapters:
   - file: Representations/Windowing.md
   - file: Representations/Signal_energy_loudness_and_decibel.md
   - file: Representations/Spectrogram_and_the_STFT.ipynb
-  - file: Representations/Autocorrelation_and_autocovariance.md
+  - file: Representations/Autocorrelation_and_autocovariance.ipynb
   - file: Representations/Cepstrum_and_MFCC.md
   - file: Representations/Linear_prediction.md
   - file: Representations/Fundamental_frequency_F0.ipynb

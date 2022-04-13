@@ -48,8 +48,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -600,9 +598,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Representations/Autocorrelation_and_autocovariance.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Representations/Autocorrelation_and_autocovariance.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -619,6 +617,23 @@ const thebe_selector_output = ".output, .cell_output"
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Representations/Autocorrelation_and_autocovariance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -659,8 +674,42 @@ x and y as</p>
 \text{correlation: } &amp; \rho_{xy} =
 \frac{E[xy]}{\sqrt{E[x^2]E[y^2]}}, \end{split} \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(E[ \cdot ]\)</span> is the expectation operator.</p>
-<p>Short segment of speech</p>
-<p><img alt="speechsegment" src="../_images/149884842.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+
+<span class="c1"># read from storage</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;sounds/test.wav&#39;</span>
+<span class="n">fs</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="n">window_length_ms</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">window_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">fs</span><span class="o">*</span><span class="n">window_length_ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="n">window_length</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="n">window_length</span><span class="p">)</span>
+
+<span class="c1">#windowpos = np.random.randint(int((len(data)-window_length)))</span>
+<span class="n">windowpos</span> <span class="o">=</span> <span class="mi">92274</span>
+
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">windowpos</span><span class="p">:(</span><span class="n">windowpos</span><span class="o">+</span><span class="n">window_length</span><span class="p">)]</span>
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">datawin</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">datawin</span><span class="p">))</span> <span class="c1"># normalize</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span><span class="n">datawin</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A window of a signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Autocorrelation_and_autocovariance_1_0.png" src="../_images/Autocorrelation_and_autocovariance_1_0.png" />
+</div>
+</div>
 <p>For a speech signal <span class="math notranslate nohighlight">\(x_{n}\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the time-index, we
 would like to measure the correlation between two
 time-indices <span class="math notranslate nohighlight">\(x_{n}\)</span> and <span class="math notranslate nohighlight">\(x_{h}\)</span>. Since the structure
@@ -672,7 +721,7 @@ over all <span class="math notranslate nohighlight">\(n\)</span> within the se
 known as the <em>autocorrelation</em> and <em>autocovariance</em> are defined as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \begin{split} \text{autocovariance: } &amp; r_{k} =
-E_n[x_nx_{n-k}] \\\ \text{autocorrelation: } &amp; c_{k} =
+E_n[x_nx_{n-k}] \\ \text{autocorrelation: } &amp; c_{k} =
 \frac{E_n[x_nx_{n-k}]}{E_n[x_n^2]} = \frac{r_k}{r_0}.
 \end{split} \end{split}\]</div>
 <p>The figure below illustrates the autocovariance of the above
@@ -688,8 +737,59 @@ the above formulations, we can readily see that autocovarinaces and
 E_n[x_{n+k}x_{n}] = r_{-k}. \]</div>
 <p>This symmetry is clearly visible in the figure below, where the
 curve is mirrored around lag 0.</p>
-<p>The autocovariance of a speech segment</p>
-<p><img alt="covariance" src="../_images/149884843.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">scipy.fft</span>
+
+
+<span class="c1"># read from storage</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;sounds/test.wav&#39;</span>
+<span class="n">fs</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="n">window_length_ms</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">window_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">fs</span><span class="o">*</span><span class="n">window_length_ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="n">window_length</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="n">window_length</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">window_length</span><span class="p">,</span><span class="n">window_length</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="n">window_length</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># windowing function</span>
+<span class="n">windowing_fn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">window_length</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># sine-window</span>
+
+
+<span class="c1">#windowpos = np.random.randint(int((len(data)-window_length)))</span>
+<span class="n">windowpos</span> <span class="o">=</span> <span class="mi">92274</span>
+
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">windowpos</span><span class="p">:(</span><span class="n">windowpos</span><span class="o">+</span><span class="n">window_length</span><span class="p">)]</span>
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">datawin</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">datawin</span><span class="p">))</span> <span class="c1"># normalize</span>
+
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">datawin</span><span class="o">*</span><span class="n">windowing_fn</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">window_length</span><span class="p">)</span>
+<span class="n">autocovariance</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">autocovariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">autocovariance</span><span class="p">[</span><span class="n">window_length</span><span class="p">:],</span><span class="n">autocovariance</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">window_length</span><span class="p">]))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span><span class="n">datawin</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A window of a signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n2</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span><span class="n">autocovariance</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Lag (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Autocovaraince $r_k$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The autocovariance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Autocorrelation_and_autocovariance_3_0.png" src="../_images/Autocorrelation_and_autocovariance_3_0.png" />
+</div>
+</div>
 <p>The above formulas use the expectation operator <span class="math notranslate nohighlight">\(E[\cdot ]\)</span> to define the
 autocovariance and -correlation. It is an abstract tool, which needs to
 be replaced by a proper estimator for practical implementations.
