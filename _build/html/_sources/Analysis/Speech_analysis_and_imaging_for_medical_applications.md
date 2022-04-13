@@ -8,4 +8,4 @@
 3.  Highspeed camera
 4.  MRI
 5.  Rothenberg mask
-6.  [Glottal inverse filtering](Glottal_inverse_filtering)
+6.  [Inverse filtering for glottal activity estimation](Inverse_filtering_for_glottal_activity_estimation)

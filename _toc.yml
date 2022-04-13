@@ -57,7 +57,6 @@ chapters:
 - file: Speech_analysis.md
   sections:
   - file: Analysis/Fundamental_frequency_estimation.md
-  - file: Analysis/Inverse_filtering_for_glottal_activity_estimation.md
   - url: https://en.wikipedia.org/wiki/Voice_analysis
     title: Voice and speech analysis (Wikipedia)
   - file: Analysis/Measurements_for_medical_applications.md
@@ -66,7 +65,7 @@ chapters:
         title: Electroglottography (Wikipedia)
       - url: https://en.wikipedia.org/wiki/Videokymography
         title: Videokymography (Wikipedia)
-      - file: Analysis/Glottal_inverse_filtering.md
+      - file: Analysis/Inverse_filtering_for_glottal_activity_estimation.md
   - file: Analysis/Forensic_analysis.md
 - file: Recognition_tasks_in_speech_processing.md
   sections:
