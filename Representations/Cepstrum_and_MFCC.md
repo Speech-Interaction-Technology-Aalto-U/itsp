@@ -1,12 +1,5 @@
 # Cepstrum and MFCC
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Motivation
 
@@ -24,36 +17,9 @@ spectral features. The logarithmic spectrum visualizes spectral content
 such that the magnitude of values is approximately uniform throughout
 the spectrum.
 
-</div>
 
-</div>
+Windowed speech signal ![window](attachments/149886069.png)
 
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-Windowed speech signal  
-<img src="attachments/149885068/149886069.png" class="image-center"
-data-image-src="attachments/149885068/149886069.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886069"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 The only exception is zeros and other very small values in the magnitude
 spectrum, which give negative infinities or arbitrarily large negative
@@ -65,55 +31,28 @@ arbitrarily large negative values are a problem. 
 To reduce the likelihood of such problematic values, we can use for
 example an energy bias similar to the [mu-law](Waveform) rule or
 integrate energies over frequencies. Specifically, instead of
-*y=log(\|x\|<sup>2</sup>)*, we can use *y=log(*\|x\|<sup>2</sup>*+e)*,
-where *e* is a small positive number. The output *y* will then never go
-lower than a threshold y≥*log(e)*. 
+$y=\log(\|x\|^2)$, we can use $y=\log(\|x\|^2+e)$,
+where $e$ is a small positive number. The output $y$ will then never go
+lower than a threshold $y\geq \log(e)$. 
 
 In addition, we can integrate (or sum) neighboring frequencies, for
 example as
 
-\\\[
- y_k=\\log\\left(\\gamma\|x\_{k-1}\|^2+\|x_k\|^2+\\gamma\|x\_{k+1}\|^2+\\epsilon\\right),
-\\\]
+$$
+ y_k=\log\left(\gamma\|x_{k-1}\|^2+\|x_k\|^2+\gamma\|x_{k+1}\|^2+\epsilon\right),
+$$
 
 where 0\<γ\<1 is a scalar. The likelihood that all three coefficients,
-*x<sub>k-1</sub>*, *x<sub>k</sub>* and *x<sub>k+1</sub>*, are all
+$x_{k-1}$, $x_{k}$ and $x_{k+1}$, are all
 simultaneously near zero is much smaller than that one of them is near
-zero. The likelihood that *y* gets near the threshold y≥*log(e)* is
+zero. The likelihood that $y$ gets near the threshold $y\geq \log(e)$ is
 therefore small. Such methods can be used to improve the robustness of
 log-spectra, such that we can make computations to them with reliable
 results.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 Power spectrum of speech
-segment<img src="attachments/149885068/149886068.png" class="image-center"
-data-image-src="attachments/149885068/149886068.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886068"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="dft_windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
+segment ![spectrum](attachments/149886068.png)
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## The cepstrum
 
@@ -136,15 +75,15 @@ discrete Fourier transform (DFT) or the discrete cosine transform (DCT)
 of the the log-spectrum, to obtain a representation known as
 the *cepstrum*. The name attempts to be an amusing reflection of the
 fact that this representation is a complicated rearrangement of
-time-frequency transforms. In technical terms, for a time signal *x(t)*,
+time-frequency transforms. In technical terms, for a time signal $x(t)$,
 the cepstrum is defined as
 
-\\\[ \\text{power cepstrum of signal} {\\displaystyle
-=\\left\|{\\mathcal {F}}^{-1}\\left\\{\\log \\left(\\left\|{\\mathcal
-{F}}\\{x(t)\\}\\right\|^{2}\\right)\\right\\}\\right\|^{2},} \\\]
+$$ \text{power cepstrum of signal} {\displaystyle
+=\left\|{\mathcal {F}}^{-1}\left\{\log \left(\left\|{\mathcal
+{F}}\{x(t)\}\right\|^{2}\right)\right\}\right\|^{2},} $$
 
-where \\( {\\mathcal {F}}\\{\\cdot\\} \\) represent the Fourier
-transform and \\( {\\mathcal {F}}^{-1}\\{\\cdot\\} \\) its inverse.
+where $ {\mathcal {F}}\{\cdot\} $ represent the Fourier
+transform and $ {\mathcal {F}}^{-1}\{\cdot\} $ its inverse.
 
 It is worth repeating that the cepstrum involves two time-frequency
 transforms. The cepstrum of a time-signal is therefore in some sense
@@ -161,35 +100,11 @@ frequency-axis, are encoded in the cepstrum, but the information is
 distributed over several coefficients such that extracting that
 information is not easy. 
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 Log-spectrum of speech
-segment<img src="attachments/149885068/149886067.png" class="image-center"
-data-image-src="attachments/149885068/149886067.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886067"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="dbdft_windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
+segment ![dbdft](attachments/149886067.png)
 
-Cepstrum of speech
-segment<img src="attachments/149885068/149886066.png" class="image-center"
-data-image-src="attachments/149885068/149886066.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886066"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="cepstrum_windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
+Cepstrum of speech segment
+![cepstrum](attachments/149886066.png)
 
 The most visually prominent feature in this cepstrum is the peak near
 quefrency 7 ms. It corresponds to a fundamental frequency of 1000/(7 s)
@@ -197,17 +112,7 @@ quefrency 7 ms. It corresponds to a fundamental frequency of 1000/(7 s)
 log-spectrum above, where the comb-structure has peaks at approximately
 multiples of 143 Hz.
 
-</div>
 
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 A second useful piece of information in the cepstrum is the harmonic
 structure of the log-spectrum. Recall that the fundamental frequency is
@@ -215,9 +120,9 @@ visible as a comb-structure in the log-spectrum. The comb-structure, in
 turn, is a periodic structure and the Fourier transform is an excellent
 tool for extracting such structures. We can thus expect to see a peak in
 the cepstrum at the quefrency corresponding to the pitch-period length
-(in seconds). If we assume that fundamental frequencies *F<sub>0</sub>*
+(in seconds). If we assume that fundamental frequencies $F_{0}$
 are in the range 80 to 450 Hz, then the corresponding peak in the
-cepstrum should lie at quefrency *1/F<sub>0</sub>* and they range from
+cepstrum should lie at quefrency $1/F_{0}$ and they range from
 2.2 to 12.5 milliseconds. 
 
 Estimating the fundamental frequency in the cepstrum is, in fact, very
@@ -226,27 +131,7 @@ peak of the cepstrum in the appropriate quefrency-range. [Fundamental
 frequency estimation](Fundamental_frequency_estimation) will be
 discussed further in a separate section.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Mel-Frequency Cepstral Coefficients (MFCCs)
 
@@ -270,82 +155,54 @@ will focus on the mel-scale. This scale describes the perceptual
 distance between pitches of different frequencies. 
 
 A classical approximation is to define the frequency-to-mel transform
-function for a frequency *f *as
+function for a frequency $f $ as
 
-\\\[ m=2595\\,\\log\_{10}\\left(1+\\frac f{700}\\right). \\\]
+$$ m=2595\,\log_{10}\left(1+\frac f{700}\right). $$
 
 The inverse transform can be readily derived as
 
-\\\[ f = 700\\,\\left(10^{\\frac m{2595}}-1\\right). \\\]
+$$ f = 700\,\left(10^{\frac m{2595}}-1\right). $$
 
-By taking equally spaced points *m<sub>k</sub>*, using the above
-formula, we can then find frequency points *f<sub>k </sub>*whose
+By taking equally spaced points $m_{k}$, using the above
+formula, we can then find frequency points $f_{k }$ whose
 perceptual distance is equal. In other words, to sample the log-spectrum
-with a perceptual scale, we pick samples at frequencies *f<sub>k</sub>*.
+with a perceptual scale, we pick samples at frequencies $f_{k}$.
 (An implementation detail is that usually, we want to avoid that the
-distance between subsequent *f<sub>k</sub>* would be smaller than the
+distance between subsequent $f_{k}$ would be smaller than the
 highest distance between harmonic peaks, such that the model focuses on
 the macro structure and ignores the fundamental frequency. Usually, a
-minimum threshold is therefore applied on *f<sub>k</sub>*.)
+minimum threshold is therefore applied on $f_{k}$.)
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Mel scale
-
-<img src="attachments/149885068/149886076.png"
-data-image-src="attachments/149885068/149886076.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886076"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="melscale.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
-
+![melscale](attachments/149886076.png)
   
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-However, if we would only pick samples at frequencies *f<sub>k</sub>*,
+However, if we would only pick samples at frequencies $f_{k}$,
 we would loose all the other information. Therefore, similarly as in the
 frequency-integration approach above, we take a weighted sum of energies
-near the target frequency *f<sub>k</sub>* as
+near the target frequency $f_{k}$ as
 
-\\\[ u_k = \\sum\_{h=f\_{k-1}+1}^{f\_{k+1}-1} w\_{k,h} \|x_h\|^2, \\\]
+$$ u_k = \sum_{h=f_{k-1}+1}^{f_{k+1}-1} w_{k,h} \|x_h\|^2, $$
 
-where scalars *w<sub>k,h</sub>* are a weighting parameters. Then we get,
+where scalars $w_{k,h}$ are a weighting parameters. Then we get,
 simultaneously, the benefit of a robust estimate due to energy
 integration, but also apply a perceptual frequency scale.
 
 Finally, by taking the discrete cosine transform (DCT) of the parameters
-*u<sub>k</sub>*, we obtain the representation known as *mel-frequency
+$u_{k}$, we obtain the representation known as *mel-frequency
 cepstral coefficients *(MFCCs). The benefit of the DCT at the end is to
 approximately decorrelate the signal, such that the MFC coefficients are
 not correlated with each other. 
 
-The weighting coefficients *w<sub>k,h</sub>* are usually chosen as
+The weighting coefficients $w_{k,h}$ are usually chosen as
 triangular functions as
 
-\\\[ w\_{k,h} = \\begin{cases} \\frac{h-f\_{k-1}}{f_k - f\_{k-1}} &
-\\text{for}\\quad f\_{k-1}\< h\\leq f_k, \\\\ \\frac{f\_{k+1}
--h}{f\_{k+1} - f\_{k}} & \\text{for}\\quad f\_{k}\< h\\leq f\_{k+1},
-\\\\0 & \\text{otherwise}. \\end{cases} \\\]
+$$ w_{k,h} = \begin{cases} \frac{h-f_{k-1}}{f_k - f_{k-1}} &
+\text{for}\quad f_{k-1} < h\leq f_k, \\ \frac{f_{k+1}
+-h}{f_{k+1} - f_{k}} & \text{for}\quad f_{k}< h\leq f_{k+1},
+\\0 & \text{otherwise}. \end{cases} $$
 
 The process of acquiring MFCCs from a spectrogram is illustrated on the
 right, where on the top, there is a triangular filterbank placed at
@@ -397,7 +254,7 @@ Some of the issues with the MFCC include:
 -   MFCCs are not robust to noise. That is, the performance of MFCCs in
     presence of additive noise, in comparison to other features, has not
     always been good. 
--   The choice of triangular weighting filters *w<sub>k,h</sub>* is
+-   The choice of triangular weighting filters $w_{k,h}$ is
     arbitrary and not based on well-grounded motivations. Alternatives
     have been presented, but they have not gained popularity, probably
     due to minor effect on outcome.
@@ -407,115 +264,16 @@ Some of the issues with the MFCC include:
     (=accurate) and congruent with its physical representation (=power
     spectrum must be positive).
 
-</div>
 
-</div>
 
-<div class="cell normal" data-type="normal">
+Triangular filterbank $w_{k,h}$
+![melfilterbank](attachments/149886080.png)  
 
-<div class="innerCell">
-
-Triangular filterbank *w<sub>k,h</sub>*
-
-<img src="attachments/149885068/149886080.png"
-data-image-src="attachments/149885068/149886080.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886080"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="melfilterbank.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
-
-  
-
-Spectrogram of a segment of speech  
-<img src="attachments/149885068/151503131.png"
-data-image-src="attachments/149885068/151503131.png"
-data-unresolved-comment-count="0" data-linked-resource-id="151503131"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="spectrogram.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
-
-  
+Spectrogram of a segment of speech
+![spectrogram](attachments/151503131.png)  
 
 Spectrogram after multiplication with mel-weighted filterbank
-
-<img src="attachments/149885068/151503197.png"
-data-image-src="attachments/149885068/151503197.png"
-data-unresolved-comment-count="0" data-linked-resource-id="151503197"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="melspectrogram.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
-
+![melspectrogram](attachments/151503197.png)
   
-
 Corresponding MFCCs
-
-<img src="attachments/149885068/151503198.png"
-data-image-src="attachments/149885068/151503198.png"
-data-unresolved-comment-count="0" data-linked-resource-id="151503198"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="mfcc.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" />
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sample_windowed_dft2-1.png](attachments/149885068/149885445.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sample_windowed_dftdb-1.png](attachments/149885068/149885446.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[cepstrum_windowed_speech_segment.png](attachments/149885068/149886066.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[dbdft_windowed_speech_segment.png](attachments/149885068/149886067.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[dft_windowed_speech_segment.png](attachments/149885068/149886068.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[windowed_speech_segment.png](attachments/149885068/149886069.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[melscale.png](attachments/149885068/149886076.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[melfilterbank.png](attachments/149885068/149886080.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[spectrogram.pdf](attachments/149885068/151503108.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[spectrogram.png](attachments/149885068/151503196.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[spectrogram.png](attachments/149885068/151503131.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[melspectrogram.png](attachments/149885068/151503197.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[mfcc.png](attachments/149885068/151503198.png) (image/png)  
-
-</div>
+![mfcc](attachments/151503198.png)

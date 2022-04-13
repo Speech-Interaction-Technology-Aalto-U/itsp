@@ -20,7 +20,7 @@
 # between $n$ and $n+1$) and 2) the accuracy and distribution of
 # amplitudes of $x_n$.
 # 
-# <img src="attachments/148294966.png"  width="650" />
+# ![waveform](attachments/148294966.png)
 # 
 # 
 # ## Sampling rate
@@ -54,7 +54,7 @@
 # 
 # Frequency-range of different bandwidth-definitions
 # 
-# <img src="attachments/175528670.png"  width="600" />
+# ![bws](attachments/175528670.png)
 
 # ## Static demo
 # 
@@ -78,7 +78,9 @@ IPython.display.display(IPython.display.Audio(url="sounds/speechexample_50_22000
 
 # ## On-line demo
 
-# In[2]:
+# ### Original sound sample
+
+# In[1]:
 
 
 from ipywidgets import *
@@ -93,12 +95,6 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 filename = 'sounds/test.wav'
 fs, data = wavfile.read(filename)
 data = data.astype(np.int16)
-
-
-# ### Original sound sample
-
-# In[3]:
-
 
 fig = plt.figure(figsize=(12, 4))
 ax = fig.subplots(nrows=1,ncols=2)
@@ -119,7 +115,7 @@ ipd.display(ipd.Audio(filename))
 
 # ### Resampling
 
-# In[4]:
+# In[2]:
 
 
 def update(sampling_rate=16000):
@@ -162,9 +158,13 @@ interact(update, sampling_rate=(2000, fs, 500));
 # 
 # Linear quantization with a step size $\Delta q $ would correspond
 # to defining the quantized signal as 
-# $$ \hat x = \Delta q\,\cdot {\mathrm{round}}(x/\Delta q). $$
-# The intermediate representation, $ y={\mathrm{round}}(x/\Delta q),
-# $ can then be taken to represent, for example, signed 16-bit integers.
+# 
+# $$ 
+# \hat x = \Delta q\,\cdot {\mathrm{round}}(x/\Delta q). 
+# $$
+# 
+# The intermediate representation, $ y={\mathrm{round}}(x/\Delta q),$ 
+# can then be taken to represent, for example, signed 16-bit integers.
 # Consequently, the quantization step size  $ \Delta q $ has to be
 # then chosen such that $y$ remains in the range  $
 # y\in(-2^{15},\,2^{15}] $ to avoid numerical overflow.
@@ -176,13 +176,13 @@ interact(update, sampling_rate=(2000, fs, 500));
 # we still remain within the bounds of integers. This is difficult because
 # the amplitudes of speech signals vary on a large range. 
 # 
-#   
 # 
 # 
-# <img src="attachments/149882928.png" width="650" />
+# 
+# ![quant](attachments/149882928.png)
 #   
 
-# In[5]:
+# In[3]:
 
 
 def update(sampling_rate=16000, bits=8):
@@ -248,10 +248,9 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 # logarithm for large $x$, but avoid the problems when $x$ is small.
 # 
 # 
-# <img src="attachments/149882926.png" width="650" />
-# <img src="attachments/149882927.png" width="650" />
-# 
-# 
+# ![quant2](attachments/149882926.png)
+# ![quant3](attachments/149882927.png)
+
 # ## Wav-files
 # 
 # The most typical format for storing sound signals is the [wav-file
@@ -281,8 +280,8 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 #     signal before quantization.
 # 
 # 
-# <img src="attachments/175529208.png" width="450" />
-# <img src="attachments/175529206.png" width="500" />
+# ![apcm1](attachments/175529208.png)
+# ![apcm2](attachments/175529206.png)
 # 
 # 
 # ### Adaptive quantization with the feed-forward algorithm using an adaptive quantization step
@@ -296,8 +295,7 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 #         applications which try to minimize transmission rate.
 # 
 # 
-# <img src="attachments/175529207.png" width="500" />
-# 
+# ![waveform](attachments/175529207.png)
 # 
 # ### Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)
 # 
@@ -308,8 +306,7 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 # -   If the signal grows very rapidly, this approach can however not guarantee that there are no numerical overflows, since adaptation is performed only after quantization.
 # 
 # 
-# <img src="attachments/175529205.png" width="500" />
-# 
+# ![waveform](attachments/175529205.png)
 # 
 # ### Adaptive quantization with the feed-backward algorithm using an adaptive quantization step
 # 
@@ -319,7 +316,7 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 #     feed-backward algorithm.
 # 
 # 
-# <img src="attachments/175529204.png" width="500" />
+# ![waveform](attachments/175529204.png)
 # 
 # 
 # ### Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient
@@ -328,9 +325,8 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 #     adaptation as well.
 # 
 # 
-# <img src="attachments/175529203.png" width="550" />
-# 
-# 
+# ![waveform](attachments/175529203.png)
+
 # #### Differential quantization DPCM
 # 
 # -   In *differential quantization* we predict the subsequent sample,
@@ -342,15 +338,18 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 # -   Observe that the reconstruction is needed at both the encoder and decoder, to feed the predictor.
 # -   NB: At this point the flow-graphs start to get a bit complicated         as there are several feedback loops.
 # -   More generally, we can use a predictor $P$, which predicts a sample
-#     based on a weighted sum of previous samples
-#     $$ \tilde x_k = -\sum_{h=1}^M a_h x_{k-h}, $$
+#     based on a weighted sum of previous samples    
+#     
+#     $$
+#     \tilde x_k = -\sum_{h=1}^M a_h x_{k-h}, 
+#     $$
+#     
 #     where the scalars  $ a_h $  are the predictor parameters.
 # -   A feed-backward would here use the past quantized samples $ \hat
 #     x_k. $
 # 
 # 
-# <img src="attachments/175529209.png" width="550" />
-# 
+# ![waveform](attachments/175529209.png)
 # 
 # ### Adaptive and differential quantization with feed-forward
 # 
@@ -358,8 +357,7 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 # -   The adaptive differential PCM (ADPCM) adaptively predicts the signal and adaptively choosing the quantization step.
 # 
 # 
-# <img src="attachments/175529202.png" class="image-center" width="600" />
-# 
+# ![waveform](attachments/175529202.png)
 # 
 # ### Adaptive differential quantization with feed-backward
 # 
@@ -373,7 +371,7 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 # -   The flow-graph becomes complicated and is omitted here.
 # 
 # 
-# <img src="attachments/175529201.png" width="650" />
+# ![waveform](attachments/175529201.png)
 
 # ### Comparison of the SNR of different quantizers (not perceptual)
 # 
@@ -391,19 +389,8 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 #     perceptual quality.
 # 
 #   
-# 
-# <img src="../attachments/148296254/175529210.png"
-# data-image-src="../attachments/148296254/175529210.png"
-# data-unresolved-comment-count="0" data-linked-resource-id="175529210"
-# data-linked-resource-version="1" data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="quant_comp_re.png"
-# data-base-url="https://wiki.aalto.fi"
-# data-linked-resource-content-type="image/png"
-# data-linked-resource-container-id="148296254"
-# data-linked-resource-container-version="24" width="650" />
-# 
-# [Adapted from Noll,
-# 1975.](https://doi.org/10.1002/j.1538-7305.1975.tb02053.x)
+# ![waveform](attachments/175529210.png)
+# Adapted from {cite:p}`noll1975comparative`
 # 
 #   
 # 
@@ -430,8 +417,7 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 #     noticeable.
 # 
 # 
-# <img src="attachments/175529216.png" class="image-center"
-# width="650" />
+# ![source](attachments/175529216.png)
 # 
 # 
 # ## Conclusion
@@ -460,8 +446,8 @@ interact(update, sampling_rate=(2000, fs, 500), bits=(1,16,1));
 # -   Many classical DSP algorithms, in their flow-grap representation,
 #     are very much alike modern machine learning methods.
 
-# In[ ]:
-
-
-
-
+# ## Refrences
+# 
+# ```{bibliography}
+# :filter: docname in docnames
+# ```

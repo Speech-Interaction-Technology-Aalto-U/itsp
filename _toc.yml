@@ -26,10 +26,10 @@ chapters:
   - file: Representations/Autocorrelation_and_autocovariance.md
   - file: Representations/Cepstrum_and_MFCC.md
   - file: Representations/Linear_prediction.md
-  - file: Representations/Fundamental_frequency_F0.md
+  - file: Representations/Fundamental_frequency_F0.ipynb
   - file: Representations/Zero-crossing_rate.md
   - file: Representations/Deltas_and_Delta-deltas.md
-  - file: Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.md
+  - file: Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.ipynb 
   - file: Representations/Jitter_and_shimmer.md  
   - url: https://en.wikipedia.org/wiki/Crest_factor
 - file: Pre-processing.md

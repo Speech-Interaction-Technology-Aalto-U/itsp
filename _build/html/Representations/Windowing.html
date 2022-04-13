@@ -755,17 +755,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="windowing">
 <h1><span class="section-number">3.2. </span>Windowing<a class="headerlink" href="#windowing" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;attachments/148294966.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Windowing_1_0.png" src="../_images/Windowing_1_0.png" />
-</div>
-</div>
+<p><img alt="wave" src="../_images/1482949661.png" /></p>
 <p>A spoken sentence is a sequence of phonemes. Speech signals are thus
 time-variant in character. To extract information from a signal, we must
 therefore split the signal into sufficiently short segments, such that,
@@ -784,7 +774,7 @@ windowing function also goes to zero at the border such that the
 discontinuity at the border becomes invisible. Windowing does thus
 change the signal, but the change is designed such that its effect on
 signal statistics is minimized.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -873,7 +863,7 @@ in the frequency domain. By looking at the spectrum of the windowing
 function, we can therefore determine how much spreading of peaks in the
 frequency will occur when we apply the windowing function.</p>
 <!--<img src="attachments/148294947.png" height="250" />-->
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -945,19 +935,8 @@ areas are perfectly reconstructed, where we have access to both the left
 and right windows. For reconstruction we then have</p>
 <div class="math notranslate nohighlight">
 \[ (Reconstruction\,signal\,length) = (windows-1)\times(step). \]</div>
-<!-- <img src="attachments/148295002.png" height="400" /><img src="attachments/148294911.png" height="72" />--><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;attachments/148295002.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">))</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;attachments/148294911.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Windowing_8_0.png" src="../_images/Windowing_8_0.png" />
-<img alt="../_images/Windowing_8_1.png" src="../_images/Windowing_8_1.png" />
-</div>
-</div>
+<!-- <img src="attachments/148295002.png" height="400" /><img src="attachments/148294911.png" height="72" />--><p><img alt="mdct" src="../_images/148295002.png" />
+<img alt="flow" src="../_images/148294911.png" /></p>
 </div>
 </div>
 <div class="section" id="comprehensive-description">
@@ -975,7 +954,7 @@ choosing \)</span>w_k$ are related to spectral resolution. Windowing
 causes undesirable spreading of frequency components into nearby
 frequencies and by choosing the windowing function, we can choose how
 much and how far such a components are spread.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1020,17 +999,7 @@ OLA). <!--\cite{harris1978use,nuttall1971spectral}.--></p>
 <p>The basic principle of overlap and add is to apply windowing in
 overlapping segments, such that when the windows are later added
 together, the original signal is recovered (see Figure below).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;attachments/148295002.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Windowing_12_0.png" src="../_images/Windowing_12_0.png" />
-</div>
-</div>
+<p><img alt="mdct" src="../_images/148295002.png" /></p>
 <p>As a first approach, let us define window <span class="math notranslate nohighlight">\(h\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[ x_{k,h} = w_{k-Lh/2} x_k. \]</div>
@@ -1051,7 +1020,7 @@ cosine (or Hann) window, illustrated below and defined as</p>
 \[ w_k = \frac12\left[1-\sin\left(\frac{ 2(k+0.5)\pi
 }L\right)\right] =
 \left[\sin\left(\frac{\pi(k+0.5)}L\right)\right]^2. \]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1159,19 +1128,8 @@ such that our only criteria is</p>
 <p>This is known as the Princen-Bradley condition for overlapping
 windows. <!-- \cite{backstrom2017celp,
 backstrom2013:win,Bosi:2003,edler1989codierung,malvar1990lapped,malvar1992signal}.--></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;attachments/148295002.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">))</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;attachments/148294911.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Windowing_17_0.png" src="../_images/Windowing_17_0.png" />
-<img alt="../_images/Windowing_17_1.png" src="../_images/Windowing_17_1.png" />
-</div>
-</div>
+<p><img alt="mdct" src="../_images/148295002.png" />
+<img alt="foo" src="../_images/148294911.png" /></p>
 <p>Several windowing functions which satisfy the above criteria are known.
 In fact, from any window which satisfies the reconstruction criteria, we
 can obtain a window which satisfies the Princen-Bradley condition by
@@ -1188,7 +1146,7 @@ I_0\left(\pi\alpha \sqrt{1 -
  &lt; L\\ 0, &amp;\textrm{otherwise}, \end{cases} \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_0()\)</span> is the zeroth order modified Bessel function of
 the first kind and γ is a scalar scaling coefficient chosen such that Princen-Bradley holds.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>

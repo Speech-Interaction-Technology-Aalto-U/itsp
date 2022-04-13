@@ -13,11 +13,132 @@
 # signal oscillates slowly - for example, a 100 Hz signal will cross zero
 # 100 per second - whereas an unvoiced fricative can have 3000 zero
 # crossing per second. An implementation of the zero-crossing for a signal $x_h$ at window $k$ is
+# 
 # $$
 # ZCR_k = \sum_{h=kM}^{kM+N} \left|{\mathrm{sign}}(x_h)-{\mathrm{sign}}(x_{h-1})\right|,
 # $$
-# where $M$ is the step between analysis windows and $N$ the analysis window length.
 # 
+# where $M$ is the step between analysis windows and $N$ the analysis window length.
+
+# In[5]:
+
+
+# static example of zero-crossing
+from ipywidgets import *
+import IPython.display as ipd
+from ipywidgets import interactive
+import numpy as np
+import scipy
+from scipy.io import wavfile
+from scipy import signal
+import matplotlib.pyplot as plt
+get_ipython().run_line_magic('matplotlib', 'inline')
+
+filename = 'sounds/test.wav'
+fs, data = wavfile.read(filename)
+data = data.astype(np.int16)
+data = data[:]
+data_length = int(len(data))
+
+window_length_ms = 10
+window_length = int(window_length_ms*fs/1000.)
+t = np.arange(0,data_length)/fs
+
+# Hann window
+window_function = np.sin(np.pi*np.arange(.5/window_length,1,1/window_length))**2 
+
+window_position = int(2.2*fs)
+if window_position > data_length-window_length: 
+    window_position = data_length-window_length
+
+ix = window_position + np.arange(0,window_length,1)
+zcr = np.sum(np.abs(np.diff(np.sign(data[ix]),axis=0)),axis=0)//2
+zcr_vec = np.abs(np.diff(np.sign(data[ix]),axis=0))
+zcr_idx = np.where(zcr_vec > 0)
+
+fig = plt.figure(figsize=(10, 4))
+plt.plot(t[ix],data[ix])
+plt.plot(t[ix[zcr_idx]],0*data[ix[zcr_idx]],'rx')
+plt.title('Window of signal with ' +str(zcr) + ' zero-crossings')
+plt.xlabel('Time (s)')
+plt.ylabel('Amplitude')
+plt.tight_layout()
+plt.show()
+
+
+# In[6]:
+
+
+# interactive example of spectrum
+from ipywidgets import *
+import IPython.display as ipd
+from ipywidgets import interactive
+import numpy as np
+import scipy
+from scipy.io import wavfile
+from scipy import signal
+import matplotlib.pyplot as plt
+get_ipython().run_line_magic('matplotlib', 'inline')
+
+filename = 'sounds/test.wav'
+fs, data = wavfile.read(filename)
+data = data.astype(np.int16)
+data = data[:]
+data_length = int(len(data))
+
+
+def update(position_s=0.5*data_length/fs,window_length_ms=10.0):
+    ipd.clear_output(wait=True)
+    window_length = int(window_length_ms*fs/1000.)
+    t = np.arange(0,data_length)/fs
+    
+    # Hann window
+    window_function = np.sin(np.pi*np.arange(.5/window_length,1,1/window_length))**2 
+    
+    window_position = int(position_s*fs)
+    if window_position > data_length-window_length: 
+        window_position = data_length-window_length
+       
+    ix = window_position + np.arange(0,window_length,1)
+    zcr = np.sum(np.abs(np.diff(np.sign(data[ix]),axis=0)),axis=0)//2
+    zcr_vec = np.abs(np.diff(np.sign(data[ix]),axis=0))
+    zcr_idx = np.where(zcr_vec > 0)
+    
+    fig = plt.figure(figsize=(10, 8))
+    #ax = fig.subplots(nrows=1,ncols=1)
+    plt.subplot(211)
+    plt.plot(t,data)
+    plt.plot([position_s, position_s],[np.min(data), np.max(data)],'r--')
+    plt.title('Whole signal')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Amplitude')
+    plt.subplot(212)
+    plt.plot(t[ix],data[ix])
+    plt.plot(t[ix[zcr_idx]],0*data[ix[zcr_idx]],'rx')
+    plt.title('Selected window signal with ' +str(zcr) + ' zero-crossings')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Amplitude')
+    plt.tight_layout()
+    plt.show()
+    fig.canvas.draw()
+        
+    
+
+
+interactive_plot = interactive(update, 
+                               #positions_s=widgets.FloatSlider(min=0., max=(data_length-window_length)/fs, value=1., step=0.01,layout=Layout(width='1500px')),
+                               position_s=(0., data_length/fs,0.001),
+                               window_length_ms=(2.0, 30.0, 0.5))
+output = interactive_plot.children[-1]
+output.layout.height = '600px'
+style = {'description_width':'120px'}
+interactive_plot.children[0].layout = Layout(width='760px')
+interactive_plot.children[1].layout = Layout(width='760px')
+interactive_plot.children[0].style=style
+interactive_plot.children[1].style=style
+interactive_plot
+
+
 # To calculate of the zero-crossing rate of a signal you need to compare
 # the sign of each pair of consecutive samples. In other words, for a
 # length $N$ signal you need $O(N)$ operations. Such calculations are also
@@ -39,7 +160,6 @@
 # arithmetic complexity is also $O(N)$.
 # 
 #   
-# 
 
 # In[16]:
 

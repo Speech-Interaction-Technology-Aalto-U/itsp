@@ -1,15 +1,8 @@
 # Fundamental frequency (F0)
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 The fundamental frequency of a speech signal, often denoted by F0 or
-F<sub>0</sub>, refers to the approximate frequency of the
+$F_{0}$, refers to the approximate frequency of the
 (quasi-)periodic structure of voiced speech signals. The oscillation
 originates from the vocal folds, which oscillate in the airflow when
 appropriately tensed. The fundamental frequency is defined as the
@@ -41,30 +34,17 @@ anymore. The brain somehow reconstructs the fundamental from the upper
 harmonics. This well-known phenomenon is however still not completely
 understood. 
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 A speech signal with a fundamental frequency of approximately F0=93Hz.
 
-<img src="attachments/149890776/175515681.png"
-data-image-src="attachments/149890776/175515681.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175515681"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="aaa_wav.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149890776"
-data-linked-resource-container-version="15" height="250" />
+![aaa](attachments/175515681.png)
 
 The spectrum of a speech signal with a fundamental frequency of
 approximately F0=93Hz (original) and a high-pass filtered version of it
 such that the fundamental frequency has been removed (high-pass
 filtered).
+
+
 
 <img src="attachments/149890776/175515679.png"
 data-image-src="attachments/149890776/175515679.png"
@@ -85,7 +65,8 @@ data-linked-resource-content-type="audio/x-wav"
 data-linked-resource-container-id="149890776"
 data-linked-resource-container-version="15">aaa.wav</a> and a high-pass
 filtered version of it such that the fundamental frequency has been
-removed <a href="attachments/149890776/175515684.wav"
+removed
+<a href="attachments/149890776/175515684.wav"
 data-linked-resource-id="175515684" data-linked-resource-version="1"
 data-linked-resource-type="attachment"
 data-linked-resource-default-alias="aaa_highpass.wav"
@@ -96,154 +77,55 @@ data-linked-resource-container-version="15">aaa_highpass.wav</a>.
 
   
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-If *F*<sub>0</sub> is the fundamental frequency, then the length of a
+If $F_{0}$ is the fundamental frequency, then the length of a
 single period in seconds is
 
-\\\[ T=\\frac{1}{F_0}. \\\]
+$$ T=\frac{1}{F_0}. $$
 
-The speech waveform thus repeats itself after every *T* seconds.
+The speech waveform thus repeats itself after every $T$ seconds.
 
 A simple way of modelling the fundamental frequency is to repeat the
-signal after a delay of *T* seconds. If a signal is sampled with a
-sampling rate of *F<sub>s</sub>*, then the signal repeats after a delay
-of *L* samples where
+signal after a delay of $T$ seconds. If a signal is sampled with a
+sampling rate of $F_{s}$, then the signal repeats after a delay
+of $L$ samples where
 
-\\\[ L = F_s T = \\frac{F_s}{F_0}. \\\]
+$$ L = F_s T = \frac{F_s}{F_0}. $$
 
-A signal *x<sub>n</sub>* then approximately repeats itself such that
+A signal $x_{n}$ then approximately repeats itself such that
 
-\\\[ x_n \\approx x\_{n-L} \\approx x\_{n-2L} \\approx x\_{n-3L}. \\\]
+$$ x_n \approx x\_{n-L} \approx x\_{n-2L} \approx x\_{n-3L}. $$
 
 In the Z-domain this can be modelled by an IIR-filter as
 
-\\\[ B(z) = 1 - \\gamma_L z^{-L}, \\\]
+$$ B(z) = 1 - \gamma_L z^{-L}, $$
 
-where the scalar \\( 0\\leq\\gamma_L\\leq 1 \\) scales with the accuracy
-of the period. The Z-transform of the signal *x<sub>n</sub>* can then be
-written as \\( X(z)=B^{-1}(z) E(z), \\) where *E(z)* is the Z-transform
+where the scalar $ 0\leq\gamma_L\leq 1 $ scales with the accuracy
+of the period. The Z-transform of the signal $x_{n}$ can then be
+written as $ X(z)=B^{-1}(z) E(z), $ where $E(z)$ is the Z-transform
 of a single period.
 
-</div>
+Segment of a speech signal, with the period length $L$, and fundamental
+frequency $F_0=1/L$.
+![f0_L](attachments/149891410.png)
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-Segment of a speech signal, with the period length *L*, and fundamental
-frequency *F0=1/L*.<img src="attachments/149890776/149891410.png"
-data-image-src="attachments/149890776/149891410.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149891410"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="f0_L.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149890776"
-data-linked-resource-container-version="15" height="250" />
-
-  
-
-Spectrum of speech signal with the fundamental frequency *F<sub>0</sub>*
-and harmonics *kF*<sub>0</sub>**, as well as the
+Spectrum of speech signal with the fundamental frequency $F_{0}$
+and harmonics $kF_{0}$, as well as the
 formants *F1*, *F2*, *F3*... Notice how the harmonics form a regular
 comb-structure.
 
-<img src="attachments/149890776/175515678.png"
-data-image-src="attachments/149890776/175515678.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175515678"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="f0_formants.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149890776"
-data-linked-resource-container-version="15" height="250" />
+![f0_formants](attachments/175515678.png)
 
   
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-The magnitude spectrum of *B<sup>-1</sup>(z)*, has then a periodic
-comb-structure. That is, the magnitude spectrum has peaks at \\( k\\,F_0
-\\) , for integer *k.  
-*For a discussion about the fundamental frequency in the cepstral
+The magnitude spectrum of $B^{-1}(z)$, has then a periodic
+comb-structure. That is, the magnitude spectrum has peaks at $ k\,F_0
+$ , for integer $k$.
+For a discussion about the fundamental frequency in the cepstral
 domain, see [Cepstrum and MFCC](Cepstrum_and_MFCC).
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-Spectrum of fundamental frequency model *B<sup>-1</sup>(z)*, showing the
+Spectrum of fundamental frequency model $B^{-1}(z)$, showing the
 characteristic comb-structure with harmonic peaks appearing at integer
-multiples of *F0*.
+multiples of $F0$.
 
-<img src="attachments/149890776/149891452.png"
-data-image-src="attachments/149890776/149891452.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149891452"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="comb.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149890776"
-data-linked-resource-container-version="15" height="250" />
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[f0_L.png](attachments/149890776/149891410.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[comb.png](attachments/149890776/149891453.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[comb.png](attachments/149890776/149891452.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[f0_formants.png](attachments/149890776/175515678.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[aaa_highpass.png](attachments/149890776/175515679.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[aaa_wav.png](attachments/149890776/175515681.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[aaa.wav](attachments/149890776/175515683.wav) (audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[aaa_highpass.wav](attachments/149890776/175515684.wav) (audio/x-wav)  
-
-</div>
+![comb](attachments/149891452.png)

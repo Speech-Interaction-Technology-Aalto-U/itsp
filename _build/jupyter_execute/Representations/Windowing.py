@@ -3,12 +3,7 @@
 
 # # Windowing
 
-# In[51]:
-
-
-from IPython.display import display, Image
-Image(filename='attachments/148294966.png',width=500)
-
+# ![wave](attachments/148294966.png)
 
 # A spoken sentence is a sequence of phonemes. Speech signals are thus
 # time-variant in character. To extract information from a signal, we must
@@ -200,13 +195,8 @@ plt.show()
 # 
 # <!-- <img src="attachments/148295002.png" height="400" /><img src="attachments/148294911.png" height="72" />-->
 
-# In[53]:
-
-
-from IPython.display import display, Image
-display(Image(filename='attachments/148295002.png',width=500))
-Image(filename='attachments/148294911.png',width=400)
-
+# ![mdct](attachments/148295002.png)
+# ![flow](attachments/148294911.png)
 
 # ## Comprehensive description
 # 
@@ -270,12 +260,7 @@ plt.show()
 # overlapping segments, such that when the windows are later added
 # together, the original signal is recovered (see Figure below).
 
-# In[55]:
-
-
-from IPython.display import display, Image
-display(Image(filename='attachments/148295002.png',width=500))
-
+# ![mdct](attachments/148295002.png)
 
 # As a first approach, let us define window $h$ as
 # 
@@ -418,13 +403,8 @@ plt.show()
 # windows. <!-- \cite{backstrom2017celp,
 # backstrom2013:win,Bosi:2003,edler1989codierung,malvar1990lapped,malvar1992signal}.-->
 
-# In[53]:
-
-
-from IPython.display import display, Image
-display(Image(filename='attachments/148295002.png',width=500))
-Image(filename='attachments/148294911.png',width=400)
-
+# ![mdct](attachments/148295002.png)
+# ![foo](attachments/148294911.png)
 
 # Several windowing functions which satisfy the above criteria are known.
 # In fact, from any window which satisfies the reconstruction criteria, we

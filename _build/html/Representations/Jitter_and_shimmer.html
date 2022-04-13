@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.11. Jitter and shimmer &#8212; Introduction to Speech Processing</title>
+    <title>3.12. Jitter and shimmer &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,10 +48,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Pre-processing" href="../Pre-processing.html" />
-    <link rel="prev" title="3.10. Pitch-Synchoronous Overlap-Add (PSOLA)" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html" />
+    <link rel="prev" title="3.11. Pitch-Synchoronous Overlap-Add (PSOLA)" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -150,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -174,43 +178,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -616,19 +625,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   3.11.1. Attachments:
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -641,19 +637,6 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   3.11.1. Attachments:
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -661,7 +644,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="jitter-and-shimmer">
-<h1><span class="section-number">3.11. </span>Jitter and shimmer<a class="headerlink" href="#jitter-and-shimmer" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.12. </span>Jitter and shimmer<a class="headerlink" href="#jitter-and-shimmer" title="Permalink to this headline">¶</a></h1>
 <p>The speech production system is not a rigid, mechanical machine, but
 composed of an assortment of soft-tissue components. Therefore, although
 parts of a speech signal might seem stationary, there are always small
@@ -685,40 +668,35 @@ are potentially related to pathological voices. Jitter and shimmer are
 most clearly detected from long, sustained vowels.</p>
 <p>A commonly used jitter value is the absolute jitter. This measure
 expresses the average absolute difference between consecutive periods.</p>
-<p>\[ Jitter(absolute) = \frac{1}{N-1}\sum_{i=1}^{N-1}|T_i-T_{i+1}|
-\]</p>
+<div class="math notranslate nohighlight">
+\[ Jitter(absolute) = \frac{1}{N-1}\sum_{i=1}^{N-1}\|T_i-T_{i+1}\|
+\]</div>
 <p>where Ti are the extracted F0 period lengths and N is the number of
 extracted F0 periods.</p>
 <p>When this is divided by the average period, another common measure,
 relative jitter, is obtained.</p>
-<p>\[ Jitter(relative) =
-\frac{\frac{1}{N-1}\sum_{i=1}^{N-1}|T_i-T_{i+1}|}{\frac{1}{N}\sum_{i=1}^{N}T_i}
-\]</p>
+<div class="math notranslate nohighlight">
+\[ Jitter(relative) =
+\frac{\frac{1}{N-1}\sum_{i=1}^{N-1}\|T_i-T_{i+1}\|}{\frac{1}{N}\sum_{i=1}^{N}T_i}
+\]</div>
 <p>where Ti are the extracted F0 period lengths and N is the number of
 extracted F0 periods.</p>
 <p>A commonly used shimmer value, here Shimmer(dB), expresses the average
 absolute base-10 logarithm of the difference between the amplitudes of
 consecutive periods multiplied by 20.</p>
-<p>\[ Shimmer(dB) =
-\frac{1}{N-1}\sum_{i=1}^{N-1}|20\log(A_{i+1}/A_i)| \]</p>
+<div class="math notranslate nohighlight">
+\[ Shimmer(dB) =
+\frac{1}{N-1}\sum_{i=1}^{N-1}\|20\log(A_{i+1}/A_i)\| \]</div>
 <p>where Ai are the extracted peak-to-peak amplitude data and N is the
 number of extracted fundamental frequency periods.</p>
 <p>Relative shimmer expresses the average absolute difference between the
 amplitudes of consecutive periods divided by the average amplitude.</p>
-<p>\[ Shimmer(relative) =
-\frac{\frac{1}{N-1}\sum_{i=1}^{N-1}|A_i-A_{i+1}|}{\frac{1}{N}\sum_{i=1}^{N}A_i}
-\]</p>
+<div class="math notranslate nohighlight">
+\[ Shimmer(relative) =
+\frac{\frac{1}{N-1}\sum_{i=1}^{N-1}\|A_i-A_{i+1}\|}{\frac{1}{N}\sum_{i=1}^{N}A_i}
+\]</div>
 <p>where Ai are the extracted peak-to-peak amplitude data and N is the
 number of extracted fundamental frequency periods.</p>
-<div class="pageSectionHeader">
-<div class="section" id="attachments">
-<h2><span class="section-number">3.11.1. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[jitter_shimmer.png](attachments/203118974/203119853.png) (image/png)  
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -750,7 +728,7 @@ number of extracted fundamental frequency periods.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.10. </span>Pitch-Synchoronous Overlap-Add (PSOLA)</p>
+            <p class="prev-next-title"><span class="section-number">3.11. </span>Pitch-Synchoronous Overlap-Add (PSOLA)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../Pre-processing.html" title="next page">

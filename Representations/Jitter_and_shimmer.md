@@ -26,8 +26,8 @@ most clearly detected from long, sustained vowels.
 A commonly used jitter value is the absolute jitter. This measure
 expresses the average absolute difference between consecutive periods.
 
-\\\[ Jitter(absolute) = \\frac{1}{N-1}\\sum\_{i=1}^{N-1}\|T_i-T\_{i+1}\|
-\\\]
+$$ Jitter(absolute) = \frac{1}{N-1}\sum_{i=1}^{N-1}\|T_i-T_{i+1}\|
+$$
 
 where Ti are the extracted F0 period lengths and N is the number of
 extracted F0 periods.
@@ -35,9 +35,9 @@ extracted F0 periods.
 When this is divided by the average period, another common measure,
 relative jitter, is obtained.
 
-\\\[ Jitter(relative) =
-\\frac{\\frac{1}{N-1}\\sum\_{i=1}^{N-1}\|T_i-T\_{i+1}\|}{\\frac{1}{N}\\sum\_{i=1}^{N}T_i}
-\\\]
+$$ Jitter(relative) =
+\frac{\frac{1}{N-1}\sum_{i=1}^{N-1}\|T_i-T_{i+1}\|}{\frac{1}{N}\sum_{i=1}^{N}T_i}
+$$
 
 where Ti are the extracted F0 period lengths and N is the number of
 extracted F0 periods.
@@ -46,8 +46,8 @@ A commonly used shimmer value, here Shimmer(dB), expresses the average
 absolute base-10 logarithm of the difference between the amplitudes of
 consecutive periods multiplied by 20.
 
-\\\[ Shimmer(dB) =
-\\frac{1}{N-1}\\sum\_{i=1}^{N-1}\|20\\log(A\_{i+1}/A_i)\| \\\]
+$$ Shimmer(dB) =
+\frac{1}{N-1}\sum_{i=1}^{N-1}\|20\log(A_{i+1}/A_i)\| $$
 
 where Ai are the extracted peak-to-peak amplitude data and N is the
 number of extracted fundamental frequency periods.
@@ -55,9 +55,9 @@ number of extracted fundamental frequency periods.
 Relative shimmer expresses the average absolute difference between the
 amplitudes of consecutive periods divided by the average amplitude.
 
-\\\[ Shimmer(relative) =
-\\frac{\\frac{1}{N-1}\\sum\_{i=1}^{N-1}\|A_i-A\_{i+1}\|}{\\frac{1}{N}\\sum\_{i=1}^{N}A_i}
-\\\]
+$$ Shimmer(relative) =
+\frac{\frac{1}{N-1}\sum_{i=1}^{N-1}\|A_i-A_{i+1}\|}{\frac{1}{N}\sum_{i=1}^{N}A_i}
+$$
 
 where Ai are the extracted peak-to-peak amplitude data and N is the
 number of extracted fundamental frequency periods.
@@ -65,18 +65,3 @@ number of extracted fundamental frequency periods.
   
 
   
-
-  
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[jitter_shimmer.png](attachments/203118974/203119853.png) (image/png)  
-
-</div>

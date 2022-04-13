@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.5. Cepstrum and MFCC &#8212; Introduction to Speech Processing</title>
+    <title>3.6. Cepstrum and MFCC &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,10 +48,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.6. Linear prediction" href="Linear_prediction.html" />
-    <link rel="prev" title="3.4. Autocorrelation and autocovariance" href="Autocorrelation_and_autocovariance.html" />
+    <link rel="next" title="3.7. Linear prediction" href="Linear_prediction.html" />
+    <link rel="prev" title="3.5. Autocorrelation and autocovariance" href="Autocorrelation_and_autocovariance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -150,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -174,43 +178,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -623,22 +632,17 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#motivation">
-   3.5.1. Motivation
+   3.6.1. Motivation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-cepstrum">
-   3.5.2. The cepstrum
+   3.6.2. The cepstrum
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mel-frequency-cepstral-coefficients-mfccs">
-   3.5.3. Mel-Frequency Cepstral Coefficients (MFCCs)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   3.5.4. Attachments:
+   3.6.3. Mel-Frequency Cepstral Coefficients (MFCCs)
   </a>
  </li>
 </ul>
@@ -663,22 +667,17 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#motivation">
-   3.5.1. Motivation
+   3.6.1. Motivation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-cepstrum">
-   3.5.2. The cepstrum
+   3.6.2. The cepstrum
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mel-frequency-cepstral-coefficients-mfccs">
-   3.5.3. Mel-Frequency Cepstral Coefficients (MFCCs)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   3.5.4. Attachments:
+   3.6.3. Mel-Frequency Cepstral Coefficients (MFCCs)
   </a>
  </li>
 </ul>
@@ -691,14 +690,10 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="cepstrum-and-mfcc">
-<h1><span class="section-number">3.5. </span>Cepstrum and MFCC<a class="headerlink" href="#cepstrum-and-mfcc" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<h1><span class="section-number">3.6. </span>Cepstrum and MFCC<a class="headerlink" href="#cepstrum-and-mfcc" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="motivation">
-<h2><span class="section-number">3.5.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
-<p>Power <span class="xref myst">spectra</span> of <a class="reference internal" href="Windowing.html"><span class="doc std std-doc">windows</span></a> of
+<h2><span class="section-number">3.6.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Power <a class="reference internal" href="Spectrogram_and_the_STFT.html"><span class="doc std std-doc">spectra</span></a> of <a class="reference internal" href="Windowing.html"><span class="doc std std-doc">windows</span></a> of
 speech signals contain information about the most important features of
 speech signals like the identity of vowels. Unfortunately, the range of
 values is very non-uniform. In fact, by directly looking at power
@@ -710,26 +705,7 @@ logarithmic spectra can be used to assess auditory importance of
 spectral features. The logarithmic spectrum visualizes spectral content
 such that the magnitude of values is approximately uniform throughout
 the spectrum.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Windowed speech signal<br />
-<img src="attachments/149885068/149886069.png" class="image-center"
-data-image-src="attachments/149885068/149886069.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886069"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p>Windowed speech signal <img alt="window" src="../_images/149886069.png" /></p>
 <p>The only exception is zeros and other very small values in the magnitude
 spectrum, which give negative infinities or arbitrarily large negative
 values in the log spectrum. Though such values are “difficult” for
@@ -739,44 +715,27 @@ arbitrarily large negative values are a problem.</p>
 <p>To reduce the likelihood of such problematic values, we can use for
 example an energy bias similar to the <a class="reference internal" href="Waveform.html"><span class="doc std std-doc">mu-law</span></a> rule or
 integrate energies over frequencies. Specifically, instead of
-<em>y=log(|x|<sup>2</sup>)</em>, we can use <em>y=log(</em>|x|<sup>2</sup><em>+e)</em>,
-where <em>e</em> is a small positive number. The output <em>y</em> will then never go
-lower than a threshold y≥<em>log(e)</em>.</p>
+<span class="math notranslate nohighlight">\(y=\log(\|x\|^2)\)</span>, we can use <span class="math notranslate nohighlight">\(y=\log(\|x\|^2+e)\)</span>,
+where <span class="math notranslate nohighlight">\(e\)</span> is a small positive number. The output <span class="math notranslate nohighlight">\(y\)</span> will then never go
+lower than a threshold <span class="math notranslate nohighlight">\(y\geq \log(e)\)</span>.</p>
 <p>In addition, we can integrate (or sum) neighboring frequencies, for
 example as</p>
-<p>\[
- y_k=\log\left(\gamma|x_{k-1}|^2+|x_k|^2+\gamma|x_{k+1}|^2+\epsilon\right),
-\]</p>
+<div class="math notranslate nohighlight">
+\[
+ y_k=\log\left(\gamma\|x_{k-1}\|^2+\|x_k\|^2+\gamma\|x_{k+1}\|^2+\epsilon\right),
+\]</div>
 <p>where 0&lt;γ&lt;1 is a scalar. The likelihood that all three coefficients,
-<em>x<sub>k-1</sub></em>, <em>x<sub>k</sub></em> and <em>x<sub>k+1</sub></em>, are all
+<span class="math notranslate nohighlight">\(x_{k-1}\)</span>, <span class="math notranslate nohighlight">\(x_{k}\)</span> and <span class="math notranslate nohighlight">\(x_{k+1}\)</span>, are all
 simultaneously near zero is much smaller than that one of them is near
-zero. The likelihood that <em>y</em> gets near the threshold y≥<em>log(e)</em> is
+zero. The likelihood that <span class="math notranslate nohighlight">\(y\)</span> gets near the threshold <span class="math notranslate nohighlight">\(y\geq \log(e)\)</span> is
 therefore small. Such methods can be used to improve the robustness of
 log-spectra, such that we can make computations to them with reliable
 results.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Power spectrum of speech
-segment<img src="attachments/149885068/149886068.png" class="image-center"
-data-image-src="attachments/149885068/149886068.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886068"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="dft_windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+segment <img alt="spectrum" src="../_images/149886068.png" /></p>
 </div>
 <div class="section" id="the-cepstrum">
-<h2><span class="section-number">3.5.2. </span>The cepstrum<a class="headerlink" href="#the-cepstrum" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6.2. </span>The cepstrum<a class="headerlink" href="#the-cepstrum" title="Permalink to this headline">¶</a></h2>
 <p>We now see that the log-spectrum has plenty of structure. It is a more
 or less continuous signal, owing to a large part, to the smoothing
 effect of windowing. In the illustration to the right, it has also a
@@ -795,13 +754,14 @@ discrete Fourier transform (DFT) or the discrete cosine transform (DCT)
 of the the log-spectrum, to obtain a representation known as
 the <em>cepstrum</em>. The name attempts to be an amusing reflection of the
 fact that this representation is a complicated rearrangement of
-time-frequency transforms. In technical terms, for a time signal <em>x(t)</em>,
+time-frequency transforms. In technical terms, for a time signal <span class="math notranslate nohighlight">\(x(t)\)</span>,
 the cepstrum is defined as</p>
-<p>\[ \text{power cepstrum of signal} {\displaystyle
-=\left|{\mathcal {F}}^{-1}\left\{\log \left(\left|{\mathcal
-{F}}\{x(t)\}\right|^{2}\right)\right\}\right|^{2},} \]</p>
-<p>where \( {\mathcal {F}}\{\cdot\} \) represent the Fourier
-transform and \( {\mathcal {F}}^{-1}\{\cdot\} \) its inverse.</p>
+<div class="math notranslate nohighlight">
+\[ \text{power cepstrum of signal} {\displaystyle
+=\left\|{\mathcal {F}}^{-1}\left\{\log \left(\left\|{\mathcal
+{F}}\{x(t)\}\right\|^{2}\right)\right\}\right\|^{2},} \]</div>
+<p>where <span class="math notranslate nohighlight">\( {\mathcal {F}}\{\cdot\} \)</span> represent the Fourier
+transform and <span class="math notranslate nohighlight">\( {\mathcal {F}}^{-1}\{\cdot\} \)</span> its inverse.</p>
 <p>It is worth repeating that the cepstrum involves two time-frequency
 transforms. The cepstrum of a time-signal is therefore in some sense
 similar to the time-domain. The x-axis of a cepstrum is known as
@@ -815,50 +775,24 @@ non-trivial. For example, locations of the formants, on the
 frequency-axis, are encoded in the cepstrum, but the information is
 distributed over several coefficients such that extracting that
 information is not easy.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Log-spectrum of speech
-segment<img src="attachments/149885068/149886067.png" class="image-center"
-data-image-src="attachments/149885068/149886067.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886067"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="dbdft_windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-<p>Cepstrum of speech
-segment<img src="attachments/149885068/149886066.png" class="image-center"
-data-image-src="attachments/149885068/149886066.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886066"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="cepstrum_windowed_speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
+segment <img alt="dbdft" src="../_images/149886067.png" /></p>
+<p>Cepstrum of speech segment
+<img alt="cepstrum" src="../_images/149886066.png" /></p>
 <p>The most visually prominent feature in this cepstrum is the peak near
 quefrency 7 ms. It corresponds to a fundamental frequency of 1000/(7 s)
 = 143 Hz. That fundamental frequency is clearly visible also in the
 log-spectrum above, where the comb-structure has peaks at approximately
 multiples of 143 Hz.</p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>A second useful piece of information in the cepstrum is the harmonic
 structure of the log-spectrum. Recall that the fundamental frequency is
 visible as a comb-structure in the log-spectrum. The comb-structure, in
 turn, is a periodic structure and the Fourier transform is an excellent
 tool for extracting such structures. We can thus expect to see a peak in
 the cepstrum at the quefrency corresponding to the pitch-period length
-(in seconds). If we assume that fundamental frequencies <em>F<sub>0</sub></em>
+(in seconds). If we assume that fundamental frequencies <span class="math notranslate nohighlight">\(F_{0}\)</span>
 are in the range 80 to 450 Hz, then the corresponding peak in the
-cepstrum should lie at quefrency <em>1/F<sub>0</sub></em> and they range from
+cepstrum should lie at quefrency <span class="math notranslate nohighlight">\(1/F_{0}\)</span> and they range from
 2.2 to 12.5 milliseconds.</p>
 <p>Estimating the fundamental frequency in the cepstrum is, in fact, very
 simple and relatively robust. We would just need to find the highest
@@ -866,18 +800,8 @@ peak of the cepstrum in the appropriate quefrency-range. <span class="xref myst"
 frequency estimation</span> will be
 discussed further in a separate section.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="mel-frequency-cepstral-coefficients-mfccs">
-<h2><span class="section-number">3.5.3. </span>Mel-Frequency Cepstral Coefficients (MFCCs)<a class="headerlink" href="#mel-frequency-cepstral-coefficients-mfccs" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6.3. </span>Mel-Frequency Cepstral Coefficients (MFCCs)<a class="headerlink" href="#mel-frequency-cepstral-coefficients-mfccs" title="Permalink to this headline">¶</a></h2>
 <p>To further improve on the cepstral representation, we can include more
 information about auditory perception into the model. Specifically, by
 introducing information about human perception, we focus the model on
@@ -896,58 +820,44 @@ through an abritrary choice mainly due to tradition, in this context we
 will focus on the mel-scale. This scale describes the perceptual
 distance between pitches of different frequencies.</p>
 <p>A classical approximation is to define the frequency-to-mel transform
-function for a frequency *f *as</p>
-<p>\[ m=2595\,\log_{10}\left(1+\frac f{700}\right). \]</p>
+function for a frequency <span class="math notranslate nohighlight">\(f \)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ m=2595\,\log_{10}\left(1+\frac f{700}\right). \]</div>
 <p>The inverse transform can be readily derived as</p>
-<p>\[ f = 700\,\left(10^{\frac m{2595}}-1\right). \]</p>
-<p>By taking equally spaced points <em>m<sub>k</sub></em>, using the above
-formula, we can then find frequency points *f<sub>k </sub>*whose
+<div class="math notranslate nohighlight">
+\[ f = 700\,\left(10^{\frac m{2595}}-1\right). \]</div>
+<p>By taking equally spaced points <span class="math notranslate nohighlight">\(m_{k}\)</span>, using the above
+formula, we can then find frequency points <span class="math notranslate nohighlight">\(f_{k }\)</span> whose
 perceptual distance is equal. In other words, to sample the log-spectrum
-with a perceptual scale, we pick samples at frequencies <em>f<sub>k</sub></em>.
+with a perceptual scale, we pick samples at frequencies <span class="math notranslate nohighlight">\(f_{k}\)</span>.
 (An implementation detail is that usually, we want to avoid that the
-distance between subsequent <em>f<sub>k</sub></em> would be smaller than the
+distance between subsequent <span class="math notranslate nohighlight">\(f_{k}\)</span> would be smaller than the
 highest distance between harmonic peaks, such that the model focuses on
 the macro structure and ignores the fundamental frequency. Usually, a
-minimum threshold is therefore applied on <em>f<sub>k</sub></em>.)</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Mel scale</p>
-<p><img src="attachments/149885068/149886076.png"
-data-image-src="attachments/149885068/149886076.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886076"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="melscale.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>However, if we would only pick samples at frequencies <em>f<sub>k</sub></em>,
+minimum threshold is therefore applied on <span class="math notranslate nohighlight">\(f_{k}\)</span>.)</p>
+<p>Mel scale
+<img alt="melscale" src="../_images/149886076.png" /></p>
+<p>However, if we would only pick samples at frequencies <span class="math notranslate nohighlight">\(f_{k}\)</span>,
 we would loose all the other information. Therefore, similarly as in the
 frequency-integration approach above, we take a weighted sum of energies
-near the target frequency <em>f<sub>k</sub></em> as</p>
-<p>\[ u_k = \sum_{h=f_{k-1}+1}^{f_{k+1}-1} w_{k,h} |x_h|^2, \]</p>
-<p>where scalars <em>w<sub>k,h</sub></em> are a weighting parameters. Then we get,
+near the target frequency <span class="math notranslate nohighlight">\(f_{k}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ u_k = \sum_{h=f_{k-1}+1}^{f_{k+1}-1} w_{k,h} \|x_h\|^2, \]</div>
+<p>where scalars <span class="math notranslate nohighlight">\(w_{k,h}\)</span> are a weighting parameters. Then we get,
 simultaneously, the benefit of a robust estimate due to energy
 integration, but also apply a perceptual frequency scale.</p>
 <p>Finally, by taking the discrete cosine transform (DCT) of the parameters
-<em>u<sub>k</sub></em>, we obtain the representation known as *mel-frequency
+<span class="math notranslate nohighlight">\(u_{k}\)</span>, we obtain the representation known as *mel-frequency
 cepstral coefficients *(MFCCs). The benefit of the DCT at the end is to
 approximately decorrelate the signal, such that the MFC coefficients are
 not correlated with each other.</p>
-<p>The weighting coefficients <em>w<sub>k,h</sub></em> are usually chosen as
+<p>The weighting coefficients <span class="math notranslate nohighlight">\(w_{k,h}\)</span> are usually chosen as
 triangular functions as</p>
-<p>\[ w_{k,h} = \begin{cases} \frac{h-f_{k-1}}{f_k - f_{k-1}} &amp;
-\text{for}\quad f_{k-1}&lt; h\leq f_k, \ \frac{f_{k+1}
+<div class="math notranslate nohighlight">
+\[\begin{split} w_{k,h} = \begin{cases} \frac{h-f_{k-1}}{f_k - f_{k-1}} &amp;
+\text{for}\quad f_{k-1} &lt; h\leq f_k, \\ \frac{f_{k+1}
 -h}{f_{k+1} - f_{k}} &amp; \text{for}\quad f_{k}&lt; h\leq f_{k+1},
-\0 &amp; \text{otherwise}. \end{cases} \]</p>
+\\0 &amp; \text{otherwise}. \end{cases} \end{split}\]</div>
 <p>The process of acquiring MFCCs from a spectrogram is illustrated on the
 right, where on the top, there is a triangular filterbank placed at
 linear steps on the mel-frequency scale. The second figure shows the
@@ -992,7 +902,7 @@ benefit, whereby the mel-scale has persisted.</p></li>
 <li><p>MFCCs are not robust to noise. That is, the performance of MFCCs in
 presence of additive noise, in comparison to other features, has not
 always been good.</p></li>
-<li><p>The choice of triangular weighting filters <em>w<sub>k,h</sub></em> is
+<li><p>The choice of triangular weighting filters <span class="math notranslate nohighlight">\(w_{k,h}\)</span> is
 arbitrary and not based on well-grounded motivations. Alternatives
 have been presented, but they have not gained popularity, probably
 due to minor effect on outcome.</p></li>
@@ -1002,94 +912,14 @@ problematic. Namely, it is difficult to find an inverse transform
 (=accurate) and congruent with its physical representation (=power
 spectrum must be positive).</p></li>
 </ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Triangular filterbank <em>w<sub>k,h</sub></em></p>
-<p><img src="attachments/149885068/149886080.png"
-data-image-src="attachments/149885068/149886080.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149886080"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="melfilterbank.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-<p>Spectrogram of a segment of speech<br />
-<img src="attachments/149885068/151503131.png"
-data-image-src="attachments/149885068/151503131.png"
-data-unresolved-comment-count="0" data-linked-resource-id="151503131"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="spectrogram.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-<p>Spectrogram after multiplication with mel-weighted filterbank</p>
-<p><img src="attachments/149885068/151503197.png"
-data-image-src="attachments/149885068/151503197.png"
-data-unresolved-comment-count="0" data-linked-resource-id="151503197"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="melspectrogram.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-<p>Corresponding MFCCs</p>
-<p><img src="attachments/149885068/151503198.png"
-data-image-src="attachments/149885068/151503198.png"
-data-unresolved-comment-count="0" data-linked-resource-id="151503198"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="mfcc.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149885068"
-data-linked-resource-container-version="25" height="250" /></p>
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">3.5.4. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sample_windowed_dft2-1.png](attachments/149885068/149885445.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sample_windowed_dftdb-1.png](attachments/149885068/149885446.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[cepstrum_windowed_speech_segment.png](attachments/149885068/149886066.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[dbdft_windowed_speech_segment.png](attachments/149885068/149886067.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[dft_windowed_speech_segment.png](attachments/149885068/149886068.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[windowed_speech_segment.png](attachments/149885068/149886069.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[melscale.png](attachments/149885068/149886076.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[melfilterbank.png](attachments/149885068/149886080.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[spectrogram.pdf](attachments/149885068/151503108.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[spectrogram.png](attachments/149885068/151503196.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[spectrogram.png](attachments/149885068/151503131.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[melspectrogram.png](attachments/149885068/151503197.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[mfcc.png](attachments/149885068/151503198.png) (image/png)  
-</div>
+<p>Triangular filterbank <span class="math notranslate nohighlight">\(w_{k,h}\)</span>
+<img alt="melfilterbank" src="../_images/149886080.png" /></p>
+<p>Spectrogram of a segment of speech
+<img alt="spectrogram" src="../_images/151503131.png" /></p>
+<p>Spectrogram after multiplication with mel-weighted filterbank
+<img alt="melspectrogram" src="../_images/151503197.png" /></p>
+<p>Corresponding MFCCs
+<img alt="mfcc" src="../_images/151503198.png" /></p>
 </div>
 </div>
 
@@ -1122,13 +952,13 @@ data-linked-resource-container-version="25" height="250" /></p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.4. </span>Autocorrelation and autocovariance</p>
+            <p class="prev-next-title"><span class="section-number">3.5. </span>Autocorrelation and autocovariance</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Linear_prediction.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.6. </span>Linear prediction</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>Linear prediction</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

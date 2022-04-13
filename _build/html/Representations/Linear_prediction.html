@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.6. Linear prediction &#8212; Introduction to Speech Processing</title>
+    <title>3.7. Linear prediction &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,10 +48,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.7. Fundamental frequency (F0)" href="Fundamental_frequency_F0.html" />
-    <link rel="prev" title="3.5. Cepstrum and MFCC" href="Cepstrum_and_MFCC.html" />
+    <link rel="next" title="3.8. Fundamental frequency (F0)" href="Fundamental_frequency_F0.html" />
+    <link rel="prev" title="3.6. Cepstrum and MFCC" href="Cepstrum_and_MFCC.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -150,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -174,43 +178,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -623,37 +632,37 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition">
-   3.6.1. Definition
+   3.7.1. Definition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vector-notation">
-   3.6.2. Vector notation
+   3.7.2. Vector notation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parameter-estimation">
-   3.6.3. Parameter estimation
+   3.7.3. Parameter estimation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spectral-properties">
-   3.6.4. Spectral properties
+   3.7.4. Spectral properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#physiological-interpretation-and-model-order">
-   3.6.5. Physiological interpretation and model order
+   3.7.5. Physiological interpretation and model order
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uses-in-speech-coding">
-   3.6.6. Uses in speech coding
+   3.7.6. Uses in speech coding
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#alternative-representations-advanced-topic">
-   3.6.7. Alternative representations (advanced topic)
+   3.7.7. Alternative representations (advanced topic)
   </a>
  </li>
 </ul>
@@ -678,37 +687,37 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition">
-   3.6.1. Definition
+   3.7.1. Definition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vector-notation">
-   3.6.2. Vector notation
+   3.7.2. Vector notation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parameter-estimation">
-   3.6.3. Parameter estimation
+   3.7.3. Parameter estimation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spectral-properties">
-   3.6.4. Spectral properties
+   3.7.4. Spectral properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#physiological-interpretation-and-model-order">
-   3.6.5. Physiological interpretation and model order
+   3.7.5. Physiological interpretation and model order
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uses-in-speech-coding">
-   3.6.6. Uses in speech coding
+   3.7.6. Uses in speech coding
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#alternative-representations-advanced-topic">
-   3.6.7. Alternative representations (advanced topic)
+   3.7.7. Alternative representations (advanced topic)
   </a>
  </li>
 </ul>
@@ -721,194 +730,158 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="linear-prediction">
-<h1><span class="section-number">3.6. </span>Linear prediction<a class="headerlink" href="#linear-prediction" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<h1><span class="section-number">3.7. </span>Linear prediction<a class="headerlink" href="#linear-prediction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="definition">
-<h2><span class="section-number">3.6.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
 <p>Speech is a continuous signal, which means that consecutive samples of
 the signal are correlated (see figure on the right). In particular, if
-we know a previous sample <em>x<sub>n-1</sub></em>, we can make a <em>prediction</em>
-of the current sample, \( \hat x_n = x_{n-1}, \) such that \( \hat
-x_n \approx x_n. \) By using more previous samples we have more
+we know a previous sample <span class="math notranslate nohighlight">\(x_{n-1}\)</span>, we can make a <em>prediction</em>
+of the current sample, <span class="math notranslate nohighlight">\( \hat x_n = x_{n-1}, \)</span> such that <span class="math notranslate nohighlight">\( \hat
+x_n \approx x_n. \)</span> By using more previous samples we have more
 information, which should help us make a better prediction.
-Specifically, we can define a predictor which uses <em>M</em> previous samples
-to predict the current sample *x<sub>n </sub>*as</p>
-<p>\[ \hat x_n = - \sum_{k=1}^M a_k x_{n-k}. \]</p>
+Specifically, we can define a predictor which uses <span class="math notranslate nohighlight">\(M\)</span> previous samples
+to predict the current sample <span class="math notranslate nohighlight">\(x_{n }\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ \hat x_n = - \sum_{k=1}^M a_k x_{n-k}. \]</div>
 <p>This is a <em>linear predictor</em> because it takes a linearly weighted sum of
 past components to predict the current one.</p>
 <p>The error of the prediction, also known as the <em>prediction residual</em> is</p>
-<p>\[ e_n = x_n - \hat x_n = x_n + \sum_{k=1}^M a_k x_{n-k} =
-\sum_{k=0}^M a_k x_{n-k}, \]</p>
-<p>where <em>a<sub>0</sub>=1</em>. This explains why the definition \( \hat x_n
-\) included a minus sign; when we calculate the residual, the double
+<div class="math notranslate nohighlight">
+\[ e_n = x_n - \hat x_n = x_n + \sum_{k=1}^M a_k x_{n-k} =
+\sum_{k=0}^M a_k x_{n-k}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(a_{0}=1\)</span>. This explains why the definition <span class="math notranslate nohighlight">\( \hat x_n
+\)</span> included a minus sign; when we calculate the residual, the double
 negative disappears and we can collate everything into one summation.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>A short segment of speech. Notice how consecutive samples are mostly
 near each other, which means that consecutive samples are correlated.</p>
-<p><img src="attachments/149884819/149884842.png"
-data-image-src="attachments/149884819/149884842.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149884842"
-data-linked-resource-version="3" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="speech_segment.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149884819"
-data-linked-resource-container-version="8" height="250" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="speechsegment" src="../_images/149884842.png" /></p>
 </div>
 <div class="section" id="vector-notation">
-<h2><span class="section-number">3.6.2. </span>Vector notation<a class="headerlink" href="#vector-notation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7.2. </span>Vector notation<a class="headerlink" href="#vector-notation" title="Permalink to this headline">¶</a></h2>
 <p>Using vector notation, we can make the expressions more compact</p>
-<p>\[ e = Xa \]</p>
+<div class="math notranslate nohighlight">
+\[ e = Xa \]</div>
 <p>where</p>
-<p>\[ e =
-\begin{bmatrix}e_0\e_1\\vdots\e_{N-1}\end{bmatrix},\qquad
-X = \begin{bmatrix}x_0 &amp; x_{-1} &amp; \dots &amp; x_{M} \x_1 &amp; x_0 &amp;
-\dots &amp; x_{M-1} \ \vdots &amp; \vdots &amp; &amp; \vdots \ x_{N-1} &amp;
+<div class="math notranslate nohighlight">
+\[\begin{split} e =
+\begin{bmatrix}e_0\\e_1\\\vdots\\e_{N-1}\end{bmatrix},\qquad
+X = \begin{bmatrix}x_0 &amp; x_{-1} &amp; \dots &amp; x_{M} \\x_1 &amp; x_0 &amp;
+\dots &amp; x_{M-1} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ x_{N-1} &amp;
 x_{N-2} &amp; \dots &amp; x_{N-M} \end{bmatrix}, \qquad a =
-\begin{bmatrix}a_0\a_1\\vdots\a_{M}\end{bmatrix}. \]</p>
-<p>Here we calculated the residual for a length <em>N</em> frame of the signal.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+\begin{bmatrix}a_0\\a_1\\\vdots\\a_{M}\end{bmatrix}. \end{split}\]</div>
+<p>Here we calculated the residual for a length <span class="math notranslate nohighlight">\(N\)</span> frame of the signal.</p>
 </div>
 <div class="section" id="parameter-estimation">
-<h2><span class="section-number">3.6.3. </span>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">¶</a></h2>
-<p>Vector <em>a</em> holds the unknown coefficients of the predictor. To find the
+<h2><span class="section-number">3.7.3. </span>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">¶</a></h2>
+<p>Vector <span class="math notranslate nohighlight">\(a\)</span> holds the unknown coefficients of the predictor. To find the
 best possible predictor, we can minimize the minimum mean-square error
-(MMSE). The square error is the 2-norm of the residual, \(
-\|e\|^2=e^T e \) . The mean of that error is defined as the
+(MMSE). The square error is the 2-norm of the residual, <span class="math notranslate nohighlight">\(
+\|e\|^2=e^T e \)</span> . The mean of that error is defined as the
 expectation</p>
-<p>\[ E\left[\|e\|^2\right] = E\left[a^T X^T X a\right] = a^T
-E\left[X^T X\right] a = a^T R_x a, \]</p>
-<p>where \( R_x = E\left[X^T X\right] \) and \(
-E\left[\cdot\right] \) is the expectation operator. Note that, as
+<div class="math notranslate nohighlight">
+\[ E\left[|e|^2\right] = E\left[a^T X^T X a\right] = a^T
+E\left[X^T X\right] a = a^T R_x a, \]</div>
+<p>where <span class="math notranslate nohighlight">\( R_x = E\left[X^T X\right] \)</span> and <span class="math notranslate nohighlight">\(
+E\left[\cdot\right] \)</span> is the expectation operator. Note that, as
 shown in the <a class="reference internal" href="Autocorrelation_and_autocovariance.html"><span class="doc std std-doc">autocorrelation
 section</span></a>, the matrix
-<em>R<sub>x</sub></em>, can be usually assumed to have a symmetric
+<span class="math notranslate nohighlight">\(R_{x}\)</span>, can be usually assumed to have a symmetric
 <a class="reference external" href="https://en.wikipedia.org/wiki/Toeplitz_matrix">Toeplitz</a> structure.</p>
-<p>If we would directly minimize the mean-square error  \(
-E\left[\|e\|^2\right], \) then clearly we would obtain the
-trivial solution <em>a=0</em>, which is not particularly useful. However that
+<p>If we would directly minimize the mean-square error  <span class="math notranslate nohighlight">\(
+E\left[\|e\|^2\right], \)</span> then clearly we would obtain the
+trivial solution <span class="math notranslate nohighlight">\(a=0\)</span>, which is not particularly useful. However that
 solution contradicts with the requirement that the first coefficient is
-unity, <em>a<sub>0</sub>=1</em>. In vector notation we can equivalently write</p>
-<p>\[ a_0-1=u^T a -1=0,
-\qquad\text{where}\,u=\begin{bmatrix}1\0\0\\vdots\0\end{bmatrix}.
-\]</p>
+unity, <span class="math notranslate nohighlight">\(a_{0}=1\)</span>. In vector notation we can equivalently write</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} a_0-1=u^T a -1=0,
+\qquad\text{where}\,u=\begin{bmatrix}1\\0\\0\\\vdots\\0\end{bmatrix}.
+\end{split}\]</div>
 <p>The standard method for quadratic minimization with constraints is to
 use a <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">Langrange
 multiplier</a>, λ, such
 that the objective function is</p>
-<p>\[ \eta(a,\lambda) = a^T R_x a - 2\lambda\left(a^T u - 1\right).
-\]</p>
+<div class="math notranslate nohighlight">
+\[ \eta(a,\lambda) = a^T R_x a - 2\lambda\left(a^T u - 1\right).
+\]</div>
 <p>This function can be heuristically interpreted such that λ is a free
-parameter. Since our objective is to minimize \( a^T R_x a \) if   \(
-a^T u - 1 \) is non-zero, then the objective function can become
+parameter. Since our objective is to minimize <span class="math notranslate nohighlight">\( a^T R_x a \)</span> if   <span class="math notranslate nohighlight">\(
+a^T u - 1 \)</span> is non-zero, then the objective function can become
 arbitrarily large. To allow any value for λ, the constraint must
 therefore be zero.</p>
 <p>The objective function is then minimized by setting its derivative with
-respect to <em>a</em> to zero</p>
-<p>\[ 0 = \frac\partial{\partial a}\eta(a,\lambda) =
+respect to <span class="math notranslate nohighlight">\(a\)</span> to zero</p>
+<div class="math notranslate nohighlight">
+\[ 0 = \frac\partial{\partial a}\eta(a,\lambda) =
 \frac\partial{\partial a} \left[a^T R_x a -2\lambda\left(a^T u -
-1\right)\right] = 2 R_x a - 2 \lambda u. \]</p>
+1\right)\right] = 2 R_x a - 2 \lambda u. \]</div>
 <p>It follows that the optimal predictor coefficients are found by solving</p>
-<p>\[ R_x a = \lambda u. \]</p>
-<p>Since <em>R<sub>x</sub></em>, is symmetric and
+<div class="math notranslate nohighlight">
+\[ R_x a = \lambda u. \]</div>
+<p>Since <span class="math notranslate nohighlight">\(R_{x}\)</span>, is symmetric and
 <a class="reference external" href="https://en.wikipedia.org/wiki/Toeplitz_matrix">Toeplitz</a>, the above
 system of equations can be efficiently solved using the <a class="reference external" href="https://en.wikipedia.org/wiki/Levinson_recursion">Levinson-Durbin
 algorithm</a> with
-algorithmic complexity <em>O(M<sup>2</sup>)</em>. However, note that with
-direct solution we obtain \( a’:=\frac1\lambda a = R_x^{-1}u \) that
-is, instead of <em>a</em> we get <em>a</em> scaled with λ. However, since we know that
-<em>a<sub>0</sub>=1</em>, we can find <em>a</em> by \( a=\lambda a’ =
-\frac{a’}{a’_0}. \)</p>
+algorithmic complexity <span class="math notranslate nohighlight">\(O(M^{2})\)</span>. However, note that with
+direct solution we obtain <span class="math notranslate nohighlight">\( a':=\frac1\lambda a = R_x^{-1}u \)</span> that
+is, instead of <span class="math notranslate nohighlight">\(a\)</span> we get <span class="math notranslate nohighlight">\(a\)</span> scaled with λ. However, since we know that
+<span class="math notranslate nohighlight">\(a_{0}=1\)</span>, we can find <span class="math notranslate nohighlight">\(a\)</span> by <span class="math notranslate nohighlight">\( a=\lambda a' =
+\frac{a'}{a'_0}. \)</span></p>
 </div>
 <div class="section" id="spectral-properties">
-<h2><span class="section-number">3.6.4. </span>Spectral properties<a class="headerlink" href="#spectral-properties" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7.4. </span>Spectral properties<a class="headerlink" href="#spectral-properties" title="Permalink to this headline">¶</a></h2>
 <p>Linear prediction is usually used to predict the current sample of a
-time-domain signal <em>x<sub>n</sub></em>. The usefulness of linear prediction
+time-domain signal <span class="math notranslate nohighlight">\(x_{n}\)</span>. The usefulness of linear prediction
 however becomes evident by studying its Fourier spectrum Specifically,
-since <em>e=Xa</em>, the corresponding Z-domain representation is</p>
-<p>\[ E(z) = X(z)A(z)\qquad\Rightarrow\qquad X(z)=\frac{E(z)}{A(z)},
-\]</p>
-<p>where <em>E(z)</em>, <em>X(z)</em>, and <em>A(z)</em>, are the Z-transforms of
-<em>e<sub>n</sub></em>, <em>x<sub>n</sub></em> and <em>a<sub>n</sub></em>, respectively. The
-residual <em>E(z)</em> is white-noise, whereby the inverse <em>A(z)<sup>-1</sup></em>,
-must follow the shape of <em>X(z)</em>.</p>
+since <span class="math notranslate nohighlight">\(e=Xa\)</span>, the corresponding Z-domain representation is</p>
+<div class="math notranslate nohighlight">
+\[ E(z) = X(z)A(z)\qquad\Rightarrow\qquad X(z)=\frac{E(z)}{A(z)},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(E(z)\)</span>, <span class="math notranslate nohighlight">\(X(z)\)</span>, and <span class="math notranslate nohighlight">\(A(z)\)</span>, are the Z-transforms of
+<span class="math notranslate nohighlight">\(e_{n}\)</span>, <span class="math notranslate nohighlight">\(x_{n}\)</span> and <span class="math notranslate nohighlight">\(a_{n}\)</span>, respectively. The
+residual <span class="math notranslate nohighlight">\(E(z)\)</span> is white-noise, whereby the inverse <span class="math notranslate nohighlight">\(A(z)^{-1}\)</span>,
+must follow the shape of <span class="math notranslate nohighlight">\(X(z)\)</span>.</p>
 <p>In other words, the linear predictor models the macro-shape or
 <em>envelope</em> of the spectrum.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="physiological-interpretation-and-model-order">
-<h2><span class="section-number">3.6.5. </span>Physiological interpretation and model order<a class="headerlink" href="#physiological-interpretation-and-model-order" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7.5. </span>Physiological interpretation and model order<a class="headerlink" href="#physiological-interpretation-and-model-order" title="Permalink to this headline">¶</a></h2>
 <p>Linear prediction has a surprising connection with physical modelling of
 <span class="xref myst">speech production</span>. Namely,
 a linear predictive model is equivalent with a <em>tube-model of the vocal
 tract</em> (see figure on the right). A useful consequence is that from the
 acoustic properties of such a tube-model, we can derive a relationship
-between the physical length of the vocal tract <em>L</em> and the number of
-parameters <em>M</em> of the corresponding linear predictor as</p>
-<p>\[ M = \frac{2f_sL}c, \]</p>
-<p>where <em>f<sub>s</sub></em> is the sampling frequency and <em>c</em> is the speed of
+between the physical length of the vocal tract <span class="math notranslate nohighlight">\(L\)</span> and the number of
+parameters <span class="math notranslate nohighlight">\(M\)</span> of the corresponding linear predictor as</p>
+<div class="math notranslate nohighlight">
+\[ M = \frac{2f_sL}c, \]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{s}\)</span> is the sampling frequency and <span class="math notranslate nohighlight">\(c\)</span> is the speed of
 sound. With an air-temperature of 35 C, the speed of sound is
-<em>c</em>=350m/s. The mean length of vocal tracts for females and males are
+<span class="math notranslate nohighlight">\(c\)</span>=350m/s. The mean length of vocal tracts for females and males are
 approximately 14.1 and 16.9 cm. We can then choose to
-overestimate <em>L</em>=0.17m. At a sampling frequency of 16kHz, this gives 
-\( M\approx 17 \) . The linear predictor will catch also features of
+overestimate <span class="math notranslate nohighlight">\(L\)</span>=0.17m. At a sampling frequency of 16kHz, this gives 
+<span class="math notranslate nohighlight">\( M\approx 17 \)</span> . The linear predictor will catch also features of
 the glottal oscillation and lip radiation, such that a useful
-approximation is \( M\approx
-{\text{round}}\left(1.25\frac{f_s}{1000}\right) \) . For different
-sampling rates we then get the number of parameters <em>M</em> as</p>
-<div class="table-wrap">
+approximation is <span class="math notranslate nohighlight">\( M\approx
+{\text{round}}\left(1.25\frac{f_s}{1000}\right) \)</span> . For different
+sampling rates we then get the number of parameters <span class="math notranslate nohighlight">\(M\)</span> as</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p></p></th>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(f_{s}\)</span></p></th>
+<th class="head"><p>M</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><em>f<sub>s</sub></em></p></td>
-<td><p>M</p></td>
-</tr>
-<tr class="row-odd"><td><p>8 kHz</p></td>
+<tr class="row-even"><td><p>8 kHz</p></td>
 <td><p>10</p></td>
 </tr>
-<tr class="row-even"><td><p>12.8 kHz</p></td>
+<tr class="row-odd"><td><p>12.8 kHz</p></td>
 <td><p>16</p></td>
 </tr>
-<tr class="row-odd"><td><p>16 kHz</p></td>
+<tr class="row-even"><td><p>16 kHz</p></td>
 <td><p>20</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Observe however that even if a tube-model is equivalent with a linear
 predictor, the relationship is non-linear and highly sensitive to small
 errors. Moreover, when estimating linear predictive models from speech,
@@ -920,53 +893,26 @@ filtering</span>, which attempts to estimate the
 glottal source from the acoustic signal. A necessary step in such
 inverse filtering is to estimate the acoustic effect of the vocal tract,
 that is, it is necessary to estimate the tube model.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>A tube model of the vocal tract consisting of constant-radius
 tube-segments</p>
-<p><img src="attachments/148294391/149889201.png"
-data-image-src="attachments/148294391/149889201.png"
-data-unresolved-comment-count="0" data-linked-resource-id="149889201"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="tubemodel.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294391"
-data-linked-resource-container-version="25" height="250" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="tubemodel" src="../_images/1498892011.png" /></p>
 </div>
 <div class="section" id="uses-in-speech-coding">
-<h2><span class="section-number">3.6.6. </span>Uses in speech coding<a class="headerlink" href="#uses-in-speech-coding" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7.6. </span>Uses in speech coding<a class="headerlink" href="#uses-in-speech-coding" title="Permalink to this headline">¶</a></h2>
 <p>Linear prediction has been highly influential especially in early speech
 coders. In fact, the dominant speech coding method is <span class="xref myst">code-excited
 linear prediction (CELP)</span>, which
 is based on linear prediction.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="alternative-representations-advanced-topic">
-<h2><span class="section-number">3.6.7. </span>Alternative representations (advanced topic)<a class="headerlink" href="#alternative-representations-advanced-topic" title="Permalink to this headline">¶</a></h2>
-<p>Suppose scalars <em>a<sub>m,k</sub></em>, are the coefficients of an <em>M</em>th
-order linear predictor. Coefficients of consecutive orders <em>M</em> and <em>M+1</em>
+<h2><span class="section-number">3.7.7. </span>Alternative representations (advanced topic)<a class="headerlink" href="#alternative-representations-advanced-topic" title="Permalink to this headline">¶</a></h2>
+<p>Suppose scalars <span class="math notranslate nohighlight">\(a_{m,k}\)</span>, are the coefficients of an <span class="math notranslate nohighlight">\(M\)</span>th
+order linear predictor. Coefficients of consecutive orders <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(M+1\)</span>
 are then related as</p>
-<p>\[ a_{M+1,k} = a_{M,k} + \gamma_{M+1} a_{M,M+1-k}, \]</p>
-<p>where the real valued scalar \( \gamma_{M}\in(-1,+1) \) is the
-<em>M</em>th <a class="reference external" href="https://en.wikipedia.org/wiki/Reflection_coefficient">reflection
+<div class="math notranslate nohighlight">
+\[ a_{M+1,k} = a_{M,k} + \gamma_{M+1} a_{M,M+1-k}, \]</div>
+<p>where the real valued scalar <span class="math notranslate nohighlight">\( \gamma_{M}\in(-1,+1) \)</span> is the
+<span class="math notranslate nohighlight">\(M\)</span>th <a class="reference external" href="https://en.wikipedia.org/wiki/Reflection_coefficient">reflection
 coefficient</a>. This
 formulation is the basis for the <a class="reference external" href="https://en.wikipedia.org/wiki/Levinson_recursion">Levinson-Durbin
 algorithm</a> which can
@@ -974,23 +920,17 @@ be used to solve the linear predictive coefficients. In a physical
 sense, reflection coefficients describe the amount of the acoustic wave
 which is reflected back in each junction of the tube-model. In other
 words, there is a relationship between the <em>cross-sectional areas</em>
-<em>S<sub>k</sub></em> of each tube-segment and the reflection coefficients as</p>
-<p>\[ \gamma_k = \frac{S_k - S_{k+1}}{S_k + S_{k+1}}. \]</p>
+<span class="math notranslate nohighlight">\(S_{k}\)</span> of each tube-segment and the reflection coefficients as</p>
+<div class="math notranslate nohighlight">
+\[ \gamma_k = \frac{S_k - S_{k+1}}{S_k + S_{k+1}}. \]</div>
 <p>Furthermore, the logarithmic ratio of cross-sectional areas, also known
 as the <a class="reference external" href="https://en.wikipedia.org/wiki/Log_area_ratio"><em>log-area
 ratios</em></a>, are defined as</p>
-<p>\[ A_k = \log\frac{S_k}{S_{k+1}} =
-\log\frac{1-\gamma_k}{1+\gamma_k}. \]</p>
+<div class="math notranslate nohighlight">
+\[ A_k = \log\frac{S_k}{S_{k+1}} =
+\log\frac{1-\gamma_k}{1+\gamma_k}. \]</div>
 <p>This form has been used in coding of linear predictive models, but is
 today mostly of historical interest.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -1023,13 +963,13 @@ today mostly of historical interest.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.5. </span>Cepstrum and MFCC</p>
+            <p class="prev-next-title"><span class="section-number">3.6. </span>Cepstrum and MFCC</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Fundamental_frequency_F0.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.7. </span>Fundamental frequency (F0)</p>
+        <p class="prev-next-title"><span class="section-number">3.8. </span>Fundamental frequency (F0)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

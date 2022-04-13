@@ -1,12 +1,5 @@
 # Deltas and Delta-deltas
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 In [recognition tasks](Recognition_tasks_in_speech_processing), such as
 phoneme recognition or voice activity detection, a classic input feature
@@ -27,19 +20,19 @@ low-high F0 contour.
 
 A common method for extracting information about such transitions is to
 determine the first difference of signal features, known as the *delta*
-of a feature. Specifically, for a feature *f*<sub>k</sub>, at
+of a feature. Specifically, for a feature $f_k$, at
 time-instant *k*, the corresponding delta is defined as
 
-\\\[ \\Delta_k = f_k - f\_{k-1}. \\\]
+$$ \Delta_k = f_k - f_{k-1}. $$
 
 The second difference, known as the delta-delta, is correspondingly
 
-\\\[ \\Delta\\Delta_k = \\Delta_k - \\Delta\_{k-1}. \\\]
+$$ \Delta\Delta_k = \Delta_k - \Delta_{k-1}. $$
 
 Common short-hand notations for the deltas and delta-deltas are,
-respectively, \\( \\Delta \\) and \\( \\Delta\\Delta \\) -features.
+respectively, $ \Delta $ and $ \Delta\Delta $ -features.
 Features in a recognition engine are then typically appended by their
-\\( \\Delta \\) and \\( \\Delta\\Delta \\) -features to triple the
+$ \Delta $ and $ \Delta\Delta $ -features to triple the
 number of features with a very small computational overhead.
 
 A trivial observation/interpretation of the delta and delta-delta
@@ -64,21 +57,3 @@ simple to calculate and provide often a clear benefit over the
 instantaneous features.
 
   
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

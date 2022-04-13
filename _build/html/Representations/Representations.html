@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Representations &#8212; Introduction to Speech Processing</title>
+    <title>3. Basic Representations &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   3. Representations
+   3. Basic Representations
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -174,43 +174,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -623,7 +628,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Representations</h1>
+                <h1>Basic Representations</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -634,26 +639,20 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="representations">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">3. </span>Representations</a><a class="headerlink" href="#representations" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#representations" id="id1">Representations</a></p></li>
-</ul>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="basic-representations">
+<h1><span class="section-number">3. </span>Basic Representations<a class="headerlink" href="#basic-representations" title="Permalink to this headline">¶</a></h1>
 <ol class="simple">
 <li><p><a class="reference internal" href="Waveform.html"><span class="doc std std-doc">Waveform</span></a> <!-- checked --></p></li>
 <li><p><a class="reference internal" href="Windowing.html"><span class="doc std std-doc">Windowing</span></a></p></li>
 <li><p><a class="reference internal" href="Signal_energy_loudness_and_decibel.html"><span class="doc std std-doc">Signal energy, loudness and decibel</span></a></p></li>
-<li><p><span class="xref myst">Spectrogram and the STFT</span></p></li>
+<li><p><a class="reference internal" href="Spectrogram_and_the_STFT.html"><span class="doc std std-doc">Spectrogram and the STFT</span></a></p></li>
 <li><p><a class="reference internal" href="Autocorrelation_and_autocovariance.html"><span class="doc std std-doc">Autocorrelation and autocovariance</span></a></p></li>
 <li><p><a class="reference internal" href="Cepstrum_and_MFCC.html"><span class="doc std std-doc">Cepstrum and MFCC</span></a></p></li>
 <li><p><a class="reference internal" href="Linear_prediction.html"><span class="doc std std-doc">Linear prediction</span></a></p></li>
-<li><p><span class="xref myst">Fundamental frequency (F0)</span></p></li>
+<li><p><a class="reference internal" href="Fundamental_frequency_F0.html"><span class="doc std std-doc">Fundamental frequency (F0)</span></a></p></li>
 <li><p><a class="reference internal" href="Zero-crossing_rate.html"><span class="doc std std-doc">Zero-crossing rate</span></a></p></li>
 <li><p><a class="reference internal" href="Deltas_and_Delta-deltas.html"><span class="doc std std-doc">Deltas and Delta-deltas</span></a></p></li>
-<li><p><span class="xref myst">PSOLA</span></p></li>
+<li><p><a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html"><span class="doc std std-doc">PSOLA</span></a></p></li>
 <li><p><a class="reference internal" href="Jitter_and_shimmer.html"><span class="doc std std-doc">Jitter and shimmer</span></a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Crest_factor">Crest factor</a> (Wikipedia)</p></li>
 </ol>

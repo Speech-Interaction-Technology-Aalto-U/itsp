@@ -22,16 +22,16 @@
 2.  [Basic representations and models](Representations/Basic_representations_and_models.md)  
     1.  [Waveform](Representations/Waveform.ipynb) <!-- checked -->
     2.  [Windowing](Representations/Windowing.md)
-    3.  [Signal energy, loudness and decibel](Representations/Signal_energy_loudness_and_decibel.md)
-    4.  [Spectrogram and the STFT](Representations/Spectrogram_and_the_STFT.ipynb)
+    3.  [Signal energy, loudness and decibel](Representations/Signal_energy_loudness_and_decibel.md) <!-- checked -->
+    4.  [Spectrogram and the STFT](Representations/Spectrogram_and_the_STFT.ipynb) <!-- checked -->
     5.  [Autocorrelation and autocovariance](Representations/Autocorrelation_and_autocovariance.md)
-    6.  [Cepstrum and MFCC](Representations/Cepstrum_and_MFCC.md)
-    7.  [Linear prediction](Representations/Linear_prediction.md)
-    8.  [Fundamental frequency (F0)](Representations/Fundamental_frequency_F0_.md)
-    9.  [Zero-crossing rate](Representations/Zero-crossing_rate.md)
-    10. [Deltas and Delta-deltas](Representations/Deltas_and_Delta-deltas.md)
-    11. [PSOLA](Representations/Pitch-Synchoronous_Overlap-Add_PSOLA_.md)
-    12. [Jitter and shimmer](Representations/Jitter_and_shimmer.md)       
+    6.  [Cepstrum and MFCC](Representations/Cepstrum_and_MFCC.md) <!-- checked -->
+    7.  [Linear prediction](Representations/Linear_prediction.md) <!-- checked -->    
+    8.  [Fundamental frequency (F0)](Representations/Fundamental_frequency_F0.ipynb) <!-- checked -->    
+    9.  [Zero-crossing rate](Representations/Zero-crossing_rate.ipynb) <!-- checked -->
+    10. [Deltas and Delta-deltas](Representations/Deltas_and_Delta-deltas.md) <!-- checked -->    
+    11. [PSOLA](Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.ipynb) <!-- checked -->    
+    12. [Jitter and shimmer](Representations/Jitter_and_shimmer.md)   <!-- checked -->    
     13. [Crest factor](https://en.wikipedia.org/wiki/Crest_factor) (Wikipedia)
 3.  [Pre-processing](Pre-processing.md)
     1.  [Pre-emphasis](Preprocessing/Pre-emphasis.md)
