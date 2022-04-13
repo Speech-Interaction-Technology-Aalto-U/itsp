@@ -28,7 +28,7 @@
     6.  [Cepstrum and MFCC](Representations/Cepstrum_and_MFCC.md)
     7.  [Linear prediction](Representations/Linear_prediction.md)
     8.  [Fundamental frequency (F0)](Representations/Fundamental_frequency_F0_.md)
-    9.  [Zero-crossing rate](Representations/Zero-crossing_rate.md)
+    9.  [Zero-crossing rate](Representations/Zero-crossing_rate.ipynb)
     10. [Deltas and Delta-deltas](Representations/Deltas_and_Delta-deltas.md)
     11. [PSOLA](Representations/Pitch-Synchoronous_Overlap-Add_PSOLA_.md)
     12. [Jitter and shimmer](Representations/Jitter_and_shimmer.md)       
