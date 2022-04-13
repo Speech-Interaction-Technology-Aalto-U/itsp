@@ -9,7 +9,7 @@ interactions, such that it becomes difficult to separate them.
 -   *Source models* characterize the objective properties of a signal. A
     source model can for example describe the statistical distribution
     of speech signals and their characteristics. One such model would be
-    a model of the [fundamental frequency](Fundamental_frequency_F0_);
+    a model of the [fundamental frequency](Fundamental_frequency_F0);
     voiced signals have a fundamental frequency and we can specify the
     range where fundamental frequencies of speech signals can lie. Other
     obvious characteristics of speech signals we can model include the
@@ -45,12 +45,12 @@ objective is to restore the original speech from a corrupted sample. We
 can then remove noise and only evaluate objectively how close we are to
 the original. This is an unambiguous objetive task, where perception
 plays no role. More similar to the original is better. However, an
-alternative approach is to consider all possible sounds *y*, and given a
-noisy observation *v*, compute the likelihood of all possible inputs.
-Suppose then that our output is *x*, we can then compute the perceptual
-distortion between all possible inputs d(x,y), and assign weighting to
-them according to their likelihoods d(x,y)P(y\|v). Finally, we can
-minimize the expected distortion *min E\[d(x,y) \| P(y\|v)\].* We thus
+alternative approach is to consider all possible sounds $y$, and given a
+noisy observation $v$, compute the likelihood of all possible inputs.
+Suppose then that our output is $x$, we can then compute the perceptual
+distortion between all possible inputs $d(x,y)$, and assign weighting to
+them according to their likelihoods $P(y|v)$. Finally, we can
+minimize the expected distortion $\min E[d(x,y) | P(y|v)].$ We thus
 take into account all possible true inputs, calculate the perceptual
 distortion between the true inputs and the output, and weight them
 according to how likely they are. Now, for the same task as before, we

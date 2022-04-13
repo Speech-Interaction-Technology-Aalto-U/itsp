@@ -1,13 +1,5 @@
 # Gaussian mixture model (GMM)
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 ## Motivation
 
 Where approaches such as [linear regression](Linear_regression)
@@ -47,73 +39,31 @@ follow the Beta distribution. In this document we however focus on
 Gaussian mixture models because it is most common among mixture models
 and demonstrates application in an accessible way.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Model definition
 
 The [multivariate normal
 distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution)
-for a variable *x* is defined as 
+for a variable $x$ is defined as 
 
-\\\[ f\\left(x;\\Sigma,\\mu\\right) =
-\\frac{1}{\\sqrt{\\left(2\\pi\\right)^N \|\\Sigma\|}}
-\\exp\\left\[-\\frac12 (x-\\mu)^T \\Sigma^{-1}(x-\\mu)\\right\], \\\]
+$$ f\left(x;\Sigma,\mu\right) =
+\frac{1}{\sqrt{\left(2\pi\right)^N \|\Sigma\|}}
+\exp\left[-\frac12 (x-\mu)^T \Sigma^{-1}(x-\mu)\right], $$
 
-where \\( \\Sigma \\) and  \\( \\mu \\) are the covariance and mean of
-the process, respectively, with *N* dimensions. In other words, this is
-the familiar Gaussian process for vectors *x*. 
+where $ \Sigma $ and  $ \mu $ are the covariance and mean of
+the process, respectively, with $N$ dimensions. In other words, this is
+the familiar Gaussian process for vectors $x$. 
 
-Suppose then that we have *K* classes in the signal, where each class
-has its own covariance and mean \\( \\Sigma_k \\) and  \\( \\mu_k. \\)
+Suppose then that we have $K$ classes in the signal, where each class
+has its own covariance and mean $ \Sigma_k $ and  $ \mu_k. $
 The *Gaussian mixture model* is then defined as
 
-\\\[ \\boxed{f\\left(x\\right) = \\sum\_{k=1}^K \\alpha_k f\\left(x;
-\\Sigma_k,\\mu_k\\right),} \\\]
+$$ \boxed{f\left(x\right) = \sum_{k=1}^K \alpha_k f\left(x;
+\Sigma_k,\mu_k\right),} $$
 
-where the weights \\( \\alpha_k \\) add up to unity \\( \\sum\_{k=1}^K
-\\alpha_k=1. \\)
+where the weights $ \alpha_k $ add up to unity $ \sum_{k=1}^K
+\alpha_k=1. $
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Applications
 
@@ -131,20 +81,3 @@ where the weights \\( \\alpha_k \\) add up to unity \\( \\sum\_{k=1}^K
     determine which signals are speech-like, such that those can be
     transmitted with a low number of bits.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

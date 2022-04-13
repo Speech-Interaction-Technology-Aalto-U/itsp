@@ -48,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="6. Evaluation of speech processing methods" href="../Evaluation_of_speech_processing_methods.html" />
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -176,43 +176,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -684,10 +689,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="non-negative-matrix-and-tensor-factorization">
 <h1><span class="section-number">5.7. </span>Non-negative Matrix and Tensor Factorization<a class="headerlink" href="#non-negative-matrix-and-tensor-factorization" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="introduction">
 <h2><span class="section-number">5.7.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Many of the most descriptive features of speech are described by energy;
@@ -706,40 +707,32 @@ extension of <a class="reference external" href="https://en.wikipedia.org/wiki/P
 and other <a class="reference internal" href="Sub-space_models.html"><span class="doc std std-doc">subspace methods</span></a> to positive-valued
 signals.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="model-definition">
 <h2><span class="section-number">5.7.2. </span>Model definition<a class="headerlink" href="#model-definition" title="Permalink to this headline">¶</a></h2>
 <p>Specifically, suppose that the power (or magnitude) spectrum of one
-window of a speech signal is represented as a <em>Nx1</em> vector
-<em>v<sub>k</sub></em>, and furthermore we arrange the <em>K</em> windows into an
-<em>NxK</em> matrix <em>V</em>. The signal model we use is then</p>
-<p>\[ V \approx WH, \]</p>
-<p>where <em>W</em> is the <em>NxM</em> weight matrix, <em>H</em> is the <em>MxK</em> model matrix and
-the scalar <em>M</em> is the model order.</p>
-<p>The idea is that <em>H</em> is a fixed matrix corresponding to our model of the
+window of a speech signal is represented as a <span class="math notranslate nohighlight">\(Nx1\)</span> vector
+<span class="math notranslate nohighlight">\(v_k\)</span>, and furthermore we arrange the <span class="math notranslate nohighlight">\(K\)</span> windows into an
+<span class="math notranslate nohighlight">\(NxK\)</span> matrix <span class="math notranslate nohighlight">\(V\)</span>. The signal model we use is then</p>
+<div class="math notranslate nohighlight">
+\[ V \approx WH, \]</div>
+<p>where <span class="math notranslate nohighlight">\(W\)</span> is the <span class="math notranslate nohighlight">\(NxM\)</span> weight matrix, <span class="math notranslate nohighlight">\(H\)</span> is the <span class="math notranslate nohighlight">\(MxK\)</span> model matrix and
+the scalar <span class="math notranslate nohighlight">\(M\)</span> is the model order.</p>
+<p>The idea is that <span class="math notranslate nohighlight">\(H\)</span> is a fixed matrix corresponding to our model of the
 signal, viz. the source model. It describes typical types features of
-the data. With the weights <em>W</em>, we interpolate between the columns
-of <em>H</em>. In some sense, this is then a generalization of a codebook (see
+the data. With the weights <span class="math notranslate nohighlight">\(W\)</span>, we interpolate between the columns
+of <span class="math notranslate nohighlight">\(H\)</span>. In some sense, this is then a generalization of a codebook (see
 <span class="xref myst">vector quantization</span>), but such that we
 interpolate between codevectors. In addition, we require that all
-elements of <em>W</em> and <em>H</em> are non-negative, such that we ensure that <em>V</em>
+elements of <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(H\)</span> are non-negative, such that we ensure that <span class="math notranslate nohighlight">\(V\)</span>
 is also non-negative.</p>
-<p>Since the model order <em>K</em> is chosen to be smaller than either <em>N</em>
-or <em>K</em>, this mapping is generally an approximation. The model thus tries
+<p>Since the model order <span class="math notranslate nohighlight">\(K\)</span> is chosen to be smaller than either <span class="math notranslate nohighlight">\(N\)</span>
+or <span class="math notranslate nohighlight">\(K\)</span>, this mapping is generally an approximation. The model thus tries
 to catch <em>the relevant features of the input signal with a low number of
 parameters</em>.</p>
 <p>The model is generally optimized by</p>
-<p>\[ \min_{W,H} \| V - WH \|_F\qquad\text{such that}\qquad
-W,H\geq 0. \]</p>
+<div class="math notranslate nohighlight">
+\[ \min_{W,H} \| V - WH \|_F\qquad\text{such that}\qquad
+W,H\geq 0. \]</div>
 <p>Here the norm refers to the <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm">Frobenius
 norm</a>, which
 is defined as the square root sum of squared elements. We do not have
@@ -747,22 +740,12 @@ analytic solutions to the above optimization problem, but we can solve
 it by numerical methods, which are included in typical software
 libraries.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="application">
 <h2><span class="section-number">5.7.3. </span>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h2>
 <p>A typical use of NMF type algorithms is source separation, where we find
 the solution of the above optimization problem and then identify those
-dimensions of <em>H</em> which corresponds to the different sources. By
-retaining only those dimensions of <em>W</em> which correspond to the desired
+dimensions of <span class="math notranslate nohighlight">\(H\)</span> which corresponds to the different sources. By
+retaining only those dimensions of <span class="math notranslate nohighlight">\(W\)</span> which correspond to the desired
 source, we can thus extract the desired source signal from their mixture
 with the interfering other sources. For example, we might want to
 extract a speech signal corrupted by noise by extracting the dimensions
@@ -774,26 +757,8 @@ a time-frequency representation which has also a phase-component. After
 application of NMF-estimation, we therefore need also an estimate of the
 phase-component of the signal. Such methods will be discussed in the
 <span class="xref myst">speech enhancement</span> chapter of this document.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>For more information, see the Wikipedia article: <a class="reference external" href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization">Non-negative matrix
 factorization</a>.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 

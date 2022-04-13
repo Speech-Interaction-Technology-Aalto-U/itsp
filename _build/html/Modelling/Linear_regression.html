@@ -48,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.3. Sub-space models" href="Sub-space_models.html" />
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -176,43 +176,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -593,9 +598,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Modelling/Linear_regression.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Modelling/Linear_regression.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -612,6 +617,23 @@ const thebe_selector_output = ".output, .cell_output"
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Modelling/Linear_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -653,11 +675,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discussion">
    5.2.4. Discussion
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   5.2.5. Attachments:
   </a>
  </li>
 </ul>
@@ -712,11 +729,6 @@ const thebe_selector_output = ".output, .cell_output"
    5.2.4. Discussion
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   5.2.5. Attachments:
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -728,176 +740,165 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="linear-regression">
 <h1><span class="section-number">5.2. </span>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="problem-definition">
 <h2><span class="section-number">5.2.1. </span>Problem definition<a class="headerlink" href="#problem-definition" title="Permalink to this headline">¶</a></h2>
 <p>In speech processing and elsewhere, a frequently appearing task is to
 make a prediction of an unknown vector <em>y</em> from available observation
-vectors <em>x</em>. Specifically, we want to have an estimate \( \hat y =
-f(x) \) such that \( \hat y \approx y. \) In particular, we will
-focus on <em>linear estimates</em> where \( \hat y=f(x):=A^T x, \) and where
+vectors <em>x</em>. Specifically, we want to have an estimate <span class="math notranslate nohighlight">\( \hat y =
+f(x) \)</span> such that <span class="math notranslate nohighlight">\( \hat y \approx y. \)</span> In particular, we will
+focus on <em>linear estimates</em> where <span class="math notranslate nohighlight">\( \hat y=f(x):=A^T x, \)</span> and where
 <em>A</em> is a matrix of parameters. The figure on the right illustrates a
-linear model, where the input sample pairs <em>(x,y)</em> are modelled by a
-linear model  \( \hat y \approx ax. \)</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/155464048/155465953.png"
-data-image-src="attachments/155464048/155465953.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155465953"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="linreg.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155464048"
-data-linked-resource-container-version="29" width="640" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+linear model, where the input sample pairs <em>(x,y)</em> are modelled by a
+linear model  <span class="math notranslate nohighlight">\( \hat y \approx ax. \)</span></p>
+<p><img alt="linreg.png" src="../_images/155465953.png" /></p>
 </div>
 <div class="section" id="the-minimum-mean-square-estimate-mmse">
 <h2><span class="section-number">5.2.2. </span>The minimum mean square estimate (MMSE)<a class="headerlink" href="#the-minimum-mean-square-estimate-mmse" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we want to minimise the squared error of our estimate on
-average. The estimation error is \( e=y-\hat y \) and the squared
-error is the <em>L<sub>2</sub></em>-norm of the error, that is, \(
-\left\|e\right\|^2 = e^T e \) and its mean can be written as the
-expectation \( E\left[\left\|e\right\|^2\right] =
+average. The estimation error is <span class="math notranslate nohighlight">\( e=y-\hat y \)</span> and the squared
+error is the <em>L_{2}</em>-norm of the error, that is, <span class="math notranslate nohighlight">\(
+\left\|e\right\|^2 = e^T e \)</span> and its mean can be written as the
+expectation <span class="math notranslate nohighlight">\( E\left[\left\|e\right\|^2\right] =
 E\left[\left\|y-\hat y\right\|^2\right] =
-E\left[\left\|y-A^T x\right\|^2\right]. \) Formally, the
+E\left[\left\|y-A^T x\right\|^2\right]. \)</span> Formally, the
 minimum mean square problem can then be written as</p>
-<p>\[ \min_A\, E\left[\left\|y-A^T x\right\|^2\right]. \]</p>
+<div class="math notranslate nohighlight">
+\[ \min_A\, E\left[\left\|y-A^T x\right\|^2\right]. \]</div>
 <p>This can in generally not be directly implemented because we have the
 abstract expectation-operation in the middle.</p>
 <p><em>(Advanced derivation begins)</em> To get a computational model, first note
 that the error expectation can be written in terms of the mean of a
-sample of vector <em>e<sub>k</sub></em> as</p>
-<p>\[ E\left[\left\|e\right\|^2\right] \approx \frac1N
+sample of vector <em>e_{k}</em> as</p>
+<div class="math notranslate nohighlight">
+\[ E\left[\left\|e\right\|^2\right] \approx \frac1N
 \sum_{k=1}^N \left\|e_k\right\|^2 = \frac1N {\mathrm{tr}}(E^T
-E), \]</p>
-<p>where \( E=\left[e_1,\,e_2,\dotsc,e_N\right] \) and <em>tr()</em> is
+E), \]</div>
+<p>where <span class="math notranslate nohighlight">\( E=\left[e_1,\,e_2,\dotsc,e_N\right] \)</span> and <em>tr()</em> is
 the matrix trace. To minimize the error energy expectation, we can then
 set its <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_calculus">derivative</a> to
 zero</p>
-<p>\[ 0 = \frac{\partial}{\partial A} \frac1N {\mathrm{tr}}(E^T E) =
+<div class="math notranslate nohighlight">
+\[ 0 = \frac{\partial}{\partial A} \frac1N {\mathrm{tr}}(E^T E) =
 \frac1N\frac{\partial}{\partial A} {\mathrm{tr}}((Y-A^TX)^T
-(Y-A^TX)) = \frac1N(Y-A^T X)X^T \]</p>
-<p>where the observation matrix is \(
-X=\left[x_1,\,x_2,\dotsc,x_N\right] \) and the desired output
-matrix is \( Y=\left[y_1,\,y_2,\dotsc,y_N\right] \) . <em>(End of
+(Y-A^TX)) = \frac1N(Y-A^T X)X^T \]</div>
+<p>where the observation matrix is <span class="math notranslate nohighlight">\(
+X=\left[x_1,\,x_2,\dotsc,x_N\right] \)</span> and the desired output
+matrix is <span class="math notranslate nohighlight">\( Y=\left[y_1,\,y_2,\dotsc,y_N\right] \)</span> . <em>(End of
 advanced derivation)</em></p>
 <p>It follows that the optimal weight matrix <em>A</em> can be solved as</p>
-<p>\[ \boxed{A = \left(XX^T\right)^{-1}XY^T = X^\dagger Y^T}, \]</p>
-<p>where the superscript \( \dagger \) denotes the <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_pseudoinverse">Moore-Penrose
+<div class="math notranslate nohighlight">
+\[ \boxed{A = \left(XX^T\right)^{-1}XY^T = X^\dagger Y^T}, \]</div>
+<p>where the superscript <span class="math notranslate nohighlight">\( \dagger \)</span> denotes the <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_pseudoinverse">Moore-Penrose
 pseudo-inverse</a>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">B</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">Yhat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Yhat</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estimated&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$X$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$Y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estimating Y from X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<div class="cell_output docutils container">
+<img alt="../_images/Linear_regression_1_0.png" src="../_images/Linear_regression_1_0.png" />
 </div>
 </div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="estimates-with-a-mean-parameter">
 <h3><span class="section-number">5.2.2.1. </span>Estimates with a mean parameter<a class="headerlink" href="#estimates-with-a-mean-parameter" title="Permalink to this headline">¶</a></h3>
-<p>Suppose that instead of an estimate \( \hat y=A^T x \) , we want to
-include a mean vector in the estimate as \( \hat y=A^T x + \mu \) .
+<p>Suppose that instead of an estimate <span class="math notranslate nohighlight">\( \hat y=A^T x \)</span> , we want to
+include a mean vector in the estimate as <span class="math notranslate nohighlight">\( \hat y=A^T x + \mu \)</span> .
 While it is possible to derive all of the above equations for this
 modified model, it is easier to rewrite the model into a similar form as
 above with</p>
-<p>\[ \hat y=A^T x + \mu = \begin{bmatrix} \mu^T \ A^T
-\end{bmatrix} \begin{bmatrix} 1 \ x \end{bmatrix} := A’^T x’. \]</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \hat y=A^T x + \mu = \begin{bmatrix} \mu^T \\ A^T
+\end{bmatrix} \begin{bmatrix} 1 \\ x \end{bmatrix} := A'^T x'. \end{split}\]</div>
 <p>That is, we can extend <em>x</em> by a single 1, (the observation <em>X</em> similarly
 with a row of constant 1s), and extend <em>A</em> to include the mean vector.
 With this modifications, the above Moore-Penrose pseudo-inverse can
 again be used to solve the modified model.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="estimates-with-linear-equality-constraints">
 <h3><span class="section-number">5.2.2.2. </span>Estimates with linear equality constraints<a class="headerlink" href="#estimates-with-linear-equality-constraints" title="Permalink to this headline">¶</a></h3>
 <p><em>(Advanced derivation begins)</em></p>
 <p>In practical situations we often have also linear constraints, such as
-\( C^T A = B \) , which is equivalent with \( C^T A - B = 0. \) The
+<span class="math notranslate nohighlight">\( C^T A = B \)</span> , which is equivalent with <span class="math notranslate nohighlight">\( C^T A - B = 0. \)</span> The
 modified programming task is then</p>
-<p>\[ \min_A\, E\left[\left\|y-A^T
-x\right\|^2\right]\quad\text{such that}\quad C^T A - B = 0. \]</p>
+<div class="math notranslate nohighlight">
+\[ \min_A\, E\left[\left\|y-A^T
+x\right\|^2\right]\quad\text{such that}\quad C^T A - B = 0. \]</div>
 <p>For simplicity, let us consider only scalar estimation, where instead of
 vector <em>y</em>, as well as matrices <em>A, B</em> and <em>C</em>, respectively, we have
-scalar <em>θ</em> as well as vector <em>a, b</em> and *c *and the optimization problem
+scalar <em>θ</em> as well as vector <em>a, b</em> and *c *and the optimization problem
 is</p>
-<p>\[ \min_a\, E\left[\left\|\theta-a^T
-x\right\|^2\right]\quad\text{such that}\quad c^T a - b = 0. \]</p>
+<div class="math notranslate nohighlight">
+\[ \min_a\, E\left[\left\|\theta-a^T
+x\right\|^2\right]\quad\text{such that}\quad c^T a - b = 0. \]</div>
 <p>Such constraints can be included into the objective function using the
 method of <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">Lagrange
 multipliers</a> such
 that the modified objective function is</p>
-<p>\[ \eta(a,g) = E\, \left[\left\|\theta - a^T
+<div class="math notranslate nohighlight">
+\[\begin{split} \eta(a,g) = E\, \left[\left\\|\theta - a^T
 x\right\|^2\right] - 2 \left[ g^T \left(c^T a -
-b\right)\right]. \]</p>
+b\right)\right]. \end{split}\]</div>
 <p>A heuristic explanation of this objective function is based on the fact
-the <em>g</em> is a free parameter. Since its value can be anything, then \(
-c^T a - b \) must be zero, because otherwise the output value of the
+the <em>g</em> is a free parameter. Since its value can be anything, then <span class="math notranslate nohighlight">\(
+c^T a - b \)</span> must be zero, because otherwise the output value of the
 objective function could be anything. That is, when optimizing with
 respect to <em>a</em>, we find the minimum of the mean square error, while
 simultaneously satisfying the constraint.</p>
 <p>The objective function can further be rewritten as</p>
-<p>\[ \begin{split} \eta(a,g) &amp; = E\, \left[\left(\theta - a^T
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{split} \eta(a,g) &amp; = E\, \left[\left(\theta - a^T
 x\right)\left(\theta - a^T x\right)^T\right] - 2 \gamma
-\left(c^T a - \beta\right) \&amp; = E\, \left[\theta^2 - 2\theta
+\left(c^T a - \beta\right) \\&amp; = E\, \left[\theta^2 - 2\theta
 x^T a + a^T xx^T a\right] - 2 \gamma \left(c^T a - \beta\right)
-\&amp; = \sigma_\theta^2 + a^T R_x^T a - 2 \gamma \left(c^T a -
-\beta\right) \&amp; = \begin{bmatrix} a^T &amp; \gamma \end{bmatrix}
-\begin{bmatrix} R_x &amp; -c \ -c^T &amp; 0 \end{bmatrix} \begin{bmatrix}
-a \ \gamma \end{bmatrix} -2 \begin{bmatrix} 0 &amp; \beta^T
-\end{bmatrix} \begin{bmatrix} a \ \gamma \end{bmatrix} +
-\sigma_\theta^2 \&amp; = \begin{bmatrix} a^T &amp; \gamma-\beta
-\end{bmatrix} \begin{bmatrix} R_x &amp; -c \ -c^T &amp; 0 \end{bmatrix}
-\begin{bmatrix} a \ \gamma-\beta \end{bmatrix} + \text{constant}
-\&amp; := (a’-\mu)^T R’ (a’-\mu) + \text{constant} . \end{split} \]</p>
-<p>where  \( R_x = E[xx^T] \) and “<em>constant”</em> refers to a constant
-which does not depend on <em>a</em> or γ.</p>
+\\&amp; = \sigma_\theta^2 + a^T R_x^T a - 2 \gamma \left(c^T a -
+\beta\right) \\&amp; = \begin{bmatrix} a^T &amp; \gamma \end{bmatrix}
+\begin{bmatrix} R_x &amp; -c \\ -c^T &amp; 0 \end{bmatrix} \begin{bmatrix}
+a \\ \gamma \end{bmatrix} -2 \begin{bmatrix} 0 &amp; \beta^T
+\end{bmatrix} \begin{bmatrix} a \\ \gamma \end{bmatrix} +
+\sigma_\theta^2 \\&amp; = \begin{bmatrix} a^T &amp; \gamma-\beta
+\end{bmatrix} \begin{bmatrix} R_x &amp; -c \\ -c^T &amp; 0 \end{bmatrix}
+\begin{bmatrix} a \\ \gamma-\beta \end{bmatrix} + \text{constant}
+\\&amp; := (a'-\mu)^T R' (a'-\mu) + \text{constant} . \end{split} \end{split}\]</div>
+<p>where  <span class="math notranslate nohighlight">\( R_x = E[xx^T] \)</span> and “<em>constant”</em> refers to a constant
+which does not depend on <em>a</em> or γ.</p>
 <p>In other words, with a straightforward approach, equality constraints
 can in general also be merged into a quadratic form. We can therefore
 reduce constrained problems to unconstrained problems which can be
 easily solved.</p>
 <p><em>Inequality</em> constraints can be reduced to quadratic forms with similar
-steps as follows. Suppose we have a task  \( \min f(x)\,\text{such
-that}\,x \geq b. \) We would then first solve the unconstrained
-problem \( \min f(x) \) and check whether the constraint is
+steps as follows. Suppose we have a task  <span class="math notranslate nohighlight">\( \min f(x)\,\text{such
+that}\,x \geq b. \)</span> We would then first solve the unconstrained
+problem <span class="math notranslate nohighlight">\( \min f(x) \)</span> and check whether the constraint is
 satisfied. If not, then the inequality constraint is “active”, that is,
-we must have <em>x=b</em>. We can then rewrite the inequality constraint as an
+we must have <em>x=b</em>. We can then rewrite the inequality constraint as an
 equality constraint and solve the problem as above.</p>
 <p>In the case that we have multiple constraints over multiple dimensions,
 we can keep merging them one by one until we have an entire
 unconstrained programming problem.</p>
 <p><em>(Advanced derivation ends)</em></p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 </div>
 <div class="section" id="some-applications">
@@ -907,16 +908,6 @@ unconstrained programming problem.</p>
 envelope of speech</p></li>
 <li><p>Noise attenuation with Wiener filtering</p></li>
 </ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="discussion">
 <h2><span class="section-number">5.2.4. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
@@ -941,29 +932,12 @@ the original signal. Say, if we want to synthesize speech, then “average
 speech” can sound dull. Instead, we would like to reproduce all the
 colorfulness and expressiveness of a natural speaker. A model of the
 statistical distribution of the signal can then be more appropriate,
-such as the <span class="xref myst">Gaussian mixture model
+such as the <span class="xref myst">Gaussian mixture model
 (GMM)</span>.</p>
-<p>Another related class of models are <a class="reference internal" href="Sub-space_models.html"><span class="doc std std-doc">Sub-space
+<p>Another related class of models are <a class="reference internal" href="Sub-space_models.html"><span class="doc std std-doc">Sub-space
 models</span></a>, where the input signal is modeled in a
 lower-dimensional space such that dimensions related to background noise
 are cancelled and the desired speech signal is retained.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">5.2.5. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[linreg.png](attachments/155464048/155465953.png) (image/png)  
-</div>
 </div>
 </div>
 

@@ -48,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.5. Gaussian mixture model (GMM)" href="Gaussian_mixture_model_GMM.html" />
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -176,43 +176,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -632,6 +637,18 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#codebook-optimization">
    5.4.2. Codebook optimization
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectation-maximization-em">
+     5.4.2.1. Expectation maximization (EM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimization-with-machine-learning-platforms">
+     5.4.2.2. Optimization with machine learning platforms
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#algorithmic-complexity">
@@ -646,11 +663,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discussion">
    5.4.5. Discussion
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   5.4.6. Attachments:
   </a>
  </li>
 </ul>
@@ -682,6 +694,18 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#codebook-optimization">
    5.4.2. Codebook optimization
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectation-maximization-em">
+     5.4.2.1. Expectation maximization (EM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimization-with-machine-learning-platforms">
+     5.4.2.2. Optimization with machine learning platforms
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#algorithmic-complexity">
@@ -698,11 +722,6 @@ const thebe_selector_output = ".output, .cell_output"
    5.4.5. Discussion
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   5.4.6. Attachments:
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -714,98 +733,72 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="vector-quantization-vq">
 <h1><span class="section-number">5.4. </span>Vector quantization (VQ)<a class="headerlink" href="#vector-quantization-vq" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Suppose you have recorded sounds at different locations and want to
 categorize them into similar groups. In other words, you have a
-stochastic vector <em>x</em> which you want to characterize with a simple
+stochastic vector <span class="math notranslate nohighlight">\(x\)</span> which you want to characterize with a simple
 description. For example, categories could correspond to office, street,
 hallway and cafeteria. A classic way for this task is to choose template
-vectors <em>c<sub>k</sub></em>, which represents a typical sound in each
-environment <em>k</em>. To categorize the sounds, you then find that template
-vector which is closest to your recording <em>x</em>. In mathematical notation,
-you search for a <em>k<sup>*</sup></em> by</p>
-<p>\[ k^* = \arg\min_k \|x-c_k\|^2. \]</p>
-<p>The above expression thus calculates the squared error between *x *and
-each of the vectors <em>c<sub>k</sub></em> and chooses the index *k *of the
-vector with the smallest error. The vectors <em>c<sub>k</sub></em> then
-represent a codebook and the vector <em>x</em> is quantized to
-<em>c<sub>k*</sub></em>. This is the basic idea behind <em>vector quantization,</em>
+vectors <span class="math notranslate nohighlight">\(c_{k}\)</span>, which represents a typical sound in each
+environment <span class="math notranslate nohighlight">\(k\)</span>. To categorize the sounds, you then find that template
+vector which is closest to your recording <span class="math notranslate nohighlight">\(x\)</span>. In mathematical notation,
+you search for a <span class="math notranslate nohighlight">\(k^{^*}\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[ k^* = \arg\min_k \|x-c_k\|^2. \]</div>
+<p>The above expression thus calculates the squared error between <span class="math notranslate nohighlight">\(x \)</span> and
+each of the vectors <span class="math notranslate nohighlight">\(c_{k}\)</span> and chooses the index <span class="math notranslate nohighlight">\(k \)</span> of the
+vector with the smallest error. The vectors <span class="math notranslate nohighlight">\(c_{k}\)</span> then
+represent a codebook and the vector <span class="math notranslate nohighlight">\(x\)</span> is quantized to
+<span class="math notranslate nohighlight">\(c_{k^*}\)</span>. This is the basic idea behind <em>vector quantization,</em>
 which is also known as <em>k-means</em>.</p>
 <p>A illustration of a simple vector codebook is shown on the right. The
 input data is a Gaussian distribution shown with grey dots and the
-codebook vectors <em>c<sub>k</sub></em> with red circles. For each input vector
+codebook vectors <span class="math notranslate nohighlight">\(c_{k}\)</span> with red circles. For each input vector
 we thus search for the nearest codebook vector and the borders of the
 regions where input vectors are assigned to a particular codebook vector
 are illustrated with blue lines. These regions are known as <a class="reference external" href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi
 regions</a> and the blue
 lines are the decision-boundaries between codebook vectors.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/149883153/175511825.png"
-data-image-src="attachments/149883153/175511825.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175511825"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="vq.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149883153"
-data-linked-resource-container-version="25" height="250" /></p>
+<p><img alt="vq.png" src="../_images/175511825.png" /></p>
 <p>Example of a codebook for a 2D Gaussian with 16 code vectors.</p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="metric-for-codebook-quality">
 <h2><span class="section-number">5.4.1. </span>Metric for codebook quality<a class="headerlink" href="#metric-for-codebook-quality" title="Permalink to this headline">¶</a></h2>
 <p>Suppose then that you have a large collection of
-vectors <em>x<sub>h</sub></em>, and you want to find out how well this codebook
+vectors <span class="math notranslate nohighlight">\(x_{h}\)</span>, and you want to find out how well this codebook
 represents the input data. The expectation of the squared error is
 approximately the mean over your data, such that</p>
-<p>\[ E_h\left[ \min_k \|x_h-c_k\|^2 \right] \approx \frac 1N
-\sum_{h=1}^N \min_k \|x_h-c_k\|^2, \]</p>
-<p>where <em>E[ ]</em> is the expectation operator and <em>N</em> is the number of
-input vectors <em>x<sub>h</sub></em>. Above, we thus find the codebook vector
-which is closest to <em>x<sub>h</sub></em>, find its squared error and take the
+<div class="math notranslate nohighlight">
+\[ E_h\left[ \min_k \|x_h-c_k\|^2 \right] \approx \frac 1N
+\sum_{h=1}^N \min_k \|x_h-c_k\|^2, \]</div>
+<p>where <span class="math notranslate nohighlight">\(E[ ]\)</span> is the expectation operator and <span class="math notranslate nohighlight">\(N\)</span> is the number of
+input vectors <span class="math notranslate nohighlight">\(x_{h}\)</span>. Above, we thus find the codebook vector
+which is closest to <span class="math notranslate nohighlight">\(x_{h}\)</span>, find its squared error and take the
 expectation over all possible inputs. This is approximately equal to the
 mean of those squared errors over a set of input vectors.</p>
-<p>To find the best set of codebook vectors <em>c<sub>k</sub></em>, we then need
+<p>To find the best set of codebook vectors <span class="math notranslate nohighlight">\(c_{k}\)</span>, we then need
 to minimize the mean squared error as</p>
-<p>\[ \{c_k^*\} := \arg\min_{\{c_k\}}\, E_h\left[ \min_k
-\|x_h-c_k\|^2 \right]  \]</p>
+<div class="math notranslate nohighlight">
+\[ \{c_k^*\} := \arg\min_{\{c_k\}}\, E_h\left[ \min_k
+\|x_h-c_k\|^2 \right]  \]</div>
 <p>or more specifically, for a dataset as</p>
-<p>\[ \{c_k^*\} := \arg\min_{\{c_k\}} \sum_{h=1}^N \min_k
-\|x_h-c_k\|^2. \]</p>
+<div class="math notranslate nohighlight">
+\[ \{c_k^*\} := \arg\min_{\{c_k\}} \sum_{h=1}^N \min_k
+\|x_h-c_k\|^2. \]</div>
 <p>Unfortunately we do not have an analytic solution for this optimization
 problem, but have to use numerical, iterative methods.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="codebook-optimization">
 <h2><span class="section-number">5.4.2. </span>Codebook optimization<a class="headerlink" href="#codebook-optimization" title="Permalink to this headline">¶</a></h2>
-<p>Most methods for finding the best codebook are derivatives of
+<div class="section" id="expectation-maximization-em">
+<h3><span class="section-number">5.4.2.1. </span>Expectation maximization (EM)<a class="headerlink" href="#expectation-maximization-em" title="Permalink to this headline">¶</a></h3>
+<p>Classical methods for finding the best codebook are derivatives of
 expectation maximization (EM), which is based on two alternating steps:</p>
 <p><em>Expectation Maximation (EM)</em> algorithm:</p>
 <ol class="simple">
-<li><p>For every vector <em>x<sub>h</sub></em> in a large database, find the best
-codebook vector <em>c<sub>k</sub></em>.</p></li>
-<li><p>For every codebook vector <em>c<sub>k</sub></em>;</p>
+<li><p>For every vector <span class="math notranslate nohighlight">\(x_{h}\)</span> in a large database, find the best
+codebook vector <span class="math notranslate nohighlight">\(c_{k}\)</span>.</p></li>
+<li><p>For every codebook vector <span class="math notranslate nohighlight">\(c_{k}\)</span>;</p>
 <ol class="simple">
-<li><p>Find all vectors <em>x<sub>h</sub></em> assigned to that codevector.</p></li>
+<li><p>Find all vectors <span class="math notranslate nohighlight">\(x_{h}\)</span> assigned to that codevector.</p></li>
 <li><p>Calculate mean of those vectors.</p></li>
 <li><p>Assign the mean as a new value for the codevector.</p></li>
 </ol>
@@ -817,7 +810,7 @@ codebook vector <em>c<sub>k</sub></em>.</p></li>
 improve until it finds a local minimum, where it stops changing. The
 reason is that each step in the iteration finds a partial best-solution.
 In the first step, we find the best matching codebook vectors for each
-data vectors <em>x<sub>h</sub></em>. In the second step, we find the
+data vectors <span class="math notranslate nohighlight">\(x_{h}\)</span>. In the second step, we find the
 within-category mean. That is, the new mean is more accurate than the
 previous codevector in that it reduces the average squared error. If the
 mean is equal to the previous codevector, then there is no improvement.</p>
@@ -827,16 +820,16 @@ simple algorithm is usually not sufficient alone. Most importantly, the
 above algorithm is slow to converge to a stable solution <em>and</em> it often
 finds a local minimum instead of a global minimum.</p>
 <p>To improve performance, we can apply several heuristic approaches. For
-example, we can start with a small codebook \( \{ c_k \}_{k=1}^K \)
-of <em>K</em> elements and optimize it with the EM algorithm. We then split the
-codebook into two, offset by a small delta <em>d</em>, such that \(
-\|d\|&lt;\epsilon \) and make the new codebook \( \{ \hat c_k
-\}_{k=1}^{2K} := \{ c_k,\, c_k+d \}_{k=1}^K \) of 2<em>K</em> elements.
+example, we can start with a small codebook <span class="math notranslate nohighlight">\( \{ c_k \}_{k=1}^K \)</span>
+of <span class="math notranslate nohighlight">\(K\)</span> elements and optimize it with the EM algorithm. We then split the
+codebook into two, offset by a small delta <span class="math notranslate nohighlight">\(d\)</span>, such that <span class="math notranslate nohighlight">\(
+\|d\|&lt;\epsilon \)</span> and make the new codebook <span class="math notranslate nohighlight">\( \{ \hat c_k
+\}_{k=1}^{2K} := \{ c_k,\, c_k+d \}_{k=1}^K \)</span> of 2<span class="math notranslate nohighlight">\(K\)</span> elements.
 We then rerun the EM algorithm on the new codebook. The codebook thus
 doubles in size at every iteration and we continue until we have the
 desired codebook size.</p>
 <p>The advantage of this approach is that it focuses attention to the big
-bulk of datapoints <em>x<sub>k</sub></em>, and ignores outliers. The outcome is
+bulk of datapoints <span class="math notranslate nohighlight">\(x_{k}\)</span>, and ignores outliers. The outcome is
 then expected to be more stable and the likelihood of converging to a
 local minimum is smaller. The downside is that with this approach it is
 then more difficult to find small separated islands. That is, because
@@ -844,7 +837,7 @@ the initial codebook is near the center of the whole mass of datapoints,
 adding a small delta to the codebook vectors keeps the new codevectors
 near the center-of-mass.</p>
 <p>Conversely, we can start with a large codebook, say treat the whole
-input database <em>x<sub>k</sub></em> as a codebook. We can then iteratively
+input database <span class="math notranslate nohighlight">\(x_{k}\)</span> as a codebook. We can then iteratively
 merge pairs of points which are close to each other, until the codebook
 is reduced to the desired size. Needless to say, this will be a slow
 process if the database is large, but will be very efficient in finding
@@ -857,37 +850,34 @@ first use one algorithm and then analyse the output to find out what can
 be improved, and keep repeating this optimization and analyse process
 until the output is sufficiently good.</p>
 </div>
+<div class="section" id="optimization-with-machine-learning-platforms">
+<h3><span class="section-number">5.4.2.2. </span>Optimization with machine learning platforms<a class="headerlink" href="#optimization-with-machine-learning-platforms" title="Permalink to this headline">¶</a></h3>
+<p>A modern approach to modelling is <a class="reference internal" href="Neural_networks.html"><span class="doc std std-doc">machine learning</span></a>, where complex phenomena are modelled with neural networks. Typically they are trained with <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">gradient-descent</a> type methods, where parameters are iteratively nudged towards the minimum, by following the steepest gradient. Since such gradients can be automatically derived on machine learning platforms (using the <a class="reference external" href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a>), they can be applied on very complex models. Consequently, they have become very popular and succesful.</p>
+<p>The same type of training can be readily applied to vector quantizers as well. However, there is a practical problem with this approach. Estimation of the gradients of the parameters with the chain-rule requires that <em>all</em> intermediate gradients are non-zero. Quantizers are however piece-wise constant such that their gradients are uniformly zero, thus disabling the chain rule and gradient descent for all parameters which lie behind the quantizer in the computational graph. A practical solution is known as pass-through, where gradients are passed unchanged through the quantizer. This approximation is simple to implement and provides often adequate performance.</p>
+<p>While this approach converges slower than the EM-algorithm, it is often beneficial since it allows optimization of an entire system to a single goal. That is, if we have several modules in a system, it is beneficial if their joint interaction is taken into account in the optimization. If modules are optimized independently, it is difficult to anticpate all interactions and the system performance can remain far from optimal.</p>
 </div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="algorithmic-complexity">
 <h2><span class="section-number">5.4.3. </span>Algorithmic complexity<a class="headerlink" href="#algorithmic-complexity" title="Permalink to this headline">¶</a></h2>
 <p>Vector quantization is manageable for relatively small codebooks of,
-say, <em>K=32</em> codevectors. That corresponds to 5 bits of information. For
+say, <span class="math notranslate nohighlight">\(K=32\)</span> codevectors. That corresponds to 5 bits of information. For
 many applications, that does not give sufficient accuracy - the mean
 squared error is too large. For example, the linear predictive models in
-speech coding could be quantized with 30 bits, which corresponds to \(
-K=2^{30}\approx 10^9 \) codevectors. To find the best codevector for a
-vector <em>x</em> of length <em>N=16</em>, we would then need to calculate the
-distance between every codebook vector and <em>x</em>, which amounts to
-approximately \( 16\times10^9= 1.6\times10^{10} \) operations. That
+speech coding could be quantized with 30 bits, which corresponds to <span class="math notranslate nohighlight">\(
+K=2^{30}\approx 10^9 \)</span> codevectors. To find the best codevector for a
+vector <span class="math notranslate nohighlight">\(x\)</span> of length <span class="math notranslate nohighlight">\(N=16\)</span>, we would then need to calculate the
+distance between every codebook vector and <span class="math notranslate nohighlight">\(x\)</span>, which amounts to
+approximately <span class="math notranslate nohighlight">\( 16\times10^9= 1.6\times10^{10} \)</span> operations. That
 is infeasible in on-line applications on mobile devices. Instead, we
 need to find a simpler method which retains the best aspects of the
 algorithm, but reduces algorithmic complexity.</p>
 <p>A heuristic approach is to use successive codebooks, where at each
 iteration, we quantize the error of the last iteration. That is, let’s
 say that on the first iteration we have 8 bits, corresponding to a
-codebook <em>c<sub>k</sub></em> of <em>K=256</em> vectors. We find the best matching
-codevector <em>c<sub>k*</sub></em> and calculate the residual \(
-x’:=x-c_{k*} \) . In the second stage, we would then find the best
-matching vector for <em>x’</em> from a second codebook <em>c<sub>k</sub>’</em>. We can
+codebook <span class="math notranslate nohighlight">\(c_{k}\)</span> of <span class="math notranslate nohighlight">\(K=256\)</span> vectors. We find the best matching
+codevector <span class="math notranslate nohighlight">\(c_{k^*}\)</span> and calculate the residual <span class="math notranslate nohighlight">\(
+x':=x-c_{k^*} \)</span> . In the second stage, we would then find the best
+matching vector for <span class="math notranslate nohighlight">\(x'\)</span> from a second codebook <span class="math notranslate nohighlight">\(c_{k}'\)</span>. We can
 add as many layers of codebooks as we want until the desired number of
 bits has been consumed. This approach is known as a <em>multi-stage vector
 quantizer</em>.</p>
@@ -896,21 +886,11 @@ vector quantization generally does not give a global optimum. It does
 give good solutions, though, but with an algorithmic complexity which
 very much lower than ordinary vector quantization. For example, in the
 above example of 30 bits, we could assign three consecutive layers of
-codebooks with 10 bits / <em>K=1024</em> each, such that the overall complexity
-is \( 3\times 16\times 2^{10} \approx 5\times10^4, \) which gives
-an improvement with a factor of \( 3.5\times10^5. \) Given that the
+codebooks with 10 bits / <span class="math notranslate nohighlight">\(K=1024\)</span> each, such that the overall complexity
+is <span class="math notranslate nohighlight">\( 3\times 16\times 2^{10} \approx 5\times10^4, \)</span> which gives
+an improvement with a factor of <span class="math notranslate nohighlight">\( 3.5\times10^5. \)</span> Given that the
 reduction in accuracy is manageable, this is a major improvement in
 complexity.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="applications">
 <h2><span class="section-number">5.4.4. </span>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
@@ -931,16 +911,6 @@ jointly encoded with a single stage vector quantizer.</p></li>
 (GMMs)</span>, it is useful to use vector
 quantization to find a first-guess of the means of each mixture.</p></li>
 </ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="discussion">
 <h2><span class="section-number">5.4.5. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
@@ -982,23 +952,6 @@ codevectors such that we get uniform accuracy in both classes. But
 then we loose the correspondence between codevectors and natural
 descriptions of the signal.</p></li>
 </ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">5.4.6. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vq.png](attachments/149883153/175511825.png) (image/png)  
-</div>
 </div>
 </div>
 

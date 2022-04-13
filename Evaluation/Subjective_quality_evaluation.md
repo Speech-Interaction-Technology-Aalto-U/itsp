@@ -25,7 +25,7 @@ refers to evaluation through the subjects' senses, which in this context
 refers primarily to *hearing*. In other words, in a typical experiment
 setup, subjects listen to sound samples and evaluate their quality.
 
-<img src="attachments/155470260/155472510.jpg" class="image-center" width="200" />
+![pic1](attachments/155472510.jpg)
 
 Photo by Anthony Brolin on Unsplash
 
@@ -116,7 +116,7 @@ described, for example, through concepts such as
   
   
 
-<img src="attachments/155470260/175522003.png" height="250" />
+![pic2](attachments/175522003.png)
 
 
 ## Choosing subjects - Naïve or expert?
@@ -394,110 +394,76 @@ For illustrations and examples of the MUSHRA test, see
 
 ### Naïve listeners
 
--   P.800 is the popular name of a set of listening tests defined in the
-    standard
-    [ITU-T](https://www.itu.int/en/ITU-T/Pages/default.aspx)[Recommendation
-    P.800 "Methods for subjective determination of transmission
-    quality"](https://www.itu.int/rec/T-REC-P.800-199608-I/en). It is
-    intended to be a test which gives as realistic results as possible,
-    by assessing performance in setups which resemble real use-cases.
-    The most significant consequences are that P.800 focuses on naïve
-    listeners and, since telecommunication devices are typically
-    hand-held over one ear, P.800 mandates tests with headphones which
-    are held only on one ear.  
-    To make the test simpler for naïve listeners, P.800 most typically
-    uses an integer scale 1-5 known as [mean opinion score
-    (MOS)](https://en.wikipedia.org/wiki/Mean_opinion_score). Each grade
-    is given a characterisation such as
-    | Rating | Label     |
-    |--------|-----------|
-    | 1      | Excellent |
-    | 2      | Good      |
-    | 3      | Fair      |
-    | 4      | Poor      |
-    | 5      | Bad       |
+**P.800** is the popular name of a set of listening tests defined in the standard
+    [ITU-T](https://www.itu.int/en/ITU-T/Pages/default.aspx)[Recommendation P.800 "Methods for subjective determination of transmission quality"](https://www.itu.int/rec/T-REC-P.800-199608-I/en). It is intended to be a test which gives as realistic results as possible, by assessing performance in setups which resemble real use-cases.    The most significant consequences are that P.800 focuses on naïve    listeners and, since telecommunication devices are typically    hand-held over one ear, P.800 mandates tests with headphones which    are held only on one ear.      To make the test simpler for naïve listeners, P.800 most typically    uses an integer scale 1-5 known as [mean opinion score (MOS)](https://en.wikipedia.org/wiki/Mean_opinion_score). Each grade    is given a characterisation such as
     
-    This makes the ratings more concrete and easier to understand for
-    users. A downside of labelling the ratings is that such labels are
-    specific to each language and the MOS scores given in different
-    languages might thus not be directly comparabale. Who is to know
-    whether *excellent*, *erinomainen*, ممتاز, and маш сайн mean exactly
-    the same thing? (Those are english, finnish, arabic and mongolian,
-    in case you are wondering.)  
+| Rating | Label |
+|--------|-------|
+| 1 | Excellent |
+| 2 | Good      |
+| 3 | Fair      |
+| 4 | Poor      |
+| 5 | Bad       |
+
+This makes the ratings more concrete and easier to understand for users. A downside of labelling the ratings is that such labels are   specific to each language and the MOS scores given in different    languages might thus not be directly comparabale. Who is to know    whether *excellent*, *erinomainen*, *ممتاز*, and *маш сайн* mean exactly     the same thing? (Those are english, finnish, arabic and mongolian,    in case you were wondering.)  
     
-    P.800 is further split into
+P.800 is further split into
 
-    -   *Conversation opinion tests*, where participants grade the
-        quality after *using* telecommunication system for a
-        conversation. Typically the question posed to participants is
-        "Opinion of the connection you have just been using: Excellent,
-        God, Fair, Poor, Bad". An alternative is "Did you or your
-        partner have any difficulty in talking or hearing over the
-        connection? Yes/No".
-    -   *Listening opinion tests*, where participants grade the quality
-        after *listening* to the output of a telecommunication system.
+-   *Conversation opinion tests*, where participants grade the        quality after *using* telecommunication system for a        conversation. Typically the question posed to participants is        "Opinion of the connection you have just been using: Excellent,        God, Fair, Poor, Bad". An alternative is "Did you or your        partner have any difficulty in talking or hearing over the        connection? Yes/No".
+-   *Listening opinion tests*, where participants grade the quality        after *listening* to the output of a telecommunication system.
 
-    The grading of listening opinion tests can, more specifically, be
-    one of the following:  
+The grading of listening opinion tests can, more specifically, be    one of the following:  
 
-    -   *Absolute category rating (ACR)*, where the above MOS scale is
-        used to answer questions like "How good is system X?"
+-   *Absolute category rating (ACR)*, where the above MOS scale is        used to answer questions like "How good is system X?"
 
-    -   *Degradation category rating (DCR)*, where the objective is to
-        evaluate the amount of degradation caused by some processing.
-        Samples are preseted to listeners by pairs (A-B) or repeated
-        pairs (A-B-A-B) where A is the quality reference and B the
-        degraded sample. Rating labels cane be for example
+-   *Degradation category rating (DCR)*, where the objective is to        evaluate the amount of degradation caused by some processing.        Samples are preseted to listeners by pairs (A-B) or repeated        pairs (A-B-A-B) where A is the quality reference and B the        degraded sample. Rating labels cane be for example
+
+| Rating | Label                                   |
+|--------|-----------------------------------------|
+| 1      | Degradation is inaudible                |
+| 2      | Degradation is audible but not annoying |
+| 3      | Degradation is slightly annoying        |
+| 4      | Degradation is annoying                 |
+| 5      | Degradation is very annoying            |
 
 
-        | Rating | Label                                   |
-        |--------|-----------------------------------------|
-        | 1      | Degradation is inaudible                |
-        | 2      | Degradation is audible but not annoying |
-        | 3      | Degradation is slightly annoying        |
-        | 4      | Degradation is annoying                 |
-        | 5      | Degradation is very annoying            |
+-   *Comparison category rating (CCR)*, is similar to DCR, but such        that the processed sample B can be also better than A. Rating        labels can then be for example
 
 
-    -   *Comparison category rating (CCR)*, is similar to DCR, but such
-        that the processed sample B can be also better than A. Rating
-        labels can then be for example
+| Rating | Label           |
+|--------|-----------------|
+| 3      | Much better     |
+| 2      | Better          |
+| 1      | Slightly better |
+| 0      | About the same  |
+| -1     | Slightly worse  |
+| -2     | Worse           |
+| -3     | Much worse      |
 
 
-        | Rating | Label           |
-        |--------|-----------------|
-        | 3      | Much better     |
-        | 2      | Better          |
-        | 1      | Slightly better |
-        | 0      | About the same  |
-        | -1     | Slightly worse  |
-        | -2     | Worse           |
-        | -3     | Much worse      |
-
-
--   P.804 Subjective diagnostic test method for conversational speech
+**P.804** Subjective diagnostic test method for conversational speech
     quality analysis 
 
--   P.805 Subjective evaluation of conversational quality
+**P.805** Subjective evaluation of conversational quality
 
--   P.806 A subjective quality test methodology using multiple rating
+**P.806** A subjective quality test methodology using multiple rating
     scales 
 
--   P.807 Subjective test methodology for assessing speech
+**P.807** Subjective test methodology for assessing speech
     intelligibility 
 
--   P.808 Subjective evaluation of speech quality with a crowdsourcing
+**P.808** Subjective evaluation of speech quality with a crowdsourcing
     approach
 
--   P.835 Subjective test methodology for evaluating speech
+**P.835** Subjective test methodology for evaluating speech
     communication systems that include noise suppression algorithm
 
--   And many more, see <https://www.itu.int/rec/T-REC-P/en>
+And many more, see <https://www.itu.int/rec/T-REC-P/en>
 
 
 Holding a phone on one ear
 
-<img src="attachments/155470260/155472516.jpg" class="image-center" height="250" />Photo by
+![pic1](attachments/155472516.jpg)Photo by
 Fezbot2000 on Unsplash
 
 
@@ -520,51 +486,17 @@ and what we hear is
 
 then we can count correct words for example as
 
-<div class="table-wrap">
-
-<table class="wrapped confluenceTable">
-<tbody>
-<tr class="header">
-<th class="confluenceTh">How</th>
-<th class="confluenceTh">to</th>
-<th class="confluenceTh">recognize</th>
-<th class="confluenceTh">speech?</th>
-<th class="confluenceTh"><br />
-</th>
-<th class="confluenceTh"><br />
-</th>
-</tr>
-
-<tr class="odd">
-<td class="confluenceTd">How</td>
-<td class="confluenceTd">to</td>
-<td class="confluenceTd">wreck</td>
-<td class="confluenceTd">a</td>
-<td class="confluenceTd">nice</td>
-<td class="confluenceTd">beach?</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd"><br />
-</td>
-<td class="confluenceTd"><br />
-</td>
-<td class="confluenceTd">S</td>
-<td class="confluenceTd">S</td>
-<td class="confluenceTd">I</td>
-<td class="confluenceTd">I</td>
-</tr>
-</tbody>
-</table>
-
-</div>
+    How to recognize    speech?
+    How to wreck a nice beach?
+           S     I I    S
 
 where we use the notation S - substitution, I - insertion, D - deletion.
 The [word error rate](https://en.wikipedia.org/wiki/Word_error_rate)
 would then be
 
-$$ WER = 100\*\\frac{S+D+I}{N} $$
+$$ WER = 100\times\frac{S+D+I}{N} $$
 
-where N is the total number of words. In the above example we thus have
+where $N$ is the total number of words. In the above example we thus have
 WER = 100%.
 
 If we would go letter by letter, than instead we would have
@@ -577,7 +509,7 @@ Here we would then define the letter error rate as
 
 $$ LER = 100\times\frac{S+D+I}{N} $$
 
-where N is the total number of letters. The value in the above example
+where $N$ is the total number of letters. The value in the above example
 would then be 33%.
 
 It is clear that word error rate is thus much more strict than letter

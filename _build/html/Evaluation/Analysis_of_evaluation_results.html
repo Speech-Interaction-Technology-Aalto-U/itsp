@@ -48,8 +48,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Speech analysis" href="../Speech_analysis.html" />
@@ -152,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -176,43 +174,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -630,7 +633,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-1">
-     6.4.1.1. **Example 1 **
+     6.4.1.1. Example 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -662,7 +665,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-2">
-     6.4.1.3. **Example 2 **
+     6.4.1.3. Example 2
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -717,11 +720,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   6.4.3. Attachments:
-  </a>
  </li>
 </ul>
 
@@ -750,7 +748,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-1">
-     6.4.1.1. **Example 1 **
+     6.4.1.1. Example 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -782,7 +780,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-2">
-     6.4.1.3. **Example 2 **
+     6.4.1.3. Example 2
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -838,11 +836,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   6.4.3. Attachments:
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -854,10 +847,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="analysis-of-evaluation-results">
 <h1><span class="section-number">6.4. </span>Analysis of evaluation results<a class="headerlink" href="#analysis-of-evaluation-results" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>To determine the quality and performance of speech processing methods,
 we often use <a class="reference internal" href="Subjective_quality_evaluation.html"><span class="doc std std-doc">subjective</span></a> and <a class="reference internal" href="Objective_quality_evaluation.html"><span class="doc std std-doc">objective
 evaluation</span></a> methods. These methods however
@@ -871,16 +860,6 @@ types of question we can answer with statistical analysis include:
 “Based on measurement results, which result is most probable, that A is
 better than B, that B is better than A, or is it impossible to
 determine?”</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="informal-analysis">
 <h2><span class="section-number">6.4.1. </span>Informal analysis<a class="headerlink" href="#informal-analysis" title="Permalink to this headline">¶</a></h2>
 <p>In practical laboratory work, after an experiment, you would always like
@@ -898,7 +877,7 @@ analysis should never replace properly applied statistical tests.
 Informal tests just given an indication of how much work will be
 required for proper tests.</p>
 <div class="section" id="example-1">
-<h3><span class="section-number">6.4.1.1. </span>**Example 1 **<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1.1. </span>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we want to compare methods A and B, and we have already applied
 PESQ on the outputs of both methods for 100 speech samples. How do we
 know if A is better than B?</p>
@@ -927,16 +906,6 @@ The benefit of the standard deviation is that it is expressed in the
 same units as the mean, such that we can directly get an intuitive
 impression of the magnitude of the differences in means in comparison to
 the standard deviations.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout three-equal" layout="three-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="informative-illustrations-1">
 <h3><span class="section-number">6.4.1.2. </span>Informative illustrations 1<a class="headerlink" href="#informative-illustrations-1" title="Permalink to this headline">¶</a></h3>
@@ -981,72 +950,18 @@ less complicated then the analysis of skewed and multi-modal
 distributions. However, applying methods which assume Gaussian
 distributions on data which does not follow Gaussian distributions will
 <em>often lead to incorrect conclusions</em>.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Histogram 1: Large overlap between distributions A (blue) and B (green)</p>
-<p><img src="attachments/155470607/155473463.png"
-data-image-src="attachments/155470607/155473463.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473463"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
+<p><img alt="hist1.png" src="../_images/155473463.png" /></p>
 <p>Histogram 3: Very small overlap between distributions</p>
-<p><img src="attachments/155470607/155473465.png"
-data-image-src="attachments/155470607/155473465.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473465"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist3.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
+<p><img alt="hist3.png" src="../_images/155473465.png" /></p>
 <p>Histogram 5: Bimodal distribution for A, that is, the blue curve has two
 peaks.</p>
-<p><img src="attachments/155470607/155473467.png"
-data-image-src="attachments/155470607/155473467.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473467"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist5.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="hist5.png" src="../_images/155473467.png" /></p>
 <p>Histogram 2: Smaller overlap between distributions</p>
-<p><img src="attachments/155470607/155473464.png"
-data-image-src="attachments/155470607/155473464.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473464"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
-<p>Histogram 4: Skewed distributions such that overlap is smaller than
+<p><img alt="hist2.png" src="../_images/155473464.png" />
+Histogram 4: Skewed distributions such that overlap is smaller than
 standard deviation would indicate</p>
-<p><img src="attachments/155470607/155473466.png"
-data-image-src="attachments/155470607/155473466.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473466"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist4.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout three-equal" layout="three-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="hist4.png" src="../_images/155473466.png" /></p>
 </div>
 <div class="section" id="scatter-plots">
 <h4><span class="section-number">6.4.1.2.2. </span>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h4>
@@ -1074,35 +989,11 @@ to determine if we can improve performance based on that information.
 For example, if performance is bad for unvoiced sounds, we could have a
 detector for unvoiced sounds, and perform different processing for such
 sounds. See also section “Parallel plots” below.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Scatter plot 1: Two uncorrelated measurements A and B.</p>
-<p><img src="attachments/155470607/155473529.png"
-data-image-src="attachments/155470607/155473529.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473529"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
+<p><img alt="scatter1.png" src="../_images/155473529.png" /></p>
 <p>Scatter plot 3: Two somewhat separate groups with different means and
 correlations.</p>
-<p><img src="attachments/155470607/155473532.png"
-data-image-src="attachments/155470607/155473532.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473532"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter3.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="scatter3.png" src="../_images/155473532.png" /></p>
 <p>Scatter plot 2 illustrating two measurements with slightly differing
 means but high correlation (measurements form a tight group). In such a
 case, the difference between the two measurements can often be very
@@ -1110,29 +1001,8 @@ informative, illustrated in the histogram below. We see that the mean
 difference is 0.6 with a standard deviation of 0.21 and that the
 distribution is clearly separated from 0 (=clearly separated from the
 null-hypothesis “no difference between A and B”).</p>
-<p><img src="attachments/155470607/155473530.png"
-data-image-src="attachments/155470607/155473530.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473530"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /><img src="attachments/155470607/155473531.png"
-data-image-src="attachments/155470607/155473531.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473531"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter2_hist.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="scatter2.png" src="../_images/155473530.png" />
+<img alt="scatter2_hist.png" src="../_images/155473531.png" /></p>
 </div>
 <div class="section" id="box-plots">
 <h4><span class="section-number">6.4.1.2.3. </span>Box plots<a class="headerlink" href="#box-plots" title="Permalink to this headline">¶</a></h4>
@@ -1163,26 +1033,8 @@ POLQA and PESQ scores as well as their delta scores. Box plots contain
 less information than the corresponding histograms, but that omission
 reduces clutter; We can easily display 20 items side by side with a
 box-plot, whereas histograms of 20 items would be a mess.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/155470607/155473908.png"
-data-image-src="attachments/155470607/155473908.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473908"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="delta_polqa.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="400" /></p>
+<p><img alt="delta_polqa.png" src="../_images/155473908.png" /></p>
 <p>Image by Sneha Das (with permission)</p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="confusion-matrix">
 <h4><span class="section-number">6.4.1.2.4. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h4>
@@ -1193,40 +1045,32 @@ example, suppose you have a classifier whose objective is to classify
 between speech, music and background noise. For each testing sample, you
 then have the target output and the actual output of your classifier,
 which you can write as a matrix such as:</p>
-<div class="table-wrap">
-<table class="relative-table wrapped confluenceTable">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Actual music</p></th>
+<th class="head"><p>Actual speech</p></th>
+<th class="head"><p>Actual noise</p></th>
+</tr>
+</thead>
 <tbody>
-<tr class="header">
-<th class="confluenceTh"><br />
-</th>
-<th class="confluenceTh">Actual music</th>
-<th class="confluenceTh">Actual speech</th>
-<th class="confluenceTh">Actual noise</th>
+<tr class="row-even"><td><p><em>Predicted music</em></p></td>
+<td><p>78</p></td>
+<td><p>2</p></td>
+<td><p>13</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd"><strong>Predicted music</strong></td>
-<td class="confluenceTd"
-style="text-align: center;"><strong>78</strong></td>
-<td class="confluenceTd" style="text-align: center;">2</td>
-<td class="confluenceTd" style="text-align: center;">13</td>
+<tr class="row-odd"><td><p>*Predicted speech</p></td>
+<td><p>3</p></td>
+<td><p>77</p></td>
+<td><p>5</p></td>
 </tr>
-<tr class="even">
-<td class="confluenceTd"><strong>Predicted speech</strong></td>
-<td class="confluenceTd" style="text-align: center;">3</td>
-<td class="confluenceTd"
-style="text-align: center;"><strong>77</strong></td>
-<td class="confluenceTd" style="text-align: center;">5</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd"><strong>Predicted noise</strong></td>
-<td class="confluenceTd" style="text-align: center;">22</td>
-<td class="confluenceTd" style="text-align: center;">18</td>
-<td class="confluenceTd"
-style="text-align: center;"><strong>83</strong></td>
+<tr class="row-even"><td><p><em>Predicted noise</em></p></td>
+<td><p>22</p></td>
+<td><p>18</p></td>
+<td><p>83</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Often the largest value in each column is identified by bold-face. In
 this toy example, all classes are usually predicted correctly, which
 means that for each actual label, the most often predicted label matches
@@ -1239,18 +1083,8 @@ times) and almost always correctly as noise (83 times).</p>
 matrix as a heat-map.</p>
 </div>
 </div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
 <div class="section" id="example-2">
-<h3><span class="section-number">6.4.1.3. </span>**Example 2 **<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1.3. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we want to compare methods A and B, and we have already
 calculated the frame-wise SNR on the outputs of both methods for a range
 of speech samples. We have also already calculated means and standard
@@ -1291,33 +1125,7 @@ better clarity).</p>
 characterizing performance of a system. We can easily relate properties
 of the speech signal with the outputs, such that we can describe which
 types of inputs give which types of outputs.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/155470607/155473937.png"
-data-image-src="attachments/155470607/155473937.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473937"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="vad.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" width="500" /><img src="attachments/155470607/155473940.png"
-data-image-src="attachments/155470607/155473940.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473940"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="vad_postproc.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" width="500" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="vad.png" src="../_images/155473937.png" /></p>
 </div>
 </div>
 <div class="section" id="extracting-hidden-structures">
@@ -1328,7 +1136,6 @@ data-linked-resource-container-version="11" width="500" /></p>
 they can grade relative quality very accurately. That is, for example,
 in a MUSHRA test, it is perfectly normal that three subjects would grade
 two methods A and B such that:</p>
-<div class="table-wrap">
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -1363,7 +1170,6 @@ two methods A and B such that:</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>In other words, if we look at the absolute mean value and its standard
 deviation, we find that B has a higher mean, but by only a tiny amount
 in comparison to the standard deviation. However, closer inspection
@@ -1371,49 +1177,42 @@ reveals that the score of B is <em>always</em> higher than that of A. Every
 subject thought that B is better than A!</p>
 <p>Thus if we calculate the difference in scores between A and B, perhaps
 that would give us a more conclusive answer.</p>
-<div class="table-wrap">
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
+<tr class="row-odd"><th class="head"><p>Subject</p></th>
+<th class="head"><p>Grade for A</p></th>
+<th class="head"><p>Grade for B</p></th>
+<th class="head"><p>A-B</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Subject</p></td>
-<td><p>Grade for A</p></td>
-<td><p>Grade for B</p></td>
-<td><p>A-B</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
+<tr class="row-even"><td><p>1</p></td>
 <td><p>35</p></td>
 <td><p>37</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-even"><td><p>2</p></td>
+<tr class="row-odd"><td><p>2</p></td>
 <td><p>44</p></td>
 <td><p>48</p></td>
 <td><p>4</p></td>
 </tr>
-<tr class="row-odd"><td><p>3</p></td>
+<tr class="row-even"><td><p>3</p></td>
 <td><p>51</p></td>
 <td><p>57</p></td>
 <td><p>6</p></td>
 </tr>
-<tr class="row-even"><td><p>Mean</p></td>
+<tr class="row-odd"><td><p>Mean</p></td>
 <td><p>43.3</p></td>
 <td><p>47.3</p></td>
 <td><p>4</p></td>
 </tr>
-<tr class="row-odd"><td><p>Std</p></td>
+<tr class="row-even"><td><p>Std</p></td>
 <td><p>8.0</p></td>
 <td><p>10.0</p></td>
 <td><p>2</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Clearly we now see that the difference A-B has a mean value of 4 and the
 standard deviation is only 2. By collecting more listeners, then it
 could be possible that this is significant difference between A and B.</p>
@@ -1422,16 +1221,6 @@ scores for two methods A and B can vary a lot between speech samples,
 but often the difference PESQ(A)-PESQ(B) can be much more consistent.</p>
 <p>A formal way to check whether it is reasonable to use delta-values would
 be a correlation test (see below).</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 </div>
 </div>
@@ -1443,16 +1232,6 @@ this short chapter we can only skim through some basic principles, which
 can not replace a thorough understanding of methods. Applying
 statistical tests without understanding them properly will <em>regularly
 lead to incorrect conclusions</em>.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="student-s-t-test">
 <h3><span class="section-number">6.4.2.1. </span>Student’s t-test<a class="headerlink" href="#student-s-t-test" title="Permalink to this headline">¶</a></h3>
 <p>When we want to determine if two normally distributed sets of values
@@ -1483,16 +1262,6 @@ test</a> or the
 <a class="reference external" href="https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test">Wilcoxon signed-rank
 test</a> instead.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="normality-tests">
 <h3><span class="section-number">6.4.2.2. </span>Normality tests<a class="headerlink" href="#normality-tests" title="Permalink to this headline">¶</a></h3>
 <p>Many statistical tests are only applicable when the input signal follows
@@ -1503,16 +1272,6 @@ test</a> is one
 particular test of normality, which is particularly reliable. The output
 of normality tests is that, given a particular level of confidence (such
 as 5%), the given data set is Gaussian.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="anova">
 <h3><span class="section-number">6.4.2.3. </span>ANOVA<a class="headerlink" href="#anova" title="Permalink to this headline">¶</a></h3>
@@ -1528,16 +1287,6 @@ time of day or due to inherent differences in A and B.</p>
 the classical version of ANOVA assumes that prediction errors are
 normal, that measurements are independent and the assigned groups of
 data have uniform statistics.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="correlation-tests">
 <h3><span class="section-number">6.4.2.4. </span>Correlation tests<a class="headerlink" href="#correlation-tests" title="Permalink to this headline">¶</a></h3>
@@ -1559,45 +1308,6 @@ correlation between variables.</p></li>
 coefficient</a>
 analyses whether data can be explained by a monotonic function.</p></li>
 </ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">6.4.3. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist1.png](attachments/155470607/155473463.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist2.png](attachments/155470607/155473464.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist3.png](attachments/155470607/155473465.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist4.png](attachments/155470607/155473466.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist5.png](attachments/155470607/155473467.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter1.png](attachments/155470607/155473529.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter2.png](attachments/155470607/155473530.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter2_hist.png](attachments/155470607/155473531.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter3.png](attachments/155470607/155473532.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[delta_polqa.png](attachments/155470607/155473908.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vad.png](attachments/155470607/155473937.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vad_postproc.png](attachments/155470607/155473940.png) (image/png)  
 </div>
 </div>
 </div>

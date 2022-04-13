@@ -1,13 +1,5 @@
 # Analysis of evaluation results
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 To determine the quality and performance of speech processing methods,
 we often use [subjective](Subjective_quality_evaluation) and [objective
 evaluation](Objective_quality_evaluation) methods. These methods however
@@ -21,28 +13,6 @@ types of question we can answer with statistical analysis include:
 "Based on measurement results, which result is most probable, that A is
 better than B, that B is better than A, or is it impossible to
 determine?"
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Informal analysis
 
@@ -61,7 +31,7 @@ analysis should never replace properly applied statistical tests.
 Informal tests just given an indication of how much work will be
 required for proper tests.
 
-### **Example 1 **
+### Example 1 
 
 Suppose we want to compare methods A and B, and we have already applied
 PESQ on the outputs of both methods for 100 speech samples. How do we
@@ -93,27 +63,6 @@ same units as the mean, such that we can directly get an intuitive
 impression of the magnitude of the differences in means in comparison to
 the standard deviations.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout three-equal" layout="three-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Informative illustrations 1
 
@@ -162,97 +111,30 @@ distributions. However, applying methods which assume Gaussian
 distributions on data which does not follow Gaussian distributions will
 *often lead to incorrect conclusions*.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 Histogram 1: Large overlap between distributions A (blue) and B (green)
 
-<img src="attachments/155470607/155473463.png"
-data-image-src="attachments/155470607/155473463.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473463"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
+![hist1.png](attachments/155473463.png) 
 
 Histogram 3: Very small overlap between distributions
 
-<img src="attachments/155470607/155473465.png"
-data-image-src="attachments/155470607/155473465.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473465"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist3.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
+![hist3.png](attachments/155473465.png) 
 
   
 
 Histogram 5: Bimodal distribution for A, that is, the blue curve has two
 peaks.
 
-<img src="attachments/155470607/155473467.png"
-data-image-src="attachments/155470607/155473467.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473467"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist5.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
+![hist5.png](attachments/155473467.png) 
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Histogram 2: Smaller overlap between distributions
 
-<img src="attachments/155470607/155473464.png"
-data-image-src="attachments/155470607/155473464.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473464"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
-
+![hist2.png](attachments/155473464.png) 
 Histogram 4: Skewed distributions such that overlap is smaller than
 standard deviation would indicate
 
-<img src="attachments/155470607/155473466.png"
-data-image-src="attachments/155470607/155473466.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473466"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="hist4.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
+![hist4.png](attachments/155473466.png) 
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout three-equal" layout="three-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 #### Scatter plots
 
@@ -282,46 +164,16 @@ For example, if performance is bad for unvoiced sounds, we could have a
 detector for unvoiced sounds, and perform different processing for such
 sounds. See also section "Parallel plots" below.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Scatter plot 1: Two uncorrelated measurements A and B.
 
-<img src="attachments/155470607/155473529.png"
-data-image-src="attachments/155470607/155473529.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473529"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
+![scatter1.png](attachments/155473529.png)
 
 Scatter plot 3: Two somewhat separate groups with different means and
 correlations.
 
-<img src="attachments/155470607/155473532.png"
-data-image-src="attachments/155470607/155473532.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473532"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter3.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
+![scatter3.png](attachments/155473532.png)
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Scatter plot 2 illustrating two measurements with slightly differing
 means but high correlation (measurements form a tight group). In such a
@@ -331,35 +183,10 @@ difference is 0.6 with a standard deviation of 0.21 and that the
 distribution is clearly separated from 0 (=clearly separated from the
 null-hypothesis "no difference between A and B").
 
-<img src="attachments/155470607/155473530.png"
-data-image-src="attachments/155470607/155473530.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473530"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" /><img src="attachments/155470607/155473531.png"
-data-image-src="attachments/155470607/155473531.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473531"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="scatter2_hist.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="250" />
+![scatter2.png](attachments/155473530.png)
+![scatter2_hist.png](attachments/155473531.png)
 
-</div>
 
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 #### Box plots
 
@@ -393,37 +220,11 @@ less information than the corresponding histograms, but that omission
 reduces clutter; We can easily display 20 items side by side with a
 box-plot, whereas histograms of 20 items would be a mess.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/155470607/155473908.png"
-data-image-src="attachments/155470607/155473908.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473908"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="delta_polqa.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" height="400" />
+![delta_polqa.png](attachments/155473908.png)
 
 Image by Sneha Das (with permission)
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 #### Confusion matrix
 
@@ -435,43 +236,12 @@ between speech, music and background noise. For each testing sample, you
 then have the target output and the actual output of your classifier,
 which you can write as a matrix such as:
 
-<div class="table-wrap">
 
-<table class="relative-table wrapped confluenceTable">
-<tbody>
-<tr class="header">
-<th class="confluenceTh"><br />
-</th>
-<th class="confluenceTh">Actual music</th>
-<th class="confluenceTh">Actual speech</th>
-<th class="confluenceTh">Actual noise</th>
-</tr>
-
-<tr class="odd">
-<td class="confluenceTd"><strong>Predicted music</strong></td>
-<td class="confluenceTd"
-style="text-align: center;"><strong>78</strong></td>
-<td class="confluenceTd" style="text-align: center;">2</td>
-<td class="confluenceTd" style="text-align: center;">13</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd"><strong>Predicted speech</strong></td>
-<td class="confluenceTd" style="text-align: center;">3</td>
-<td class="confluenceTd"
-style="text-align: center;"><strong>77</strong></td>
-<td class="confluenceTd" style="text-align: center;">5</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd"><strong>Predicted noise</strong></td>
-<td class="confluenceTd" style="text-align: center;">22</td>
-<td class="confluenceTd" style="text-align: center;">18</td>
-<td class="confluenceTd"
-style="text-align: center;"><strong>83</strong></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+||Actual music|Actual speech|Actual noise|
+|----|-------|-------|-------|
+|*Predicted music*|78|2|13|
+|*Predicted speech|3|77|5|
+|*Predicted noise*|22|18|83|
 
 Often the largest value in each column is identified by bold-face. In
 this toy example, all classes are usually predicted correctly, which
@@ -485,29 +255,8 @@ times) and almost always correctly as noise (83 times).
 If the number of labels is large, then it is often useful to plot the
 matrix as a heat-map.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-### **Example 2 **
+### Example 2 
 
 Suppose we want to compare methods A and B, and we have already
 calculated the frame-wise SNR on the outputs of both methods for a range
@@ -554,43 +303,9 @@ characterizing performance of a system. We can easily relate properties
 of the speech signal with the outputs, such that we can describe which
 types of inputs give which types of outputs.
 
-</div>
+![vad.png](attachments/155473937.png)
 
-</div>
 
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/155470607/155473937.png"
-data-image-src="attachments/155470607/155473937.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473937"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="vad.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" width="500" /><img src="attachments/155470607/155473940.png"
-data-image-src="attachments/155470607/155473940.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155473940"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="vad_postproc.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155470607"
-data-linked-resource-container-version="11" width="500" />
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Extracting hidden structures
 
@@ -601,8 +316,6 @@ they can grade relative quality very accurately. That is, for example,
 in a MUSHRA test, it is perfectly normal that three subjects would grade
 two methods A and B such that:
 
-<div class="table-wrap">
-
 |         |             |             |
 |---------|-------------|-------------|
 | Subject | Grade for A | Grade for B |
@@ -612,7 +325,6 @@ two methods A and B such that:
 | Mean    | 43.3        | 47.3        |
 | Std     | 8.0         | 10.0        |
 
-</div>
 
 In other words, if we look at the absolute mean value and its standard
 deviation, we find that B has a higher mean, but by only a tiny amount
@@ -623,18 +335,14 @@ subject thought that B is better than A!
 Thus if we calculate the difference in scores between A and B, perhaps
 that would give us a more conclusive answer.
 
-<div class="table-wrap">
 
-|         |             |             |     |
-|---------|-------------|-------------|-----|
 | Subject | Grade for A | Grade for B | A-B |
+|---------|-------------|-------------|-----|
 | 1       | 35          | 37          | 2   |
 | 2       | 44          | 48          | 4   |
 | 3       | 51          | 57          | 6   |
 | Mean    | 43.3        | 47.3        | 4   |
 | Std     | 8.0         | 10.0        | 2   |
-
-</div>
 
 Clearly we now see that the difference A-B has a mean value of 4 and the
 standard deviation is only 2. By collecting more listeners, then it
@@ -647,27 +355,7 @@ but often the difference PESQ(A)-PESQ(B) can be much more consistent.
 A formal way to check whether it is reasonable to use delta-values would
 be a correlation test (see below).
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
   
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Statistical tests
 
@@ -678,27 +366,6 @@ can not replace a thorough understanding of methods. Applying
 statistical tests without understanding them properly will *regularly
 lead to incorrect conclusions*.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Student's t-test
 
@@ -730,28 +397,6 @@ test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) or the
 [Wilcoxon signed-rank
 test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) instead.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 ### Normality tests
 
 Many statistical tests are only applicable when the input signal follows
@@ -763,27 +408,6 @@ particular test of normality, which is particularly reliable. The output
 of normality tests is that, given a particular level of confidence (such
 as 5%), the given data set is Gaussian.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### ANOVA
 
@@ -800,28 +424,6 @@ Again it is important to observe the assumptions of this test; namely,
 the classical version of ANOVA assumes that prediction errors are
 normal, that measurements are independent and the assigned groups of
 data have uniform statistics.
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Correlation tests
 
@@ -843,55 +445,6 @@ correlation tests. The two most common correlation tests are
     coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient)
     analyses whether data can be explained by a monotonic function.
 
-</div>
 
-</div>
 
-<div class="cell normal" data-type="normal">
 
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist1.png](attachments/155470607/155473463.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist2.png](attachments/155470607/155473464.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist3.png](attachments/155470607/155473465.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist4.png](attachments/155470607/155473466.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[hist5.png](attachments/155470607/155473467.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter1.png](attachments/155470607/155473529.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter2.png](attachments/155470607/155473530.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter2_hist.png](attachments/155470607/155473531.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[scatter3.png](attachments/155470607/155473532.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[delta_polqa.png](attachments/155470607/155473908.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vad.png](attachments/155470607/155473937.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vad_postproc.png](attachments/155470607/155473940.png) (image/png)  
-
-</div>

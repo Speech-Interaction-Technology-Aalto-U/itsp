@@ -1,13 +1,5 @@
 # Objective quality evaluation
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 ## Objective estimators for perceptual quality
 
 With "objective evaluation" we usually refer to *estimators of
@@ -114,27 +106,6 @@ Some of the most frequently used objective measures include:
     good feature of STOI is that an [implementation is
     available](http://amtoolbox.sourceforge.net/amt-0.9.5/doc/speech/taal2011_code.php).
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Other objective performance criteria
 
@@ -194,21 +165,3 @@ Some examples of such performance criteria include:
     recall](https://en.wikipedia.org/wiki/Precision_and_recall). For
     instance, performance of speaker verification systems is often
     evaluated using such metrics. 
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

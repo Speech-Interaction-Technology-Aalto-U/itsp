@@ -33,7 +33,7 @@
     11. [PSOLA](Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.ipynb) <!-- checked -->    
     12. [Jitter and shimmer](Representations/Jitter_and_shimmer.md)   <!-- checked -->    
     13. [Crest factor](https://en.wikipedia.org/wiki/Crest_factor) (Wikipedia)
-3.  [Pre-processing](Pre-processing.md)
+3.  [Pre-processing](Preprocessing/Pre-processing.md)
     1.  [Pre-emphasis](Preprocessing/Pre-emphasis.md)
     2.  [Noise gate](https://en.wikipedia.org/wiki/Noise_gate) (Wikipedia)
     3.  [Dynamic Range Compression](https://en.wikipedia.org/wiki/Dynamic_range_compression) (Wikipedia)

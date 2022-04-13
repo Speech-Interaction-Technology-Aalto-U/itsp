@@ -48,8 +48,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -154,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -178,43 +176,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -787,7 +790,7 @@ over a telecommunication connection. In any case, perceptual evaluation
 refers to evaluation through the subjects’ senses, which in this context
 refers primarily to <em>hearing</em>. In other words, in a typical experiment
 setup, subjects listen to sound samples and evaluate their quality.</p>
-<img src="attachments/155470260/155472510.jpg" class="image-center" width="200" />
+<p><img alt="pic1" src="../_images/155472510.jpg" /></p>
 <p>Photo by Anthony Brolin on Unsplash</p>
 <div class="section" id="aspects-of-quality">
 <h2><span class="section-number">6.1.1. </span>Aspects of quality<a class="headerlink" href="#aspects-of-quality" title="Permalink to this headline">¶</a></h2>
@@ -863,7 +866,7 @@ that a user experiences in communication</p></li>
 <li><p><em>naturalness</em> can also here be used to describe communication with
 the obvious meaning.</p></li>
 </ul>
-<img src="attachments/155470260/175522003.png" height="250" />
+<p><img alt="pic2" src="../_images/175522003.png" /></p>
 </div>
 </div>
 <div class="section" id="choosing-subjects-naive-or-expert">
@@ -1140,22 +1143,8 @@ BS.1116-3 (ABC/HR) is recommended instead of MUSHRA (see
 </div>
 <div class="section" id="naive-listeners">
 <h3><span class="section-number">6.1.5.2. </span>Naïve listeners<a class="headerlink" href="#naive-listeners" title="Permalink to this headline">¶</a></h3>
-<ul>
-<li><p>P.800 is the popular name of a set of listening tests defined in the
-standard
-<a class="reference external" href="https://www.itu.int/en/ITU-T/Pages/default.aspx">ITU-T</a><a class="reference external" href="https://www.itu.int/rec/T-REC-P.800-199608-I/en">Recommendation
-P.800 “Methods for subjective determination of transmission
-quality”</a>. It is
-intended to be a test which gives as realistic results as possible,
-by assessing performance in setups which resemble real use-cases.
-The most significant consequences are that P.800 focuses on naïve
-listeners and, since telecommunication devices are typically
-hand-held over one ear, P.800 mandates tests with headphones which
-are held only on one ear.<br />
-To make the test simpler for naïve listeners, P.800 most typically
-uses an integer scale 1-5 known as <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_opinion_score">mean opinion score
-(MOS)</a>. Each grade
-is given a characterisation such as</p>
+<p><strong>P.800</strong> is the popular name of a set of listening tests defined in the standard
+<a class="reference external" href="https://www.itu.int/en/ITU-T/Pages/default.aspx">ITU-T</a><a class="reference external" href="https://www.itu.int/rec/T-REC-P.800-199608-I/en">Recommendation P.800 “Methods for subjective determination of transmission quality”</a>. It is intended to be a test which gives as realistic results as possible, by assessing performance in setups which resemble real use-cases.    The most significant consequences are that P.800 focuses on naïve    listeners and, since telecommunication devices are typically    hand-held over one ear, P.800 mandates tests with headphones which    are held only on one ear.      To make the test simpler for naïve listeners, P.800 most typically    uses an integer scale 1-5 known as <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_opinion_score">mean opinion score (MOS)</a>. Each grade    is given a characterisation such as</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Rating</p></th>
@@ -1180,35 +1169,17 @@ is given a characterisation such as</p>
 </tr>
 </tbody>
 </table>
-<p>This makes the ratings more concrete and easier to understand for
-users. A downside of labelling the ratings is that such labels are
-specific to each language and the MOS scores given in different
-languages might thus not be directly comparabale. Who is to know
-whether <em>excellent</em>, <em>erinomainen</em>, ممتاز, and маш сайн mean exactly
-the same thing? (Those are english, finnish, arabic and mongolian,
-in case you are wondering.)</p>
+<p>This makes the ratings more concrete and easier to understand for users. A downside of labelling the ratings is that such labels are   specific to each language and the MOS scores given in different    languages might thus not be directly comparabale. Who is to know    whether <em>excellent</em>, <em>erinomainen</em>, <em>ممتاز</em>, and <em>маш сайн</em> mean exactly     the same thing? (Those are english, finnish, arabic and mongolian,    in case you were wondering.)</p>
 <p>P.800 is further split into</p>
 <ul class="simple">
-<li><p><em>Conversation opinion tests</em>, where participants grade the
-quality after <em>using</em> telecommunication system for a
-conversation. Typically the question posed to participants is
-“Opinion of the connection you have just been using: Excellent,
-God, Fair, Poor, Bad”. An alternative is “Did you or your
-partner have any difficulty in talking or hearing over the
-connection? Yes/No”.</p></li>
-<li><p><em>Listening opinion tests</em>, where participants grade the quality
-after <em>listening</em> to the output of a telecommunication system.</p></li>
+<li><p><em>Conversation opinion tests</em>, where participants grade the        quality after <em>using</em> telecommunication system for a        conversation. Typically the question posed to participants is        “Opinion of the connection you have just been using: Excellent,        God, Fair, Poor, Bad”. An alternative is “Did you or your        partner have any difficulty in talking or hearing over the        connection? Yes/No”.</p></li>
+<li><p><em>Listening opinion tests</em>, where participants grade the quality        after <em>listening</em> to the output of a telecommunication system.</p></li>
 </ul>
-<p>The grading of listening opinion tests can, more specifically, be
-one of the following:</p>
-<ul>
-<li><p><em>Absolute category rating (ACR)</em>, where the above MOS scale is
-used to answer questions like “How good is system X?”</p></li>
-<li><p><em>Degradation category rating (DCR)</em>, where the objective is to
-evaluate the amount of degradation caused by some processing.
-Samples are preseted to listeners by pairs (A-B) or repeated
-pairs (A-B-A-B) where A is the quality reference and B the
-degraded sample. Rating labels cane be for example</p>
+<p>The grading of listening opinion tests can, more specifically, be    one of the following:</p>
+<ul class="simple">
+<li><p><em>Absolute category rating (ACR)</em>, where the above MOS scale is        used to answer questions like “How good is system X?”</p></li>
+<li><p><em>Degradation category rating (DCR)</em>, where the objective is to        evaluate the amount of degradation caused by some processing.        Samples are preseted to listeners by pairs (A-B) or repeated        pairs (A-B-A-B) where A is the quality reference and B the        degraded sample. Rating labels cane be for example</p></li>
+</ul>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Rating</p></th>
@@ -1233,10 +1204,9 @@ degraded sample. Rating labels cane be for example</p>
 </tr>
 </tbody>
 </table>
-</li>
-<li><p><em>Comparison category rating (CCR)</em>, is similar to DCR, but such
-that the processed sample B can be also better than A. Rating
-labels can then be for example</p>
+<ul class="simple">
+<li><p><em>Comparison category rating (CCR)</em>, is similar to DCR, but such        that the processed sample B can be also better than A. Rating        labels can then be for example</p></li>
+</ul>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Rating</p></th>
@@ -1267,24 +1237,20 @@ labels can then be for example</p>
 </tr>
 </tbody>
 </table>
-</li>
-</ul>
-</li>
-<li><p>P.804 Subjective diagnostic test method for conversational speech
-quality analysis</p></li>
-<li><p>P.805 Subjective evaluation of conversational quality</p></li>
-<li><p>P.806 A subjective quality test methodology using multiple rating
-scales</p></li>
-<li><p>P.807 Subjective test methodology for assessing speech
-intelligibility</p></li>
-<li><p>P.808 Subjective evaluation of speech quality with a crowdsourcing
-approach</p></li>
-<li><p>P.835 Subjective test methodology for evaluating speech
-communication systems that include noise suppression algorithm</p></li>
-<li><p>And many more, see <a class="reference external" href="https://www.itu.int/rec/T-REC-P/en">https://www.itu.int/rec/T-REC-P/en</a></p></li>
-</ul>
+<p><strong>P.804</strong> Subjective diagnostic test method for conversational speech
+quality analysis</p>
+<p><strong>P.805</strong> Subjective evaluation of conversational quality</p>
+<p><strong>P.806</strong> A subjective quality test methodology using multiple rating
+scales</p>
+<p><strong>P.807</strong> Subjective test methodology for assessing speech
+intelligibility</p>
+<p><strong>P.808</strong> Subjective evaluation of speech quality with a crowdsourcing
+approach</p>
+<p><strong>P.835</strong> Subjective test methodology for evaluating speech
+communication systems that include noise suppression algorithm</p>
+<p>And many more, see <a class="reference external" href="https://www.itu.int/rec/T-REC-P/en">https://www.itu.int/rec/T-REC-P/en</a></p>
 <p>Holding a phone on one ear</p>
-<p><img src="attachments/155470260/155472516.jpg" class="image-center" height="250" />Photo by
+<p><img alt="pic1" src="../_images/155472516.jpg" />Photo by
 Fezbot2000 on Unsplash</p>
 </div>
 </div>
@@ -1305,46 +1271,17 @@ phonemes/letters. For example, if the sentence is</p>
 <div><p>How to wreck a nice beach?</p>
 </div></blockquote>
 <p>then we can count correct words for example as</p>
-<div class="table-wrap">
-<table class="wrapped confluenceTable">
-<tbody>
-<tr class="header">
-<th class="confluenceTh">How</th>
-<th class="confluenceTh">to</th>
-<th class="confluenceTh">recognize</th>
-<th class="confluenceTh">speech?</th>
-<th class="confluenceTh"><br />
-</th>
-<th class="confluenceTh"><br />
-</th>
-</tr>
-<tr class="odd">
-<td class="confluenceTd">How</td>
-<td class="confluenceTd">to</td>
-<td class="confluenceTd">wreck</td>
-<td class="confluenceTd">a</td>
-<td class="confluenceTd">nice</td>
-<td class="confluenceTd">beach?</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd"><br />
-</td>
-<td class="confluenceTd"><br />
-</td>
-<td class="confluenceTd">S</td>
-<td class="confluenceTd">S</td>
-<td class="confluenceTd">I</td>
-<td class="confluenceTd">I</td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>How to recognize    speech?
+How to wreck a nice beach?
+       S     I I    S
+</pre></div>
 </div>
 <p>where we use the notation S - substitution, I - insertion, D - deletion.
 The <a class="reference external" href="https://en.wikipedia.org/wiki/Word_error_rate">word error rate</a>
 would then be</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} WER = 100\*\\frac{S+D+I}{N} \end{split}\]</div>
-<p>where N is the total number of words. In the above example we thus have
+\[ WER = 100\times\frac{S+D+I}{N} \]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the total number of words. In the above example we thus have
 WER = 100%.</p>
 <p>If we would go letter by letter, than instead we would have</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>How to  rec..og.nize speech
@@ -1355,7 +1292,7 @@ How to wreck a  nice  beach
 <p>Here we would then define the letter error rate as</p>
 <div class="math notranslate nohighlight">
 \[ LER = 100\times\frac{S+D+I}{N} \]</div>
-<p>where N is the total number of letters. The value in the above example
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the total number of letters. The value in the above example
 would then be 33%.</p>
 <p>It is clear that word error rate is thus much more strict than letter
 error rate. A single incorrect letter will ruin a word, while the letter

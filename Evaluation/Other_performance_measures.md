@@ -1,13 +1,5 @@
 # Other performance measures
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 ## Computational Complexity
 
 On an application level, speech processing algorithms usually are used
@@ -104,26 +96,7 @@ carried out.
   
 
   
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/173004428/175510471.png" title="Big-O notations"
-class="image-center"
-data-image-src="attachments/173004428/175510471.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175510471"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="BigO.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="173004428"
-data-linked-resource-container-version="11" width="400"
-alt="Big-O notations" />
+![bigo](attachments/175510471.png)
 
 **Figure 1:** Evolution of computation time for multiple Big-O notations
 dependint on the input size.
@@ -132,53 +105,8 @@ dependint on the input size.
 
   
 
-  
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-<div class="table-wrap">
 
 |                           |                                |                                           |
 |:----------------------:|:------------------------:|:---------------------:|
@@ -194,41 +122,13 @@ dependint on the input size.
 |         Division          |            a = b/c             |                    18                     |
 |        Square-root        |          a = sqrt(b)           |                    10                     |
 |      Transcendental       |       sine, arctan, etc.       |                    25                     |
-|       Function call       |       a = func(b, c, d)        | 2 + number of argumentspassed andreturned |
+|       Function call       |       a = func(b, c, d)        | 2 + number of arguments passed and returned |
 |    Loop initialization    |           for(i=0;i            |                     3                     |
 |    Indirect addressing    |            a = b.c             |                     2                     |
 |  Pointer initialization   |             a\[i\]             |                     1                     |
 |        Exponential        |            pow, en             |                    25                     |
 |         Logarithm         |              log               |                    25                     |
-|     Conditional test      | used in conjunction withBRANCH |                     2                     |
-
-</div>
+|     Conditional test      | used in conjunction with BRANCH |                     2                     |
 
 **Table 1:** Operations accounted by the WMOPS tool and their relative
 weight.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[BigO.eps](attachments/173004428/175510466.eps)
-(application/postscript)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[BigO.png](attachments/173004428/175510473.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[BigO.png](attachments/173004428/175510471.png) (image/png)  
-
-</div>
