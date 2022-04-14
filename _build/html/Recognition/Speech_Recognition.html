@@ -48,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8.4. Speaker Recognition and Verification" href="Speaker_Recognition_and_Verification.html" />
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -161,58 +161,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+    <a class="reference internal" href="../Representations/Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -344,18 +359,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -374,15 +384,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -398,8 +408,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="Voice_activity_detection_VAD.html">
-     8.1. Voice activity detection (VAD)
+    <a class="reference internal" href="Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
     </a>
    </li>
    <li class="toctree-l2">
@@ -552,6 +562,11 @@ const thebe_selector_output = ".output, .cell_output"
    13. Security and privacy in speech technology
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../References.html">
+   14. References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -625,53 +640,57 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-asr">
-   8.3.1. 1. Introduction to ASR
+   8.3.1. Introduction to ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#component-of-asr">
+   8.3.2. Component of ASR
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-asr">
-   8.3.2. 3. Types of ASR
+   8.3.3. Types of ASR
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#models-for-large-vocabulary-speech-recognition-lvcsr">
-   8.3.3. 4. Models for Large Vocabulary Speech Recognition (LVCSR)
+   8.3.4. Models for Large Vocabulary Speech Recognition (LVCSR)
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hmm-based-model">
-   8.3.4. 4.1. HMM-Based Model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#end-to-end-model">
-   8.3.5. 4.2.  End-to-End Model
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hmm-based-model">
+     8.3.4.1. HMM-Based Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-to-end-model">
+     8.3.4.2. End-to-End Model
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-errors-made-by-speech-recognizers">
-   8.3.6. 5. Types of errors made by speech recognizers
+   8.3.5. Types of errors made by speech recognizers
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#challenges-of-asr">
-   8.3.7. 6. Challenges of ASR
+   8.3.6. Challenges of ASR
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluation">
-   8.3.8. 7. Evaluation
+   8.3.7. Evaluation
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   8.3.9. References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.3.10. Attachments:
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     8.3.7.1. References
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -695,53 +714,57 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-asr">
-   8.3.1. 1. Introduction to ASR
+   8.3.1. Introduction to ASR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#component-of-asr">
+   8.3.2. Component of ASR
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-asr">
-   8.3.2. 3. Types of ASR
+   8.3.3. Types of ASR
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#models-for-large-vocabulary-speech-recognition-lvcsr">
-   8.3.3. 4. Models for Large Vocabulary Speech Recognition (LVCSR)
+   8.3.4. Models for Large Vocabulary Speech Recognition (LVCSR)
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hmm-based-model">
-   8.3.4. 4.1. HMM-Based Model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#end-to-end-model">
-   8.3.5. 4.2.  End-to-End Model
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hmm-based-model">
+     8.3.4.1. HMM-Based Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-to-end-model">
+     8.3.4.2. End-to-End Model
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-errors-made-by-speech-recognizers">
-   8.3.6. 5. Types of errors made by speech recognizers
+   8.3.5. Types of errors made by speech recognizers
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#challenges-of-asr">
-   8.3.7. 6. Challenges of ASR
+   8.3.6. Challenges of ASR
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluation">
-   8.3.8. 7. Evaluation
+   8.3.7. Evaluation
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   8.3.9. References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.3.10. Attachments:
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     8.3.7.1. References
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -755,7 +778,7 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="speech-recognition">
 <h1><span class="section-number">8.3. </span>Speech Recognition<a class="headerlink" href="#speech-recognition" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-asr">
-<h2><span class="section-number">8.3.1. </span>1. Introduction to ASR<a class="headerlink" href="#introduction-to-asr" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3.1. </span>Introduction to ASR<a class="headerlink" href="#introduction-to-asr" title="Permalink to this headline">¶</a></h2>
 <p>An ASR system produces the most likely word sequence given an incoming
 speech signal.  The statistical approach for speech recognition has
 dominated Automatic Speech Recognition (ASR) research over the last few
@@ -763,23 +786,27 @@ decades leading to a number of successes. The problem of speech
 recognition is defined as the conversion of spoken utterances into
 textual sentences by a machine.  In the statistical framework, the
 Bayesian decision rule is employed to find the most probable word
-sequence, \( \hat H \) , given the observation sequence \( O = (o_1,
-… , o_T ) \) :</p>
-<p>\[ \hat H= \operatorname*{argmax}_H \;P(H|O) \]</p>
+sequence, <span class="math notranslate nohighlight">\( \hat H \)</span> , given the observation sequence <span class="math notranslate nohighlight">\( O = (o_1,
+. . . , o_T ) \)</span> :</p>
+<div class="math notranslate nohighlight">
+\[ \hat H= \operatorname*{argmax}_H \;P(H|O) \]</div>
 <p>Following Bayes’ rule, the posterior probability in the above equation
 can be expressed as a conditional probability of the word sequence given
-the acoustic observations,  \( P(O|H) \) , multiplied by a prior
-probability of the word sequence,  \( P(H) \) , and normalized by the
-marginal likelihood of observation sequences, \( P(O) \) :</p>
-<p>\[ \hat H= \operatorname*{argmax}_H \; \frac {P(O|H)\;P(H)}
-{P(O)} \] \[ \hat H= \operatorname*{argmax}_H \; P(O|H)\;P(H)
-\]</p>
-<p>The marginal probability, \( P(O) \) , is discarded in the second
+the acoustic observations,  <span class="math notranslate nohighlight">\( P(O|H) \)</span> , multiplied by a prior
+probability of the word sequence,  <span class="math notranslate nohighlight">\( P(H) \)</span> , and normalized by the
+marginal likelihood of observation sequences, <span class="math notranslate nohighlight">\( P(O) \)</span> :</p>
+<div class="math notranslate nohighlight">
+\[ \hat H= \operatorname*{argmax}_H \; \frac {P(O|H)\;P(H)}
+{P(O)} $$ $$ \hat H= \operatorname*{argmax}_H \; P(O|H)\;P(H)
+\]</div>
+<p>The marginal probability, <span class="math notranslate nohighlight">\( P(O) \)</span> , is discarded in the second
 equation since it is constant with respect to the ranking of hypotheses,
-and hence does not alter the search for the best hypothesis.  \(
-P(O|H) \) is calculated by the acoustic model and  \( P(H) \) is
+and hence does not alter the search for the best hypothesis.  <span class="math notranslate nohighlight">\(
+P(O|H) \)</span> is calculated by the acoustic model and  <span class="math notranslate nohighlight">\( P(H) \)</span> is
 modeled by the language model.</p>
-<p><strong>2. Component of ASR</strong></p>
+</div>
+<div class="section" id="component-of-asr">
+<h2><span class="section-number">8.3.2. </span>Component of ASR<a class="headerlink" href="#component-of-asr" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Feature Extraction: It converts the speech signal into a sequence of
 acoustic feature vectors. These observations should be compact and
@@ -798,19 +825,11 @@ language model  for the equivalent series of phonemes.  If a match
 is made, it returns the text of the corresponding word or phrase to
 the calling program.</p></li>
 </ul>
-<p><img src="attachments/165125762/165127140.png" class="image-center"
-data-image-src="attachments/165125762/165127140.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165127140"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="ASR.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165125762"
-data-linked-resource-container-version="56" height="250" />Architecture
-of an ASR system</p>
+<p><img alt="ASR.png" src="../_images/165127140.png" />
+Architecture of an ASR system</p>
 </div>
 <div class="section" id="types-of-asr">
-<h2><span class="section-number">8.3.2. </span>3. Types of ASR<a class="headerlink" href="#types-of-asr" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3.3. </span>Types of ASR<a class="headerlink" href="#types-of-asr" title="Permalink to this headline">¶</a></h2>
 <p>Speech recognition systems can be classified on the basis of the
 constraints under which they are developed and which they consequently
 impose on their users. These constraints include: speaker dependence,
@@ -881,12 +900,11 @@ or others. The noise might also be created by the speaker himself in a
 form of lip smacks, coughs or sneezes.</p>
 </div>
 <div class="section" id="models-for-large-vocabulary-speech-recognition-lvcsr">
-<h2><span class="section-number">8.3.3. </span>4. Models for Large Vocabulary Speech Recognition (LVCSR)<a class="headerlink" href="#models-for-large-vocabulary-speech-recognition-lvcsr" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3.4. </span>Models for Large Vocabulary Speech Recognition (LVCSR)<a class="headerlink" href="#models-for-large-vocabulary-speech-recognition-lvcsr" title="Permalink to this headline">¶</a></h2>
 <p>LVCSR can be divided into two categories: HMM-based model and the
 end-to-end model.</p>
-</div>
 <div class="section" id="hmm-based-model">
-<h2><span class="section-number">8.3.4. </span>4.1. HMM-Based Model<a class="headerlink" href="#hmm-based-model" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">8.3.4.1. </span>HMM-Based Model<a class="headerlink" href="#hmm-based-model" title="Permalink to this headline">¶</a></h3>
 <p>The HMM-based model has been the main LVCSR model for many years with
 the best recognition accuracy. An HMM-based model is divided into three
 parts:acoustic, pronunciation and language model. In HMM based model,
@@ -895,7 +913,7 @@ While the acoustic model models the mapping between speech input and
 feature sequence, the pronunciation model maps between phonemes (or
 sub-phonemes) to graphemes, and the language model maps the character
 sequence to fluent final transcription.</p>
-<p>****Acoustic Model:  ****In the acoustic model, the observation
+<p><strong>Acoustic Model:</strong>  In the acoustic model, the observation
 probability  is generally represented by GMM. The posterior probability
 distribution of hidden state can be calculated by DNN method. These two
 different calculations result into two different models, namely HMM-GMM
@@ -910,7 +928,7 @@ the HMM-based model, different modules use different technologies and
 have different roles. While the HMM is mainly used to do dynamic time
 warping at the frame level, GMM and DNN are used to calculate emission
 probability of HMM hidden states.</p>
-<p>**Pronunciation Model: ** Its main objective is achieve the connection
+<p><strong>Pronunciation Model:</strong> Its main objective is achieve the connection
 between acoustic sequence and language sequence. The dictionary includes
 various levels of mapping, such as pronunciation to phone, phone to
 trip-hone. The dictionary is used to achieve structural mapping and map
@@ -920,9 +938,9 @@ aim is to predict the likelihood of specific words occurring one after
 another in a given language. Typical recognizers use n-gram language
 models. An n-gram contains the prior probability of the occurrence of a
 word (unigram), or of a sequence of words (bigram, trigram etc.):</p>
-<p>unigram probability \( P(w_i) \)</p>
-<p>bigram probability \( P(w_i|w_{i−1}) \)</p>
-<p>ngram probability \( P(w_n|w_{n−1},w_{n−2}, …,w_1) \)</p>
+<p>unigram probability <span class="math notranslate nohighlight">\( P(w_i) \)</span></p>
+<p>bigram probability <span class="math notranslate nohighlight">\( P(w_i|w_{i−1}) \)</span></p>
+<p>ngram probability <span class="math notranslate nohighlight">\( P(w_n|w_{n−1},w_{n−2}, …,w_1) \)</span></p>
 <p><strong>Limitations of HMM-models</strong></p>
 <ul class="simple">
 <li><p>The training process is complex and difficult to be globally
@@ -939,22 +957,14 @@ This does not match the actual situation of LVCSR.</p></li>
 </ul>
 </div>
 <div class="section" id="end-to-end-model">
-<h2><span class="section-number">8.3.5. </span>4.2.  End-to-End Model<a class="headerlink" href="#end-to-end-model" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">8.3.4.2. </span>End-to-End Model<a class="headerlink" href="#end-to-end-model" title="Permalink to this headline">¶</a></h3>
 <p>Because of the  above-mentioned shortcomings of the HMM-based model and
 coupled with the promotion of deep learning technology, more and more
 works began to study end-to-end LVCSR. The end-to-end model is a system
 that directly maps input audio sequence to sequence of words or other
 graphemes.</p>
-<p><img src="attachments/165125762/165127650.png"
-data-image-src="attachments/165125762/165127650.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165127650"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="untitled.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165125762"
-data-linked-resource-container-version="56" height="250" /></p>
-<p>Function structure of end-to-end model</p>
+<p><img alt="untitled.png" src="../_images/165127650.png" />
+Function structure of end-to-end model</p>
 <p>Most end-to-end speech recognition models include the following parts:
 the encoder maps speech input sequence to feature sequence; the aligner
 realizes the alignment between feature sequence and language; the
@@ -1049,8 +1059,9 @@ However, their path generation processes and the path probability
 calculation methods are completely different. This gives rise to the
 advantages of RNN-transducer over CTC.</p>
 </div>
+</div>
 <div class="section" id="types-of-errors-made-by-speech-recognizers">
-<h2><span class="section-number">8.3.6. </span>5. Types of errors made by speech recognizers<a class="headerlink" href="#types-of-errors-made-by-speech-recognizers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3.5. </span>Types of errors made by speech recognizers<a class="headerlink" href="#types-of-errors-made-by-speech-recognizers" title="Permalink to this headline">¶</a></h2>
 <p>Though ASR research has come a long way, today’s systems are far from
 being perfect. Speech recognizer are brittle and make errors due to
 various causes. Most errors made by ASR systems fall into one of the
@@ -1062,8 +1073,7 @@ incapable of recognizing words outside their training vocabulary.
 Besides misrecognition, the presence of an out-of-vocabulary word in
 input utterance causes the system to err to a similar word in its
 vocabulary. Special techniques for handling OOV words have been
-developed for HMM-GMM and neural ASR systems (see, e.g., Zhang,
-2019).</p></li>
+developed for HMM-GMM and neural ASR systems (see, e.g., <span id="id1">[<a class="reference internal" href="#id6" title="Xiaohui Zhang. Strategies for Handling Out-of-Vocabulary Words in Automatic Speech Recognition. PhD thesis, Johns Hopkins University, 2019. URL: http://jhir.library.jhu.edu/handle/1774.2/62275.">Zhang, 2019</a>]</span>).</p></li>
 <li><p><strong>Homophone substitution</strong>: These errors can occur if more than one
 lexical entry has the same pronunciation (phone sequence), i.e.,
 they are homophones. While decoding, homophones may be confused with
@@ -1082,7 +1092,7 @@ between training and usage etc.).</p></li>
 </ul>
 </div>
 <div class="section" id="challenges-of-asr">
-<h2><span class="section-number">8.3.7. </span>6. Challenges of ASR<a class="headerlink" href="#challenges-of-asr" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3.6. </span>Challenges of ASR<a class="headerlink" href="#challenges-of-asr" title="Permalink to this headline">¶</a></h2>
 <p>Recent advances in ASR has brought automatic speech recognition accuracy
 close to human performance in many practical tasks. However, there are
 still challenges:</p>
@@ -1101,7 +1111,7 @@ part of the input was incomprehensible or highly uncertain.</p></li>
 </ul>
 </div>
 <div class="section" id="evaluation">
-<h2><span class="section-number">8.3.8. </span>7. Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3.7. </span>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
 <p>The performance of an ASR system is measured by comparing the
 hypothesized transcriptions and reference transcriptions. Word error
 rate (WER) is the most widely used metric. The two word sequences are
@@ -1111,33 +1121,20 @@ substitutions (S), and insertions (I) are determined. The
 deletions, substitutions and insertions are all considered as errors,
 and the WER is calculated by the rate of the number of errors to the
 number of words (N) in the reference.</p>
-<p>\[ WER = \frac{I + D + S}{N} * 100\% \]</p>
+<div class="math notranslate nohighlight">
+\[ WER = \frac{I + D + S}{N} * 100\% \]</div>
 <p>Sentence Error Rate (SER) is also sometime used to evaluate the
 performance of ASR systems. SER computes the percentage of sentences
 with at least one error.</p>
-</div>
 <div class="section" id="references">
-<h2><span class="section-number">8.3.9. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>Zhang, X. (2019). <em>Strategies for Handling Out-of-vocabulary Words in
-Automatic Speech Recognition</em>. Doctoral dissertation, The Johns Hopkins
-University, Baltimore, Maryland.</p>
-<div>
+<h3><span class="section-number">8.3.7.1. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">Zha19</a></span></dt>
+<dd><p>Xiaohui Zhang. <em>Strategies for Handling Out-of-Vocabulary Words in Automatic Speech Recognition</em>. PhD thesis, Johns Hopkins University, 2019. URL: <a class="reference external" href="http://jhir.library.jhu.edu/handle/1774.2/62275">http://jhir.library.jhu.edu/handle/1774.2/62275</a>.</p>
+</dd>
+</dl>
 </div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">8.3.10. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ASR.png](attachments/165125762/165127143.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ASR.png](attachments/165125762/165127140.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-1-22_13-52-42.png](attachments/165125762/165127639.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[untitled.png](attachments/165125762/165127650.png) (image/png)  
 </div>
 </div>
 </div>

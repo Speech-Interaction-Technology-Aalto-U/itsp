@@ -2,7 +2,7 @@
 
   
 
-### 1. Introduction to ASR
+## Introduction to ASR
 
   
 
@@ -13,31 +13,31 @@ decades leading to a number of successes. The problem of speech
 recognition is defined as the conversion of spoken utterances into
 textual sentences by a machine.  In the statistical framework, the
 Bayesian decision rule is employed to find the most probable word
-sequence, \\( \\hat H \\) , given the observation sequence \\( O = (o_1,
-. . . , o_T ) \\) :
+sequence, $ \hat H $ , given the observation sequence $ O = (o_1,
+. . . , o_T ) $ :
 
-\\\[ \\hat H= \\operatorname\*{argmax}\_H \\;P(H\|O) \\\]
+$$ \hat H= \operatorname*{argmax}_H \;P(H|O) $$
 
 Following Bayes’ rule, the posterior probability in the above equation
 can be expressed as a conditional probability of the word sequence given
-the acoustic observations,  \\( P(O\|H) \\) , multiplied by a prior
-probability of the word sequence,  \\( P(H) \\) , and normalized by the
-marginal likelihood of observation sequences, \\( P(O) \\) :
+the acoustic observations,  $ P(O|H) $ , multiplied by a prior
+probability of the word sequence,  $ P(H) $ , and normalized by the
+marginal likelihood of observation sequences, $ P(O) $ :
 
-\\\[ \\hat H= \\operatorname\*{argmax}\_H \\; \\frac {P(O\|H)\\;P(H)}
-{P(O)} \\\] \\\[ \\hat H= \\operatorname\*{argmax}\_H \\; P(O\|H)\\;P(H)
-\\\]
+$$ \hat H= \operatorname*{argmax}_H \; \frac {P(O|H)\;P(H)}
+{P(O)} $$ $$ \hat H= \operatorname*{argmax}_H \; P(O|H)\;P(H)
+$$
 
   
-The marginal probability, \\( P(O) \\) , is discarded in the second
+The marginal probability, $ P(O) $ , is discarded in the second
 equation since it is constant with respect to the ranking of hypotheses,
-and hence does not alter the search for the best hypothesis.  \\(
-P(O\|H) \\) is calculated by the acoustic model and  \\( P(H) \\) is
+and hence does not alter the search for the best hypothesis.  $
+P(O|H) $ is calculated by the acoustic model and  $ P(H) $ is
 modeled by the language model.
 
   
 
-**2. Component of ASR**
+## Component of ASR
 
 -   Feature Extraction: It converts the speech signal into a sequence of
     acoustic feature vectors. These observations should be compact and
@@ -56,18 +56,10 @@ modeled by the language model.
     is made, it returns the text of the corresponding word or phrase to
     the calling program. 
 
-<img src="attachments/165125762/165127140.png" class="image-center"
-data-image-src="attachments/165125762/165127140.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165127140"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="ASR.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165125762"
-data-linked-resource-container-version="56" height="250" />Architecture
-of an ASR system
+![ASR.png](attachments/165127140.png)
+Architecture of an ASR system
 
-### 3. Types of ASR
+## Types of ASR
 
 Speech recognition systems can be classified on the basis of the
 constraints under which they are developed and which they consequently
@@ -143,12 +135,12 @@ form of speech from other speakers; equipment sounds, air conditioners
 or others. The noise might also be created by the speaker himself in a
 form of lip smacks, coughs or sneezes. 
 
-### 4. Models for Large Vocabulary Speech Recognition (LVCSR)
+## Models for Large Vocabulary Speech Recognition (LVCSR)
 
 LVCSR can be divided into two categories: HMM-based model and the
 end-to-end model.
 
-### 4.1. HMM-Based Model
+###  HMM-Based Model
 
 The HMM-based model has been the main LVCSR model for many years with
 the best recognition accuracy. An HMM-based model is divided into three
@@ -159,7 +151,7 @@ feature sequence, the pronunciation model maps between phonemes (or
 sub-phonemes) to graphemes, and the language model maps the character
 sequence to fluent final transcription.
 
-****Acoustic Model:  ****In the acoustic model, the observation
+**Acoustic Model:**  In the acoustic model, the observation
 probability  is generally represented by GMM. The posterior probability
 distribution of hidden state can be calculated by DNN method. These two
 different calculations result into two different models, namely HMM-GMM
@@ -175,7 +167,7 @@ have different roles. While the HMM is mainly used to do dynamic time
 warping at the frame level, GMM and DNN are used to calculate emission
 probability of HMM hidden states.
 
-**Pronunciation Model: ** Its main objective is achieve the connection
+**Pronunciation Model:** Its main objective is achieve the connection
 between acoustic sequence and language sequence. The dictionary includes
 various levels of mapping, such as pronunciation to phone, phone to
 trip-hone. The dictionary is used to achieve structural mapping and map
@@ -187,15 +179,15 @@ another in a given language. Typical recognizers use n-gram language
 models. An n-gram contains the prior probability of the occurrence of a
 word (unigram), or of a sequence of words (bigram, trigram etc.):
 
-unigram probability \\( P(w_i) \\)
+unigram probability $ P(w_i) $
 
   
 
-bigram probability \\( P(w_i\|w\_{i−1}) \\)
+bigram probability $ P(w_i|w_{i−1}) $
 
   
 
-ngram probability \\( P(w_n\|w\_{n−1},w\_{n−2}, …,w_1) \\)
+ngram probability $ P(w_n|w_{n−1},w_{n−2}, …,w_1) $
 
   
 
@@ -213,7 +205,7 @@ ngram probability \\( P(w_n\|w\_{n−1},w\_{n−2}, …,w_1) \\)
     independence assumptions within HMM and between different modules.
     This does not match the actual situation of LVCSR.
 
-### 4.2.  End-to-End Model
+###  End-to-End Model
 
 Because of the  above-mentioned shortcomings of the HMM-based model and
 coupled with the promotion of deep learning technology, more and more
@@ -221,16 +213,7 @@ works began to study end-to-end LVCSR. The end-to-end model is a system
 that directly maps input audio sequence to sequence of words or other
 graphemes.
 
-<img src="attachments/165125762/165127650.png"
-data-image-src="attachments/165125762/165127650.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165127650"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="untitled.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165125762"
-data-linked-resource-container-version="56" height="250" />
-
+![untitled.png](attachments/165127650.png) 
 Function structure of end-to-end model
 
 Most end-to-end speech recognition models include the following parts:
@@ -333,7 +316,7 @@ However, their path generation processes and the path probability
 calculation methods are completely different. This gives rise to the
 advantages of RNN-transducer over CTC.
 
-### 5. Types of errors made by speech recognizers
+## Types of errors made by speech recognizers
 
 Though ASR research has come a long way, today's systems are far from
 being perfect. Speech recognizer are brittle and make errors due to
@@ -346,8 +329,7 @@ following categories:
     Besides misrecognition, the presence of an out-of-vocabulary word in
     input utterance causes the system to err to a similar word in its
     vocabulary. Special techniques for handling OOV words have been
-    developed for HMM-GMM and neural ASR systems (see, e.g., Zhang,
-    2019). 
+    developed for HMM-GMM and neural ASR systems (see, e.g., {cite:p}`zhang2019strategies`). 
 -   **Homophone substitution**: These errors can occur if more than one
     lexical entry has the same pronunciation (phone sequence), i.e.,
     they are homophones. While decoding, homophones may be confused with
@@ -364,7 +346,7 @@ following categories:
     acoustic models (possibly due to acoustic noise, data mismatch
     between training and usage etc.).
 
-### 6. Challenges of ASR
+## Challenges of ASR
 
 Recent advances in ASR has brought automatic speech recognition accuracy
 close to human performance in many practical tasks. However, there are
@@ -382,7 +364,7 @@ still challenges:
     output the most likely word sequence instead of reporting if some
     part of the input was incomprehensible or highly uncertain. 
 
-### 7. Evaluation
+## Evaluation
 
 The performance of an ASR system is measured by comparing the
 hypothesized transcriptions and reference transcriptions. Word error
@@ -394,7 +376,7 @@ deletions, substitutions and insertions are all considered as errors,
 and the WER is calculated by the rate of the number of errors to the
 number of words (N) in the reference.
 
-\\\[ WER = \\frac{I + D + S}{N} \* 100\\% \\\]
+$$ WER = \frac{I + D + S}{N} * 100\% $$
 
 Sentence Error Rate (SER) is also sometime used to evaluate the
 performance of ASR systems. SER computes the percentage of sentences
@@ -404,32 +386,6 @@ with at least one error.
 
 ### References
 
-Zhang, X. (2019). *Strategies for Handling Out-of-vocabulary Words in
-Automatic Speech Recognition*. Doctoral dissertation, The Johns Hopkins
-University, Baltimore, Maryland.
-
-  
-
-<div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ASR.png](attachments/165125762/165127143.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[ASR.png](attachments/165125762/165127140.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-1-22_13-52-42.png](attachments/165125762/165127639.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[untitled.png](attachments/165125762/165127650.png) (image/png)  
-
-</div>
+```{bibliography}
+:filter: docname in docnames
+```

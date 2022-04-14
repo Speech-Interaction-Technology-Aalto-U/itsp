@@ -16,8 +16,7 @@ applied include:
     recorded speech signal, for example with the objective of removing
     background noise (noise attenuation) or the effect of room
     acoustics.
--   [*Wake-word* and *keyword
-    detection*](Wake-word_and_keyword_spotting), refers to the task
+-   [*Wake-word* and *keyword detection*](Recognition/Wake-word_and_keyword_spotting), refers to the task
     where the purpose is to find single characterizing words from
     continuous speech. The idea is that by using a light-weight
     algorithm, we can extract useful information without a
@@ -26,7 +25,7 @@ applied include:
     the device sleeps until the wake-word is heard. Keyword detection
     can refer to similar task, or for example, the task of recognizing
     the topic of a conversation.
--   [*Voice activity detection* (VAD)](Voice_activity_detection_VAD_),
+-   [*Voice activity detection* (VAD)](Recognition/Voice_activity_detection.ipynb),
     refers to the task of determining whether a signal contains speech
     or not (is someone speaking?). Many of the above tasks are
     resource-intensive operations, such that we would like to, for

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.7. Linear prediction &#8212; Introduction to Speech Processing</title>
+    <title>3.9. Linear prediction &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,14 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.8. Fundamental frequency (F0)" href="Fundamental_frequency_F0.html" />
-    <link rel="prev" title="3.6. Cepstrum and MFCC" href="Cepstrum_and_MFCC.html" />
+    <link rel="next" title="3.10. Fundamental frequency (F0)" href="Fundamental_frequency_F0.html" />
+    <link rel="prev" title="3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)" href="Melcepstrum.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -163,63 +161,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Spectrogram_and_the_STFT.html">
-     3.4. Spectrogram and the STFT
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Autocorrelation_and_autocovariance.html">
-     3.5. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Cepstrum_and_MFCC.html">
-     3.6. Cepstrum and MFCC
+    <a class="reference internal" href="Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.7. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.8. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.9. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.10. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Jitter_and_shimmer.html">
-     3.12. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -351,18 +359,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -381,15 +384,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -632,37 +635,37 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition">
-   3.7.1. Definition
+   3.9.1. Definition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vector-notation">
-   3.7.2. Vector notation
+   3.9.2. Vector notation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parameter-estimation">
-   3.7.3. Parameter estimation
+   3.9.3. Parameter estimation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spectral-properties">
-   3.7.4. Spectral properties
+   3.9.4. Spectral properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#physiological-interpretation-and-model-order">
-   3.7.5. Physiological interpretation and model order
+   3.9.5. Physiological interpretation and model order
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uses-in-speech-coding">
-   3.7.6. Uses in speech coding
+   3.9.6. Uses in speech coding
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#alternative-representations-advanced-topic">
-   3.7.7. Alternative representations (advanced topic)
+   3.9.7. Alternative representations (advanced topic)
   </a>
  </li>
 </ul>
@@ -687,37 +690,37 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition">
-   3.7.1. Definition
+   3.9.1. Definition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vector-notation">
-   3.7.2. Vector notation
+   3.9.2. Vector notation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parameter-estimation">
-   3.7.3. Parameter estimation
+   3.9.3. Parameter estimation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spectral-properties">
-   3.7.4. Spectral properties
+   3.9.4. Spectral properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#physiological-interpretation-and-model-order">
-   3.7.5. Physiological interpretation and model order
+   3.9.5. Physiological interpretation and model order
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uses-in-speech-coding">
-   3.7.6. Uses in speech coding
+   3.9.6. Uses in speech coding
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#alternative-representations-advanced-topic">
-   3.7.7. Alternative representations (advanced topic)
+   3.9.7. Alternative representations (advanced topic)
   </a>
  </li>
 </ul>
@@ -730,9 +733,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="linear-prediction">
-<h1><span class="section-number">3.7. </span>Linear prediction<a class="headerlink" href="#linear-prediction" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.9. </span>Linear prediction<a class="headerlink" href="#linear-prediction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="definition">
-<h2><span class="section-number">3.7.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
 <p>Speech is a continuous signal, which means that consecutive samples of
 the signal are correlated (see figure on the right). In particular, if
 we know a previous sample <span class="math notranslate nohighlight">\(x_{n-1}\)</span>, we can make a <em>prediction</em>
@@ -757,7 +760,7 @@ near each other, which means that consecutive samples are correlated.</p>
 <p><img alt="speechsegment" src="../_images/149884842.png" /></p>
 </div>
 <div class="section" id="vector-notation">
-<h2><span class="section-number">3.7.2. </span>Vector notation<a class="headerlink" href="#vector-notation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9.2. </span>Vector notation<a class="headerlink" href="#vector-notation" title="Permalink to this headline">¶</a></h2>
 <p>Using vector notation, we can make the expressions more compact</p>
 <div class="math notranslate nohighlight">
 \[ e = Xa \]</div>
@@ -772,7 +775,7 @@ x_{N-2} &amp; \dots &amp; x_{N-M} \end{bmatrix}, \qquad a =
 <p>Here we calculated the residual for a length <span class="math notranslate nohighlight">\(N\)</span> frame of the signal.</p>
 </div>
 <div class="section" id="parameter-estimation">
-<h2><span class="section-number">3.7.3. </span>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9.3. </span>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">¶</a></h2>
 <p>Vector <span class="math notranslate nohighlight">\(a\)</span> holds the unknown coefficients of the predictor. To find the
 best possible predictor, we can minimize the minimum mean-square error
 (MMSE). The square error is the 2-norm of the residual, <span class="math notranslate nohighlight">\(
@@ -828,7 +831,7 @@ is, instead of <span class="math notranslate nohighlight">\(a\)</span> we get <s
 \frac{a'}{a'_0}. \)</span></p>
 </div>
 <div class="section" id="spectral-properties">
-<h2><span class="section-number">3.7.4. </span>Spectral properties<a class="headerlink" href="#spectral-properties" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9.4. </span>Spectral properties<a class="headerlink" href="#spectral-properties" title="Permalink to this headline">¶</a></h2>
 <p>Linear prediction is usually used to predict the current sample of a
 time-domain signal <span class="math notranslate nohighlight">\(x_{n}\)</span>. The usefulness of linear prediction
 however becomes evident by studying its Fourier spectrum Specifically,
@@ -844,7 +847,7 @@ must follow the shape of <span class="math notranslate nohighlight">\(X(z)\)</sp
 <em>envelope</em> of the spectrum.</p>
 </div>
 <div class="section" id="physiological-interpretation-and-model-order">
-<h2><span class="section-number">3.7.5. </span>Physiological interpretation and model order<a class="headerlink" href="#physiological-interpretation-and-model-order" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9.5. </span>Physiological interpretation and model order<a class="headerlink" href="#physiological-interpretation-and-model-order" title="Permalink to this headline">¶</a></h2>
 <p>Linear prediction has a surprising connection with physical modelling of
 <span class="xref myst">speech production</span>. Namely,
 a linear predictive model is equivalent with a <em>tube-model of the vocal
@@ -898,14 +901,14 @@ tube-segments</p>
 <p><img alt="tubemodel" src="../_images/1498892011.png" /></p>
 </div>
 <div class="section" id="uses-in-speech-coding">
-<h2><span class="section-number">3.7.6. </span>Uses in speech coding<a class="headerlink" href="#uses-in-speech-coding" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9.6. </span>Uses in speech coding<a class="headerlink" href="#uses-in-speech-coding" title="Permalink to this headline">¶</a></h2>
 <p>Linear prediction has been highly influential especially in early speech
 coders. In fact, the dominant speech coding method is <span class="xref myst">code-excited
 linear prediction (CELP)</span>, which
 is based on linear prediction.</p>
 </div>
 <div class="section" id="alternative-representations-advanced-topic">
-<h2><span class="section-number">3.7.7. </span>Alternative representations (advanced topic)<a class="headerlink" href="#alternative-representations-advanced-topic" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9.7. </span>Alternative representations (advanced topic)<a class="headerlink" href="#alternative-representations-advanced-topic" title="Permalink to this headline">¶</a></h2>
 <p>Suppose scalars <span class="math notranslate nohighlight">\(a_{m,k}\)</span>, are the coefficients of an <span class="math notranslate nohighlight">\(M\)</span>th
 order linear predictor. Coefficients of consecutive orders <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(M+1\)</span>
 are then related as</p>
@@ -959,17 +962,17 @@ today mostly of historical interest.</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Cepstrum_and_MFCC.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Melcepstrum.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.6. </span>Cepstrum and MFCC</p>
+            <p class="prev-next-title"><span class="section-number">3.8. </span>The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Fundamental_frequency_F0.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.8. </span>Fundamental frequency (F0)</p>
+        <p class="prev-next-title"><span class="section-number">3.10. </span>Fundamental frequency (F0)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

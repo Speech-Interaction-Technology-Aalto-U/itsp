@@ -48,12 +48,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8.3. Speech Recognition" href="Speech_Recognition.html" />
-    <link rel="prev" title="8.1. Voice activity detection (VAD)" href="Voice_activity_detection_VAD.html" />
+    <link rel="prev" title="8.1. Voice Activity Detection (VAD)" href="Voice_activity_detection.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -152,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -161,58 +159,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+    <a class="reference internal" href="../Representations/Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -344,18 +357,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -374,15 +382,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -398,8 +406,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="Voice_activity_detection_VAD.html">
-     8.1. Voice activity detection (VAD)
+    <a class="reference internal" href="Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -552,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
    13. Security and privacy in speech technology
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../References.html">
+   14. References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -628,11 +641,6 @@ const thebe_selector_output = ".output, .cell_output"
    8.2.1. References
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.2.2. Attachments:
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -658,11 +666,6 @@ const thebe_selector_output = ".output, .cell_output"
    8.2.1. References
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.2.2. Attachments:
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -674,10 +677,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="wake-word-and-keyword-spotting">
 <h1><span class="section-number">8.2. </span>Wake-word and keyword spotting<a class="headerlink" href="#wake-word-and-keyword-spotting" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Full large-vocabulary speech recognition is unnecessary and far too
 expensive for many practical applications. For a table lamp, it would
 quite sufficient if it understands “Light off” and “Light on.”  Besides,
@@ -696,16 +695,6 @@ by waiting for a “Hey computer!”. In the latter task, wake-word spotting
 is thus a trigger for more complex speech processing tasks. Though the
 two tasks have rather different objectives, the underlying technology is
 very similar and they will here be discussed jointly.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Most typically wake-word and keyword spotting algorithms run on devices
 with limited resources. They can be limited in memory footprint and in
 computation resources (CPU power) or often both. Increasing amount of
@@ -713,79 +702,24 @@ memory or using a larger CPU would both increase cost of device
 (investment cost), but would also require more power (maintenance cost).
 In small devices such marginal costs are a very significant part of the
 overall cost of the device.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>The overall structure of of keyword-spotting algorithms is illustrated
 below. The input speech signal is first converted to a feature
 representation, such as <span class="xref myst">MFCCs</span>, which are fed to a
 <span class="xref myst">neural network</span>, and the output is the likelihood of
 each keyword.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout single" layout="single">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/155474466/155474775.png"
-data-image-src="attachments/155474466/155474775.png"
-data-unresolved-comment-count="0" data-linked-resource-id="155474775"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="keyword_flow.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155474466"
-data-linked-resource-container-version="5" height="250" /></p>
-<p>Adapted from Yundong Zhang, Naveen Suda, Liangzhen Lai and Vikas
-Chandra, “Hello Edge: Keyword Spotting on Microcontrollers” .</p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="keyword_flow.png" src="../_images/155474775.png" /></p>
+<p>Adapted from <span id="id1">[<a class="reference internal" href="../References.html#id4" title="Yundong Zhang, Naveen Suda, Liangzhen Lai, and Vikas Chandra. Hello edge: keyword spotting on microcontrollers. arXiv preprint arXiv:1711.07128, 2017. URL: https://doi.org/10.48550/arXiv.1711.07128.">Zhang <em>et al.</em>, 2017</a>]</span></p>
 <p>In other words, keyword and wake-word spotters have a small set of
 accepted keywords, which are hard-coded into the software. If we have
 <em>N</em> possible keywords, then the neural network has <em>N</em> outputs
 corresponding to the probability that the input is each of those
 keywords. The output is then thresholded such that that keyword is
 chosen which has the largest probability.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>The choice of structure for the neural network is highly dependent on
 the device constraints as well as the objective, operating environment
 and context of the application. Usually the structure is a deep neural
 network featuring some recurrent, convolutional and long-short term
 memory (LSTM) components.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>A central challenge in training keyword spotting algorithms is finding
 and choosing training data. To get good quality, you would typically
 need several tens of thousands of utterances of the keywords, spoken by
@@ -798,45 +732,14 @@ should activate, or the desired wake-word. For real-world applications
 we therefore often cannot use pre-collected datasets, but have to
 collect our own. You can just imagine the workload required to collect
 65.000 utterances from over a thousand speakers!</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="references">
 <h2><span class="section-number">8.2.1. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://arxiv.org/pdf/1711.07128.pdf">Yundong Zhang, Naveen Suda, Liangzhen Lai and Vikas
-Chandra</a><a class="reference external" href="https://arxiv.org/pdf/1711.07128.pdf">, “Hello Edge:
-Keyword Spotting on Microcontrollers”
-. </a></p></li>
-<li><p><a class="reference external" href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html</a></p></li>
-<li><p><a class="reference external" href="https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1478.pdf">https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1478.pdf</a></p></li>
-</ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">8.2.2. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[keyword_flow.pdf](attachments/155474466/155474760.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[keyword_flow.png](attachments/155474466/155474775.png) (image/png)  
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">ZSLC17</a></span></dt>
+<dd><p>Yundong Zhang, Naveen Suda, Liangzhen Lai, and Vikas Chandra. Hello edge: keyword spotting on microcontrollers. <em>arXiv preprint arXiv:1711.07128</em>, 2017. URL: <a class="reference external" href="https://doi.org/10.48550/arXiv.1711.07128">https://doi.org/10.48550/arXiv.1711.07128</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -866,11 +769,11 @@ Keyword Spotting on Microcontrollers”
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Voice_activity_detection_VAD.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Voice_activity_detection.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8.1. </span>Voice activity detection (VAD)</p>
+            <p class="prev-next-title"><span class="section-number">8.1. </span>Voice Activity Detection (VAD)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Speech_Recognition.html" title="next page">

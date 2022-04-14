@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.1. Waveform &#8212; Introduction to Speech Processing</title>
+    <title>3.3. Waveform &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,14 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.2. Windowing" href="Windowing.html" />
-    <link rel="prev" title="3. Basic Representations" href="Representations.html" />
+    <link rel="next" title="3.4. Windowing" href="Windowing.html" />
+    <link rel="prev" title="3.2. Short-time processing of speech signals" href="Short-time_processing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -162,64 +160,74 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Spectrogram_and_the_STFT.html">
-     3.4. Spectrogram and the STFT
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Autocorrelation_and_autocovariance.html">
-     3.5. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Cepstrum_and_MFCC.html">
-     3.6. Cepstrum and MFCC
+    <a class="reference internal" href="Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Linear_prediction.html">
-     3.7. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.8. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.9. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.10. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Jitter_and_shimmer.html">
-     3.12. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -351,18 +359,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -381,15 +384,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -405,8 +408,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Recognition/Voice_activity_detection_VAD.html">
-     8.1. Voice activity detection (VAD)
+    <a class="reference internal" href="../Recognition/Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
     </a>
    </li>
    <li class="toctree-l2">
@@ -559,6 +562,11 @@ const thebe_selector_output = ".output, .cell_output"
    13. Security and privacy in speech technology
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../References.html">
+   14. References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -649,120 +657,120 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sampling-rate">
-   3.1.1. Sampling rate
+   3.3.1. Sampling rate
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#static-demo">
-   3.1.2. Static demo
+   3.3.2. Static demo
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#on-line-demo">
-   3.1.3. On-line demo
+   3.3.3. On-line demo
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#original-sound-sample">
-     3.1.3.1. Original sound sample
+     3.3.3.1. Original sound sample
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resampling">
-     3.1.3.2. Resampling
+     3.3.3.2. Resampling
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#accuracy-and-distribution-of-steps-on-the-amplitude-axis">
-   3.1.4. Accuracy and distribution of steps on the amplitude axis
+   3.3.4. Accuracy and distribution of steps on the amplitude axis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#linear-quantization">
-     3.1.4.1. Linear quantization
+     3.3.4.1. Linear quantization
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#logarithmic-quantization-and-mu-law">
-     3.1.4.2. Logarithmic quantization and mu-law
+     3.3.4.2. Logarithmic quantization and mu-law
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wav-files">
-   3.1.5. Wav-files
+   3.3.5. Wav-files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adaptive-quantization-apcm">
-   3.1.6. Adaptive quantization, APCM
+   3.3.6. Adaptive quantization, APCM
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-quantization-step">
-     3.1.6.1. Adaptive quantization with the feed-forward algorithm using an adaptive quantization step
+     3.3.6.1. Adaptive quantization with the feed-forward algorithm using an adaptive quantization step
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-gain-compressor">
-     3.1.6.2. Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)
+     3.3.6.2. Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-quantization-step">
-     3.1.6.3. Adaptive quantization with the feed-backward algorithm using an adaptive quantization step
+     3.3.6.3. Adaptive quantization with the feed-backward algorithm using an adaptive quantization step
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-gain-coefficient">
-     3.1.6.4. Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient
+     3.3.6.4. Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#differential-quantization-dpcm">
-       3.1.6.4.1. Differential quantization DPCM
+       3.3.6.4.1. Differential quantization DPCM
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-and-differential-quantization-with-feed-forward">
-     3.1.6.5. Adaptive and differential quantization with feed-forward
+     3.3.6.5. Adaptive and differential quantization with feed-forward
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-differential-quantization-with-feed-backward">
-     3.1.6.6. Adaptive differential quantization with feed-backward
+     3.3.6.6. Adaptive differential quantization with feed-backward
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-differential-quantization-w-adaptive-predictor">
-     3.1.6.7. Adaptive differential quantization w/ adaptive predictor
+     3.3.6.7. Adaptive differential quantization w/ adaptive predictor
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparison-of-the-snr-of-different-quantizers-not-perceptual">
-     3.1.6.8. Comparison of the SNR of different quantizers (not perceptual)
+     3.3.6.8. Comparison of the SNR of different quantizers (not perceptual)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#source-modelling-in-quantization">
-   3.1.7. Source modelling in quantization
+   3.3.7. Source modelling in quantization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusion">
-   3.1.8. Conclusion
+   3.3.8. Conclusion
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#refrences">
-   3.1.9. Refrences
+   3.3.9. Refrences
   </a>
  </li>
 </ul>
@@ -787,120 +795,120 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sampling-rate">
-   3.1.1. Sampling rate
+   3.3.1. Sampling rate
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#static-demo">
-   3.1.2. Static demo
+   3.3.2. Static demo
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#on-line-demo">
-   3.1.3. On-line demo
+   3.3.3. On-line demo
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#original-sound-sample">
-     3.1.3.1. Original sound sample
+     3.3.3.1. Original sound sample
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resampling">
-     3.1.3.2. Resampling
+     3.3.3.2. Resampling
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#accuracy-and-distribution-of-steps-on-the-amplitude-axis">
-   3.1.4. Accuracy and distribution of steps on the amplitude axis
+   3.3.4. Accuracy and distribution of steps on the amplitude axis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#linear-quantization">
-     3.1.4.1. Linear quantization
+     3.3.4.1. Linear quantization
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#logarithmic-quantization-and-mu-law">
-     3.1.4.2. Logarithmic quantization and mu-law
+     3.3.4.2. Logarithmic quantization and mu-law
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wav-files">
-   3.1.5. Wav-files
+   3.3.5. Wav-files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adaptive-quantization-apcm">
-   3.1.6. Adaptive quantization, APCM
+   3.3.6. Adaptive quantization, APCM
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-quantization-step">
-     3.1.6.1. Adaptive quantization with the feed-forward algorithm using an adaptive quantization step
+     3.3.6.1. Adaptive quantization with the feed-forward algorithm using an adaptive quantization step
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-gain-compressor">
-     3.1.6.2. Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)
+     3.3.6.2. Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-quantization-step">
-     3.1.6.3. Adaptive quantization with the feed-backward algorithm using an adaptive quantization step
+     3.3.6.3. Adaptive quantization with the feed-backward algorithm using an adaptive quantization step
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-gain-coefficient">
-     3.1.6.4. Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient
+     3.3.6.4. Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#differential-quantization-dpcm">
-       3.1.6.4.1. Differential quantization DPCM
+       3.3.6.4.1. Differential quantization DPCM
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-and-differential-quantization-with-feed-forward">
-     3.1.6.5. Adaptive and differential quantization with feed-forward
+     3.3.6.5. Adaptive and differential quantization with feed-forward
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-differential-quantization-with-feed-backward">
-     3.1.6.6. Adaptive differential quantization with feed-backward
+     3.3.6.6. Adaptive differential quantization with feed-backward
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaptive-differential-quantization-w-adaptive-predictor">
-     3.1.6.7. Adaptive differential quantization w/ adaptive predictor
+     3.3.6.7. Adaptive differential quantization w/ adaptive predictor
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparison-of-the-snr-of-different-quantizers-not-perceptual">
-     3.1.6.8. Comparison of the SNR of different quantizers (not perceptual)
+     3.3.6.8. Comparison of the SNR of different quantizers (not perceptual)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#source-modelling-in-quantization">
-   3.1.7. Source modelling in quantization
+   3.3.7. Source modelling in quantization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusion">
-   3.1.8. Conclusion
+   3.3.8. Conclusion
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#refrences">
-   3.1.9. Refrences
+   3.3.9. Refrences
   </a>
  </li>
 </ul>
@@ -913,7 +921,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="waveform">
-<h1><span class="section-number">3.1. </span>Waveform<a class="headerlink" href="#waveform" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.3. </span>Waveform<a class="headerlink" href="#waveform" title="Permalink to this headline">¶</a></h1>
 <p>Speech signals are sound signals, defined as pressure variations
 travelling through the air. These variations in pressure can be
 described as waves and correspondingly they are often called sound
@@ -931,7 +939,7 @@ between <span class="math notranslate nohighlight">\(n\)</span> and <span class=
 amplitudes of <span class="math notranslate nohighlight">\(x_n\)</span>.</p>
 <p><img alt="waveform" src="../_images/1482949661.png" /></p>
 <div class="section" id="sampling-rate">
-<h2><span class="section-number">3.1.1. </span>Sampling rate<a class="headerlink" href="#sampling-rate" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.1. </span>Sampling rate<a class="headerlink" href="#sampling-rate" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Sampling_(signal_processing)">Sampling</a>
 is a classic topic of signal processing. Here the most important aspect
 is the Nyquist frequency, which is half the sampling rate
@@ -958,7 +966,7 @@ music and generic audio.</p>
 <p><img alt="bws" src="../_images/175528670.png" /></p>
 </div>
 <div class="section" id="static-demo">
-<h2><span class="section-number">3.1.2. </span>Static demo<a class="headerlink" href="#static-demo" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.2. </span>Static demo<a class="headerlink" href="#static-demo" title="Permalink to this headline">¶</a></h2>
 <p>Sound samples at different bandwidths</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1021,9 +1029,9 @@ music and generic audio.</p>
 </div>
 </div>
 <div class="section" id="on-line-demo">
-<h2><span class="section-number">3.1.3. </span>On-line demo<a class="headerlink" href="#on-line-demo" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.3. </span>On-line demo<a class="headerlink" href="#on-line-demo" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="original-sound-sample">
-<h3><span class="section-number">3.1.3.1. </span>Original sound sample<a class="headerlink" href="#original-sound-sample" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.3.1. </span>Original sound sample<a class="headerlink" href="#original-sound-sample" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="o">*</span>
@@ -1068,7 +1076,7 @@ music and generic audio.</p>
 </div>
 </div>
 <div class="section" id="resampling">
-<h3><span class="section-number">3.1.3.2. </span>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.3.2. </span>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">sampling_rate</span><span class="o">=</span><span class="mi">16000</span><span class="p">):</span>
@@ -1109,12 +1117,12 @@ music and generic audio.</p>
 </div>
 </div>
 <div class="section" id="accuracy-and-distribution-of-steps-on-the-amplitude-axis">
-<h2><span class="section-number">3.1.4. </span>Accuracy and distribution of steps on the amplitude axis<a class="headerlink" href="#accuracy-and-distribution-of-steps-on-the-amplitude-axis" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.4. </span>Accuracy and distribution of steps on the amplitude axis<a class="headerlink" href="#accuracy-and-distribution-of-steps-on-the-amplitude-axis" title="Permalink to this headline">¶</a></h2>
 <p>In digital representations of a signal you are forced to use a finite
 number of steps to describe the amplitude. In practice, we must quantize
 the signal to some discrete levels.</p>
 <div class="section" id="linear-quantization">
-<h3><span class="section-number">3.1.4.1. </span>Linear quantization<a class="headerlink" href="#linear-quantization" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.4.1. </span>Linear quantization<a class="headerlink" href="#linear-quantization" title="Permalink to this headline">¶</a></h3>
 <p>Linear quantization with a step size <span class="math notranslate nohighlight">\(\Delta q \)</span> would correspond
 to defining the quantized signal as</p>
 <div class="math notranslate nohighlight">
@@ -1174,7 +1182,7 @@ the amplitudes of speech signals vary on a large range.</p>
 </div>
 </div>
 <div class="section" id="logarithmic-quantization-and-mu-law">
-<h3><span class="section-number">3.1.4.2. </span>Logarithmic quantization and mu-law<a class="headerlink" href="#logarithmic-quantization-and-mu-law" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.4.2. </span>Logarithmic quantization and mu-law<a class="headerlink" href="#logarithmic-quantization-and-mu-law" title="Permalink to this headline">¶</a></h3>
 <p>To retain equal accuracy for loud and weak signals, we <em>could</em> quantize
 on an logarithmic scale as
 $<span class="math notranslate nohighlight">\( \hat x = {\mathrm{sign}}(x)\cdot\exp\left[ \Delta
@@ -1205,7 +1213,7 @@ logarithm for large <span class="math notranslate nohighlight">\(x\)</span>, but
 </div>
 </div>
 <div class="section" id="wav-files">
-<h2><span class="section-number">3.1.5. </span>Wav-files<a class="headerlink" href="#wav-files" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.5. </span>Wav-files<a class="headerlink" href="#wav-files" title="Permalink to this headline">¶</a></h2>
 <p>The most typical format for storing sound signals is the <a class="reference external" href="https://en.wikipedia.org/wiki/WAV">wav-file
 format</a>. It is basically merely a way
 to store a time sequence, with typically either 16 or 32 bit accuracy,
@@ -1217,7 +1225,7 @@ channel) sound with a sampling rate of 44.1kHz requires 160 MB of disk
 space.</p>
 </div>
 <div class="section" id="adaptive-quantization-apcm">
-<h2><span class="section-number">3.1.6. </span>Adaptive quantization, APCM<a class="headerlink" href="#adaptive-quantization-apcm" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.6. </span>Adaptive quantization, APCM<a class="headerlink" href="#adaptive-quantization-apcm" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>To obtain a uniform quantization error during single phones or
 sentences, the quantization error has to change slowly over time.</p></li>
@@ -1238,7 +1246,7 @@ signal before quantization.</p></li>
 <p><img alt="apcm1" src="../_images/175529208.png" />
 <img alt="apcm2" src="../_images/175529206.png" /></p>
 <div class="section" id="adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-quantization-step">
-<h3><span class="section-number">3.1.6.1. </span>Adaptive quantization with the feed-forward algorithm using an adaptive quantization step<a class="headerlink" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-quantization-step" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.1. </span>Adaptive quantization with the feed-forward algorithm using an adaptive quantization step<a class="headerlink" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-quantization-step" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The feed-forward algorithm requires that in addition to the
 quantized signal, also the gain-coefficients or the quantization
@@ -1253,7 +1261,7 @@ applications which try to minimize transmission rate.</p></li>
 <p><img alt="waveform" src="../_images/175529207.png" /></p>
 </div>
 <div class="section" id="adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-gain-compressor">
-<h3><span class="section-number">3.1.6.2. </span>Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)<a class="headerlink" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-gain-compressor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.2. </span>Adaptive quantization with the feed-forward algorithm using an adaptive gain (compressor)<a class="headerlink" href="#adaptive-quantization-with-the-feed-forward-algorithm-using-an-adaptive-gain-compressor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>In <em>feed-backward</em> algorithms the quantization step or
 gain-coefficient is determined from previous samples which are
@@ -1264,7 +1272,7 @@ already quantized.</p></li>
 <p><img alt="waveform" src="../_images/175529205.png" /></p>
 </div>
 <div class="section" id="adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-quantization-step">
-<h3><span class="section-number">3.1.6.3. </span>Adaptive quantization with the feed-backward algorithm using an adaptive quantization step<a class="headerlink" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-quantization-step" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.3. </span>Adaptive quantization with the feed-backward algorithm using an adaptive quantization step<a class="headerlink" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-quantization-step" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Note that the feed-forward algorithms all require transmission of the scaling or gain coefficient, which can increase demand on bandwidth and adds to the complexity of the system.</p></li>
 <li><p>The parallel transmission line can be avoided by predicting those
@@ -1274,14 +1282,14 @@ feed-backward algorithm.</p></li>
 <p><img alt="waveform" src="../_images/175529204.png" /></p>
 </div>
 <div class="section" id="adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-gain-coefficient">
-<h3><span class="section-number">3.1.6.4. </span>Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient<a class="headerlink" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-gain-coefficient" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.4. </span>Adaptive quantization with the feed-backward algorithm using an adaptive gain coefficient<a class="headerlink" href="#adaptive-quantization-with-the-feed-backward-algorithm-using-an-adaptive-gain-coefficient" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The feed-backward algorithm can naturally be applied on gain
 adaptation as well.</p></li>
 </ul>
 <p><img alt="waveform" src="../_images/175529203.png" /></p>
 <div class="section" id="differential-quantization-dpcm">
-<h4><span class="section-number">3.1.6.4.1. </span>Differential quantization DPCM<a class="headerlink" href="#differential-quantization-dpcm" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.3.6.4.1. </span>Differential quantization DPCM<a class="headerlink" href="#differential-quantization-dpcm" title="Permalink to this headline">¶</a></h4>
 <ul>
 <li><p>In <em>differential quantization</em> we predict the subsequent sample,
 whereby we can quantize only the difference between the prediction
@@ -1306,7 +1314,7 @@ x_k. \)</span></p></li>
 </div>
 </div>
 <div class="section" id="adaptive-and-differential-quantization-with-feed-forward">
-<h3><span class="section-number">3.1.6.5. </span>Adaptive and differential quantization with feed-forward<a class="headerlink" href="#adaptive-and-differential-quantization-with-feed-forward" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.5. </span>Adaptive and differential quantization with feed-forward<a class="headerlink" href="#adaptive-and-differential-quantization-with-feed-forward" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The differential, source-model based quantization can naturally be combined with adaptive, perception-based quantization.</p></li>
 <li><p>The adaptive differential PCM (ADPCM) adaptively predicts the signal and adaptively choosing the quantization step.</p></li>
@@ -1314,13 +1322,13 @@ x_k. \)</span></p></li>
 <p><img alt="waveform" src="../_images/175529202.png" /></p>
 </div>
 <div class="section" id="adaptive-differential-quantization-with-feed-backward">
-<h3><span class="section-number">3.1.6.6. </span>Adaptive differential quantization with feed-backward<a class="headerlink" href="#adaptive-differential-quantization-with-feed-backward" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.6. </span>Adaptive differential quantization with feed-backward<a class="headerlink" href="#adaptive-differential-quantization-with-feed-backward" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The ADPCM can again, naturally, be implemented as a feed-backward algorithm as well.</p></li>
 </ul>
 </div>
 <div class="section" id="adaptive-differential-quantization-w-adaptive-predictor">
-<h3><span class="section-number">3.1.6.7. </span>Adaptive differential quantization w/ adaptive predictor<a class="headerlink" href="#adaptive-differential-quantization-w-adaptive-predictor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.7. </span>Adaptive differential quantization w/ adaptive predictor<a class="headerlink" href="#adaptive-differential-quantization-w-adaptive-predictor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>A differential quantizer can be further improved by letting also the
 predictor be adaptive.</p></li>
@@ -1330,7 +1338,7 @@ predictor be adaptive.</p></li>
 <p><img alt="waveform" src="../_images/175529201.png" /></p>
 </div>
 <div class="section" id="comparison-of-the-snr-of-different-quantizers-not-perceptual">
-<h3><span class="section-number">3.1.6.8. </span>Comparison of the SNR of different quantizers (not perceptual)<a class="headerlink" href="#comparison-of-the-snr-of-different-quantizers-not-perceptual" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.6.8. </span>Comparison of the SNR of different quantizers (not perceptual)<a class="headerlink" href="#comparison-of-the-snr-of-different-quantizers-not-perceptual" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The more bits we can use the better the quality (Duh!).</p></li>
 <li><p>The more prior information we can use about the signal the better
@@ -1353,7 +1361,7 @@ Adapted from <span id="id1">[<a class="reference internal" href="#id4" title="Pe
 </div>
 </div>
 <div class="section" id="source-modelling-in-quantization">
-<h2><span class="section-number">3.1.7. </span>Source modelling in quantization<a class="headerlink" href="#source-modelling-in-quantization" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.7. </span>Source modelling in quantization<a class="headerlink" href="#source-modelling-in-quantization" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Adaptive quantization is based on our understanding of perception;
 we use the knowledge that we prefer slowly changing quantization
@@ -1387,7 +1395,7 @@ noticeable.</p></li>
 <p><img alt="source" src="../_images/175529216.png" /></p>
 </div>
 <div class="section" id="conclusion">
-<h2><span class="section-number">3.1.8. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.8. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Time-domain representation of speech signals is simple in
 floating-point processors.</p>
@@ -1424,7 +1432,7 @@ are very much alike modern machine learning methods.</p></li>
 </ul>
 </div>
 <div class="section" id="refrences">
-<h2><span class="section-number">3.1.9. </span>Refrences<a class="headerlink" href="#refrences" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.9. </span>Refrences<a class="headerlink" href="#refrences" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container" id="id2">
 <dl class="citation">
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">Nol75</a></span></dt>
@@ -1460,17 +1468,17 @@ are very much alike modern machine learning methods.</p></li>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Representations.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Short-time_processing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3. </span>Basic Representations</p>
+            <p class="prev-next-title"><span class="section-number">3.2. </span>Short-time processing of speech signals</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Windowing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.2. </span>Windowing</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Windowing</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

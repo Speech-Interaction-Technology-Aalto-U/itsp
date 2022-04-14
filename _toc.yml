@@ -19,12 +19,14 @@ chapters:
     title: Social and cognitive processes in human communication (external)
 - file: Representations/Representations.md
   sections:
+  - file: Representations/Short-time_analysis.ipynb
+  - file: Representations/Short-time_processing.ipynb
   - file: Representations/Waveform.ipynb
   - file: Representations/Windowing.md
   - file: Representations/Signal_energy_loudness_and_decibel.md
   - file: Representations/Spectrogram_and_the_STFT.ipynb
-  - file: Representations/Autocorrelation_and_autocovariance.md
-  - file: Representations/Cepstrum_and_MFCC.md
+  - file: Representations/Autocorrelation_and_autocovariance.ipynb
+  - file: Representations/Melcepstrum.ipynb
   - file: Representations/Linear_prediction.md
   - file: Representations/Fundamental_frequency_F0.ipynb
   - file: Representations/Zero-crossing_rate.md
@@ -57,7 +59,6 @@ chapters:
 - file: Speech_analysis.md
   sections:
   - file: Analysis/Fundamental_frequency_estimation.md
-  - file: Analysis/Inverse_filtering_for_glottal_activity_estimation.md
   - url: https://en.wikipedia.org/wiki/Voice_analysis
     title: Voice and speech analysis (Wikipedia)
   - file: Analysis/Measurements_for_medical_applications.md
@@ -66,11 +67,11 @@ chapters:
         title: Electroglottography (Wikipedia)
       - url: https://en.wikipedia.org/wiki/Videokymography
         title: Videokymography (Wikipedia)
-      - file: Analysis/Glottal_inverse_filtering.md
+      - file: Analysis/Inverse_filtering_for_glottal_activity_estimation.md
   - file: Analysis/Forensic_analysis.md
 - file: Recognition_tasks_in_speech_processing.md
   sections:
-  - file: Recognition/Voice_activity_detection_VAD.md
+  - file: Recognition/Voice_activity_detection.ipynb
   - file: Recognition/Wake-word_and_keyword_spotting.md
   - file: Recognition/Speech_Recognition.md
   - file: Recognition/Speaker_Recognition_and_Verification.md
@@ -102,3 +103,4 @@ chapters:
   title: Chatbots / Conversational design (external link)
 - file: Computational_models_of_human_language_processing.md
 - file: Security_and_privacy_in_speech_technology.md
+- file: References.md

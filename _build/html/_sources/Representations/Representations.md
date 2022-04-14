@@ -2,11 +2,13 @@
 
 
 1.  [Waveform](Waveform.ipynb) <!-- checked -->
+1.  [Short-time analysis](Short-time_analysis.ipynb)
+1.  [Short-time processing](Short-time_processing.ipynb)
 2.  [Windowing](Windowing.md)
 3.  [Signal energy, loudness and decibel](Signal_energy_loudness_and_decibel.md)
 4.  [Spectrogram and the STFT](Spectrogram_and_the_STFT.ipynb)
 5.  [Autocorrelation and autocovariance](Autocorrelation_and_autocovariance.md)
-6.  [Cepstrum and MFCC](Cepstrum_and_MFCC.md)
+6.  [Cepstrum and MFCC](Melcepstrum.ipynb)
 7.  [Linear prediction](Linear_prediction.md)
 8.  [Fundamental frequency (F0)](Fundamental_frequency_F0.ipynb)
 9.  [Zero-crossing rate](Zero-crossing_rate.md)

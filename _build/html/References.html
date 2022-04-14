@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>References &#8212; Introduction to Speech Processing</title>
+    <title>14. References &#8212; Introduction to Speech Processing</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,10 +48,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="13. Security and privacy in speech technology" href="Security_and_privacy_in_speech_technology.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -95,7 +94,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Preface.html">
    1. Preface
@@ -150,7 +149,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -159,58 +158,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Representations/Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Spectrogram_and_the_STFT.html">
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+    <a class="reference internal" href="Representations/Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -342,18 +356,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -372,15 +381,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -396,8 +405,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="Recognition/Voice_activity_detection_VAD.html">
-     8.1. Voice activity detection (VAD)
+    <a class="reference internal" href="Recognition/Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
     </a>
    </li>
    <li class="toctree-l2">
@@ -550,6 +559,11 @@ const thebe_selector_output = ".output, .cell_output"
    13. Security and privacy in speech technology
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   14. References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -616,19 +630,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   Attachments:
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -641,19 +642,6 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   Attachments:
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -661,107 +649,19 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="references">
-<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
-<table class="aui">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>cite ID</th>
-<th>cite</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>hayes1996statistical</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@book{hayes1996statistical,\n  title={Statistical Digital Signal Processing and Modeling},\n  author={Hayes, M H},\n  year={1996},\n  publisher={John Wiley \\&amp; Sons}\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:hayes1996statistical:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="even">
-<td>harris1978use</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@article{harris1978use,\n  title={On the use of windows for harmonic analysis with the discrete {Fourier} transform},\n  author={Harris, F J},\n  journal=IEEE_J_PROC,\n  volume={66},\n  number={1},\n  pages={51--83},\n  year={1978},\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:harris1978use:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="odd">
-<td>nuttall1971spectral</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@techreport{nuttall1971spectral,\n  title={Spectral analysis by means of overlapped fast {Fourier} transform processing of windowed data},\n  author={Nuttall, AH},\n  year={1971},\n  institution={NUSC Tech. Rep, 4169}\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:nuttall1971spectral:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="even">
-<td>backstrom2019ola</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@inproceedings{backstrom2019ola,\ntitle = \&quot;Overlap-Add Windows with Maximum Energy Concentration for Speech and Audio Processing\&quot;,\nauthor = {Tom Bäckström},\nbooktitle = {accepted to ICASSP},\nyear = 2019,\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:backstrom2019ola:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="odd">
-<td>backstrom2013:win</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@inproceedings{backstrom2013:win,\n  author = {Bäckström, T},\n  title = {Comparison of Windowing in Speech and Audio Coding},\n  booktitle = waspaa,\n  year = {2013},\n  month = oct,\n  abstract = {Speech and audio coding have during the last decade converged to an\n\tincreasingly unified technology. This contribution discusses one\n\tof the remaining fundamental differences between speech and audio\n\tparadigms, namely, windowing of the input signal. Audio codecs generally\n\tuse lapped transforms and apply a perceptual model in the transform\n\tdomain, whereby temporal continuity is achieved by windowing and\n\toverlap-add. Speech codecs on the other hand achieve temporal continuity\n\tby using linear predictive filtering, whereby windowing is applied\n\tin the residual domain. Despite these fundamental differences, we\n\tdemonstrate that the two windowing approaches, combined with perceptual\n\tmodeling, perform very similarly both in terms of perceptual quality\n\tand theoretical properties.},\n  days = {20},\n  keywords = {lapped orthogonal transform; speech coding; audio coding; windowing;\n\tperceptual modelling}\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:backstrom2013:win:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="even">
-<td>backstrom2017celp</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@book{backstrom2017celp,\n  title = {Speech Coding with Code-Excited Linear Prediction},\n  author = {Bäckström, T},\n  publisher = {Springer},\n  howpublished = \&quot;\\url{http://www.springer.com/gp/book/9783319502021}\&quot;,\n  year = {2017},\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:backstrom2017celp:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="odd">
-<td>Bosi:2003</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@book{Bosi:2003,\n  title = {Introduction to Digital Audio Coding and Standards},\n  publisher = {Kluwer Academic Publishers},\n  year = {2003},\n  author = {M Bosi and R E Goldberg},\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:Bosi:2003:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="even">
-<td>malvar1990lapped</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@article{malvar1990lapped,\n  title={Lapped transforms for efficient transform/subband coding},\n  author={Malvar, H S},\n  journal=IEEE_J_ASSP,\n  volume={38},\n  number={6},\n  pages={969--978},\n  year={1990},\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:malvar1990lapped:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="odd">
-<td>malvar1992signal</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@book{malvar1992signal,\n  title={Signal processing with lapped transforms},\n  author={Malvar, H S},\n  year={1992},\n  publisher={Artech House, Inc.}\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:malvar1992signal:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="even">
-<td>edler1989coding</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@article{edler1989coding,\n  title={Coding of audio signals with overlapping block transform and adaptive window functions}, \n  author={Edler, B},\n  journal={Frequenz},\n  volume={43},\n  number={9},\n  pages={252--256},\n  year={1989}\n}&quot;,&quot;cacheKey&quot;:&quot;148295769:1:edler1989coding:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-<tr class="odd">
-<td>vilkamo2017timefrequency</td>
-<td><div class="simple-cite-render simple-cite-bibtex-listing-cite"
-data-render-task="{&quot;type&quot;:&quot;bibTeX&quot;,&quot;format&quot;:&quot;ieee&quot;,&quot;bibTeXEntry&quot;:&quot;@incollection{vilkamo2017timefrequency,\n  title={Time-Frequency Processing: Methods and Tools},\n  booktitle={Parametric Time-Frequency Domain Spatial Audio},\n  author={Vilkamo, J and Bäckström, T},\n  editor={Pulkki, V and Delikaris-Manias, S and Politis, A},\n  publisher={Wiley},\n  year=2017,\n  pages={3--24},\n  }&quot;,&quot;cacheKey&quot;:&quot;148295769:1:vilkamo2017timefrequency:ieee:1100&quot;}"
-data-cite-rendered="false">
-</div></td>
-</tr>
-</tbody>
-</table>
-<div class="pageSectionHeader">
-<div class="section" id="attachments">
-<h2>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[itsp_refs.bib](attachments/148295770/148295769.bib)
-(application/octet-stream)  
-</div>
+<h1><span class="section-number">14. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<div class="docutils container" id="id1">
+<dl class="citation">
+<dt class="label" id="id3"><span class="brackets">1</span></dt>
+<dd><p>Peter Noll. A comparative study of various quantization schemes for speech encoding. <em>Bell System Technical Journal</em>, 54(9):1597–1614, 1975. URL: <a class="reference external" href="https://doi.org/10.1002/j.1538-7305.1975.tb02053.x">https://doi.org/10.1002/j.1538-7305.1975.tb02053.x</a>.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">2</span></dt>
+<dd><p>Tom Bäckström, Jérémie Lecomte, Guillaume Fuchs, Sascha Disch, and Christian Uhle. <em>Speech coding: with code-excited linear prediction</em>. Springer, 2017. URL: <a class="reference external" href="https://doi.org/10.1007/978-3-319-50204-5">https://doi.org/10.1007/978-3-319-50204-5</a>.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">3</span></dt>
+<dd><p>Yundong Zhang, Naveen Suda, Liangzhen Lai, and Vikas Chandra. Hello edge: keyword spotting on microcontrollers. <em>arXiv preprint arXiv:1711.07128</em>, 2017. URL: <a class="reference external" href="https://doi.org/10.48550/arXiv.1711.07128">https://doi.org/10.48550/arXiv.1711.07128</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -789,7 +689,14 @@ data-cite-rendered="false">
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Security_and_privacy_in_speech_technology.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">13. </span>Security and privacy in speech technology</p>
+        </div>
+    </a>
 </div>
             
         </div>

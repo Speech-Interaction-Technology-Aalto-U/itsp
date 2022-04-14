@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.5. Autocorrelation and autocovariance &#8212; Introduction to Speech Processing</title>
+    <title>3.7. Autocorrelation and autocovariance &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,14 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.6. Cepstrum and MFCC" href="Cepstrum_and_MFCC.html" />
-    <link rel="prev" title="3.4. Spectrogram and the STFT" href="Spectrogram_and_the_STFT.html" />
+    <link rel="next" title="3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)" href="Melcepstrum.html" />
+    <link rel="prev" title="3.6. Spectrogram and the STFT" href="Spectrogram_and_the_STFT.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -163,63 +161,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Spectrogram_and_the_STFT.html">
-     3.4. Spectrogram and the STFT
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.5. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Cepstrum_and_MFCC.html">
-     3.6. Cepstrum and MFCC
+    <a class="reference internal" href="Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Linear_prediction.html">
-     3.7. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.8. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.9. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.10. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Jitter_and_shimmer.html">
-     3.12. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -351,18 +359,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -381,15 +384,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -600,9 +603,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Representations/Autocorrelation_and_autocovariance.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Representations/Autocorrelation_and_autocovariance.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -619,6 +622,23 @@ const thebe_selector_output = ".output, .cell_output"
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Representations/Autocorrelation_and_autocovariance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -644,7 +664,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="autocorrelation-and-autocovariance">
-<h1><span class="section-number">3.5. </span>Autocorrelation and autocovariance<a class="headerlink" href="#autocorrelation-and-autocovariance" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.7. </span>Autocorrelation and autocovariance<a class="headerlink" href="#autocorrelation-and-autocovariance" title="Permalink to this headline">¶</a></h1>
 <p>Look at the speech signal segment below. On a large scale it is
 hard to discern a structure, but on a small scale, the signal seems
 continuous. Speech signals typically have such structure that samples
@@ -659,8 +679,42 @@ x and y as</p>
 \text{correlation: } &amp; \rho_{xy} =
 \frac{E[xy]}{\sqrt{E[x^2]E[y^2]}}, \end{split} \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(E[ \cdot ]\)</span> is the expectation operator.</p>
-<p>Short segment of speech</p>
-<p><img alt="speechsegment" src="../_images/149884842.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+
+<span class="c1"># read from storage</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;sounds/test.wav&#39;</span>
+<span class="n">fs</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="n">window_length_ms</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">window_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">fs</span><span class="o">*</span><span class="n">window_length_ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="n">window_length</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="n">window_length</span><span class="p">)</span>
+
+<span class="c1">#windowpos = np.random.randint(int((len(data)-window_length)))</span>
+<span class="n">windowpos</span> <span class="o">=</span> <span class="mi">92274</span>
+
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">windowpos</span><span class="p">:(</span><span class="n">windowpos</span><span class="o">+</span><span class="n">window_length</span><span class="p">)]</span>
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">datawin</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">datawin</span><span class="p">))</span> <span class="c1"># normalize</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span><span class="n">datawin</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A window of a signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Autocorrelation_and_autocovariance_1_0.png" src="../_images/Autocorrelation_and_autocovariance_1_0.png" />
+</div>
+</div>
 <p>For a speech signal <span class="math notranslate nohighlight">\(x_{n}\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the time-index, we
 would like to measure the correlation between two
 time-indices <span class="math notranslate nohighlight">\(x_{n}\)</span> and <span class="math notranslate nohighlight">\(x_{h}\)</span>. Since the structure
@@ -672,7 +726,7 @@ over all <span class="math notranslate nohighlight">\(n\)</span> within the se
 known as the <em>autocorrelation</em> and <em>autocovariance</em> are defined as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \begin{split} \text{autocovariance: } &amp; r_{k} =
-E_n[x_nx_{n-k}] \\\ \text{autocorrelation: } &amp; c_{k} =
+E_n[x_nx_{n-k}] \\ \text{autocorrelation: } &amp; c_{k} =
 \frac{E_n[x_nx_{n-k}]}{E_n[x_n^2]} = \frac{r_k}{r_0}.
 \end{split} \end{split}\]</div>
 <p>The figure below illustrates the autocovariance of the above
@@ -688,8 +742,59 @@ the above formulations, we can readily see that autocovarinaces and
 E_n[x_{n+k}x_{n}] = r_{-k}. \]</div>
 <p>This symmetry is clearly visible in the figure below, where the
 curve is mirrored around lag 0.</p>
-<p>The autocovariance of a speech segment</p>
-<p><img alt="covariance" src="../_images/149884843.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">scipy.fft</span>
+
+
+<span class="c1"># read from storage</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;sounds/test.wav&#39;</span>
+<span class="n">fs</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="n">window_length_ms</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">window_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">fs</span><span class="o">*</span><span class="n">window_length_ms</span><span class="o">/</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="n">window_length</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="n">window_length</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">window_length</span><span class="p">,</span><span class="n">window_length</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="n">window_length</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># windowing function</span>
+<span class="n">windowing_fn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">window_length</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># sine-window</span>
+
+
+<span class="c1">#windowpos = np.random.randint(int((len(data)-window_length)))</span>
+<span class="n">windowpos</span> <span class="o">=</span> <span class="mi">92274</span>
+
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">windowpos</span><span class="p">:(</span><span class="n">windowpos</span><span class="o">+</span><span class="n">window_length</span><span class="p">)]</span>
+<span class="n">datawin</span> <span class="o">=</span> <span class="n">datawin</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">datawin</span><span class="p">))</span> <span class="c1"># normalize</span>
+
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">datawin</span><span class="o">*</span><span class="n">windowing_fn</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">window_length</span><span class="p">)</span>
+<span class="n">autocovariance</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">autocovariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">autocovariance</span><span class="p">[</span><span class="n">window_length</span><span class="p">:],</span><span class="n">autocovariance</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">window_length</span><span class="p">]))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span><span class="n">datawin</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A window of a signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n2</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">fs</span><span class="p">,</span><span class="n">autocovariance</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Lag (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Autocovaraince $r_k$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The autocovariance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Autocorrelation_and_autocovariance_3_0.png" src="../_images/Autocorrelation_and_autocovariance_3_0.png" />
+</div>
+</div>
 <p>The above formulas use the expectation operator <span class="math notranslate nohighlight">\(E[\cdot ]\)</span> to define the
 autocovariance and -correlation. It is an abstract tool, which needs to
 be replaced by a proper estimator for practical implementations.
@@ -757,13 +862,13 @@ also <a class="reference external" href="https://en.wikipedia.org/wiki/Definiten
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.4. </span>Spectrogram and the STFT</p>
+            <p class="prev-next-title"><span class="section-number">3.6. </span>Spectrogram and the STFT</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Cepstrum_and_MFCC.html" title="next page">
+    <a class='right-next' id="next-link" href="Melcepstrum.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.6. </span>Cepstrum and MFCC</p>
+        <p class="prev-next-title"><span class="section-number">3.8. </span>The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -2,7 +2,7 @@
 
 Paralinguistic speech processing (PSP) refers to analysis of speech
 signals with the aim of extracting information beyond the linguistic
-content of speech (hence *para*linguistic = alongside linguistic
+content of speech (hence paralinguistic = alongside linguistic
 content; see also Schuller & Batliner, 2014). In other words, PSP does
 not focus on what is the literal transmitted message but on what
 additional information is conveyed by the signal. Speaker
@@ -16,7 +16,7 @@ the emotional state of a speaker based on a sample of his or her speech.
 In a similar manner, information related to the health or age of a
 speaker could be inferred from the speech signal.
 
-### **Coupling between speaker states and the speech signal**
+### Coupling between speaker states and the speech signal
 
 The basic starting point for PSP systems is that the speech signal also
 reflects the underlying cognitive and neurophysiological state of a
@@ -135,7 +135,7 @@ progression of a neurodegenerative disease based on speech is likely to
 be more accurate than automatic classification of disease severity from
 a bag of utterances from a random collection of speakers.
 
-### **Typical applications of PSP **
+### Typical applications of PSP 
 
 Some possible applications of paralinguistic tasks include, but are not
 limited to:
@@ -151,7 +151,7 @@ limited to:
 -   Sincerity analysis
 -   Attitude analysis
 
-### **Basic problem formulation and standard solutions **
+### Basic problem formulation and standard solutions 
 
 The basic goal of paralinguistic analysis is to extract paralinguistic
 information of interest while ignoring the signal variability introduced
@@ -208,15 +208,7 @@ can be applied to the data.
 
   
 
-<img src="attachments/159748623/180298884.png" class="image-center"
-data-image-src="attachments/159748623/180298884.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180298884"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="basic_PSP_pipeline.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159748623"
-data-linked-resource-container-version="55" width="800" />
+![basic_PSP_pipeline.png](attachments/180298884.png)
 
 **Figure 1:** An example of a classical PSP processing pipeline with
 training (top) and usage (bottom). Speech features are first extracted
@@ -225,15 +217,7 @@ been trained using supervised learning with labeled training samples.
 
   
 
-<img src="attachments/159748623/180298908.png"
-data-image-src="attachments/159748623/180298908.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180298908"
-data-linked-resource-version="4" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="PSP_feature_extraction.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159748623"
-data-linked-resource-container-version="55" width="750" />
+![PSP_feature_extraction.png](attachments/180298908.png)
 
 **Figure 2:** An example signal-level feature extraction process where
 variable-duration utterances become represented by fixed-dimensional
@@ -314,15 +298,7 @@ the model.
 
   
 
-<img src="attachments/159748623/180298840.png" class="image-center"
-data-image-src="attachments/159748623/180298840.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180298840"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="feature_design_quadratic.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159748623"
-data-linked-resource-container-version="55" width="650" />
+![feature_design_quadratic.png](attachments/180298840.png)
 
 **Figure 3:** Basic strategies for PSP system development given the two
 main considerations: availability of training data (x-axis) and domain
@@ -338,7 +314,7 @@ Wu et al., 2015) are still largely unexplored in PSP. Such approaches
 could enable effective utilization of large amounts of unlabeled speech
 data with fewer labeled examples in the target domain of interest.
 
-### **Data collection and data sparsity**
+### Data collection and data sparsity
 
 Since modern PSP largely relies on machine learning, representative
 training data will be required for the phenomenon of interest. However,
@@ -388,7 +364,7 @@ acquired by combining rich data (and metadata) from various sources,
 including different languages, cultural environments, and recording
 conditions. 
 
-### **Computational Paralinguistic Challenge **
+### Computational Paralinguistic Challenge 
 
 Research in PSP has been strongly advanced by an annual Computational
 Paralinguistic Challenge (ComParE) held in the context of ISCA
@@ -403,7 +379,7 @@ datasets can be proposed to challenge organizers, providing a useful
 channel for data owners and researchers to obtain competitive solutions
 to their analysis problems.
 
-## **Further reading and materials on PSP **
+## Further reading and materials on PSP 
 
 Schuller, B. et al.: Computational Paralinguistic Challenge. WWW-site:
 <http://www.compare.openaudio.eu/>, last accessed 11th October 2020.
@@ -422,7 +398,7 @@ Schuller, B. & Batliner, A. (2014). *Computational paralinguistics:
 Emotion, affect and personality in speech and language processing.* John
 Wiley & Sons Ltd, UK.
 
-## **Other references**
+## Other references
 
 Baevski, A., Zhou, H., Abdelrahman, M., & Auli, M. (2020). wav2vec 2.0:
 A framework for self-supervised learning of speech representations.
@@ -447,39 +423,4 @@ pp. 4460–4464.
 
   
 
-  
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[feature_design_quadratic.pdf](attachments/159748623/180298839.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[feature_design_quadratic.png](attachments/159748623/180298844.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[feature_design_quadratic.png](attachments/159748623/180298840.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[basic_PSP_pipeline.png](attachments/159748623/180298884.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180298910.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180299544.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180299549.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180298908.png)
-(image/png)  
-
-</div>
+ 

@@ -48,11 +48,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.2. Inverse filtering for glottal activity estimation" href="Inverse_filtering_for_glottal_activity_estimation.html" />
+    <link rel="next" title="7.2. Measurements for medical applications" href="Measurements_for_medical_applications.html" />
     <link rel="prev" title="7. Speech analysis" href="../Speech_analysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -176,43 +176,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.4. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.5. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+     3.6. Cepstrum and MFCC
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.7. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.8. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.9. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.10. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.12. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -344,18 +349,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -374,15 +374,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -638,51 +638,47 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="fundamental-frequency-estimation">
 <h1><span class="section-number">7.1. </span>Fundamental frequency estimation<a class="headerlink" href="#fundamental-frequency-estimation" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>The <span class="xref myst">fundamental frequency (F0)</span> is central
 in describing speech signals whereby we need methods for estimating the
-F0 from speech signals. In speech analysis applications, it can be
+<span class="math notranslate nohighlight">\(F_0\)</span> from speech signals. In speech analysis applications, it can be
 informative to study the absolute value of the fundamental frequency as
-such, but more commonly, extraction of the F0 is usually a
+such, but more commonly, extraction of the <span class="math notranslate nohighlight">\(F_0\)</span> is usually a
 pre-processing step. For example, in <span class="xref myst">recognition
-tasks</span>, F0 is often used as a
+tasks</span>, <span class="math notranslate nohighlight">\(F_0\)</span> is often used as a
 feature for machine learning methods. A voice activity detector could,
-for instance, set a lower and higher threshold on the F0, such that
-sounds with an F0 outside the valid range would be classified as
+for instance, set a lower and higher threshold on the <span class="math notranslate nohighlight">\(F_0\)</span>, such that
+sounds with an <span class="math notranslate nohighlight">\(F_0\)</span> outside the valid range would be classified as
 non-speech.</p>
 <p>The fundamental frequency is visible in multiple different domains:</p>
 <ul class="simple">
-<li><p>In an acoustic time-signal, the F0 is visible as a repetition after
-every <em>T</em> samples.</p></li>
+<li><p>In an acoustic time-signal, the <span class="math notranslate nohighlight">\(F_0\)</span> is visible as a repetition after
+every <span class="math notranslate nohighlight">\(T\)</span> samples.</p></li>
 <li><p>In the <span class="xref myst">autocovariance or
--correlation</span>, the F0 is visible
-as a peak at lag <em>T</em> as well as its integer multiples <em>kT</em>.</p></li>
+-correlation</span>, the <span class="math notranslate nohighlight">\(F_0\)</span> is visible
+as a peak at lag <span class="math notranslate nohighlight">\(T\)</span> as well as its integer multiples <span class="math notranslate nohighlight">\(kT\)</span>.</p></li>
 <li><p>In the magnitude, power or log-magnitude
-<span class="xref myst">spectrum</span>, the F0 is visible as a peak at
-the frequency F0=<em>F<sub>s</sub>/T</em>, as well as its integer
-multiples, where <em>F<sub>s</sub></em> is the sampling frequency.</p></li>
-<li><p>In the <span class="xref myst">cepstrum</span>, the F0 is visible as a peak at
-quefrency <em>T</em> as well as its integer multiples <em>kT</em>.</p></li>
+<span class="xref myst">spectrum</span>, the <span class="math notranslate nohighlight">\(F_0\)</span> is visible as a peak at
+the frequency <span class="math notranslate nohighlight">\(F_0=F_{s}/T\)</span>, as well as its integer
+multiples, where <span class="math notranslate nohighlight">\(F_{s}\)</span> is the sampling frequency.</p></li>
+<li><p>In the <span class="xref myst">cepstrum</span>, the <span class="math notranslate nohighlight">\(F_0\)</span> is visible as a peak at
+quefrency <span class="math notranslate nohighlight">\(T\)</span> as well as its integer multiples <span class="math notranslate nohighlight">\(kT\)</span>.</p></li>
 </ul>
 <p>Consequently, we can use any of these domains to estimate the
-fundamental frequency F0. A typical approach applicable in all domains
+fundamental frequency <span class="math notranslate nohighlight">\(F_0\)</span>. A typical approach applicable in all domains
 except the time-domain, is peak-picking. The fundamental frequency
-corresponds to a peak in each domain, such that we can determine the F0
+corresponds to a peak in each domain, such that we can determine the <span class="math notranslate nohighlight">\(F_0\)</span>
 by finding the highest peak. For better robustness to spurious peaks and
 for computational efficiency, we naturally limit our search to the range
-of valid F0’s, such as  \( 80\leq F_0\leq 450. \)</p>
+of valid <span class="math notranslate nohighlight">\(F_0\)</span>’s, such as  <span class="math notranslate nohighlight">\( 80\leq F_0\leq 450. \)</span></p>
 <p>The harmonic structure however poses a problem for peak-picking. Peaks
-appear at integer multiples of either F0 or lag T, such that sometimes,
+appear at integer multiples of either <span class="math notranslate nohighlight">\(F_0\)</span> or lag T, such that sometimes,
 by coincidence or due to estimation errors, the harmonic peaks can be
 higher than the primary peak. Such estimation errors are known
-as <em>octave errors</em>, because the error in F0 corresponds to the musical
+as <em>octave errors</em>, because the error in <span class="math notranslate nohighlight">\(F_0\)</span> corresponds to the musical
 interval of an octave. A typical post-processing step is therefore to
-check for octave jumps. We can check whether F0/2 or F0/3 would
-correspond to a sensible F0. Alternatively, we can check whether the
-previous analysis frame had an F0 which an octave or two octaves off.
+check for octave jumps. We can check whether <span class="math notranslate nohighlight">\(F_0/2\)</span> or <span class="math notranslate nohighlight">\(F_0/3\)</span> would
+correspond to a sensible <span class="math notranslate nohighlight">\(F_0\)</span>. Alternatively, we can check whether the
+previous analysis frame had an <span class="math notranslate nohighlight">\(F_0\)</span> which an octave or two octaves off.
 Depending on application, we can then fix errors or label problematic
 zones for later use.</p>
 <p>Another problem with peak-picking is that peak locations might not align
@@ -698,12 +694,12 @@ at 102. By using data from more samples, as in the interpolation
 approach, we can therefore reduce the likelihood that a single corrupted
 data point would cause an error.</p>
 <p>An alternative approach to peak-picking is to use all distinctive peaks
-to jointly estimate the F0. That is, if you find <em>N</em> peaks at
-frequencies <em>p<sub>k</sub></em>, which approximately correspond to harmonic
-peaks <em>kF0</em>, then you can approximate \( F0 \approx \frac1N
-\sum_{k=1}^N p_k/k. \) Another alternative is to calculate the
-distance between consecutive peaks an estimate \( F0 \approx
-\frac1{N-1} \sum_{k=1}^{N-1} (p_{k+1}-p_k). \) We can also combine
+to jointly estimate the <span class="math notranslate nohighlight">\(F_0\)</span>. That is, if you find <span class="math notranslate nohighlight">\(N\)</span> peaks at
+frequencies <span class="math notranslate nohighlight">\(p_{k}\)</span>, which approximately correspond to harmonic
+peaks <span class="math notranslate nohighlight">\(kF0\)</span>, then you can approximate <span class="math notranslate nohighlight">\( F_0 \approx \frac1N
+\sum_{k=1}^N p_k/k. \)</span> Another alternative is to calculate the
+distance between consecutive peaks an estimate <span class="math notranslate nohighlight">\( F_0 \approx
+\frac1{N-1} \sum_{k=1}^{N-1} (p_{k+1}-p_k). \)</span> We can also combine
 these methods as we like.</p>
 <p>In many other applications, we use discrete Fourier transform (DFT) or
 cosine transforms (DCT) to resolve frequency components. It would
@@ -713,14 +709,6 @@ on single data points. However, note that the spectrum is already the
 DFT of the time signal and the cepstrum is the DCT or DFT of the
 log-spectrum. Additional transforms therefore usually do not resolve the
 ambiguity between harmonics.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -755,10 +743,10 @@ ambiguity between harmonics.</p>
             <p class="prev-next-title"><span class="section-number">7. </span>Speech analysis</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Inverse_filtering_for_glottal_activity_estimation.html" title="next page">
+    <a class='right-next' id="next-link" href="Measurements_for_medical_applications.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.2. </span>Inverse filtering for glottal activity estimation</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Measurements for medical applications</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

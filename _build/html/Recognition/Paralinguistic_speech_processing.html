@@ -48,8 +48,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Speech Synthesis" href="../Speech_Synthesis.html" />
@@ -152,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Representations/Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -161,58 +159,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+    <a class="reference internal" href="../Representations/Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.6. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -344,18 +357,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -374,15 +382,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -398,8 +406,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="Voice_activity_detection_VAD.html">
-     8.1. Voice activity detection (VAD)
+    <a class="reference internal" href="Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
     </a>
    </li>
    <li class="toctree-l2">
@@ -552,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
    13. Security and privacy in speech technology
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../References.html">
+   14. References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -625,10 +638,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#coupling-between-speaker-states-and-the-speech-signal">
-   8.6.1.
-   <strong>
-    Coupling between speaker states and the speech signal
-   </strong>
+   8.6.1. Coupling between speaker states and the speech signal
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -638,43 +648,32 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#typical-applications-of-psp">
-   8.6.3. **Typical applications of PSP **
+   8.6.3. Typical applications of PSP
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-problem-formulation-and-standard-solutions">
-   8.6.4. **Basic problem formulation and standard solutions **
+   8.6.4. Basic problem formulation and standard solutions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-collection-and-data-sparsity">
-   8.6.5.
-   <strong>
-    Data collection and data sparsity
-   </strong>
+   8.6.5. Data collection and data sparsity
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#computational-paralinguistic-challenge">
-   8.6.6. **Computational Paralinguistic Challenge **
+   8.6.6. Computational Paralinguistic Challenge
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#further-reading-and-materials-on-psp">
-   8.6.7. **Further reading and materials on PSP **
+   8.6.7. Further reading and materials on PSP
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-references">
-   8.6.8.
-   <strong>
-    Other references
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.6.9. Attachments:
+   8.6.8. Other references
   </a>
  </li>
 </ul>
@@ -699,10 +698,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#coupling-between-speaker-states-and-the-speech-signal">
-   8.6.1.
-   <strong>
-    Coupling between speaker states and the speech signal
-   </strong>
+   8.6.1. Coupling between speaker states and the speech signal
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -712,43 +708,32 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#typical-applications-of-psp">
-   8.6.3. **Typical applications of PSP **
+   8.6.3. Typical applications of PSP
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-problem-formulation-and-standard-solutions">
-   8.6.4. **Basic problem formulation and standard solutions **
+   8.6.4. Basic problem formulation and standard solutions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-collection-and-data-sparsity">
-   8.6.5.
-   <strong>
-    Data collection and data sparsity
-   </strong>
+   8.6.5. Data collection and data sparsity
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#computational-paralinguistic-challenge">
-   8.6.6. **Computational Paralinguistic Challenge **
+   8.6.6. Computational Paralinguistic Challenge
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#further-reading-and-materials-on-psp">
-   8.6.7. **Further reading and materials on PSP **
+   8.6.7. Further reading and materials on PSP
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-references">
-   8.6.8.
-   <strong>
-    Other references
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.6.9. Attachments:
+   8.6.8. Other references
   </a>
  </li>
 </ul>
@@ -764,7 +749,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h1><span class="section-number">8.6. </span>Paralinguistic speech processing<a class="headerlink" href="#paralinguistic-speech-processing" title="Permalink to this headline">¶</a></h1>
 <p>Paralinguistic speech processing (PSP) refers to analysis of speech
 signals with the aim of extracting information beyond the linguistic
-content of speech (hence <em>para</em>linguistic = alongside linguistic
+content of speech (hence paralinguistic = alongside linguistic
 content; see also Schuller &amp; Batliner, 2014). In other words, PSP does
 not focus on what is the literal transmitted message but on what
 additional information is conveyed by the signal. Speaker
@@ -778,7 +763,7 @@ the emotional state of a speaker based on a sample of his or her speech.
 In a similar manner, information related to the health or age of a
 speaker could be inferred from the speech signal.</p>
 <div class="section" id="coupling-between-speaker-states-and-the-speech-signal">
-<h2><span class="section-number">8.6.1. </span><strong>Coupling between speaker states and the speech signal</strong><a class="headerlink" href="#coupling-between-speaker-states-and-the-speech-signal" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6.1. </span>Coupling between speaker states and the speech signal<a class="headerlink" href="#coupling-between-speaker-states-and-the-speech-signal" title="Permalink to this headline">¶</a></h2>
 <p>The basic starting point for PSP systems is that the speech signal also
 reflects the underlying cognitive and neurophysiological state of a
 speaker. This is since speaking involves highly complicated cognitive
@@ -893,7 +878,7 @@ be more accurate than automatic classification of disease severity from
 a bag of utterances from a random collection of speakers.</p>
 </div>
 <div class="section" id="typical-applications-of-psp">
-<h2><span class="section-number">8.6.3. </span>**Typical applications of PSP **<a class="headerlink" href="#typical-applications-of-psp" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6.3. </span>Typical applications of PSP<a class="headerlink" href="#typical-applications-of-psp" title="Permalink to this headline">¶</a></h2>
 <p>Some possible applications of paralinguistic tasks include, but are not
 limited to:</p>
 <ul class="simple">
@@ -910,7 +895,7 @@ etc.)</p></li>
 </ul>
 </div>
 <div class="section" id="basic-problem-formulation-and-standard-solutions">
-<h2><span class="section-number">8.6.4. </span>**Basic problem formulation and standard solutions **<a class="headerlink" href="#basic-problem-formulation-and-standard-solutions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6.4. </span>Basic problem formulation and standard solutions<a class="headerlink" href="#basic-problem-formulation-and-standard-solutions" title="Permalink to this headline">¶</a></h2>
 <p>The basic goal of paralinguistic analysis is to extract paralinguistic
 information of interest while ignoring the signal variability introduced
 by other factors, such as linguistic content, speaker identity,
@@ -960,28 +945,12 @@ embedding extracted from the input waveform, such as taking the output
 of an LSTM-layer. Once the input signals are represented by
 fixed-dimensional feature vectors, standard machine learning classifiers
 can be applied to the data.</p>
-<p><img src="attachments/159748623/180298884.png" class="image-center"
-data-image-src="attachments/159748623/180298884.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180298884"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="basic_PSP_pipeline.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159748623"
-data-linked-resource-container-version="55" width="800" /></p>
+<p><img alt="basic_PSP_pipeline.png" src="../_images/180298884.png" /></p>
 <p><strong>Figure 1:</strong> An example of a classical PSP processing pipeline with
 training (top) and usage (bottom). Speech features are first extracted
 from the original speech waveform, followed by a classifier that has
 been trained using supervised learning with labeled training samples.</p>
-<p><img src="attachments/159748623/180298908.png"
-data-image-src="attachments/159748623/180298908.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180298908"
-data-linked-resource-version="4" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="PSP_feature_extraction.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159748623"
-data-linked-resource-container-version="55" width="750" /></p>
+<p><img alt="PSP_feature_extraction.png" src="../_images/180298908.png" /></p>
 <p><strong>Figure 2:</strong> An example signal-level feature extraction process where
 variable-duration utterances become represented by fixed-dimensional
 feature vectors, consisting of statistical parameters (“functionals”)
@@ -1052,15 +1021,7 @@ through it, although by default it does not have any free parameters to
 optimize. However, similar signal transformations but with parametrized
 basis functions could be utilized and optimized jointly with the rest of
 the model.</p>
-<p><img src="attachments/159748623/180298840.png" class="image-center"
-data-image-src="attachments/159748623/180298840.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180298840"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="feature_design_quadratic.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159748623"
-data-linked-resource-container-version="55" width="650" /></p>
+<p><img alt="feature_design_quadratic.png" src="../_images/180298840.png" /></p>
 <p><strong>Figure 3:</strong> Basic strategies for PSP system development given the two
 main considerations: availability of training data (x-axis) and domain
 knowledge (y-axis).</p>
@@ -1073,7 +1034,7 @@ could enable effective utilization of large amounts of unlabeled speech
 data with fewer labeled examples in the target domain of interest.</p>
 </div>
 <div class="section" id="data-collection-and-data-sparsity">
-<h2><span class="section-number">8.6.5. </span><strong>Data collection and data sparsity</strong><a class="headerlink" href="#data-collection-and-data-sparsity" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6.5. </span>Data collection and data sparsity<a class="headerlink" href="#data-collection-and-data-sparsity" title="Permalink to this headline">¶</a></h2>
 <p>Since modern PSP largely relies on machine learning, representative
 training data will be required for the phenomenon of interest. However,
 access to high-quality labeled data is often be limited for many PSP
@@ -1121,7 +1082,7 @@ including different languages, cultural environments, and recording
 conditions.</p>
 </div>
 <div class="section" id="computational-paralinguistic-challenge">
-<h2><span class="section-number">8.6.6. </span>**Computational Paralinguistic Challenge **<a class="headerlink" href="#computational-paralinguistic-challenge" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6.6. </span>Computational Paralinguistic Challenge<a class="headerlink" href="#computational-paralinguistic-challenge" title="Permalink to this headline">¶</a></h2>
 <p>Research in PSP has been strongly advanced by an annual Computational
 Paralinguistic Challenge (ComParE) held in the context of ISCA
 Interspeech conferences (see <a class="reference external" href="http://www.compare.openaudio.eu/">http://www.compare.openaudio.eu/</a>). Every
@@ -1136,7 +1097,7 @@ channel for data owners and researchers to obtain competitive solutions
 to their analysis problems.</p>
 </div>
 <div class="section" id="further-reading-and-materials-on-psp">
-<h2><span class="section-number">8.6.7. </span>**Further reading and materials on PSP **<a class="headerlink" href="#further-reading-and-materials-on-psp" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6.7. </span>Further reading and materials on PSP<a class="headerlink" href="#further-reading-and-materials-on-psp" title="Permalink to this headline">¶</a></h2>
 <p>Schuller, B. et al.: Computational Paralinguistic Challenge. WWW-site:
 <a class="reference external" href="http://www.compare.openaudio.eu/">http://www.compare.openaudio.eu/</a>, last accessed 11th October 2020.</p>
 <p>Eyben, F., Wöllmer, M., &amp; Schuller, B. (2010). openSMILE – The Munich
@@ -1152,7 +1113,7 @@ Emotion, affect and personality in speech and language processing.</em> John
 Wiley &amp; Sons Ltd, UK.</p>
 </div>
 <div class="section" id="other-references">
-<h2><span class="section-number">8.6.8. </span><strong>Other references</strong><a class="headerlink" href="#other-references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6.8. </span>Other references<a class="headerlink" href="#other-references" title="Permalink to this headline">¶</a></h2>
 <p>Baevski, A., Zhou, H., Abdelrahman, M., &amp; Auli, M. (2020). wav2vec 2.0:
 A framework for self-supervised learning of speech representations.
 arXiv pre-print, <a class="reference external" href="https://arxiv.org/abs/2006.11477">https://arxiv.org/abs/2006.11477</a></p>
@@ -1169,37 +1130,6 @@ with contrastive predictive coding. arXiv pre-print,
 neural networks employing multi-task learning and stacked bottleneck
 features for speech synthesis. <em>Proc. ICASSP-2015,</em> Brisbane, Australia,
 pp. 4460–4464.</p>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">8.6.9. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[feature_design_quadratic.pdf](attachments/159748623/180298839.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[feature_design_quadratic.png](attachments/159748623/180298844.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[feature_design_quadratic.png](attachments/159748623/180298840.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[basic_PSP_pipeline.png](attachments/159748623/180298884.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180298910.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180299544.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180299549.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[PSP_feature_extraction.png](attachments/159748623/180298908.png)
-(image/png)  
-</div>
 </div>
 </div>
 

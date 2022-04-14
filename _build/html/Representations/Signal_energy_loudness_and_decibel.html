@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.3. Signal energy, loudness and decibel &#8212; Introduction to Speech Processing</title>
+    <title>3.5. Signal energy, loudness and decibel &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,14 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.4. Autocorrelation and autocovariance" href="Autocorrelation_and_autocovariance.html" />
-    <link rel="prev" title="3.2. Windowing" href="Windowing.html" />
+    <link rel="next" title="3.6. Spectrogram and the STFT" href="Spectrogram_and_the_STFT.html" />
+    <link rel="prev" title="3.4. Windowing" href="Windowing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -154,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Representations.html">
-   3. Representations
+   3. Basic Representations
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -163,58 +161,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Spectrogram_and_the_STFT.html">
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Autocorrelation_and_autocovariance.html">
-     3.4. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Cepstrum_and_MFCC.html">
-     3.5. Cepstrum and MFCC
+    <a class="reference internal" href="Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Linear_prediction.html">
-     3.6. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Fundamental_frequency_F0.html">
-     3.7. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Zero-crossing_rate.html">
-     3.8. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Deltas_and_Delta-deltas.html">
-     3.9. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.10. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Jitter_and_shimmer.html">
-     3.11. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -346,18 +359,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
-     7.2. Inverse filtering for glottal activity estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
      Voice and speech analysis (Wikipedia)
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Analysis/Measurements_for_medical_applications.html">
-     7.3. Measurements for medical applications
+     7.2. Measurements for medical applications
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -376,15 +384,15 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Analysis/Glottal_inverse_filtering.html">
-       7.3.1. Glottal inverse filtering
+      <a class="reference internal" href="../Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Analysis/Forensic_analysis.html">
-     7.4. Forensic analysis
+     7.3. Forensic analysis
     </a>
    </li>
   </ul>
@@ -627,17 +635,17 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#signal-energy">
-   3.3.1. Signal energy
+   3.5.1. Signal energy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decibel">
-   3.3.2. Decibel
+   3.5.2. Decibel
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#energy-normalisation-loudness-dbfs-and-dbov">
-     3.3.2.1. Energy normalisation, loudness, dBFS and dBov
+     3.5.2.1. Energy normalisation, loudness, dBFS and dBov
     </a>
    </li>
   </ul>
@@ -664,17 +672,17 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#signal-energy">
-   3.3.1. Signal energy
+   3.5.1. Signal energy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decibel">
-   3.3.2. Decibel
+   3.5.2. Decibel
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#energy-normalisation-loudness-dbfs-and-dbov">
-     3.3.2.1. Energy normalisation, loudness, dBFS and dBov
+     3.5.2.1. Energy normalisation, loudness, dBFS and dBov
     </a>
    </li>
   </ul>
@@ -689,9 +697,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="signal-energy-loudness-and-decibel">
-<h1><span class="section-number">3.3. </span>Signal energy, loudness and decibel<a class="headerlink" href="#signal-energy-loudness-and-decibel" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.5. </span>Signal energy, loudness and decibel<a class="headerlink" href="#signal-energy-loudness-and-decibel" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="signal-energy">
-<h2><span class="section-number">3.3.1. </span>Signal energy<a class="headerlink" href="#signal-energy" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.1. </span>Signal energy<a class="headerlink" href="#signal-energy" title="Permalink to this headline">¶</a></h2>
 <p>By signal energy, we usually mean the variance of the signal, which is
 the average squared deviation from the mean <span class="math notranslate nohighlight">\(
 Energy(x)=var(x)=E[(x-\mu)^2], \)</span> where <span class="math notranslate nohighlight">\( \mu=E[x] \)</span> is the
@@ -708,8 +716,8 @@ throughout a dataset and can be ignored.</p>
 <p>Typical alternative energy estimates:</p>
 <ul class="simple">
 <li><p>Energy can be calculated over <em>spectral bands</em>, often called energy
-bands, that is, a range of frequencies of a <span class="xref myst">time-frequency
-transform</span>, such as 0 to 1000 Hz, 1000 Hz
+bands, that is, a range of frequencies of a <a class="reference internal" href="Spectrogram_and_the_STFT.html"><span class="doc std std-doc">time-frequency
+transform</span></a>, such as 0 to 1000 Hz, 1000 Hz
 to 2000 Hz and so one for 1 kHz bands. Observe that the bands should
 be wide enough that they have a “large” number  of frequency
 components within them such that the variance can be estimated. Such
@@ -724,7 +732,7 @@ frames or windows.</p></li>
 windowed signals, they will be similarly biased as the window itself.</p>
 </div>
 <div class="section" id="decibel">
-<h2><span class="section-number">3.3.2. </span>Decibel<a class="headerlink" href="#decibel" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.2. </span>Decibel<a class="headerlink" href="#decibel" title="Permalink to this headline">¶</a></h2>
 <p>A commonly used unit for signal energy is
 <a class="reference external" href="https://en.wikipedia.org/wiki/Decibel">decibel</a> (dB). The formula to
 convert a signal energy value <span class="math notranslate nohighlight">\( \sigma^2 \)</span> to decibels is</p>
@@ -740,7 +748,7 @@ for example visualizations are much easier to handle (see illustration
 on the right). Moreover, decibels are also closer to human perception of
 acoustic energy.</p>
 <div class="section" id="energy-normalisation-loudness-dbfs-and-dbov">
-<h3><span class="section-number">3.3.2.1. </span>Energy normalisation, loudness, dBFS and dBov<a class="headerlink" href="#energy-normalisation-loudness-dbfs-and-dbov" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.2.1. </span>Energy normalisation, loudness, dBFS and dBov<a class="headerlink" href="#energy-normalisation-loudness-dbfs-and-dbov" title="Permalink to this headline">¶</a></h3>
 <p>In practically all uses of acoustic data, we need to normalize the
 sounds such that they have approximately the same volume or at least a
 known volume. For example, consider a television program and
@@ -810,13 +818,13 @@ on the decibel scale (lower).</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.2. </span>Windowing</p>
+            <p class="prev-next-title"><span class="section-number">3.4. </span>Windowing</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Autocorrelation_and_autocovariance.html" title="next page">
+    <a class='right-next' id="next-link" href="Spectrogram_and_the_STFT.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.4. </span>Autocorrelation and autocovariance</p>
+        <p class="prev-next-title"><span class="section-number">3.6. </span>Spectrogram and the STFT</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
