@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.3. Modified discrete cosine transform (MDCT) &#8212; Introduction to Speech Processing</title>
+    <title>10.2. Modified discrete cosine transform (MDCT) &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -48,10 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10.3.4. Entropy coding" href="Entropy_coding.html" />
-    <link rel="prev" title="10.2. Basic tools" href="Basic_tools.html" />
+    <link rel="next" title="10.2.5. Entropy coding" href="Entropy_coding.html" />
+    <link rel="prev" title="10.1. Design goals" href="Design_goals.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -449,12 +454,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Synthesis/Concatenative_speech_synthesis.html">
-     9.2. Concatenative speech synthesis
+     9.1. Concatenative speech synthesis
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Synthesis/Statistical_parametric_speech_synthesis.html">
-     9.3. Statistical parametric speech synthesis
+     9.2. Statistical parametric speech synthesis
     </a>
    </li>
   </ul>
@@ -474,14 +479,9 @@ const thebe_selector_output = ".output, .cell_output"
      10.1. Design goals
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Basic_tools.html">
-     10.2. Basic tools
-    </a>
-   </li>
    <li class="toctree-l2 current active has-children">
     <a class="current reference internal" href="#">
-     10.3. Modified discrete cosine transform (MDCT)
+     10.2. Modified discrete cosine transform (MDCT)
     </a>
     <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
@@ -491,24 +491,24 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="Entropy_coding.html">
-       10.3.4. Entropy coding
+       10.2.5. Entropy coding
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="Perceptual_modelling_in_speech_and_audio_coding.html">
-       10.3.5. Perceptual modelling in speech and audio coding
+       10.2.6. Perceptual modelling in speech and audio coding
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Code-excited_linear_prediction_CELP.html">
-     10.4. Code-excited linear prediction (CELP)
+     10.3. Code-excited linear prediction (CELP)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Frequency-domain_coding.html">
-     10.5. Frequency-domain coding
+     10.4. Frequency-domain coding
     </a>
    </li>
   </ul>
@@ -638,17 +638,22 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   10.3.1. Introduction
+   10.2.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#executive-summary-of-algorithm">
-   10.3.2. Executive summary of algorithm
+   10.2.2. Executive summary of algorithm
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition">
-   10.3.3. Definition
+   10.2.3. Definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   10.2.4. References
   </a>
  </li>
 </ul>
@@ -673,17 +678,22 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   10.3.1. Introduction
+   10.2.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#executive-summary-of-algorithm">
-   10.3.2. Executive summary of algorithm
+   10.2.2. Executive summary of algorithm
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition">
-   10.3.3. Definition
+   10.2.3. Definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   10.2.4. References
   </a>
  </li>
 </ul>
@@ -696,13 +706,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="modified-discrete-cosine-transform-mdct">
-<h1><span class="section-number">10.3. </span>Modified discrete cosine transform (MDCT)<a class="headerlink" href="#modified-discrete-cosine-transform-mdct" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<h1><span class="section-number">10.2. </span>Modified discrete cosine transform (MDCT)<a class="headerlink" href="#modified-discrete-cosine-transform-mdct" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
-<h2><span class="section-number">10.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In processing speech and audio, we often need to split the signal into
 segments or <span class="xref myst">windows</span>, because</p>
 <ul class="simple">
@@ -752,28 +758,10 @@ representation when the input is real-valued.</p>
 <p>Due to these beneficial properties of the MDCT, it is the most commonly
 used time-frequency transform in speech and audio coding and employed in
 standardized codecs such as MPEG USAC, 3GPP EVS and Bluetooth LC3.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/148294912/148295002.png"
-data-image-src="attachments/148294912/148295002.png"
-data-unresolved-comment-count="0" data-linked-resource-id="148295002"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="ola2-1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="148294912"
-data-linked-resource-container-version="30" height="400" /></p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="ola2-1.png" src="../_images/1482950021.png" /></p>
 </div>
 <div class="section" id="executive-summary-of-algorithm">
-<h2><span class="section-number">10.3.2. </span>Executive summary of algorithm<a class="headerlink" href="#executive-summary-of-algorithm" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.2. </span>Executive summary of algorithm<a class="headerlink" href="#executive-summary-of-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>The MDCT is based on taking the symmetric and anti-symmetric parts of
 the signal at the overlap, such that the symmetric part goes to the one
 window and the antisymmetric to the other. We furthermore window those
@@ -800,60 +788,55 @@ is known as <em>time-domain aliasing cancellation (TDAC)</em>. The TDAC is
 equivalent with the orthogonal projection laying at the basis of the
 MDCT, and thus a central property of the MDCT.</p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="definition">
-<h2><span class="section-number">10.3.3. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
-<p>Suppose <em>x</em> is a <em>Nx1</em> vector representing the overlapping region shared
+<h2><span class="section-number">10.2.3. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<p>Suppose <span class="math notranslate nohighlight">\(x\)</span> is a <span class="math notranslate nohighlight">\(N\times1\)</span> vector representing the overlapping region shared
 by two consecutive windows, such as the are between 15 and 30 ms in the
-figure above and right. Our task is to design a projection matrix <em>P</em> of
-size <em>NxN</em>, such that we can split <em>x</em> into two orthogonal parts as</p>
-<p>\[ \begin{cases} x_L &amp;= Px\ x_R &amp;= P_0x \end{cases} \]</p>
-<p>where the <em>P<sub>0</sub></em> is the kernel of <em>P</em> and thus \( P_0 P^T = 0,
-\) such that we can reconstruct <em>x</em> as</p>
-<p>\[ P^T x_L+P_0^Tx_R = P^T P x + P_0^T P_0 x = (P^T P + P_0^T P_0)x =
-x, \]</p>
-<p>since \( P^T P + P_0^T P_0 = I \) by definition.</p>
-<p>The vectors <em>x<sub>L</sub></em> and <em>x<sub>R</sub>,</em> corresponding to the
+figure above and right. Our task is to design a projection matrix <span class="math notranslate nohighlight">\(P\)</span> of
+size <span class="math notranslate nohighlight">\(N\times N\)</span>, such that we can split <span class="math notranslate nohighlight">\(x\)</span> into two orthogonal parts as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{cases} x_L &amp;= Px\\ x_R &amp;= P_0x \end{cases} \end{split}\]</div>
+<p>where the <span class="math notranslate nohighlight">\(P_{0}\)</span> is the kernel of <span class="math notranslate nohighlight">\(P\)</span> and thus <span class="math notranslate nohighlight">\( P_0 P^T = 0,
+\)</span> such that we can reconstruct <span class="math notranslate nohighlight">\(x\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ P^T x_L+P_0^Tx_R = P^T P x + P_0^T P_0 x = (P^T P + P_0^T P_0)x =
+x, \]</div>
+<p>since <span class="math notranslate nohighlight">\( P^T P + P_0^T P_0 = I \)</span> by definition.</p>
+<p>The vectors <span class="math notranslate nohighlight">\(x_{L}\)</span> and <span class="math notranslate nohighlight">\(x_{R},\)</span> corresponding to the
 left and right windows, are thus both of length N/2 and contain each
-exactly half the information of <em>x</em>.</p>
+exactly half the information of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Though this is a mathematically clean solution, it is not practical,
 since after processing the reconstructed signal could have
-discontinuities. For example, suppose that we define <em>P</em> as the operator
-which extracts the symmetric part of <em>x</em>, that is, \( P = [I,
-J]\sqrt{1/2}, \) where <em>I</em> is the <em>(N/2)x(N/2)</em> identity matrix and
-<em>J</em> its left-right flipped counterpart (reverse diagonal). The kernel is
-then \( P_0 = [I, -J]\sqrt{1/2}. \) If we make a small modification
-to the signal as \( x_L’:=x_L+d, \) then the reconstruction is \(
-x’:=P^Tx_L+P^Td+P_0^Tx_R=x+P^Td, \) which means that original signal is
-changed by <em>P<sup>T</sup>d</em>. Unfortunately, however, this component does
+discontinuities. For example, suppose that we define <span class="math notranslate nohighlight">\(P\)</span> as the operator
+which extracts the symmetric part of <span class="math notranslate nohighlight">\(x\)</span>, that is, <span class="math notranslate nohighlight">\( P = [I,
+J]\sqrt{1/2}, \)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the <span class="math notranslate nohighlight">\((N/2)\times(N/2)\)</span> identity matrix and
+<span class="math notranslate nohighlight">\(J\)</span> its left-right flipped counterpart (reverse diagonal). The kernel is
+then <span class="math notranslate nohighlight">\( P_0 = [I, -J]\sqrt{1/2}. \)</span> If we make a small modification
+to the signal as <span class="math notranslate nohighlight">\( x_L':=x_L+d, \)</span> then the reconstruction is <span class="math notranslate nohighlight">\(
+x':=P^Tx_L+P^Td+P_0^Tx_R=x+P^Td, \)</span> which means that original signal is
+changed by <span class="math notranslate nohighlight">\(P^Td\)</span>. Unfortunately, however, this component does
 not go to zero at the border such that processed signal is not
-continuous. Specifically, for example, consider a vector \( d =
-[1,\,1,\,\dotsc,\,1]^T, \) which gives \( P^Td =
-\sqrt{1/2}[1,\,1,\,\dotsc,\,1]^T, \) which is clearly non-zero
+continuous. Specifically, for example, consider a vector <span class="math notranslate nohighlight">\( d =
+[1,\,1,\,\dotsc,\,1]^T, \)</span> which gives <span class="math notranslate nohighlight">\( P^Td =
+\sqrt{1/2}[1,\,1,\,\dotsc,\,1]^T, \)</span> which is clearly non-zero
 at both ends of the vector.</p>
 <p>The reason for this problem is that the definition did not include a
 windowing function. Recall that windowing is sample-by-sample
 multiplication of the signal with a windowing function. In matrix
-notation, we can implement this by multiplying the input signal <em>x</em> with
-a diagonal matrix <em>W</em>, where the diagonal elements correspond to the
-windowing function. The windowed signal is then <em>Wx</em>. The symmetric
-projection <em>P</em> can then be applied on the windowed signal such that the
+notation, we can implement this by multiplying the input signal <span class="math notranslate nohighlight">\(x\)</span> with
+a diagonal matrix <span class="math notranslate nohighlight">\(W\)</span>, where the diagonal elements correspond to the
+windowing function. The windowed signal is then <span class="math notranslate nohighlight">\(Wx\)</span>. The symmetric
+projection <span class="math notranslate nohighlight">\(P\)</span> can then be applied on the windowed signal such that the
 windowed left and right signals are</p>
-<p>\[ \begin{cases} x_L &amp;= PWx := P’x\ x_R &amp;= P_0’x = P_0JWJx
-\end{cases} \]</p>
-<p>where the <em>P<sub>0</sub></em>’ is the kernel of <em>P’</em>, and <em>JWJ</em> is simply
-the backwards part of the window (if <em>W</em> is the increasing left part of
-the window, then <em>JWJ</em> is the decreasing right part of the window). Note
-that the relationship between the two kernels, \( P_0’=P_0JWJ \)
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{cases} x_L &amp;= PWx := P'x\\ x_R &amp;= P_0'x = P_0JWJx
+\end{cases} 
+\end{split}\]</div>
+<p>where the <span class="math notranslate nohighlight">\(P_{0}'\)</span> is the kernel of <span class="math notranslate nohighlight">\(P'\)</span>, and <span class="math notranslate nohighlight">\(JWJ\)</span> is simply
+the backwards part of the window (if <span class="math notranslate nohighlight">\(W\)</span> is the increasing left part of
+the window, then <span class="math notranslate nohighlight">\(JWJ\)</span> is the decreasing right part of the window). Note
+that the relationship between the two kernels, <span class="math notranslate nohighlight">\( P_0'=P_0JWJ \)</span>
 applies only to the symmetric operator defined above, but generally not.
 In any case, the above definition now includes windowing and the
 orthonormal projection such that the beneficial properties of perfect
@@ -864,48 +847,42 @@ function.</p>
 properties we need. However, our goal was to obtain a time-frequency
 transform of the signal, so we are still missing the time-frequency
 transform.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Our objective is to find a spectral representation of the windowed input
 signal. Importantly, note that above we studied the properties at the
 overlap, where we took an orthonormal projection of the overlap to
-obtain the left-part of the current window <em>x<sub>L</sub></em> and
-right-part of the preceeding window <em>x<sub>R</sub></em>. To avoid confusion,
+obtain the left-part of the current window <span class="math notranslate nohighlight">\(x_{L}\)</span> and
+right-part of the preceeding window <span class="math notranslate nohighlight">\(x_{R}\)</span>. To avoid confusion,
 we here have to include the frame indices, such that the overlapping
-parts are now, respectively, <em>x<sub>L,k</sub></em> and <em>x<sub>R,k-1</sub></em>.
+parts are now, respectively, <span class="math notranslate nohighlight">\(x_{L,k}\)</span> and <span class="math notranslate nohighlight">\(x_{R,k-1}\)</span>.
 The spectral representation, however, should come from a single frame,
-that is, we define frame <em>k</em> as</p>
-<p>\[ \widehat x_k := \begin{bmatrix}x_{L,k} \ x_{R,k}
-\end{bmatrix}. \]</p>
-<p>To obtain the spectrum of \( \widehat x_k \) we can then multiply it
-with a time-frequency transform matrix <em>D</em>, such that the frequency
-representation is  \( y_k=D\widehat x_k \) and the reconstruction
-is <em><strong><sub> </sub></strong></em> \( \widehat x_k = D^T y_k, \) assuming that <em>D</em>
+that is, we define frame <span class="math notranslate nohighlight">\(k\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ \widehat x_k := \begin{bmatrix}x_{L,k} \ x_{R,k}
+\end{bmatrix}. \]</div>
+<p>To obtain the spectrum of <span class="math notranslate nohighlight">\( \widehat x_k \)</span> we can then multiply it
+with a time-frequency transform matrix <span class="math notranslate nohighlight">\(D\)</span>, such that the frequency
+representation is  <span class="math notranslate nohighlight">\( y_k=D\widehat x_k \)</span> and the reconstruction
+is  <span class="math notranslate nohighlight">\( \widehat x_k = D^T y_k, \)</span> assuming that <span class="math notranslate nohighlight">\(D\)</span>
 is orthogonal (as time-frequency transforms usually are).</p>
-<p>In principle, the transform matrix <em>D</em> could be any time-frequency
+<p>In principle, the transform matrix <span class="math notranslate nohighlight">\(D\)</span> could be any time-frequency
 transform (DFT, DCT-I, DCT-II, DST-I etc.), but we need to choose one
 specific. To evaluate the sanity of a particular choice, we should check
 how well the transform works together with the prior orthogonal
 projections. In particular, let us substitute the defitions of the left
 and right parts into the above equation to obtain</p>
-<p>\[ \widehat x_k := \begin{bmatrix}x_{L,k} \ x_{R,k}
-\end{bmatrix} = \begin{bmatrix}PWx_k \ P_0JWJx_{k+1}
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\widehat x_k := \begin{bmatrix}x_{L,k} \\ x_{R,k}
+\end{bmatrix} = \begin{bmatrix}PWx_k \\ P_0JWJx_{k+1}
 \end{bmatrix} = \begin{bmatrix}PW &amp; P_0JWJ \end{bmatrix}
-\begin{bmatrix}x_k \ x_{k+1} \end{bmatrix} := \hat P
-\begin{bmatrix}x_k \ x_{k+1} \end{bmatrix}. \]</p>
-<p>The combined windowing+projection+spectral transform is thus   \(
-y_k=D\hat P \begin{bmatrix}x_k \ x_{k+1} \end{bmatrix} = M
-\begin{bmatrix}x_k \ x_{k+1} \end{bmatrix}. \) To evaluate the
+\begin{bmatrix}x_k \\ x_{k+1} \end{bmatrix} := \hat P
+\begin{bmatrix}x_k \\ x_{k+1} \end{bmatrix}. 
+\end{split}\]</div>
+<p>The combined windowing+projection+spectral transform is thus  
+<span class="math notranslate nohighlight">\(y_k=D\hat P \begin{bmatrix}x_k \\ x_{k+1} \end{bmatrix} = M \begin{bmatrix}x_k \\ x_{k+1} \end{bmatrix}. \)</span>
+To evaluate the
 sanity of a particular time-frequency transform, we thus have to study
-the basis functions of matrix <em>M</em>. By exhaustively going through
+the basis functions of matrix <span class="math notranslate nohighlight">\(M\)</span>. By exhaustively going through
 different options, it is simple to see that the implicit even/odd
 extensions of DCTs align with the symmetric/antisymmetric projections
 only for DCT-III. For the other options, we always get discontinuities
@@ -914,25 +891,18 @@ in the basis functions.</p>
 plausible signals, which could appear in a naturally appearing physical
 system. More formally, such “nice looking” basis functions have less
 leakage between spectral bins, and thus offer a more accurate
-description of the spectral characteristics of the input signal.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+description of the spectral characteristics of the input signal.
+<span id="id1">[<a class="reference internal" href="#id3" title="Tom Bäckström, Jérémie Lecomte, Guillaume Fuchs, Sascha Disch, and Christian Uhle. Speech coding: with code-excited linear prediction. Springer, 2017. URL: https://doi.org/10.1007/978-3-319-50204-5.">Bäckström <em>et al.</em>, 2017</a>]</span></p>
 <p>See also <a class="reference external" href="https://github.com/audiolabs/lapped-transforms">https://github.com/audiolabs/lapped-transforms</a></p>
 </div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
+<div class="section" id="references">
+<h2><span class="section-number">10.2.4. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">BackstromLF+17</a></span></dt>
+<dd><p>Tom Bäckström, Jérémie Lecomte, Guillaume Fuchs, Sascha Disch, and Christian Uhle. <em>Speech coding: with code-excited linear prediction</em>. Springer, 2017. URL: <a class="reference external" href="https://doi.org/10.1007/978-3-319-50204-5">https://doi.org/10.1007/978-3-319-50204-5</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 <div class="toctree-wrapper compound">
@@ -964,17 +934,17 @@ description of the spectral characteristics of the input signal.</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Basic_tools.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Design_goals.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">10.2. </span>Basic tools</p>
+            <p class="prev-next-title"><span class="section-number">10.1. </span>Design goals</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Entropy_coding.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10.3.4. </span>Entropy coding</p>
+        <p class="prev-next-title"><span class="section-number">10.2.5. </span>Entropy coding</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

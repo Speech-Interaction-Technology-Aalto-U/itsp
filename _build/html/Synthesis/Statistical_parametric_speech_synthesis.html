@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9.3. Statistical parametric speech synthesis &#8212; Introduction to Speech Processing</title>
+    <title>9.2. Statistical parametric speech synthesis &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -48,10 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Transmission, storage and telecommunication" href="../Transmission_storage_and_telecommunication.html" />
-    <link rel="prev" title="9.2. Concatenative speech synthesis" href="Concatenative_speech_synthesis.html" />
+    <link rel="prev" title="9.1. Concatenative speech synthesis" href="Concatenative_speech_synthesis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -159,63 +164,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
-     3.4. Spectrogram and the STFT
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.5. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.6. Cepstrum and MFCC
+    <a class="reference internal" href="../Representations/Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.7. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.8. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.9. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.10. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.12. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -396,8 +411,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Recognition/Voice_activity_detection_VAD.html">
-     8.1. Voice activity detection (VAD)
+    <a class="reference internal" href="../Recognition/Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
     </a>
    </li>
    <li class="toctree-l2">
@@ -439,12 +454,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Concatenative_speech_synthesis.html">
-     9.2. Concatenative speech synthesis
+     9.1. Concatenative speech synthesis
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     9.3. Statistical parametric speech synthesis
+     9.2. Statistical parametric speech synthesis
     </a>
    </li>
   </ul>
@@ -550,6 +565,11 @@ const thebe_selector_output = ".output, .cell_output"
    13. Security and privacy in speech technology
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../References.html">
+   14. References
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -623,53 +643,32 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feature-generation">
-   9.3.1. **Feature generation * ***
+   9.2.1. Feature generation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#waveform-generation-with-vocoders">
-   9.3.2. *
-   <em>
-    Waveform generation with vocoders
-   </em>
-   ***
+   9.2.2. Waveform generation with vocoders
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spss-system-training">
-   9.3.3.
-   <strong>
-    SPSS system training
-   </strong>
+   9.2.3. SPSS system training
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#advantages-and-disadvantages-of-the-hmm-gmm-spss-compared-to-concatenative-synthesis">
-   9.3.4.
-   <strong>
-    Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis
-   </strong>
+   9.2.4. Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-spss">
-   9.3.5.
-   <strong>
-    Neural SPSS
-   </strong>
+   9.2.5. Neural SPSS
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#further-reading">
-   9.3.6.
-   <strong>
-    Further reading
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   9.3.7. Attachments:
+   9.2.6. Further reading
   </a>
  </li>
 </ul>
@@ -694,53 +693,32 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feature-generation">
-   9.3.1. **Feature generation * ***
+   9.2.1. Feature generation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#waveform-generation-with-vocoders">
-   9.3.2. *
-   <em>
-    Waveform generation with vocoders
-   </em>
-   ***
+   9.2.2. Waveform generation with vocoders
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spss-system-training">
-   9.3.3.
-   <strong>
-    SPSS system training
-   </strong>
+   9.2.3. SPSS system training
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#advantages-and-disadvantages-of-the-hmm-gmm-spss-compared-to-concatenative-synthesis">
-   9.3.4.
-   <strong>
-    Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis
-   </strong>
+   9.2.4. Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-spss">
-   9.3.5.
-   <strong>
-    Neural SPSS
-   </strong>
+   9.2.5. Neural SPSS
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#further-reading">
-   9.3.6.
-   <strong>
-    Further reading
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   9.3.7. Attachments:
+   9.2.6. Further reading
   </a>
  </li>
 </ul>
@@ -753,7 +731,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="statistical-parametric-speech-synthesis">
-<h1><span class="section-number">9.3. </span>Statistical parametric speech synthesis<a class="headerlink" href="#statistical-parametric-speech-synthesis" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9.2. </span>Statistical parametric speech synthesis<a class="headerlink" href="#statistical-parametric-speech-synthesis" title="Permalink to this headline">¶</a></h1>
 <p>While concatenative synthesis can reach highly natural synthesized
 speech, the approach is inherently limited by properties of the speech
 corpus used for the unit selection process. Concatenative systems can
@@ -782,16 +760,8 @@ trained on a large amount of speech data with their transcriptions,
 resulting in a set of <em>parameters</em> that describe <em>statistical
 characteristics</em> of the speech data (hence “statistical parametric”
 speech synthesis).</p>
-<p><img src="attachments/175517194/175517696.png" class="image-center"
-data-image-src="attachments/175517194/175517696.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175517696"
-data-linked-resource-version="3" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="SPSS_basic_pipeline.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" width="800" /></p>
-<p><strong>Figure 1:</strong> A schematic view of an SPSS system.</p>
+<p><img alt="SPSS_basic_pipeline.png" src="../_images/175517696.png" />
+<strong>Figure 1:</strong> A schematic view of an SPSS system.</p>
 <p>A full SPSS system consists of text analysis, feature generation, and
 waveform generation modules. The classical approach to SPSS is based on
 a combination of a <em>hidden-Markov model Gaussian mixture model</em>
@@ -800,7 +770,7 @@ waveform generation, and these will be discussed in more detail below.
 Recent advances in neural network-based SPSS are then reviewed at the
 end.</p>
 <div class="section" id="feature-generation">
-<h2><span class="section-number">9.3.1. </span>**Feature generation * ***<a class="headerlink" href="#feature-generation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2.1. </span>Feature generation<a class="headerlink" href="#feature-generation" title="Permalink to this headline">¶</a></h2>
 <p>Given the linguistic description of the text-to-be-synthesized, the
 purpose of the feature generation is to transform the linguistic
 features into a corresponding description of the acoustic signal.
@@ -812,12 +782,12 @@ mapping between the two. The mapping is learned from a training speech
 corpus.</p>
 <p>A standard approach for the probabilistic mapping has been to use a
 HMM-GMM as the statistical parametric model. Similarly to an HMM-GMM ASR
-system, the states <em>s</em> of the HMM correspond to parts of subword units
+system, the states <span class="math notranslate nohighlight">\(s\)</span> of the HMM correspond to parts of subword units
 (e.g., parts of a phone, diphone, or triphone). Transition probabilities
 P(s | st-1) between the states describe how the speech evolves through
 each subword unit and from a unit to another. Acoustic characteristics
 associated with each state are modeled with a GMM, where the GMM
-describes a probability distribution P(<strong>y</strong> | s) over the possible
+describes a probability distribution <span class="math notranslate nohighlight">\(P(y | s)\)</span> over the possible
 acoustic feature vectors in that state. Given a sequence of desired
 subword units (as instructed by the linguistic features), the model can
 be stochastically or deterministically sampled to produce a sequence of
@@ -829,31 +799,20 @@ content be repeated). However, separate more advanced duration models
 are often used to overcome the limitations of a first-order Markov chain
 in modeling thetemporal dependencies and durational characteristics of
 speech.</p>
-<p><img src="attachments/175517194/175518368.png"
-data-image-src="attachments/175517194/175518368.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175518368"
-data-linked-resource-version="5" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="synthesis_HMM_GMM.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" width="700" /></p>
+<p><img alt="synthesis_HMM_GMM.png" src="../_images/175518368.png" /></p>
 <p><strong>Figure 2:</strong> A visual illustration of HMM-GMM-based speech feature
-generation. State sequence <strong>s</strong> = {<em>s</em><sub>1</sub>, <em>s</em><sub>2</sub>,
-…,<em>s<sub>10</sub></em>} required for word “cat” (/k ae t/) is shown on
+generation. State sequence <span class="math notranslate nohighlight">\(s = \{s_1, s_2,...,s_{10}\}\)</span> required for word “cat” (/k ae t/) is shown on
 top, where each phoneme consists of three states: initial, center and
-final state (e.g., k<sub>1</sub>, k<sub>2</sub>, and k<sub>3</sub>). 
-Each state is associated with an <em>N</em>-dimensional Gaussian mixture model
-(GMM), where <em>N</em> is the dimensionality of the speech features <strong>y</strong>. At
+final state (e.g., <span class="math notranslate nohighlight">\(k_{1}\)</span>, <span class="math notranslate nohighlight">\(k_{2}\)</span>, and <span class="math notranslate nohighlight">\(k_{3}\)</span>). 
+Each state is associated with an <span class="math notranslate nohighlight">\(N\)</span>-dimensional Gaussian mixture model
+(GMM), where <span class="math notranslate nohighlight">\(N\)</span> is the dimensionality of the speech features <span class="math notranslate nohighlight">\(y\)</span>. At
 each time step, the GMM of the active state is sampled for a feature
-vector <strong>y</strong><sub><em>t</em></sub>.  After this, a state transition can occur to
+vector <span class="math notranslate nohighlight">\(y_{t}\)</span>.  After this, a state transition can occur to
 a next state or back to the current state, controlling the durational
 aspects of the speech.</p>
-<hr class="docutils" />
 </div>
-<hr class="docutils" />
 <div class="section" id="waveform-generation-with-vocoders">
-<h2><span class="section-number">9.3.2. </span>*<em>Waveform generation with vocoders</em> ***<a class="headerlink" href="#waveform-generation-with-vocoders" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2.2. </span>Waveform generation with vocoders<a class="headerlink" href="#waveform-generation-with-vocoders" title="Permalink to this headline">¶</a></h2>
 <p>A typical high-quality speech waveform consists of “continuous” (e.g.,
 16-bit quantized) amplitude values sampled at 16 kHz. In addition, the
 shape of the waveform is affected by several factors that do not
@@ -861,7 +820,7 @@ directly contribute to the naturalness or intelligibility of speech,
 such as signal gain or phase and amplitude characteristics of the
 recording and transmission chain. This means that mere 80 milliseconds
 of a raw waveform — a typical length of one vowel — would correspond to
-0.08 <em>s</em>*16 <em>kHz</em> = 1280-dimensional amplitude vector, and that this
+0.08 s\16 kHz = 1280-dimensional amplitude vector, and that this
 vector could take countless of shapes for perceptually highly similar
 sounds. Moreover, the values encoded in this vector would be highly
 correlated with each other (see <span class="xref myst">LPC</span>). Given the
@@ -879,10 +838,10 @@ assumed to be fixed for that window. When extracting the features in a
 sliding window with short (e.g., 10 ms) window steps, the overall
 structure of the signal can be captured with a much lower dimensional
 and less variable representation than what the actual waveform would
-be.  *<strong>A vocoder, then, is an algorithm that can 1) parametrize a
+be.  <strong>A vocoder, then, is an algorithm that can 1) parametrize a
 speech waveform into a more compact set of descriptive features as a
 function of time, but also to 2) synthesize the speech back from the
-features with minimal loss in speech quality</strong>. *In addition, many
+features with minimal loss in speech quality</strong>. In addition, many
 vocoders use features that are interpretable in terms of speech
 production or speech acoustics, enabling analysis and manipulation of
 the speech signal to observe or cause certain phenomena in the speech
@@ -904,21 +863,14 @@ that encode spectral envelope, F0, and periodicity characteristics of
 the speech signal to-be-produced, as instructed by the text analysis
 module. These features are then fed to STRAIGHT that synthesizes the
 final speech waveform based on the features.</p>
-<p><img src="attachments/175517194/175517700.png" class="image-center"
-data-image-src="attachments/175517194/175517700.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175517700"
-data-linked-resource-version="7" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="vocoder_basic_structure.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" width="800" /> <strong>Figure 3:</strong>
+<p><img alt="vocoder_basic_structure" src="../_images/175517700.png" />
+<strong>Figure 3:</strong>
 A schematic view of a vocoder and typical uses for vocoder features.<br />
 When used as a part of an SPSS system, vocoder features are generated by
 the parametric statistical model during the synthesis process.</p>
 </div>
 <div class="section" id="spss-system-training">
-<h2><span class="section-number">9.3.3. </span><strong>SPSS system training</strong><a class="headerlink" href="#spss-system-training" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2.3. </span>SPSS system training<a class="headerlink" href="#spss-system-training" title="Permalink to this headline">¶</a></h2>
 <p>Training of an SPSS system refers to estimation of the parametric
 acoustic model (e.g., a HMM-GMM) that is responsible for mapping the
 linguistic features to the corresponding waveform generation (vocoder)
@@ -939,19 +891,11 @@ features (which are agnostic of speaking rate and rhythm in the actual
 speech data) with the phonetic units realized in the acoustic speech
 signal. In the figure below, both the acoustic model and the duration
 model are denoted jointly by the parametric statistical model block.</p>
-<p><img src="attachments/175517194/175517698.png" class="image-center"
-data-image-src="attachments/175517194/175517698.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175517698"
-data-linked-resource-version="3" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="SPSS_training_pipeline.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" height="250" />**  Figure
-4:** A schematic view of SPSS system training.</p>
+<p><img alt="SPSS_training_pipeline.png" src="../_images/175517698.png" />
+<strong>Figure 4:</strong> A schematic view of SPSS system training.</p>
 </div>
 <div class="section" id="advantages-and-disadvantages-of-the-hmm-gmm-spss-compared-to-concatenative-synthesis">
-<h2><span class="section-number">9.3.4. </span><strong>Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis</strong><a class="headerlink" href="#advantages-and-disadvantages-of-the-hmm-gmm-spss-compared-to-concatenative-synthesis" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2.4. </span>Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis<a class="headerlink" href="#advantages-and-disadvantages-of-the-hmm-gmm-spss-compared-to-concatenative-synthesis" title="Permalink to this headline">¶</a></h2>
 <p>Since the “instructions” for speech generation are encoded by parameters
 of the SPSS model, the model can easily be adapted to produce speech
 with different characteristics. For instance, the vocal tract
@@ -978,7 +922,7 @@ vocoders, and potential problems in robust statistical model estimation
 from finite data.</p>
 </div>
 <div class="section" id="neural-spss">
-<h2><span class="section-number">9.3.5. </span><strong>Neural SPSS</strong><a class="headerlink" href="#neural-spss" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2.5. </span>Neural SPSS<a class="headerlink" href="#neural-spss" title="Permalink to this headline">¶</a></h2>
 <p>Recent advances in artificial neural networks (ANNs) have also led to
 new developments in SPSS beyond the classical HMM-GMM framework. In
 terms of vocoding, WaveNet (van den Oord et al., 2016) is a highly
@@ -1045,7 +989,7 @@ ANNs are much more heuristics-driven, similarly to the use of ANNs in
 any other machine learning domain.</p>
 </div>
 <div class="section" id="further-reading">
-<h2><span class="section-number">9.3.6. </span><strong>Further reading</strong><a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2.6. </span>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
 <p>Kawahara, K., Masuda-Katsuse, I., and de Cheveigné , A. (1999).
 Restructuring speech representations using a pitch-adaptive
 time–frequency smoothing and an instantaneous-frequency-based F0
@@ -1063,7 +1007,7 @@ the IEEE</em>, 101, 1234–1252. (introduction to SPSS)*<br />
 *</p>
 <p>van den Oord, A., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O.,
 Graves, A., Kalchbrenner, N., Senior, A., and Kavukcuoglu, K. (2016).
-WaveNet: A generative model for raw audio.* * ArXiV pre-print:
+<em>WaveNet: A generative model for raw audio.</em> * ArXiV pre-print:
 <a class="reference external" href="https://arxiv.org/pdf/1609.03499.pdf">https://arxiv.org/pdf/1609.03499.pdf</a>  (WaveNet original paper)*<br />
 *</p>
 <p>Wu, Z., Watts, O., and King, S. (2016). Merlin: An Open Source Neural
@@ -1077,67 +1021,6 @@ speech synthesis. <strong>Speech Communication</strong>, 51, 1039–1064.
 <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0167639309000648">https://www.sciencedirect.com/science/article/pii/S0167639309000648</a>
 (introduction to SPSS)*<br />
 *</p>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">9.3.7. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_basic_pipeline.png](attachments/175517194/175517736.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_training_pipeline.png](attachments/175517194/175517738.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517702.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517708.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517709.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517710.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517737.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_basic_pipeline.png](attachments/175517194/180304326.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/180304331.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_training_pipeline.png](attachments/175517194/180304333.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518371.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518372.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518373.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/180304329.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_basic_pipeline.png](attachments/175517194/175517696.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518368.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517700.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_training_pipeline.png](attachments/175517194/175517698.png)
-(image/png)  
-</div>
 </div>
 </div>
 
@@ -1170,7 +1053,7 @@ speech synthesis. <strong>Speech Communication</strong>, 51, 1039–1064.
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">9.2. </span>Concatenative speech synthesis</p>
+            <p class="prev-next-title"><span class="section-number">9.1. </span>Concatenative speech synthesis</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../Transmission_storage_and_telecommunication.html" title="next page">

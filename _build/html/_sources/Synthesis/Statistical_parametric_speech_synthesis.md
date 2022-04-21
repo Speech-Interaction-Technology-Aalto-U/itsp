@@ -1,5 +1,4 @@
 # Statistical parametric speech synthesis
-
   
 
 While concatenative synthesis can reach highly natural synthesized
@@ -33,17 +32,7 @@ characteristics* of the speech data (hence "statistical parametric"
 speech synthesis).
 
   
-
-<img src="attachments/175517194/175517696.png" class="image-center"
-data-image-src="attachments/175517194/175517696.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175517696"
-data-linked-resource-version="3" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="SPSS_basic_pipeline.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" width="800" />
-
+![SPSS_basic_pipeline.png](attachments/175517696.png)
 **Figure 1:** A schematic view of an SPSS system.
 
   
@@ -58,7 +47,7 @@ end.
 
   
 
-### **Feature generation * ***
+### Feature generation 
 
 Given the linguistic description of the text-to-be-synthesized, the
 purpose of the feature generation is to transform the linguistic
@@ -72,12 +61,12 @@ corpus.
 
 A standard approach for the probabilistic mapping has been to use a
 HMM-GMM as the statistical parametric model. Similarly to an HMM-GMM ASR
-system, the states *s* of the HMM correspond to parts of subword units
+system, the states $s$ of the HMM correspond to parts of subword units
 (e.g., parts of a phone, diphone, or triphone). Transition probabilities
 P(s \| st-1) between the states describe how the speech evolves through
 each subword unit and from a unit to another. Acoustic characteristics
 associated with each state are modeled with a GMM, where the GMM
-describes a probability distribution P(**y** \| s) over the possible
+describes a probability distribution $P(y | s)$ over the possible
 acoustic feature vectors in that state. Given a sequence of desired
 subword units (as instructed by the linguistic features), the model can
 be stochastically or deterministically sampled to produce a sequence of
@@ -91,33 +80,21 @@ in modeling thetemporal dependencies and durational characteristics of
 speech.
 
   
-
-<img src="attachments/175517194/175518368.png"
-data-image-src="attachments/175517194/175518368.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175518368"
-data-linked-resource-version="5" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="synthesis_HMM_GMM.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" width="700" />
+![synthesis_HMM_GMM.png](attachments/175518368.png)
 
 **Figure 2:** A visual illustration of HMM-GMM-based speech feature
-generation. State sequence **s** = {*s*<sub>1</sub>, *s*<sub>2</sub>,
-...,*s<sub>10</sub>*} required for word "cat" (/k ae t/) is shown on
+generation. State sequence $s = \{s_1, s_2,...,s_{10}\}$ required for word "cat" (/k ae t/) is shown on
 top, where each phoneme consists of three states: initial, center and
-final state (e.g., k<sub>1</sub>, k<sub>2</sub>, and k<sub>3</sub>). 
-Each state is associated with an *N*-dimensional Gaussian mixture model
-(GMM), where *N* is the dimensionality of the speech features **y**. At
+final state (e.g., $k_{1}$, $k_{2}$, and $k_{3}$). 
+Each state is associated with an $N$-dimensional Gaussian mixture model
+(GMM), where $N$ is the dimensionality of the speech features $y$. At
 each time step, the GMM of the active state is sampled for a feature
-vector **y**<sub>*t*</sub>.  After this, a state transition can occur to
+vector $y_{t}$.  After this, a state transition can occur to
 a next state or back to the current state, controlling the durational
 aspects of the speech.
 
-***  
-***
 
-### **Waveform generation with vocoders* ***
+### Waveform generation with vocoders
 
 A typical high-quality speech waveform consists of "continuous" (e.g.,
 16-bit quantized) amplitude values sampled at 16 kHz. In addition, the
@@ -126,7 +103,7 @@ directly contribute to the naturalness or intelligibility of speech,
 such as signal gain or phase and amplitude characteristics of the
 recording and transmission chain. This means that mere 80 milliseconds
 of a raw waveform — a typical length of one vowel — would correspond to
-0.08 *s*\*16 *kHz* = 1280-dimensional amplitude vector, and that this
+0.08 s\16 kHz = 1280-dimensional amplitude vector, and that this
 vector could take countless of shapes for perceptually highly similar
 sounds. Moreover, the values encoded in this vector would be highly
 correlated with each other (see [LPC](Linear_prediction)). Given the
@@ -145,10 +122,10 @@ assumed to be fixed for that window. When extracting the features in a
 sliding window with short (e.g., 10 ms) window steps, the overall
 structure of the signal can be captured with a much lower dimensional
 and less variable representation than what the actual waveform would
-be.  ***A vocoder, then, is an algorithm that can 1) parametrize a
+be.  **A vocoder, then, is an algorithm that can 1) parametrize a
 speech waveform into a more compact set of descriptive features as a
 function of time, but also to 2) synthesize the speech back from the
-features with minimal loss in speech quality**. *In addition, many
+features with minimal loss in speech quality**. In addition, many
 vocoders use features that are interpretable in terms of speech
 production or speech acoustics, enabling analysis and manipulation of
 the speech signal to observe or cause certain phenomena in the speech
@@ -174,23 +151,15 @@ module. These features are then fed to STRAIGHT that synthesizes the
 final speech waveform based on the features.
 
   
-
-<img src="attachments/175517194/175517700.png" class="image-center"
-data-image-src="attachments/175517194/175517700.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175517700"
-data-linked-resource-version="7" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="vocoder_basic_structure.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" width="800" /> **Figure 3:**
+![vocoder_basic_structure](attachments/175517700.png)
+ **Figure 3:**
 A schematic view of a vocoder and typical uses for vocoder features.  
 When used as a part of an SPSS system, vocoder features are generated by
 the parametric statistical model during the synthesis process.
 
   
 
-### **SPSS system training**
+### SPSS system training
 
 Training of an SPSS system refers to estimation of the parametric
 acoustic model (e.g., a HMM-GMM) that is responsible for mapping the
@@ -215,20 +184,12 @@ model are denoted jointly by the parametric statistical model block.
 
   
 
-<img src="attachments/175517194/175517698.png" class="image-center"
-data-image-src="attachments/175517194/175517698.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175517698"
-data-linked-resource-version="3" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="SPSS_training_pipeline.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175517194"
-data-linked-resource-container-version="66" height="250" />**  Figure
-4:** A schematic view of SPSS system training.
+![SPSS_training_pipeline.png](attachments/175517698.png)
+**Figure 4:** A schematic view of SPSS system training.
 
   
 
-### **Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis**
+### Advantages and disadvantages of the HMM-GMM SPSS compared to concatenative synthesis
 
 Since the "instructions" for speech generation are encoded by parameters
 of the SPSS model, the model can easily be adapted to produce speech
@@ -260,7 +221,7 @@ from finite data.
 
   
 
-### **Neural SPSS**
+### Neural SPSS
 
 Recent advances in artificial neural networks (ANNs) have also led to
 new developments in SPSS beyond the classical HMM-GMM framework. In
@@ -334,7 +295,7 @@ any other machine learning domain.
 
   
 
-### **Further reading**
+### Further reading
 
 Kawahara, K., Masuda-Katsuse, I., and de Cheveigné , A. (1999).
 Restructuring speech representations using a pitch-adaptive
@@ -357,7 +318,7 @@ the IEEE*, 101, 1234–1252. (introduction to SPSS)*
 
 van den Oord, A., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O.,
 Graves, A., Kalchbrenner, N., Senior, A., and Kavukcuoglu, K. (2016).
-WaveNet: A generative model for raw audio.* * ArXiV pre-print:
+*WaveNet: A generative model for raw audio.* * ArXiV pre-print:
 <https://arxiv.org/pdf/1609.03499.pdf>  (WaveNet original paper)*  
 *
 
@@ -374,67 +335,3 @@ speech synthesis. **Speech Communication**, 51, 1039–1064.
 (introduction to SPSS)*  
 *
 
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_basic_pipeline.png](attachments/175517194/175517736.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_training_pipeline.png](attachments/175517194/175517738.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517702.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517708.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517709.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517710.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517737.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_basic_pipeline.png](attachments/175517194/180304326.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/180304331.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_training_pipeline.png](attachments/175517194/180304333.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518371.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518372.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518373.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/180304329.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_basic_pipeline.png](attachments/175517194/175517696.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_HMM_GMM.png](attachments/175517194/175518368.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[vocoder_basic_structure.png](attachments/175517194/175517700.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[SPSS_training_pipeline.png](attachments/175517194/175517698.png)
-(image/png)  
-
-</div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.3.5. Perceptual modelling in speech and audio coding &#8212; Introduction to Speech Processing</title>
+    <title>10.2.6. Perceptual modelling in speech and audio coding &#8212; Introduction to Speech Processing</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -50,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10.4. Code-excited linear prediction (CELP)" href="Code-excited_linear_prediction_CELP.html" />
-    <link rel="prev" title="10.3.4. Entropy coding" href="Entropy_coding.html" />
+    <link rel="next" title="10.3. Code-excited linear prediction (CELP)" href="Code-excited_linear_prediction_CELP.html" />
+    <link rel="prev" title="10.2.5. Entropy coding" href="Entropy_coding.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -159,63 +162,73 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Representations/Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Waveform.html">
-     3.1. Waveform
+     3.3. Waveform
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Windowing.html">
-     3.2. Windowing
+     3.4. Windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Signal_energy_loudness_and_decibel.html">
-     3.3. Signal energy, loudness and decibel
+     3.5. Signal energy, loudness and decibel
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html">
-     3.4. Spectrogram and the STFT
+     3.6. Spectrogram and the STFT
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Autocorrelation_and_autocovariance.html">
-     3.5. Autocorrelation and autocovariance
+     3.7. Autocorrelation and autocovariance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Representations/Cepstrum_and_MFCC.html">
-     3.6. Cepstrum and MFCC
+    <a class="reference internal" href="../Representations/Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Linear_prediction.html">
-     3.7. Linear prediction
+     3.9. Linear prediction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Fundamental_frequency_F0.html">
-     3.8. Fundamental frequency (F0)
+     3.10. Fundamental frequency (F0)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Zero-crossing_rate.html">
-     3.9. Zero-crossing rate
+     3.11. Zero-crossing rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Deltas_and_Delta-deltas.html">
-     3.10. Deltas and Delta-deltas
+     3.12. Deltas and Delta-deltas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
-     3.11. Pitch-Synchoronous Overlap-Add (PSOLA)
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Representations/Jitter_and_shimmer.html">
-     3.12. Jitter and shimmer
+     3.14. Jitter and shimmer
     </a>
    </li>
    <li class="toctree-l2">
@@ -396,8 +409,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Recognition/Voice_activity_detection_VAD.html">
-     8.1. Voice activity detection (VAD)
+    <a class="reference internal" href="../Recognition/Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
     </a>
    </li>
    <li class="toctree-l2">
@@ -439,12 +452,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Synthesis/Concatenative_speech_synthesis.html">
-     9.2. Concatenative speech synthesis
+     9.1. Concatenative speech synthesis
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Synthesis/Statistical_parametric_speech_synthesis.html">
-     9.3. Statistical parametric speech synthesis
+     9.2. Statistical parametric speech synthesis
     </a>
    </li>
   </ul>
@@ -464,14 +477,9 @@ const thebe_selector_output = ".output, .cell_output"
      10.1. Design goals
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Basic_tools.html">
-     10.2. Basic tools
-    </a>
-   </li>
    <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="Modified_discrete_cosine_transform_MDCT.html">
-     10.3. Modified discrete cosine transform (MDCT)
+     10.2. Modified discrete cosine transform (MDCT)
     </a>
     <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
@@ -481,24 +489,24 @@ const thebe_selector_output = ".output, .cell_output"
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="Entropy_coding.html">
-       10.3.4. Entropy coding
+       10.2.5. Entropy coding
       </a>
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       10.3.5. Perceptual modelling in speech and audio coding
+       10.2.6. Perceptual modelling in speech and audio coding
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Code-excited_linear_prediction_CELP.html">
-     10.4. Code-excited linear prediction (CELP)
+     10.3. Code-excited linear prediction (CELP)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Frequency-domain_coding.html">
-     10.5. Frequency-domain coding
+     10.4. Frequency-domain coding
     </a>
    </li>
   </ul>
@@ -548,6 +556,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
    13. Security and privacy in speech technology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../References.html">
+   14. References
   </a>
  </li>
 </ul>
@@ -623,17 +636,17 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frequency-masking">
-   10.3.5.1. Frequency masking
+   10.2.6.1. Frequency masking
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frequency-scale">
-   10.3.5.2. Frequency scale
+   10.2.6.2. Frequency scale
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#temporal-masking">
-   10.3.5.3. Temporal masking
+   10.2.6.3. Temporal masking
   </a>
  </li>
 </ul>
@@ -658,17 +671,17 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frequency-masking">
-   10.3.5.1. Frequency masking
+   10.2.6.1. Frequency masking
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frequency-scale">
-   10.3.5.2. Frequency scale
+   10.2.6.2. Frequency scale
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#temporal-masking">
-   10.3.5.3. Temporal masking
+   10.2.6.3. Temporal masking
   </a>
  </li>
 </ul>
@@ -681,7 +694,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="perceptual-modelling-in-speech-and-audio-coding">
-<h1><span class="section-number">10.3.5. </span>Perceptual modelling in speech and audio coding<a class="headerlink" href="#perceptual-modelling-in-speech-and-audio-coding" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10.2.6. </span>Perceptual modelling in speech and audio coding<a class="headerlink" href="#perceptual-modelling-in-speech-and-audio-coding" title="Permalink to this headline">¶</a></h1>
 <div class="contentLayout2">
 <div class="columnLayout two-equal" layout="two-equal">
 <div class="cell normal" data-type="normal">
@@ -720,7 +733,7 @@ accuracy than those which are less important.</p>
 <div class="cell normal" data-type="normal">
 <div class="innerCell">
 <div class="section" id="frequency-masking">
-<h2><span class="section-number">10.3.5.1. </span>Frequency masking<a class="headerlink" href="#frequency-masking" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.6.1. </span>Frequency masking<a class="headerlink" href="#frequency-masking" title="Permalink to this headline">¶</a></h2>
 <p>If we play two sinusoid with slightly different frequencies, then the
 louder of the two can <em>mask</em> the second sinusoid such that it becomes
 inaudible. This effect is known as <em>frequency masking</em>. In other words,
@@ -760,7 +773,7 @@ is chosen.</p></li>
 <div class="innerCell">
 </div>
 <div class="section" id="frequency-scale">
-<h2><span class="section-number">10.3.5.2. </span>Frequency scale<a class="headerlink" href="#frequency-scale" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.6.2. </span>Frequency scale<a class="headerlink" href="#frequency-scale" title="Permalink to this headline">¶</a></h2>
 <p>The sensitivity of human hearing depends on the frequency range where
 the sound is present. We are more sensitive in the “low” regions and
 less sensitive at “high” frequencies. There is however some ambiguity in
@@ -795,7 +808,7 @@ with the <a class="reference external" href="https://en.wikipedia.org/wiki/Mel_s
 <div class="innerCell">
 </div>
 <div class="section" id="temporal-masking">
-<h2><span class="section-number">10.3.5.3. </span>Temporal masking<a class="headerlink" href="#temporal-masking" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.6.3. </span>Temporal masking<a class="headerlink" href="#temporal-masking" title="Permalink to this headline">¶</a></h2>
 <p>The variation in accuracy and sensitivity of perception is interesting
 also across time. In particular, a loud sound can make imperceptible a
 second, weaker sound which comes later in time. Say, if we have two
@@ -844,13 +857,13 @@ sound.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">10.3.4. </span>Entropy coding</p>
+            <p class="prev-next-title"><span class="section-number">10.2.5. </span>Entropy coding</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Code-excited_linear_prediction_CELP.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10.4. </span>Code-excited linear prediction (CELP)</p>
+        <p class="prev-next-title"><span class="section-number">10.3. </span>Code-excited linear prediction (CELP)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

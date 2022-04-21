@@ -37,9 +37,12 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -447,12 +450,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Synthesis/Concatenative_speech_synthesis.html">
-     9.2. Concatenative speech synthesis
+     9.1. Concatenative speech synthesis
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Synthesis/Statistical_parametric_speech_synthesis.html">
-     9.3. Statistical parametric speech synthesis
+     9.2. Statistical parametric speech synthesis
     </a>
    </li>
   </ul>
@@ -472,14 +475,9 @@ const thebe_selector_output = ".output, .cell_output"
      10.1. Design goals
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Transmission/Basic_tools.html">
-     10.2. Basic tools
-    </a>
-   </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="Transmission/Modified_discrete_cosine_transform_MDCT.html">
-     10.3. Modified discrete cosine transform (MDCT)
+     10.2. Modified discrete cosine transform (MDCT)
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
@@ -489,24 +487,24 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="Transmission/Entropy_coding.html">
-       10.3.4. Entropy coding
+       10.2.5. Entropy coding
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
-       10.3.5. Perceptual modelling in speech and audio coding
+       10.2.6. Perceptual modelling in speech and audio coding
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Transmission/Code-excited_linear_prediction_CELP.html">
-     10.4. Code-excited linear prediction (CELP)
+     10.3. Code-excited linear prediction (CELP)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Transmission/Frequency-domain_coding.html">
-     10.5. Frequency-domain coding
+     10.4. Frequency-domain coding
     </a>
    </li>
   </ul>

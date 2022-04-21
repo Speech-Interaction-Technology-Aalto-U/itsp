@@ -62,21 +62,12 @@ Historically, methods such as formant synthesis or articulatory
 synthesis have been utilized (where the latter is still used in speech
 research). However, modern commercial speech synthesizers are based on
 one of the two alternative techniques: [concatenative
-synthesis](Concatenative_speech_synthesis) or [statistical parametric
-speech synthesis](Statistical_parametric_speech_synthesis). Both methods
+synthesis](Synthesis/Concatenative_speech_synthesis.md) or [statistical parametric speech synthesis](Synthesis/Statistical_parametric_speech_synthesis.md). Both methods
 are described in more detail in their respective sub-sections. 
 
-<img src="attachments/175516907/175517689.png" class="image-center"
-data-image-src="attachments/175516907/175517689.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175517689"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="synthesis_basic_schematic.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175516907"
-data-linked-resource-container-version="23" width="750" />   **Figure
-1:** The basic structure of a speech synthesis system.**  
-**
+![synthesis_basic_schematic](Synthesis/attachments/175517689.png)
+**Figure 1:** The basic structure of a speech synthesis system.**  
+
 
   
 
@@ -115,24 +106,3 @@ speech synthesis
 
   
 
-  
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_basic_schematic.pdf](attachments/175516907/175517687.pdf)
-(application/pdf)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_basic_schematic.png](attachments/175516907/180304335.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[synthesis_basic_schematic.png](attachments/175516907/175517689.png)
-(image/png)  
-
-</div>

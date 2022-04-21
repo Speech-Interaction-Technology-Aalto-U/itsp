@@ -1,12 +1,5 @@
 # Design goals
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 In short, the aim of speech coding methods is primarily to enable
 natural and efficient spoken communication over a geographical distance,
@@ -14,7 +7,7 @@ given constraints on available resources. In other words, we want to be
 able to talk with a distant person with the aid of technology. Usually
 distance refers to location, but speech coding can be (and is often)
 used for storing speech signals (such that distance refers to distance
-in *time*). 
+in *time*). {cite:p}`backstrom2017speech`
 
 In particular, aspects of quality which we can be included in our design
 goals are for example:
@@ -162,20 +155,8 @@ allowed to use previous packets to predict the current packet. The
 likelihood of lost packets thus dictates the compromise between
 sensitivity to lost packets and coding (compression) efficiency.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+## References
+```{bibliography}
+:filter: docname in docnames
+```
