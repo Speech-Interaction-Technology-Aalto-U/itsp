@@ -1,12 +1,5 @@
 # Code-excited linear prediction (CELP)
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 The most famous speech coding paradigm is code-excited linear prediction
 (CELP). It was first invented in 1985 and is the basis of all
@@ -20,27 +13,6 @@ residual. Codecs such as
 [Opus](https://en.wikipedia.org/wiki/Opus_(audio_format))) are all based
 on variants of CELP.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 As an overview, CELP is based on a source-filter model of speech, where
 [linear prediction](Linear_prediction) is used to model the filtering
@@ -62,37 +34,11 @@ modelling](Fundamental_frequency_F0_) are described in detail elsewhere,
 below we will discuss only overall encoder/decoder structure, perceptual
 evaluation, noise modelling and analysis-by-synthesis.
 
-</div>
 
-</div>
 
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/149889236/175511854.png" class="image-center"
-data-image-src="attachments/149889236/175511854.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175511854"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="celp.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149889236"
-data-linked-resource-container-version="15" width="400" />
-
+![celp.png](attachments/175511854.png) 
 The source-filter model of CELP codecs.
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Encoder/decoder structure
 
@@ -135,61 +81,25 @@ analysis-by-synthesis enables optimization of CELPs, it is important.
 However, observe that this is a brute-force method, which has an
 inherent penalty in computational complexity.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/149889236/175511877.png"
-data-image-src="attachments/149889236/175511877.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175511877"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="celp2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149889236"
-data-linked-resource-container-version="15" width="400" />
+![celp2.png](attachments/175511877.png)
 
 CELP decoder structure
 
   
 
-<img src="attachments/149889236/175511879.png"
-data-image-src="attachments/149889236/175511879.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175511879"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="celp3.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149889236"
-data-linked-resource-container-version="15" width="400" />
-
+![celp3.png](attachments/175511879.png)
 CELP encoder structure
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Perceptual quality evaluation
 
 Perceptual quality in CELP codecs is evaluated with a weighted norm.
-Suppose *W* is a convolution matrix corresponding to the perceptual
+Suppose $W$ is a convolution matrix corresponding to the perceptual
 weighting filter, then the weighted norm between the true and quantized
-residual signals *x* and \\( \\hat x \\) , respectively, is
+residual signals $x$ and $ \hat x $ , respectively, is
 
-\\\[ d_W(x,\\hat x):=\\left\\\| W(x-\\hat x)\\right\\\|^2 = (x-\\hat
-x)^T W^T W (x-\\hat x). \\\]
+$$ d_W(x,\hat x):=\left\| W(x-\hat x)\right\|^2 = (x-\hat
+x)^T W^T W (x-\hat x). $$
 
 Though this is a quadratic form, whose minimization is simple, notice
 that we consider quantized vectors, such that the minimization is an
@@ -199,52 +109,52 @@ solution.
 Further, the quantized signal is the sum of noise and pitch
 contributions, both multiplied with scaling factors
 
-\\\[ \\hat x := \\gamma\_{F0} x\_{F0} + \\gamma\_{noise} x\_{noise}.
-\\\]
+$$ \hat x := \gamma_{F0} x_{F0} + \gamma_{noise} x_{noise}.
+$$
 
 When estimating the F0, we can set the noise contribution to zero, such
 that we minimize
 
-\\\[ \\arg\\min\_{x\_{F0}}\\, d_W(x,\\gamma\_{F0}x\_{F0}):=
-\\arg\\min\_{x\_{F0}}(x-\\gamma\_{F0}x\_{F0})^T W^T W
-(x-\\gamma\_{F0}x\_{F0}). \\\]
+$$ \arg\min_{x_{F0}}\, d_W(x,\gamma_{F0}x_{F0}):=
+\arg\min_{x_{F0}}(x-\gamma_{F0}x_{F0})^T W^T W
+(x-\gamma_{F0}x_{F0}). $$
 
 To compare different pitch contributions, we further need to exclude the
 gain from the problem, which is achieved by setting the derivative with
-respect to \\( \\gamma\_{F0} \\) to zero (left as an exercises), which
+respect to $ \gamma_{F0} $ to zero (left as an exercises), which
 gives the optimal gain as
 
-\\\[ \\gamma\_{F0}^\* = \\frac{x^TW^T W x\_{F0}}{x\_{F0}^TW^T W
-x\_{F0}}. \\\]
+$$ \gamma_{F0}^* = \frac{x^TW^T W x_{F0}}{x_{F0}^TW^T W
+x_{F0}}. $$
 
 Substituting back to the original problem, after removing constants,
 yields
 
-\\\[ x\_{F0}^\*:=\\arg\\min\_{x\_{F0}}\\,
-d_W(x,\\gamma\_{F0}^\*x\_{F0}):= \\arg\\max\_{x\_{F0}}
-\\frac{\\left(x^TW^T W x\_{F0}\\right)^2}{x\_{F0}^TW^T W x\_{F0}}. \\\]
+$$ x_{F0}^*:=\arg\min_{x_{F0}}\,
+d_W(x,\gamma_{F0}^*x_{F0}):= \arg\max_{x_{F0}}
+\frac{\left(x^TW^T W x_{F0}\right)^2}{x_{F0}^TW^T W x_{F0}}. $$
 
 Observe that this equation thus evaluates the weighted correlation
-between the original signal *x* and the pitch contribution. In other
+between the original signal $x$ and the pitch contribution. In other
 words, different F0's can be evaluated with this function and the one
 with the highest correlation is chosen as the F0.
 
 Once the F0 has been chosen, we calculate the optimal gain and subtract
-it from the original residual signal, \\( x':=x - \\gamma\_{F0}^\*
-x\_{F0}^\*. \\) This F0-residual is then approximately white noise and
+it from the original residual signal, $ x':=x - \gamma_{F0}^*
+x_{F0}^*. $ This F0-residual is then approximately white noise and
 can be modelled with the noise codebook. Similarly as above, we assume
 that the noise-gain is optimal such that the noise codebook can be
 optimized with
 
-\\\[ \\gamma\_{noise}^\* = \\frac{x^TW^T W x\_{noise}}{x\_{noise}^TW^T W
-x\_{noise}} \\\]
+$$ \gamma_{noise}^* = \frac{x^TW^T W x_{noise}}{x_{noise}^TW^T W
+x_{noise}} $$
 
 and
 
-\\\[ x\_{noise}^\*:=\\arg\\min\_{x\_{noise}}\\,
-d_W(x',\\gamma\_{noise}^\*x\_{noise}):= \\arg\\max\_{x\_{noise}}
-\\frac{\\left(x^TW^T W x\_{noise}\\right)^2}{x\_{noise}^TW^T W
-x\_{noise}}. \\\]
+$$ x_{noise}^*:=\arg\min_{x_{noise}}\,
+d_W(x',\gamma_{noise}^*x_{noise}):= \arg\max_{x_{noise}}
+\frac{\left(x^TW^T W x_{noise}\right)^2}{x_{noise}^TW^T W
+x_{noise}}. $$
 
 We have thus quantized the pitch and noise contributions, but for the
 two gains we have optimal values, but not optimal *quantized* values.
@@ -252,19 +162,19 @@ Again, since quantized values are not continuous, we do not have an
 analytic solution but must search for the best quantization among all
 possible values. The optimization problem is
 
-\\\[ \\arg\\min\_{\\gamma\_{F0},\\gamma\_{noise}}\\,
-d_W(x,\\gamma\_{F0}x\_{F0}^\* + \\gamma\_{noise}x\_{noise}^\*) =
-\\arg\\min\_{\\gamma\_{F0},\\gamma\_{noise}}\\,(x-\\gamma\_{F0}x\_{F0}^\* -
-\\gamma\_{noise}x\_{noise}^\*)^T W^T W (x-\\gamma\_{F0}x\_{F0}^\* -
-\\gamma\_{noise}x\_{noise}^\*). \\\]
+$$ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
+d_W(x,\gamma_{F0}x_{F0}^* + \gamma_{noise}x_{noise}^*) =
+\arg\min_{\gamma_{F0},\gamma_{noise}}\,(x-\gamma_{F0}x_{F0}^* -
+\gamma_{noise}x_{noise}^*)^T W^T W (x-\gamma_{F0}x_{F0}^* -
+\gamma_{noise}x_{noise}^*). $$
 
 We note that the above equation is a polynomial of the two scalar gains
 and all vector and matrix terms reduce to constants, such that
 
-\\\[ \\arg\\min\_{\\gamma\_{F0},\\gamma\_{noise}}\\,
-d_W(x,\\gamma\_{F0}x\_{F0}^\* + \\gamma\_{noise}x\_{noise}^\*) = c_0 +
-\\gamma\_{F0}c_1 + \\gamma\_{F0}^2c_2 +\\gamma\_{noise}c_3 +
-\\gamma\_{noise}\\gamma\_{F0}c_4 + \\gamma\_{noise}^2c_5. \\\]
+$$ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
+d_W(x,\gamma_{F0}x_{F0}^* + \gamma_{noise}x_{noise}^*) = c_0 +
+\gamma_{F0}c_1 + \gamma_{F0}^2c_2 +\gamma_{noise}c_3 +
+\gamma_{noise}\gamma_{F0}c_4 + \gamma_{noise}^2c_5. $$
 
 In difference to the optimization of the residual vectors, this
 optimization is computationally relatively simple such that we can
@@ -273,30 +183,10 @@ with 8 to 10 bits, such that this involves only 256 to 1024 polynomial
 evaluations.  
 The final quantized residual is then
 
-\\\[ \\hat x^\* = \\gamma\_{F0}^\* x\_{F0}^\* + \\gamma\_{noise}^\*
-x\_{noise}^\*. \\\]
+$$ \hat x^* = \gamma_{F0}^* x_{F0}^* + \gamma_{noise}^*
+x_{noise}^*. $$
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Noise modelling and algebraic coding
 
@@ -305,29 +195,29 @@ approximately stationary white noise, that is, it is constant variance
 and samples are uncorrelated. We would like to quantize this
 effectively. White noise signals have however no structure left, except
 their probability distribution. We can assume that the residual samples
-\\( \\xi_k \\) follow the Laplacian distribution with zero mean,
+$ \xi_k $ follow the Laplacian distribution with zero mean,
 
-\\\[ f(\\xi_k)= C \\exp\\left(-\\frac{\|\\xi_k\|}{s}\\right). \\\]
+$$ f(\xi_k)= C \exp\left(-\frac{\|\xi_k\|}{s}\right). $$
 
 The joint log-likelihood is
 
-\\\[ \\log\\prod_k f(\\xi_k)= C'- \\sum_k\\frac{\|\\xi_k\|}{s} = C' -
-\\frac1s \\\|x\_{noise}\\\|\_1, \\\]
+$$ \log\prod_k f(\xi_k)= C'- \sum_k\frac{\|\xi_k\|}{s} = C' -
+\frac1s \|x_{noise}\|_1, $$
 
-where \\( x\_{noise}:= \[\\xi_1,\\dotsc,\\,\\xi\_{K}\]. \\) and \\(
-\\\|x\\\|\_1 \\) is the 1-norm (absolute sum). In other words, if we
-model constant-probability vectors \\( x\_{noise}, \\)  then that is
-equivalent with modelling vectors with a constant 1-norm, \\(
-\\\|x\_{noise}\\\|\_1=\\text{constant}. \\) We can thus build a codebook
+where $ x_{noise}:= [\xi_1,\dotsc,\,\xi_{K}]. $ and $
+\|x\|_1 $ is the 1-norm (absolute sum). In other words, if we
+model constant-probability vectors $ x_{noise}, $  then that is
+equivalent with modelling vectors with a constant 1-norm, $
+\|x_{noise}\|_1=\text{constant}. $ We can thus build a codebook
 which has constant 1-norm. For example, if we quantize to integer
 values, then the absolute sum of the quantized signal is a fixed
 integer.
 
-In the simplest case, we can quantize \\( x\_{noise} \\) to have one
-signed pulse at location *k*, and otherwise all samples are zero. The
-location of the pulse can be encoded with \\( \\log_2 K \\) bits, and
-the sign with one bit, such that the overall bit-consumption is \\(
-1+\\log_2 K. \\) This encoding strategy can be readily extended by
+In the simplest case, we can quantize $ x_{noise} $ to have one
+signed pulse at location $k$, and otherwise all samples are zero. The
+location of the pulse can be encoded with $ \log_2 K $ bits, and
+the sign with one bit, such that the overall bit-consumption is $
+1+\log_2 K. $ This encoding strategy can be readily extended by
 adding more pulses. The bit-consumption of multi-pulse vectors however
 becomes more complicated. The issue is that if apply a naive encoding
 where we directly encode the position and sign of each pulse, then we
@@ -359,39 +249,9 @@ codecs, such as AMR, EVS and USAC use ACELP. Some codecs use also other
 residual codebooks, but even then, algebraic codes are always the first
 choice.
 
-</div>
 
-</div>
 
-<div class="cell normal" data-type="normal">
 
-<div class="innerCell">
 
-  
 
-</div>
 
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp.png](attachments/149889236/175511854.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp2.png](attachments/149889236/175511883.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp3.png](attachments/149889236/175511879.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp2.png](attachments/149889236/175511877.png) (image/png)  
-
-</div>

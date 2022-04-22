@@ -1,12 +1,5 @@
 # Perceptual modelling in speech and audio coding
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Humans are usually the intended recipients of speech signals in
 telecommunication, such that the quality of a transmission should be
@@ -34,27 +27,6 @@ minimized. Roughly speaking, this means that those signal components
 which are more important to a human listener are quantized with a higher
 accuracy than those which are less important.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Frequency masking
 
@@ -87,27 +59,7 @@ Frequency masking models are used in two ways:
     quantizations, the one with the smallest perceptually weighted error
     is chosen.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Frequency scale
 
@@ -133,27 +85,7 @@ interpretations:
     at low frequencies. This aspect of perception can be approximated
     with the [Mel scale](https://en.wikipedia.org/wiki/Mel_scale).
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Temporal masking
 
@@ -166,20 +98,3 @@ the second impulse. Surprisingly, such temporal masking can occur also
 the other way around, a *later* loud sound can mask a preceding weaker
 sound.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

@@ -1,12 +1,5 @@
 # Entropy coding
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 In transmission and storage of data, it is useful if we can minimize the
 number of bits needed to uniquely represent the input. With *entropy
@@ -27,82 +20,38 @@ is minimized and 2) lossless coding of the quantized signal. In this
 sense, even if lossless and lossy coding are clearly different methods,
 a lossless coding module is often included also in lossy codecs.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Entropy coding operates on an abstract level such that it can operate on
 any set of symbols as long as we have information about the
 probabilities of each symbol. For example, consider a integer-valued
-scalar *x*, which can attain values -1, 0, and +1, with respecitve
+scalar $x$, which can attain values -1, 0, and +1, with respecitve
 probabilities 0.25, 0.5, 0.25. That is, if we repeatedly draw scalars
-*x* from this distribution, then on average, 25% of them are -1's. It is
-then irrelevant what the numerical values of *x* are, we can
+$x$ from this distribution, then on average, 25% of them are -1's. It is
+then irrelevant what the numerical values of $x$ are, we can
 equivalently name the distinct elements according to symbols of the
-alphabet as *a, b* and *c.  
-*The table on the right demonstrates a possible encoding of these
+alphabet as $a, b$ and $c$.  
+The table on the right demonstrates a possible encoding of these
 numbers. Clearly we need more than one bit to encode three symbols, and
 hence this encoding uses 2 bits per symbol. Observe, however, that the
 bit-string 11 is not used, which means that the encoding is inefficient.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 A naive encoding of a set of numbers, with 2 bits per symbol.
 
-<div class="table-wrap">
 
-|        |        |            |        |
-|--------|--------|------------|--------|
 | number | symbol | bit-string | length |
+|--------|--------|------------|--------|
 | -1     | a      | 00         | 2      |
 |  0     | b      | 01         | 2      |
 | +1     | c      | 10         | 2      |
 
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Vector coding
 
 To take better use of all bits, we can instead of single symbols,
-consider a vector of symbols \\( x_1,x_2,x_3 \\) . With 3 possible
-symbols for each element, we have 3<sup>3</sup>=27 possible
-combinations. To encode it we thus need \\(
-{\\mathrm{ceil}}(\\log_2(27))=5 \\) bits, or 1.66 bits per sample. In
+consider a vector of symbols $ x_1,x_2,x_3 $ . With 3 possible
+symbols for each element, we have $3^{3}=27$ possible
+combinations. To encode it we thus need ${\mathrm{ceil}}(\log_2(27))=5 $ bits, or 1.66 bits per sample. In
 comparison to the original 2 bits per sample above, this is a clear
 improvement. However, we still have 5 unused bit-strings, which shows
 that this encoding is sub-optimal.
@@ -113,21 +62,12 @@ In short, vector quantization is lossy coding, which finds the best
 quantization with a given set of symbols, whereas vector coding is
 lossless coding of vectors of symbols.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 A naive encoding of a set of numbers, with 2 bits per symbol.
 
-<div class="table-wrap">
 
-|            |         |            |        |
-|------------|---------|------------|--------|
 | numbers    | symbols | bit-string | length |
+|------------|---------|------------|--------|
 | -1, -1, -1 | aaa     | 00000      | 5      |
 | -1, -1, 0  | aab     | 00001      | 5      |
 | -1, -1, +1 | aac     | 00010      | 5      |
@@ -136,19 +76,6 @@ A naive encoding of a set of numbers, with 2 bits per symbol.
 | ...        | ...     | ...        | ...    |
 | +1, +1, +1 | ccc     | 11011      | 5      |
 
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Variable length and Huffman coding
 
@@ -160,12 +87,12 @@ table on the right.
 The average number of bits per symbol is then the sum of the length of
 each bit-string multiplied with the corresponding probability, that is,
 
-\\\[ E\[bits/symbol\] = \\sum\_{k\\in\\{a,b,c\\}}P_k L_k = 0.25\\times
-2 + 0.5\\times 1 + 0.25\\times 2 = 1.5. \\\]
+$$ E[bits/symbol] = \sum_{k\in\{a,b,c\}}P_k L_k = 0.25\times
+2 + 0.5\times 1 + 0.25\times 2 = 1.5. $$
 
 From the bit-strings 00, 01 and 1, we can clearly decode the original
-symbols; if the first bit is one, then the symbol is *b*, otherwise the
-second bit determines whether the symbol is *a* or *c.*
+symbols; if the first bit is one, then the symbol is $b$, otherwise the
+second bit determines whether the symbol is $a$ or $c.$
 
 Such variable length codes can be readily constructed when the
 probabilities are negative powers of 2. This is a classic approach known
@@ -176,38 +103,16 @@ of the symbols are arbitrary, then Huffman coding is no longer
 applicable without approximations of probabilities, which make the
 coding suboptimal.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 An illustrative encoding of a set of numbers, with 1.5 bits per symbol.
 
-<div class="table-wrap">
 
-|        |        |                             |            |                        |
+| number | symbol | probability $P_{k}$ | bit-string | length $L_{k}$ |
 |--------|--------|-----------------------------|------------|------------------------|
-| number | symbol | probability *P<sub>k</sub>* | bit-string | length *L<sub>k</sub>* |
 | -1     | a      | 0.25                        | 00         | 2                      |
 |  0     | b      | 0.5                         | 1          | 1                      |
 | +1     | c      | 0.25                        | 01         | 2                      |
 
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Arithmetic coding
 
@@ -216,54 +121,54 @@ with Huffman coding in a method known as [*arithmetic
 coding*](https://en.wikipedia.org/wiki/Arithmetic_coding). It uses the
 probability of symbols to jointly encode a sequence symbols. For
 example, consider the set of symbols 0....5 on the right with
-corresponding occurrence probabilities *P<sub>k</sub>*. Further suppose
+corresponding occurrence probabilities $P_{k}$. Further suppose
 that we are supposed to encode the string "130". The first step is to
-assign every symbol to a unique segment  \\( \[s_k,\\,s\_{k+1}\] \\) of
-the interval \\( \[0,\\,1\] \\) such that the width of the segment
-matches the probability of the symbol \\( P_k = s\_{k+1}-s_k \\) .
+assign every symbol to a unique segment  $ [s_k,\,s_{k+1}] $ of
+the interval $ [0,\,1] $ such that the width of the segment
+matches the probability of the symbol $ P_k = s_{k+1}-s_k $ .
 
 The first symbol is "1" whereby we are assigned to the interval 0.40 ...
 0.67, which we will call the current interval. The central idea of
 arithmetic coding is that next symbol is encoded inside the current
-interval. That is, we shift and scale the *s<sub>k</sub>*'s such that
+interval. That is, we shift and scale the $s_{k}$'s such that
 they perfectly fit within the current interval 0.40 ... 0.67. In
-mathematical terms, if the current symbol is *h*, then the current
-interval is *s<sub>h</sub> ... s<sub>h+1</sub>*, and the intervals of
+mathematical terms, if the current symbol is $h$, then the current
+interval is $s_{h} ... s_{h+1}$, and the intervals of
 the next symbol are shifted and scaled as
 
-\\\[ s'\_k = s_h + s_k(s\_{h+1}-s_h) = s_h + s_kP_k. \\\]
+$$ s'_k = s_h + s_k(s_{h+1}-s_h) = s_h + s_kP_k. $$
 
 The second symbol was "3", such that the current interval is 0.6133 ...
 0.6349. For the third symbol, the intervals are then shifted and scaled
 as
 
-\\\[ s''\_k = s'\_3 + s'\_k(s_4-s_3) = 0.6133 + s'\_k\\times 0.08\\times
-0.27. \\\]
+$$ s''_k = s'_3 + s'_k(s_4-s_3) = 0.6133 + s'_k\times 0.08\times
+0.27. $$
 
 The new intervals are listed on the right. The third symbol is "0" such
 that the last current interval is 0.6133 ... 0.6219, which we will
-denote as \\( s\_{left} ... s\_{right} \\) .
+denote as $ s_{left} ... s_{right} $ .
 
 The remaining step is to translate the last interval into a string of
-bits. Let us divide the whole interval 0 ... 1 into *2<sup>B</sup>*
-quantization levels on a uniform grid. such that the *k*th level is \\(
-k 2^{-B}. \\) We then find the largest *B* such that there is a *k* with
-which *k2<sup>-B</sup>* is inside the last current segment \\( s\_{left}
-... s\_{right} \\) that is, \\( s\_{left} \\leq k2^{-B} \\leq s\_{right}
-\\) . Then *k* is the index to our quantization position, that is, it
+bits. Let us divide the whole interval 0 ... 1 into $2^{B}$
+quantization levels on a uniform grid. such that the $k$th level is $
+k 2^{-B}. $ We then find the largest $B$ such that there is a $k$ with
+which $k2^{-B}$ is inside the last current segment $ s_{left}
+... s_{right} $ that is, $ s_{left} \leq k2^{-B} \leq s_{right}
+$ . Then $k$ is the index to our quantization position, that is, it
 uniquely describes the interval and thus uniquely describes the sequence
-of symbols "130". Specifically, with *B=7*, we find that *k=79*,
+of symbols "130". Specifically, with $B=7$, we find that $k=79$,
 fulfills the criteria
 
-\\\[ s\_{left}=0.6133 \\leq k2^{-B} = 0.6172 \\leq s\_{right} = 0.6219.
-\\\]
+$$ s_{left}=0.6133 \leq k2^{-B} = 0.6172 \leq s_{right} = 0.6219.
+$$
 
 Decoding the sequence is then straightforward at the decoder.
 
 A few additional points:
 
--   The average bit-rate is \\( -\\sum_k P_k \\log_2 P_k \\approx 2.2
-    \\) bits per sample. In the example above we needed B=7 bits to
+-   The average bit-rate is $ -\sum_k P_k \log_2 P_k \approx 2.2
+    $ bits per sample. In the example above we needed B=7 bits to
     encode 3 samples, which gives 2.3 bits per sample. The actual number
     of bits thus does not perfectly coincide with the average bit-rate.
 
@@ -274,7 +179,7 @@ A few additional points:
     symbol which signifies end-of-string.
 
 -   Usually the last current segment does not exactly align with
-    *k2<sup>-B</sup>* , which means that there are small unused spaces
+    $k2^{-B}$ , which means that there are small unused spaces
     in between the bitstring and the last current segment. This is an
     inherent inefficiency of arithmetic coding. Heuristically it is easy
     to understand that we must send an integer number of bits, but the
@@ -296,192 +201,54 @@ A few additional points:
     is rather involved and sensitive to errors.
 
 -   Algorithmic complexity of an arithmetic coder is usually reasonable,
-    provided that the probabilities *P<sub>k</sub>* are readily
+    provided that the probabilities $P_{k}$ are readily
     available. If the probabilities need to be calculated online
     (parametric probability model), then complexity increases
     considerably.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Illustrative set of symbols and their corresponding probabilities.
 
-<div class="table-wrap">
 
-<table class="relative-table wrapped confluenceTable"
-style="margin-left: auto;margin-right: auto;width: 48.6654%;">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 22%" />
-<col style="width: 29%" />
-<col style="width: 31%" />
-</colgroup>
-<tbody>
-<tr class="header">
-<th class="confluenceTh"><p>symbol<br />
-<em>k</em></p></th>
-<th class="confluenceTh">probability <em>P<sub>k</sub></em></th>
-<th class="confluenceTh"><p>interval<br />
-<em>s<sub>k</sub> ... s<sub>k+1</sub></em></p></th>
-<th class="confluenceTh">bits per symbol
-<em>log<sub>2</sub>(P<sub>k</sub>)</em></th>
-</tr>
+| symbol $k$| probability $P_k$ | interval $s_k \dots s_{k+1}$ | bits per symbol $\log_2(P_k)$ |
+| ---- | ---- | ---- | ---- |
+| 0 |0.40 |0.00 ... 0.40 |1.32
+| 1 |0.27 |0.40 ... 0.67 |1.89
+| 2 |0.12 |0.67 ... 0.79 |3.05
+| 3 |0.08 |0.79 ... 0.87 |3.64
+| 4 | 0.07 |0.87 ... 0.94 |3.84
+| 5 | 0.06 |0.94 ... 1.00 |4.06
 
-<tr class="odd">
-<td class="confluenceTd">0</td>
-<td class="confluenceTd">0.40</td>
-<td class="confluenceTd">0.00 ... 0.40</td>
-<td class="confluenceTd">1.32</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">1</td>
-<td class="confluenceTd">0.27</td>
-<td class="confluenceTd">0.40 ... 0.67</td>
-<td class="confluenceTd">1.89</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd">2</td>
-<td class="confluenceTd">0.12</td>
-<td class="confluenceTd">0.67 ... 0.79</td>
-<td class="confluenceTd">3.05</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">3</td>
-<td class="confluenceTd">0.08</td>
-<td class="confluenceTd">0.79 ... 0.87</td>
-<td class="confluenceTd">3.64</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd">4</td>
-<td class="confluenceTd">0.07</td>
-<td class="confluenceTd">0.87 ... 0.94</td>
-<td class="confluenceTd">3.84</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">5</td>
-<td class="confluenceTd">0.06</td>
-<td class="confluenceTd">0.94 ... 1.00</td>
-<td class="confluenceTd">4.06</td>
-</tr>
-</tbody>
-</table>
 
-</div>
 
   
 
 The intervals of the second symbol.
 
-<div class="table-wrap">
+| symbol $k$ | interval $s_k' \dots s_{k+1}'$|
+| ---- | ---- |
+|0 |0.4000 ... 0.5080|
+|1 |0.5080 ... 0.5809|
+|2 |0.5809 ... 0.6133|
+|3 |0.6133 ... 0.6349|
+|4 |0.6349 ... 0.6538|
+|5 |0.6538 ... 0.6700|
 
-<table class="relative-table wrapped confluenceTable"
-style="margin-left: auto;margin-right: auto;width: 46.954%;">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 82%" />
-</colgroup>
-<tbody>
-<tr class="header">
-<th class="confluenceTh"><p>symbol<br />
-<em>k</em></p></th>
-<th class="confluenceTh"><p>interval<br />
-<em>s<sub>k</sub>' ... s<sub>k+1</sub>'</em></p></th>
-</tr>
-
-<tr class="odd">
-<td class="confluenceTd">0</td>
-<td class="confluenceTd">0.4000 ... 0.5080</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">1</td>
-<td class="confluenceTd">0.5080 ... 0.5809</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd">2</td>
-<td class="confluenceTd">0.5809 ... 0.6133</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">3</td>
-<td class="confluenceTd">0.6133 ... 0.6349</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd">4</td>
-<td class="confluenceTd">0.6349 ... 0.6538</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">5</td>
-<td class="confluenceTd">0.6538 ... 0.6700</td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
   
 
 The intervals of the third symbol.
 
-<div class="table-wrap">
+| symbol $k$ | interval $s_k'' \dots s_{k+1}''$|
+| ---- | ---- |
+|0 |0.6133 ... 0.6219|
+|1 |0.6219 ... 0.6278|
+|2 |0.6278 ... 0.6304|
+|3 |0.6404 ... 0.6321|
+|4 |0.6321 ... 0.6336|
+|5 |0.6336 ... 0.6439|
 
-<table class="relative-table wrapped confluenceTable"
-style="margin-left: auto;margin-right: auto;width: 46.8317%;">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 82%" />
-</colgroup>
-<tbody>
-<tr class="header">
-<th class="confluenceTh"><p>symbol<br />
-<em>k</em></p></th>
-<th class="confluenceTh"><p>interval<br />
-<em>s<sub>k</sub>'' ... s<sub>k+1</sub>''</em></p></th>
-</tr>
 
-<tr class="odd">
-<td class="confluenceTd">0</td>
-<td class="confluenceTd">0.6133 ... 0.6219</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">1</td>
-<td class="confluenceTd">0.6219 ... 0.6278</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd">2</td>
-<td class="confluenceTd">0.6278 ... 0.6304</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">3</td>
-<td class="confluenceTd">0.6404 ... 0.6321</td>
-</tr>
-<tr class="odd">
-<td class="confluenceTd">4</td>
-<td class="confluenceTd">0.6321 ... 0.6336</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">5</td>
-<td class="confluenceTd">0.6336 ... 0.6439</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Parametric coding
 
@@ -499,31 +266,10 @@ parametric models a *parametric coding*.
 In speech coding, parametric coding is typically used in
 frequency-domain coding to encode individual spectral components. We can
 then assume that spectral components follow a Laplacian distribution and
-derive the probabilities *P<sub>k</sub>* using that distribution. More
+derive the probabilities $P_{k}$ using that distribution. More
 refined alternatives include for example [Gaussian mixture models
 (GMMs).](Gaussian_mixture_model_GMM_)
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Algebraic coding
 
@@ -552,26 +298,9 @@ non-zeros and the number of quantization levels is very low.
 Unfortunately these methods become increasingly complicated when higher
 accuracy is required. Moreover, for higher accuracy quantization, it
 becomes increasingly difficult to find the best quantization of a given
-vector *x*. Still, due to its simplicity and efficiency at low bitrates,
+vector $x$. Still, due to its simplicity and efficiency at low bitrates,
 algebraic coding is so popular in speech coding that the most commonly
 used codec type is known as [Algebraic code-excited linear prediction
 (ACELP)](Code-excited_linear_prediction_CELP_), since it uses algebraic
 coding to encode the residual signal.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

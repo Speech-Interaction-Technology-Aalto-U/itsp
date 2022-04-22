@@ -51,10 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.4. Frequency-domain coding" href="Frequency-domain_coding.html" />
-    <link rel="prev" title="10.2.5. Perceptual modelling in speech and audio coding" href="Perceptual_modelling_in_speech_and_audio_coding.html" />
+    <link rel="prev" title="10.2.6. Perceptual modelling in speech and audio coding" href="Perceptual_modelling_in_speech_and_audio_coding.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -489,12 +491,12 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="Entropy_coding.html">
-       10.2.4. Entropy coding
+       10.2.5. Entropy coding
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="Perceptual_modelling_in_speech_and_audio_coding.html">
-       10.2.5. Perceptual modelling in speech and audio coding
+       10.2.6. Perceptual modelling in speech and audio coding
       </a>
      </li>
     </ul>
@@ -649,11 +651,6 @@ const thebe_selector_output = ".output, .cell_output"
    10.3.3. Noise modelling and algebraic coding
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   10.3.4. Attachments:
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -689,11 +686,6 @@ const thebe_selector_output = ".output, .cell_output"
    10.3.3. Noise modelling and algebraic coding
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   10.3.4. Attachments:
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -705,10 +697,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="code-excited-linear-prediction-celp">
 <h1><span class="section-number">10.3. </span>Code-excited linear prediction (CELP)<a class="headerlink" href="#code-excited-linear-prediction-celp" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>The most famous speech coding paradigm is code-excited linear prediction
 (CELP). It was first invented in 1985 and is the basis of all
 main-stream codecs dedicated to speech. Its most prominent variant is
@@ -720,16 +708,6 @@ residual. Codecs such as
 <a class="reference external" href="https://en.wikipedia.org/wiki/Speex">Speex</a> (superseded by
 <a class="reference external" href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a>) are all based
 on variants of CELP.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>As an overview, CELP is based on a source-filter model of speech, where
 <span class="xref myst">linear prediction</span> is used to model the filtering
 effect of the vocal tract (and other effects) and this filter is excited
@@ -748,26 +726,8 @@ the subjective, perceptual quality can be compared.</p>
 modelling</span> are described in detail elsewhere,
 below we will discuss only overall encoder/decoder structure, perceptual
 evaluation, noise modelling and analysis-by-synthesis.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/149889236/175511854.png" class="image-center"
-data-image-src="attachments/149889236/175511854.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175511854"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="celp.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149889236"
-data-linked-resource-container-version="15" width="400" /></p>
-<p>The source-filter model of CELP codecs.</p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="celp.png" src="../_images/175511854.png" />
+The source-filter model of CELP codecs.</p>
 <div class="section" id="encoder-decoder-structure">
 <h2><span class="section-number">10.3.1. </span>Encoder/decoder structure<a class="headerlink" href="#encoder-decoder-structure" title="Permalink to this headline">¶</a></h2>
 <p>The decoder (see image on the right) very closely implements the idea of
@@ -804,120 +764,94 @@ arguably more efficient than competing frequency-domain codecs, and
 analysis-by-synthesis enables optimization of CELPs, it is important.
 However, observe that this is a brute-force method, which has an
 inherent penalty in computational complexity.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/149889236/175511877.png"
-data-image-src="attachments/149889236/175511877.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175511877"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="celp2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149889236"
-data-linked-resource-container-version="15" width="400" /></p>
+<p><img alt="celp2.png" src="../_images/175511877.png" /></p>
 <p>CELP decoder structure</p>
-<p><img src="attachments/149889236/175511879.png"
-data-image-src="attachments/149889236/175511879.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175511879"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="celp3.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="149889236"
-data-linked-resource-container-version="15" width="400" /></p>
-<p>CELP encoder structure</p>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<p><img alt="celp3.png" src="../_images/175511879.png" />
+CELP encoder structure</p>
 </div>
 <div class="section" id="perceptual-quality-evaluation">
 <h2><span class="section-number">10.3.2. </span>Perceptual quality evaluation<a class="headerlink" href="#perceptual-quality-evaluation" title="Permalink to this headline">¶</a></h2>
 <p>Perceptual quality in CELP codecs is evaluated with a weighted norm.
-Suppose <em>W</em> is a convolution matrix corresponding to the perceptual
+Suppose <span class="math notranslate nohighlight">\(W\)</span> is a convolution matrix corresponding to the perceptual
 weighting filter, then the weighted norm between the true and quantized
-residual signals <em>x</em> and \( \hat x \) , respectively, is</p>
-<p>\[ d_W(x,\hat x):=\left\| W(x-\hat x)\right\|^2 = (x-\hat
-x)^T W^T W (x-\hat x). \]</p>
+residual signals <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\( \hat x \)</span> , respectively, is</p>
+<div class="math notranslate nohighlight">
+\[ d_W(x,\hat x):=\left\| W(x-\hat x)\right\|^2 = (x-\hat
+x)^T W^T W (x-\hat x). \]</div>
 <p>Though this is a quadratic form, whose minimization is simple, notice
 that we consider quantized vectors, such that the minimization is an
 integer-valued minimization problem, which does not have an analytic
 solution.</p>
 <p>Further, the quantized signal is the sum of noise and pitch
 contributions, both multiplied with scaling factors</p>
-<p>\[ \hat x := \gamma_{F0} x_{F0} + \gamma_{noise} x_{noise}.
-\]</p>
+<div class="math notranslate nohighlight">
+\[ \hat x := \gamma_{F0} x_{F0} + \gamma_{noise} x_{noise}.
+\]</div>
 <p>When estimating the F0, we can set the noise contribution to zero, such
 that we minimize</p>
-<p>\[ \arg\min_{x_{F0}}\, d_W(x,\gamma_{F0}x_{F0}):=
+<div class="math notranslate nohighlight">
+\[ \arg\min_{x_{F0}}\, d_W(x,\gamma_{F0}x_{F0}):=
 \arg\min_{x_{F0}}(x-\gamma_{F0}x_{F0})^T W^T W
-(x-\gamma_{F0}x_{F0}). \]</p>
+(x-\gamma_{F0}x_{F0}). \]</div>
 <p>To compare different pitch contributions, we further need to exclude the
 gain from the problem, which is achieved by setting the derivative with
-respect to \( \gamma_{F0} \) to zero (left as an exercises), which
+respect to <span class="math notranslate nohighlight">\( \gamma_{F0} \)</span> to zero (left as an exercises), which
 gives the optimal gain as</p>
-<p>\[ \gamma_{F0}^* = \frac{x^TW^T W x_{F0}}{x_{F0}^TW^T W
-x_{F0}}. \]</p>
+<div class="math notranslate nohighlight">
+\[ \gamma_{F0}^* = \frac{x^TW^T W x_{F0}}{x_{F0}^TW^T W
+x_{F0}}. \]</div>
 <p>Substituting back to the original problem, after removing constants,
 yields</p>
-<p>\[ x_{F0}^*:=\arg\min_{x_{F0}}\,
+<div class="math notranslate nohighlight">
+\[ x_{F0}^*:=\arg\min_{x_{F0}}\,
 d_W(x,\gamma_{F0}^*x_{F0}):= \arg\max_{x_{F0}}
-\frac{\left(x^TW^T W x_{F0}\right)^2}{x_{F0}^TW^T W x_{F0}}. \]</p>
+\frac{\left(x^TW^T W x_{F0}\right)^2}{x_{F0}^TW^T W x_{F0}}. \]</div>
 <p>Observe that this equation thus evaluates the weighted correlation
-between the original signal <em>x</em> and the pitch contribution. In other
+between the original signal <span class="math notranslate nohighlight">\(x\)</span> and the pitch contribution. In other
 words, different F0’s can be evaluated with this function and the one
 with the highest correlation is chosen as the F0.</p>
 <p>Once the F0 has been chosen, we calculate the optimal gain and subtract
-it from the original residual signal, \( x’:=x - \gamma_{F0}^*
-x_{F0}^*. \) This F0-residual is then approximately white noise and
+it from the original residual signal, <span class="math notranslate nohighlight">\( x':=x - \gamma_{F0}^*
+x_{F0}^*. \)</span> This F0-residual is then approximately white noise and
 can be modelled with the noise codebook. Similarly as above, we assume
 that the noise-gain is optimal such that the noise codebook can be
 optimized with</p>
-<p>\[ \gamma_{noise}^* = \frac{x^TW^T W x_{noise}}{x_{noise}^TW^T W
-x_{noise}} \]</p>
+<div class="math notranslate nohighlight">
+\[ \gamma_{noise}^* = \frac{x^TW^T W x_{noise}}{x_{noise}^TW^T W
+x_{noise}} \]</div>
 <p>and</p>
-<p>\[ x_{noise}^*:=\arg\min_{x_{noise}}\,
-d_W(x’,\gamma_{noise}^*x_{noise}):= \arg\max_{x_{noise}}
+<div class="math notranslate nohighlight">
+\[ x_{noise}^*:=\arg\min_{x_{noise}}\,
+d_W(x',\gamma_{noise}^*x_{noise}):= \arg\max_{x_{noise}}
 \frac{\left(x^TW^T W x_{noise}\right)^2}{x_{noise}^TW^T W
-x_{noise}}. \]</p>
+x_{noise}}. \]</div>
 <p>We have thus quantized the pitch and noise contributions, but for the
 two gains we have optimal values, but not optimal <em>quantized</em> values.
 Again, since quantized values are not continuous, we do not have an
 analytic solution but must search for the best quantization among all
 possible values. The optimization problem is</p>
-<p>\[ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
+<div class="math notranslate nohighlight">
+\[ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
 d_W(x,\gamma_{F0}x_{F0}^* + \gamma_{noise}x_{noise}^*) =
 \arg\min_{\gamma_{F0},\gamma_{noise}}\,(x-\gamma_{F0}x_{F0}^* -
 \gamma_{noise}x_{noise}^*)^T W^T W (x-\gamma_{F0}x_{F0}^* -
-\gamma_{noise}x_{noise}^*). \]</p>
+\gamma_{noise}x_{noise}^*). \]</div>
 <p>We note that the above equation is a polynomial of the two scalar gains
 and all vector and matrix terms reduce to constants, such that</p>
-<p>\[ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
+<div class="math notranslate nohighlight">
+\[ \arg\min_{\gamma_{F0},\gamma_{noise}}\,
 d_W(x,\gamma_{F0}x_{F0}^* + \gamma_{noise}x_{noise}^*) = c_0 +
 \gamma_{F0}c_1 + \gamma_{F0}^2c_2 +\gamma_{noise}c_3 +
-\gamma_{noise}\gamma_{F0}c_4 + \gamma_{noise}^2c_5. \]</p>
+\gamma_{noise}\gamma_{F0}c_4 + \gamma_{noise}^2c_5. \]</div>
 <p>In difference to the optimization of the residual vectors, this
 optimization is computationally relatively simple such that we can
 exhaustively search for the best gains. The gains are usually quantized
 with 8 to 10 bits, such that this involves only 256 to 1024 polynomial
 evaluations.<br />
 The final quantized residual is then</p>
-<p>\[ \hat x^* = \gamma_{F0}^* x_{F0}^* + \gamma_{noise}^*
-x_{noise}^*. \]</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
+<div class="math notranslate nohighlight">
+\[ \hat x^* = \gamma_{F0}^* x_{F0}^* + \gamma_{noise}^*
+x_{noise}^*. \]</div>
 </div>
 <div class="section" id="noise-modelling-and-algebraic-coding">
 <h2><span class="section-number">10.3.3. </span>Noise modelling and algebraic coding<a class="headerlink" href="#noise-modelling-and-algebraic-coding" title="Permalink to this headline">¶</a></h2>
@@ -926,24 +860,26 @@ approximately stationary white noise, that is, it is constant variance
 and samples are uncorrelated. We would like to quantize this
 effectively. White noise signals have however no structure left, except
 their probability distribution. We can assume that the residual samples
-\( \xi_k \) follow the Laplacian distribution with zero mean,</p>
-<p>\[ f(\xi_k)= C \exp\left(-\frac{|\xi_k|}{s}\right). \]</p>
+<span class="math notranslate nohighlight">\( \xi_k \)</span> follow the Laplacian distribution with zero mean,</p>
+<div class="math notranslate nohighlight">
+\[ f(\xi_k)= C \exp\left(-\frac{\|\xi_k\|}{s}\right). \]</div>
 <p>The joint log-likelihood is</p>
-<p>\[ \log\prod_k f(\xi_k)= C’- \sum_k\frac{|\xi_k|}{s} = C’ -
-\frac1s \|x_{noise}\|_1, \]</p>
-<p>where \( x_{noise}:= [\xi_1,\dotsc,\,\xi_{K}]. \) and \(
-\|x\|_1 \) is the 1-norm (absolute sum). In other words, if we
-model constant-probability vectors \( x_{noise}, \)  then that is
-equivalent with modelling vectors with a constant 1-norm, \(
-\|x_{noise}\|_1=\text{constant}. \) We can thus build a codebook
+<div class="math notranslate nohighlight">
+\[ \log\prod_k f(\xi_k)= C'- \sum_k\frac{\|\xi_k\|}{s} = C' -
+\frac1s \|x_{noise}\|_1, \]</div>
+<p>where <span class="math notranslate nohighlight">\( x_{noise}:= [\xi_1,\dotsc,\,\xi_{K}]. \)</span> and <span class="math notranslate nohighlight">\(
+\|x\|_1 \)</span> is the 1-norm (absolute sum). In other words, if we
+model constant-probability vectors <span class="math notranslate nohighlight">\( x_{noise}, \)</span>  then that is
+equivalent with modelling vectors with a constant 1-norm, <span class="math notranslate nohighlight">\(
+\|x_{noise}\|_1=\text{constant}. \)</span> We can thus build a codebook
 which has constant 1-norm. For example, if we quantize to integer
 values, then the absolute sum of the quantized signal is a fixed
 integer.</p>
-<p>In the simplest case, we can quantize \( x_{noise} \) to have one
-signed pulse at location <em>k</em>, and otherwise all samples are zero. The
-location of the pulse can be encoded with \( \log_2 K \) bits, and
-the sign with one bit, such that the overall bit-consumption is \(
-1+\log_2 K. \) This encoding strategy can be readily extended by
+<p>In the simplest case, we can quantize <span class="math notranslate nohighlight">\( x_{noise} \)</span> to have one
+signed pulse at location <span class="math notranslate nohighlight">\(k\)</span>, and otherwise all samples are zero. The
+location of the pulse can be encoded with <span class="math notranslate nohighlight">\( \log_2 K \)</span> bits, and
+the sign with one bit, such that the overall bit-consumption is <span class="math notranslate nohighlight">\(
+1+\log_2 K. \)</span> This encoding strategy can be readily extended by
 adding more pulses. The bit-consumption of multi-pulse vectors however
 becomes more complicated. The issue is that if apply a naive encoding
 where we directly encode the position and sign of each pulse, then we
@@ -972,29 +908,6 @@ algebraic coding are known as algebraic CELP or ACELP. Most main stream
 codecs, such as AMR, EVS and USAC use ACELP. Some codecs use also other
 residual codebooks, but even then, algebraic codes are always the first
 choice.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">10.3.4. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp.png](attachments/149889236/175511854.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp2.png](attachments/149889236/175511883.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp3.png](attachments/149889236/175511879.png) (image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[celp2.png](attachments/149889236/175511877.png) (image/png)  
-</div>
 </div>
 </div>
 
@@ -1027,7 +940,7 @@ choice.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">10.2.5. </span>Perceptual modelling in speech and audio coding</p>
+            <p class="prev-next-title"><span class="section-number">10.2.6. </span>Perceptual modelling in speech and audio coding</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Frequency-domain_coding.html" title="next page">

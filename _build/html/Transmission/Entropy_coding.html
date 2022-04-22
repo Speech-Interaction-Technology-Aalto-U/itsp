@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.2.6. Perceptual modelling in speech and audio coding" href="Perceptual_modelling_in_speech_and_audio_coding.html" />
@@ -715,10 +717,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="entropy-coding">
 <h1><span class="section-number">10.2.5. </span>Entropy coding<a class="headerlink" href="#entropy-coding" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>In transmission and storage of data, it is useful if we can minimize the
 number of bits needed to uniquely represent the input. With <em>entropy
 coding</em>, we refer to methods which use statistical methods to compress
@@ -737,80 +735,52 @@ the signal such that the perceptually degrading effect of quantization
 is minimized and 2) lossless coding of the quantized signal. In this
 sense, even if lossless and lossy coding are clearly different methods,
 a lossless coding module is often included also in lossy codecs.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Entropy coding operates on an abstract level such that it can operate on
 any set of symbols as long as we have information about the
 probabilities of each symbol. For example, consider a integer-valued
-scalar <em>x</em>, which can attain values -1, 0, and +1, with respecitve
+scalar <span class="math notranslate nohighlight">\(x\)</span>, which can attain values -1, 0, and +1, with respecitve
 probabilities 0.25, 0.5, 0.25. That is, if we repeatedly draw scalars
-<em>x</em> from this distribution, then on average, 25% of them are -1’s. It is
-then irrelevant what the numerical values of <em>x</em> are, we can
+<span class="math notranslate nohighlight">\(x\)</span> from this distribution, then on average, 25% of them are -1’s. It is
+then irrelevant what the numerical values of <span class="math notranslate nohighlight">\(x\)</span> are, we can
 equivalently name the distinct elements according to symbols of the
-alphabet as <em>a, b</em> and *c.<br />
-*The table on the right demonstrates a possible encoding of these
+alphabet as <span class="math notranslate nohighlight">\(a, b\)</span> and <span class="math notranslate nohighlight">\(c\)</span>.<br />
+The table on the right demonstrates a possible encoding of these
 numbers. Clearly we need more than one bit to encode three symbols, and
 hence this encoding uses 2 bits per symbol. Observe, however, that the
 bit-string 11 is not used, which means that the encoding is inefficient.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>A naive encoding of a set of numbers, with 2 bits per symbol.</p>
-<div class="table-wrap">
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
+<tr class="row-odd"><th class="head"><p>number</p></th>
+<th class="head"><p>symbol</p></th>
+<th class="head"><p>bit-string</p></th>
+<th class="head"><p>length</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>number</p></td>
-<td><p>symbol</p></td>
-<td><p>bit-string</p></td>
-<td><p>length</p></td>
-</tr>
-<tr class="row-odd"><td><p>-1</p></td>
+<tr class="row-even"><td><p>-1</p></td>
 <td><p>a</p></td>
 <td><p>00</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-even"><td><p>0</p></td>
+<tr class="row-odd"><td><p>0</p></td>
 <td><p>b</p></td>
 <td><p>01</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-odd"><td><p>+1</p></td>
+<tr class="row-even"><td><p>+1</p></td>
 <td><p>c</p></td>
 <td><p>10</p></td>
 <td><p>2</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="vector-coding">
 <h2><span class="section-number">10.2.5.1. </span>Vector coding<a class="headerlink" href="#vector-coding" title="Permalink to this headline">¶</a></h2>
 <p>To take better use of all bits, we can instead of single symbols,
-consider a vector of symbols \( x_1,x_2,x_3 \) . With 3 possible
-symbols for each element, we have 3<sup>3</sup>=27 possible
-combinations. To encode it we thus need \(
-{\mathrm{ceil}}(\log_2(27))=5 \) bits, or 1.66 bits per sample. In
+consider a vector of symbols <span class="math notranslate nohighlight">\( x_1,x_2,x_3 \)</span> . With 3 possible
+symbols for each element, we have <span class="math notranslate nohighlight">\(3^{3}=27\)</span> possible
+combinations. To encode it we thus need <span class="math notranslate nohighlight">\({\mathrm{ceil}}(\log_2(27))=5 \)</span> bits, or 1.66 bits per sample. In
 comparison to the original 2 bits per sample above, this is a clear
 improvement. However, we still have 5 unused bit-strings, which shows
 that this encoding is sub-optimal.</p>
@@ -819,70 +789,53 @@ that this encoding is sub-optimal.</p>
 In short, vector quantization is lossy coding, which finds the best
 quantization with a given set of symbols, whereas vector coding is
 lossless coding of vectors of symbols.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>A naive encoding of a set of numbers, with 2 bits per symbol.</p>
-<div class="table-wrap">
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
+<tr class="row-odd"><th class="head"><p>numbers</p></th>
+<th class="head"><p>symbols</p></th>
+<th class="head"><p>bit-string</p></th>
+<th class="head"><p>length</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>numbers</p></td>
-<td><p>symbols</p></td>
-<td><p>bit-string</p></td>
-<td><p>length</p></td>
-</tr>
-<tr class="row-odd"><td><p>-1, -1, -1</p></td>
+<tr class="row-even"><td><p>-1, -1, -1</p></td>
 <td><p>aaa</p></td>
 <td><p>00000</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>-1, -1, 0</p></td>
+<tr class="row-odd"><td><p>-1, -1, 0</p></td>
 <td><p>aab</p></td>
 <td><p>00001</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-odd"><td><p>-1, -1, +1</p></td>
+<tr class="row-even"><td><p>-1, -1, +1</p></td>
 <td><p>aac</p></td>
 <td><p>00010</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>-1, 0 -1</p></td>
+<tr class="row-odd"><td><p>-1, 0 -1</p></td>
 <td><p>aba</p></td>
 <td><p>00011</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-odd"><td><p>-1, 0, 0</p></td>
+<tr class="row-even"><td><p>-1, 0, 0</p></td>
 <td><p>abb</p></td>
 <td><p>00100</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>…</p></td>
+<tr class="row-odd"><td><p>…</p></td>
 <td><p>…</p></td>
 <td><p>…</p></td>
 <td><p>…</p></td>
 </tr>
-<tr class="row-odd"><td><p>+1, +1, +1</p></td>
+<tr class="row-even"><td><p>+1, +1, +1</p></td>
 <td><p>ccc</p></td>
 <td><p>11011</p></td>
 <td><p>5</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="variable-length-and-huffman-coding">
 <h2><span class="section-number">10.2.5.2. </span>Variable length and Huffman coding<a class="headerlink" href="#variable-length-and-huffman-coding" title="Permalink to this headline">¶</a></h2>
@@ -892,11 +845,12 @@ example, an optimal coding (i.e. optimal bit-strings) is listed in the
 table on the right.</p>
 <p>The average number of bits per symbol is then the sum of the length of
 each bit-string multiplied with the corresponding probability, that is,</p>
-<p>\[ E[bits/symbol] = \sum_{k\in\{a,b,c\}}P_k L_k = 0.25\times
-2 + 0.5\times 1 + 0.25\times 2 = 1.5. \]</p>
+<div class="math notranslate nohighlight">
+\[ E[bits/symbol] = \sum_{k\in\{a,b,c\}}P_k L_k = 0.25\times
+2 + 0.5\times 1 + 0.25\times 2 = 1.5. \]</div>
 <p>From the bit-strings 00, 01 and 1, we can clearly decode the original
-symbols; if the first bit is one, then the symbol is <em>b</em>, otherwise the
-second bit determines whether the symbol is <em>a</em> or <em>c.</em></p>
+symbols; if the first bit is one, then the symbol is <span class="math notranslate nohighlight">\(b\)</span>, otherwise the
+second bit determines whether the symbol is <span class="math notranslate nohighlight">\(a\)</span> or <span class="math notranslate nohighlight">\(c.\)</span></p>
 <p>Such variable length codes can be readily constructed when the
 probabilities are negative powers of 2. This is a classic approach known
 as <a class="reference external" href="https://en.wikipedia.org/wiki/Huffman_coding"><em>Huffman</em> coding</a>. It
@@ -905,41 +859,30 @@ probabilities are negative powers of 2. However, when the probabilities
 of the symbols are arbitrary, then Huffman coding is no longer
 applicable without approximations of probabilities, which make the
 coding suboptimal.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>An illustrative encoding of a set of numbers, with 1.5 bits per symbol.</p>
-<div class="table-wrap">
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
-<th class="head"><p></p></th>
+<tr class="row-odd"><th class="head"><p>number</p></th>
+<th class="head"><p>symbol</p></th>
+<th class="head"><p>probability <span class="math notranslate nohighlight">\(P_{k}\)</span></p></th>
+<th class="head"><p>bit-string</p></th>
+<th class="head"><p>length <span class="math notranslate nohighlight">\(L_{k}\)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>number</p></td>
-<td><p>symbol</p></td>
-<td><p>probability <em>P<sub>k</sub></em></p></td>
-<td><p>bit-string</p></td>
-<td><p>length <em>L<sub>k</sub></em></p></td>
-</tr>
-<tr class="row-odd"><td><p>-1</p></td>
+<tr class="row-even"><td><p>-1</p></td>
 <td><p>a</p></td>
 <td><p>0.25</p></td>
 <td><p>00</p></td>
 <td><p>2</p></td>
 </tr>
-<tr class="row-even"><td><p>0</p></td>
+<tr class="row-odd"><td><p>0</p></td>
 <td><p>b</p></td>
 <td><p>0.5</p></td>
 <td><p>1</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>+1</p></td>
+<tr class="row-even"><td><p>+1</p></td>
 <td><p>c</p></td>
 <td><p>0.25</p></td>
 <td><p>01</p></td>
@@ -948,13 +891,6 @@ coding suboptimal.</p>
 </tbody>
 </table>
 </div>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
 <div class="section" id="arithmetic-coding">
 <h2><span class="section-number">10.2.5.3. </span>Arithmetic coding<a class="headerlink" href="#arithmetic-coding" title="Permalink to this headline">¶</a></h2>
 <p>To further improve on coding efficiency, we can combine vector coding
@@ -962,45 +898,48 @@ with Huffman coding in a method known as <a class="reference external" href="htt
 coding</em></a>. It uses the
 probability of symbols to jointly encode a sequence symbols. For
 example, consider the set of symbols 0….5 on the right with
-corresponding occurrence probabilities <em>P<sub>k</sub></em>. Further suppose
+corresponding occurrence probabilities <span class="math notranslate nohighlight">\(P_{k}\)</span>. Further suppose
 that we are supposed to encode the string “130”. The first step is to
-assign every symbol to a unique segment  \( [s_k,\,s_{k+1}] \) of
-the interval \( [0,\,1] \) such that the width of the segment
-matches the probability of the symbol \( P_k = s_{k+1}-s_k \) .</p>
+assign every symbol to a unique segment  <span class="math notranslate nohighlight">\( [s_k,\,s_{k+1}] \)</span> of
+the interval <span class="math notranslate nohighlight">\( [0,\,1] \)</span> such that the width of the segment
+matches the probability of the symbol <span class="math notranslate nohighlight">\( P_k = s_{k+1}-s_k \)</span> .</p>
 <p>The first symbol is “1” whereby we are assigned to the interval 0.40 …
 0.67, which we will call the current interval. The central idea of
 arithmetic coding is that next symbol is encoded inside the current
-interval. That is, we shift and scale the <em>s<sub>k</sub></em>’s such that
+interval. That is, we shift and scale the <span class="math notranslate nohighlight">\(s_{k}\)</span>’s such that
 they perfectly fit within the current interval 0.40 … 0.67. In
-mathematical terms, if the current symbol is <em>h</em>, then the current
-interval is <em>s<sub>h</sub> … s<sub>h+1</sub></em>, and the intervals of
+mathematical terms, if the current symbol is <span class="math notranslate nohighlight">\(h\)</span>, then the current
+interval is <span class="math notranslate nohighlight">\(s_{h} ... s_{h+1}\)</span>, and the intervals of
 the next symbol are shifted and scaled as</p>
-<p>\[ s’_k = s_h + s_k(s_{h+1}-s_h) = s_h + s_kP_k. \]</p>
+<div class="math notranslate nohighlight">
+\[ s'_k = s_h + s_k(s_{h+1}-s_h) = s_h + s_kP_k. \]</div>
 <p>The second symbol was “3”, such that the current interval is 0.6133 …
 0.6349. For the third symbol, the intervals are then shifted and scaled
 as</p>
-<p>\[ s’’_k = s’_3 + s’_k(s_4-s_3) = 0.6133 + s’_k\times 0.08\times
-0.27. \]</p>
+<div class="math notranslate nohighlight">
+\[ s''_k = s'_3 + s'_k(s_4-s_3) = 0.6133 + s'_k\times 0.08\times
+0.27. \]</div>
 <p>The new intervals are listed on the right. The third symbol is “0” such
 that the last current interval is 0.6133 … 0.6219, which we will
-denote as \( s_{left} … s_{right} \) .</p>
+denote as <span class="math notranslate nohighlight">\( s_{left} ... s_{right} \)</span> .</p>
 <p>The remaining step is to translate the last interval into a string of
-bits. Let us divide the whole interval 0 … 1 into <em>2<sup>B</sup></em>
-quantization levels on a uniform grid. such that the <em>k</em>th level is \(
-k 2^{-B}. \) We then find the largest <em>B</em> such that there is a <em>k</em> with
-which <em>k2<sup>-B</sup></em> is inside the last current segment \( s_{left}
-… s_{right} \) that is, \( s_{left} \leq k2^{-B} \leq s_{right}
-\) . Then <em>k</em> is the index to our quantization position, that is, it
+bits. Let us divide the whole interval 0 … 1 into <span class="math notranslate nohighlight">\(2^{B}\)</span>
+quantization levels on a uniform grid. such that the <span class="math notranslate nohighlight">\(k\)</span>th level is <span class="math notranslate nohighlight">\(
+k 2^{-B}. \)</span> We then find the largest <span class="math notranslate nohighlight">\(B\)</span> such that there is a <span class="math notranslate nohighlight">\(k\)</span> with
+which <span class="math notranslate nohighlight">\(k2^{-B}\)</span> is inside the last current segment <span class="math notranslate nohighlight">\( s_{left}
+... s_{right} \)</span> that is, <span class="math notranslate nohighlight">\( s_{left} \leq k2^{-B} \leq s_{right}
+\)</span> . Then <span class="math notranslate nohighlight">\(k\)</span> is the index to our quantization position, that is, it
 uniquely describes the interval and thus uniquely describes the sequence
-of symbols “130”. Specifically, with <em>B=7</em>, we find that <em>k=79</em>,
+of symbols “130”. Specifically, with <span class="math notranslate nohighlight">\(B=7\)</span>, we find that <span class="math notranslate nohighlight">\(k=79\)</span>,
 fulfills the criteria</p>
-<p>\[ s_{left}=0.6133 \leq k2^{-B} = 0.6172 \leq s_{right} = 0.6219.
-\]</p>
+<div class="math notranslate nohighlight">
+\[ s_{left}=0.6133 \leq k2^{-B} = 0.6172 \leq s_{right} = 0.6219.
+\]</div>
 <p>Decoding the sequence is then straightforward at the decoder.</p>
 <p>A few additional points:</p>
 <ul class="simple">
-<li><p>The average bit-rate is \( -\sum_k P_k \log_2 P_k \approx 2.2
-\) bits per sample. In the example above we needed B=7 bits to
+<li><p>The average bit-rate is <span class="math notranslate nohighlight">\( -\sum_k P_k \log_2 P_k \approx 2.2
+\)</span> bits per sample. In the example above we needed B=7 bits to
 encode 3 samples, which gives 2.3 bits per sample. The actual number
 of bits thus does not perfectly coincide with the average bit-rate.</p></li>
 <li><p>In <a class="reference internal" href="Implementation_of_an_Arithmetic_Coder.html"><span class="doc std std-doc">a practical
@@ -1009,7 +948,7 @@ we need to either know the number of symbols or bits, transmit the
 number of symbols or bits separately, or we need to use a special
 symbol which signifies end-of-string.</p></li>
 <li><p>Usually the last current segment does not exactly align with
-<em>k2<sup>-B</sup></em> , which means that there are small unused spaces
+<span class="math notranslate nohighlight">\(k2^{-B}\)</span> , which means that there are small unused spaces
 in between the bitstring and the last current segment. This is an
 inherent inefficiency of arithmetic coding. Heuristically it is easy
 to understand that we must send an integer number of bits, but the
@@ -1028,164 +967,109 @@ interval 0.5 … 0.1.</p></li>
 <li><p>The specific <a class="reference internal" href="Implementation_of_an_Arithmetic_Coder.html"><span class="doc std std-doc">implementation</span></a>
 is rather involved and sensitive to errors.</p></li>
 <li><p>Algorithmic complexity of an arithmetic coder is usually reasonable,
-provided that the probabilities <em>P<sub>k</sub></em> are readily
+provided that the probabilities <span class="math notranslate nohighlight">\(P_{k}\)</span> are readily
 available. If the probabilities need to be calculated online
 (parametric probability model), then complexity increases
 considerably.</p></li>
 </ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Illustrative set of symbols and their corresponding probabilities.</p>
-<div class="table-wrap">
-<table class="relative-table wrapped confluenceTable"
-style="margin-left: auto;margin-right: auto;width: 48.6654%;">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 22%" />
-<col style="width: 29%" />
-<col style="width: 31%" />
-</colgroup>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>symbol <span class="math notranslate nohighlight">\(k\)</span></p></th>
+<th class="head"><p>probability <span class="math notranslate nohighlight">\(P_k\)</span></p></th>
+<th class="head"><p>interval <span class="math notranslate nohighlight">\(s_k \dots s_{k+1}\)</span></p></th>
+<th class="head"><p>bits per symbol <span class="math notranslate nohighlight">\(\log_2(P_k)\)</span></p></th>
+</tr>
+</thead>
 <tbody>
-<tr class="header">
-<th class="confluenceTh"><p>symbol<br />
-<em>k</em></p></th>
-<th class="confluenceTh">probability <em>P<sub>k</sub></em></th>
-<th class="confluenceTh"><p>interval<br />
-<em>s<sub>k</sub> ... s<sub>k+1</sub></em></p></th>
-<th class="confluenceTh">bits per symbol
-<em>log<sub>2</sub>(P<sub>k</sub>)</em></th>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.40</p></td>
+<td><p>0.00 … 0.40</p></td>
+<td><p>1.32</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">0</td>
-<td class="confluenceTd">0.40</td>
-<td class="confluenceTd">0.00 ... 0.40</td>
-<td class="confluenceTd">1.32</td>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.27</p></td>
+<td><p>0.40 … 0.67</p></td>
+<td><p>1.89</p></td>
 </tr>
-<tr class="even">
-<td class="confluenceTd">1</td>
-<td class="confluenceTd">0.27</td>
-<td class="confluenceTd">0.40 ... 0.67</td>
-<td class="confluenceTd">1.89</td>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.12</p></td>
+<td><p>0.67 … 0.79</p></td>
+<td><p>3.05</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">2</td>
-<td class="confluenceTd">0.12</td>
-<td class="confluenceTd">0.67 ... 0.79</td>
-<td class="confluenceTd">3.05</td>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.08</p></td>
+<td><p>0.79 … 0.87</p></td>
+<td><p>3.64</p></td>
 </tr>
-<tr class="even">
-<td class="confluenceTd">3</td>
-<td class="confluenceTd">0.08</td>
-<td class="confluenceTd">0.79 ... 0.87</td>
-<td class="confluenceTd">3.64</td>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0.07</p></td>
+<td><p>0.87 … 0.94</p></td>
+<td><p>3.84</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">4</td>
-<td class="confluenceTd">0.07</td>
-<td class="confluenceTd">0.87 ... 0.94</td>
-<td class="confluenceTd">3.84</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">5</td>
-<td class="confluenceTd">0.06</td>
-<td class="confluenceTd">0.94 ... 1.00</td>
-<td class="confluenceTd">4.06</td>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0.06</p></td>
+<td><p>0.94 … 1.00</p></td>
+<td><p>4.06</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>The intervals of the second symbol.</p>
-<div class="table-wrap">
-<table class="relative-table wrapped confluenceTable"
-style="margin-left: auto;margin-right: auto;width: 46.954%;">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 82%" />
-</colgroup>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>symbol <span class="math notranslate nohighlight">\(k\)</span></p></th>
+<th class="head"><p>interval <span class="math notranslate nohighlight">\(s_k' \dots s_{k+1}'\)</span></p></th>
+</tr>
+</thead>
 <tbody>
-<tr class="header">
-<th class="confluenceTh"><p>symbol<br />
-<em>k</em></p></th>
-<th class="confluenceTh"><p>interval<br />
-<em>s<sub>k</sub>' ... s<sub>k+1</sub>'</em></p></th>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.4000 … 0.5080</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">0</td>
-<td class="confluenceTd">0.4000 ... 0.5080</td>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.5080 … 0.5809</p></td>
 </tr>
-<tr class="even">
-<td class="confluenceTd">1</td>
-<td class="confluenceTd">0.5080 ... 0.5809</td>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.5809 … 0.6133</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">2</td>
-<td class="confluenceTd">0.5809 ... 0.6133</td>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.6133 … 0.6349</p></td>
 </tr>
-<tr class="even">
-<td class="confluenceTd">3</td>
-<td class="confluenceTd">0.6133 ... 0.6349</td>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0.6349 … 0.6538</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">4</td>
-<td class="confluenceTd">0.6349 ... 0.6538</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">5</td>
-<td class="confluenceTd">0.6538 ... 0.6700</td>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0.6538 … 0.6700</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>The intervals of the third symbol.</p>
-<div class="table-wrap">
-<table class="relative-table wrapped confluenceTable"
-style="margin-left: auto;margin-right: auto;width: 46.8317%;">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 82%" />
-</colgroup>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>symbol <span class="math notranslate nohighlight">\(k\)</span></p></th>
+<th class="head"><p>interval <span class="math notranslate nohighlight">\(s_k'' \dots s_{k+1}''\)</span></p></th>
+</tr>
+</thead>
 <tbody>
-<tr class="header">
-<th class="confluenceTh"><p>symbol<br />
-<em>k</em></p></th>
-<th class="confluenceTh"><p>interval<br />
-<em>s<sub>k</sub>'' ... s<sub>k+1</sub>''</em></p></th>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.6133 … 0.6219</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">0</td>
-<td class="confluenceTd">0.6133 ... 0.6219</td>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.6219 … 0.6278</p></td>
 </tr>
-<tr class="even">
-<td class="confluenceTd">1</td>
-<td class="confluenceTd">0.6219 ... 0.6278</td>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.6278 … 0.6304</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">2</td>
-<td class="confluenceTd">0.6278 ... 0.6304</td>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.6404 … 0.6321</p></td>
 </tr>
-<tr class="even">
-<td class="confluenceTd">3</td>
-<td class="confluenceTd">0.6404 ... 0.6321</td>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0.6321 … 0.6336</p></td>
 </tr>
-<tr class="odd">
-<td class="confluenceTd">4</td>
-<td class="confluenceTd">0.6321 ... 0.6336</td>
-</tr>
-<tr class="even">
-<td class="confluenceTd">5</td>
-<td class="confluenceTd">0.6336 ... 0.6439</td>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0.6336 … 0.6439</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="parametric-coding">
 <h2><span class="section-number">10.2.5.4. </span>Parametric coding<a class="headerlink" href="#parametric-coding" title="Permalink to this headline">¶</a></h2>
@@ -1202,19 +1086,9 @@ parametric models a <em>parametric coding</em>.</p>
 <p>In speech coding, parametric coding is typically used in
 frequency-domain coding to encode individual spectral components. We can
 then assume that spectral components follow a Laplacian distribution and
-derive the probabilities <em>P<sub>k</sub></em> using that distribution. More
+derive the probabilities <span class="math notranslate nohighlight">\(P_{k}\)</span> using that distribution. More
 refined alternatives include for example <span class="xref myst">Gaussian mixture models
 (GMMs).</span></p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 </div>
 <div class="section" id="algebraic-coding">
 <h2><span class="section-number">10.2.5.5. </span>Algebraic coding<a class="headerlink" href="#algebraic-coding" title="Permalink to this headline">¶</a></h2>
@@ -1240,19 +1114,11 @@ non-zeros and the number of quantization levels is very low.
 Unfortunately these methods become increasingly complicated when higher
 accuracy is required. Moreover, for higher accuracy quantization, it
 becomes increasingly difficult to find the best quantization of a given
-vector <em>x</em>. Still, due to its simplicity and efficiency at low bitrates,
+vector <span class="math notranslate nohighlight">\(x\)</span>. Still, due to its simplicity and efficiency at low bitrates,
 algebraic coding is so popular in speech coding that the most commonly
 used codec type is known as <span class="xref myst">Algebraic code-excited linear prediction
 (ACELP)</span>, since it uses algebraic
 coding to encode the residual signal.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 

@@ -1,12 +1,5 @@
 # Frequency-domain coding
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 In audio coding, the classical approach is based on coding in the
 frequency domain, which means that we are coding a [time-frequency
@@ -58,45 +51,4 @@ to implement a *rate-loop*, where we iteratively search for the best
 quantization accuracy which remains within the chosen limit on
 bit-consumption.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-<img src="attachments/155476662/175513474.png"
-data-image-src="attachments/155476662/175513474.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175513474"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="audiocoding.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="155476662"
-data-linked-resource-container-version="3" width="400" />
-
-  
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[audiocoding.png](attachments/155476662/175513474.png) (image/png)  
-
-</div>
+![audiocoding.png](attachments/175513474.png) 

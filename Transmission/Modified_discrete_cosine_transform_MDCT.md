@@ -3,12 +3,12 @@
 ## Introduction
 
 In processing speech and audio, we often need to split the signal into
-segments or [windows](Windowing), because
+segments or [windows](../Representations/Windowing.ipynb), because
 
 -   audio signals are relatively slowly changing over time, such that by
     segmenting the signal in short windows allows assuming that the
     signal is stationary, which is a pre-requisite of many efficient
-    methods such as [spectral analysis](Spectrogram_and_the_STFT),
+    methods such as [spectral analysis](../Representations/Spectrogram_and_the_STFT.ipynb),
 -   transform-domain analysis, such as spectral analysis, requires that
     we transform the entire signal in one operation, which in turn
     requires that we have received the entire signal, before we can
@@ -22,7 +22,7 @@ In practical scenarios, we thus always apply windowing before
 processing.
 
 Applying spectral processing, such as processing in the
-[STFT](Spectrogram_and_the_STFT) domain, in *telecommunications
+[STFT](../Representations/Spectrogram_and_the_STFT.ipynb) domain, in *telecommunications
 applications* however has a significant drawback. We need windows which
 are *overlapping* to allow *perfect reconstruction*, that is, we require
 that we can perfectly reconstruct the original signal from the windowed

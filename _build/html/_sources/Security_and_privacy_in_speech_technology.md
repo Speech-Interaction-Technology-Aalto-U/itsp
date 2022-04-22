@@ -30,7 +30,7 @@ for example synthesise speech which mimics (spoofs) a target person to
 gain access to restricted systems, such as access to the bank account of
 the target person. Such use cases fall mainly under the discussions
 under [speaker recognition and
-verification](Speaker_Recognition_and_Verification), and not discussed
+verification](Recognition/Speaker_Recognition_and_Verification.md), and not discussed
 further here.
 
 Observe that in the isolated category of telephony (classical telephone
@@ -41,6 +41,99 @@ listen to them and sometimes even recording them is restricted. Covert
 listening is usually allowed only for the police and even for them only
 in specially regulated situations, such as with a permission granted by
 a court or judge.
+
+{cite}`edps2019techdispatch,nautsch2019gdpr` 
+
+## System models
+### All-human interaction
+Speech is a tool for communication such that it is generally sensible to always discuss interactions between two agents, say, Alice and Bob. The interaction between them is the desired function such that the information exchanged there is explicitly permitted. By choosing to talk with each other, they both reveal information to the extent speech contains such information.
+
+#### First-order relationships
+
+![speechinteraction](attachments/speechinteraction.svg)
+
+A first-order question is whether this interaction contains also other information than only the desired message. A speaker can, unknowingly or by mistake, reveal information unintentionally. This is the classic "*slip of the tongue*".
+
+#### Second-order relationships
+
+A second-order question are third parties, who are not part of the main speech interaction. The pertinent question is the degree to which the third party is allowed to partake in an interaction. As a practical example, suppose Alice and Bob have a romantic dinner at a restaurant. To which extent is the waitress Eve allowed to interact with the discussion of Alice and Bob? Clearly Eve has some necessary tasks such that interaction is unavoidable. Will Alice and Bob, for example, pause their discussion when Eve approaches?
+
+![privacymodel](attachments/privacymodel.svg)
+
+Observe that we have here labelled Eve as a "*restricted*" and not as an "*unauthorized*" interactor. If access is unauthorized, then it is clear that Eve should not have any access to the speech interaction, which is generally straightforward to handle. The word restricted, on the other hand, implies that unimpeded access should not be granted, but that some access can be allowed. It is thus not question of "*if*" access should be granted but "*how much?*".
+
+#### Ownership and personal privacy
+
+Privacy is closely connected to ownership of immaterial property, that is, information. Such ownership can also be translated to the question of *who has the control* over some information? In terms of *personal privacy*, it is clear that it relates to information to which a single person can claim ownership. 
+
+Speech is more complicated. Speech is a form of communication and thus relates to an interaction between two parties. Dialogues can also commonly lead to co-creation of meaning, where new information is generated through the dialogue in a form which none of the involved parties could have alone produced {cite:p}`gasiorek2018message`. None of the users can thus claim sole ownership of the information, but the ownership is shared. Currently we do not have the tools for handling such shared ownership.
+
+### Interactions which involve devices or services
+#### Telecommunication
+![telecom](attachments/telecom.svg)
+
+Talking over the phone and video conference involve transmission of speech through a telecommunication service. Here we consider scenarios where the telecommunication device does not include any advanced functionalities or artificial intelligence. Most countries have clearly definied rules that specify the situations when such communication can be eavesdropped. In most jurisdictions, only the police is allowed to intercept such traffic and only in specific situations.
+
+![telecompolice](attachments/telecompolice.svg)
+
+Such interception of private communication is interesting primarily from ethical and legal perspectives, but does not contain technological challenges related to the communication itself. The main technological challenges are related to forensics; 
+- What information can the police extract (e.g. speaker identity, emotions and health)?
+- How can speakers (and service providers) protect themselves from unauthorized interception by, for example, stripping away information such as speaker identity, from the transmitted signal?
+
+
+
+#### Discussion in the presence of speech interfaces
+A commonly occuring scenario is one where two or more users engage in a discussion such that there is one or more speech operated devices nearby. For example, a user could have their mobile phone or there could be a smart speaker nearby. 
+
+![speechinterfacepresent](attachments/speechinterfacepresent.svg)
+
+Often, one of the users will be the primary user of said devices (e.g. it is *their* phone), so the question is how the devices should relate to the other users. For example, suppose Alice has a smart speaker at home and Bob comes to visit. What would be the appropriate approach then for both Alice and the agent? Should Alice or the agent notify Bob of the presence of an agent? Or should the agent automatically detect the presence of Bob and change its behaviour (e.g. go to sleep)? 
+
+We seem to lack both the cultural habits which dictate how to handle such situations, the legal tools which regulates such situations as well as the technical tools to manage multi-user access.
+
+
+
+#### Interaction with a speech interface
+An interaction with a speech interface or agent is surprisingly free of problems as long as the agent is not connected to any outside entity. We can think of the agent as a local device. If nobody else has access to that device, then all the information remains in the user's direct control. Even if the agent exist in a remote cloud-service, if information remains strictly within the desired service, there are very little problems to consider. 
+
+![speechinterface](attachments/speechinterface.svg)
+
+An exception is analysis, which the agent can perform, which is not related to the desired service, which can take abusive forms. For example, suppose the agent analyses the user's voice for health problems and identifies that the user has [Alzheimer's disease](https://en.wikipedia.org/wiki/Alzheimer%27s_disease). What should the agent then do with that information? Not doing anthing seems unethical - getting early access to medical services could greatly improve life quality. Informing the user, on the other hand, involves risks. How will the user react to the information? Is the user sufficiently psychologically stable to handle it? What if the analysis is incorrect and the agent thus causes suffering? It is also easy to think of further problematic scenarios. 
+
+
+
+#### Multi-user interaction with a speech interface
+
+An agent can be involved in an interaction with multiple users at the same time. 
+
+![speechinteractionall](attachments/speechinteractionall.svg)
+
+This scenario differs from the single-user case in particular in the way the device can store information. To which extent should different combinations of users be permitted to have access to information from prior interactions? Quite obviously Alice should not have default, unrestricted access to Bob's prior interactions without Bob's permission. Where Alice and Bob have engaged in a joint discussion, the question of access becomes more complicated. It would seem natural that both can have access to information about their prior discussions. However, if Bob is in a discussion with Eve, then access to prior discussion between Bob and Alice should again be restricted. The rules governing access will thus be complicated, often non-obvious and they will have many exceptions.
+
+
+
+#### Interaction with a speech interface in the presence of others
+
+In the early days of mobile phones, a common *faux pas* was to speak loudly on the phone in public places such as on a bus or subway. It seems that it causes an uncomfortable feeling to people when they overhear private discussions. It can also be hard to ignore speech when you hear it.
+Obviously, the reverse is also true, participants of a private discussion often feel uncomfortable if they fear that outsiders can hear their discussion.
+
+![personpresent](attachments/personpresent.svg)
+
+The same applies to speech operated devices. Such interactions can be private, but even when they are not, the fact that they can be overheard is often uncomfortable to all parties. 
+
+This is a problem when designing user interfaces to services. Speech interaction is often a natural way to user a service or device, but it is not practical in locations where other people can overhear private information and where it the sound is annoying to other people present.
+
+
+#### Interaction with a speech interface connected to other services
+
+When interacting with a speech interface, users typically do it with a specific objective in mind. For example, suppose Alice wants to turn off the lights in the bedroom and says "*Computer, lights off*". To which extent is it permissible that that information is relayed to a cloud-service? If the local device is unable to or uncapable of deciphering the command, it can transmit it to the cloud. The cloud-service then obtains information from a very private part of Alice's life. 
+
+![speechinterfacesconnected](attachments/speechinterfacesconnected.svg)
+
+Information obtained this way can be very useful for example, to advertisers. By analyzing the habits of users, they can serve more meaningful advertisements. Arguably, by better targeting of users, advertisement can more effective, which could *potentially* reduce the need for advertisement. It is however questionable whether advertisers ever would have incentives to *reduce* the amount of advertisement. 
+Still, some people are creeped out by "*overly fitting*" advertisement. 
+
+There are however plenty of other scenarios which are more potent sources of danger. What if insurance agencies analyze users life patterns and increase payments for at-risk users such as substance abusers? Some smart devices already today can call the emergency services if they recognize cries of help or other obvious signs of distress. What are the moral dilemmas of that?
 
 
 ## Information contained in speech signals
@@ -630,14 +723,11 @@ level of security is usually the domain of military-grade systems.
 
 ## References
 
--   [TechDispatch #1: Smart Speakers and Virtual
-    Assistants](https://edps.europa.eu/data-protection/our-work/publications/techdispatch/techdispatch-1-smart-speakers-and-virtual_en)
-    by the European Data Protection Supervisor
--   A Nautsch et al "[The **GDPR** & speech data: Reflections of legal
-    and technology communities, first steps towards a common
-    understanding](https://arxiv.org/abs/1907.03458)", *Proceedings of
-    the Annual Conference of the International Speech Communication
-    Association, INTERSPEECH*. ISCA, 2019.
 -   ISCA Special Interest Group "Security and Privacy in Speech
     Communication", <https://www.spsc-sig.org/>
 
+
+
+```{bibliography}
+:filter: docname in docnames
+```
