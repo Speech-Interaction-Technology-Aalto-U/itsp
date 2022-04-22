@@ -84,13 +84,10 @@ chapters:
 - file: Transmission_storage_and_telecommunication.md
   sections:
   - file: Transmission/Design_goals.md
-  - file: Transmission/Basic_tools.md
   - file: Transmission/Modified_discrete_cosine_transform_MDCT.md
     sections:
     - file: Transmission/Entropy_coding.md
     - file: Transmission/Perceptual_modelling_in_speech_and_audio_coding.md
-    - file: Transmission/Vector_quantization_VQ.md
-    - file: Transmission/Linear_prediction.md
   - file: Transmission/Code-excited_linear_prediction_CELP.md
   - file: Transmission/Frequency-domain_coding.md
 - file: Speech_enhancement.md
@@ -99,8 +96,6 @@ chapters:
   - file: Enhancement/Echo_cancellation.md
   - file: Enhancement/Bandwidth_extension_BWE.md
   - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.md
-- url: https://landbot.io/blog/guide-to-conversational-design/
-  title: Chatbots / Conversational design (external link)
 - file: Computational_models_of_human_language_processing.md
 - file: Security_and_privacy_in_speech_technology.md
 - file: References.md
