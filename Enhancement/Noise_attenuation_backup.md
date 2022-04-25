@@ -1,12 +1,5 @@
 # Noise attenuation
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 When using speech technology in realistic environments, such as at home,
 office or in a car, there will invariably be also other sounds present
@@ -19,61 +12,18 @@ A common feature of these sounds is however that they are *independent*
 of and *uncorrelated* with the desired signal.
 
 That is, we can usually assume that such noises are *additive*, such
-that the observed signal *y* is the sum of the desired signal *x* and
-interfering noises *v*, that is, *y=x+v*. To improve the quality of the
-observed signal, we would like to make an estimate \\( \\hat x \\) * *of
-the desired signal *x*. The estimate should approximate the desired
-signal \\( x\\approx \\hat x \\) or conversely, we would like to
-minimize the distance \\( d\\left(x,\\hat x\\right) \\) with some
-distance measure *d(,.,)*.
+that the observed signal $y$ is the sum of the desired signal $x$ and
+interfering noises $v$, that is, $y=x+v$. To improve the quality of the
+observed signal, we would like to make an estimate $ \hat x $ of
+the desired signal $x$. The estimate should approximate the desired
+signal $ x\approx \hat x $ or conversely, we would like to
+minimize the distance $ d\left(x,\hat x\right) $ with some
+distance measure $d(\cdot,\cdot)$.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
+![jezael-melgoza-KbR06h9dNQw-unsplash_scaled.png](attachments/175508067.png)
 Photo by Jezael Melgoza on Unsplash
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Classical methods
 
@@ -86,44 +36,36 @@ treat each component separately. In other words, in the spectrum, we can
 apply noise attenuation on every frequency bin with scalar operations,
 whereas if the components would be correlated, we would have to use
 vector and matrix operations. The benefit of scalar operations is that
-they are computationally simple, *O(N)*, whereas matrix operations are
-typically at least *O(N<sup>2</sup>).*
+they are computationally simple, $O(N)$, whereas matrix operations are
+typically at least $O(N^2)$.
 
 The basic idea of spectral subtraction is that we assume that we have
-access to an estimate of the noise energy \\( E\[\|v\|^2\] = \\sigma_v^2
-\\) , and we subtract that from the energy of the observation, such that
+access to an estimate of the noise energy $ E[\|v\|^2] = \sigma_v^2
+$ , and we subtract that from the energy of the observation, such that
 we define the energy of our estimate as
 
-\\\[ \|\\hat x\|^2 := \|y\|^2 - \\sigma_v^2. \\\]
+$$ \|\hat x\|^2 := \|y\|^2 - \sigma_v^2. $$
 
 Unfortunately, since our estimate of noise energy is not perfect and
-because we have hiddenly made an inaccurate assumption that *x* and *v*
+because we have hiddenly made an inaccurate assumption that $x$ and $v$
 are uncorrelated, the above formula can give negative values for the
 energy estimate. Negative energy is not realizable and nobody likes
 pessimists, so we have to modify the formula to threshold at zero
 
-\\\[ \|\\hat x\|^2 := \\begin{cases} \|y\|^2 - \\sigma_v^2 & \\text{if }
-\|y\|^2 \\geq \\sigma_v^2 \\\\ 0 & \\text{if } \|y\|^2 \< \\sigma_v^2
-\\end{cases}. \\\]
+$$ \|\hat x\|^2 := \begin{cases} \|y\|^2 - \sigma_v^2 & \text{if }
+\|y\|^2 \geq \sigma_v^2 \\ 0 & \text{if } \|y\|^2 < \sigma_v^2
+\end{cases}. $$
 
 Since STFT spectra are complex-valued, we then still have to find the
-complex angle of the signal estimate. If the noise energy is small \\(
-\|v\|^2 \\ll \|x\|^2 \\) , then the complex angle of *x* is
-approximately equal to the angle of *y*, \\( \\angle x \\approx \\angle
-y \\) , such that our final estimate is (when \\( \|y\|^2\\geq
-\\sigma_v^2 \\) )
+complex angle of the signal estimate. If the noise energy is small $
+\|v\|^2 \ll \|x\|^2 $ , then the complex angle of $x$ is
+approximately equal to the angle of $y$, $ \angle x \approx \angle
+y $ , such that our final estimate is (when $ \|y\|^2\geq
+\sigma_v^2 $ )
 
-\\\[ \\hat x := \\angle y \\cdot \|\\hat x\| = \\frac{y}{\|y\|} \\sqrt{
-\|y\|^2 - \\sigma_v^2} = y \\sqrt{\\frac{\|y\|^2 -
-\\sigma_v^2}{\|y\|^2}}. \\\]
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
+$$ \hat x := \angle y \cdot \|\hat x\| = \frac{y}{\|y\|} \sqrt{
+\|y\|^2 - \sigma_v^2} = y \sqrt{\frac{\|y\|^2 -
+\sigma_v^2}{\|y\|^2}}. $$
 
 Spectrograms of the original signal (above) and its enhanced version
 obtained with spectral subtraction applied on the STFT (below)
@@ -162,57 +104,46 @@ data-linked-resource-content-type="audio/x-wav"
 data-linked-resource-container-id="172995194"
 data-linked-resource-container-version="33">sound_sample_specsub.wav</a>
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 #### Scalar Wiener filtering
 
-Observe that the form of the relationship above is \\( \\hat x = y\\cdot
-g, \\) where *g* is a scalar scaling coefficient. Instead of the above
+Observe that the form of the relationship above is $ \hat x = y\cdot
+g, $ where $g$ is a scalar scaling coefficient. Instead of the above
 heuristic, we could then derive a formula which gives the smallest
 error, for example in the minimum error energy expectation sense or
 minimum mean square error (MMSE). Specifically, the error energy
 expectation is
 
-\\\[ E\\left\[\|e\|^2\\right\] = E\\left\[\|x-\\hat x\|^2\\right\] =
-E\\left\[\|x-gy\|^2\\right\] = E\\left\[\|x\|^2\\right\] + g^2
-E\\left\[\|y\|^2\\right\] - 2g E\\left\[xy\\right\]. \\\]
+$$ E\left[\|e\|^2\right] = E\left[\|x-\hat x\|^2\right] =
+E\left[\|x-gy\|^2\right] = E\left[\|x\|^2\right] + g^2
+E\left[\|y\|^2\right] - 2g E\left[xy\right]. $$
 
-If we assume that target speech and noise are uncorrelated, \\(
-E\\left\[xv\\right\]=0 \\) ,
+If we assume that target speech and noise are uncorrelated, $
+E\left[xv\right]=0 $ ,
 
-then \\(
-E\\left\[xy\\right\]=E\\left\[x(x+v)\\right\]=E\\left\[\|x\|^2\\right\]
-\\) and
+then $
+E\left[xy\right]=E\left[x(x+v)\right]=E\left[\|x\|^2\right]
+$ and
 
-\\\[ E\\left\[\|e\|^2\\right\] = E\\left\[\|x\|^2\\right\] + g^2
-E\\left\[\|y\|^2\\right\] - 2g E\\left\[\|x\|^2\\right\] =
-(1-2g)E\\left\[\|x\|^2\\right\] + g^2 E\\left\[\|y\|^2\\right\]. \\\]
+$$ E\left[\|e\|^2\right] = E\left[\|x\|^2\right] + g^2
+E\left[\|y\|^2\right] - 2g E\left[\|x\|^2\right] =
+(1-2g)E\left[\|x\|^2\right] + g^2 E\left[\|y\|^2\right]. $$
 
 The minimum is found by setting the derivative to zero
 
-\\\[ 0 = \\frac{\\partial}{\\partial g}E\\left\[\|e\|^2\\right\] =
--2E\\left\[\|x\|^2\\right\] + 2 g E\\left\[\|y\|^2\\right\], \\\]
+$$ 0 = \frac{\partial}{\partial g}E\left[\|e\|^2\right] =
+-2E\left[\|x\|^2\right] + 2 g E\left[\|y\|^2\right], $$
 
 such that the final solution is
 
-\\\[ g = \\frac{E\\left\[\|x\|^2\\right\]}{E\\left\[\|y\|^2\\right\]} =
-\\frac{E\\left\[\|y\|^2\\right\]-\\sigma_v^2}{E\\left\[\|y\|^2\\right\]}.
-\\\]
+$$ g = \frac{E\left[\|x\|^2\right]}{E\left[\|y\|^2\right]} =
+\frac{E\left[\|y\|^2\right]-\sigma_v^2}{E\left[\|y\|^2\right]}.
+$$
 
 and the Wiener estimate becomes
 
-\\\[ \\hat x := y \\left(\\frac{\|y\|^2 - \\sigma_v^2}{\|y\|^2}\\right).
-\\\]
+$$ \hat x := y \left(\frac{\|y\|^2 - \sigma_v^2}{\|y\|^2}\right).
+$$
 
 Observe that this estimate is almost equal to the above, but the square
 root is omitted. With different optimization criteria, we can easily
@@ -261,17 +192,6 @@ data-linked-resource-content-type="audio/x-wav"
 data-linked-resource-container-id="172995194"
 data-linked-resource-container-version="33">sound_sample_wiener.wav</a>
 
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ### Wiener filtering for vectors
 
@@ -283,28 +203,28 @@ or the corresponding whitening process could be unfeasibly complex or it
 can incur too much algorithmic delay. We then have to take into account
 the correlation between components.
 
-Consider for example a desired signal \\( x\\in{\\mathbb R}^{N \\times1}
-\\) , a noise signal \\( v\\in{\\mathbb R}^{N \\times1} \\) and their
-additive sum, the observation \\( y = x+v, \\) from which we want to
-estimate the desired signal with a linear filter \\( \\hat x := a^H y.
-\\) Following the MMSE derivation above, we set the derivative of the
+Consider for example a desired signal $ x\in{\mathbb R}^{N \times1}
+$ , a noise signal $ v\in{\mathbb R}^{N \times1} $ and their
+additive sum, the observation $ y = x+v, $ from which we want to
+estimate the desired signal with a linear filter $ \hat x := a^H y.
+$ Following the MMSE derivation above, we set the derivative of the
 error energy expectation to zero
 
-\\\[ \\begin{split} 0&=\\frac{\\partial}{\\partial
-a}E\\left\[\|e\|^2\\right\] =\\frac{\\partial}{\\partial
-a}E\\left\[\|x-\\hat x\|^2\\right\] =\\frac{\\partial}{\\partial
-a}E\\left\[\|x-a^H y\|^2\\right\] \\\\& =\\frac{\\partial}{\\partial
-a}E\\left\[\|x-a^H (x+v)\|^2\\right\] =2E\\left\[(x+v)\\left(x-a^H
-(x+v)\\right)^H\\right\] \\\\& =2\\left\[ E\[xx^H\] - \\left(E\[xx^H\] +
-E\[vv^H\]\\right)a\\right\] =2\\left\[ R\_{xx} - \\left(R\_{xx} +
-R\_{vv}\\right)a\\right\] \\end{split} \\\]
+$$ \begin{split} 0&=\frac{\partial}{\partial
+a}E\left[\|e\|^2\right] =\frac{\partial}{\partial
+a}E\left[\|x-\hat x\|^2\right] =\frac{\partial}{\partial
+a}E\left[\|x-a^H y\|^2\right] \\& =\frac{\partial}{\partial
+a}E\left[\|x-a^H (x+v)\|^2\right] =2E\left[(x+v)\left(x-a^H
+(x+v)\right)^H\right] \\& =2\left[ E[xx^H] - \left(E[xx^H] +
+E[vv^H]\right)a\right] =2\left[ R_{xx} - \left(R_{xx} +
+R_{vv}\right)a\right] \end{split} $$
 
-Where the covariance matrices are \\( R\_{xx} = E\[xx^H\] \\) and \\(
-R\_{vv} = E\[vv^H\] \\) , and we used the fact that *x* and *v* are
-uncorrelated \\( E\[xv^H\]=0 \\) . The solution is then clearly
+Where the covariance matrices are $ R_{xx} = E[xx^H] $ and $
+R_{vv} = E[vv^H] $ , and we used the fact that $x$ and $v$ are
+uncorrelated $ E[xv^H]=0 $ . The solution is then clearly
 
-\\\[ a=\\left(R\_{xx}+R\_{vv}\\right)^{-1} R\_{xx} = R\_{yy}^{-1}
-\\left(R\_{yy}-R\_{vv}\\right), \\\]
+$$ a=\left(R_{xx}+R_{vv}\right)^{-1} R_{xx} = R_{yy}^{-1}
+\left(R_{yy}-R_{vv}\right), $$
 
 where we for now assume that the inverse exists. This solution is
 clearly similar to the MMSE solution for the scalar case.
@@ -312,7 +232,7 @@ clearly similar to the MMSE solution for the scalar case.
 A central weakness of this approach is that it involves a matrix
 inversion, which is computationally complex operation, such that on-line
 application is challenging. It furthermore requires that the covariance
-matrix *R<sub>yy</sub>* is invertible (positive definite), which places
+matrix $R_{yy}$ is invertible (positive definite), which places
 constraints on the methods for estimating such covariances.
 
 In any case, Wiener filtering is a convenient method, because it
@@ -320,27 +240,7 @@ provides an analytical expression for an optimal solution in noise
 attenuation. It consequently has very well documented properties and
 performance guarantees.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Speech presence estimation in noise attenuation
 
@@ -356,57 +256,31 @@ detection (VAD)](Voice_activity_detection_VAD_) to determine which parts
 of the signal have speech and apply noise attenuation only there.
 Paraphrasing, we have:
 
-<div class="code panel pdl" style="border-width: 1px;">
 
-<div class="codeContent panelContent pdl">
-
-``` text
-If VAD(y) == Speech
-   xhat = Enhance(y)
-else
-   xhat = 0
-```
-
-</div>
-
-</div>
+    If VAD(y) == Speech
+       xhat = Enhance(y)
+    else
+       xhat = 0
 
 This however requires that our voice activity detector is reliable also
 for noisy speech signals, which is difficult. An alternative is to
 estimate posteriori likelihoods as follows:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` text
-xhat_noisyspeech = Enhance(y)
-vhat_noisyspeech = y - xhat_noisyspeech
-vhat_noiseonly = y
-SpeechLikelihood = PosterioriLikelihood(xhat_noisyspeech) * PosterioriLikelihood(vhat_noisyspeech) * PriorLikelihood(speech)
-NonspeechLikelihood = PosterioriLikelihood(vhat_noiseonly) * (1 - PriorLikelihood(speech)
-If SpeechLikelihood > NonspeechLikelihood
-   xhat = xhat_noisyspeech
-else
-   xhat = 0
-```
-
-</div>
-
-</div>
+    xhat_noisyspeech = Enhance(y)
+    vhat_noisyspeech = y - xhat_noisyspeech
+    vhat_noiseonly = y
+    SpeechLikelihood = PosterioriLikelihood(xhat_noisyspeech) * PosterioriLikelihood(vhat_noisyspeech) * PriorLikelihood(speech)
+    NonspeechLikelihood = PosterioriLikelihood(vhat_noiseonly) * (1 - PriorLikelihood(speech)
+    If SpeechLikelihood > NonspeechLikelihood
+        xhat = xhat_noisyspeech
+    else
+        xhat = 0
 
 This method thus always tries to attenuate noise and then looks at the
 output whether "speech" or "non-speech" is more likely. Such hypothesis
 testing is often useful but assumes that we have access to effective
 likelihood estimators for both speech and noise.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Enhanced with (scalar) Wiener filtering and gated with VAD
 
@@ -429,17 +303,7 @@ data-linked-resource-content-type="audio/x-wav"
 data-linked-resource-container-id="172995194"
 data-linked-resource-container-version="33">sound_sample_wiener_gated.wav</a>
 
-</div>
 
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Masks, power spectra and temporal characteristics
 
@@ -502,27 +366,7 @@ current frame from past frames, but interpolating between past and
 future frames does give much better quality. The amount of acceptable
 delay is also an application dependent question.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 ## Machine learning methods
 
@@ -550,38 +394,15 @@ background. If our database contained only adult speakers and did not
 contain vuvuzela-sounds, then we cannot know whether our enhancement is
 effective on the noisy sample.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Machine learning configuration for speech enhancement with noisy and
 target clean speech signal.
 
-<img src="attachments/172995194/175508188.png" class="image-center"
-data-image-src="attachments/172995194/175508188.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175508188"
-data-linked-resource-version="3" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="speechenhancement1.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="172995194"
-data-linked-resource-container-version="33" height="400" />
 
-</div>
+![speechenhancement1](attachments/175508243.png)
 
-</div>
 
-</div>
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 To overcome the problem of inadequate noise databases, we can take an
 *adversarial* approach, where we have a *generative* network which
@@ -598,95 +419,10 @@ These two tasks are adversial in the sense that they work against each
 other. In practical application we would use only the enhancement
 network, so the generative network is used only in training.
 
-</div>
 
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 Application and training with a generative adversarial network (GAN)
 structure for speech enhancement.
 
-<img src="attachments/172995194/175508259.png"
-data-image-src="attachments/172995194/175508259.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175508259"
-data-linked-resource-version="4" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="speechenhancement2.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="172995194"
-data-linked-resource-container-version="33" width="342" />
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[jezael-melgoza-KbR06h9dNQw-unsplash_scaled.png](attachments/172995194/175508067.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechenhancement1.png](attachments/172995194/175508243.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechenhancement1.png](attachments/172995194/175508257.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechenhancement1.png](attachments/172995194/175508188.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechenhancement2.png](attachments/172995194/175508261.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechenhancement2.png](attachments/172995194/175508263.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechenhancement2.png](attachments/172995194/175508743.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[wiener_spectogram.png](attachments/172995194/175508702.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[specsub_spectrogram.png](attachments/172995194/175508704.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sound_sample_mono.wav](attachments/172995194/175508716.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sound_sample_specsub.wav](attachments/172995194/175508717.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sound_sample_specsub_gated.wav](attachments/172995194/175508718.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sound_sample_wiener.wav](attachments/172995194/175508720.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sound_sample_wiener_gated.wav](attachments/172995194/175508721.wav)
-(audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[specsub_gated_spectrogram.png](attachments/172995194/175508725.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[wiener_gated_spectrogram.png](attachments/172995194/175508726.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[sound_sample.wav](attachments/172995194/175508733.wav) (audio/x-wav)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[speechenhancement2.png](attachments/172995194/175508259.png)
-(image/png)  
-
-</div>
+    
+![speechenhancement2](attachments/175508259.png)
