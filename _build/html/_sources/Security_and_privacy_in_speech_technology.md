@@ -135,6 +135,11 @@ Still, some people are creeped out by "*overly fitting*" advertisement.
 
 There are however plenty of other scenarios which are more potent sources of danger. What if insurance agencies analyze users life patterns and increase payments for at-risk users such as substance abusers? Some smart devices already today can call the emergency services if they recognize cries of help or other obvious signs of distress. What are the moral dilemmas of that?
 
+### Multi-user and multi-device scenarios
+Things get even more complicated when multipled users and/or users co-exist in the same space. Consider, for example, an open office with two users simulatenously engaged in independent video conferences. 
+
+![crosstalk](attachments/crosstalk.svg)
+
 
 ## Information contained in speech signals
 
@@ -478,7 +483,7 @@ encryption typically have a prohibitively high computational complexity.
 ### myData
 
 In addition to privacy-preserving algorithms, we can also design
-privacy-preserving architectures. The myData paradigm is based on a
+privacy-preserving architectures. The [myData](https://mydata.org/) paradigm is based on a
 three-tier design, where the user can choose where all his/her data is
 stored and where the user can give access for service providers to
 his/her data when required. The idea is to separate service providers
