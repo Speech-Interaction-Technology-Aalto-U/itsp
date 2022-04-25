@@ -15,7 +15,7 @@
 # signal, making it more strenuous to listen, more difficult to understand
 # or at the worst case, it might render the speech signal unintelligible.
 # A common feature of these sounds is however that they are *independent*
-# of and *uncorrelated* with the desired signal.
+# of and *uncorrelated* with the desired signal. {cite:p}`benesty2008springer`
 # 
 # That is, we can usually assume that such noises are *additive*, such
 # that the observed signal $y$ is the sum of the desired signal $x$ and
@@ -37,16 +37,16 @@ from scipy.io import wavfile
 import numpy as np
 import matplotlib.pyplot as plt
 import IPython.display as ipd
-from helper_functions import stft, istft
+from helper_functions import stft, istft, halfsinewindow
 
 fs = 44100  # Sample rate
 seconds = 5  # Duration of recording
 window_length_ms=30
-window_step_ms=20
-window_length = int(window_length_ms*fs/1000)
+window_step_ms=15
+window_length = int(window_length_ms*fs/2000)*2
 window_step_samples = int(window_step_ms*fs/1000)
 
-windowing_function = np.sin(np.pi*np.arange(0.5,window_length,1)/window_length)
+windowing_function = halfsinewindow(window_length)
 
 filename = 'sounds/enhancement_test.wav'
 
@@ -89,8 +89,7 @@ plt.show()
 
 
 
-# ## Normal "silent" envirnoments
-# ### Muting, noise gating, voice activity detection (VAD) and discontinuous transmission (DTX)
+# ## Noise gate
 # 
 # Suppose you are talking in a reasonably quiet environement. For example, typically when you speak on a phone, you would go to a quiet room. Similarly, when attending an on-line lecture, you would most often want to be in a room without background noise. 
 # 
@@ -123,7 +122,7 @@ speech_active = frame_energy_dB > threshold_dB
 
 # Reconstruct and play thresholded signal
 spectrogram_thresholded = spectrogram_matrix * np.expand_dims(speech_active,axis=1)
-data_thresholded = istft(spectrogram_thresholded,fs,window_length_ms=30,window_step_ms=20,windowing_function=None)
+data_thresholded = istft(spectrogram_thresholded,fs,window_length_ms=window_length_ms,window_step_ms=window_step_ms,windowing_function=windowing_function)
 
 # Illustrate thresholding (without hysteresis)
 plt.figure(figsize=[12,6])
@@ -175,7 +174,7 @@ for window_ix in range(window_count):
 
 # Reconstruct and play thresholded signal
 spectrogram_hysteresis = spectrogram_matrix * np.expand_dims(speech_active_hysteresis,axis=1)
-data_hysteresis = istft(spectrogram_hysteresis,fs,window_length_ms=30,window_step_ms=20,windowing_function=None)
+data_hysteresis = istft(spectrogram_hysteresis,fs,window_length_ms=window_length_ms,window_step_ms=window_step_ms,windowing_function=windowing_function)
 
 # Illustrate thresholding (without hysteresis)
 plt.figure(figsize=[12,6])
@@ -234,7 +233,7 @@ for frame_ix in range(window_count):
 
 # Reconstruct and play sloped-thresholded signal
 spectrogram_sloped = spectrogram_matrix * np.expand_dims(speech_active_sloped,axis=1)
-data_sloped = istft(spectrogram_sloped,fs,window_length_ms=30,window_step_ms=20,windowing_function=None)
+data_sloped = istft(spectrogram_sloped,fs,window_length_ms=window_length_ms,window_step_ms=window_step_ms,windowing_function=windowing_function)
 
 # Illustrate thresholding 
 plt.figure(figsize=[12,6])
@@ -267,9 +266,92 @@ ipd.display(ipd.Audio(data_sloped,rate=fs))
 
 
 
-# ## Classical methods
+# This doesn't sound all too bad! The sudden on- and off-sets are gone and the transitions to muted areas sound reasonably natural.
 # 
-# ### Spectral subtraction
+# Now we have implemented gating for the full-band signal. Gating can be easily improved by band-wise -processing. Depending on the amount of processing you can afford, you could go all the way and applying gating on individual frequency-bins in the STFT. 
+
+# In[8]:
+
+
+hysteresis_time_ms = 100
+hysteresis_time = int(hysteresis_time_ms/window_step_ms)
+
+fade_in_time_ms = 30
+fade_out_time_ms = 60
+fade_in_time = int(fade_in_time_ms/window_step_ms)
+fade_out_time = int(fade_out_time_ms/window_step_ms)
+
+
+# NB: This is a pedagogic, but very slow implementation since it involves multiple for-loops.
+spectrogram_binwise = np.zeros(spectrogram_matrix.shape,dtype=complex)
+for bin_ix in range(fft_length):
+    bin_energy_dB = 10.*np.log10(np.abs(spectrogram_matrix[:,bin_ix])**2)
+    mean_energy_dB = np.mean(bin_energy_dB) # mean of energy in dB
+    threshold_dB = mean_energy_dB + 16. # threshold relative to mean
+    speech_active = bin_energy_dB > threshold_dB
+    
+    speech_active_hysteresis = np.zeros_like(speech_active)
+    for window_ix in range(window_count):
+        range_start = max(0,window_ix-hysteresis_time)
+        speech_active_hysteresis[window_ix] = np.max(speech_active[range(range_start,window_ix+1)])
+        
+    #speech_active_sloped = np.zeros_like(spe
+    for frame_ix in range(window_count):
+        if speech_active_hysteresis[frame_ix]:
+            range_start = max(0,frame_ix-fade_in_time)
+            speech_active_sloped[frame_ix] = np.mean(speech_active_hysteresis[range(range_start,frame_ix+1)])
+        else:
+            range_start = max(0,frame_ix-fade_out_time)
+            speech_active_sloped[frame_ix] = np.mean(speech_active_hysteresis[range(range_start,frame_ix+1)])
+            
+    spectrogram_binwise[:,bin_ix] = spectrogram_matrix[:,bin_ix]*speech_active_sloped
+
+
+# In[9]:
+
+
+# Reconstruct and play sloped-thresholded signal
+data_binwise = istft(spectrogram_binwise,fs,window_length_ms=window_length_ms,window_step_ms=window_step_ms,windowing_function=windowing_function)
+
+# Illustrate thresholding 
+plt.figure(figsize=[12,6])
+plt.subplot(211)
+plt.imshow(20*np.log10(np.abs(spectrogram_matrix[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Original spectrogram of noisy audio')
+ipd.display(ipd.Audio(data,rate=fs))
+
+plt.subplot(212)
+plt.imshow(20*np.log10(1e-6+np.abs(spectrogram_binwise[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Spectrogram of bin-wise gating with sloped hysteresis')
+plt.tight_layout()
+plt.show()
+#sd.play(data_thresholded,fs)
+ipd.display(ipd.Audio(data_binwise,rate=fs))
+
+
+
+# This is clearly again a step better, but you should note two things:
+# 
+# - The parameters are now quite a bit different; hysteresis and ramps shorter as well as higher threshold. This was required to get acceptable quality.
+# - Some musical noise left in the low and high frequencies, where isolated areas are turned on for a while.
+# 
+# If possible, try listening to this sound with headphones and from loudspeakers. Is there a difference? Which one sounds better?
+# 
+# A possible impression is that, with good-quality headphones, the result is too clean. It sounds unnatural. With loudspeakers, however, it may sound quite ok. When listening to headphones, you better perceive the absence of background noise, whereas on the loudspeaker, there is more background noise present locally, such that the absence of reproduced background noise is not noticeable. With loudspeakers, any reproduced background noise would also interact with the local room, generating a double room reverberation (assuming that the reproduced loudspeaker sound already had reverberation). 
+# 
+# In any case, it seems therefore clear that muting the background noise entirely is not always desirable (at least when listening with headphones to a single speaker with background noise). We should therefore apply some more intelligent gain factor (see more in the spectral subtraction section below).
+
+# ## Statistical model
 # 
 # The [STFT spectrum](../Representations/Spectrogram_and_the_STFT.ipynb) of a signal is a good
 # domain for noise attenuation because we can reasonably safely assume
@@ -281,10 +363,115 @@ ipd.display(ipd.Audio(data_sloped,rate=fs))
 # they are computationally simple, $O(N)$, whereas matrix operations are
 # typically at least $O(N^2)$.
 # 
+# The sources are, according to our assumption, uncorrelated, which
+#     means that the expected correlation is zero,
+#     
+# $$E[xv] = 0.$$
+# 
+# A consequence of this assumption is that, for the mixture $y = x + v$, we have the energy expectation
+# 
+# $$E\left[y^2\right] = E\left[x+v^2\right] = E\left[x^2\right] + E\left[v^2\right] + 2E\left[xv\right]
+# = E\left[x^2\right] + E\left[v^2\right].$$
+# In other words, in terms of expectations, the energy is the sum of component energies, which will become a very practical property.
+# 
+# To find the energy of the speech signal, we then just need to estimate $E\left[v^2\right]$.
+#     
+# ### Noise estimation and modelling
+# #### Mean-energy with voice activity detection
+# 
+# To be able to remove noise, we first need to estimate noise characteristics or statistics. We thus need to find sections of the signal which have noisy only (non-speech). One approach would be to use [voice activity detection](../Recognition/Voice_activity_detection.ipynb) (VAD) to find non-speech segments. Assuming we have a good VAD this can be effective. It works if we assume that noise is stationary, such that the noise on non-speech parts are similar to the noise in speech-parts. In general, VADs are accurate only at low noise levels.
+
+# In[10]:
+
+
+get_ipython().run_line_magic('load_ext', 'itikz')
+
+
+# In[11]:
+
+
+get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=1.16}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n    \\node at (0,0) (in) {\\parbox{1.1cm}{\\centering Input signal}};\n    \\node[draw] at (2,1.5) (vad) {VAD};\n    \\node[draw] at (5,0) (est) {\\parbox{1.5cm}{\\centering Estimate noise}};\n    \\node[draw] at (5,-1.5) (enh) {\\parbox{1.5cm}{\\centering Attenuate noise}};\n    \\draw[->,very thick] (in) -- (2,0) -- (2,-1.5) -- (enh);\n    \\draw[->,very thick] (in) -- (2,0) -- (vad);\n    \\draw[->,very thick] (est) -- (enh);\n    \\draw[very thick] (in) -- (3,0) -- (3.4,0.3);\n    \\draw[very thick,->] (3.4,0) -- (est);\n    \\draw[->,very thick] (vad) -- (3.2,1.5) -- (3.2,0.4);\n\\end{tikzpicture}\n\n\\end{document}\n')
+
+
+# In[12]:
+
+
+# VAD through energy thresholding
+frame_energy = np.sum(np.abs(spectrogram_matrix)**2,axis=1)
+frame_energy_dB = 10*np.log10(frame_energy)
+mean_energy_dB = np.mean(frame_energy_dB) # mean of energy in dB
+
+noise_threshold_dB = mean_energy_dB - 3. # threshold relative to mean
+
+noise_active = frame_energy_dB < noise_threshold_dB
+
+
+# In[13]:
+
+
+normalized_frame_energy = frame_energy_dB - mean_energy_dB
+
+plt.figure(figsize=[12,4])
+plt.plot(t,normalized_frame_energy,label='Frame energy')
+plt.plot(t,noise_active*6,label='Noise active')
+plt.legend()
+plt.xlabel('Time (s)')
+plt.ylabel('Amplitude')
+plt.title('Noise detection')
+plt.axis([0, len(data)/fs, 1.05*np.min(normalized_frame_energy), 1.05*np.max(normalized_frame_energy)])
+plt.show()
+
+
+# In[14]:
+
+
+# Estimate noise in noise frames
+noise_frames = spectrogram_matrix[noise_active,:]
+noise_estimate = np.mean(np.abs(noise_frames)**2,axis=0)
+
+
+# In[15]:
+
+
+f = np.linspace(0,fs/1000,fft_length)
+plt.plot(f,10*np.log10(1e-6+noise_estimate));
+plt.xlabel('Frequency (kHz)')
+plt.ylabel('Magnitude (dB)');
+plt.title('Noise model');
+plt.show()
+
+
+# In typical office environments and many other real-world scenarios, the background noise is dominated by low-frequencies, that is, the low frequencies have high energy. Often low quality hardware also leaks analog distortion into the microphone, such that there can be visible peaks in the higher frequencies. 
+# 
+# #### Minimum statistics
+# An alternative estimate would be the *minimum-statistics* estimate, where we take the minimum energy of each component over time. Since speech+noise has more energy than just noise alone, the minimum most likely represents only noise. {cite:p}`martin2001noise`
+
+# In[16]:
+
+
+noise_estimate_minimum = np.min(np.abs(spectrogram_matrix)**2,axis=0)
+
+
+# In[17]:
+
+
+plt.plot(f,10*np.log10(noise_estimate),label='Mean+VAD');
+plt.plot(f,10*np.log10(noise_estimate_minimum),label='Minimum');
+plt.legend()
+plt.xlabel('Frequency (kHz)')
+plt.ylabel('Magnitude (dB)');
+plt.title('Noise models');
+
+
+# We see that the minimum statistics estimate of noise is much lower than the mean. Duh, it is by definition lower. However, the shape of both spectra is the same. Thus, the minimum statistics estimate is biased, but preserves the shape. The bias is something we can correct by adding a fixed constant. The benefit of minimum statistics is that it does not depend on a threshold. We thus replace the threshold parameter by a bias parameter, which is much less prone to errors. 
+# 
+# In the following, we will use the mean as our noise model for simplicity.
+
+# ## Spectral subtraction
+# 
 # The basic idea of spectral subtraction is that we assume that we have
-# access to an estimate of the noise energy $ E[\|v\|^2] = \sigma_v^2
-# $ , and we subtract that from the energy of the observation, such that
-# we define the energy of our estimate as
+# access to an estimate of the noise energy $ E[\|v\|^2] = \sigma_v^2$ , and we subtract that from the energy of the observation, such that
+# we define the energy of our estimate as {cite:p}`boll1979suppression`
 # 
 # $$ \|\hat x\|^2 := \|y\|^2 - \sigma_v^2. $$
 # 
@@ -308,46 +495,52 @@ ipd.display(ipd.Audio(data_sloped,rate=fs))
 # $$ \hat x := \angle y \cdot \|\hat x\| = \frac{y}{\|y\|} \sqrt{
 # \|y\|^2 - \sigma_v^2} = y \sqrt{\frac{\|y\|^2 -
 # \sigma_v^2}{\|y\|^2}}. $$
-# 
-# Spectrograms of the original signal (above) and its enhanced version
-# obtained with spectral subtraction applied on the STFT (below)
-# 
-# <img src="attachments/172995194/175508704.png" class="image-center"
-# data-image-src="attachments/172995194/175508704.png"
-# data-unresolved-comment-count="0" data-linked-resource-id="175508704"
-# data-linked-resource-version="1" data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="specsub_spectrogram.png"
-# data-base-url="https://wiki.aalto.fi"
-# data-linked-resource-content-type="image/png"
-# data-linked-resource-container-id="172995194"
-# data-linked-resource-container-version="33" height="400" />
-# 
-#   
-# 
-# Original noisy sample
-# 
-# <a href="attachments/172995194/175508733.wav"
-# data-linked-resource-id="175508733" data-linked-resource-version="1"
-# data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="sound_sample.wav"
-# data-nice-type="Multimedia"
-# data-linked-resource-content-type="audio/x-wav"
-# data-linked-resource-container-id="172995194"
-# data-linked-resource-container-version="33">sound_sample.wav</a>
-# 
-# Enhanced with spectral subtraction
-# 
-# <a href="attachments/172995194/175508717.wav"
-# data-linked-resource-id="175508717" data-linked-resource-version="1"
-# data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="sound_sample_specsub.wav"
-# data-nice-type="Multimedia"
-# data-linked-resource-content-type="audio/x-wav"
-# data-linked-resource-container-id="172995194"
-# data-linked-resource-container-version="33">sound_sample_specsub.wav</a>
-# 
-# 
-# #### Scalar Wiener filtering
+
+# In[18]:
+
+
+energy_enhanced = np.subtract(np.abs(spectrogram_matrix)**2, np.expand_dims(noise_estimate,axis=0))
+energy_enhanced *= (energy_enhanced > 0)  # threshold at zero
+enhancement_gain = np.sqrt(energy_enhanced/(np.abs(spectrogram_matrix)**2))
+spectrogram_enhanced = spectrogram_matrix*enhancement_gain;
+
+
+# In[19]:
+
+
+# Reconstruct and play sloped-thresholded signal
+data_enhanced = istft(spectrogram_enhanced,fs,window_length_ms=window_length_ms,window_step_ms=window_step_ms,windowing_function=windowing_function)
+
+# Illustrate thresholding 
+plt.figure(figsize=[12,6])
+plt.subplot(211)
+plt.imshow(20*np.log10(np.abs(spectrogram_matrix[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Original spectrogram of noisy audio')
+ipd.display(ipd.Audio(data,rate=fs))
+
+plt.subplot(212)
+plt.imshow(20*np.log10(1e-6+np.abs(spectrogram_enhanced[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Spectrogram after spectral subtraction')
+plt.tight_layout()
+plt.show()
+#sd.play(data_thresholded,fs)
+ipd.display(ipd.Audio(data_enhanced,rate=fs))
+
+
+
+# Typically spectral subtraction does improve the quality of the signal, but it also leaves room for improvement. In particular, usually we hear musical noise in the higher frequencies, which are components which alternate between on and off. Because these components appear independetly from the speech signal, they are perceived as independent sounds and because they are essentially isolated sinusoids, they are perceived as tones; thus we hear musical noisy "tones".
+
+# ## Minimum-mean Square Estimate (MMSE) aka. Wiener filtering
 # 
 # Observe that the form of the relationship above is $ \hat x = y\cdot
 # g, $ where $g$ is a scalar scaling coefficient. Instead of the above
@@ -382,7 +575,7 @@ ipd.display(ipd.Audio(data_sloped,rate=fs))
 # \frac{E\left[\|y\|^2\right]-\sigma_v^2}{E\left[\|y\|^2\right]}.
 # $$
 # 
-# and the Wiener estimate becomes
+# and the [Wiener estimate](https://en.wikipedia.org/wiki/Wiener_filter) becomes
 # 
 # $$ \hat x := y \left(\frac{\|y\|^2 - \sigma_v^2}{\|y\|^2}\right).
 # $$
@@ -399,42 +592,143 @@ ipd.display(ipd.Audio(data_sloped,rate=fs))
 # can do. Still, spectral subtraction is a powerful method when taking
 # into account how simple it is. With minimal assumptions we obtain a
 # signal estimate which can give a clear improvement in quality.
+
+# In[20]:
+
+
+mmse_gain = energy_enhanced/(np.abs(spectrogram_matrix)**2)
+spectrogram_enhanced_mmse = spectrogram_matrix*mmse_gain
+
+
+# In[21]:
+
+
+# Reconstruct and play enhanced signal
+data_enhanced_mmse = istft(spectrogram_enhanced_mmse,fs,window_length_ms=window_length_ms,window_step_ms=window_step_ms,windowing_function=windowing_function)
+
+# Illustrate thresholding 
+plt.figure(figsize=[12,6])
+plt.subplot(211)
+plt.imshow(20*np.log10(np.abs(spectrogram_matrix[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Original spectrogram of noisy audio')
+ipd.display(ipd.Audio(data,rate=fs))
+
+plt.subplot(212)
+plt.imshow(20*np.log10(1e-6+np.abs(spectrogram_enhanced_mmse[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Spectrogram after Wiener filtering')
+plt.tight_layout()
+plt.show()
+#sd.play(data_thresholded,fs)
+ipd.display(ipd.Audio(data_enhanced_mmse,rate=fs))
+
+
+
+# The quality of the MMSE estimate is not drastically different from the spectral subtraction algorithm. This is not surprising as the algorithms are very similar. 
 # 
-# </div>
+# In comparison to noise gating, we also notice that it may not be entirely clear which one is better. To a large extent, this will happen with good quality signals, where the SNR is high. With worse SNR, energy thresholding becomes more difficult and noise gating will surely fail. MMSE is more robust and therefore typically has better quality at low SNR. These methods can also be combined to give the best of both worlds.
+
+# ### Treating musical noise
 # 
-# </div>
+# For spectral subtraction -type methods (which includes MMSE), we often encounter musical noise (described above). Similar problems are common in coding applications which use frequency-domain quantization. The problem is related to discontinuity in spectral components over time. Musical noise is perceived when spectral components are randomly turned on and off. 
 # 
-# <div class="cell normal" data-type="normal">
+# The solution to musical noise must thus be to avoid components going on and off. 
+# Possible approaches include:
 # 
-# <div class="innerCell">
+# #### Noise filling
+# Spectral holes (zeros) can be avoided by a noise floor, where we add random noise any time spectral components are below a threshold.
 # 
-# Spectrograms of the original signal (above) and its enhanced version
-# obtained with (scalar) Wiener filtering applied on the STFT (below)
+# #### Mapping
+# In spectral subtraction -type methods, the gain value was thresholded at zero before multiplication by the spectrum. It is this thresholding which causes the problem. Therefore, we could replace the hard threshold with a soft threshold. One such soft threshold is the soft-plus, defined for an input $x$ as $y=\ln\left(e^x+1\right)$.
 # 
-# <img src="attachments/172995194/175508702.png" class="image-center"
-# data-image-src="attachments/172995194/175508702.png"
-# data-unresolved-comment-count="0" data-linked-resource-id="175508702"
-# data-linked-resource-version="1" data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="wiener_spectogram.png"
-# data-base-url="https://wiki.aalto.fi"
-# data-linked-resource-content-type="image/png"
-# data-linked-resource-container-id="172995194"
-# data-linked-resource-container-version="33" height="400" />
-# 
-#   
-# 
-# Enhanced with (scalar) Wiener filtering
-# 
-# <a href="attachments/172995194/175508720.wav"
-# data-linked-resource-id="175508720" data-linked-resource-version="1"
-# data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="sound_sample_wiener.wav"
-# data-nice-type="Multimedia"
-# data-linked-resource-content-type="audio/x-wav"
-# data-linked-resource-container-id="172995194"
-# data-linked-resource-container-version="33">sound_sample_wiener.wav</a>
-# 
-# 
+
+# In[22]:
+
+
+# Illustration of hard threshold, noise filling and soft threshold
+noisefill_level = 1
+x = np.linspace(-4,4,100)
+f, (ax1, ax2, ax3) = plt.subplots(1, 3, sharey=True, figsize=[10,10])
+ax1.plot(x,0.5*(x+np.abs(x)))
+ax2.plot(x,x*0 + noisefill_level,'k:')
+ax2.plot(x,noisefill_level+0.5*(x-noisefill_level+np.abs(x-noisefill_level)))
+ax3.plot(x,np.log(1.+np.exp(x)))
+ax1.set_title('Hard threshold\n $y=\max(0,x)$')
+ax2.set_title('Noisefill\n $y=\max(\epsilon,x)$')
+ax3.set_title('Soft threshold\n $y=\ln(e^x+1)$');
+ax1.set_xlabel('x')
+ax2.set_xlabel('x')
+ax3.set_xlabel('x');
+ax1.set_ylabel('y');
+ax1.set_aspect('equal')
+ax2.set_aspect('equal')
+ax3.set_aspect('equal')
+ax1.grid()
+ax2.grid()
+ax3.grid()
+plt.show()
+
+
+# In[23]:
+
+
+# Noise fill with min(eps,x)
+noisefill_threshold_dB = -60   # dBs below average noise
+noisefill_level = (10**(noisefill_threshold_dB/10))*noise_estimate  
+#noisefill_level = 0.2
+
+energy_enhanced = np.abs(spectrogram_matrix)**2 - noise_estimate
+
+#energy_noisefill = noisefill_level + 0.5*(energy_enhanced - noisefill_level + np.abs(energy_enhanced - noisefill_level))
+energy_noisefill = noisefill_level + ((energy_enhanced - noisefill_level) > 0) * (energy_enhanced - noisefill_level)
+mmse_noisefill_gain = np.sqrt(energy_noisefill)/np.abs(spectrogram_matrix)
+spectrogram_enhanced_noisefill = spectrogram_matrix*mmse_noisefill_gain;
+
+
+# In[24]:
+
+
+# Reconstruct and play enhanced signal
+data_enhanced_noisefill = istft(spectrogram_enhanced_noisefill,fs,window_length_ms=window_length_ms,window_step_ms=window_step_ms,windowing_function=windowing_function)
+
+# Illustrate thresholding 
+plt.figure(figsize=[12,6])
+plt.subplot(211)
+plt.imshow(20*np.log10(np.abs(spectrogram_matrix[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Original spectrogram of noisy audio')
+ipd.display(ipd.Audio(data,rate=fs))
+
+plt.subplot(212)
+plt.imshow(20*np.log10(1e-6+np.abs(spectrogram_enhanced_noisefill[:,range(fft_length)].T)),
+           origin='lower',aspect='auto',
+           extent=[0, length_in_s, 0, fs/2000])
+plt.axis([0, length_in_s, 0, 8])
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (kHz)');
+plt.title('Spectrogram after Wiener filtering')
+plt.tight_layout()
+plt.show()
+#sd.play(data_thresholded,fs)
+ipd.display(ipd.Audio(data_enhanced_noisefill,rate=fs))
+
+
+
+# We find that noisefilling -type methods offer a compromise between amount of noise removed and the amount of musical noise. Usually we try to tune the parameter such that we are just above the level where musical noise is perceived, since it is a non-natural distortion and therefore more annoying than an incomplete noise attenuation. However, closer tuning is dependent on application and preference.
+
 # ### Wiener filtering for vectors
 # 
 # Above we considered the scalar case, or conversely, the case where we
@@ -481,72 +775,7 @@ ipd.display(ipd.Audio(data_sloped,rate=fs))
 # provides an analytical expression for an optimal solution in noise
 # attenuation. It consequently has very well documented properties and
 # performance guarantees.
-# 
-# 
-# 
-# ## Speech presence estimation in noise attenuation
-# 
-# Our objective is to improve speech quality and we want enhance speech
-# which is corrupted by noise. Speech however is typically highly varying
-# in time and especially in a conversation, usually speakers do not speak
-# at the same time. Thus often one speaker is silent about half the time.
-# If there is no speech noise attenuation becomes trivial; Noise can be
-# removed by zeroing the whole signal.
-# 
-# To take advantage of such non-speech periods, we can use [voice activity
-# detection (VAD)](Voice_activity_detection_VAD_) to determine which parts
-# of the signal have speech and apply noise attenuation only there.
-# Paraphrasing, we have:
-# 
-# 
-#     If VAD(y) == Speech
-#        xhat = Enhance(y)
-#     else
-#        xhat = 0
-# 
-# This however requires that our voice activity detector is reliable also
-# for noisy speech signals, which is difficult. An alternative is to
-# estimate posteriori likelihoods as follows:
-# 
-#     xhat_noisyspeech = Enhance(y)
-#     vhat_noisyspeech = y - xhat_noisyspeech
-#     vhat_noiseonly = y
-#     SpeechLikelihood = PosterioriLikelihood(xhat_noisyspeech) * PosterioriLikelihood(vhat_noisyspeech) * PriorLikelihood(speech)
-#     NonspeechLikelihood = PosterioriLikelihood(vhat_noiseonly) * (1 - PriorLikelihood(speech)
-#     If SpeechLikelihood > NonspeechLikelihood
-#         xhat = xhat_noisyspeech
-#     else
-#         xhat = 0
-# 
-# This method thus always tries to attenuate noise and then looks at the
-# output whether "speech" or "non-speech" is more likely. Such hypothesis
-# testing is often useful but assumes that we have access to effective
-# likelihood estimators for both speech and noise.
-# 
-# 
-# Enhanced with (scalar) Wiener filtering and gated with VAD
-# 
-# <img src="attachments/172995194/175508726.png"
-# data-image-src="attachments/172995194/175508726.png"
-# data-unresolved-comment-count="0" data-linked-resource-id="175508726"
-# data-linked-resource-version="1" data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="wiener_gated_spectrogram.png"
-# data-base-url="https://wiki.aalto.fi"
-# data-linked-resource-content-type="image/png"
-# data-linked-resource-container-id="172995194"
-# data-linked-resource-container-version="33" height="400" />
-# 
-# <a href="attachments/172995194/175508721.wav"
-# data-linked-resource-id="175508721" data-linked-resource-version="1"
-# data-linked-resource-type="attachment"
-# data-linked-resource-default-alias="sound_sample_wiener_gated.wav"
-# data-nice-type="Multimedia"
-# data-linked-resource-content-type="audio/x-wav"
-# data-linked-resource-container-id="172995194"
-# data-linked-resource-container-version="33">sound_sample_wiener_gated.wav</a>
-# 
-# 
-# 
+
 # ## Masks, power spectra and temporal characteristics
 # 
 # As seen above, we can attenuate noise if we have a good estimate of the
@@ -668,3 +897,15 @@ ipd.display(ipd.Audio(data_sloped,rate=fs))
 # 
 #     
 # ![speechenhancement2](attachments/175508259.png)
+
+# ## References
+# 
+# ```{bibliography}
+# :filter: docname in docnames
+# ```
+
+# In[ ]:
+
+
+
+

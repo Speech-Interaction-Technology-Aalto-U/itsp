@@ -7,10 +7,10 @@ import numpy as np
 
 
 def stft(data,fs,window_length_ms=30,window_step_ms=20,windowing_function=None):
-    window_length = int(window_length_ms*fs/1000)
+    window_length = int(window_length_ms*fs/2000)*2
     window_step = int(window_step_ms*fs/1000)
-    if windowing_function is None:
-        windowing_function = np.sin(np.pi*np.arange(0.5,window_length,1)/window_length)**2
+    #if windowing_function is None:
+    #    windowing_function = np.sin(np.pi*np.arange(0.5,window_length,1)/window_length)**2
     
     total_length = len(data)
     window_count = int( (total_length-window_length)/window_step) + 1
@@ -29,10 +29,10 @@ def stft(data,fs,window_length_ms=30,window_step_ms=20,windowing_function=None):
     return spectrogram
 
 def istft(spectrogram,fs,window_length_ms=30,window_step_ms=20,windowing_function=None):
-    window_length = int(window_length_ms*fs/1000)
+    window_length = int(window_length_ms*fs/2000)*2
     window_step = int(window_step_ms*fs/1000)
-    if windowing_function is None:
-        windowing_function = np.ones(window_length)
+    #if windowing_function is None:
+    #    windowing_function = np.ones(window_length)
     window_count = spectrogram.shape[0]
     
     total_length = (window_count-1)*window_step + window_length
@@ -40,13 +40,16 @@ def istft(spectrogram,fs,window_length_ms=30,window_step_ms=20,windowing_functio
     
     for k in range(window_count):
         starting_position = k*window_step
+        ix = np.arange(starting_position,starting_position+window_length)
 
-        data[starting_position:(starting_position+window_length)] = (data[starting_position:(starting_position+window_length)] +
-                                                                     scipy.fft.irfft(spectrogram[k,:],n=window_length)*windowing_function)
+        thiswin = scipy.fft.irfft(spectrogram[k,:],n=window_length)
+        data[ix] = data[ix] + thiswin*windowing_function
         
     return data
 
 
+def halfsinewindow(window_length):
+    return np.sin(np.pi*np.arange(0.5,window_length,1)/window_length)
 
 def zcr(data,fs,window_length_ms=30,window_step_ms=20):
     window_length = int(window_length_ms*fs/1000)
