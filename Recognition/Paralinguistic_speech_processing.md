@@ -3,7 +3,7 @@
 Paralinguistic speech processing (PSP) refers to analysis of speech
 signals with the aim of extracting information beyond the linguistic
 content of speech (hence paralinguistic = alongside linguistic
-content; see also Schuller & Batliner, 2014). In other words, PSP does
+content; see also {cite:t}`schuller2013computational`). In other words, PSP does
 not focus on what is the literal transmitted message but on what
 additional information is conveyed by the signal. Speaker
 [diarization](Speaker_Diarization),
@@ -101,12 +101,12 @@ for a strict distinction of PSP from other types of processing tasks,
 but PSP can be viewed as an umbrella term for the increasingly many
 analysis tasks focused on the various non-literal aspects of spoken
 language, and where similar data-driven methodology is usually
-applicable across a broad range of PSP phenomena (see also Schuller &
-Batliner, 2014, for a discussion).
+applicable across a broad range of PSP phenomena (see also {cite:t}`schuller2013computational`, for a discussion).
 
 ### Speaker traits and states
 
-Schuller & Batliner (2014) use a distinction into two types of speaker
+{cite:t}`schuller2013computational`
+use a distinction into two types of speaker
 characteristics: traits and states. These are related to the temporal
 properties of the analyzed phenomena. Speaker traits are long-term and
 slowly-changing characteristics of the speaker, such as personality
@@ -253,7 +253,7 @@ signal-level features together with an SVM classifier, and often these
 systems have been highly competitive with other solutions.
 Alternatively, feature selection techniques may be applied in
 conjunction with data labeling to find a more compact feature set for
-the problem at hand (see, e.g., Pohjalainen et al., 2015). 
+the problem at hand (see, e.g., {cite:t}`pohjalainen2015feature`). 
 
 If there are plenty of training data available, multilayer neural
 networks can be used to simultaneously learn useful signal
@@ -381,46 +381,17 @@ to their analysis problems.
 
 ## Further reading and materials on PSP 
 
+{cite:empty}`eyben2010opensmile,baevski2020wav2vec,chung2019unsupervised,boser1992training,wu2015deep`
+
+
+```{bibliography}
+:filter: docname in docnames
+```
+
 Schuller, B. et al.: Computational Paralinguistic Challenge. WWW-site:
 <http://www.compare.openaudio.eu/>, last accessed 11th October 2020.
 
-Eyben, F., Wöllmer, M., & Schuller, B. (2010). openSMILE -- The Munich
-Versatile and Fast Open-Source Audio Feature Extractor. Proc. 18th ACM
-International Conference on Multimedia, Florence, Italy, pp. 1459–1464,
-<https://www.audeering.com/opensmile/>
 
-Pohjalainen J., Räsänen O., & Kadioglu S. (2015). Feature selection
-methods and their combinations in high-dimensional classification of
-speaker likability, intelligibility and personality traits. *Computer
-Speech and Language*, 29, 145–171.
 
-Schuller, B. & Batliner, A. (2014). *Computational paralinguistics:
-Emotion, affect and personality in speech and language processing.* John
-Wiley & Sons Ltd, UK.
 
-## Other references
 
-Baevski, A., Zhou, H., Abdelrahman, M., & Auli, M. (2020). wav2vec 2.0:
-A framework for self-supervised learning of speech representations.
-arXiv pre-print, <https://arxiv.org/abs/2006.11477>
-
-Chung, Y-A., Hsu W-N., Tang. H., & Glass, J. (2019). An unsupervised
-autoregressive model for speech representation learning. *Proc.
-Interspeech-2019,* Graz, Austria, pp. 146—150.
-
-Boser, B., Guyon, I., & Vapnik, V. (1992). A training algorithm for
-optimal margin classifiers. *Proc. 5th Annual Workshop on Computational
-Learning Theory*, pp. 144–152.
-
-van den Oord, A., Li, Y., & Vinyals, O. (2018). Representation learning
-with contrastive predictive coding. arXiv pre-print,
-<https://arxiv.org/abs/1807.03748>.
-
-Wu, Z., Valentini-Botinhao, C., Watts, O., & King, S. (2015). Deep
-neural networks employing multi-task learning and stacked bottleneck
-features for speech synthesis. *Proc. ICASSP-2015,* Brisbane, Australia,
-pp. 4460–4464.
-
-  
-
- 
