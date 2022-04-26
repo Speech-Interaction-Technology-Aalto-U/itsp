@@ -59,7 +59,6 @@ plt.show()
 # In[3]:
 
 
-
 # choose segment from random position in sample
 starting_position = np.random.randint(total_length - window_length)
 
@@ -189,6 +188,7 @@ plt.axis([0, len(data)/fs, 0, 20])
 plt.show()
 
 
+
 # We can clearly see the a curve between quefrency 5 and 12 ms undulating up and down over time. 
 # The quefrencies $q$ can be easily converted to frequencies $f$ by $f=1/q$ (but remember to first convert milliseconds to seconds).
 
@@ -199,8 +199,6 @@ plt.show()
 # A solution is to apply smoothing in the power-spectrum. For example, we could use a FIR-filter $[0.5,1,0.5]$, or more generally, a triangular shape. In heuristic terms, we just take an average of the power around a certain frequency, such that frequencies near have a larger weight than frequencies far away. The weighting parameters are then chosen in a triangular shape. We calculate the smoothed samples at intervals corresponding to half the width of the triangle, such that the amount of samples obtained corresponds to the amount of smoothing. More rigorously, we can first apply the FIR-filter and then apply down-sampling by an appropriate amount, but the end-result is the same.
 
 # In[5]:
-
-
 
 
 # choose segment from random position in sample
@@ -266,6 +264,7 @@ plt.title('Log-magnitude spectrum')
 plt.xlabel('Frequency (kHz)')
 plt.ylabel('Magnitude $20\log_{10}|X_k|$')
 plt.show()
+
 
 
 
@@ -421,6 +420,7 @@ plt.xlabel('Time (s)')
 #plt.axis([0, len(data)/fs, 0, 20])
 plt.title('MFCCs over time')
 plt.show()
+
 
 
 # The envelope is clearly visible in the log-mel spectrogram as expected. The MFCCs behave also as expected - not much is visible. Would need to normalize it over time to boost subtle changes to become visible. Such normalization (pre-whitening) is in fact a standard step for all variables which are used as input to machine learning.

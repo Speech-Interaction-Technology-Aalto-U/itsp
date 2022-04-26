@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12. Computational models of human language processing" href="../Computational_models_of_human_language_processing.html" />
@@ -477,14 +479,9 @@ const thebe_selector_output = ".output, .cell_output"
      10.1. Design goals
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Transmission/Basic_tools.html">
-     10.2. Basic tools
-    </a>
-   </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Transmission/Modified_discrete_cosine_transform_MDCT.html">
-     10.3. Modified discrete cosine transform (MDCT)
+     10.2. Modified discrete cosine transform (MDCT)
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
@@ -494,24 +491,24 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../Transmission/Entropy_coding.html">
-       10.3.4. Entropy coding
+       10.2.5. Entropy coding
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
-       10.3.5. Perceptual modelling in speech and audio coding
+       10.2.6. Perceptual modelling in speech and audio coding
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Transmission/Code-excited_linear_prediction_CELP.html">
-     10.4. Code-excited linear prediction (CELP)
+     10.3. Code-excited linear prediction (CELP)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Transmission/Frequency-domain_coding.html">
-     10.5. Frequency-domain coding
+     10.4. Frequency-domain coding
     </a>
    </li>
   </ul>
@@ -547,11 +544,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
-   Chatbots / Conversational design (external link)
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Computational_models_of_human_language_processing.html">
@@ -644,11 +636,6 @@ const thebe_selector_output = ".output, .cell_output"
    11.4.1. Delay-and-sum beamforming
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   11.4.2. Attachments:
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -674,11 +661,6 @@ const thebe_selector_output = ".output, .cell_output"
    11.4.1. Delay-and-sum beamforming
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   11.4.2. Attachments:
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -690,10 +672,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="multi-channel-speech-enhancement-and-beamforming">
 <h1><span class="section-number">11.4. </span>Multi-channel speech enhancement and beamforming<a class="headerlink" href="#multi-channel-speech-enhancement-and-beamforming" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>Simple, single-channel <a class="reference internal" href="Noise_attenuation.html"><span class="doc std std-doc">noise attenuation</span></a> and
 dereverberation is often not sufficient for acceptable quality,
 especially in very noisy environments, such as in a car or on a busy
@@ -722,38 +700,29 @@ equi-spaced on a straight line, or in a circular configuration, where
 microphones are equi-spaced on a circle. The benefits include that a
 linear configuration makes analytical analysis easier, whereas a
 circular array can have an almost uniform response in all directions.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-</div>
-</div>
-</div>
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <div class="section" id="delay-and-sum-beamforming">
 <h2><span class="section-number">11.4.1. </span>Delay-and-sum beamforming<a class="headerlink" href="#delay-and-sum-beamforming" title="Permalink to this headline">¶</a></h2>
-<p>As an introduction to beamforming consider a linear array of <em>K</em>
-microphones with input signals <em>x<sub>k</sub>(t)</em>, where <em>k</em> and <em>t</em> are
+<p>As an introduction to beamforming consider a linear array of <span class="math notranslate nohighlight">\(K\)</span>
+microphones with input signals <span class="math notranslate nohighlight">\(x_{k}(t)\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(t\)</span> are
 the microphone and time indices. We assume that the desired source is
 sufficiently far away that we can approximate it with a plane wave. Then
-the signal will arrive at the microphones at different times  \(
-\Delta t_{x_k} \) and we can calculate time time difference of
-arrival (TDOA) of each microphone \( t_{x_k} = \Delta
-t_{x_k}-\Delta t_{x_1} \) where we used microphone <em>k=1</em> as a
-reference point. The delayed signals thus have \( x_k(t) = x(t-\Delta
+the signal will arrive at the microphones at different times  <span class="math notranslate nohighlight">\(
+\Delta t_{x_k} \)</span> and we can calculate time time difference of
+arrival (TDOA) of each microphone <span class="math notranslate nohighlight">\( t_{x_k} = \Delta
+t_{x_k}-\Delta t_{x_1} \)</span> where we used microphone <span class="math notranslate nohighlight">\(k=1\)</span> as a
+reference point. The delayed signals thus have <span class="math notranslate nohighlight">\( x_k(t) = x(t-\Delta
 t_{x_k}) = x\left(t-\Delta t_{x_k}+\Delta t_{x_1} - \Delta
-t_{x_1}\right) = x_1(t-t_{x_k}). \) Similarly, for the noise sources
-we have \( y_k(t) = t_1(t-t_{y_k}). \)</p>
+t_{x_1}\right) = x_1(t-t_{x_k}). \)</span> Similarly, for the noise sources
+we have <span class="math notranslate nohighlight">\( y_k(t) = t_1(t-t_{y_k}). \)</span></p>
 <p>If the desired and noise sources appear at different angles, then their
 corresponding delays will be different. Moreover, if we add a
-signal <em>z(t)</em> with itself at a random offset δ, then the summation is
-destructive, that is, smaller than the original \(
-\frac12\left|z(t)+z(t+\delta)\right| \leq \left|z(t)\right|
-\) . Addition without an offset is obviously constructive, such that we
+signal <span class="math notranslate nohighlight">\(z(t)\)</span> with itself at a random offset δ, then the summation is
+destructive, that is, smaller than the original <span class="math notranslate nohighlight">\(
+\frac12\left\|z(t)+z(t+\delta)\right\| \leq \left\|z(t)\right\|
+\)</span> . Addition without an offset is obviously constructive, such that we
 can form the <em>delay and sum estimate</em> as</p>
-<p>\[ \hat x(t) = \frac 1K \sum_{k=1}^K x_k(t-t_{x_k}). \]</p>
+<div class="math notranslate nohighlight">
+\[ \hat x(t) = \frac 1K \sum_{k=1}^K x_k(t-t_{x_k}). \]</div>
 <p>In this summation, all signals approaching from the same direction as
 the desired source will be additive (constructive) and other directions
 will be (more or less) destructive.</p>
@@ -761,32 +730,7 @@ will be (more or less) destructive.</p>
 pedagogical example only. It does not ideally amplify the desired source
 nor attenuate the noise source, and it is sensitive to errors in the
 TDOAs.</p>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p><img src="attachments/175509329/175509409.png" class="image-center"
-data-image-src="attachments/175509329/175509409.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175509409"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="delayandsum.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509329"
-data-linked-resource-container-version="6" width="500" /></p>
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">11.4.2. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[delayandsum.png](attachments/175509329/175509409.png) (image/png)  
-</div>
+<p><img alt="delayandsum.png" src="../_images/175509409.png" /></p>
 </div>
 </div>
 

@@ -272,6 +272,7 @@ plt.tight_layout()
 plt.show()
 
 
+
 # - Observations
 #    - The DFT is complex-valued and cannot be easily visualized as such.
 #    - The absolute $|X_k|$ or absolute squared $|X_k|^2$  value of the spectrum can be plotted, but different frequencies have very different ranges so it is hard to see anything useful.
@@ -351,6 +352,7 @@ plt.tight_layout()
 plt.show()
 
 
+
 # ### Formants
 # - Peaks of the envelope are known as _formants_. They are thus high-energy areas of the spectrum. The formants are numbered from left to right, F1, F2, F3 etc.
 # - The location of formants uniquely identify vowels. In other words, each vowel is defined by a unique combination of the two first formants.
@@ -424,6 +426,7 @@ plt.axis(ax)
 
 plt.tight_layout()
 plt.show()
+
 
 
 # ### Fundamental frequency
@@ -503,6 +506,7 @@ plt.axis(ax)
 
 plt.tight_layout()
 plt.show()
+
 
 
 # #### Harmonics of the fundamental
@@ -587,6 +591,7 @@ plt.tight_layout()
 plt.show()
 
 
+
 # ## Spectrogram
 # 
 # 
@@ -650,6 +655,7 @@ plt.ylabel('Frequency (kHz)')
 plt.axis([0, len(data)/fs, 0, 8])
 plt.title('Spectrogram zoomed to 8 kHz')
 plt.show()
+
 
 
 # #### Exercise
@@ -718,6 +724,7 @@ plt.ylabel('Frequency (kHz)')
 plt.axis([0, len(data)/fs, 0, 8])
 plt.title('Spectrogram zoomed to 8 kHz')
 plt.show()
+
 
 
 # ### Speech features visible in the spectrogram

@@ -1,12 +1,5 @@
 # Echo cancellation
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 A frequently occurring distortion in speech telecommunication scenarios
 is echoes, which have either an electric or acoustic cause. Electric
@@ -74,7 +67,7 @@ noise.
 a multiplicative method similar to that of spectral subtraction or
 Wiener filtering used in noise attenuation.
 
-## **Echo cancellation solutions:**
+## Echo cancellation solutions
 
 As it is mentioned above, the problem that echo cancellation needs to
 solve is the effect of the room in the path from a loudspeaker to the
@@ -88,7 +81,7 @@ the other end of the call can be represented as:
 
   
 
-\\\[ d(n) = s(n) + h(n)\*x(n) + v(n) \\\]
+$$ d(n) = s(n) + h(n)*x(n) + v(n) $$
 
   
 
@@ -125,7 +118,7 @@ variants. The expression to minimise is:
 
   
 
-\\\[ MMSE = min \|d(n) - \\hat{h}(n)\*x(n)\|^2 \\\]
+$$ MMSE = min \|d(n) - \hat{h}(n)*x(n)\|^2 $$
 
   
 
@@ -139,7 +132,7 @@ LMS algorithm used to update the filter can be divided in three steps:
 
   
 
-\\\[ \\hat{y}(n) = \\sum\_{i} \\hat{h}(n-i)\*x(n-i) \\\]
+$$ \hat{y}(n) = \sum_{i} \hat{h}(n-i)*x(n-i) $$
 
   
 
@@ -149,7 +142,7 @@ LMS algorithm used to update the filter can be divided in three steps:
 
   
 
-\\\[ e(n) = d(n) - \\hat{y}(n) \\\]
+$$ e(n) = d(n) - \hat{y}(n) $$
 
   
 
@@ -159,8 +152,8 @@ LMS algorithm used to update the filter can be divided in three steps:
 
   
 
-\\\[ \\hat{h}\_{t+1}(n) = \\hat{h}\_{t}(n) + \\mu \\cdot e^H(n) \\cdot
-x(n) \\\]
+$$ \hat{h}_{t+1}(n) = \hat{h}_{t}(n) + \mu \cdot e^H(n) \cdot
+x(n) $$
 
   
 
@@ -235,10 +228,15 @@ double-talk, but most of them are based on three main ideas:
         and 0 when it is not. Therefore, the NCC can be used as a
         scaling factor for the learning rate.
 
-\\\[ NCC = \\frac{\\sigma^{2}\_{ed}(n)}{\\sigma\_{e}(n)\\sigma\_{d}(n)}
-\\\] \\\[ \\sigma^{2}\_{x} = E\[xx^H\] \\\] \\\[ \\sigma^{2}\_{x}(n) =
-\\lambda\\sigma^{2}\_{x}(n - 1) + (1 - \\lambda)\\sigma^{2}\_{x} \\\]
-\\\[ \\mu\_{NCC} = (1 - NCC)\\mu\_{max} \\\]
+$$ NCC = \frac{\sigma^{2}_{ed}(n)}{\sigma_{e}(n)\sigma_{d}(n)}
+$$ 
+
+$$ \sigma^{2}_{x} = E[xx^H] $$
+
+$$ \sigma^{2}_{x}(n) =
+\lambda\sigma^{2}_{x}(n - 1) + (1 - \lambda)\sigma^{2}_{x} $$
+
+$$ \mu_{NCC} = (1 - NCC)\mu_{max} $$
 
   
 
@@ -254,209 +252,27 @@ double-talk, but most of them are based on three main ideas:
         signal needs to be filtered twice before deciding if ther is
         double-talk.
 
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
 
 The acoustic feedback loop in telecommunication applications.
 
-<img src="attachments/175509261/175509295.png" class="image-center"
-data-image-src="attachments/175509261/175509295.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175509295"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="echocancellation.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="150" />
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
+![echocancellation.png](attachments/175509295.png)
   
 
 Model of the echo path and estimated filter
 
-<img src="attachments/175509261/203126383.png" class="image-center"
-data-image-src="attachments/175509261/203126383.png"
-data-unresolved-comment-count="0" data-linked-resource-id="203126383"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2022-2-8_12-22-30.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="400" />
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
+![image](attachments/203126383.png)
   
 
 Feedback loop for echo cancellation
 
-<img src="attachments/175509261/203126386.png"
-data-image-src="attachments/175509261/203126386.png"
-data-unresolved-comment-count="0" data-linked-resource-id="203126386"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2022-2-8_12-24-18.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="400" />
+![image2](attachments/203126386.png)
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 Two-path echo cancellation model
 
-<img src="attachments/175509261/203126388.png"
-data-image-src="attachments/175509261/203126388.png"
-data-unresolved-comment-count="0" data-linked-resource-id="203126388"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2022-2-8_12-25-23.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="400" />
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+![twopath](attachments/203126388.png)
   
 
   
 
-  
-
-  
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[echocancellation.png](attachments/175509261/175511342.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[echocancellation.png](attachments/175509261/175509295.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-22-4.png](attachments/175509261/203126381.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-22-30.png](attachments/175509261/203126383.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-24-18.png](attachments/175509261/203126386.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-25-23.png](attachments/175509261/203126388.png)
-(image/png)  
-
-</div>
+ 

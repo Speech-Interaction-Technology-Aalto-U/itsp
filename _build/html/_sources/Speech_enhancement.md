@@ -1,13 +1,5 @@
 # Speech enhancement
 
-<div class="contentLayout2">
-
-<div class="columnLayout two-equal" layout="two-equal">
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
 When using speech technology in real environments, we are often faced
 with less than perfect signal quality. For example, if you make a phone
 call at cafeteria, typically you have plenty of other people speaking in
@@ -21,12 +13,12 @@ effort and improve intelligibility.
 
 The most prominent categories of speech enhancement are:
 
-1.  [Noise attenuation](Noise_attenuation), where we try to extract the
+1.  [Noise attenuation](Enhancement/Noise_attenuation.ipynb), where we try to extract the
     desired speech signalm when distorted by background noise(s).
-2.  [Echo cancellation](Echo_cancellation) and feedback cancellation are
+2.  [Echo cancellation](Enhancement/Echo_cancellation.md) and feedback cancellation are
     used when the sound played from a loudspeaker is picked up by a
     microphone distorting the desired signal.
-3.  [Bandwidth extensions](Bandwidth_extension_BWE_) refers to methods
+3.  [Bandwidth extensions](Enhancement/Bandwidth_extension_BWE.md) refers to methods
     which convert a signal at a lower sampling rate to a higher sampling
     rate and fills the missing range of the spectrum with some plausible
     content.
@@ -36,7 +28,7 @@ The most prominent categories of speech enhancement are:
     from a mixture, for example, in the classical cocktail-party
     problem, we would like to isolate single speakers when multiple
     people are talking at the same time.
-6.  [Beamforming](Multi-channel_speech_enhancement_and_beamforming)
+6.  [Beamforming](Enhancement/Multi-channel_speech_enhancement_and_beamforming.md)
     refers to spatially selective methods, where the objective is
     isolate sounds coming from a particular direction, by using the
     information about the spatial separation of a set of microphones.
@@ -89,21 +81,3 @@ obtain objective measures. That is, if we give noisy and improved speech
 signals to a speech recognizer, we can determine the recognition
 performance in both cases to estimate the benefit obtained with our
 processing.
-
-</div>
-
-</div>
-
-<div class="cell normal" data-type="normal">
-
-<div class="innerCell">
-
-  
-
-</div>
-
-</div>
-
-</div>
-
-</div>

@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="11.3. Bandwidth extension (BWE)" href="Bandwidth_extension_BWE.html" />
@@ -477,14 +479,9 @@ const thebe_selector_output = ".output, .cell_output"
      10.1. Design goals
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Transmission/Basic_tools.html">
-     10.2. Basic tools
-    </a>
-   </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../Transmission/Modified_discrete_cosine_transform_MDCT.html">
-     10.3. Modified discrete cosine transform (MDCT)
+     10.2. Modified discrete cosine transform (MDCT)
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
@@ -494,24 +491,24 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../Transmission/Entropy_coding.html">
-       10.3.4. Entropy coding
+       10.2.5. Entropy coding
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
-       10.3.5. Perceptual modelling in speech and audio coding
+       10.2.6. Perceptual modelling in speech and audio coding
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Transmission/Code-excited_linear_prediction_CELP.html">
-     10.4. Code-excited linear prediction (CELP)
+     10.3. Code-excited linear prediction (CELP)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Transmission/Frequency-domain_coding.html">
-     10.5. Frequency-domain coding
+     10.4. Frequency-domain coding
     </a>
    </li>
   </ul>
@@ -547,11 +544,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://landbot.io/blog/guide-to-conversational-design/">
-   Chatbots / Conversational design (external link)
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Computational_models_of_human_language_processing.html">
@@ -641,15 +633,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#echo-cancellation-solutions">
-   11.2.1.
-   <strong>
-    Echo cancellation solutions:
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   11.2.2. Attachments:
+   11.2.1. Echo cancellation solutions
   </a>
  </li>
 </ul>
@@ -674,15 +658,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#echo-cancellation-solutions">
-   11.2.1.
-   <strong>
-    Echo cancellation solutions:
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   11.2.2. Attachments:
+   11.2.1. Echo cancellation solutions
   </a>
  </li>
 </ul>
@@ -696,10 +672,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="echo-cancellation">
 <h1><span class="section-number">11.2. </span>Echo cancellation<a class="headerlink" href="#echo-cancellation" title="Permalink to this headline">¶</a></h1>
-<div class="contentLayout2">
-<div class="columnLayout two-equal" layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>A frequently occurring distortion in speech telecommunication scenarios
 is echoes, which have either an electric or acoustic cause. Electric
 echoes appear in analogue networks at points of impedance mismatch.
@@ -764,7 +736,7 @@ noise.</p>
 a multiplicative method similar to that of spectral subtraction or
 Wiener filtering used in noise attenuation.</p>
 <div class="section" id="echo-cancellation-solutions">
-<h2><span class="section-number">11.2.1. </span><strong>Echo cancellation solutions:</strong><a class="headerlink" href="#echo-cancellation-solutions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2.1. </span>Echo cancellation solutions<a class="headerlink" href="#echo-cancellation-solutions" title="Permalink to this headline">¶</a></h2>
 <p>As it is mentioned above, the problem that echo cancellation needs to
 solve is the effect of the room in the path from a loudspeaker to the
 microphone used in the communication. This means that the signal played
@@ -774,7 +746,8 @@ received signal played by the loudspeaker as far-end (<em>x(n)</em>), and the
 useful speech signal from the user will be called near-end signal
 (<em>s(n)</em>). The mixture recorded by the microphone that would be sent to
 the other end of the call can be represented as:</p>
-<p>\[ d(n) = s(n) + h(n)*x(n) + v(n) \]</p>
+<div class="math notranslate nohighlight">
+\[ d(n) = s(n) + h(n)*x(n) + v(n) \]</div>
 <p>where <em>v(n)</em> represents additive noise in the scene and, for simplicity,
 will be considered part of <em>s(n)</em>. The effect of the room on the far-end
 signal can be modelled as an FIR filter <em>h(n)</em>, added to the far-end
@@ -802,23 +775,27 @@ be calculated iteratively as we receive more information from the
 far-end and recorded signals. The most popular algorithm to calculate
 this adaptive filter is Least Mean Squares (LMS) and its multiple
 variants. The expression to minimise is:</p>
-<p>\[ MMSE = min |d(n) - \hat{h}(n)*x(n)|^2 \]</p>
+<div class="math notranslate nohighlight">
+\[ MMSE = min \|d(n) - \hat{h}(n)*x(n)\|^2 \]</div>
 <p>The objective is to find the coefficients of the estimated filter that
 minimise the previous equation, and a simple depiction of the iterative
 LMS algorithm used to update the filter can be divided in three steps:</p>
 <ul class="simple">
 <li><p>Estimate the recorded echo signal:</p></li>
 </ul>
-<p>\[ \hat{y}(n) = \sum_{i} \hat{h}(n-i)*x(n-i) \]</p>
+<div class="math notranslate nohighlight">
+\[ \hat{y}(n) = \sum_{i} \hat{h}(n-i)*x(n-i) \]</div>
 <ul class="simple">
 <li><p>Estimate the error:</p></li>
 </ul>
-<p>\[ e(n) = d(n) - \hat{y}(n) \]</p>
+<div class="math notranslate nohighlight">
+\[ e(n) = d(n) - \hat{y}(n) \]</div>
 <ul class="simple">
 <li><p>Update the filter weights:</p></li>
 </ul>
-<p>\[ \hat{h}_{t+1}(n) = \hat{h}_{t}(n) + \mu \cdot e^H(n) \cdot
-x(n) \]</p>
+<div class="math notranslate nohighlight">
+\[ \hat{h}_{t+1}(n) = \hat{h}_{t}(n) + \mu \cdot e^H(n) \cdot
+x(n) \]</div>
 <p>The term <em>μ</em> represents the learning rate of the algorithm. Higher
 values will make the algorithm converge faster, but might converge to a
 bigger error value, while smaller learning rate will converge slower and
@@ -894,10 +871,16 @@ scaling factor for the learning rate.</p></li>
 </ul>
 </li>
 </ul>
-<p>\[ NCC = \frac{\sigma^{2}_{ed}(n)}{\sigma_{e}(n)\sigma_{d}(n)}
-\] \[ \sigma^{2}_{x} = E[xx^H] \] \[ \sigma^{2}_{x}(n) =
-\lambda\sigma^{2}_{x}(n - 1) + (1 - \lambda)\sigma^{2}_{x} \]
-\[ \mu_{NCC} = (1 - NCC)\mu_{max} \]</p>
+<div class="math notranslate nohighlight">
+\[ NCC = \frac{\sigma^{2}_{ed}(n)}{\sigma_{e}(n)\sigma_{d}(n)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[ \sigma^{2}_{x} = E[xx^H] \]</div>
+<div class="math notranslate nohighlight">
+\[ \sigma^{2}_{x}(n) =
+\lambda\sigma^{2}_{x}(n - 1) + (1 - \lambda)\sigma^{2}_{x} \]</div>
+<div class="math notranslate nohighlight">
+\[ \mu_{NCC} = (1 - NCC)\mu_{max} \]</div>
 <ul class="simple">
 <li><p>Two-path Echo Cancellation:</p>
 <ul>
@@ -914,79 +897,14 @@ double-talk.</p></li>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
 <p>The acoustic feedback loop in telecommunication applications.</p>
-<p><img src="attachments/175509261/175509295.png" class="image-center"
-data-image-src="attachments/175509261/175509295.png"
-data-unresolved-comment-count="0" data-linked-resource-id="175509295"
-data-linked-resource-version="2" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="echocancellation.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="150" /></p>
+<p><img alt="echocancellation.png" src="../_images/175509295.png" /></p>
 <p>Model of the echo path and estimated filter</p>
-<p><img src="attachments/175509261/203126383.png" class="image-center"
-data-image-src="attachments/175509261/203126383.png"
-data-unresolved-comment-count="0" data-linked-resource-id="203126383"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2022-2-8_12-22-30.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="400" /></p>
+<p><img alt="image" src="../_images/203126383.png" /></p>
 <p>Feedback loop for echo cancellation</p>
-<p><img src="attachments/175509261/203126386.png"
-data-image-src="attachments/175509261/203126386.png"
-data-unresolved-comment-count="0" data-linked-resource-id="203126386"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2022-2-8_12-24-18.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="400" /></p>
+<p><img alt="image2" src="../_images/203126386.png" /></p>
 <p>Two-path echo cancellation model</p>
-<p><img src="attachments/175509261/203126388.png"
-data-image-src="attachments/175509261/203126388.png"
-data-unresolved-comment-count="0" data-linked-resource-id="203126388"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2022-2-8_12-25-23.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="175509261"
-data-linked-resource-container-version="9" height="400" /></p>
-</div>
-</div>
-</div>
-</div>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">11.2.2. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[echocancellation.png](attachments/175509261/175511342.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[echocancellation.png](attachments/175509261/175509295.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-22-4.png](attachments/175509261/203126381.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-22-30.png](attachments/175509261/203126383.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-24-18.png](attachments/175509261/203126386.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2022-2-8_12-25-23.png](attachments/175509261/203126388.png)
-(image/png)  
-</div>
+<p><img alt="twopath" src="../_images/203126388.png" /></p>
 </div>
 </div>
 

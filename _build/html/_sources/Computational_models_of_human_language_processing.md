@@ -11,17 +11,16 @@ important aspect to the research: capability to test theoretical models
 in practice. Implementation of models capable of processing real speech
 data requires techniques from speech processing and machine learning.
 For instance, techniques for speech
-[signal](Basic_representations_and_models)
-[representation](Basic_representations_and_models) and
-[pre-processing](Pre-processing) are needed to interface the models with
+[signal representation](Representations/Representations.md)
+ and
+[pre-processing](Pre-processing.md) are needed to interface the models with
 acoustic speech recordings. Different types of [classifiers and machine
-learning algorithms](Modelling_tools_in_speech_processing) are needed to
+learning algorithms](Modelling_tools_in_speech_processing.md) are needed to
 implement learning mechanisms in the models or to analyze behavior of
 the developed models. In addition, model training data may be generated
-with [speech synthesizers](Speech_Synthesis) (e.g., Havard, Besacier &
-Rosec, 2017), whereas linguistic reference data for model evaluation may
+with [speech synthesizers](Speech_Synthesis.md) (e.g., {cite:p}`havard2017speech`), whereas linguistic reference data for model evaluation may
 be extracted from speech recordings using [automatic speech
-recognition](Speech_Recognition). 
+recognition](Recognition/Speech_Recognition.md). 
 
 The basic idea of computational modeling is to understand how humans
 learn and process language by implementing human-like learning and
@@ -30,30 +29,18 @@ are then exposed to inputs similar to what humans observe, and the model
 behavior is then recorded and compared to human data (Fig. 1).
 Computational models can focus on questions such as how adult speech
 perception operates (e.g., the highly-influential TRACE model of speech
-perception; McClelland & Elman, 1986), how language learning takes place
-in young children (native language aka. L1 learners; e.g., Räsänen,
-2012; Dupoux, 2018) or in second-language (L2) learners, or they may
+perception; {cite:t}`mcclelland1986trace`), how language learning takes place
+in young children (native language aka. L1 learners; e.g., {cite:p}`rasanen2012computational,dupoux2018cognitive`) or in second-language (L2) learners, or they may
 study the emergence and evolution of language through communicative
-coordination between multiple agents (see, e.g., Steels, 1997, or Kirby,
-2002, for overviews).
+coordination between multiple agents (see, e.g.,  {cite:t}`steels1997synthetic,kirby2002natural`, for overviews).
 
   
 
   
+![basic_modeling_.schematic.png](attachments/180302220.png)
+**Figure 1:** A high-level schematic view of a typical computational model development and evaluation process.
 
-<img src="attachments/159749086/180302220.png" class="image-center"
-data-image-src="attachments/159749086/180302220.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180302220"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="basic_modeling_.schematic.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159749086"
-data-linked-resource-container-version="72" width="800" />**Figure 1:**
-A high-level schematic view of a typical computational model development
-and evaluation process.
-
-### 1.1.1. Human cognition as a sensorimotor information processing system
+### Human cognition as a sensorimotor information processing system
 
 Computational modeling research is based on the metaphor of human brain
 as a computational information processing system. From an external
@@ -73,7 +60,7 @@ neurons, but to focus on the *computational and algorithmic principles*
 of the process, i.e., the *information representation*, *flow* and
 *transformation* within the system (see [Marr's levels of
 analysis](https://en.wikipedia.org/wiki/David_Marr_(neuroscientist)#Levels_of_analysis);
-Marr, 1982). These processing steps could then be implemented in
+{cite:t}`marr2010vision`). These processing steps could then be implemented in
 infinitely many ways using different hardware (biological neurons,
 silicon chips architectures, CPU instruction sets, quantum computing
 etc.) or translations from computational description to
@@ -87,8 +74,7 @@ on explaining the acoustic, phonetic and/or other linguistic factors
 that affect the process of word recognition. Such a model could focus on
 the details of how word recognition process evolves over time when a
 spoken word is heard, describing how alternative word candidates are
-being considered or rejected during this process (see, e.g., Weber &
-Scharenborg, 2012, or Magnuson et al., 2020, for examples). Even if the
+being considered or rejected during this process (see, e.g., {cite:t}`weber2012models,magnuson2020earshot`, for examples). Even if the
 model would not focus on modeling neurons of the human brain, it could
 still explain how our minds decode linguistic information from speech
 input. This explanation could include how the process is affected by
@@ -101,8 +87,7 @@ Another central aspect of the modeling is the relationship between human
 learning and computational methods trying to characterize the process.
 According to the present understanding, *human language learning is
 largely driven by* the interaction of *statistical regularities in the
-sensory input* available to the learner (e.g., Werker & Tees, 1984;
-Saffran et al., 1996; Maye et al., 2002; Saffran & Kirkham, 2008),
+sensory input* available to the learner (e.g., {cite:t}`werker1984cross,saffran1996statistical,maye2002infant,saffran2018infant`),
 *innate mechanisms, constraints, and biases for perception and learning*
 from such input, and *other mechanisms responsible for social,
 communicative and exploratory needs* *o*f the learner. By extracting the
@@ -117,7 +102,7 @@ statistical learning is closely related to machine learning in
 computers, as both aim to extract statistical regularities from data
 using some sort of pre-specified learning principles. However, unlike
 standard speech technology systems such as [automatic speech
-recognition](Speech_Recognition), humans learners do not have access to
+recognition](Recognition/Speech_Recognition.md), humans learners do not have access to
 data labels or consistent reward signals. For instance, a computational
 model of early infant word learning is essentially trying to find a
 solution to unsupervised pattern discovery problem: how to learn words
@@ -126,7 +111,7 @@ available. By applying a combination of speech processing and machine
 learning techniques to data representative of infant language
 experiences, explanation proposals for such a process can be created.
 
-#### 1.1.1.1. *Computational modeling versus cognitive computationalism*
+#### Computational modeling versus cognitive computationalism
 
 Note that computational modeling and *representations* often studied in
 the models should not be confused with classical
@@ -147,9 +132,8 @@ that are somehow causally related to the inputs of the system. Behavior
 of these representations can then be correlated and compared with
 theoretical concepts regarding the phenomenon of interest (e.g.,
 comparing selectivity of neural layer activations towards known phoneme
-categories in the acoustic input to the model; see, e.g., Nagamine et
-al., 2015) or comparing the overall model behavior to human behavior
-with similar input (e.g., Räsänen & Rasilo, 2015). As long as the models
+categories in the acoustic input to the model; see, e.g., {cite:t}`nagamine2015exploring`) or comparing the overall model behavior to human behavior
+with similar input (e.g., {cite:t}`rasanen2015joint`). As long as the models
 are able to explain the data or phenomena of interest, the *models are a
 computational and hypothetical explanation* to the phenomenon without
 loading the components with additional theoretical or philosophical
@@ -157,7 +141,7 @@ assumptions. Additional theoretical loading comes from the *data* and
 *evaluation protocols* chosen to investigate the models and in terms of
 how the modeling findings are interpreted.
 
-### 1.1.2. Role of computational models in scientific research
+###  Role of computational models in scientific research
 
 Computational modeling has a role in scientific theory development and
 hypothesis testing by providing the means to test high-level theories of
@@ -175,16 +159,8 @@ insights and hypotheses about the human processing to be tested in
 behavioral experiments.
 
   
-
-<img src="attachments/159749086/180300259.png" class="image-center"
-data-image-src="attachments/159749086/180300259.png"
-data-unresolved-comment-count="0" data-linked-resource-id="180300259"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="role_of_comp_mods.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="159749086"
-data-linked-resource-container-version="72" width="600" />**Figure 2:**
+![role_of_comp_mods](attachments/180300259.png)
+**Figure 2:**
 Different aspects of human language processing research and how they
 interact.  
 Computational modeling uses data from empirical research to test and
@@ -201,8 +177,7 @@ language processing in terms of computational goals and operations, then
 implementing them as functional signal processing and machine learning
 algorithms, and finally exposing them to realistic sensory data
 comparable to what real humans experience, ecological plausibility and
-validity of the underlying theories can be explicitly tested (cf. Marr,
-1982). In contrast, behavioral experiments with real humans—although
+validity of the underlying theories can be explicitly tested (cf. {cite:t}`marr2010vision`). In contrast, behavioral experiments with real humans—although
 necessary for the advancement of our scientific understanding and for
 general data collection—can usually focus on only one phenomenon at a
 time due to the need for highly-controlled experimental setups. The
@@ -211,7 +186,7 @@ individual studies into holistic theoretical frameworks (e.g.,
 understanding how phonemic, lexical, and syntactic learning are
 dependent on each other in early language development). 
 
-### 1.1.3. **Examples of computational modeling research**
+### Examples of computational modeling research
 
 ***Computational models of child language development***: Computational
 models of language learning aim at understanding how human children
@@ -244,8 +219,7 @@ communicative system of their native language.
 and propose different hypotheses for different aspects of language
 learning. They also produce functional algorithms for processing
 acoustic or multimodal language data in low-resource settings, where
-access to data labels is limited (e.g., Kakouros & Räsänen, 2016; Kamper
-et al., 2017; Räsänen et al., 2018). Long-term outcomes from language
+access to data labels is limited (e.g., {cite:t}`kakouros20163pro,kamper2017segmental,rasanen2018pre`). Long-term outcomes from language
 acquisition modeling contribute to both basic science and practice. In
 terms of basic science, the research tries to answer the question of how
 one of the most advanced aspects of human cognition, i.e., language,
@@ -273,15 +247,14 @@ native and non-native listeners. Since word recognition is essentially a
 temporal process, particular attention is typically paid to the
 evolution of the recognition process as a function of time (or
 proportion of input word or utterance perceived).  
-    For an overview, see Weber and Scharenborg (2012). For some examples
-of models, see McClelland and Elman (1986), Norris (1994), or Magnuson
-et al. (2020).
+    For an overview, see {cite:t}`weber2012models`. For some examples
+of models, see {cite:t}`mcclelland1986trace,magnuson2020earshot,norris1994shortlist`.
 
-***Models of speech production**: *This line of research attempts to
+***Models of speech production***: This line of research attempts to
 explain how human speech production works in terms of articulators and
 their motor control. Some studies also focus on the acquisition of
 speech production skills. Typical speech production models involve an
-articulatory [speech synthesizer](Speech_Synthesis)—an algorithm capable
+articulatory [speech synthesizer](Speech_Synthesis.md)—an algorithm capable
 of producing audible speech signals by modeling the physical
 characteristics of the vocal apparatus—and some type of motor control
 algorithms that are responsible for phonation and articulator movements.
@@ -290,10 +263,8 @@ uses from general understanding of the articulatory basis of speech to
 understanding speech pathologies, articulatory learning in childhood or
 adulthood, or special types of sound production such as singing.  
     For classical and more recent examples of articulatory models of
-speech production, see, e.g., Maeda (1988), Birkholz (2005; in German),
-or Birkholz and Martin (2015). For models of infant learning of speech
-production, see, e.g., Tourville and Guenther (2011), Howard and Messum
-(2014), or Rasilo and Räsänen (2017).
+speech production, see, e.g., {cite:t}`maeda1988improved,birkholz3d,birkholz2015contribution`. For models of infant learning of speech
+production, see, e.g.,{cite:t}`tourville2011diva,howard2014learning,rasilo2017online`.
 
 ***Multi-agent models of language learning, evolution and
 communication:*** Languages are essentially cultural conventions based
@@ -302,7 +273,7 @@ physiological mechanisms, and learned through interactions between
 people. One branch of computational modeling focuses on understanding
 how languages emerge, evolve, and are learned through multi-agent
 communication and interaction. These simulations, sometimes referred to
-as *language games* or *iterated learning* (see Kirby, 2002), focus on
+as *language games* or *iterated learning* (see {cite:t}`kirby2002natural`), focus on
 non-linear dynamical systems that result from the interaction of
 multiple communicative computational agents. These agents can be purely
 based on simulation, or they can be based on physical robots interacting
@@ -311,112 +282,12 @@ different types of innate goals, mechanisms, learning skills and
 environmental conditions, one can study the extent that language-like
 signaling systems (as a social system) or language skills (as subjective
 capabilities) can emerge from such conditions.  
-    For overviews, see Steels (1997) or Kirby (2002).
+    For overviews, see {cite:t}`steels1997synthetic,kirby2002natural`.
 
-### 1.1.4. **References and further reading**
+### References and further reading
 
-Birkholz, P. (2005). *3D-Artikulatorische Sprachsynthese*. Logos Verlag,
-Berlin
-\[[pdf](http://www.vocaltractlab.de/publications/birkholz-2005-dissertation.pdf)\]
-(in German)
+{cite:empty}`oudeyer2019computational`
 
-Birkholz, P., & Martin, L. (2015). The contribution of phonatioc type to
-the perception of vocal emotions in german: An articulatory synthesis
-study. *The Journal of the Acoustical Society of America*, 137,
-1503–1512.
-
-Dupoux, E. (2018). Cognitive science in the era of artificial
-intelligence: A roadmap for reverse-engineering the infant
-language-learner. *Cognition*, 173,
-43–59. <a href="https://arxiv.org/abs/1607.08723"
-rel="nofollow">https://arxiv.org/abs/1607.08723</a>
-
-Havard, W., Besacier, L., & Rosec, O. (2017). SPEECH-COCO: 600k visually
-grounded spoken captions aligned to MSCOCO data set. *Proc.
-International Workshop on Grounding Language Understanding (GLU-2017)*,
-pp. 42-46, DOI: 10.21437/GLU.2017-9.
-
-Howard, I., & Messum, P. (2014). Learning to pronounce first words in
-three languages: an investigation of caregiver and infant behavior using
-a computational model of an infant. PLoS ONE, 9,  e110334.
-<https://doi.org/10.1371/journal.pone.0110334>
-
-Kakouros S., & Räsänen O. (2016). 3PRO - An unsupervised method for the
-automatic detection of sentence prominence in speech. *Speech
-Communication*, 82, 67–84.
-
-Kamper, H., Jansen, A., & Goldwater, S. (2017). A segmental framework
-for fully-unsupervised large-vocabulary speech recognition. *Computer
-Speech & Language*, 46, 154–174.
-
-Kirby, S. (2002). Natural language from artificial life. *Artificial
-Life*, 8, 185–215.
-
-Marr, D. (1982). *Vision: A computational approach*. San Francisco,
-Freeman & Co.
-
-Magnuson, J., You, H., Luthra, S., Li, M., Nam, H., Escabí, M., Brown,
-K., Allopenna, P., Theodore, R., Monto, N., & Rueckl, J. (2020).
-EARSHOT: A minimal neural network model of incremental human speech
-recognition. *Cognitive Science*, 44, e12823.
-<https://doi.org/10.1111/cogs.12823>
-
-McClelland, J., & Elman, J. (1986). The TRACE model of speech
-perception. *Cognitive Psychology*, 18, 1–86.
-
-Maeda, S. (1988). Improved articulatory model. *Journal of the
-Acoustical Society of America*, 84, Sup. 1, S146.
-
-Maye, J., Werker, J., & Gerken, L. (2002). Infant sensitivity to
-distributional information can affect phonetic discrimination.
-*Cognition*, 82, B101–111.
-
-Nagamine, T., Seltzer, M. L., & Mesgarani, N. (2015). Exploring how deep
-neural networks form phonemic categories. *Proc. Interspeech-2015*,
-Dresden, Germany, pp. 1912–1916.
-
-Norris, D. (1994). Shortlist: a connectionist model of continuous speech
-recognition. *Cognition*, 52, 189–234.
-
-Oudeyer, P-Y., Kachergis, G., & Schueller, W. (2019). Computational and
-robotic models of early language development: a review.
-https://arxiv.org/abs/1903.10246 .
-
-Räsänen O. (2012). Computational modeling of phonetic and lexical
-learning in early language acquisition: existing models and future
-directions. *Speech Communication*, 54, 975–997.
-
-Räsänen, O., & Rasilo, H. (2015). A joint model of word segmentation and
-meaning acquisition through cross-situational learning. *Psychological
-Review*, 122, 792–829.
-
-Rasilo H., & Räsänen O. (2017). An online model of vowel imitation
-learning. *Speech Communication*, 86, 1–23.
-
-Räsänen, O., Doyle, G., & Frank, M. C. (2018). Pre-linguistic
-segmentation of speech into syllable-like units. *Cognition*, 171,
-130–150.
-
-Saffran, J. R., Aslin, R. N., & Newport, E. L. (1996). Statistical
-learning by 8-month-old infants. *Science*, 274, 1926–1928.
-
-Saffran, J. & Kirkham, N. (2018). Infant statistical learning. *Annual
-Review of Psychology*, 69, 181–203.
-
-Steels, L. (1997). The synthetic modeling of language origins.
-*Evolution of Communication*, 1, 1–34.
-
-Tourville, J.A. and Guenther, F.H. (2011). [The DIVA model: A neural
-theory of speech acquisition and
-production.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3650855/)
-*Language and Cognitive Processes,* 25, 952—981.
-
-Weber, A. and Scharenborg, O. (2012). Models of processing: lexicon.
-*WIREs Cognitive Science*, 3, 387–401. doi: 10.1002/wcs.1178.
-
-Werker, J. F., & Tees, R. C. (1984). Cross-language speech perception:
-Evidence from perceptual reorganization during the first year of life.
-*Infant Behavior and Development*, 7, 49–63.
 
 Birkholz, P.: VocalTractLab: <http://www.vocaltractlab.de/> \[for work
 on articulatory synthesis\]
@@ -427,30 +298,8 @@ pattern learning\]
 
   
 
-  
+ 
 
-**  
-**
-
-  
-
-  
-
-  
-
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[role_of_comp_mods.png](attachments/159749086/180300259.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[basic_modeling\_.schematic.png](attachments/159749086/180302220.png)
-(image/png)  
-
-</div>
+```{bibliography}
+:filter: docname in docnames
+```
