@@ -48,13 +48,13 @@ a court or judge.
 ### All-human interaction
 Speech is a tool for communication such that it is generally sensible to always discuss interactions between two agents, say, Alice and Bob. The interaction between them is the desired function such that the information exchanged there is explicitly permitted. By choosing to talk with each other, they both reveal information to the extent speech contains such information.
 
-#### First-order relationships
+#### Primary interaction
 
 ![speechinteraction](attachments/speechinteraction.svg)
 
-A first-order question is whether this interaction contains also other information than only the desired message. A speaker can, unknowingly or by mistake, reveal information unintentionally. This is the classic "*slip of the tongue*".
+Though Alice and Bob knowingly and intentionally interact, they might reveal private things. This is the classic "*slip of the tongue*".
 
-#### Second-order relationships
+#### Secondary interactions
 
 A second-order question are third parties, who are not part of the main speech interaction. The pertinent question is the degree to which the third party is allowed to partake in an interaction. As a practical example, suppose Alice and Bob have a romantic dinner at a restaurant. To which extent is the waitress Eve allowed to interact with the discussion of Alice and Bob? Clearly Eve has some necessary tasks such that interaction is unavoidable. Will Alice and Bob, for example, pause their discussion when Eve approaches?
 
