@@ -272,8 +272,6 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # society-level decision and political choice, where psychological and
 # cultural aspects play a big role.
 # 
-# *
-# 
 # 
 # ## Threat and attack scenarios
 # 
@@ -785,3 +783,9 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # ```{bibliography}
 # :filter: docname in docnames
 # ```
+
+# In[ ]:
+
+
+
+
