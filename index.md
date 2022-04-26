@@ -11,7 +11,7 @@ This is an open access and creative commons book of speech processing, intended 
 
 > Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo and Sneha Das, "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi
 
-Bibtex format:
+[Bibtex](http://www.bibtex.org/) format:
 
     @book{itsp2022,
        title = {Introduction to Speech Processing},

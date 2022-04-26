@@ -551,7 +551,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+  <a class="reference internal" href="../Security_and_privacy.html">
    13. Security and privacy in speech technology
   </a>
  </li>
@@ -705,7 +705,7 @@ all the used speech segments have to be pre-recorded, limiting the
 choice of speaker voices or other modifications to the verbal
 expression.</p>
 <p>The most simple CSS system imaginable could be developed using
-concatenation of pre-recorded word waveforms. However, as <span id="id1">[<a class="reference internal" href="#id54" title="Lawrence R Rabiner and Ronald W Schafer. Introduction to digital speech processing. Foundations and Trends in Signal Processing, 1(1):1–194, 2007. URL: https://doi.org/10.1561/2000000001.">Rabiner and Schafer, 2007</a>]</span> note, such an approach would suffer from two primary
+concatenation of pre-recorded word waveforms. However, as <span id="id1">[<a class="reference internal" href="#id55" title="Lawrence R Rabiner and Ronald W Schafer. Introduction to digital speech processing. Foundations and Trends in Signal Processing, 1(1):1–194, 2007. URL: https://doi.org/10.1561/2000000001.">Rabiner and Schafer, 2007</a>]</span> note, such an approach would suffer from two primary
 problems. First, concatenation of word-level waveforms would sound
 unnatural, as coarticulatory effects between words would be absent from
 the data. In addition, the system would be limited to very restrictive
@@ -741,7 +741,7 @@ the impact of potential concatenation artefacts.</p>
 <a class="reference internal" href="Statistical_parametric_speech_synthesis.html"><span class="doc std std-doc">statistical parametric speech synthesis systems</span></a>, the main part of CSS
 is to perform unit selection in such a manner that the output speech
 matches the specification with high naturalness of the sound. As
-described by <span id="id2">[<a class="reference internal" href="#id53" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>, unit selection is achieved by cost
+described by <span id="id2">[<a class="reference internal" href="#id54" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>, unit selection is achieved by cost
 minimization using two cost functions (Fig. 1): <em>target cost</em>
 <span class="math notranslate nohighlight">\(C^{t}(u_{i},t_{i})\)</span> and <em>concatenation cost</em>
 <span class="math notranslate nohighlight">\(C^{c}(u_{i-1},u_{i})\)</span>. Target cost
@@ -753,7 +753,7 @@ unit <span class="math notranslate nohighlight">\(u_{i-1}\)</span>. In other wor
 would find all the target units according to the specification without
 introducing acoustic mismatches at the edges of concatenated units.</p>
 <p><img alt="CSS_cost_schematic" src="../_images/CSS_cost_schematic.png" />
-Figure 1: An illustration of the selection cost Ct and concenation cost Cc in diphone-based unit selection for synthesis of word “cat” [k ae t]. In practice, diphones with different initial phones but similar coarticulatory effects on the target phone can be considered in the selection process to overcome the issue of data sparsity. Adapted from <span id="id3">[<a class="reference internal" href="#id53" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>.</p>
+Figure 1: An illustration of the selection cost Ct and concenation cost Cc in diphone-based unit selection for synthesis of word “cat” [k ae t]. In practice, diphones with different initial phones but similar coarticulatory effects on the target phone can be considered in the selection process to overcome the issue of data sparsity. Adapted from <span id="id3">[<a class="reference internal" href="#id54" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>.</p>
 <p>Since the target specification consists of many characteristics such as
 target and context phone(s) identity, pitch, duration, and power, the
 target cost can be divided into multiple subcosts <span class="math notranslate nohighlight">\(j\)</span> as
@@ -761,7 +761,7 @@ target cost can be divided into multiple subcosts <span class="math notranslate 
 phone(s) (e.g., [ae] in the last unit [ae t] of “cat” in Fig. 1) can
 be represented by a number of features describing the manner and place
 of articulation, so that the specification can be compared to different
-candidate units in the database <span id="id4">[<a class="reference internal" href="#id53" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>. This enables the
+candidate units in the database <span id="id4">[<a class="reference internal" href="#id54" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>. This enables the
 use of different context phones with similar coarticulatory effects on
 the target phone. Similarly, costs for segment power and pitch can be
 measured, e.g., in terms of the differences in mean log-power and mean
@@ -806,7 +806,7 @@ C(t_{1}^{n},u_{1}^{n})&amp;=\sum_{i=1}^{n}C^t(t_i,u_i)+\sum_{i=2}^{n}C^c(u_{i-1}
 \end{split}\]</div>
 <p>(3)</p>
 <p>where <span class="math notranslate nohighlight">\( t_{1}^{n} \)</span> are the targets,  <span class="math notranslate nohighlight">\( u_{1}^{n} \)</span> are the
-selected units, and # denotes silence <span id="id5">[<a class="reference internal" href="#id53" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>. The two
+selected units, and # denotes silence <span id="id5">[<a class="reference internal" href="#id54" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span>. The two
 extra terms stand for transition from preceding silence to the utterance
 and from utterance to the trailing silence. The aim of the selection
 process is then to find units <span class="math notranslate nohighlight">\( \bar{u}_{1}^{n} \)</span> that minimize
@@ -827,7 +827,7 @@ speedup.</p>
 <p><strong>Figure 3:</strong> An example of unit selection search trellis for word
 “<em>cat</em>” [<em>k ae t</em>]. Each edge is associated with basic target cost of
 the selected unit and concatenation cost dependent on the previous unit.
-Adapted from <span id="id6">[<a class="reference internal" href="#id54" title="Lawrence R Rabiner and Ronald W Schafer. Introduction to digital speech processing. Foundations and Trends in Signal Processing, 1(1):1–194, 2007. URL: https://doi.org/10.1561/2000000001.">Rabiner and Schafer, 2007</a>]</span></p>
+Adapted from <span id="id6">[<a class="reference internal" href="#id55" title="Lawrence R Rabiner and Ronald W Schafer. Introduction to digital speech processing. Foundations and Trends in Signal Processing, 1(1):1–194, 2007. URL: https://doi.org/10.1561/2000000001.">Rabiner and Schafer, 2007</a>]</span></p>
 <p>After the speech units have been concatenated to form the intended
 utterance, postprocessing techniques can be used to smooth the potential
 discontinuities in F0, energy and spectrum at the unit boundaries. Note
@@ -847,7 +847,7 @@ the cost functions and their underlying features can be largely designed
 based on knowledge in signal processing and speech processing, the
 weights need to be either adjusted through trial and error, or they can
 be automatically optimized using some kind of quality criterion.</p>
-<p>As examples of automatic weight estimation, <span id="id7">[<a class="reference internal" href="#id53" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span> propose
+<p>As examples of automatic weight estimation, <span id="id7">[<a class="reference internal" href="#id54" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span> propose
 two alternative ways to automatically acquire cost function weights:</p>
 <p>1) Using a <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search">grid
 search</a>
@@ -856,7 +856,7 @@ target specifications of held-out utterances from the training database,
 and then comparing the synthesized waveform to the real waveform of the
 held-out utterance using an objective metric. The weights that lead to
 the best overall performance are then chosen.</p>
-<p>2) Using regression models to predict best values for the weight. <span id="id8">[<a class="reference internal" href="#id53" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span> report that cepstral distance and power difference
+<p>2) Using regression models to predict best values for the weight. <span id="id8">[<a class="reference internal" href="#id54" title="Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In 1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings, volume 1, 373–376. IEEE, 1996. URL: https://doi.org/10.1109/ICASSP.1996.541110.">Hunt and Black, 1996</a>]</span> report that cepstral distance and power difference
 across the concanation point can be used as predictors for reported
 perceptual quality of the concatenation in a linear regression model,
 and therefore the linear regression weights can be directly used as
@@ -880,10 +880,10 @@ another.</p>
 <h2><span class="section-number">9.1.3. </span>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container" id="id9">
 <dl class="citation">
-<dt class="label" id="id53"><span class="brackets">HB96</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>,<a href="#id5">4</a>,<a href="#id7">5</a>,<a href="#id8">6</a>)</span></dt>
+<dt class="label" id="id54"><span class="brackets">HB96</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>,<a href="#id5">4</a>,<a href="#id7">5</a>,<a href="#id8">6</a>)</span></dt>
 <dd><p>Andrew J Hunt and Alan W Black. Unit selection in a concatenative speech synthesis system using a large speech database. In <em>1996 IEEE International Conference on Acoustics, Speech, and Signal Processing Conference Proceedings</em>, volume 1, 373–376. IEEE, 1996. URL: <a class="reference external" href="https://doi.org/10.1109/ICASSP.1996.541110">https://doi.org/10.1109/ICASSP.1996.541110</a>.</p>
 </dd>
-<dt class="label" id="id54"><span class="brackets">RS07</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id6">2</a>)</span></dt>
+<dt class="label" id="id55"><span class="brackets">RS07</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id6">2</a>)</span></dt>
 <dd><p>Lawrence R Rabiner and Ronald W Schafer. Introduction to digital speech processing. <em>Foundations and Trends in Signal Processing</em>, 1(1):1–194, 2007. URL: <a class="reference external" href="https://doi.org/10.1561/2000000001">https://doi.org/10.1561/2000000001</a>.</p>
 </dd>
 </dl>

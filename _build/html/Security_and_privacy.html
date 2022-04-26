@@ -1,0 +1,1814 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13. Security and privacy in speech technology &#8212; Introduction to Speech Processing</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="14. References" href="References.html" />
+    <link rel="prev" title="12. Computational models of human language processing" href="Computational_models_of_human_language_processing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Speech Processing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Introduction to Speech Processing
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preface.html">
+   1. Preface
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Introduction.html">
+   2. Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Why_speech_processing.html">
+     2.1. Why speech processing?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Speech_production_and_acoustic_properties.html">
+     2.2. Physiological speech production
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">
+     Speech perception (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Linguistic_structure_of_speech.html">
+     2.5. Linguistic structure of speech
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Speech-language_pathology">
+     Speech-language pathology (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Applications_and_systems_structures.html">
+     2.6. Applications and systems structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">
+     Social and cognitive processes in human communication (external)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Representations/Representations.html">
+   3. Basic Representations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Short-time_analysis.html">
+     3.1. Short-time analysis of speech and audio signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Short-time_processing.html">
+     3.2. Short-time processing of speech signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Waveform.html">
+     3.3. Waveform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Windowing.html">
+     3.4. Windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Signal_energy_loudness_and_decibel.html">
+     3.5. Signal energy, loudness and decibel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Spectrogram_and_the_STFT.html">
+     3.6. Spectrogram and the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Autocorrelation_and_autocovariance.html">
+     3.7. Autocorrelation and autocovariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Melcepstrum.html">
+     3.8. The cepstrum, mel-cepstrum and mel-frequency cepstral coefficients (MFCCs)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Linear_prediction.html">
+     3.9. Linear prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Fundamental_frequency_F0.html">
+     3.10. Fundamental frequency (F0)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Zero-crossing_rate.html">
+     3.11. Zero-crossing rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Deltas_and_Delta-deltas.html">
+     3.12. Deltas and Delta-deltas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.html">
+     3.13. Pitch-Synchoronous Overlap-Add (PSOLA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Representations/Jitter_and_shimmer.html">
+     3.14. Jitter and shimmer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Crest_factor">
+     https://en.wikipedia.org/wiki/Crest_factor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Pre-processing.html">
+   4. Pre-processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Preprocessing/Pre-emphasis.html">
+     4.1. Pre-emphasis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Noise_gate">
+     Noise gate (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_range_compression">
+     Dynamic Range Compression (Wikipedia)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Modelling_tools_in_speech_processing.html">
+   5. Modelling tools in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Source_modelling_and_perceptual_modelling.html">
+     5.1. Source modelling and perceptual modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Linear_regression.html">
+     5.2. Linear regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Sub-space_models.html">
+     5.3. Sub-space models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Vector_quantization_VQ.html">
+     5.4. Vector quantization (VQ)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Gaussian_mixture_model_GMM.html">
+     5.5. Gaussian mixture model (GMM)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Neural_networks.html">
+     5.6. Neural networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modelling/Non-negative_Matrix_and_Tensor_Factorization.html">
+     5.7. Non-negative Matrix and Tensor Factorization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Evaluation_of_speech_processing_methods.html">
+   6. Evaluation of speech processing methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Subjective_quality_evaluation.html">
+     6.1. Subjective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Objective_quality_evaluation.html">
+     6.2. Objective quality evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Other_performance_measures.html">
+     6.3. Other performance measures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Evaluation/Analysis_of_evaluation_results.html">
+     6.4. Analysis of evaluation results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_analysis.html">
+   7. Speech analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Fundamental_frequency_estimation.html">
+     7.1. Fundamental frequency estimation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://en.wikipedia.org/wiki/Voice_analysis">
+     Voice and speech analysis (Wikipedia)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="Analysis/Measurements_for_medical_applications.html">
+     7.2. Measurements for medical applications
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Electroglottograph">
+       Electroglottography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference external" href="https://en.wikipedia.org/wiki/Videokymography">
+       Videokymography (Wikipedia)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Analysis/Inverse_filtering_for_glottal_activity_estimation.html">
+       7.2.1. Inverse filtering for glottal activity estimation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Analysis/Forensic_analysis.html">
+     7.3. Forensic analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Recognition_tasks_in_speech_processing.html">
+   8. Recognition tasks in speech processing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Voice_activity_detection.html">
+     8.1. Voice Activity Detection (VAD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Wake-word_and_keyword_spotting.html">
+     8.2. Wake-word and keyword spotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speech_Recognition.html">
+     8.3. Speech Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speaker_Recognition_and_Verification.html">
+     8.4. Speaker Recognition and Verification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Speaker_Diarization.html">
+     8.5. Speaker Diarization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Recognition/Paralinguistic_speech_processing.html">
+     8.6. Paralinguistic speech processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_Synthesis.html">
+   9. Speech Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Synthesis/Concatenative_speech_synthesis.html">
+     9.1. Concatenative speech synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Synthesis/Statistical_parametric_speech_synthesis.html">
+     9.2. Statistical parametric speech synthesis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Transmission_storage_and_telecommunication.html">
+   10. Transmission, storage and telecommunication
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Design_goals.html">
+     10.1. Design goals
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="Transmission/Modified_discrete_cosine_transform_MDCT.html">
+     10.2. Modified discrete cosine transform (MDCT)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Transmission/Entropy_coding.html">
+       10.2.5. Entropy coding
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Transmission/Perceptual_modelling_in_speech_and_audio_coding.html">
+       10.2.6. Perceptual modelling in speech and audio coding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Code-excited_linear_prediction_CELP.html">
+     10.3. Code-excited linear prediction (CELP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transmission/Frequency-domain_coding.html">
+     10.4. Frequency-domain coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Speech_enhancement.html">
+   11. Speech enhancement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Noise_attenuation.html">
+     11.1. Noise attenuation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Echo_cancellation.html">
+     11.2. Echo cancellation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Bandwidth_extension_BWE.html">
+     11.3. Bandwidth extension (BWE)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Enhancement/Multi-channel_speech_enhancement_and_beamforming.html">
+     11.4. Multi-channel speech enhancement and beamforming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Computational_models_of_human_language_processing.html">
+   12. Computational models of human language processing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   13. Security and privacy in speech technology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="References.html">
+   14. References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Security_and_privacy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Security_and_privacy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-models">
+   13.1. System models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-human-interaction">
+     13.1.1. All-human interaction
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#primary-interaction">
+       13.1.1.1. Primary interaction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#secondary-interactions">
+       13.1.1.2. Secondary interactions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ownership-and-personal-privacy">
+       13.1.1.3. Ownership and personal privacy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactions-which-involve-devices-or-services">
+     13.1.2. Interactions which involve devices or services
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#telecommunication">
+       13.1.2.1. Telecommunication
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#discussion-in-the-presence-of-speech-interfaces">
+       13.1.2.2. Discussion in the presence of speech interfaces
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interaction-with-a-speech-interface">
+       13.1.2.3. Interaction with a speech interface
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multi-user-interaction-with-a-speech-interface">
+       13.1.2.4. Multi-user interaction with a speech interface
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interaction-with-a-speech-interface-in-the-presence-of-others">
+       13.1.2.5. Interaction with a speech interface in the presence of others
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interaction-with-a-speech-interface-connected-to-other-services">
+       13.1.2.6. Interaction with a speech interface connected to other services
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-user-and-multi-device-scenarios">
+     13.1.3. Multi-user and multi-device scenarios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#information-contained-in-speech-signals">
+   13.2. Information contained in speech signals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-privacy">
+   13.3. Types of privacy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threat-and-attack-scenarios">
+   13.4. Threat and attack scenarios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#privacy-and-security-scandals">
+   13.5. Privacy and security scandals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology">
+   13.6. Approaches for safeguarding privacy in and improving usability of speech technology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-design-concepts">
+     13.6.1. Basic design concepts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     13.6.2. Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-edge-processing">
+     13.6.3. Local/edge processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#differential-privacy">
+     13.6.4. Differential privacy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#federated-learning">
+     13.6.5. Federated learning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#homomorphic-encryption">
+     13.6.6. Homomorphic encryption
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mydata">
+     13.6.7. myData
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#design-goals-human-computer-interfaces-and-user-experience">
+   13.7. Design goals, human computer interfaces and user experience
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethical-dilemmas">
+   13.8. Ethical dilemmas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#security-and-privacy-in-speech-research">
+   13.9. Security and privacy in speech research
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   13.10. References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Security and privacy in speech technology</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-models">
+   13.1. System models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-human-interaction">
+     13.1.1. All-human interaction
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#primary-interaction">
+       13.1.1.1. Primary interaction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#secondary-interactions">
+       13.1.1.2. Secondary interactions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ownership-and-personal-privacy">
+       13.1.1.3. Ownership and personal privacy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactions-which-involve-devices-or-services">
+     13.1.2. Interactions which involve devices or services
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#telecommunication">
+       13.1.2.1. Telecommunication
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#discussion-in-the-presence-of-speech-interfaces">
+       13.1.2.2. Discussion in the presence of speech interfaces
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interaction-with-a-speech-interface">
+       13.1.2.3. Interaction with a speech interface
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multi-user-interaction-with-a-speech-interface">
+       13.1.2.4. Multi-user interaction with a speech interface
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interaction-with-a-speech-interface-in-the-presence-of-others">
+       13.1.2.5. Interaction with a speech interface in the presence of others
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interaction-with-a-speech-interface-connected-to-other-services">
+       13.1.2.6. Interaction with a speech interface connected to other services
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-user-and-multi-device-scenarios">
+     13.1.3. Multi-user and multi-device scenarios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#information-contained-in-speech-signals">
+   13.2. Information contained in speech signals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-privacy">
+   13.3. Types of privacy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threat-and-attack-scenarios">
+   13.4. Threat and attack scenarios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#privacy-and-security-scandals">
+   13.5. Privacy and security scandals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology">
+   13.6. Approaches for safeguarding privacy in and improving usability of speech technology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-design-concepts">
+     13.6.1. Basic design concepts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     13.6.2. Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-edge-processing">
+     13.6.3. Local/edge processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#differential-privacy">
+     13.6.4. Differential privacy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#federated-learning">
+     13.6.5. Federated learning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#homomorphic-encryption">
+     13.6.6. Homomorphic encryption
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mydata">
+     13.6.7. myData
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#design-goals-human-computer-interfaces-and-user-experience">
+   13.7. Design goals, human computer interfaces and user experience
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethical-dilemmas">
+   13.8. Ethical dilemmas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#security-and-privacy-in-speech-research">
+   13.9. Security and privacy in speech research
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   13.10. References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell tag_remove-input docutils container">
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="security-and-privacy-in-speech-technology">
+<h1><span class="section-number">13. </span>Security and privacy in speech technology<a class="headerlink" href="#security-and-privacy-in-speech-technology" title="Permalink to this headline">¶</a></h1>
+<p><em><strong>DISCLAIMER:</strong></em> <em>This document is meant to be an introduction to
+questions in security and privacy in speech technology for engineering
+students, such that they would understand the main problematic. In
+particular, this is not a legal document. In real-life application of
+technology and data collection, you must consult legal experts to
+determine whether you follow the law. You are responsible.</em></p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Right_to_privacy">right to privacy</a>
+is a widely accepted concept though its definition varies. It is however
+clear that people tend to think that some things are “theirs”, that they
+have ownership of <em>things</em>, including information about themselves. A
+possible definition of privacy would then be “the absence of attention
+from others” and correspondingly security could be defined as the
+protection of that which one owns, including material and immaterial
+things. It however must be emphasised that there are no widely shared
+and accepted definitions and in particular, the legal community has a
+wide range of definitions depending on the context and field of
+application.</p>
+<p>From the perspective of speech technology, security and privacy has two
+principal aspects;</p>
+<ul class="simple">
+<li><p>Security and privacy of data related to speech signals and</p></li>
+<li><p>Protection against attacks which use speech signals as a tool.</p></li>
+</ul>
+<p>The latter aspect is mainly related to speaker identity; fraudsters can
+for example synthesise speech which mimics (spoofs) a target person to
+gain access to restricted systems, such as access to the bank account of
+the target person. Such use cases fall mainly under the discussions
+under <a class="reference internal" href="Recognition/Speaker_Recognition_and_Verification.html"><span class="doc std std-doc">speaker recognition and
+verification</span></a>, and not discussed
+further here.</p>
+<p>Observe that in the isolated category of telephony (classical telephone
+connections) privacy and security already have well-established ethical
+standards as well as legislation. In typical jurisdictions, telephone
+calls are private in the sense that only the “intended” participants can
+listen to them and sometimes even recording them is restricted. Covert
+listening is usually allowed only for the police and even for them only
+in specially regulated situations, such as with a permission granted by
+a court or judge.</p>
+<p><span id="id1">[<a class="reference internal" href="Security_and_privacy_in_speech_technology.html#id42" title="Xabier Lareo. Smart speakers and virtual assistants. TechDispatch #1:, 2019. URL: https://data.europa.eu/doi/10.2804/004275.">Lareo, 2019</a>, <a class="reference internal" href="Security_and_privacy_in_speech_technology.html#id50" title="Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. arXiv preprint arXiv:1907.03458, 2019. URL: https://doi.org/10.21437/Interspeech.2019-2647.">Nautsch <em>et al.</em>, 2019</a>]</span></p>
+<div class="section" id="system-models">
+<h2><span class="section-number">13.1. </span>System models<a class="headerlink" href="#system-models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="all-human-interaction">
+<h3><span class="section-number">13.1.1. </span>All-human interaction<a class="headerlink" href="#all-human-interaction" title="Permalink to this headline">¶</a></h3>
+<p>Speech is a tool for communication such that it is generally sensible to always discuss interactions between two agents, say, Alice and Bob. The interaction between them is the desired function such that the information exchanged there is explicitly permitted. By choosing to talk with each other, they both reveal information to the extent speech contains such information.</p>
+<div class="section" id="primary-interaction">
+<h4><span class="section-number">13.1.1.1. </span>Primary interaction<a class="headerlink" href="#primary-interaction" title="Permalink to this headline">¶</a></h4>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_3_0.svg" src="_images/Security_and_privacy_3_0.svg" /></div>
+</div>
+<p>Though Alice and Bob knowingly and intentionally interact, they might reveal private things. This is the classic “<em>slip of the tongue</em>”.</p>
+</div>
+<div class="section" id="secondary-interactions">
+<h4><span class="section-number">13.1.1.2. </span>Secondary interactions<a class="headerlink" href="#secondary-interactions" title="Permalink to this headline">¶</a></h4>
+<p>A second-order question are third parties, who are not part of the main speech interaction. The pertinent question is the degree to which the third party is allowed to partake in an interaction. As a practical example, suppose Alice and Bob have a romantic dinner at a restaurant. To which extent is the waitress Eve allowed to interact with the discussion of Alice and Bob? Clearly Eve has some necessary tasks such that interaction is unavoidable. Will Alice and Bob, for example, pause their discussion when Eve approaches?</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_5_0.svg" src="_images/Security_and_privacy_5_0.svg" /></div>
+</div>
+<p>Observe that we have here labelled Eve as a “<em>restricted</em>” and not as an “<em>unauthorized</em>” interactor. If access is unauthorized, then it is clear that Eve should not have any access to the speech interaction, which is generally straightforward to handle. The word restricted, on the other hand, implies that unimpeded access should not be granted, but that some access can be allowed. It is thus not question of “<em>if</em>” access should be granted but “<em>how much?</em>”.</p>
+</div>
+<div class="section" id="ownership-and-personal-privacy">
+<h4><span class="section-number">13.1.1.3. </span>Ownership and personal privacy<a class="headerlink" href="#ownership-and-personal-privacy" title="Permalink to this headline">¶</a></h4>
+<p>Privacy is closely connected to ownership of immaterial property, that is, information. Such ownership can also be translated to the question of <em>who has the control</em> over some information? In terms of <em>personal privacy</em>, it is clear that it relates to information to which a single person can claim ownership.</p>
+<p>Speech is more complicated. Speech is a form of communication and thus relates to an interaction between two parties. Dialogues can also commonly lead to co-creation of meaning, where new information is generated through the dialogue in a form which none of the involved parties could have alone produced <span id="id2">[<a class="reference internal" href="Security_and_privacy_in_speech_technology.html#id43" title="Jessica Gasiorek. Message processing: The science of creating understanding. UH Mānoa Outreach College, 2018. URL: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/.">Gasiorek, 2018</a>]</span>. None of the users can thus claim sole ownership of the information, but the ownership is shared. Currently we do not have the tools for handling such shared ownership.</p>
+</div>
+</div>
+<div class="section" id="interactions-which-involve-devices-or-services">
+<h3><span class="section-number">13.1.2. </span>Interactions which involve devices or services<a class="headerlink" href="#interactions-which-involve-devices-or-services" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="telecommunication">
+<h4><span class="section-number">13.1.2.1. </span>Telecommunication<a class="headerlink" href="#telecommunication" title="Permalink to this headline">¶</a></h4>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_7_0.svg" src="_images/Security_and_privacy_7_0.svg" /></div>
+</div>
+<p>Talking over the phone and video conference involve transmission of speech through a telecommunication service. Here we consider scenarios where the telecommunication device does not include any advanced functionalities or artificial intelligence. Most countries have clearly definied rules that specify the situations when such communication can be eavesdropped. In most jurisdictions, only the police is allowed to intercept such traffic and only in specific situations.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_9_0.svg" src="_images/Security_and_privacy_9_0.svg" /></div>
+</div>
+<p>Such interception of private communication is interesting primarily from ethical and legal perspectives, but does not contain technological challenges related to the communication itself. The main technological challenges are related to forensics;</p>
+<ul class="simple">
+<li><p>What information can the police extract (e.g. speaker identity, emotions and health)?</p></li>
+<li><p>How can speakers (and service providers) protect themselves from unauthorized interception by, for example, stripping away information such as speaker identity, from the transmitted signal?</p></li>
+</ul>
+</div>
+<div class="section" id="discussion-in-the-presence-of-speech-interfaces">
+<h4><span class="section-number">13.1.2.2. </span>Discussion in the presence of speech interfaces<a class="headerlink" href="#discussion-in-the-presence-of-speech-interfaces" title="Permalink to this headline">¶</a></h4>
+<p>A commonly occuring scenario is one where two or more users engage in a discussion such that there is one or more speech operated devices nearby. For example, a user could have their mobile phone or there could be a smart speaker nearby.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_11_0.svg" src="_images/Security_and_privacy_11_0.svg" /></div>
+</div>
+<p>Often, one of the users will be the primary user of said devices (e.g. it is <em>their</em> phone), so the question is how the devices should relate to the other users. For example, suppose Alice has a smart speaker at home and Bob comes to visit. What would be the appropriate approach then for both Alice and the agent? Should Alice or the agent notify Bob of the presence of an agent? Or should the agent automatically detect the presence of Bob and change its behaviour (e.g. go to sleep)?</p>
+<p>We seem to lack both the cultural habits which dictate how to handle such situations, the legal tools which regulates such situations as well as the technical tools to manage multi-user access.</p>
+</div>
+<div class="section" id="interaction-with-a-speech-interface">
+<h4><span class="section-number">13.1.2.3. </span>Interaction with a speech interface<a class="headerlink" href="#interaction-with-a-speech-interface" title="Permalink to this headline">¶</a></h4>
+<p>An interaction with a speech interface or agent is surprisingly free of problems as long as the agent is not connected to any outside entity. We can think of the agent as a local device. If nobody else has access to that device, then all the information remains in the user’s direct control. Even if the agent exist in a remote cloud-service, if information remains strictly within the desired service, there are very little problems to consider.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_13_0.svg" src="_images/Security_and_privacy_13_0.svg" /></div>
+</div>
+<p>An exception is analysis, which the agent can perform, which is not related to the desired service, which can take abusive forms. For example, suppose the agent analyses the user’s voice for health problems and identifies that the user has <a class="reference external" href="https://en.wikipedia.org/wiki/Alzheimer%27s_disease">Alzheimer’s disease</a>. What should the agent then do with that information? Not doing anthing seems unethical - getting early access to medical services could greatly improve life quality. Informing the user, on the other hand, involves risks. How will the user react to the information? Is the user sufficiently psychologically stable to handle it? What if the analysis is incorrect and the agent thus causes suffering? It is also easy to think of further problematic scenarios.</p>
+</div>
+<div class="section" id="multi-user-interaction-with-a-speech-interface">
+<h4><span class="section-number">13.1.2.4. </span>Multi-user interaction with a speech interface<a class="headerlink" href="#multi-user-interaction-with-a-speech-interface" title="Permalink to this headline">¶</a></h4>
+<p>An agent can be involved in an interaction with multiple users at the same time.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_15_0.svg" src="_images/Security_and_privacy_15_0.svg" /></div>
+</div>
+<p>This scenario differs from the single-user case in particular in the way the device can store information. To which extent should different combinations of users be permitted to have access to information from prior interactions? Quite obviously Alice should not have default, unrestricted access to Bob’s prior interactions without Bob’s permission. Where Alice and Bob have engaged in a joint discussion, the question of access becomes more complicated. It would seem natural that both can have access to information about their prior discussions. However, if Bob is in a discussion with Eve, then access to prior discussion between Bob and Alice should again be restricted. The rules governing access will thus be complicated, often non-obvious and they will have many exceptions.</p>
+</div>
+<div class="section" id="interaction-with-a-speech-interface-in-the-presence-of-others">
+<h4><span class="section-number">13.1.2.5. </span>Interaction with a speech interface in the presence of others<a class="headerlink" href="#interaction-with-a-speech-interface-in-the-presence-of-others" title="Permalink to this headline">¶</a></h4>
+<p>In the early days of mobile phones, a common <em>faux pas</em> was to speak loudly on the phone in public places such as on a bus or subway. It seems that it causes an uncomfortable feeling to people when they overhear private discussions. It can also be hard to ignore speech when you hear it.
+Obviously, the reverse is also true, participants of a private discussion often feel uncomfortable if they fear that outsiders can hear their discussion.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_17_0.svg" src="_images/Security_and_privacy_17_0.svg" /></div>
+</div>
+<p>The same applies to speech operated devices. Such interactions can be private, but even when they are not, the fact that they can be overheard is often uncomfortable to all parties.</p>
+<p>This is a problem when designing user interfaces to services. Speech interaction is often a natural way to user a service or device, but it is not practical in locations where other people can overhear private information and where it the sound is annoying to other people present.</p>
+</div>
+<div class="section" id="interaction-with-a-speech-interface-connected-to-other-services">
+<h4><span class="section-number">13.1.2.6. </span>Interaction with a speech interface connected to other services<a class="headerlink" href="#interaction-with-a-speech-interface-connected-to-other-services" title="Permalink to this headline">¶</a></h4>
+<p>When interacting with a speech interface, users typically do it with a specific objective in mind. For example, suppose Alice wants to turn off the lights in the bedroom and says “<em>Computer, lights off</em>”. To which extent is it permissible that that information is relayed to a cloud-service? If the local device is unable to or uncapable of deciphering the command, it can transmit it to the cloud. The cloud-service then obtains information from a very private part of Alice’s life.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_19_0.svg" src="_images/Security_and_privacy_19_0.svg" /></div>
+</div>
+<p>Information obtained this way can be very useful for example, to advertisers. By analyzing the habits of users, they can serve more meaningful advertisements. Arguably, by better targeting of users, advertisement can more effective, which could <em>potentially</em> reduce the need for advertisement. It is however questionable whether advertisers ever would have incentives to <em>reduce</em> the amount of advertisement.
+Still, some people are creeped out by “<em>overly fitting</em>” advertisement.</p>
+<p>There are however plenty of other scenarios which are more potent sources of danger. What if insurance agencies analyze users life patterns and increase payments for at-risk users such as substance abusers? Some smart devices already today can call the emergency services if they recognize cries of help or other obvious signs of distress. What are the moral dilemmas of that?</p>
+</div>
+</div>
+<div class="section" id="multi-user-and-multi-device-scenarios">
+<h3><span class="section-number">13.1.3. </span>Multi-user and multi-device scenarios<a class="headerlink" href="#multi-user-and-multi-device-scenarios" title="Permalink to this headline">¶</a></h3>
+<p>Things get even more complicated when multipled users and/or users co-exist in the same space. Consider, for example, an open office with two users simulatenously engaged in independent video conferences.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_21_0.svg" src="_images/Security_and_privacy_21_0.svg" /></div>
+</div>
+</div>
+</div>
+<div class="section" id="information-contained-in-speech-signals">
+<h2><span class="section-number">13.2. </span>Information contained in speech signals<a class="headerlink" href="#information-contained-in-speech-signals" title="Permalink to this headline">¶</a></h2>
+<p>Speech signals contain a wide variety of information which are often
+potentially private or even sensitive and it is difficult or impossible
+to list all categories of potential information. However, information
+which speech at least contains includes for example;</p>
+<ul class="simple">
+<li><p>The linguistic (text) content of a speech signal can contain almost
+anything</p>
+<ul>
+<li><p>If you reveal private information about yourself in a
+conversation, then clearly that information is contained in a
+transcription of the conversation.</p></li>
+<li><p>Word-choices and manners of speaking <a class="reference external" href="https://www.theguardian.com/lifeandstyle/2009/mar/08/language-voice">can reveal things about the
+speaker</a>, without the speaker realizing it himself or herself.</p></li>
+</ul>
+</li>
+<li><p>Para-linguistic (i.e. non-linguistic viz. non-text) content has a
+wide variety of information:</p>
+<ul>
+<li><p>Speaker identity</p></li>
+<li><p>Physical traits, including gender, body size and age</p></li>
+<li><p>Emotional state (happy, sad, angry, excited etc.)</p></li>
+<li><p>Speaking style (public, intimate, theatrical etc.)</p></li>
+<li><p>State of health, such as flu, mental health and diseases like
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4876915/">Alzheimer’s</a>,
+but also including tiredness and intoxication.</p></li>
+<li><p>Association and affiliation with reference groups, including
+groups of gender-identity, ethnicity, culture background,
+geographic background, nationality, political and religious
+affiliations etc.</p></li>
+</ul>
+</li>
+<li><p>In interaction with other speakers:</p>
+<ul>
+<li><p>Proof that you have met with the other speaker</p></li>
+<li><p>Level of familiarity, intimacy and
+<a class="reference external" href="https://arxiv.org/abs/2007.15711">trust</a>.</p></li>
+<li><p>Power structures (leader/follower/partner)</p></li>
+<li><p>Family, romantic and other relationships</p></li>
+</ul>
+</li>
+</ul>
+<p>In other words, speech contains or can contain just about all types of
+private and sensitive information you could imagine. As speech is a tool
+for communication, this is not surprising; anything we can communicate
+about, can be spoken. Conversely, if we find that (and we do find that)
+privacy is important, then speech is among the most important signals to
+protect.</p>
+</div>
+<div class="section" id="types-of-privacy">
+<h2><span class="section-number">13.3. </span>Types of privacy<a class="headerlink" href="#types-of-privacy" title="Permalink to this headline">¶</a></h2>
+<p>In a more general scope than just speech, privacy can be categorized
+into seven types: <span id="id3">[<a class="reference internal" href="#id5" title="Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In European data protection: coming of age, pages 3–32. Springer, 2013. URL: https://doi.org/10.1007/978-94-007-5170-5_1.">Finn <em>et al.</em>, 2013</a>]</span></p>
+<ul class="simple">
+<li><p><strong>Privacy of the person</strong>, which refers to the privacy with respect
+to our physical body as well as any information about our body such
+as fingerprints, voice characteristics and medical history.</p></li>
+<li><p><strong>Privacy of behaviour and action</strong>, refers to privacy with respect
+to what we do; for example, nobody needs to know what I do within
+the confine of my home.</p></li>
+<li><p><strong>Privacy of communication</strong>, is particularly important in speech
+communication and refers to privacy of the content and meta-content
+of communication. That is, it is not only about the literal content
+of a communication, but also about the style of communication and
+also about the fact that communication has happened.</p></li>
+<li><p><strong>Privacy of data, including images and sound</strong>, which extends the
+privacy of possessions to immaterial things. In particular, this
+addresses privacy with regard to sharing information about a third
+person.</p></li>
+<li><p><strong>Privacy of thoughts and</strong> <strong>feelings</strong>, is paraphrasing, the
+privacy of thinking. We have the right to share our thoughts and
+emotions with whom we like, or to choose not to share our feelings
+with anyone. This does not mean that people would have to listen to
+you, but that your are allowed to offer them your thoughts.</p></li>
+<li><p><strong>Privacy of location and space</strong>, has become increasingly
+important, since so many of our mobile devices has the ability to
+track your location. However, this type of privacy covers both your
+location and location history (as in location tracking).</p></li>
+<li><p><strong>Privacy of association</strong>, refers to the privacy of whether you
+belong or to which extent you otherwise associate yourself to a
+particular group (religious, political, ethnic, gender identity,
+professional, interest groups etc.).</p></li>
+</ul>
+<p>Note that this list does not make any claims with respect to <em>rights</em> to
+these types of privacy, but that privacy-issues can be often be split
+into these sub-topics. Whether someone has a right to privacy is a
+society-level decision and political choice, where psychological and
+cultural aspects play a big role.</p>
+<ul class="simple">
+<li></li>
+</ul>
+</div>
+<div class="section" id="threat-and-attack-scenarios">
+<h2><span class="section-number">13.4. </span>Threat and attack scenarios<a class="headerlink" href="#threat-and-attack-scenarios" title="Permalink to this headline">¶</a></h2>
+<p>Threats to privacy in speech communication can almost always be defined
+as covert extraction of information as well as storage, processing and
+usage of that information in ways of which the speaker is not aware,
+and/or with which the speaker does not agree. Variability in scenarios
+is then almost entirely due to the type of information involved as well
+as the stakeholders. In particular,</p>
+<ul class="simple">
+<li><p>Companies can extract information from private users for unethical
+advantage</p>
+<ul>
+<li><p>Insurance policies and mortgages can be denied on based on
+covertly extracted information</p></li>
+<li><p>The price of services can be increased for vulnerable groups</p></li>
+<li><p>Access to information (search results) can be restricted and
+information can be targeted (advertisement) to covertly
+influence users for unethical advantage. Such behaviour is often
+advertised under the pretence of customizing services to the
+users preferences, but without giving the user any tools for
+choosing how services are customized.</p></li>
+</ul>
+</li>
+<li><p>State operators can use surveillance and access restrictions on
+their own citizens</p>
+<ul>
+<li><p>Authoritative regimes can track and eavesdrop the political
+opposition, dissent and other groups such as religious, ethnic
+and sexual orientations.</p></li>
+<li><p>Also legitimate uses by police for surveillance in criminal
+investigations</p></li>
+</ul>
+</li>
+<li><p>State operators can use surveillance on foreign citizens</p>
+<ul>
+<li><p>Spies can use speech technology for (remote) eavesdropping and
+information extraction</p></li>
+</ul>
+</li>
+<li><p>Criminals can steal information and use it for their advantage</p>
+<ul>
+<li><p>Identity theft</p></li>
+<li><p>Paparazzi’s can steal private information of famous people</p></li>
+<li><p>Private information can potentially be used for extortion</p></li>
+<li><p>Explicit content could be sold as entertainment</p></li>
+</ul>
+</li>
+<li><p>Private persons can covertly use speech technology for eavesdropping
+and extracting information of other persons</p>
+<ul>
+<li><p>For example, the command history of smart speakers can give
+access to past commands of all users, also when speech commands
+have been made in private.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="privacy-and-security-scandals">
+<h2><span class="section-number">13.5. </span>Privacy and security scandals<a class="headerlink" href="#privacy-and-security-scandals" title="Permalink to this headline">¶</a></h2>
+<p>Most of the threats and attack scenarios are not familiar to the common
+public and some of them might be too abstract to be relevant to average
+users. Typically, we can hypothesize that scenarios which do not touch
+directly on the life of an individual, probably do not get much
+attention in the media. Topics in privacy and security which however
+have received attention in the public media include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.bloomberg.com/news/articles/2019-04-10/is-anyone-listening-to-you-on-alexa-a-global-team-reviews-audio">Amazon workers are listening to what you tell
+Alexa</a>
+(Bloomberg, 2019). Later it was revealed that Google, Apple and
+others are doing the same.</p></li>
+<li><p><a class="reference external" href="https://threatpost.com/amazon-1700-alexa-voice-recordings/140201/">Amazon Sends 1,700 Alexa Voice Recordings to a Random
+Person</a>
+(Threatpost, 2018).</p></li>
+<li><p><a class="reference external" href="https://www.theguardian.com/technology/2018/may/24/amazon-alexa-recorded-conversation">Amazon’s Alexa recorded private conversation and sent it to random
+contact</a>
+(The Guardian, 2018).</p></li>
+<li><p><a class="reference external" href="https://www.wsj.com/articles/fraudsters-use-ai-to-mimic-ceos-voice-in-unusual-cybercrime-case-11567157402">Fraudsters Used AI to Mimic CEO’s Voice in Unusual Cybercrime
+Case</a>
+(The Wall Street Journal, 2019).</p></li>
+</ul>
+<p>Note that the fact that many of the above examples are related to
+Amazon/Alexa is probably more coincidence than an indication that Alexa
+would treat privacy differently than its competitors.</p>
+</div>
+<div class="section" id="approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology">
+<h2><span class="section-number">13.6. </span>Approaches for safeguarding privacy in and improving usability of speech technology<a class="headerlink" href="#approaches-for-safeguarding-privacy-in-and-improving-usability-of-speech-technology" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-design-concepts">
+<h3><span class="section-number">13.6.1. </span>Basic design concepts<a class="headerlink" href="#basic-design-concepts" title="Permalink to this headline">¶</a></h3>
+<p>At least from the European perspective, the following design concepts
+are seen as basis of good design for privacy. In fact, they are mandated
+by the General Data Protection Regulations of the European Union.</p>
+<ul class="simple">
+<li><p><em>Privacy by default</em>; systems should always default to the least
+invasive configuration. Additional services, which are more
+invasive, can be chosen (opt-in) if the user so chooses.</p></li>
+<li><p><em>Privacy by design</em>; privacy should not be an after-thought but
+systems should be designed for privacy. The overall systems
+structure should be chosen such that it supports privacy.</p></li>
+<li><p><em>Data minimization</em>; data can be extracted from users only the
+extent explicitly required by the system. For example, if you order
+a pizza through a web-portal, you need to tell which pizza you want
+and where it should be delivered. Otherwise you cannot receive the
+service. In other words, all services require some level of
+information transfer, but the services cannot ask about information
+which is irrelevant to the service. For example, the pizza service
+cannot ask you about your gender-identity. Data minimization cab
+also be interpreted as <em>data ecology</em>, which would underline the
+fact that “more data” usually means also a higher consumption of
+energy and other resources. In fact, data could (or should) be
+treated as a natural resource itself. This line of argumentation
+connects privacy with the <a class="reference external" href="https://www.un.org/development/desa/disabilities/envision2030.html">UN sustainability
+goals</a>.<br />
+An important aspect of data minimization is that information should
+stored only as long as it is necessary for the service.</p></li>
+<li><p><em>Informed and meaningful consent</em>; when the user chooses a service,
+he should receive information about its implications to privacy in
+an understandable and accessible way, and the service provider
+should receive the users consent without any form of coercion.</p></li>
+</ul>
+<p>Typically it is reasonable that service providers have access to
+aggregated data such as ensemble averages, but not to information about
+individuals. For example, in a hypothetical case, a smart speaker
+operator could receive the information that 55% of users are male, but
+would not get the gender of any individual user.</p>
+</div>
+<div class="section" id="definitions">
+<h3><span class="section-number">13.6.2. </span>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<p>A central problematic in privacy with speech signals is the concept of
+“uniquely identifiable”. Legal frameworks such as the GDPR state that
+private information is such data where individual users are “uniquely
+identifiable”, but there is no accurate definition of what it really
+means. If your partner recognizes your “Hello” on the phone, it means
+that for her, your “Hello” is uniquely identifiable. However, if you
+give 10.000 speech samples to your partner, one of which is your
+“Hello”, then there’s a significant likelihood that your partner would
+not find your “Hello” from the pile. An unanswered question is thus,
+“What is the size of the group where a user should be uniquely
+identifiable?”.</p>
+<p>A more detailed aspect is that of significance. The speaker recognition
+approach is to find the most likely speaker, out of the reference group
+of size <em>N</em>, whereas speaker verification tries to determine whether we,
+within some confidence intervals, can be sure that you are who you claim
+you are. In engineering terms, this means that we want to find the
+speaker with the highest likelihood, but with a sufficient margin to all
+other speakers. In the opposite direction, we can also use a lower
+threshold; we could say that statistically significant correlation
+already exposes the users privacy. For example, if we find that the
+speaker is either you or your father/mother, then we have a significant
+statistical correlation, but your are not uniquely identified.</p>
+<p>A further consideration is that of adjoining data; Suppose there is a
+recording of a speaker A, and that you happen to know a speaker A very
+well. Then it will be easy for you to recognize the voice of A in that
+recording. That is, you have a lot of experience (stored data) about how
+A sounds, therefore it is easy for you to identify A. Does that mean
+that A is uniquely identifiable in that recording? After all, A would
+not be identifiable if you did not know A (= if you would not have
+prior, stored data about A).<br />
+A slight variation of the above case is a recording of a speaker B,
+where B is relatively famous public person, such that there are readily
+available sound samples of his voice on-line. Does that make the
+recording of B uniquely identifiable? Or if there is a recording of a
+currently non-famous person C, who later becomes famous. Does that
+change the status of the recording of C to uniquely identifiable?</p>
+<p>Today, this question remains unanswered and we have no commonly agreed
+interpretation of what “uniquely identifiable” really means. What level
+of statistical confidence is assumed? What level of adjoining data is
+assumed (in terms of GDPR probably: any and all data which exists)? Can
+it change over time if new information becomes public (probably: yes)?
+Can it change over time if new technologies are developed (probably:
+yes)?</p>
+</div>
+<div class="section" id="local-edge-processing">
+<h3><span class="section-number">13.6.3. </span>Local/edge processing<a class="headerlink" href="#local-edge-processing" title="Permalink to this headline">¶</a></h3>
+<p>Privacy is an issue only if some other party has access to data about
+you. Data which resides on a device which is in your control is
+therefore relatively safe, assuming that no outsider has access to that
+device. If data is sent to a cloud server then there are more entities
+which could potentially have access to your data. Therefore all storage
+and processing which can be done on your local device is usually by
+design more private than any cloud server.</p>
+<p>Observe that this does not protect you from other local users. For
+example, if multiple persons are using one smart speaker at home, then
+the other users could have access to information about you through that
+device and any connected other devices.</p>
+<p>Central limitations of edge processing are</p>
+<ul class="simple">
+<li><p>Many services require outside access; say if you ask your phone
+“What’s the weather tomorrow?”, the phone cannot know that by
+itself, but has to retrieve the information from a cloud server. The
+essential content of your speech is therefore relayed to the cloud
+and you don’t have much benefit from edge processing.</p></li>
+<li><p>Improving voice operated services requires a lot of data. Moreover,
+data which reflects features of actual users is much better than any
+simulations. Service providers thus argue that they need to collect
+data from users to provide high-quality services, and local
+processing could prevent the services providers from getting that
+data.</p></li>
+<li><p>Edge devices would use their full capacity only when they pick up
+speech in their microphone, which means that most of the time, edge
+devices would lie dormant, waiting for speech commands. This is a
+wasteful use of resources; a cloud server can better balance the
+load because with a large number of users, the resource requirements
+would likely be more stable.</p></li>
+</ul>
+</div>
+<div class="section" id="differential-privacy">
+<h3><span class="section-number">13.6.4. </span>Differential privacy<a class="headerlink" href="#differential-privacy" title="Permalink to this headline">¶</a></h3>
+<p>Even when operating with aggregate data, like the mean user age, it is
+still possible to extract private information in some scenarios. For
+example, if we know the mean user age and the number of users at a time
+<span class="math notranslate nohighlight">\(t\)</span>, and we also know that the age of user <span class="math notranslate nohighlight">\(X\)</span> was added to the mean at
+time <span class="math notranslate nohighlight">\(t+1\)</span>, as well as the mean user age at <span class="math notranslate nohighlight">\(t+1\)</span>, then we can deduce
+the age of user <span class="math notranslate nohighlight">\(X\)</span> with basic algebra. As a safeguard against such
+differential attacks, to provide <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_privacy">differential
+privacy</a>, it is
+possible to add noise to any data transfers. Individual data points are
+then obfuscated and cannot be exactly recovered. However, the ensemble
+average can still be deduced if the distribution of the added noise is
+known.</p>
+<p>The required compromise here is that the level of privacy corresponds to
+amount of noise, which is inversely proportional to the accuracy of the
+ensemble mean. That is, if the amount of noise is large, then we need a
+huge number of users to determine an accurate ensemble average. On the
+other hand, if the amount of noise is small, then we can get a fair
+guess of an individual data point, but also the ensemble average is
+accurate.</p>
+</div>
+<div class="section" id="federated-learning">
+<h3><span class="section-number">13.6.5. </span>Federated learning<a class="headerlink" href="#federated-learning" title="Permalink to this headline">¶</a></h3>
+<p>To enable machine learning in the cloud without the need to provide
+access to private data, we can use <a class="reference external" href="https://en.wikipedia.org/wiki/Federated_learning">federated
+learning</a>, where
+private data remains on the local device, but only model updates are
+sent to the cloud. Clearly this is approach has better privacy than one
+where all private data is sent to the cloud. However, currently we do
+not yet have clear understanding of the extent of privacy with this type
+of methods; some data is sent to the cloud, but can some private data
+still be traced back to the user?</p>
+</div>
+<div class="section" id="homomorphic-encryption">
+<h3><span class="section-number">13.6.6. </span>Homomorphic encryption<a class="headerlink" href="#homomorphic-encryption" title="Permalink to this headline">¶</a></h3>
+<p>Suppose a service provider has a proprietary model, say an analysis
+method for Alzheimer’s disease from the voice, and your doctor would
+like to analyse your voice with that method. Naturally your voice is
+also private, so you do not want to send your voice to the third-party
+service provider, but also the service provider does not want to send
+the model to you. <a class="reference external" href="https://en.wikipedia.org/wiki/Homomorphic_encryption">Homomorphic
+encryption</a>
+provides a method for applying the secret model on <em>encrypted</em> data,
+such that you have to only send your data in an encrypted form to the
+service provider. Your doctor would then receive only the final
+diagnosis, but not the model nor your speech data. The concept is in
+principle beautiful, it solves the problem of mutual distrust very
+nicely. However, the compromise is that currently available homomorphic
+encryption methods require that all processing functions can be written
+as polynomial functions. In theory, we can transform any function to a
+corresponding polynomial, but the increase in complexity is often
+dramatic. Consequently, privacy-preserving methods based on homomorphic
+encryption typically have a prohibitively high computational complexity.</p>
+</div>
+<div class="section" id="mydata">
+<h3><span class="section-number">13.6.7. </span>myData<a class="headerlink" href="#mydata" title="Permalink to this headline">¶</a></h3>
+<p>In addition to privacy-preserving algorithms, we can also design
+privacy-preserving architectures. The <a class="reference external" href="https://mydata.org/">myData</a> paradigm is based on a
+three-tier design, where the user can choose where all his/her data is
+stored and where the user can give access for service providers to
+his/her data when required. The idea is to separate service providers
+from data storage, such that users have better control over his/her
+data. To transform existing services to adhere with the myData concept
+requires that new storage services for private data are created and that
+APIs between storage and processing services are specified.</p>
+<p>Note that, if a user chooses to store private data on a cloud-server,
+then it is still susceptible for abuse by the storage-service-provider,
+unless appropriate encryption methods are used. However, the user could
+in principle choose to store private data on a edge device, such that
+the storage-service-provider is cut out of the loop.</p>
+<p>A further risk is that in the myData concept, we usually assume that
+data is stored at a single central location, which becomes a central
+point of weakness. Should someone gain illegitimate access to the
+storage, then all your data would be compromised. Distributing data to
+several different storage locations might therefore be reasonable.</p>
+</div>
+</div>
+<div class="section" id="design-goals-human-computer-interfaces-and-user-experience">
+<h2><span class="section-number">13.7. </span>Design goals, human computer interfaces and user experience<a class="headerlink" href="#design-goals-human-computer-interfaces-and-user-experience" title="Permalink to this headline">¶</a></h2>
+<p>A common prejudice is that privacy and security requirements cause
+problems for developers and make systems more difficult for users to
+use. Such prejudice are unfortunate and patently misguided. The problem
+is that many privacy problems are not visible to the casual observer and
+their effects become apparent only when it already is too late. Another
+argument is “<em>privacy is</em> <em>not my concern</em> <em>because I haven’t seen any
+privacy problems</em>”, which is like saying that “<em>rape is not my concern
+because I haven’t seen any rapes”.</em> This is thus an absurd argument.
+Privacy safeguards are meant to protect users and developers from <a class="reference external" href="https://www.reuters.com/article/us-apple-cyber-idUSKCN1VR29K">very bad
+consequences</a>.
+These problems are real. <em>You</em> cannot ignore them.</p>
+<p>However, designing for privacy is also <em>not only</em> about protection of
+users. It is also very much about designing technology which is <em>easy to
+use</em> and where the user experience feels intuitive and natural. For
+example, speaker recognition can be used to grant access to voice
+technology such that the user does not have to be bothered with
+passwords, PIN-codes or other cumbersome authentication methods. Overall
+speech technology promises to give access to services without the need
+scroll through menus on your washing machine to find that one mode which
+is optimized for white curtains made out of cotton.</p>
+<p>The overall design goal could be that people should be able to <em>trust</em>
+the system. In particular, a trustworthy system will be</p>
+<ul class="simple">
+<li><p><em>consistent</em>; It does what it says, and it says what it does.</p></li>
+<li><p><em>competent</em>; It is able to do what it should do and what it says it
+does.</p></li>
+<li><p><em>benevolent</em>; It cares for the user and it shows that in both <em>what</em>
+is says and <em>how</em> it says it.</p></li>
+</ul>
+<p>These goals are best illustrated by examples;</p>
+<ul class="simple">
+<li><p>We should avoid cognitive dissonance; if the computer has the
+intellectual capacity corresponding to a 3-year-old child, but if it
+then speaks with the authoritative voice of a middle-aged person, it
+is giving mixed signals which can confuse users. Similarly, if a
+computer leaks out all your information to the world, while speaking
+with an intimate voice, it is also giving the wrong impression to
+the user. Conversely, the intuitive impression which a device gives
+should be consistent with its true nature.</p></li>
+<li><p>Consistency is extremely important and one mistake can be very
+costly; If your friend Greg once tells about your intimate
+health-incident to your friends, it casts a shadow of doubt over all
+future and all of the past 10 years. Did he already earlier tell my
+secrets to them? Who else has he told my secrets to? It takes a very
+long time to patch such breaches of trust.</p></li>
+</ul>
+</div>
+<div class="section" id="ethical-dilemmas">
+<h2><span class="section-number">13.8. </span>Ethical dilemmas<a class="headerlink" href="#ethical-dilemmas" title="Permalink to this headline">¶</a></h2>
+<p>The following is a list of hypothetical questions which can (and do)
+arise in the design of speech operated systems:</p>
+<ul class="simple">
+<li><p>If a device hears cries of help, should it call the police
+automatically, even when it breaches privacy and the trust of the
+user?</p></li>
+<li><p>If a device hears indications of domestic abuse, but has no direct
+evidence, should it call the police? What level of evidence is
+required?</p></li>
+<li><p>If a device or service recognizes that you have Alzheimer’s or some
+other serious illness, should it tell it to you? Even if your doctor
+would not yet have noticed it? Even if the diagnosis might be
+incorrect? Even if you might choose not to want to hear it? Even if
+you’d have a history of depression and such bad news might trigger
+suicidal thoughts?</p></li>
+<li><p>Suppose you have been dreaming of buying a new bicycle, but haven’t
+told anyone. Your smart TV, though, knows about it because you have
+searched for information about that bicycle. Suppose that your
+spouse is simultaneously trying to come up with a nice surprise
+birthday present. Should your smart TV suggest to your spouse that
+she buys the bicycle?</p></li>
+<li><p>Suppose your local cafeteria has automatic speech operated ordering
+of drinks. On this day, last year, you bought a birthday-surprise
+drink from this cafeteria. Should the computer remember that and
+congratulate you today about your birthday?</p></li>
+<li><p>The better your services know you, the better they could serve you.
+That’s undoubtedly a fact. (The fact that current services are not
+optimal is not a contradiction.) However, do you want to have
+privacy from devices in the same way you have privacy from your
+friends. For example, your friends do not follow you to the toilet
+or the bedroom; is it ok if your device does that?</p></li>
+</ul>
+</div>
+<div class="section" id="security-and-privacy-in-speech-research">
+<h2><span class="section-number">13.9. </span>Security and privacy in speech research<a class="headerlink" href="#security-and-privacy-in-speech-research" title="Permalink to this headline">¶</a></h2>
+<p>Scientific research is based on arguments supported by evidence, where
+evidence, in the speech sciences, is recordings of speech. Access to
+speech data is therefore a mandatory part of research in the speech
+sciences. To obtain trustworthy results, independent researchers have to
+be able to verify each others results, which means that they have to
+have access to the same or practically identical data sources. Shared
+data is the gold standard for <a class="reference external" href="https://en.wikipedia.org/wiki/Reproducibility">reproducible
+research</a>. However, the
+sharing of speech data can be problematic with respect to speaker
+privacy.</p>
+<p>The concept of “uniquely identifiable” is here the key. If an individual
+is <em>not</em> uniquely identifiable in a data set, then you are allowed to
+share that data. Conversely, if you remove all identifying data, then
+you can share data relatively freely. However, in perspective of the
+discussions above, it should be clear that it is not clear what
+constitutes identifying data nor is it clear what makes that data
+“uniquely” identifying.</p>
+<p>A second important consideration is <em>consent</em>. The persons whose voices
+are recorded must be allowed to choose freely whether they want to
+participate and that choice has to be explicit; you need to ask them
+clearly whether they want to participate in a recording. The research
+needs to be able to prove that consent has been given, and therefore
+that consent must be documented carefully. Consent must also be given
+freely such that there are no explicit or hidden penalties of rejecting
+consent. Furthermore, if any uniquely identifying data of a participant
+is stored, then the participant must be allowed to withdraw consent
+afterwards. There are however some important exemptions to this rule;
+the right to withdraw consent can be rejected, for example, if that
+would corrupt the integrity of the data set, such as</p>
+<ul class="simple">
+<li><p>If withdrawal of a participant could bias the results, then that
+<em>could</em> be grounds for denying withdrawal. For example, if a dataset
+is constructed in a way that it represents a balanced subset of the
+population (the amount of say, males and females, different age,
+cultural and education backgrounds are chosen to match the general
+population), then we cannot remove any participants without
+corrupting the distribution. Moreover, people more educated in
+questions of privacy could hypothetically be more prone to
+withdrawing their consent, such that the population becomes biased.</p></li>
+<li><p>If withdrawal of a participant could jeopardize the reproducibility
+of results, then that <em>could</em> be grounds for denying withdrawal. For
+example, if a machine learning algorithm is used on a dataset, then
+we can recreate that algorithm only if we have <em>exactly</em> the same
+data available. This is especially problematic if the dataset is
+relatively small, where small changes in the dataset can have big
+consequences on the output.</p></li>
+</ul>
+<p>To allow plausible grounds for denying the right to withdraw consent,
+datasets can then be designed to be either balanced or relatively small.
+Collecting balanced datasets is good practice in any case, such that
+this is not a limitation but can actually improve quality. Conversely,
+good data is balanced and that should be our goal; A consequence is that
+we <em>might be forced</em> to deny the right to withdraw consent. Avoiding the
+collection of excessively large data sets is also good from the
+perspective of <em>data minimization</em> and data ecology.</p>
+<p>In a request for consent, the data collector should state the purpose of
+the dataset (i.e. <em>purpose binding</em>). For instance, a dataset could be
+collected for development of wake-word detection methods and consent is
+received for that purpose. Then <em>it is not permissible</em> to use the same
+data set for speaker detection experiments or medical analysis of the
+voice. Period. It is therefore good practice to ask for consent in a
+sufficiently wide way, such that researchers have some flexibility in
+using the data. Blanket consent to all research purposes is however not
+good practice. In particular, it is recommend that processing of
+sensitive information such as health, ethnic, political information is
+excluded if it is not the express purpose of the dataset (cf. data
+minimization).</p>
+<p>If a dataset by nature does include uniquely identifiable data, then the
+researchers need to apply stronger layers of safeguards. In particular,
+typically researchers have to keep track of who has access to the data,
+to ensure purpose binding and to allow withdrawal of consent. This could
+also require that any researcher who downloads the data signs a contract
+with the data provider, where the terms of usage are defined. Such a
+contract can be required in any case, not only with uniquely
+identifiable data.</p>
+<p>Data such as medical information, data about children or other exposed
+groups, political, religious and gender-identity affiliations etc. are
+particularly <em>sensitive</em>. If your dataset contains <em>any</em> such
+information, then you have to apply stronger safeguards. To begin with,
+access to such data has to be, in practice, always limited to only
+persons who are included in a legally binding contract specifying access
+rights and allowable uses, processing and storage.</p>
+<p>As an overall principle, note that the principal investigator (research
+group leader) is legally responsible for the use of the data that is
+collected, stored and processed. In particular, if a third party
+downloads the data and misuses it, for example by analysing health
+information even if no consent has been acquired for that purpose, then
+it is the principal investigator who is responsible. However, the
+principal investigator is only required to apply <em>reasonable</em>
+<em>safeguards</em> to ensure that data is not misused. What level of
+safeguards are sufficient has however not yet been agreed. It is likely
+that there will never be rules which specify exactly a sufficient level
+of safeguards.</p>
+<p>In the above discussion it has become clear that the nature of <em>unique
+identifiability</em> can change over time, when new information is published
+and new technologies emerge. This means that datasets which previously
+were adequately protected, over time become exposed to privacy problems.
+It is therefore important that researchers monitor their published
+datasets over time such that if new threats emerge, they can take
+appropriate action. For example, they could withdraw an dataset
+entirely. Reasonable ways for implementing this could be:</p>
+<ul class="simple">
+<li><p><em>Expiry date</em>; All datasets should have a clearly stated shelf-life
+and use of the dataset after the expiry date should be prohibited.
+The manager of the dataset could update the expiry date if no new
+threats are discovered. Academic publications based on expired
+datasets should not be accepted.</p></li>
+<li><p><em>Controlled access to datasets</em>; To enforce purpose binding and to
+enable withdrawal of datasets, the data manager can require that all
+users are registered and sign a formal contract which specifies
+accepted uses.</p></li>
+</ul>
+<p>As a last resort, when data is so sensitive and private that it cannot
+be publicly released, it is possible to require on-site processing of
+data. For example, you can design a computing architecture, where data
+resides on a secure server, to which researcher have access through a
+secure
+<a class="reference external" href="https://en.wikipedia.org/wiki/Application_programming_interface">API</a>.
+Data never leaves the server such that privacy is always preserved. For
+an even higher level of security, data can be stored on an
+<a class="reference external" href="https://en.wikipedia.org/wiki/Air_gap_%28networking%29">air-gapped</a>
+computer system, which means that access to the data requires that
+researchers physically come to the computer (no network access). This
+level of security is usually the domain of military-grade systems.</p>
+</div>
+<div class="section" id="references">
+<h2><span class="section-number">13.10. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ISCA Special Interest Group “Security and Privacy in Speech
+Communication”, <a class="reference external" href="https://www.spsc-sig.org/">https://www.spsc-sig.org/</a></p></li>
+</ul>
+<div class="docutils container" id="id4">
+<dl class="citation">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id3">FWF13</a></span></dt>
+<dd><p>Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In <em>European data protection: coming of age</em>, pages 3–32. Springer, 2013. URL: <a class="reference external" href="https://doi.org/10.1007/978-94-007-5170-5_1">https://doi.org/10.1007/978-94-007-5170-5_1</a>.</p>
+</dd>
+<dt class="label" id="id44"><span class="brackets"><a class="fn-backref" href="#id2">Gas18</a></span></dt>
+<dd><p>Jessica Gasiorek. <em>Message processing: The science of creating understanding</em>. UH Mānoa Outreach College, 2018. URL: <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">http://pressbooks-dev.oer.hawaii.edu/messageprocessing/</a>.</p>
+</dd>
+<dt class="label" id="id43"><span class="brackets"><a class="fn-backref" href="#id1">Lar19</a></span></dt>
+<dd><p>Xabier Lareo. Smart speakers and virtual assistants. <em>TechDispatch #1:</em>, 2019. URL: <a class="reference external" href="https://data.europa.eu/doi/10.2804/004275">https://data.europa.eu/doi/10.2804/004275</a>.</p>
+</dd>
+<dt class="label" id="id51"><span class="brackets"><a class="fn-backref" href="#id1">NJK+19</a></span></dt>
+<dd><p>Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. <em>arXiv preprint arXiv:1907.03458</em>, 2019. URL: <a class="reference external" href="https://doi.org/10.21437/Interspeech.2019-2647">https://doi.org/10.21437/Interspeech.2019-2647</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Computational_models_of_human_language_processing.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">12. </span>Computational models of human language processing</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="References.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>References</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das<br/>
+    
+      <div class="extra_footer">
+        <p>
+<img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

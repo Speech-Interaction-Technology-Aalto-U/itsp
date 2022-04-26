@@ -97,5 +97,5 @@ chapters:
   - file: Enhancement/Bandwidth_extension_BWE.md
   - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.md
 - file: Computational_models_of_human_language_processing.md
-- file: Security_and_privacy_in_speech_technology.md
+- file: Security_and_privacy.ipynb
 - file: References.md
