@@ -37,7 +37,7 @@ applied include:
     diarisation*](https://en.wikipedia.org/wiki/Speaker_diarisation) is
     the process of segmenting a multi-speaker conversation into
     continuous single-speaker segments.
--   [*Paralinguistic analysis tasks*](Paralinguistic_speech_processing),
+-   [*Paralinguistic analysis tasks*](Recognition/Paralinguistic_speech_processing),
     refers generally to the extraction of non-linguistic and non-speaker
     identity related information from speech signals, such as speaker
     emotions, health, attitude, sleepiness etc.

@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -551,7 +553,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+  <a class="reference internal" href="../Security_and_privacy.html">
    13. Security and privacy in speech technology
   </a>
  </li>
@@ -633,60 +635,64 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-speaker-recognition">
-   8.4.1.
-   <strong>
-    1. Introduction to Speaker Recognition
-   </strong>
+   8.4.1. Introduction to Speaker Recognition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#front-end-processing">
-   8.4.2. 2. Front-end Processing
+   8.4.2. Front-end Processing
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#speaker-modeling-techniques">
-   8.4.3. 3. Speaker Modeling Techniques
+   8.4.3. Speaker Modeling Techniques
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gaussian-mixture-modeling-gmm-universal-background-model-ubm-approach">
-   8.4.4. 3.1. Gaussian Mixture Modeling (GMM) - Universal Background Model (UBM) Approach
+   8.4.4. Gaussian Mixture Modeling (GMM) - Universal Background Model (UBM) Approach
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#i-vectors">
-   8.4.5. 3.2. i-Vectors
+   8.4.5. i-Vectors
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cosine-distance">
+     8.4.5.1. Cosine Distance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probabilistic-linear-discriminant-analysis">
+     8.4.5.2. Probabilistic Linear Discriminant Analysis
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#deep-learning-dl">
-   8.4.6. 3.3.  Deep Learning (DL)
+   8.4.6. Deep Learning (DL)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications-of-speaker-recognition">
-   8.4.7. 4. Applications of Speaker Recognition
+   8.4.7. Applications of Speaker Recognition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#performance-evaluations">
-   8.4.8. 5. Performance Evaluations
+   8.4.8. Performance Evaluations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-errors">
-   8.4.9. 5.1 Types of errors
+   8.4.9. Types of errors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#performance-metrics">
-   8.4.10. 5.2 Performance metrics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.4.11. Attachments:
+   8.4.10. Performance metrics
   </a>
  </li>
 </ul>
@@ -711,60 +717,64 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-speaker-recognition">
-   8.4.1.
-   <strong>
-    1. Introduction to Speaker Recognition
-   </strong>
+   8.4.1. Introduction to Speaker Recognition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#front-end-processing">
-   8.4.2. 2. Front-end Processing
+   8.4.2. Front-end Processing
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#speaker-modeling-techniques">
-   8.4.3. 3. Speaker Modeling Techniques
+   8.4.3. Speaker Modeling Techniques
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gaussian-mixture-modeling-gmm-universal-background-model-ubm-approach">
-   8.4.4. 3.1. Gaussian Mixture Modeling (GMM) - Universal Background Model (UBM) Approach
+   8.4.4. Gaussian Mixture Modeling (GMM) - Universal Background Model (UBM) Approach
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#i-vectors">
-   8.4.5. 3.2. i-Vectors
+   8.4.5. i-Vectors
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cosine-distance">
+     8.4.5.1. Cosine Distance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probabilistic-linear-discriminant-analysis">
+     8.4.5.2. Probabilistic Linear Discriminant Analysis
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#deep-learning-dl">
-   8.4.6. 3.3.  Deep Learning (DL)
+   8.4.6. Deep Learning (DL)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications-of-speaker-recognition">
-   8.4.7. 4. Applications of Speaker Recognition
+   8.4.7. Applications of Speaker Recognition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#performance-evaluations">
-   8.4.8. 5. Performance Evaluations
+   8.4.8. Performance Evaluations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#types-of-errors">
-   8.4.9. 5.1 Types of errors
+   8.4.9. Types of errors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#performance-metrics">
-   8.4.10. 5.2 Performance metrics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attachments">
-   8.4.11. Attachments:
+   8.4.10. Performance metrics
   </a>
  </li>
 </ul>
@@ -779,7 +789,7 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="speaker-recognition-and-verification">
 <h1><span class="section-number">8.4. </span>Speaker Recognition and Verification<a class="headerlink" href="#speaker-recognition-and-verification" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-speaker-recognition">
-<h2><span class="section-number">8.4.1. </span><strong>1. Introduction to Speaker Recognition</strong><a class="headerlink" href="#introduction-to-speaker-recognition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.1. </span>Introduction to Speaker Recognition<a class="headerlink" href="#introduction-to-speaker-recognition" title="Permalink to this headline">¶</a></h2>
 <p>Speaker recognition is the task of identifying a speaker using their
 voice. Speaker recognition is classified into two parts: speaker
 identification and speaker verification. While speaker identification is
@@ -799,7 +809,8 @@ and the user is not expected to be cooperative. Text-dependent systems
 achieve high speaker verification performance from relatively short
 utterances, while text-independent systems require long utterances to
 train reliable models and achieve good performance.</p>
-<p>Block diagram of a basic speaker verification system</p>
+<p><img alt="" src="Recognition/missing_picture" />
+Block diagram of a basic speaker verification system</p>
 <p>As it is shown in the above block diagram of a basic speaker
 verification system, a speaker verification system involves two main
 phases: the training phase in which the target speakers are enrolled and
@@ -826,13 +837,13 @@ voice over Internet protocol (VoIP).</p></li>
 </ol>
 </div>
 <div class="section" id="front-end-processing">
-<h2><span class="section-number">8.4.2. </span>2. Front-end Processing<a class="headerlink" href="#front-end-processing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.2. </span>Front-end Processing<a class="headerlink" href="#front-end-processing" title="Permalink to this headline">¶</a></h2>
 <p>Many front-end processing are often used to process the speech signals
 and to extract the features which are used in the speaker verification
 system. The front-end processing consists of mainly voice activity
 detection (VAD), feature extraction and channel compensation techniques;</p>
 <ol class="simple">
-<li><p><em><span class="xref myst">Voice activity detection (VAD)</span></em>;
+<li><p><a class="reference internal" href="Voice_activity_detection.html"><span class="doc std std-doc">Voice activity detection (VAD)</span></a>;
 The main goal of voice activity detection is to determine which
 segments of a signal are speech and non-speech. A robust VAD
 algorithm can improve the performance of a speaker verification
@@ -862,7 +873,7 @@ verification mismatch.</p></li>
 </ol>
 </div>
 <div class="section" id="speaker-modeling-techniques">
-<h2><span class="section-number">8.4.3. </span>3. Speaker Modeling Techniques<a class="headerlink" href="#speaker-modeling-techniques" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.3. </span>Speaker Modeling Techniques<a class="headerlink" href="#speaker-modeling-techniques" title="Permalink to this headline">¶</a></h2>
 <p>One of the crucial issues in speaker diarization is the techniques
 employed for speaker modeling. Several modeling techniques have been
 used in speaker recognition and speaker diarization tasks. The
@@ -870,7 +881,7 @@ state-of-the-art speaker modeling techniques in speaker diarization are
 the following:</p>
 </div>
 <div class="section" id="gaussian-mixture-modeling-gmm-universal-background-model-ubm-approach">
-<h2><span class="section-number">8.4.4. </span>3.1. Gaussian Mixture Modeling (GMM) - Universal Background Model (UBM) Approach<a class="headerlink" href="#gaussian-mixture-modeling-gmm-universal-background-model-ubm-approach" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.4. </span>Gaussian Mixture Modeling (GMM) - Universal Background Model (UBM) Approach<a class="headerlink" href="#gaussian-mixture-modeling-gmm-universal-background-model-ubm-approach" title="Permalink to this headline">¶</a></h2>
 <p>A Gaussian Mixture Model (GMM) is a parametric probability density
 function represented as a weighted sum of Gaussian component densities.
 GMMs have been successfully used to model the speech features in
@@ -878,9 +889,10 @@ different speech processing applications. A Gaussian mixture model is a
 weighted sum of M component Gaussian densities. Each of the components
 is a multi-variant Gaussian function. A GMM is represented by mean
 vectors, covariance matrices and mixture weights.</p>
-<p>\[ \lambda = \{w_i, \mu_i, \Sigma_i\}, \quad i=
-1,…….,\textit{C} \]</p>
-<p>The covariance matrices of a GMM,  \( \Sigma_i \) , can be full rank
+<div class="math notranslate nohighlight">
+\[ \lambda = \{w_i, \mu_i, \Sigma_i\}, \quad i=
+1,.......,C \]</div>
+<p>The covariance matrices of a GMM,  <span class="math notranslate nohighlight">\( \Sigma_i \)</span> , can be full rank
 or constrained to be diagonal. The parameters of a GMM can also be
 shared, or tied, among the Gaussian components. The number of GMM
 components and type of covariance matrices are often determined based on
@@ -896,23 +908,16 @@ The most popular and used method is the maximum likelihood (ML)
 estimation.</p>
 <p>The ML estimation finds the model parameters that maximize the
 likelihood of the GMM given a set of data. Assuming an independence
-between the training vectors \( X = \{x_i,\dots,x_N\} \) , the GMM
+between the training vectors <span class="math notranslate nohighlight">\( X = \{x_i,\dots,x_N\} \)</span> , the GMM
 likelihood is typically described as:</p>
-<p>\[ p(X|\lambda) = \prod_{t=1}^{N} p(x_t|\lambda) (1) \]</p>
+<div class="math notranslate nohighlight">
+\[ p(X\|\lambda) = \prod_{t=1}^{N} p(x_t\|\lambda) (1) \]</div>
 <p>Since direct maximization is not possible on equation on equation 1, the
 ML parameters are obtained iteratively using expectation-maximization
-(EM) algorithm.  The EM iteratively estimate new model parameters  \(
-\bar{\lambda} \)  based on a given model <span class="math notranslate nohighlight">\(\\lambda\)</span> such that \(
-p(X|\bar{\lambda}) \ge p(X|\lambda) \) .</p>
-<p><img src="attachments/165125114/165126354.png" class="image-center"
-data-image-src="attachments/165125114/165126354.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165126354"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2020-1-20_15-34-38.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165125114"
-data-linked-resource-container-version="99" height="250" />Example of
+(EM) algorithm.  The EM iteratively estimate new model parameters 
+<span class="math notranslate nohighlight">\(\bar{\lambda} \)</span>  based on a given model <span class="math notranslate nohighlight">\(\lambda\)</span> such that <span class="math notranslate nohighlight">\(p(X\|\bar{\lambda}) \ge p(X\|\lambda) \)</span> .</p>
+<p><img alt="image2020-1-20_15-34-38.png" src="../_images/165126354.png" />
+Example of
 speaker model adaptation</p>
 <p>The parameters of a GMM can also be estimated using Maximum A Posteriori
 (MAP) estimation, in addition to the EM algorithm. The MAP estimation
@@ -920,38 +925,42 @@ technique derives a speaker model by adapting from a universal
 background model (UBM). The “Expectation” step of EM and MAP are the
 same. MAP adapts the new sufficient statistics by combining them with
 old statistics from the prior mixture parameters.</p>
-<p>Given a prior model and training vectors from the desired class, \( X =
-{x_1 … , x_T } \) , we first determine the probabilistic alignment
+<p>Given a prior model and training vectors from the desired class, <span class="math notranslate nohighlight">\( X =
+{x_1 . . . , x_T } \)</span> , we first determine the probabilistic alignment
 of the training vectors into the prior mixture components. For mixture 
-\( i \) in the prior model  \( Pr(i|x_t,\lambda_{UBM}) \) is
-computed as the percentage of the mixture component  \( i \) to the
+<span class="math notranslate nohighlight">\( i \)</span> in the prior model  <span class="math notranslate nohighlight">\( Pr(i\|x_t,\lambda_{UBM}) \)</span> is
+computed as the percentage of the mixture component  <span class="math notranslate nohighlight">\( i \)</span> to the
 total likelihood,</p>
-<p>\[ Pr(i|x_t,\lambda_{UBM})= \frac {w_i\,g(x_t|\mu_i,\Sigma_i)}
-{\sum_{i=1}^{M} w_i\,g(x_t|\mu_i,\Sigma_i)} \]</p>
+<div class="math notranslate nohighlight">
+\[ Pr(i\|x_t,\lambda_{UBM})= \frac {w_i\,g(x_t\|\mu_i,\Sigma_i)}
+{\sum_{i=1}^{M} w_i\,g(x_t\|\mu_i,\Sigma_i)} \]</div>
 <p>Then, the sufficient statistics for the weight, mean and variance
 parameters is computed as follows:</p>
-<p>\[ n_i=\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior}) \, weight \]
+<div class="math notranslate nohighlight">
+\[ n_i=\sum_{t=1}^{T}Pr(i\|x_t,\lambda_{prior}) \, weight \]</div>
+<div class="math notranslate nohighlight">
 \[
-E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t
-\;\; mean \] \[
-E_i(x^2)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t^2
-\;\; variance \]</p>
+E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i\|x_t,\lambda_{prior})x_t
+\;\; mean $$ \]</div>
+<p>E_i(x^2)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t^2
+;; variance $$</p>
 <p>Finally, the new sufficient statistics from the training data are used
-to update the prior sufficient statistics for mixture  \( i \) to
+to update the prior sufficient statistics for mixture  <span class="math notranslate nohighlight">\( i \)</span> to
 create the adapted mixture weight, mean and variance for mixture
-\textit{i} as follows:</p>
-<p>\[ w_i=[\alpha^w_in_i/T + (1-\alpha^w_i)w_i]\gamma \] \[
-\mu_i=\alpha^m_iE_i(x) + (1-\alpha^m_i)\mu_i \] \[
+<span class="math notranslate nohighlight">\(i\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[ w_i=[\alpha^w_in_i/T + (1-\alpha^w_i)w_i]\gamma $$ \]</div>
+<p>\mu_i=\alpha^m_iE_i(x) + (1-\alpha^m_i)\mu_i $<span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(
 \mu^2_i=\alpha^v_iE_i(x^2) +
-(1-\alpha^v_i)(\sigma^2_i+\mu^2_i)-\mu^2_i \]</p>
+(1-\alpha^v_i)(\sigma^2_i+\mu^2_i)-\mu^2_i \)</span>$</p>
 <p>The adaptation coefficients controlling the balance between old and new
-estimates are  \( \{\alpha^w_i, \alpha^m_i, \alpha^v_i\} \) for
-the weights, means and variances, respectively. The scale factor, \(
-\gamma \) , is computed over all adapted mixture weights to ensure
+estimates are  <span class="math notranslate nohighlight">\( \{\alpha^w_i, \alpha^m_i, \alpha^v_i\} \)</span> for
+the weights, means and variances, respectively. The scale factor, <span class="math notranslate nohighlight">\(
+\gamma \)</span> , is computed over all adapted mixture weights to ensure
 they sum to unity.</p>
 </div>
 <div class="section" id="i-vectors">
-<h2><span class="section-number">8.4.5. </span>3.2. i-Vectors<a class="headerlink" href="#i-vectors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.5. </span>i-Vectors<a class="headerlink" href="#i-vectors" title="Permalink to this headline">¶</a></h2>
 <p>Different approaches have been developed recently to improve the
 performance of speaker recognition systems. The most popular ones were
 based on GMM-UBM. The Joint Factor Analysis (JFA) is then built on the
@@ -968,48 +977,44 @@ variabilities simultaneously. Speaker recognition based on the i-vector
 framework is currently the state-of-the-art in the field.</p>
 <p>Given an utterance, the speaker and channel dependent GMM supervector is
 defined as follows:</p>
-<p>\[ M=m+Tw \]</p>
-<p>where  \( m \) is a speaker and channel independent supervector,  \(
-T \) is a rectangular matrix of low rank and  \( w \) is a random
-vector having a standard normal distribution \( N(0,1) \) . The
-components of the vector  \( w \) are the total factors. These new
-vectors are called i-vectors.  \( M \) is assumed to be normally
-distributed with mean vector and covariance matrix \( TT^t \) .</p>
+<div class="math notranslate nohighlight">
+\[ M=m+Tw \]</div>
+<p>where  <span class="math notranslate nohighlight">\( m \)</span> is a speaker and channel independent supervector,  <span class="math notranslate nohighlight">\(
+T \)</span> is a rectangular matrix of low rank and  <span class="math notranslate nohighlight">\( w \)</span> is a random
+vector having a standard normal distribution <span class="math notranslate nohighlight">\( N(0,1) \)</span> . The
+components of the vector  <span class="math notranslate nohighlight">\( w \)</span> are the total factors. These new
+vectors are called i-vectors.  <span class="math notranslate nohighlight">\( M \)</span> is assumed to be normally
+distributed with mean vector and covariance matrix <span class="math notranslate nohighlight">\( TT^t \)</span> .</p>
 <p>The total factor is a hidden variable, which can be defined by its
 posterior distribution conditioned to the Baum–Welch statistics for a
 given utterance. This posterior distribution is a Gaussian distribution
 and the mean of this distribution corresponds exactly to i-vector. The
 Baum–Welch statistics are extracted using the UBM.</p>
-<p>Given a sequence of L frames  \( \{y_1,y_2,……,y_n\} \) and a
-UBM  \( \Omega \) composed of \( C \) mixture components defined in
-some feature space of dimension \( F \) , the Baum–Welch statistics
-needed to estimate the i-vector for a given speech utterance  \( u \)
+<p>Given a sequence of L frames  <span class="math notranslate nohighlight">\( \{y_1,y_2,......,y_n\} \)</span> and a
+UBM  <span class="math notranslate nohighlight">\( \Omega \)</span> composed of <span class="math notranslate nohighlight">\( C \)</span> mixture components defined in
+some feature space of dimension <span class="math notranslate nohighlight">\( F \)</span> , the Baum–Welch statistics
+needed to estimate the i-vector for a given speech utterance  <span class="math notranslate nohighlight">\( u \)</span>
 is given by :</p>
-<p>\[ N_c=\sum_{t=1}^{L}P(c|y_t,\Omega) \] \[
-F_c=\sum_{t=1}^{L}P(c|y_t,\Omega)y_t \]</p>
-<p>where  \( m_c \) is the mean of UBM mixture component \( c \) .
+<div class="math notranslate nohighlight">
+\[ N_c=\sum_{t=1}^{L}P(c\|y_t,\Omega) $$ \]</div>
+<p>F_c=\sum_{t=1}^{L}P(c|y_t,\Omega)y_t $$</p>
+<p>where  <span class="math notranslate nohighlight">\( m_c \)</span> is the mean of UBM mixture component <span class="math notranslate nohighlight">\( c \)</span> .
 The i-vector for a given utterance can be obtained using the following
 equation:</p>
-<p>\[ w=(I + T^t \Sigma^{-1} N(u)T)^{-1}. \,T^t\Sigma^{-1}\hat{F}(u)
-\]</p>
-<p>where  \( N_u \) is a diagonal matrix of dimension  \( CF \times CF
-\) whose diagonal blocks are \( N_cI(c=1,……, C) \) . The
+<div class="math notranslate nohighlight">
+\[ w=(I + T^t \Sigma^{-1} N(u)T)^{-1}. \,T^t\Sigma^{-1}\hat{F}(u)
+\]</div>
+<p>where  <span class="math notranslate nohighlight">\( N_u \)</span> is a diagonal matrix of dimension  <span class="math notranslate nohighlight">\( CF \times CF
+\)</span> whose diagonal blocks are <span class="math notranslate nohighlight">\( N_cI(c=1,......, C) \)</span> . The
 supervector obtained by concatenating all first-order Baum–Welch
-statistics \( F_c \) for a given utterance  \( u \) is represented
-by  \( \hat{F}(u) \) which has  \( CF \times 1 \) dimension. The
-diagonal covariance matrix,  \( \Sigma \) , with dimension \( CF
-\times CF \) estimated during factor analysis training models the
-residual variability not captured by the total variability matrix \( T
-\) .</p>
-<p><img src="attachments/165125114/165126497.png" class="image-center"
-data-image-src="attachments/165125114/165126497.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165126497"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2020-1-20_20-26-53.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165125114"
-data-linked-resource-container-version="99" height="250" />Process of
+statistics <span class="math notranslate nohighlight">\( F_c \)</span> for a given utterance  <span class="math notranslate nohighlight">\( u \)</span> is represented
+by  <span class="math notranslate nohighlight">\( \hat{F}(u) \)</span> which has  <span class="math notranslate nohighlight">\( CF \times 1 \)</span> dimension. The
+diagonal covariance matrix,  <span class="math notranslate nohighlight">\( \Sigma \)</span> , with dimension <span class="math notranslate nohighlight">\( CF
+\times CF \)</span> estimated during factor analysis training models the
+residual variability not captured by the total variability matrix <span class="math notranslate nohighlight">\( T
+\)</span> .</p>
+<p><img alt="image2020-1-20_20-26-53.png" src="../_images/165126497.png" />
+Process of
 i-Vector extraction</p>
 <p>One of the most widely used feature normalization techniques of
 i-vectors is length normalization. Length normalization ensures that the
@@ -1020,12 +1025,13 @@ verification systems.  i-vector normalization improves the gaussianity
 of the i-vectors and reduces the gap between the underlying assumptions
 of the data and real distributions. It also reduces the dataset shift
 between development and test i-vectors.</p>
-<p>\[ w\leftarrow
-\frac{\Sigma^{-\frac{1}{2}}(w-\mu)}{||\Sigma^{-\frac{1}{2}}(w-\mu)||}
-\]</p>
-<p>where  \( \mu \) and  \( \Sigma \) are the mean and the covariance
+<div class="math notranslate nohighlight">
+\[ w\leftarrow
+\frac{\Sigma^{-\frac{1}{2}}(w-\mu)}{\|\|\Sigma^{-\frac{1}{2}}(w-\mu)\|\|}
+\]</div>
+<p>where  <span class="math notranslate nohighlight">\( \mu \)</span> and  <span class="math notranslate nohighlight">\( \Sigma \)</span> are the mean and the covariance
 matrix of a training corpus, respectively. The data is standardized
-according to  covariance matrix  \( \Sigma \) and length-normalized
+according to  covariance matrix  <span class="math notranslate nohighlight">\( \Sigma \)</span> and length-normalized
 (i.e., the i-vectors are confined to the hypersphere of unit radius.</p>
 <p>The two most widely and common intersession compensation techniques of
 i-vectors are Within-Class Covariance Normalization (WCCN) and Linear
@@ -1034,22 +1040,26 @@ matrix to normalize the cosine kernel functions in order to compensate
 for intersession variability. LDA attempts to define a reduced special
 axes that minimize the within-speaker variability caused by channel
 effects, and maximize between-speaker variability.</p>
-<p><strong>Cosine Distance</strong></p>
+<div class="section" id="cosine-distance">
+<h3><span class="section-number">8.4.5.1. </span>Cosine Distance<a class="headerlink" href="#cosine-distance" title="Permalink to this headline">¶</a></h3>
 <p>Once the i-vectors are extracted from the outputs of speech clusters,
 cosine distance scoring tests the hypothesis if two i-vectors belong to
 the same speaker or different speakers. Given two i-vectors, the cosine
 distance among them is calculated as follows:</p>
-<p>\[ cos(w_i,w_j)=\frac{w_i.w_j}{||w_i||.||w_j||}\gtreqless
-\theta \]</p>
-<p>where  \( \theta \) is the threshold value, and  \( cos(w_i,w_j) \)
-is the cosine distance score between clusters  \( i \) and \( j \) .
-The corresponding i-vectors extracted for clusters  \( i \) and  \( j
-\) are represented by  \( w_i \) and \( w_j \) , respectively.</p>
+<div class="math notranslate nohighlight">
+\[ cos(w_i,w_j)=\frac{w_i.w_j}{\|\|w_i\|\|.\|\|w_j\|\|}\gtreqless
+\theta \]</div>
+<p>where  <span class="math notranslate nohighlight">\( \theta \)</span> is the threshold value, and  <span class="math notranslate nohighlight">\( cos(w_i,w_j) \)</span>
+is the cosine distance score between clusters  <span class="math notranslate nohighlight">\( i \)</span> and <span class="math notranslate nohighlight">\( j \)</span> .
+The corresponding i-vectors extracted for clusters  <span class="math notranslate nohighlight">\( i \)</span> and  <span class="math notranslate nohighlight">\( j
+\)</span> are represented by  <span class="math notranslate nohighlight">\( w_i \)</span> and <span class="math notranslate nohighlight">\( w_j \)</span> , respectively.</p>
 <p>The cosine distance scoring considers only the angle between two
 i-vectors, not their magnitude. Since the non-speaker information such
 as session and channel variabilities affect the i-vector magnitude,
 removing the magnitudes can increase the robustness of i-vector systems.</p>
-<p><strong>Probabilistic Linear Discriminant Analysis</strong></p>
+</div>
+<div class="section" id="probabilistic-linear-discriminant-analysis">
+<h3><span class="section-number">8.4.5.2. </span>Probabilistic Linear Discriminant Analysis<a class="headerlink" href="#probabilistic-linear-discriminant-analysis" title="Permalink to this headline">¶</a></h3>
 <p>The i-vector representation followed by probabilistic linear
 discriminant analysis (PLDA) modeling technique is the state-of-the-art
 in speaker verification systems. PLDA has been successfully applied in
@@ -1058,28 +1068,21 @@ and session variability in speaker verification task. It has also been
 successfully applied in speaker clustering since it can separate speaker
 and noise specific parts of an audio signal which is essential for
 speaker diarization.</p>
-<p><img src="attachments/165125114/165126539.png" class="image-center"
-data-image-src="attachments/165125114/165126539.png"
-data-unresolved-comment-count="0" data-linked-resource-id="165126539"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2020-1-20_21-46-46.png"
-data-base-url="https://wiki.aalto.fi"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="165125114"
-data-linked-resource-container-version="99" height="250" /></p>
-<p>Example of PLDA model</p>
-<p>In PLDA, assuming that the training data consists of \textit{J}
-i-vectors where each of these i-vectors belong to speaker \textit{I},
-the \textit{j’th} i-vector of the \textit{I’th} speaker is denoted by:</p>
-<p>\[ w_{ij}=\mu + Fh_i + Gy_{ij} + \Sigma_{ij} \]</p>
-<p>where  \( \mu \)  is the overall speaker and segment independent mean
+<p><img alt="image2020-1-20_21-46-46.png" src="../_images/165126539.png" />
+Example of PLDA model</p>
+<p>In PLDA, assuming that the training data consists of <span class="math notranslate nohighlight">\(J\)</span>
+i-vectors where each of these i-vectors belong to speaker <span class="math notranslate nohighlight">\(I\)</span>,
+the <span class="math notranslate nohighlight">\(j\)</span>’th i-vector of the <span class="math notranslate nohighlight">\(I\)</span>th speaker is denoted by:</p>
+<div class="math notranslate nohighlight">
+\[ w_{ij}=\mu + Fh_i + Gy_{ij} + \Sigma_{ij} \]</div>
+<p>where  <span class="math notranslate nohighlight">\( \mu \)</span>  is the overall speaker and segment independent mean
 of the i-vectors in the training dataset, columns of the matrix F define
 the between-speaker variability and columns of the matrix G define the
-basis for the within-speaker variability subspace.  \( \Sigma_{ij}
-\) represents any unexplained data variation. The components of the
-vector  \( h_i \) are the eigenvoice factor loadings and components of
-the vector  \( y_{ij} \) are the eigen-channel factor loadings. The
-term  \( Fh_i \) depends only on the identity of the speaker, not on
+basis for the within-speaker variability subspace.  <span class="math notranslate nohighlight">\( \Sigma_{ij}
+\)</span> represents any unexplained data variation. The components of the
+vector  <span class="math notranslate nohighlight">\( h_i \)</span> are the eigenvoice factor loadings and components of
+the vector  <span class="math notranslate nohighlight">\( y_{ij} \)</span> are the eigen-channel factor loadings. The
+term  <span class="math notranslate nohighlight">\( Fh_i \)</span> depends only on the identity of the speaker, not on
 the particular segment.</p>
 <p>Although the PLDA model assumes Gaussian behavior, there is empirical
 evidence that channel and speaker effects result in i-vectors that are
@@ -1095,27 +1098,30 @@ performance, it is the most widely used PLDA modeling. In GPLDA model,
 the within-speaker variability is modeled by a full covariance residual
 term  which allows us to omit the channel subspace. The generative PLDA
 model for the i-vector is  represented by</p>
-<p>\[ w_{ij}=\mu + Fh_i + \Sigma_{ij} \]</p>
-<p>The residual term  \( \Sigma \) representing the within-speaker
+<div class="math notranslate nohighlight">
+\[ w_{ij}=\mu + Fh_i + \Sigma_{ij} \]</div>
+<p>The residual term  <span class="math notranslate nohighlight">\( \Sigma \)</span> representing the within-speaker
 variability is assumed to have a normal distribution with full
-covariance matrix \( \Sigma \) .</p>
-<p>Given two i-vectors  \( w_1 \) and \( w_1 \) , the PLDA computes the
+covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> .</p>
+<p>Given two i-vectors  <span class="math notranslate nohighlight">\( w_1 \)</span> and <span class="math notranslate nohighlight">\( w_1 \)</span> , the PLDA computes the
 likelihood ratio of the two i-vectors as follows:</p>
-<p>\[ Score(w_1,w_2)= \frac{p(w_1,w_2|H_1)}{p(w_1|H_2) p(w_2|H_2)}
-\]</p>
-<p>where the hypothesis  \( H_1 \) indicates that both i-vectors belong
-to the same speaker and  \( H_0 \) indicates they belong to two
+<div class="math notranslate nohighlight">
+\[ Score(w_1,w_2)= \frac{p(w_1,w_2\|H_1)}{p(w_1\|H_2) p(w_2\|H_2)}
+\]</div>
+<p>where the hypothesis  <span class="math notranslate nohighlight">\( H_1 \)</span> indicates that both i-vectors belong
+to the same speaker and  <span class="math notranslate nohighlight">\( H_0 \)</span> indicates they belong to two
 different speakers.</p>
 </div>
+</div>
 <div class="section" id="deep-learning-dl">
-<h2><span class="section-number">8.4.6. </span>3.3.  Deep Learning (DL)<a class="headerlink" href="#deep-learning-dl" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.6. </span>Deep Learning (DL)<a class="headerlink" href="#deep-learning-dl" title="Permalink to this headline">¶</a></h2>
 <p>The recent advances in computing hardware, new DL architectures and
 training methods, and access to large amount of training data has
 inspired the research community to make use of DL technology again as in
 speaker recognition systems.  DL techniques can be used in the frontend
 or/and backend of a speaker recognition system. The whole end-to-end
 recognition process can even be performed by a DL architecture.</p>
-<p>**Deep Learning Frontends: **The traditional i-vector approach consists
+<p><strong>Deep Learning Frontends:</strong> The traditional i-vector approach consists
 of mainly three stages: Baum-Welch statistics collection, i-vector
 extraction, and PLDA backend. Recently, it is shown that if the
 Baum-Welch statistics are computed with respect to a DNN rather than a
@@ -1127,7 +1133,7 @@ using a DL architecture, rather than the traditional i-vector algorithm.
 These vectors are often referred to as speaker embeddings. Typically,
 the inputs of the neural network are a sequence of feature vectors and
 the outputs are speaker classes.</p>
-<p>**Deep Learning Backends: **One of the most effective backend techniques
+<p><strong>Deep Learning Backends:</strong> One of the most effective backend techniques
 for i-vectors is PLDA which performs the scoring along with the session
 variability compensation. Usually, a large number of different speakers
 with several speech samples each are necessary for PLDA to work
@@ -1139,7 +1145,7 @@ look for DL based alternative backends. Several techniques have been
 proposed. Most of these approaches use the speaker labels of the
 background data for training, as in PLDA, and mostly with no significant
 gain compared to PLDA.</p>
-<p>**Deep Learning End-to-Ends: **It is also interesting to train an
+<p><strong>Deep Learning End-to-Ends:</strong> It is also interesting to train an
 end-to-end recognition system capable of doing multiple stages of signal
 processing with a unified DL architecture. The neural network will be
 responsible for the whole process from the feature extraction to the
@@ -1151,7 +1157,7 @@ several attempts to build an end-to-end speaker recognition system using
 DL though most of them focus on text-dependent speaker recognition.</p>
 </div>
 <div class="section" id="applications-of-speaker-recognition">
-<h2><span class="section-number">8.4.7. </span>4. Applications of Speaker Recognition<a class="headerlink" href="#applications-of-speaker-recognition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.7. </span>Applications of Speaker Recognition<a class="headerlink" href="#applications-of-speaker-recognition" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Transaction authentication – Toll fraud prevention, telephone credit
 card purchases, telephone brokerage (e.g., stock trading)</p></li>
@@ -1164,29 +1170,29 @@ indexing (speech skimming device), speaker diarization</p></li>
 </ul>
 </div>
 <div class="section" id="performance-evaluations">
-<h2><span class="section-number">8.4.8. </span>5. Performance Evaluations<a class="headerlink" href="#performance-evaluations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.8. </span>Performance Evaluations<a class="headerlink" href="#performance-evaluations" title="Permalink to this headline">¶</a></h2>
 <p>The performance of the speaker verification is measured in terms of
 errors. The types of error and evaluation metrics commonly used in
 speaker verification systems are the following.</p>
 </div>
 <div class="section" id="types-of-errors">
-<h2><span class="section-number">8.4.9. </span>5.1 Types of errors<a class="headerlink" href="#types-of-errors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.9. </span>Types of errors<a class="headerlink" href="#types-of-errors" title="Permalink to this headline">¶</a></h2>
 <p>False acceptance: A false acceptance occurs when the speech segments
 from an imposter speaker are falsely accepted as a target speaker by the
 system.</p>
-<p>\[ False\; Acceptance = \frac{Total \; number \;of\; false\;
+<div class="math notranslate nohighlight">
+\[ False\; Acceptance = \frac{Total \; number \;of\; false\;
 acceptance\; errors} {Total\; number\; of\; imposter\; speaker\;
-attempts} \]</p>
-<p>**<br />
-**</p>
+attempts} \]</div>
 <p><strong>False rejection:</strong> A false rejection occurs when the target speaker is
 rejected by the verification systems.</p>
-<p>\[ False\;rejection = \frac{Total \;number\; of\; false\;
+<div class="math notranslate nohighlight">
+\[ False\;rejection = \frac{Total \;number\; of\; false\;
 rejection\; errors} {Total\; number\; of\; enrolled\; speaker\;
-attempts} \]</p>
+attempts} \]</div>
 </div>
 <div class="section" id="performance-metrics">
-<h2><span class="section-number">8.4.10. </span>5.2 Performance metrics<a class="headerlink" href="#performance-metrics" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.10. </span>Performance metrics<a class="headerlink" href="#performance-metrics" title="Permalink to this headline">¶</a></h2>
 <p>The performance metrics of speaker verification systems can be measured
 using the equal error rate (EER) and minimum decision cost function
 (mDCF). These measures represent different performance characteristics
@@ -1201,40 +1207,26 @@ false rejection at the point of ERR decreases. The decision cost
 function (DCF) is defined by assigning a cost of each error and taking
 into account the prior probability of target and impostor trails. The
 decision cost function is defined as:</p>
-<p>\[ DCF = C_{miss}P_{miss}P_{target} + C_{fa}P_{fa}P_{impostor}
-\]</p>
-<p>where  \( C_{miss} \) and  \( C_{fa} \) are the cost functions of
+<div class="math notranslate nohighlight">
+\[ DCF = C_{miss}P_{miss}P_{target} + C_{fa}P_{fa}P_{impostor}
+\]</div>
+<p>where  <span class="math notranslate nohighlight">\( C_{miss} \)</span> and  <span class="math notranslate nohighlight">\( C_{fa} \)</span> are the cost functions of
 a missed detection and false alarm, respectively. The prior
-probabilities of target and impostor trails are given by  \(
-P_{target} \) and   \( P_{impostor} \) , respectively. The
+probabilities of target and impostor trails are given by  <span class="math notranslate nohighlight">\(
+P_{target} \)</span> and   <span class="math notranslate nohighlight">\( P_{impostor} \)</span> , respectively. The
 percentages of the missed target and falsely accepted impostors’ trails
-are represented by  \( P_{miss} \) and \( P_{fa} \) ,
+are represented by  <span class="math notranslate nohighlight">\( P_{miss} \)</span> and <span class="math notranslate nohighlight">\( P_{fa} \)</span> ,
 respectively. The mDCF is used to evaluate speaker verification by
 selecting the minimum value of DCF estimated by changing the threshold
 value. The mDCF can be used to evaluate speaker verification by
 selecting the minimum value of DCF estimated by changing the threshold
 value.</p>
-<p>\[ mDCF = min[C_{miss}P_{miss}P_{target} +
-C_{fa}P_{fa}P_{impostor}] \]</p>
-<p>where  \( P_{miss} \) and  \( P_{fa} \) are the miss and false
+<div class="math notranslate nohighlight">
+\[ mDCF = min[C_{miss}P_{miss}P_{target} +
+C_{fa}P_{fa}P_{impostor}] \]</div>
+<p>where  <span class="math notranslate nohighlight">\( P_{miss} \)</span> and  <span class="math notranslate nohighlight">\( P_{fa} \)</span> are the miss and false
 alarm rates recorded from the trials, and the other parameters are
 adjusted to suit the evaluation of application-specific requirements.</p>
-<div class="pageSectionHeader">
-</div>
-<div class="section" id="attachments">
-<h2><span class="section-number">8.4.11. </span>Attachments:<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="greybox" align="left">
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-1-20_15-34-38.png](attachments/165125114/165126354.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-1-20_20-26-53.png](attachments/165125114/165126497.png)
-(image/png)  
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-1-20_21-46-46.png](attachments/165125114/165126539.png)
-(image/png)  
-</div>
 </div>
 </div>
 

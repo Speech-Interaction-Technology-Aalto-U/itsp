@@ -51,6 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8.6. Paralinguistic speech processing" href="Paralinguistic_speech_processing.html" />
@@ -549,7 +553,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+  <a class="reference internal" href="../Security_and_privacy.html">
    13. Security and privacy in speech technology
   </a>
  </li>
@@ -631,17 +635,17 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-speaker-diarization">
-   8.5.1. 1. Introduction to Speaker Diarization
+   8.5.1. Introduction to Speaker Diarization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#approaches-to-speaker-diarization">
-   8.5.2. 2. Approaches to Speaker Diarization
+   8.5.2. Approaches to Speaker Diarization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluation-metrics">
-   8.5.3. 3. Evaluation Metrics
+   8.5.3. Evaluation Metrics
   </a>
  </li>
 </ul>
@@ -666,17 +670,17 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-speaker-diarization">
-   8.5.1. 1. Introduction to Speaker Diarization
+   8.5.1. Introduction to Speaker Diarization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#approaches-to-speaker-diarization">
-   8.5.2. 2. Approaches to Speaker Diarization
+   8.5.2. Approaches to Speaker Diarization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluation-metrics">
-   8.5.3. 3. Evaluation Metrics
+   8.5.3. Evaluation Metrics
   </a>
  </li>
 </ul>
@@ -691,7 +695,7 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="speaker-diarization">
 <h1><span class="section-number">8.5. </span>Speaker Diarization<a class="headerlink" href="#speaker-diarization" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-speaker-diarization">
-<h2><span class="section-number">8.5.1. </span>1. Introduction to Speaker Diarization<a class="headerlink" href="#introduction-to-speaker-diarization" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5.1. </span>Introduction to Speaker Diarization<a class="headerlink" href="#introduction-to-speaker-diarization" title="Permalink to this headline">¶</a></h2>
 <p>Speaker diarization is the process of segmenting and clustering a speech
 recording into homogeneous regions and answers the question “who spoke
 when” without any prior knowledge about the speakers. A typical
@@ -699,7 +703,8 @@ diarization system performs three basic tasks. Firstly, it discriminates
 speech segments from the non-speech ones. Secondly, it detects speaker
 change points to segment the audio data. Finally, it groups these
 segmented regions into speaker homogeneous clusters.</p>
-<p>An overview of a speaker diarization system.</p>
+<p><img alt="" src="Recognition/missing_picture" />
+An overview of a speaker diarization system.</p>
 <p>Although there are many different approaches to perform speaker
 diarization, most of them follow the following scheme:</p>
 <p>Feature extraction: It extracts specific information from the audio
@@ -724,11 +729,13 @@ builds a hierarchy of clusters, that shows the relations between speech
 segments, and merges speech segments based on similarity. AHC approaches
 can be classified into bottom-up and top-down clustering.</p>
 <p>Two items need to be defined in both bottom-up and top-down clustering:</p>
-<p>1. A distance between speech segments to determine acoustic similarity.
+<ol class="simple">
+<li><p>A distance between speech segments to determine acoustic similarity.
 The distance metric is used to decide whether or not two clusters must
-be merged (bottom-up clustering) or split (top-down clustering).</p>
-<p>2. A stopping criterion to determine when the optimal number of
-clusters (speakers) is reached.</p>
+be merged (bottom-up clustering) or split (top-down clustering).</p></li>
+<li><p>A stopping criterion to determine when the optimal number of
+clusters (speakers) is reached.</p></li>
+</ol>
 <p>Bottom-up (Agglomerative): It starts from a large number of speech
 segments and merges the closest speech segments iteratively until a
 stopping criterion is met. This technique is the most widely used in
@@ -739,33 +746,35 @@ value is merged. Then, the merged clusters are removed from the distance
 matrix. Finally, the distance matrix table is updated using the
 distances between the new merged cluster and all remaining clusters.
 This process is done iteratively until the stopping criterion is met or
-all pairs have a BIC value less than zero .</p>
+all pairs have a BIC value less than zero.</p>
 <p>Top-down: Top-down Hierarchical Clustering methods start from a small
 number of clusters, usually a single cluster that contains several
 speech segments, and the initial clusters are split iteratively until a
 stopping criterion is met. It is not as widely used as the bottom-up
 clustering.</p>
-<p>Bottom-Up and Top-down approaches to clustering</p>
+<p><img alt="" src="Recognition/missing_picture" />
+Bottom-Up and Top-down approaches to clustering</p>
 </div>
 <div class="section" id="approaches-to-speaker-diarization">
-<h2><span class="section-number">8.5.2. </span>2. Approaches to Speaker Diarization<a class="headerlink" href="#approaches-to-speaker-diarization" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5.2. </span>Approaches to Speaker Diarization<a class="headerlink" href="#approaches-to-speaker-diarization" title="Permalink to this headline">¶</a></h2>
 <p>This section describes some of the state-of-the-art speaker diarization
 systems.</p>
 <p>HMM/GMM based speaker diarization system: Each speaker is represented by
 a state of an HMM and the state emission probabilities are modeled using
 GMMs. The initial clustering is performed initially by partitioning the
-audio signal equally which generates a set of segments { \( s_i \) }.
-Let  \( c_i \) represent  \( i^{th} \) speaker cluster,  \( b_i \)
-represent the emission probability of cluster  \( c_i \) and  \( f_t
-\) denote a given feature vector at time \( t \) . Then, the
-log-likelihood  \( logb_i(s_t) \) of the feature ft for cluster  \(
-c_i \) is calculated as follows:</p>
-<p>\[ logb_i(s_t)=log \sum_{(r)} {w}^r_i N
-(f_i,{\mu}^r_i,\sum_{(i)}^r) \]</p>
-<p>where  \( N() \) is a Gaussian pdf and  \( {w}^r_i,
-{\mu}^r_i,\sum_{(i)}^r) \) are the weights, means and covariance
-matrices of the  \( r^{th} \) Gaussian mixture component of cluster 
-\( c_i \) , respectively.</p>
+audio signal equally which generates a set of segments { <span class="math notranslate nohighlight">\( s_i \)</span> }.
+Let  <span class="math notranslate nohighlight">\( c_i \)</span> represent  <span class="math notranslate nohighlight">\( i^{th} \)</span> speaker cluster,  <span class="math notranslate nohighlight">\( b_i \)</span>
+represent the emission probability of cluster  <span class="math notranslate nohighlight">\( c_i \)</span> and  <span class="math notranslate nohighlight">\( f_t
+\)</span> denote a given feature vector at time <span class="math notranslate nohighlight">\( t \)</span> . Then, the
+log-likelihood  <span class="math notranslate nohighlight">\( logb_i(s_t) \)</span> of the feature ft for cluster  <span class="math notranslate nohighlight">\(
+c_i \)</span> is calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[ logb_i(s_t)=log \sum_{(r)} {w}^r_i N
+(f_i,{\mu}^r_i,\sum_{(i)}^r) \]</div>
+<p>where  <span class="math notranslate nohighlight">\( N() \)</span> is a Gaussian pdf and  <span class="math notranslate nohighlight">\( {w}^r_i,
+{\mu}^r_i,\sum_{(i)}^r) \)</span> are the weights, means and covariance
+matrices of the  <span class="math notranslate nohighlight">\( r^{th} \)</span> Gaussian mixture component of cluster 
+<span class="math notranslate nohighlight">\( c_i \)</span> , respectively.</p>
 <p>The agglomerative hierarchical clustering starts by overestimating the
 number of clusters. At each iteration, the clusters that are most
 similar are merged based on the BIC distance. The distance measure is
@@ -773,17 +782,16 @@ based on modified delta Bayesian information criterion [Ajmera and
 Wooters, 2003]. The modified BIC distance does not take into account
 the penalty term that corresponds to the number of free parameters of a
 multivariate Gaussian distribution and is expressed as:</p>
-<p>\[ \Delta BIC (c_i,c_j)= log \sum_{f_t \in ( {ci \; \cup \;
+<div class="math notranslate nohighlight">
+\[ \Delta BIC (c_i,c_j)= log \sum_{f_t \in ( {ci \; \cup \;
 c_j})} log b_{ij}(f_t) - log \sum_{f_t \in ci} log b_{i}(f_t) - log
-\sum_{f_t \in cj} log b_{j}(f_t) \]</p>
-<p>where  \( b_{ij} \) is the probability distribution of the combined
-clusters  \( c_i \) and  \( c_j. \)</p>
+\sum_{f_t \in cj} log b_{j}(f_t) \]</div>
+<p>where  <span class="math notranslate nohighlight">\( b_{ij} \)</span> is the probability distribution of the combined
+clusters  <span class="math notranslate nohighlight">\( c_i \)</span> and  <span class="math notranslate nohighlight">\( c_j. \)</span></p>
 <p>The clusters that produce the highest BIC score are merged at each
 iteration. A minimum duration of speech segments is normally constrained
 for each class to prevent decoding short segments. The number of
-clusters is reduced at each iteration. When the maximum  \( \Delta BIC
-\)</p>
-<p>distance among these clusters is less than threshold value 0, the
+clusters is reduced at each iteration. When the maximum  <span class="math notranslate nohighlight">\( \Delta BIC\)</span> distance among these clusters is less than threshold value 0, the
 speaker diarization system stops and outputs the hypothesis.</p>
 <p>Factor analysis techniques: Factor analysis techniques which are the
 state of the art in speaker recognition have recently been successfully
@@ -808,29 +816,32 @@ speakers.  The proposed neural based system matches or exceeds the
 performance of state-of-the-art baselines.</p>
 </div>
 <div class="section" id="evaluation-metrics">
-<h2><span class="section-number">8.5.3. </span>3. Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5.3. </span>Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Permalink to this headline">¶</a></h2>
 <p>Diarization Error Rate (DER) is the metric used to measure the
 performance of speaker diarization systems. It is measured as the
 fraction of time that is not attributed correctly to a speaker or
 non-speech.</p>
 <p>The DER is composed of the following three errors:</p>
-<p>Speaker Error: It is the percentage of scored time that a speaker ID is
+<ul class="simple">
+<li><p><strong>Speaker Error</strong>: It is the percentage of scored time that a speaker ID is
 assigned to the wrong speaker. Speaker error is mainly a diarization
 system error (i.e., it is not related to speech/non-speech detection.)
-It also does not take into account the overlap speeches not detected.</p>
-<p>False Alarm: It is the percentage of scored time that a hypothesized
+It also does not take into account the overlap speeches not detected.</p></li>
+<li><p><strong>False Alarm</strong>: It is the percentage of scored time that a hypothesized
 speaker is labelled as a non-speech in the reference. The false alarm
 error occurs mainly due to the the speech/non-speech detection error
 (i.e., the speech/non-speech detection considers a non-speech segment as
 a speech segment). Hence, false alarm error is not related to
-segmentation and clustering errors.</p>
-<p>Missed Speech: It is the percentage of scored time that a hypothesized
+segmentation and clustering errors.</p></li>
+<li><p><strong>Missed Speech</strong>: It is the percentage of scored time that a hypothesized
 non-speech segment corresponds to a reference speaker segment. The
 missed speech occurs mainly due to the the speech/non-speech detection
 error (i.e., the speech segment is considered as a non-speech segment).
 Hence, missed speech is not related to segmentation and clustering
-errors.</p>
-<p>\[ DER = Speaker \; Error + False \; Alarm + Miss \; Speech \]</p>
+errors.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ DER = Speaker \; Error + False \; Alarm + Miss \; Speech \]</div>
 </div>
 </div>
 

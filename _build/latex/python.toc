@@ -1,0 +1,367 @@
+\selectlanguage *{english}
+\contentsline {chapter}{\numberline {1}Preface}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Design philosophy of this document}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Foreword to the First Edition}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Foreword to the 2nd Edition}{4}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Introduction}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Why speech processing?}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Why speech?}{7}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Early communications technology}{8}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Evolution of speech technology}{8}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Further development}{9}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Physiological speech production}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Overview}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}The vocal folds}{10}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}The vocal tract}{10}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Acoustic properties of speech signals}{15}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Physiological modelling}{16}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Vocal tract}{16}{subsection.2.4.1}%
+\contentsline {subsubsection}{Simple models}{16}{subsubsection*.3}%
+\contentsline {subsubsection}{Advanced models}{17}{subsubsection*.4}%
+\contentsline {subsection}{\numberline {2.4.2}Glottal activity}{18}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Lip radiation}{20}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Linguistic structure of speech}{20}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Overview}{20}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Elementary units of spoken language}{21}{subsection.2.5.2}%
+\contentsline {subsubsection}{Phones}{21}{subsubsection*.5}%
+\contentsline {paragraph}{Phones vs. phonemes}{23}{paragraph*.6}%
+\contentsline {subsubsection}{Syllables}{23}{subsubsection*.7}%
+\contentsline {subsubsection}{Words}{24}{subsubsection*.8}%
+\contentsline {subsubsection}{Utterances}{24}{subsubsection*.9}%
+\contentsline {subsubsection}{Morphological units}{24}{subsubsection*.10}%
+\contentsline {subsection}{\numberline {2.5.3}Prosody, aka. suprasegmental properties of speech}{25}{subsection.2.5.3}%
+\contentsline {subsubsection}{Intonation}{25}{subsubsection*.11}%
+\contentsline {subsubsection}{Stress}{25}{subsubsection*.12}%
+\contentsline {subsubsection}{Rhythm}{25}{subsubsection*.13}%
+\contentsline {subsection}{\numberline {2.5.4}Phonetic transcription and speech annotation}{26}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}References}{26}{subsection.2.5.5}%
+\contentsline {section}{\numberline {2.6}Applications and systems structures}{27}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Applications}{27}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Systems structures}{30}{subsection.2.6.2}%
+\contentsline {subsubsection}{Transmission and storage}{30}{subsubsection*.14}%
+\contentsline {subsubsection}{Information extraction}{30}{subsubsection*.15}%
+\contentsline {subsection}{\numberline {2.6.3}Speech synthesis}{31}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}User\sphinxhyphen {}interfaces}{32}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Processing and preprocessing}{33}{subsection.2.6.5}%
+\contentsline {subsubsection}{Voice activity detection}{33}{subsubsection*.16}%
+\contentsline {subsubsection}{Keyword spotting or Wake\sphinxhyphen {}word detection}{33}{subsubsection*.17}%
+\contentsline {subsubsection}{Speech enhancement}{33}{subsubsection*.18}%
+\contentsline {subsubsection}{Other signal processing}{34}{subsubsection*.19}%
+\contentsline {chapter}{\numberline {3}Basic Representations}{35}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Short\sphinxhyphen {}time analysis of speech and audio signals}{36}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}The speech signal}{36}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Sound example}{37}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}What would be a suitable window size?}{37}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Windowing functions}{38}{subsection.3.1.4}%
+\contentsline {subsubsection}{Problem}{38}{subsubsection*.20}%
+\contentsline {subsubsection}{Solution}{39}{subsubsection*.21}%
+\contentsline {subsection}{\numberline {3.1.5}Spectral analysis}{40}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Speech features in the spectrum}{41}{subsection.3.1.6}%
+\contentsline {subsubsection}{Envelope}{41}{subsubsection*.22}%
+\contentsline {subsubsection}{Formants}{42}{subsubsection*.23}%
+\contentsline {subsubsection}{Fundamental frequency}{42}{subsubsection*.24}%
+\contentsline {paragraph}{Harmonics of the fundamental}{43}{paragraph*.25}%
+\contentsline {subsection}{\numberline {3.1.7}Spectrogram}{44}{subsection.3.1.7}%
+\contentsline {subsubsection}{Exercise}{46}{subsubsection*.26}%
+\contentsline {subsubsection}{Accuracy}{46}{subsubsection*.27}%
+\contentsline {subsubsection}{Speech features visible in the spectrogram}{48}{subsubsection*.28}%
+\contentsline {subsection}{\numberline {3.1.8}Short\sphinxhyphen {}time spectral analysis summary}{49}{subsection.3.1.8}%
+\contentsline {section}{\numberline {3.2}Short\sphinxhyphen {}time processing of speech signals}{49}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Overlap\sphinxhyphen {}add}{50}{subsection.3.2.1}%
+\contentsline {subsubsection}{Windowing and reconstruction}{51}{subsubsection*.29}%
+\contentsline {subsubsection}{Windowing and processing}{52}{subsubsection*.30}%
+\contentsline {paragraph}{Algorithm ``Overlap\sphinxhyphen {}add’’}{53}{paragraph*.31}%
+\contentsline {subsubsection}{Overlap\sphinxhyphen {}add summary}{54}{subsubsection*.32}%
+\contentsline {subsection}{\numberline {3.2.2}The short\sphinxhyphen {}time Fourier transform (STFT)}{54}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Waveform}{55}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Sampling rate}{55}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Static demo}{56}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}On\sphinxhyphen {}line demo}{57}{subsection.3.3.3}%
+\contentsline {subsubsection}{Original sound sample}{57}{subsubsection*.33}%
+\contentsline {subsubsection}{Resampling}{57}{subsubsection*.34}%
+\contentsline {subsection}{\numberline {3.3.4}Accuracy and distribution of steps on the amplitude axis}{57}{subsection.3.3.4}%
+\contentsline {subsubsection}{Linear quantization}{57}{subsubsection*.35}%
+\contentsline {subsubsection}{Logarithmic quantization and mu\sphinxhyphen {}law}{58}{subsubsection*.36}%
+\contentsline {subsection}{\numberline {3.3.5}Wav\sphinxhyphen {}files}{59}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Adaptive quantization, APCM}{59}{subsection.3.3.6}%
+\contentsline {subsubsection}{Adaptive quantization with the feed\sphinxhyphen {}forward algorithm using an adaptive quantization step}{60}{subsubsection*.37}%
+\contentsline {subsubsection}{Adaptive quantization with the feed\sphinxhyphen {}forward algorithm using an adaptive gain (compressor)}{60}{subsubsection*.38}%
+\contentsline {subsubsection}{Adaptive quantization with the feed\sphinxhyphen {}backward algorithm using an adaptive quantization step}{61}{subsubsection*.39}%
+\contentsline {subsubsection}{Adaptive quantization with the feed\sphinxhyphen {}backward algorithm using an adaptive gain coefficient}{61}{subsubsection*.40}%
+\contentsline {paragraph}{Differential quantization DPCM}{61}{paragraph*.41}%
+\contentsline {subsubsection}{Adaptive and differential quantization with feed\sphinxhyphen {}forward}{62}{subsubsection*.42}%
+\contentsline {subsubsection}{Adaptive differential quantization with feed\sphinxhyphen {}backward}{62}{subsubsection*.43}%
+\contentsline {subsubsection}{Adaptive differential quantization w/ adaptive predictor}{62}{subsubsection*.44}%
+\contentsline {subsubsection}{Comparison of the SNR of different quantizers (not perceptual)}{63}{subsubsection*.45}%
+\contentsline {subsection}{\numberline {3.3.7}Source modelling in quantization}{64}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Conclusion}{65}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}Refrences}{66}{subsection.3.3.9}%
+\contentsline {section}{\numberline {3.4}Windowing}{66}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Quick reference}{68}{subsection.3.4.1}%
+\contentsline {subsubsection}{Windowing for \sphinxstyleemphasis {analysis} applications}{68}{subsubsection*.46}%
+\contentsline {subsubsection}{Windowing for \sphinxstyleemphasis {processing} applications; Overlap\sphinxhyphen {}add}{69}{subsubsection*.47}%
+\contentsline {subsection}{\numberline {3.4.2}Comprehensive description}{71}{subsection.3.4.2}%
+\contentsline {subsubsection}{CELP windowing}{78}{subsubsection*.48}%
+\contentsline {subsubsection}{Conclusion}{78}{subsubsection*.49}%
+\contentsline {section}{\numberline {3.5}Signal energy, loudness and decibel}{78}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Signal energy}{78}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Decibel}{79}{subsection.3.5.2}%
+\contentsline {subsubsection}{Energy normalisation, loudness, dBFS and dBov}{79}{subsubsection*.50}%
+\contentsline {section}{\numberline {3.6}Spectrogram and the STFT}{81}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Autocorrelation and autocovariance}{88}{section.3.7}%
+\contentsline {section}{\numberline {3.8}The cepstrum, mel\sphinxhyphen {}cepstrum and mel\sphinxhyphen {}frequency cepstral coefficients (MFCCs)}{90}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}The cepstrum}{90}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Features in the Cepstrum}{91}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}Down\sphinxhyphen {}sampling the log\sphinxhyphen {}spectrum}{93}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}Mel\sphinxhyphen {}scale}{97}{subsection.3.8.4}%
+\contentsline {subsubsection}{The Mel\sphinxhyphen {}Frequency Cepstral Coefficients (MFCCs)}{100}{subsubsection*.51}%
+\contentsline {subsection}{\numberline {3.8.5}Conclusion}{103}{subsection.3.8.5}%
+\contentsline {section}{\numberline {3.9}Linear prediction}{104}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Definition}{104}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Vector notation}{105}{subsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.9.3}Parameter estimation}{105}{subsection.3.9.3}%
+\contentsline {subsection}{\numberline {3.9.4}Spectral properties}{106}{subsection.3.9.4}%
+\contentsline {subsection}{\numberline {3.9.5}Physiological interpretation and model order}{106}{subsection.3.9.5}%
+\contentsline {subsection}{\numberline {3.9.6}Uses in speech coding}{107}{subsection.3.9.6}%
+\contentsline {subsection}{\numberline {3.9.7}Alternative representations (advanced topic)}{107}{subsection.3.9.7}%
+\contentsline {section}{\numberline {3.10}Fundamental frequency (F0)}{108}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Zero\sphinxhyphen {}crossing rate}{111}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Deltas and Delta\sphinxhyphen {}deltas}{113}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Pitch\sphinxhyphen {}Synchoronous Overlap\sphinxhyphen {}Add (PSOLA)}{113}{section.3.13}%
+\contentsline {section}{\numberline {3.14}Jitter and shimmer}{116}{section.3.14}%
+\contentsline {chapter}{\numberline {4}Pre\sphinxhyphen {}processing}{119}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Pre\sphinxhyphen {}emphasis}{119}{section.4.1}%
+\contentsline {section}{\numberline {4.2}References}{120}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Modelling tools in speech processing}{121}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Source modelling and perceptual modelling}{121}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Linear regression}{122}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Problem definition}{122}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}The minimum mean square estimate (MMSE)}{123}{subsection.5.2.2}%
+\contentsline {subsubsection}{Estimates with a mean parameter}{124}{subsubsection*.52}%
+\contentsline {subsubsection}{Estimates with linear equality constraints}{124}{subsubsection*.53}%
+\contentsline {subsection}{\numberline {5.2.3}Some applications}{125}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Discussion}{125}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Sub\sphinxhyphen {}space models}{125}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Application with known sub\sphinxhyphen {}space}{126}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Estimation of unknown sub\sphinxhyphen {}space}{126}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Discussion}{126}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Vector quantization (VQ)}{126}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Metric for codebook quality}{127}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Codebook optimization}{128}{subsection.5.4.2}%
+\contentsline {subsubsection}{Expectation maximization (EM)}{128}{subsubsection*.54}%
+\contentsline {subsubsection}{Optimization with machine learning platforms}{129}{subsubsection*.55}%
+\contentsline {subsection}{\numberline {5.4.3}Algorithmic complexity}{129}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Applications}{129}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}Discussion}{130}{subsection.5.4.5}%
+\contentsline {section}{\numberline {5.5}Gaussian mixture model (GMM)}{130}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Motivation}{130}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Model definition}{131}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Applications}{131}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}Neural networks}{131}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Introduction}{131}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Network structures}{132}{subsection.5.6.2}%
+\contentsline {subsubsection}{Deep Neural Networks (DNNs)}{132}{subsubsection*.56}%
+\contentsline {subsubsection}{Basics of Neural Networks}{132}{subsubsection*.57}%
+\contentsline {subsubsection}{Activation Functions:}{133}{subsubsection*.58}%
+\contentsline {subsubsection}{Convolutional neural networks}{135}{subsubsection*.59}%
+\contentsline {subsubsection}{Recurrent neural networks (RNNs)}{136}{subsubsection*.60}%
+\contentsline {subsection}{\numberline {5.6.3}References:}{138}{subsection.5.6.3}%
+\contentsline {section}{\numberline {5.7}Non\sphinxhyphen {}negative Matrix and Tensor Factorization}{139}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Introduction}{139}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Model definition}{139}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Application}{139}{subsection.5.7.3}%
+\contentsline {chapter}{\numberline {6}Evaluation of speech processing methods}{141}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Subjective quality evaluation}{141}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Aspects of quality}{143}{subsection.6.1.1}%
+\contentsline {subsubsection}{Sound and speech quality}{143}{subsubsection*.61}%
+\contentsline {subsubsection}{Interaction quality}{143}{subsubsection*.62}%
+\contentsline {subsection}{\numberline {6.1.2}Choosing subjects \sphinxhyphen {} Naïve or expert?}{144}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Experimental design}{145}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Some use cases}{147}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Frequently used standards and recommendations for quality evaluation}{147}{subsection.6.1.5}%
+\contentsline {subsubsection}{Expert listeners}{147}{subsubsection*.63}%
+\contentsline {subsubsection}{Naïve listeners}{148}{subsubsection*.64}%
+\contentsline {subsection}{\numberline {6.1.6}Intelligibility testing}{150}{subsection.6.1.6}%
+\contentsline {section}{\numberline {6.2}Objective quality evaluation}{150}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Objective estimators for perceptual quality}{150}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Other objective performance criteria}{152}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Other performance measures}{152}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Computational Complexity}{152}{subsection.6.3.1}%
+\contentsline {subsubsection}{Big\sphinxhyphen {}O notation:}{153}{subsubsection*.65}%
+\contentsline {subsubsection}{Weighted Million Operations Per Second (WMOPS),   ITU\sphinxhyphen {}T. Software tool library: User’s manual, 2009 }{153}{subsubsection*.66}%
+\contentsline {section}{\numberline {6.4}Analysis of evaluation results}{155}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Informal analysis}{155}{subsection.6.4.1}%
+\contentsline {subsubsection}{Example 1}{155}{subsubsection*.67}%
+\contentsline {subsubsection}{Informative illustrations 1}{156}{subsubsection*.68}%
+\contentsline {paragraph}{Histograms}{156}{paragraph*.69}%
+\contentsline {paragraph}{Scatter plots}{161}{paragraph*.70}%
+\contentsline {paragraph}{Box plots}{165}{paragraph*.71}%
+\contentsline {paragraph}{Confusion matrix}{166}{paragraph*.72}%
+\contentsline {subsubsection}{Example 2}{167}{subsubsection*.73}%
+\contentsline {subsubsection}{Informative illustrations 2}{167}{subsubsection*.74}%
+\contentsline {paragraph}{Parallel plots}{167}{paragraph*.75}%
+\contentsline {subsubsection}{Extracting hidden structures}{169}{subsubsection*.76}%
+\contentsline {paragraph}{Deltas}{169}{paragraph*.77}%
+\contentsline {subsection}{\numberline {6.4.2}Statistical tests}{169}{subsection.6.4.2}%
+\contentsline {subsubsection}{Student’s t\sphinxhyphen {}test}{170}{subsubsection*.78}%
+\contentsline {subsubsection}{Normality tests}{170}{subsubsection*.79}%
+\contentsline {subsubsection}{ANOVA}{170}{subsubsection*.80}%
+\contentsline {subsubsection}{Correlation tests}{170}{subsubsection*.81}%
+\contentsline {chapter}{\numberline {7}Speech analysis}{171}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Fundamental frequency estimation}{171}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Measurements for medical applications}{172}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Inverse filtering for glottal activity estimation}{172}{subsection.7.2.1}%
+\contentsline {subsubsection}{Motivation}{172}{subsubsection*.82}%
+\contentsline {subsubsection}{Signal Model}{173}{subsubsection*.83}%
+\contentsline {section}{\numberline {7.3}Forensic analysis}{173}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Recognition tasks in speech processing}{175}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Voice Activity Detection (VAD)}{175}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Introduction}{175}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Low\sphinxhyphen {}noise VAD = Trivial case}{176}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}VAD objective and performance measurement}{178}{subsection.8.1.3}%
+\contentsline {subsubsection}{Performance in noise – \sphinxhyphen {}3dB / \sphinxhyphen {}4dB threshold}{180}{subsubsection*.84}%
+\contentsline {subsection}{\numberline {8.1.4}Post\sphinxhyphen {}processing}{181}{subsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.1.5}VAD for noisy speech}{182}{subsection.8.1.5}%
+\contentsline {subsubsection}{Features}{182}{subsubsection*.85}%
+\contentsline {subsection}{\numberline {8.1.6}Classifier}{184}{subsection.8.1.6}%
+\contentsline {subsubsection}{Decision trees (historical)}{184}{subsubsection*.86}%
+\contentsline {subsubsection}{Linear classifier}{185}{subsubsection*.87}%
+\contentsline {paragraph}{A bit of math}{186}{paragraph*.88}%
+\contentsline {paragraph}{Pre\sphinxhyphen {}whitening (advanced topic)}{187}{paragraph*.89}%
+\contentsline {subsubsection}{Post\sphinxhyphen {}processing}{190}{subsubsection*.90}%
+\contentsline {subsubsection}{More advanced classifiers}{191}{subsubsection*.91}%
+\contentsline {subsection}{\numberline {8.1.7}Speech Presence Probability}{192}{subsection.8.1.7}%
+\contentsline {subsubsection}{Output before thresholding}{192}{subsubsection*.92}%
+\contentsline {subsection}{\numberline {8.1.8}Noise types}{193}{subsection.8.1.8}%
+\contentsline {subsection}{\numberline {8.1.9}Conclusions}{193}{subsection.8.1.9}%
+\contentsline {section}{\numberline {8.2}Wake\sphinxhyphen {}word and keyword spotting}{193}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}References}{194}{subsection.8.2.1}%
+\contentsline {section}{\numberline {8.3}Speech Recognition}{194}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Introduction to ASR}{194}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Component of ASR}{195}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Types of ASR}{195}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.4}Models for Large Vocabulary Speech Recognition (LVCSR)}{196}{subsection.8.3.4}%
+\contentsline {subsubsection}{HMM\sphinxhyphen {}Based Model}{196}{subsubsection*.93}%
+\contentsline {subsubsection}{End\sphinxhyphen {}to\sphinxhyphen {}End Model}{197}{subsubsection*.94}%
+\contentsline {subsection}{\numberline {8.3.5}Types of errors made by speech recognizers}{199}{subsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.3.6}Challenges of ASR}{199}{subsection.8.3.6}%
+\contentsline {subsection}{\numberline {8.3.7}Evaluation}{200}{subsection.8.3.7}%
+\contentsline {subsubsection}{References}{200}{subsubsection*.95}%
+\contentsline {section}{\numberline {8.4}Speaker Recognition and Verification}{200}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}\sphinxstylestrong {1. Introduction to Speaker Recognition}}{200}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}2. Front\sphinxhyphen {}end Processing}{201}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}3. Speaker Modeling Techniques}{201}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}3.1. Gaussian Mixture Modeling (GMM) \sphinxhyphen {} Universal Background Model (UBM) Approach}{201}{subsection.8.4.4}%
+\contentsline {subsection}{\numberline {8.4.5}3.2. i\sphinxhyphen {}Vectors}{202}{subsection.8.4.5}%
+\contentsline {subsection}{\numberline {8.4.6}3.3.  Deep Learning (DL)}{204}{subsection.8.4.6}%
+\contentsline {subsection}{\numberline {8.4.7}4. Applications of Speaker Recognition}{205}{subsection.8.4.7}%
+\contentsline {subsection}{\numberline {8.4.8}5. Performance Evaluations}{205}{subsection.8.4.8}%
+\contentsline {subsection}{\numberline {8.4.9}5.1 Types of errors}{205}{subsection.8.4.9}%
+\contentsline {subsection}{\numberline {8.4.10}5.2 Performance metrics}{205}{subsection.8.4.10}%
+\contentsline {subsection}{\numberline {8.4.11}Attachments:}{206}{subsection.8.4.11}%
+\contentsline {section}{\numberline {8.5}Speaker Diarization}{206}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}1. Introduction to Speaker Diarization}{206}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}2. Approaches to Speaker Diarization}{207}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}3. Evaluation Metrics}{208}{subsection.8.5.3}%
+\contentsline {section}{\numberline {8.6}Paralinguistic speech processing}{208}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}Coupling between speaker states and the speech signal}{208}{subsection.8.6.1}%
+\contentsline {subsection}{\numberline {8.6.2}Speaker traits and states}{209}{subsection.8.6.2}%
+\contentsline {subsection}{\numberline {8.6.3}Typical applications of PSP}{210}{subsection.8.6.3}%
+\contentsline {subsection}{\numberline {8.6.4}Basic problem formulation and standard solutions}{210}{subsection.8.6.4}%
+\contentsline {subsection}{\numberline {8.6.5}Data collection and data sparsity}{213}{subsection.8.6.5}%
+\contentsline {subsection}{\numberline {8.6.6}Computational Paralinguistic Challenge}{214}{subsection.8.6.6}%
+\contentsline {subsection}{\numberline {8.6.7}Further reading and materials on PSP}{214}{subsection.8.6.7}%
+\contentsline {chapter}{\numberline {9}Speech Synthesis}{215}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Concatenative speech synthesis}{216}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Steps of concatenative synthesis}{217}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}CSS training}{219}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Further reading}{219}{subsection.9.1.3}%
+\contentsline {section}{\numberline {9.2}Statistical parametric speech synthesis}{219}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Feature generation}{220}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Waveform generation with vocoders}{221}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}SPSS system training}{222}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}Advantages and disadvantages of the HMM\sphinxhyphen {}GMM SPSS compared to concatenative synthesis}{223}{subsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.2.5}Neural SPSS}{223}{subsection.9.2.5}%
+\contentsline {subsection}{\numberline {9.2.6}Further reading}{224}{subsection.9.2.6}%
+\contentsline {chapter}{\numberline {10}Transmission, storage and telecommunication}{225}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Design goals}{225}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}References}{227}{subsection.10.1.1}%
+\contentsline {section}{\numberline {10.2}Modified discrete cosine transform (MDCT)}{227}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Introduction}{227}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Executive summary of algorithm}{230}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Definition}{230}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}References}{231}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}Entropy coding}{231}{subsection.10.2.5}%
+\contentsline {subsubsection}{Vector coding}{232}{subsubsection*.96}%
+\contentsline {subsubsection}{Variable length and Huffman coding}{232}{subsubsection*.97}%
+\contentsline {subsubsection}{Arithmetic coding}{233}{subsubsection*.98}%
+\contentsline {subsubsection}{Parametric coding}{235}{subsubsection*.99}%
+\contentsline {subsubsection}{Algebraic coding}{235}{subsubsection*.100}%
+\contentsline {subsection}{\numberline {10.2.6}Perceptual modelling in speech and audio coding}{235}{subsection.10.2.6}%
+\contentsline {subsubsection}{Frequency masking}{236}{subsubsection*.101}%
+\contentsline {subsubsection}{Frequency scale}{236}{subsubsection*.102}%
+\contentsline {subsubsection}{Temporal masking}{236}{subsubsection*.103}%
+\contentsline {section}{\numberline {10.3}Code\sphinxhyphen {}excited linear prediction (CELP)}{237}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Encoder/decoder structure}{237}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Perceptual quality evaluation}{238}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Noise modelling and algebraic coding}{239}{subsection.10.3.3}%
+\contentsline {section}{\numberline {10.4}Frequency\sphinxhyphen {}domain coding}{240}{section.10.4}%
+\contentsline {chapter}{\numberline {11}Speech enhancement}{243}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Noise attenuation}{244}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Noise gate}{245}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Statistical model}{250}{subsection.11.1.2}%
+\contentsline {subsubsection}{Noise estimation and modelling}{250}{subsubsection*.104}%
+\contentsline {paragraph}{Mean\sphinxhyphen {}energy with voice activity detection}{250}{paragraph*.105}%
+\contentsline {paragraph}{Minimum statistics}{252}{paragraph*.106}%
+\contentsline {subsection}{\numberline {11.1.3}Spectral subtraction}{252}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}Minimum\sphinxhyphen {}mean Square Estimate (MMSE) aka. Wiener filtering}{253}{subsection.11.1.4}%
+\contentsline {subsubsection}{Treating musical noise}{255}{subsubsection*.107}%
+\contentsline {paragraph}{Noise filling}{255}{paragraph*.108}%
+\contentsline {paragraph}{Mapping}{255}{paragraph*.109}%
+\contentsline {subsubsection}{Wiener filtering for vectors}{256}{subsubsection*.110}%
+\contentsline {subsection}{\numberline {11.1.5}Masks, power spectra and temporal characteristics}{257}{subsection.11.1.5}%
+\contentsline {subsection}{\numberline {11.1.6}Machine learning methods}{257}{subsection.11.1.6}%
+\contentsline {subsection}{\numberline {11.1.7}References}{259}{subsection.11.1.7}%
+\contentsline {section}{\numberline {11.2}Echo cancellation}{259}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Echo cancellation solutions}{260}{subsection.11.2.1}%
+\contentsline {section}{\numberline {11.3}Bandwidth extension (BWE)}{265}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Multi\sphinxhyphen {}channel speech enhancement and beamforming}{265}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Delay\sphinxhyphen {}and\sphinxhyphen {}sum beamforming}{266}{subsection.11.4.1}%
+\contentsline {chapter}{\numberline {12}Computational models of human language processing}{269}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Human cognition as a sensorimotor information processing system}{270}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Computational modeling versus cognitive computationalism}{271}{subsection.12.1.1}%
+\contentsline {section}{\numberline {12.2}Role of computational models in scientific research}{271}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Examples of computational modeling research}{272}{section.12.3}%
+\contentsline {section}{\numberline {12.4}References and further reading}{273}{section.12.4}%
+\contentsline {chapter}{\numberline {13}Security and privacy in speech technology}{275}{chapter.13}%
+\contentsline {section}{\numberline {13.1}System models}{275}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}All\sphinxhyphen {}human interaction}{275}{subsection.13.1.1}%
+\contentsline {subsubsection}{Primary interaction}{276}{subsubsection*.111}%
+\contentsline {subsubsection}{Secondary interactions}{276}{subsubsection*.112}%
+\contentsline {subsubsection}{Ownership and personal privacy}{276}{subsubsection*.113}%
+\contentsline {subsection}{\numberline {13.1.2}Interactions which involve devices or services}{276}{subsection.13.1.2}%
+\contentsline {subsubsection}{Telecommunication}{276}{subsubsection*.114}%
+\contentsline {subsubsection}{Discussion in the presence of speech interfaces}{277}{subsubsection*.115}%
+\contentsline {subsubsection}{Interaction with a speech interface}{277}{subsubsection*.116}%
+\contentsline {subsubsection}{Multi\sphinxhyphen {}user interaction with a speech interface}{277}{subsubsection*.117}%
+\contentsline {subsubsection}{Interaction with a speech interface in the presence of others}{278}{subsubsection*.118}%
+\contentsline {subsubsection}{Interaction with a speech interface connected to other services}{278}{subsubsection*.119}%
+\contentsline {subsection}{\numberline {13.1.3}Multi\sphinxhyphen {}user and multi\sphinxhyphen {}device scenarios}{278}{subsection.13.1.3}%
+\contentsline {section}{\numberline {13.2}Information contained in speech signals}{278}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Types of privacy}{279}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Threat and attack scenarios}{280}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Privacy and security scandals}{280}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Approaches for safeguarding privacy in and improving usability of speech technology}{281}{section.13.6}%
+\contentsline {subsection}{\numberline {13.6.1}Basic design concepts}{281}{subsection.13.6.1}%
+\contentsline {subsection}{\numberline {13.6.2}Definitions}{281}{subsection.13.6.2}%
+\contentsline {subsection}{\numberline {13.6.3}Local/edge processing}{282}{subsection.13.6.3}%
+\contentsline {subsection}{\numberline {13.6.4}Differential privacy}{282}{subsection.13.6.4}%
+\contentsline {subsection}{\numberline {13.6.5}Federated learning}{283}{subsection.13.6.5}%
+\contentsline {subsection}{\numberline {13.6.6}Homomorphic encryption}{283}{subsection.13.6.6}%
+\contentsline {subsection}{\numberline {13.6.7}myData}{283}{subsection.13.6.7}%
+\contentsline {section}{\numberline {13.7}Design goals, human computer interfaces and user experience}{283}{section.13.7}%
+\contentsline {section}{\numberline {13.8}Ethical dilemmas}{284}{section.13.8}%
+\contentsline {section}{\numberline {13.9}Security and privacy in speech research}{285}{section.13.9}%
+\contentsline {section}{\numberline {13.10}References}{286}{section.13.10}%
+\contentsline {chapter}{\numberline {14}References}{287}{chapter.14}%
+\contentsline {chapter}{Bibliography}{289}{chapter*.120}%

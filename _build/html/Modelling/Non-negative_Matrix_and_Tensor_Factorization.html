@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -551,7 +553,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Security_and_privacy_in_speech_technology.html">
+  <a class="reference internal" href="../Security_and_privacy.html">
    13. Security and privacy in speech technology
   </a>
  </li>
@@ -718,13 +720,13 @@ window of a speech signal is represented as a <span class="math notranslate nohi
 <span class="math notranslate nohighlight">\(NxK\)</span> matrix <span class="math notranslate nohighlight">\(V\)</span>. The signal model we use is then</p>
 <div class="math notranslate nohighlight">
 \[ V \approx WH, \]</div>
-<p>where <span class="math notranslate nohighlight">\(W\)</span> is the <span class="math notranslate nohighlight">\(NxM\)</span> weight matrix, <span class="math notranslate nohighlight">\(H\)</span> is the <span class="math notranslate nohighlight">\(MxK\)</span> model matrix and
+<p>where <span class="math notranslate nohighlight">\(W\)</span> is the <span class="math notranslate nohighlight">\(N\times M\)</span> weight matrix, <span class="math notranslate nohighlight">\(H\)</span> is the <span class="math notranslate nohighlight">\(M\times K\)</span> model matrix and
 the scalar <span class="math notranslate nohighlight">\(M\)</span> is the model order.</p>
 <p>The idea is that <span class="math notranslate nohighlight">\(H\)</span> is a fixed matrix corresponding to our model of the
 signal, viz. the source model. It describes typical types features of
 the data. With the weights <span class="math notranslate nohighlight">\(W\)</span>, we interpolate between the columns
 of <span class="math notranslate nohighlight">\(H\)</span>. In some sense, this is then a generalization of a codebook (see
-<span class="xref myst">vector quantization</span>), but such that we
+<a class="reference internal" href="Vector_quantization_VQ.html"><span class="doc std std-doc">vector quantization</span></a>), but such that we
 interpolate between codevectors. In addition, we require that all
 elements of <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(H\)</span> are non-negative, such that we ensure that <span class="math notranslate nohighlight">\(V\)</span>
 is also non-negative.</p>
@@ -759,7 +761,7 @@ spectrum of the desired signal. In contrast, usually the input signal is
 a time-frequency representation which has also a phase-component. After
 application of NMF-estimation, we therefore need also an estimate of the
 phase-component of the signal. Such methods will be discussed in the
-<span class="xref myst">speech enhancement</span> chapter of this document.</p>
+<a class="reference internal" href="../Speech_enhancement.html"><span class="doc std std-doc">speech enhancement</span></a> chapter of this document.</p>
 <p>For more information, see the Wikipedia article: <a class="reference external" href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization">Non-negative matrix
 factorization</a>.</p>
 </div>

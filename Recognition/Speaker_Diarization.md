@@ -1,6 +1,6 @@
 # Speaker Diarization
 
-### 1. Introduction to Speaker Diarization
+### Introduction to Speaker Diarization
 
 Speaker diarization is the process of segmenting and clustering a speech
 recording into homogeneous regions and answers the question “who spoke
@@ -11,7 +11,7 @@ change points to segment the audio data. Finally, it groups these
 segmented regions into speaker homogeneous clusters. 
 
   
-
+![](missing_picture)
 An overview of a speaker diarization system.
 
   
@@ -45,11 +45,11 @@ can be classified into bottom-up and top-down clustering.
 
 Two items need to be defined in both bottom-up and top-down clustering:
 
-1\. A distance between speech segments to determine acoustic similarity.
+1. A distance between speech segments to determine acoustic similarity.
 The distance metric is used to decide whether or not two clusters must
 be merged (bottom-up clustering) or split (top-down clustering).
 
-2\. A stopping criterion to determine when the optimal number of
+2. A stopping criterion to determine when the optimal number of
 clusters (speakers) is reached.
 
   
@@ -64,7 +64,7 @@ value is merged. Then, the merged clusters are removed from the distance
 matrix. Finally, the distance matrix table is updated using the
 distances between the new merged cluster and all remaining clusters.
 This process is done iteratively until the stopping criterion is met or
-all pairs have a BIC value less than zero .
+all pairs have a BIC value less than zero.
 
 Top-down: Top-down Hierarchical Clustering methods start from a small
 number of clusters, usually a single cluster that contains several
@@ -73,10 +73,10 @@ stopping criterion is met. It is not as widely used as the bottom-up
 clustering.
 
   
-
+![](missing_picture)
 Bottom-Up and Top-down approaches to clustering
 
-### 2. Approaches to Speaker Diarization
+### Approaches to Speaker Diarization
 
   
 
@@ -86,44 +86,41 @@ systems.
 HMM/GMM based speaker diarization system: Each speaker is represented by
 a state of an HMM and the state emission probabilities are modeled using
 GMMs. The initial clustering is performed initially by partitioning the
-audio signal equally which generates a set of segments { \\( s_i \\) }.
-Let  \\( c_i \\) represent  \\( i^{th} \\) speaker cluster,  \\( b_i \\)
-represent the emission probability of cluster  \\( c_i \\) and  \\( f_t
-\\) denote a given feature vector at time \\( t \\) . Then, the
-log-likelihood  \\( logb_i(s_t) \\) of the feature ft for cluster  \\(
-c_i \\) is calculated as follows:
+audio signal equally which generates a set of segments { $ s_i $ }.
+Let  $ c_i $ represent  $ i^{th} $ speaker cluster,  $ b_i $
+represent the emission probability of cluster  $ c_i $ and  $ f_t
+$ denote a given feature vector at time $ t $ . Then, the
+log-likelihood  $ \log b_i(s_t) $ of the feature ft for cluster  $
+c_i $ is calculated as follows:
 
-\\\[ logb_i(s_t)=log \\sum\_{(r)} {w}^r_i N
-(f_i,{\\mu}^r_i,\\sum\_{(i)}^r) \\\]
+$$ \log b_i(s_t)=\log \sum_{(r)} {w}^r_i N
+(f_i,{\mu}^r_i,\sum_{(i)}^r) $$
 
   
-where  \\( N() \\) is a Gaussian pdf and  \\( {w}^r_i,
-{\\mu}^r_i,\\sum\_{(i)}^r) \\) are the weights, means and covariance
-matrices of the  \\( r^{th} \\) Gaussian mixture component of cluster 
-\\( c_i \\) , respectively.
+where  $ N() $ is a Gaussian pdf and  $ {w}^r_i,
+{\mu}^r_i,\sum_{(i)}^r) $ are the weights, means and covariance
+matrices of the  $ r^{th} $ Gaussian mixture component of cluster 
+$ c_i $ , respectively.
 
 The agglomerative hierarchical clustering starts by overestimating the
 number of clusters. At each iteration, the clusters that are most
 similar are merged based on the BIC distance. The distance measure is
-based on modified delta Bayesian information criterion \[Ajmera and
-Wooters, 2003\]. The modified BIC distance does not take into account
+based on modified delta Bayesian information criterion [Ajmera and
+Wooters, 2003]. The modified BIC distance does not take into account
 the penalty term that corresponds to the number of free parameters of a
 multivariate Gaussian distribution and is expressed as: 
 
-\\\[ \\Delta BIC (c_i,c_j)= log \\sum\_{f_t \\in ( {ci \\; \\cup \\;
-c_j})} log b\_{ij}(f_t) - log \\sum\_{f_t \\in ci} log b\_{i}(f_t) - log
-\\sum\_{f_t \\in cj} log b\_{j}(f_t) \\\]
+$$ \Delta BIC (c_i,c_j)= \log \sum_{f_t \in ( {ci \; \cup \;
+c_j})} \log b_{ij}(f_t) - \log \sum_{f_t \in ci} \log b_{i}(f_t) - \log 
+\sum_{f_t \in cj} \log b_{j}(f_t) $$
 
-where  \\( b\_{ij} \\) is the probability distribution of the combined
-clusters  \\( c_i \\) and  \\( c_j. \\)
+where  $ b_{ij} $ is the probability distribution of the combined
+clusters  $ c_i $ and  $ c_j. $
 
 The clusters that produce the highest BIC score are merged at each
 iteration. A minimum duration of speech segments is normally constrained
 for each class to prevent decoding short segments. The number of
-clusters is reduced at each iteration. When the maximum  \\( \\Delta BIC
-\\)
-
-distance among these clusters is less than threshold value 0, the
+clusters is reduced at each iteration. When the maximum  $ \Delta BIC$ distance among these clusters is less than threshold value 0, the
 speaker diarization system stops and outputs the hypothesis.
 
 Factor analysis techniques: Factor analysis techniques which are the
@@ -149,7 +146,7 @@ likelihood that the segments originated from the same or different
 speakers.  The proposed neural based system matches or exceeds the
 performance of state-of-the-art baselines.
 
-### 3. Evaluation Metrics
+### Evaluation Metrics
 
 Diarization Error Rate (DER) is the metric used to measure the
 performance of speaker diarization systems. It is measured as the
@@ -158,25 +155,25 @@ non-speech.
 
 The DER is composed of the following three errors:
 
-Speaker Error: It is the percentage of scored time that a speaker ID is
+- **Speaker Error**: It is the percentage of scored time that a speaker ID is
 assigned to the wrong speaker. Speaker error is mainly a diarization
 system error (i.e., it is not related to speech/non-speech detection.)
 It also does not take into account the overlap speeches not detected.
 
-False Alarm: It is the percentage of scored time that a hypothesized
+- **False Alarm**: It is the percentage of scored time that a hypothesized
 speaker is labelled as a non-speech in the reference. The false alarm
 error occurs mainly due to the the speech/non-speech detection error
 (i.e., the speech/non-speech detection considers a non-speech segment as
 a speech segment). Hence, false alarm error is not related to
 segmentation and clustering errors.
 
-Missed Speech: It is the percentage of scored time that a hypothesized
+- **Missed Speech**: It is the percentage of scored time that a hypothesized
 non-speech segment corresponds to a reference speaker segment. The
 missed speech occurs mainly due to the the speech/non-speech detection
 error (i.e., the speech segment is considered as a non-speech segment).
 Hence, missed speech is not related to segmentation and clustering
 errors.
 
-\\\[ DER = Speaker \\; Error + False \\; Alarm + Miss \\; Speech \\\]
+$$ DER = Speaker \; Error + False \; Alarm + Miss \; Speech $$
 
   

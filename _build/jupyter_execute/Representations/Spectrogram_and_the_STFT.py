@@ -112,7 +112,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[66]:
+# In[2]:
 
 
 # interactive example of spectrum
@@ -222,7 +222,7 @@ interactive_plot
 # log-spectra can then be visualized with a heat-map known as
 # a [spectrogram](https://en.wikipedia.org/wiki/Spectrogram).
 
-# In[64]:
+# In[3]:
 
 
 import numpy as np
@@ -294,7 +294,7 @@ plt.show()
 #     a lighter colour), correspond to noisy sounds like fricatives.
 # 
 
-# In[1]:
+# In[4]:
 
 
 from ipywidgets import *

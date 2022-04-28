@@ -7,6 +7,25 @@ This is an open access and creative commons book of speech processing, intended 
 ```{tableofcontents}
 ```
 
+## Contributing
+
+We welcome all type of useful contributions! Content contributors will, unless author requests to remain anonymous, be automatically included on the [list of authors](authors.md) and for bugfixers we will create an "also featuring" list. 
+The best way of contributing however depends on type of contribution:
+
+- For small bugfixes
+   - Post an [issue on gitlab.com](https://gitlab.com/speech-interaction-technology-aalto-university/itsp/-/issues), or    
+   - Modify the code directly and push a [merge request](https://gitlab.com/speech-interaction-technology-aalto-university/itsp/-/merge_requests).
+- For clearly missing or incomplete content
+   - Create the content and push a [merge request](https://gitlab.com/speech-interaction-technology-aalto-university/itsp/-/merge_requests). 
+- Extensions of topic area
+   - Discuss it first with other by posting an [issue on gitlab.com](https://gitlab.com/speech-interaction-technology-aalto-university/itsp/-/issues).
+
+The source material is stored at [https://gitlab.com/speech-interaction-technology-aalto-university/itsp](https://gitlab.com/speech-interaction-technology-aalto-university/itsp). 
+
+See also [Instructions for developers](developers.md).
+
+
+
 ## Referencing
 
 > Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo and Sneha Das, "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi

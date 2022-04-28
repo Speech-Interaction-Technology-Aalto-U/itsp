@@ -16,7 +16,7 @@ input variables are *non-negative*, that is, they are by definition
 applicable to energy-signals. In some sense, NMF methods are an
 extension of [prinicipal component analsys
 (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) -type
-and other [subspace methods](Sub-space_models) to positive-valued
+and other [subspace methods](Sub-space_models.md) to positive-valued
 signals.
 
 
@@ -29,14 +29,14 @@ $NxK$ matrix $V$. The signal model we use is then
 
 $$ V \approx WH, $$
 
-where $W$ is the $NxM$ weight matrix, $H$ is the $MxK$ model matrix and
+where $W$ is the $N\times M$ weight matrix, $H$ is the $M\times K$ model matrix and
 the scalar $M$ is the model order.
 
 The idea is that $H$ is a fixed matrix corresponding to our model of the
 signal, viz. the source model. It describes typical types features of
 the data. With the weights $W$, we interpolate between the columns
 of $H$. In some sense, this is then a generalization of a codebook (see
-[vector quantization](Vector_quantization_VQ_)), but such that we
+[vector quantization](Vector_quantization_VQ.md)), but such that we
 interpolate between codevectors. In addition, we require that all
 elements of $W$ and $H$ are non-negative, such that we ensure that $V$
 is also non-negative.
@@ -76,7 +76,7 @@ spectrum of the desired signal. In contrast, usually the input signal is
 a time-frequency representation which has also a phase-component. After
 application of NMF-estimation, we therefore need also an estimate of the
 phase-component of the signal. Such methods will be discussed in the
-[speech enhancement](Speech_enhancement) chapter of this document.
+[speech enhancement](../Speech_enhancement.md) chapter of this document.
 
 
 For more information, see the Wikipedia article: [Non-negative matrix
