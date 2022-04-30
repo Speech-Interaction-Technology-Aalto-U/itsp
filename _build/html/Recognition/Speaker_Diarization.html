@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -766,10 +764,10 @@ audio signal equally which generates a set of segments { <span class="math notra
 Let  <span class="math notranslate nohighlight">\( c_i \)</span> represent  <span class="math notranslate nohighlight">\( i^{th} \)</span> speaker cluster,  <span class="math notranslate nohighlight">\( b_i \)</span>
 represent the emission probability of cluster  <span class="math notranslate nohighlight">\( c_i \)</span> and  <span class="math notranslate nohighlight">\( f_t
 \)</span> denote a given feature vector at time <span class="math notranslate nohighlight">\( t \)</span> . Then, the
-log-likelihood  <span class="math notranslate nohighlight">\( logb_i(s_t) \)</span> of the feature ft for cluster  <span class="math notranslate nohighlight">\(
+log-likelihood  <span class="math notranslate nohighlight">\( \log b_i(s_t) \)</span> of the feature ft for cluster  <span class="math notranslate nohighlight">\(
 c_i \)</span> is calculated as follows:</p>
 <div class="math notranslate nohighlight">
-\[ logb_i(s_t)=log \sum_{(r)} {w}^r_i N
+\[ \log b_i(s_t)=\log \sum_{(r)} {w}^r_i N
 (f_i,{\mu}^r_i,\sum_{(i)}^r) \]</div>
 <p>where  <span class="math notranslate nohighlight">\( N() \)</span> is a Gaussian pdf and  <span class="math notranslate nohighlight">\( {w}^r_i,
 {\mu}^r_i,\sum_{(i)}^r) \)</span> are the weights, means and covariance
@@ -783,9 +781,9 @@ Wooters, 2003]. The modified BIC distance does not take into account
 the penalty term that corresponds to the number of free parameters of a
 multivariate Gaussian distribution and is expressed as:</p>
 <div class="math notranslate nohighlight">
-\[ \Delta BIC (c_i,c_j)= log \sum_{f_t \in ( {ci \; \cup \;
-c_j})} log b_{ij}(f_t) - log \sum_{f_t \in ci} log b_{i}(f_t) - log
-\sum_{f_t \in cj} log b_{j}(f_t) \]</div>
+\[ \Delta BIC (c_i,c_j)= \log \sum_{f_t \in ( {ci \; \cup \;
+c_j})} \log b_{ij}(f_t) - \log \sum_{f_t \in ci} \log b_{i}(f_t) - \log 
+\sum_{f_t \in cj} \log b_{j}(f_t) \]</div>
 <p>where  <span class="math notranslate nohighlight">\( b_{ij} \)</span> is the probability distribution of the combined
 clusters  <span class="math notranslate nohighlight">\( c_i \)</span> and  <span class="math notranslate nohighlight">\( c_j. \)</span></p>
 <p>The clusters that produce the highest BIC score are merged at each

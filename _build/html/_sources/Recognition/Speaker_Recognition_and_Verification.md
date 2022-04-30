@@ -134,12 +134,12 @@ likelihood of the GMM given a set of data. Assuming an independence
 between the training vectors $ X = \{x_i,\dots,x_N\} $ , the GMM
 likelihood is typically described as:
 
-$$ p(X\|\lambda) = \prod_{t=1}^{N} p(x_t\|\lambda) (1) $$
+$$ p(X|\lambda) = \prod_{t=1}^{N} p(x_t|\lambda) (1) $$
 
 Since direct maximization is not possible on equation on equation 1, the
 ML parameters are obtained iteratively using expectation-maximization
 (EM) algorithm.  The EM iteratively estimate new model parameters  
-$\bar{\lambda} $  based on a given model $\lambda$ such that $p(X\|\bar{\lambda}) \ge p(X\|\lambda) $ . 
+$\bar{\lambda} $  based on a given model $\lambda$ such that $p(X|\bar{\lambda}) \ge p(X|\lambda) $ . 
 
 ![image2020-1-20_15-34-38.png](attachments/165126354.png)
 Example of
@@ -155,21 +155,21 @@ old statistics from the prior mixture parameters.
 Given a prior model and training vectors from the desired class, $ X =
 {x_1 . . . , x_T } $ , we first determine the probabilistic alignment
 of the training vectors into the prior mixture components. For mixture 
-$ i $ in the prior model  $ Pr(i\|x_t,\lambda_{UBM}) $ is
+$ i $ in the prior model  $ Pr(i|x_t,\lambda_{UBM}) $ is
 computed as the percentage of the mixture component  $ i $ to the
 total likelihood,
 
-$$ Pr(i\|x_t,\lambda_{UBM})= \frac {w_i\,g(x_t\|\mu_i,\Sigma_i)}
-{\sum_{i=1}^{M} w_i\,g(x_t\|\mu_i,\Sigma_i)} $$
+$$ Pr(i|x_t,\lambda_{UBM})= \frac {w_i\,g(x_t|\mu_i,\Sigma_i)}
+{\sum_{i=1}^{M} w_i\,g(x_t|\mu_i,\Sigma_i)} $$
 
 Then, the sufficient statistics for the weight, mean and variance
 parameters is computed as follows:
 
-$$ n_i=\sum_{t=1}^{T}Pr(i\|x_t,\lambda_{prior}) \, weight $$
+$$ n_i=\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior}) \, weight $$
 $$
-E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i\|x_t,\lambda_{prior})x_t
+E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t
 \;\; mean $$ $$
-E_i(x^2)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i\|x_t,\lambda_{prior})x_t^2
+E_i(x^2)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t^2
 \;\; variance $$
 
   
@@ -233,8 +233,8 @@ some feature space of dimension $ F $ , the Baum–Welch statistics
 needed to estimate the i-vector for a given speech utterance  $ u $
 is given by :
 
-$$ N_c=\sum_{t=1}^{L}P(c\|y_t,\Omega) $$ $$
-F_c=\sum_{t=1}^{L}P(c\|y_t,\Omega)y_t $$
+$$ N_c=\sum_{t=1}^{L}P(c|y_t,\Omega) $$ $$
+F_c=\sum_{t=1}^{L}P(c|y_t,\Omega)y_t $$
 
 where  $ m_c $ is the mean of UBM mixture component $ c $ .
 The i-vector for a given utterance can be obtained using the following
@@ -268,7 +268,7 @@ of the data and real distributions. It also reduces the dataset shift
 between development and test i-vectors.
 
 $$ w\leftarrow
-\frac{\Sigma^{-\frac{1}{2}}(w-\mu)}{\|\|\Sigma^{-\frac{1}{2}}(w-\mu)\|\|}
+\frac{\Sigma^{-\frac{1}{2}}(w-\mu)}{\|\Sigma^{-\frac{1}{2}}(w-\mu)\|}
 $$
 
   
@@ -294,7 +294,7 @@ cosine distance scoring tests the hypothesis if two i-vectors belong to
 the same speaker or different speakers. Given two i-vectors, the cosine
 distance among them is calculated as follows:
 
-$$ cos(w_i,w_j)=\frac{w_i.w_j}{\|\|w_i\|\|.\|\|w_j\|\|}\gtreqless
+$$ cos(w_i,w_j)=\frac{w_i\cdot w_j}{\|w_i\|\cdot\|w_j\|}\gtreqless
 \theta $$
 
 where  $ \theta $ is the threshold value, and  $ cos(w_i,w_j) $
@@ -365,7 +365,7 @@ covariance matrix $ \Sigma $ .
 Given two i-vectors  $ w_1 $ and $ w_1 $ , the PLDA computes the
 likelihood ratio of the two i-vectors as follows:
 
-$$ Score(w_1,w_2)= \frac{p(w_1,w_2\|H_1)}{p(w_1\|H_2) p(w_2\|H_2)}
+$$ Score(w_1,w_2)= \frac{p(w_1,w_2|H_1)}{p(w_1|H_2) p(w_2|H_2)}
 $$
 
 where the hypothesis  $ H_1 $ indicates that both i-vectors belong

@@ -9,14 +9,14 @@ import numpy as np
 def stft(data,fs,window_length_ms=30,window_step_ms=20,windowing_function=None):
     window_length = int(window_length_ms*fs/2000)*2
     window_step = int(window_step_ms*fs/1000)
-    #if windowing_function is None:
-    #    windowing_function = np.sin(np.pi*np.arange(0.5,window_length,1)/window_length)**2
+    if windowing_function is None:
+        windowing_function = np.sin(np.pi*np.arange(0.5,window_length,1)/window_length)**2
     
     total_length = len(data)
     window_count = int( (total_length-window_length)/window_step) + 1
     
     spectrum_length = int((window_length)/2)+1
-    spectrogram = np.zeros((window_count,spectrum_length),dtype=np.cdouble)
+    spectrogram = np.zeros((window_count,spectrum_length),dtype=np.complex)
 
     for k in range(window_count):
         starting_position = k*window_step

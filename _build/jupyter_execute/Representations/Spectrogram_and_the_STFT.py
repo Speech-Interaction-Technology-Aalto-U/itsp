@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# (stft)=
 # # Spectrogram and the STFT
 # 
 # We have intuitive notion of what a high or low pitch means. Pitch refers
@@ -112,7 +113,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[2]:
+# In[66]:
 
 
 # interactive example of spectrum
@@ -222,7 +223,7 @@ interactive_plot
 # log-spectra can then be visualized with a heat-map known as
 # a [spectrogram](https://en.wikipedia.org/wiki/Spectrogram).
 
-# In[3]:
+# In[64]:
 
 
 import numpy as np
@@ -294,7 +295,7 @@ plt.show()
 #     a lighter colour), correspond to noisy sounds like fricatives.
 # 
 
-# In[4]:
+# In[1]:
 
 
 from ipywidgets import *

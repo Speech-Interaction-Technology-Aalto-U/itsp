@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -709,8 +707,8 @@ microphones with input signals <span class="math notranslate nohighlight">\(x_{k
 the microphone and time indices. We assume that the desired source is
 sufficiently far away that we can approximate it with a plane wave. Then
 the signal will arrive at the microphones at different times  <span class="math notranslate nohighlight">\(
-\Delta t_{x_k} \)</span> and we can calculate time time difference of
-arrival (TDOA) of each microphone <span class="math notranslate nohighlight">\( t_{x_k} = \Delta
+\Delta t_{x_k} \)</span> and we can calculate time <a class="reference internal" href="tdoa.html"><span class="doc std std-doc">time difference of
+arrival (TDOA)</span></a> of each microphone <span class="math notranslate nohighlight">\( t_{x_k} = \Delta
 t_{x_k}-\Delta t_{x_1} \)</span> where we used microphone <span class="math notranslate nohighlight">\(k=1\)</span> as a
 reference point. The delayed signals thus have <span class="math notranslate nohighlight">\( x_k(t) = x(t-\Delta
 t_{x_k}) = x\left(t-\Delta t_{x_k}+\Delta t_{x_1} - \Delta
