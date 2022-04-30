@@ -701,44 +701,38 @@ const thebe_selector_output = ".output, .cell_output"
 A frequently used method for time-delay estimation is the generalized cross-correlation (GCC) method and especially its PHAT-weighted variant known as GCC-PHAT <span id="id1">[<a class="reference internal" href="#id4" title="C. Knapp and G. Carter. The generalized correlation method for estimation of time delay. IEEE Transactions on Acoustics, Speech, and Signal Processing, 24(4):320-327, 1976. doi:10.1109/TASSP.1976.1162830.">Knapp and Carter, 1976</a>, <a class="reference internal" href="#id5" title="Mordechai Azaria and David Hertz. Time delay estimation by generalized cross correlation methods. IEEE Transactions on Acoustics, Speech, and Signal Processing, 32(2):280–285, 1984. URL: https://doi.org/10.1109/TASSP.1984.1164314.">Azaria and Hertz, 1984</a>, <a class="reference internal" href="#id3" title="Byoungho Kwon, Youngjin Park, and Youn-sik Park. Analysis of the gcc-phat technique for multiple sources. In ICCAS 2010, volume, 2070-2073. 2010. doi:10.1109/ICCAS.2010.5670137.">Kwon <em>et al.</em>, 2010</a>]</span>.</p>
 <div class="section" id="generalized-cross-correlation">
 <h2>Generalized cross-correlation<a class="headerlink" href="#generalized-cross-correlation" title="Permalink to this headline">¶</a></h2>
-<p>The cross-spectrum of two spectra <span class="math notranslate nohighlight">\(X_{1,k,t}\)</span> and <span class="math notranslate nohighlight">\(X_{2,k,t}\)</span> is
-$<span class="math notranslate nohighlight">\(
+<p>The cross-spectrum of two spectra <span class="math notranslate nohighlight">\(X_{1,k,t}\)</span> and <span class="math notranslate nohighlight">\(X_{2,k,t}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
 C_{k,t} = X_{1,k,t}^* X_{2,k,t},
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>k<span class="math notranslate nohighlight">\( and \)</span>t<span class="math notranslate nohighlight">\( are the frequency and time indices. The spectra are of form \)</span>X_{h,k}=a_{h,k} e^{i\frac{2\pi kn_h}N}<span class="math notranslate nohighlight">\(, where \)</span>n_h<span class="math notranslate nohighlight">\( is the time-offset and \)</span>N<span class="math notranslate nohighlight">\( is the length of the analysis window. We thus have
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(t\)</span> are the frequency and time indices. The spectra are of form <span class="math notranslate nohighlight">\(X_{h,k}=a_{h,k} e^{i\frac{2\pi kn_h}N}\)</span>, where <span class="math notranslate nohighlight">\(n_h\)</span> is the time-offset and <span class="math notranslate nohighlight">\(N\)</span> is the length of the analysis window. We thus have</p>
+<div class="math notranslate nohighlight">
+\[
 C_k 
 = a_{1,k} e^{-i\frac{2\pi kn_1}N} a_{2,k} e^{i\frac{2\pi kn_2}N}
 .
-\)</span><span class="math notranslate nohighlight">\(
-If the time-difference between channels is \)</span>\tau=n_2-n_1<span class="math notranslate nohighlight">\(, then
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>If the time-difference between channels is <span class="math notranslate nohighlight">\(\tau=n_2-n_1\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
 C_k 
-= a_{1,k}a_{2,k} e^{-i\frac{2\pi kn_1}N+i\frac{2\pi k(\delta+n_1)}N}
+= a_{1,k}a_{2,k} e^{-i\frac{2\pi kn_1}N+i\frac{2\pi k(\tau+n_1)}N}
 = a_{1,k}a_{2,k} e^{i\frac{2\pi k\tau}N}
 .
-\)</span>$</p>
-<p>It can be weighted with a variety of approaches such as
-$<span class="math notranslate nohighlight">\(
-C_k' = \frac{X_{1,k}^* X_{2,k}}{|X_{1,k}^* X_{2,k}|} = e^{i\frac{2\pi k\delta}N}
-\)</span><span class="math notranslate nohighlight">\(
-to obtain the generalized cross-spectrum. The generalized cross-correlation is the inverse Fourier transform of the generalized cross-spectrum
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>It can be weighted with a variety of approaches such as</p>
+<div class="math notranslate nohighlight">
+\[
+C_k' = \frac{X_{1,k}^* X_{2,k}}{|X_{1,k}^* X_{2,k}|} = e^{i\frac{2\pi k\tau}N}
+\]</div>
+<p>to obtain the generalized cross-spectrum. The generalized cross-correlation is the inverse Fourier transform of the generalized cross-spectrum</p>
+<div class="math notranslate nohighlight">
+\[
 r_k' = {\mathcal F}^{-1}\{C_k'\} = \delta_\tau,
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\delta_k<span class="math notranslate nohighlight">\( is the [Dirac-delta function](https://en.wikipedia.org/wiki/Dirac_delta_function). In other words, the generalized cross-covariance has a single peak whose position indicates the time-delay \)</span>\tau$ between the two channels.</p>
-<!--
-Suppose we have two channels, for which we have analyzed the [short-time Fourier transforms (STFT)](stft), $X_{1,k,t}$, and $X_{2,k,t}$, where $k$ is the frequency bin and $t$ the frame index. The frequency components correspond to complex values of the form
-
-
-**Under construction**
-
-$a_1 e^{i (b_1 + k+t)}$ and $a_2 e^{i (b_2 +k+t)}$.
-If time-delay between the two channels is $\delta=b_2-b_1$, then we have $e^{i (b_1 + k+t)} \approx e^{i (\delta + b_1 +k+t)}$. In other words,
-$$
-e^{i\delta} = e^{i (b_1 + k+t- b_1 -k-t)}
-$$
---><div class="cell tag_hide-input docutils container">
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_k\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Dirac_delta_function">Dirac-delta function</a>. In other words, the generalized cross-covariance has a single peak whose position indicates the time-delay <span class="math notranslate nohighlight">\(\tau\)</span> between the two channels.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>

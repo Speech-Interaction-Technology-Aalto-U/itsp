@@ -9,48 +9,45 @@
 # ## Generalized cross-correlation
 # 
 # The cross-spectrum of two spectra $X_{1,k,t}$ and $X_{2,k,t}$ is
+# 
 # $$
 # C_{k,t} = X_{1,k,t}^* X_{2,k,t},
 # $$
+# 
 # where $k$ and $t$ are the frequency and time indices. The spectra are of form $X_{h,k}=a_{h,k} e^{i\frac{2\pi kn_h}N}$, where $n_h$ is the time-offset and $N$ is the length of the analysis window. We thus have
+# 
 # $$
 # C_k 
 # = a_{1,k} e^{-i\frac{2\pi kn_1}N} a_{2,k} e^{i\frac{2\pi kn_2}N}
 # .
 # $$
+# 
 # If the time-difference between channels is $\tau=n_2-n_1$, then
+# 
 # $$
 # C_k 
-# = a_{1,k}a_{2,k} e^{-i\frac{2\pi kn_1}N+i\frac{2\pi k(\delta+n_1)}N}
+# = a_{1,k}a_{2,k} e^{-i\frac{2\pi kn_1}N+i\frac{2\pi k(\tau+n_1)}N}
 # = a_{1,k}a_{2,k} e^{i\frac{2\pi k\tau}N}
 # .
 # $$
 # 
 # 
 # It can be weighted with a variety of approaches such as
+# 
 # $$
-# C_k' = \frac{X_{1,k}^* X_{2,k}}{|X_{1,k}^* X_{2,k}|} = e^{i\frac{2\pi k\delta}N}
+# C_k' = \frac{X_{1,k}^* X_{2,k}}{|X_{1,k}^* X_{2,k}|} = e^{i\frac{2\pi k\tau}N}
 # $$
+# 
 # to obtain the generalized cross-spectrum. The generalized cross-correlation is the inverse Fourier transform of the generalized cross-spectrum
+# 
 # $$
 # r_k' = {\mathcal F}^{-1}\{C_k'\} = \delta_\tau,
 # $$
+# 
 # where $\delta_k$ is the [Dirac-delta function](https://en.wikipedia.org/wiki/Dirac_delta_function). In other words, the generalized cross-covariance has a single peak whose position indicates the time-delay $\tau$ between the two channels.
 # 
 # 
 # 
-# <!--
-# Suppose we have two channels, for which we have analyzed the [short-time Fourier transforms (STFT)](stft), $X_{1,k,t}$, and $X_{2,k,t}$, where $k$ is the frequency bin and $t$ the frame index. The frequency components correspond to complex values of the form
-# 
-# 
-# **Under construction**
-# 
-# $a_1 e^{i (b_1 + k+t)}$ and $a_2 e^{i (b_2 +k+t)}$.
-# If time-delay between the two channels is $\delta=b_2-b_1$, then we have $e^{i (b_1 + k+t)} \approx e^{i (\delta + b_1 +k+t)}$. In other words,
-# $$
-# e^{i\delta} = e^{i (b_1 + k+t- b_1 -k-t)}
-# $$
-# -->
 
 # In[1]:
 
