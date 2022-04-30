@@ -6,7 +6,18 @@
 # In [multi-channel speech enhancement](Multi-channel_speech_enhancement.md), a regularly appearing task is to estimate the time-delay between channels or equivalently, the angle at which a wavefront arrives to an array of microphones. By knowing the time-delay or angle of arrival, we can use beamforming to isolate sounds from that particular direction. 
 # A frequently used method for time-delay estimation is the generalized cross-correlation (GCC) method and especially its PHAT-weighted variant known as GCC-PHAT {cite:p}`knapp1976gcc,azaria1984time,byoungho2010gccphat`.
 # 
-# Suppose we have two channels, for which we have analyzed the [short-time Fourier transform (STFT)](stft).
+# <!--
+# Suppose we have two channels, for which we have analyzed the [short-time Fourier transforms (STFT)](stft), $X_{1,k,t}$, and $X_{2,k,t}$, where $k$ is the frequency bin and $t$ the frame index. The frequency components correspond to complex values of the form
+# 
+# 
+# **Under construction**
+# 
+# $a_1 e^{i (b_1 + k+t)}$ and $a_2 e^{i (b_2 +k+t)}$.
+# If time-delay between the two channels is $\delta=b_2-b_1$, then we have $e^{i (b_1 + k+t)} \approx e^{i (\delta + b_1 +k+t)}$. In other words,
+# $$
+# e^{i\delta} = e^{i (b_1 + k+t- b_1 -k-t)}
+# $$
+# -->
 
 # In[1]:
 

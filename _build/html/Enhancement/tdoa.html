@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -687,8 +689,18 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Time-Delay of Arrival (TDoA) and Direction of Arrival (DoA) Estimation<a class="headerlink" href="#time-delay-of-arrival-tdoa-and-direction-of-arrival-doa-estimation" title="Permalink to this headline">¶</a></h1>
 <p>In <span class="xref myst">multi-channel speech enhancement</span>, a regularly appearing task is to estimate the time-delay between channels or equivalently, the angle at which a wavefront arrives to an array of microphones. By knowing the time-delay or angle of arrival, we can use beamforming to isolate sounds from that particular direction.
 A frequently used method for time-delay estimation is the generalized cross-correlation (GCC) method and especially its PHAT-weighted variant known as GCC-PHAT <span id="id1">[<a class="reference internal" href="#id4" title="C. Knapp and G. Carter. The generalized correlation method for estimation of time delay. IEEE Transactions on Acoustics, Speech, and Signal Processing, 24(4):320-327, 1976. doi:10.1109/TASSP.1976.1162830.">Knapp and Carter, 1976</a>, <a class="reference internal" href="#id5" title="Mordechai Azaria and David Hertz. Time delay estimation by generalized cross correlation methods. IEEE Transactions on Acoustics, Speech, and Signal Processing, 32(2):280–285, 1984. URL: https://doi.org/10.1109/TASSP.1984.1164314.">Azaria and Hertz, 1984</a>, <a class="reference internal" href="#id3" title="Byoungho Kwon, Youngjin Park, and Youn-sik Park. Analysis of the gcc-phat technique for multiple sources. In ICCAS 2010, volume, 2070-2073. 2010. doi:10.1109/ICCAS.2010.5670137.">Kwon <em>et al.</em>, 2010</a>]</span>.</p>
-<p>Suppose we have two channels, for which we have analyzed the <a class="reference internal" href="../Representations/Spectrogram_and_the_STFT.html#stft"><span class="std std-ref">short-time Fourier transform (STFT)</span></a>.</p>
-<div class="cell tag_hide-input docutils container">
+<!--
+Suppose we have two channels, for which we have analyzed the [short-time Fourier transforms (STFT)](stft), $X_{1,k,t}$, and $X_{2,k,t}$, where $k$ is the frequency bin and $t$ the frame index. The frequency components correspond to complex values of the form
+
+
+**Under construction**
+
+$a_1 e^{i (b_1 + k+t)}$ and $a_2 e^{i (b_2 +k+t)}$.
+If time-delay between the two channels is $\delta=b_2-b_1$, then we have $e^{i (b_1 + k+t)} \approx e^{i (\delta + b_1 +k+t)}$. In other words,
+$$
+e^{i\delta} = e^{i (b_1 + k+t- b_1 -k-t)}
+$$
+--><div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
