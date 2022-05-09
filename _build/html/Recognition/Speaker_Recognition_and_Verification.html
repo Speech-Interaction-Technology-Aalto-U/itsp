@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -911,11 +909,11 @@ likelihood of the GMM given a set of data. Assuming an independence
 between the training vectors <span class="math notranslate nohighlight">\( X = \{x_i,\dots,x_N\} \)</span> , the GMM
 likelihood is typically described as:</p>
 <div class="math notranslate nohighlight">
-\[ p(X\|\lambda) = \prod_{t=1}^{N} p(x_t\|\lambda) (1) \]</div>
+\[ p(X|\lambda) = \prod_{t=1}^{N} p(x_t|\lambda) (1) \]</div>
 <p>Since direct maximization is not possible on equation on equation 1, the
 ML parameters are obtained iteratively using expectation-maximization
 (EM) algorithm.  The EM iteratively estimate new model parameters 
-<span class="math notranslate nohighlight">\(\bar{\lambda} \)</span>  based on a given model <span class="math notranslate nohighlight">\(\lambda\)</span> such that <span class="math notranslate nohighlight">\(p(X\|\bar{\lambda}) \ge p(X\|\lambda) \)</span> .</p>
+<span class="math notranslate nohighlight">\(\bar{\lambda} \)</span>  based on a given model <span class="math notranslate nohighlight">\(\lambda\)</span> such that <span class="math notranslate nohighlight">\(p(X|\bar{\lambda}) \ge p(X|\lambda) \)</span> .</p>
 <p><img alt="image2020-1-20_15-34-38.png" src="../_images/165126354.png" />
 Example of
 speaker model adaptation</p>
@@ -928,19 +926,19 @@ old statistics from the prior mixture parameters.</p>
 <p>Given a prior model and training vectors from the desired class, <span class="math notranslate nohighlight">\( X =
 {x_1 . . . , x_T } \)</span> , we first determine the probabilistic alignment
 of the training vectors into the prior mixture components. For mixture 
-<span class="math notranslate nohighlight">\( i \)</span> in the prior model  <span class="math notranslate nohighlight">\( Pr(i\|x_t,\lambda_{UBM}) \)</span> is
+<span class="math notranslate nohighlight">\( i \)</span> in the prior model  <span class="math notranslate nohighlight">\( Pr(i|x_t,\lambda_{UBM}) \)</span> is
 computed as the percentage of the mixture component  <span class="math notranslate nohighlight">\( i \)</span> to the
 total likelihood,</p>
 <div class="math notranslate nohighlight">
-\[ Pr(i\|x_t,\lambda_{UBM})= \frac {w_i\,g(x_t\|\mu_i,\Sigma_i)}
-{\sum_{i=1}^{M} w_i\,g(x_t\|\mu_i,\Sigma_i)} \]</div>
+\[ Pr(i|x_t,\lambda_{UBM})= \frac {w_i\,g(x_t|\mu_i,\Sigma_i)}
+{\sum_{i=1}^{M} w_i\,g(x_t|\mu_i,\Sigma_i)} \]</div>
 <p>Then, the sufficient statistics for the weight, mean and variance
 parameters is computed as follows:</p>
 <div class="math notranslate nohighlight">
-\[ n_i=\sum_{t=1}^{T}Pr(i\|x_t,\lambda_{prior}) \, weight \]</div>
+\[ n_i=\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior}) \, weight \]</div>
 <div class="math notranslate nohighlight">
 \[
-E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i\|x_t,\lambda_{prior})x_t
+E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t
 \;\; mean $$ \]</div>
 <p>E_i(x^2)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t^2
 ;; variance $$</p>
@@ -996,7 +994,7 @@ some feature space of dimension <span class="math notranslate nohighlight">\( F 
 needed to estimate the i-vector for a given speech utterance  <span class="math notranslate nohighlight">\( u \)</span>
 is given by :</p>
 <div class="math notranslate nohighlight">
-\[ N_c=\sum_{t=1}^{L}P(c\|y_t,\Omega) $$ \]</div>
+\[ N_c=\sum_{t=1}^{L}P(c|y_t,\Omega) $$ \]</div>
 <p>F_c=\sum_{t=1}^{L}P(c|y_t,\Omega)y_t $$</p>
 <p>where  <span class="math notranslate nohighlight">\( m_c \)</span> is the mean of UBM mixture component <span class="math notranslate nohighlight">\( c \)</span> .
 The i-vector for a given utterance can be obtained using the following
@@ -1027,7 +1025,7 @@ of the data and real distributions. It also reduces the dataset shift
 between development and test i-vectors.</p>
 <div class="math notranslate nohighlight">
 \[ w\leftarrow
-\frac{\Sigma^{-\frac{1}{2}}(w-\mu)}{\|\|\Sigma^{-\frac{1}{2}}(w-\mu)\|\|}
+\frac{\Sigma^{-\frac{1}{2}}(w-\mu)}{\|\Sigma^{-\frac{1}{2}}(w-\mu)\|}
 \]</div>
 <p>where  <span class="math notranslate nohighlight">\( \mu \)</span> and  <span class="math notranslate nohighlight">\( \Sigma \)</span> are the mean and the covariance
 matrix of a training corpus, respectively. The data is standardized
@@ -1047,7 +1045,7 @@ cosine distance scoring tests the hypothesis if two i-vectors belong to
 the same speaker or different speakers. Given two i-vectors, the cosine
 distance among them is calculated as follows:</p>
 <div class="math notranslate nohighlight">
-\[ cos(w_i,w_j)=\frac{w_i.w_j}{\|\|w_i\|\|.\|\|w_j\|\|}\gtreqless
+\[ cos(w_i,w_j)=\frac{w_i\cdot w_j}{\|w_i\|\cdot\|w_j\|}\gtreqless
 \theta \]</div>
 <p>where  <span class="math notranslate nohighlight">\( \theta \)</span> is the threshold value, and  <span class="math notranslate nohighlight">\( cos(w_i,w_j) \)</span>
 is the cosine distance score between clusters  <span class="math notranslate nohighlight">\( i \)</span> and <span class="math notranslate nohighlight">\( j \)</span> .
@@ -1106,7 +1104,7 @@ covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>
 <p>Given two i-vectors  <span class="math notranslate nohighlight">\( w_1 \)</span> and <span class="math notranslate nohighlight">\( w_1 \)</span> , the PLDA computes the
 likelihood ratio of the two i-vectors as follows:</p>
 <div class="math notranslate nohighlight">
-\[ Score(w_1,w_2)= \frac{p(w_1,w_2\|H_1)}{p(w_1\|H_2) p(w_2\|H_2)}
+\[ Score(w_1,w_2)= \frac{p(w_1,w_2|H_1)}{p(w_1|H_2) p(w_2|H_2)}
 \]</div>
 <p>where the hypothesis  <span class="math notranslate nohighlight">\( H_1 \)</span> indicates that both i-vectors belong
 to the same speaker and  <span class="math notranslate nohighlight">\( H_0 \)</span> indicates they belong to two

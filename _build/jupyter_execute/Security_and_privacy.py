@@ -66,6 +66,7 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 
 
 # Though Alice and Bob knowingly and intentionally interact, they might reveal private things. This is the classic "*slip of the tongue*".
+# {cite:p}`petronio2002boundaries`
 # 
 # #### Secondary interactions
 # 
@@ -132,7 +133,7 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=newest}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n  \\node[ellipse,draw,minimum width=40pt] at (0,0) (alice) {Alice};\n  \\node[ellipse,draw,minimum width=40pt] at (2,0)  (bob) {Agent};\n  \\draw[->, line width=1pt] (alice) to [bend left] (bob);\n  \\draw[->, line width=1pt] (bob) to [bend left] (alice);\n\n\\end{tikzpicture}\n\n\n\\end{document}\n')
 
 
-# An exception is analysis, which the agent can perform, which is not related to the desired service, which can take abusive forms. For example, suppose the agent analyses the user's voice for health problems and identifies that the user has [Alzheimer's disease](https://en.wikipedia.org/wiki/Alzheimer%27s_disease). What should the agent then do with that information? Not doing anthing seems unethical - getting early access to medical services could greatly improve life quality. Informing the user, on the other hand, involves risks. How will the user react to the information? Is the user sufficiently psychologically stable to handle it? What if the analysis is incorrect and the agent thus causes suffering? It is also easy to think of further problematic scenarios. 
+# An exception is analysis, which the agent can perform, which is not related to the desired service, which can take abusive forms. For example, suppose the agent analyses the user's voice for health problems and identifies that the user has [Alzheimer's disease](https://en.wikipedia.org/wiki/Alzheimer%27s_disease). What should the agent then do with that information? Not doing anthing seems unethical - getting early access to medical services could greatly improve life quality. Informing the user, on the other hand, involves risks. How will the user react to the information? Is the user sufficiently psychologically stable to handle it? What if the analysis is incorrect and the agent thus causes suffering? It is also easy to think of further problematic scenarios.  {cite:p}`konig2015automatic`
 # 
 # 
 # 
@@ -284,7 +285,7 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # 
 # -   Companies can extract information from private users for unethical
 #     advantage
-#     -   Insurance policies and mortgages can be denied on based on
+#     -   Insurance policies and mortgages can be denied based on
 #         covertly extracted information
 #     -   The price of services can be increased for vulnerable groups
 #     -   Access to information (search results) can be restricted and
@@ -435,17 +436,17 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # it change over time if new information becomes public (probably: yes)?
 # Can it change over time if new technologies are developed (probably:
 # yes)?
-# 
+
 # ### Local/edge processing
 # 
-# Privacy is an issue only if some other party has access to data about
-# you. Data which resides on a device which is in your control is
-# therefore relatively safe, assuming that no outsider has access to that
-# device. If data is sent to a cloud server then there are more entities
-# which could potentially have access to your data. Therefore all storage
-# and processing which can be done on your local device is usually by
-# design more private than any cloud server.
-# 
+# Privacy is an issue only if some other party has access to data about you. Data which resides on a device which is in your control is therefore relatively safe, assuming that no outsider has access to that device. If data is sent to a cloud server then there are more entities which could potentially have access to your data. Therefore all storage and processing which can be done on your local device is usually by design more private than any cloud server. Typically, a cloud server would only provide software updates (downlink), but no data would be sent in the other direction (uplink). {cite:p}`shi2016edge`
+
+# In[12]:
+
+
+get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=newest}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n  \\node[ellipse,draw,minimum width=40pt,minimum height=35pt] at (-.5,0) (alice) {Alice};\n  \\node[ellipse,draw,minimum width=35pt] at (2,0)  (bob) {\\parbox{1cm}{\\centering Local device}};\n  \\draw[->, line width=1pt] (alice) to [bend left] (bob);\n  \\draw[->, line width=1pt] (bob) to [bend left] (alice);\n  %\\node[fit=(alice) (bob), inner sep=1pt] (p) {};% {\\parbox{2.4cm}{\\centering Desired speech interaction\\vspace{-1cm}}};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob),label={[label distance=.01cm]180:{\\parbox{1.7cm}{\\centering Desired\\\\ interaction}}}] (private) {};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob) (p)] (private) {};\n  \\node[draw=gray,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (.8,0) (private) {};\n\n  \\node[ellipse,draw] at (5.5,0) (eve) {\\parbox{1cm}{\\centering Cloud servce}};\n  %\\draw[color=purple,->, dashed, line width=1pt] (eve) to node[above]{Model update} [left] (bob);\n\\path[color=purple,very thick,dashed,<-,every node/.style={font=\\small}] \n          (bob) edge [] node[yshift=.5cm] {\\parbox{1cm}{model update}} (eve);\n  %\\draw[color=purple,->, line width=1pt] (bob) to [bend left] (eve);\n  \n  \\node at (.8,1.5) {\\parbox{3cm}{\\centering Private speech interaction}};\n  \\node at (5.5,1.5) {\\parbox{2cm}{\\centering Restricted interactor}};\n\\end{tikzpicture}\n\n\\end{document}\n')
+
+
 # Observe that this does not protect you from other local users. For
 # example, if multiple persons are using one smart speaker at home, then
 # the other users could have access to information about you through that
@@ -470,7 +471,19 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 #     wasteful use of resources; a cloud server can better balance the
 #     load because with a large number of users, the resource requirements
 #     would likely be more stable.
+
+# ### Anonymization, pseudonymization and disentanglement
 # 
+# A central issue with voice communication is that, in addition to the intended message, it also contains so much other information. For example, if you want to order a pizza delivery, the service provider needs to know only the content of the order, destination where the order should be delivered and how it is paid. The provider does not need to know, for example, your state of health or your cultural affiliation. *Anonymization* refers to methods which try to strip away such private and extra information such that only the intended message remains. With *pseudonymization* we refer to similar methods, where private information is replaced by some other information. For example, we could replace personal identifying information of a user *Alice* with an avatar-identity *Adam*. The process and methodology of separating the different streams of information is known as *disentanglement*.
+
+# In[13]:
+
+
+get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=newest}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n  \\node[ellipse,draw,minimum width=40pt,minimum height=35pt] at (-.5,0) (alice) {Alice};\n  \\node[ellipse,draw,minimum width=35pt] at (2,0)  (bob) {\\parbox{1cm}{\\centering Local device}};\n  \\draw[->, line width=1pt] (alice) to [bend left] (bob);\n  \\draw[->, line width=1pt] (bob) to [bend left] (alice);\n  %\\node[fit=(alice) (bob), inner sep=1pt] (p) {};% {\\parbox{2.4cm}{\\centering Desired speech interaction\\vspace{-1cm}}};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob),label={[label distance=.01cm]180:{\\parbox{1.7cm}{\\centering Desired\\\\ interaction}}}] (private) {};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob) (p)] (private) {};\n  \\node[draw=gray,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (.8,0) (private) {};\n\n  \\node[ellipse,draw] at (6,0) (eve) {\\parbox{1cm}{\\centering Cloud servce}};\n  \\draw[color=purple,dashed,->, line width=1pt] (eve) to [bend left] (bob);\n  \\draw[color=purple,dashed,->, line width=1pt] (bob) to [bend left] (eve);\n  \n  \\node at (.8,1.5) {\\parbox{3cm}{\\centering Private speech interaction}};\n  \\node at (4.1,0) {\\parbox{2cm}{\\centering Reduced data}};\n  \\node at (6,1.5) {\\parbox{2cm}{\\centering Restricted interactor}};\n\\end{tikzpicture}\n\n\\end{document}\n')
+
+
+# An issue with current methodology is that there are no theoretical guarantees of anonymity. That is, we can try to deduce private information from the anonymized data stream, and if we fail, we can say that the anonymization has succeeded with respect our attempts to break it. However, we have no guarantee that some other more advanced method for breaking the anonynization would not succeed. 
+
 # ### Differential privacy
 # 
 # Even when operating with aggregate data, like the mean user age, it is
@@ -485,7 +498,13 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # then obfuscated and cannot be exactly recovered. However, the ensemble
 # average can still be deduced if the distribution of the added noise is
 # known.
-# 
+
+# In[14]:
+
+
+get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=newest}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n  \\node[ellipse,draw,minimum width=50pt] at (0,0) (alice) {Alice\\strut };\n  \\node[ellipse,draw,minimum width=50pt] at (2.6,0)  (bob) {Agent 1\\strut };\n  \\draw[->, line width=1pt] (alice) to [bend left] (bob);\n  \\draw[->, line width=1pt] (bob) to [bend left] (alice);\n\n  \\node[draw=gray,very thick,ellipse,minimum width=140pt, minimum height = 45pt] at (1.35,0) (private) {};\n\n  \\node[circle,draw,style={font=\\small}] at (5,0) (diffplus) {+};\n\n  \\node[ellipse,draw,minimum width=50pt] at (7,0) (eve) {Agent 2\\strut};\n  \\draw[color=purple,->, line width=1pt] (bob) to [left] (diffplus);\n  \\draw[color=purple,->, dashed,line width=1pt] (diffplus) to [left] (eve);\n  %\\path[color=purple,very thick,dashed,<-,every node/.style={font=\\small}] (bob) edge [] node[yshift=.5cm] {\\parbox{1cm}{model update}} (eve);\n  %\\draw[color=purple,->, line width=1pt] (bob) to [bend left] (eve);\n  \n  \\node at (1.35,1.5) {\\parbox{3cm}{\\centering Private speech interaction}};\n  \\node at (7,1.5) {\\parbox{2cm}{\\centering Restricted interactor}};\n  \\node at (5,1.5) (noise) {\\parbox{2cm}{\\centering Noise}};\n  \\draw[color=purple,->, line width=1pt] (noise) to [left] (diffplus);\n\\end{tikzpicture}\n\n\\end{document}\n')
+
+
 # The required compromise here is that the level of privacy corresponds to
 # amount of noise, which is inversely proportional to the accuracy of the
 # ensemble mean. That is, if the amount of noise is large, then we need a
@@ -493,65 +512,41 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # other hand, if the amount of noise is small, then we can get a fair
 # guess of an individual data point, but also the ensemble average is
 # accurate.
-# 
+
 # ### Federated learning
 # 
-# To enable machine learning in the cloud without the need to provide
-# access to private data, we can use [federated
-# learning](https://en.wikipedia.org/wiki/Federated_learning), where
-# private data remains on the local device, but only model updates are
-# sent to the cloud. Clearly this is approach has better privacy than one
-# where all private data is sent to the cloud. However, currently we do
-# not yet have clear understanding of the extent of privacy with this type
-# of methods; some data is sent to the cloud, but can some private data
-# still be traced back to the user?
-# 
+# To enable machine learning in the cloud without the need to provide access to private data, we can use [federated learning](https://en.wikipedia.org/wiki/Federated_learning), where private data remains on the local device, but only model updates are sent to the cloud. Clearly this is approach has better privacy than one where all private data is sent to the cloud. At the same time, by combining information from a large number of local devices in the cloud, the machine learning models can be optimized to be highly accurate. However, currently we do not yet have clear understanding of the extent of privacy with this type of methods; some data is sent to the cloud, but can some private data still be traced back to the user?
+
+# In[15]:
+
+
+get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=newest}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n  \\node[draw=gray,dotted,fill=white,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (1.2,.8) (private5) {};\n  \\node[draw=gray,dotted,fill=white,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (1.1,.6) (private4) {};\n  \\node[draw=gray,fill=white,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (1,.4) (private3) {};\n  \\node[draw=gray,fill=white,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (.9,.2) (private2) {};\n  \\node[draw=gray,fill=white,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (.8,0) (private) {};\n  \\node[ellipse,draw,minimum width=40pt,minimum height=35pt] at (-.5,0) (alice) {Alice};\n  \\node[ellipse,draw,minimum width=35pt] at (2,0)  (bob) {\\parbox{1cm}{\\centering Local device}};\n  \\draw[->, line width=1pt] (alice) to [bend left] (bob);\n  \\draw[->, line width=1pt] (bob) to [bend left] (alice);\n  %\\node[fit=(alice) (bob), inner sep=1pt] (p) {};% {\\parbox{2.4cm}{\\centering Desired speech interaction\\vspace{-1cm}}};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob),label={[label distance=.01cm]180:{\\parbox{1.7cm}{\\centering Desired\\\\ interaction}}}] (private) {};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob) (p)] (private) {};\n  \n\n  \\node[ellipse,draw] at (6,0) (eve) {\\parbox{1cm}{\\centering Cloud servce}};\n  \\draw[color=purple,->, line width=1pt] (eve) to [bend left] (bob);\n  %\\path[color=purple,very thick,<-,every node/.style={font=\\small}] (bob) edge [] node[yshift=.5cm] {\\parbox{1cm}{model update}} (eve);\n  \\draw[color=purple,->, line width=1pt] (bob) to [bend left] (eve);\n  \n  \\node at (.8,2.5) {\\parbox{3cm}{\\centering Private speech interactions}};\n  \\node at (4.2,0) {\\parbox{1.3cm}{\\centering Model updates}};\n  \\node at (6,1.5) {\\parbox{2cm}{\\centering Restricted interactor}};\n\\end{tikzpicture}\n\n\\end{document}\n')
+
+
 # ### Homomorphic encryption
 # 
-# Suppose a service provider has a proprietary model, say an analysis
-# method for Alzheimer's disease from the voice, and your doctor would
-# like to analyse your voice with that method. Naturally your voice is
-# also private, so you do not want to send your voice to the third-party
-# service provider, but also the service provider does not want to send
-# the model to you. [Homomorphic
-# encryption](https://en.wikipedia.org/wiki/Homomorphic_encryption)
-# provides a method for applying the secret model on *encrypted* data,
-# such that you have to only send your data in an encrypted form to the
-# service provider. Your doctor would then receive only the final
-# diagnosis, but not the model nor your speech data. The concept is in
-# principle beautiful, it solves the problem of mutual distrust very
-# nicely. However, the compromise is that currently available homomorphic
-# encryption methods require that all processing functions can be written
-# as polynomial functions. In theory, we can transform any function to a
-# corresponding polynomial, but the increase in complexity is often
-# dramatic. Consequently, privacy-preserving methods based on homomorphic
-# encryption typically have a prohibitively high computational complexity.
-# 
+# Suppose a service provider has a proprietary model, say an analysis method for Alzheimer's disease from the voice, and your doctor would like to analyse your voice with that method. Naturally your voice is also private, so you do not want to send your voice to the third-party service provider, but also the service provider does not want to send the model to you. [Homomorphic encryption](https://en.wikipedia.org/wiki/Homomorphic_encryption) provides a method for applying the secret model on *encrypted* data, such that you have to only send your data in an encrypted form to the service provider. Your doctor would then receive only the final diagnosis, but not the model nor your speech data. The concept is in principle beautiful, it solves the problem of mutual distrust very nicely. However, the compromise is that currently available homomorphic encryption methods require that all processing functions can be written as polynomial functions. In theory, we can transform any function to a corresponding polynomial, but the increase in complexity is often dramatic. Consequently, privacy-preserving methods based on homomorphic encryption typically have a prohibitively high computational complexity. {cite:p}`armknecht2015guide`
+
+# In[16]:
+
+
+get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=newest}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n  \\node[ellipse,draw,minimum width=40pt,minimum height=35pt] at (-.5,0) (alice) {Alice};\n  \\node[ellipse,draw,minimum width=35pt] at (2,0)  (bob) {\\parbox{1cm}{\\centering Local device}};\n  \\draw[->, line width=1pt] (alice) to [bend left] (bob);\n  \\draw[->, line width=1pt] (bob) to [bend left] (alice);\n  %\\node[fit=(alice) (bob), inner sep=1pt] (p) {};% {\\parbox{2.4cm}{\\centering Desired speech interaction\\vspace{-1cm}}};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob),label={[label distance=.01cm]180:{\\parbox{1.7cm}{\\centering Desired\\\\ interaction}}}] (private) {};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob) (p)] (private) {};\n  \\node[draw=gray,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (.8,0) (private) {};\n\n  \\node[ellipse,draw] at (6,0) (eve) {\\parbox{1cm}{\\centering Cloud servce}};\n  \\draw[color=purple,->, dotted,line width=1pt] (eve) to [bend left] (bob);\n  \\draw[color=purple,->, dotted,line width=1pt] (bob) to [bend left] (eve);\n  \n  \\node at (.8,1.5) {\\parbox{3cm}{\\centering Private speech interaction}};\n  \\node at (4.1,0) {\\parbox{2cm}{\\centering Encrypted data}};\n  \\node at (6,1.5) {\\parbox{2cm}{\\centering Restricted interactor}};\n\\end{tikzpicture}\n\n\\end{document}\n')
+
+
 # ### myData
 # 
-# In addition to privacy-preserving algorithms, we can also design
-# privacy-preserving architectures. The [myData](https://mydata.org/) paradigm is based on a
-# three-tier design, where the user can choose where all his/her data is
-# stored and where the user can give access for service providers to
-# his/her data when required. The idea is to separate service providers
-# from data storage, such that users have better control over his/her
-# data. To transform existing services to adhere with the myData concept
-# requires that new storage services for private data are created and that
-# APIs between storage and processing services are specified.
+# In addition to privacy-preserving algorithms, we can also design privacy-preserving architectures. The [myData](https://mydata.org/) paradigm is based on a three-tier design, where the user can choose where all his/her data is stored and where the user can give access for service providers to his/her data when required. The idea is to separate service providers from data storage, such that users have better control over his/her data. To transform existing services to adhere with the myData concept requires that new storage services for private data are created and that APIs between storage and processing services are specified. {cite:p}`poikola2016mydatb`
+
+# In[17]:
+
+
+get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', '\\documentclass{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage{tikz}\n\\usepackage{verbatim}\n\n\n\\usepackage{pgfplots}\n\\DeclareUnicodeCharacter{2212}{−}\n\\usepgfplotslibrary{groupplots,dateplot}\n\\usetikzlibrary{patterns,shapes.arrows}\n\\usetikzlibrary {fit} \n\\usetikzlibrary{shapes.geometric,positioning}\n\\usetikzlibrary{bending}\n\\pgfplotsset{compat=newest}\n\n\\begin{document}\n\n\n\\begin{tikzpicture}\n  \\node[ellipse,draw,minimum width=40pt,minimum height=35pt] at (-.5,0) (alice) {Alice};\n  \\node[ellipse,draw,minimum width=35pt] at (2,0)  (bob) {\\parbox{1cm}{\\centering Local device}};\n  \\draw[->, line width=1pt] (alice) to [bend left] (bob);\n  \\draw[->, line width=1pt] (bob) to [bend left] (alice);\n  %\\node[fit=(alice) (bob), inner sep=1pt] (p) {};% {\\parbox{2.4cm}{\\centering Desired speech interaction\\vspace{-1cm}}};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob),label={[label distance=.01cm]180:{\\parbox{1.7cm}{\\centering Desired\\\\ interaction}}}] (private) {};\n  %\\node[draw=gray,inner sep=6pt,very thick,ellipse,fit=(alice) (bob) (p)] (private) {};\n  \\node[draw=gray,very thick,ellipse,minimum width=130pt, minimum height = 60pt] at (.8,0) (private) {};\n\n  \\node[ellipse,draw] at (5.1,1) (mydata) {\\parbox{1cm}{\\centering Private cloud}};\n  \\node[ellipse,draw] at (8,0) (eve) {\\parbox{1cm}{\\centering Cloud servce}};\n  \\draw[color=purple,->, line width=1pt] (eve) to [bend left] (bob);\n  \\path[color=purple,very thick,->,every node/.style={font=\\small}] \n          (bob) edge [] node[yshift=.5cm] {\\parbox{1cm}{\\centering raw data}} (mydata);\n  \\path[color=purple,very thick,dashed,->,every node/.style={font=\\small}] \n          (mydata) edge [] node[xshift=.25cm,yshift=.5cm] {\\parbox{1cm}{\\centering reduced data}} (eve);\n  \n  \\node at (.8,1.5) {\\parbox{3cm}{\\centering Private speech interaction}};  \n  %\\node at (6,1.5) {\\parbox{2cm}{\\centering Restricted interactor}};\n\\end{tikzpicture}\n\n\\end{document}\n')
+
+
+# Note that, if a user chooses to store private data on a cloud-server, then it is still susceptible for abuse by the storage-service-provider, unless appropriate encryption methods are used. However, the user could in principle choose to store private data on a edge device, such that the storage-service-provider is cut out of the loop.
 # 
-# Note that, if a user chooses to store private data on a cloud-server,
-# then it is still susceptible for abuse by the storage-service-provider,
-# unless appropriate encryption methods are used. However, the user could
-# in principle choose to store private data on a edge device, such that
-# the storage-service-provider is cut out of the loop.
-# 
-# A further risk is that in the myData concept, we usually assume that
-# data is stored at a single central location, which becomes a central
-# point of weakness. Should someone gain illegitimate access to the
-# storage, then all your data would be compromised. Distributing data to
-# several different storage locations might therefore be reasonable.
-# 
-# 
+# A further risk is that in the myData concept, we usually assume that data is stored at a single central location, which becomes a central point of weakness. Should someone gain illegitimate access to the storage, then all your data would be compromised. Distributing data to several different storage locations might therefore be reasonable.
+
 # ## Design goals, human computer interfaces and user experience
 # 
 # A common prejudice is that privacy and security requirements cause
@@ -577,7 +572,7 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # is optimized for white curtains made out of cotton.
 # 
 # The overall design goal could be that people should be able to *trust*
-# the system. In particular, a trustworthy system will be
+# the system. In particular, a trustworthy system will be {cite:p}`Chen2003,Xie2009`
 # 
 # -   *consistent*; It does what it says, and it says what it does.
 # -   *competent*; It is able to do what it should do and what it says it
@@ -601,8 +596,7 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 #     future and all of the past 10 years. Did he already earlier tell my
 #     secrets to them? Who else has he told my secrets to? It takes a very
 #     long time to patch such breaches of trust.
-# 
-# 
+
 # ## Ethical dilemmas
 # 
 # The following is a list of hypothetical questions which can (and do)
@@ -783,9 +777,3 @@ get_ipython().run_cell_magic('itikz', '--temp-dir --file-prefix dual-primary-', 
 # ```{bibliography}
 # :filter: docname in docnames
 # ```
-
-# In[ ]:
-
-
-
-

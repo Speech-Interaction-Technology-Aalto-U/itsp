@@ -90,10 +90,10 @@ audio signal equally which generates a set of segments { $ s_i $ }.
 Let  $ c_i $ represent  $ i^{th} $ speaker cluster,  $ b_i $
 represent the emission probability of cluster  $ c_i $ and  $ f_t
 $ denote a given feature vector at time $ t $ . Then, the
-log-likelihood  $ logb_i(s_t) $ of the feature ft for cluster  $
+log-likelihood  $ \log b_i(s_t) $ of the feature ft for cluster  $
 c_i $ is calculated as follows:
 
-$$ logb_i(s_t)=log \sum_{(r)} {w}^r_i N
+$$ \log b_i(s_t)=\log \sum_{(r)} {w}^r_i N
 (f_i,{\mu}^r_i,\sum_{(i)}^r) $$
 
   
@@ -110,9 +110,9 @@ Wooters, 2003]. The modified BIC distance does not take into account
 the penalty term that corresponds to the number of free parameters of a
 multivariate Gaussian distribution and is expressed as: 
 
-$$ \Delta BIC (c_i,c_j)= log \sum_{f_t \in ( {ci \; \cup \;
-c_j})} log b_{ij}(f_t) - log \sum_{f_t \in ci} log b_{i}(f_t) - log
-\sum_{f_t \in cj} log b_{j}(f_t) $$
+$$ \Delta BIC (c_i,c_j)= \log \sum_{f_t \in ( {ci \; \cup \;
+c_j})} \log b_{ij}(f_t) - \log \sum_{f_t \in ci} \log b_{i}(f_t) - \log 
+\sum_{f_t \in cj} \log b_{j}(f_t) $$
 
 where  $ b_{ij} $ is the probability distribution of the combined
 clusters  $ c_i $ and  $ c_j. $

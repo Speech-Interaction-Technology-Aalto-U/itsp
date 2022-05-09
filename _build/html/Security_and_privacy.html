@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -762,23 +760,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anonymization-pseudonymization-and-disentanglement">
+     13.6.4. Anonymization, pseudonymization and disentanglement
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#differential-privacy">
-     13.6.4. Differential privacy
+     13.6.5. Differential privacy
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#federated-learning">
-     13.6.5. Federated learning
+     13.6.6. Federated learning
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#homomorphic-encryption">
-     13.6.6. Homomorphic encryption
+     13.6.7. Homomorphic encryption
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mydata">
-     13.6.7. myData
+     13.6.8. myData
     </a>
    </li>
   </ul>
@@ -935,23 +938,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anonymization-pseudonymization-and-disentanglement">
+     13.6.4. Anonymization, pseudonymization and disentanglement
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#differential-privacy">
-     13.6.4. Differential privacy
+     13.6.5. Differential privacy
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#federated-learning">
-     13.6.5. Federated learning
+     13.6.6. Federated learning
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#homomorphic-encryption">
-     13.6.6. Homomorphic encryption
+     13.6.7. Homomorphic encryption
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mydata">
-     13.6.7. myData
+     13.6.8. myData
     </a>
    </li>
   </ul>
@@ -1027,7 +1035,7 @@ listen to them and sometimes even recording them is restricted. Covert
 listening is usually allowed only for the police and even for them only
 in specially regulated situations, such as with a permission granted by
 a court or judge.</p>
-<p><span id="id1">[<a class="reference internal" href="#id43" title="Xabier Lareo. Smart speakers and virtual assistants. TechDispatch #1:, 2019. URL: https://data.europa.eu/doi/10.2804/004275.">Lareo, 2019</a>, <a class="reference internal" href="#id51" title="Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. arXiv preprint arXiv:1907.03458, 2019. URL: https://doi.org/10.21437/Interspeech.2019-2647.">Nautsch <em>et al.</em>, 2019</a>]</span></p>
+<p><span id="id1">[<a class="reference internal" href="#id56" title="Xabier Lareo. Smart speakers and virtual assistants. TechDispatch #1:, 2019. URL: https://data.europa.eu/doi/10.2804/004275.">Lareo, 2019</a>, <a class="reference internal" href="#id64" title="Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. arXiv preprint arXiv:1907.03458, 2019. URL: https://doi.org/10.21437/Interspeech.2019-2647.">Nautsch <em>et al.</em>, 2019</a>]</span></p>
 <div class="section" id="system-models">
 <h2><span class="section-number">13.1. </span>System models<a class="headerlink" href="#system-models" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="all-human-interaction">
@@ -1039,7 +1047,8 @@ a court or judge.</p>
 <div class="cell_output docutils container">
 <img alt="_images/Security_and_privacy_3_0.svg" src="_images/Security_and_privacy_3_0.svg" /></div>
 </div>
-<p>Though Alice and Bob knowingly and intentionally interact, they might reveal private things. This is the classic “<em>slip of the tongue</em>”.</p>
+<p>Though Alice and Bob knowingly and intentionally interact, they might reveal private things. This is the classic “<em>slip of the tongue</em>”.
+<span id="id2">[<a class="reference internal" href="#id15" title="Sandra Petronio. Boundaries of privacy: Dialectics of disclosure. Suny Press, 2002.">Petronio, 2002</a>]</span></p>
 </div>
 <div class="section" id="secondary-interactions">
 <h4><span class="section-number">13.1.1.2. </span>Secondary interactions<a class="headerlink" href="#secondary-interactions" title="Permalink to this headline">¶</a></h4>
@@ -1053,7 +1062,7 @@ a court or judge.</p>
 <div class="section" id="ownership-and-personal-privacy">
 <h4><span class="section-number">13.1.1.3. </span>Ownership and personal privacy<a class="headerlink" href="#ownership-and-personal-privacy" title="Permalink to this headline">¶</a></h4>
 <p>Privacy is closely connected to ownership of immaterial property, that is, information. Such ownership can also be translated to the question of <em>who has the control</em> over some information? In terms of <em>personal privacy</em>, it is clear that it relates to information to which a single person can claim ownership.</p>
-<p>Speech is more complicated. Speech is a form of communication and thus relates to an interaction between two parties. Dialogues can also commonly lead to co-creation of meaning, where new information is generated through the dialogue in a form which none of the involved parties could have alone produced <span id="id2">[<a class="reference internal" href="#id44" title="Jessica Gasiorek. Message processing: The science of creating understanding. UH Mānoa Outreach College, 2018. URL: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/.">Gasiorek, 2018</a>]</span>. None of the users can thus claim sole ownership of the information, but the ownership is shared. Currently we do not have the tools for handling such shared ownership.</p>
+<p>Speech is more complicated. Speech is a form of communication and thus relates to an interaction between two parties. Dialogues can also commonly lead to co-creation of meaning, where new information is generated through the dialogue in a form which none of the involved parties could have alone produced <span id="id3">[<a class="reference internal" href="#id57" title="Jessica Gasiorek. Message processing: The science of creating understanding. UH Mānoa Outreach College, 2018. URL: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/.">Gasiorek, 2018</a>]</span>. None of the users can thus claim sole ownership of the information, but the ownership is shared. Currently we do not have the tools for handling such shared ownership.</p>
 </div>
 </div>
 <div class="section" id="interactions-which-involve-devices-or-services">
@@ -1092,7 +1101,7 @@ a court or judge.</p>
 <div class="cell_output docutils container">
 <img alt="_images/Security_and_privacy_13_0.svg" src="_images/Security_and_privacy_13_0.svg" /></div>
 </div>
-<p>An exception is analysis, which the agent can perform, which is not related to the desired service, which can take abusive forms. For example, suppose the agent analyses the user’s voice for health problems and identifies that the user has <a class="reference external" href="https://en.wikipedia.org/wiki/Alzheimer%27s_disease">Alzheimer’s disease</a>. What should the agent then do with that information? Not doing anthing seems unethical - getting early access to medical services could greatly improve life quality. Informing the user, on the other hand, involves risks. How will the user react to the information? Is the user sufficiently psychologically stable to handle it? What if the analysis is incorrect and the agent thus causes suffering? It is also easy to think of further problematic scenarios.</p>
+<p>An exception is analysis, which the agent can perform, which is not related to the desired service, which can take abusive forms. For example, suppose the agent analyses the user’s voice for health problems and identifies that the user has <a class="reference external" href="https://en.wikipedia.org/wiki/Alzheimer%27s_disease">Alzheimer’s disease</a>. What should the agent then do with that information? Not doing anthing seems unethical - getting early access to medical services could greatly improve life quality. Informing the user, on the other hand, involves risks. How will the user react to the information? Is the user sufficiently psychologically stable to handle it? What if the analysis is incorrect and the agent thus causes suffering? It is also easy to think of further problematic scenarios.  <span id="id4">[<a class="reference internal" href="#id14" title="Alexandra König, Aharon Satt, Alexander Sorin, Ron Hoory, Orith Toledo-Ronen, Alexandre Derreumaux, Valeria Manera, Frans Verhey, Pauline Aalten, Phillipe H Robert, and others. Automatic speech analysis for the assessment of patients with predementia and Alzheimer's disease. Alzheimer's &amp; Dementia: Diagnosis, Assessment &amp; Disease Monitoring, 1(1):112–124, 2015. URL: https://doi.org/10.1016/j.dadm.2014.11.012.">König <em>et al.</em>, 2015</a>]</span></p>
 </div>
 <div class="section" id="multi-user-interaction-with-a-speech-interface">
 <h4><span class="section-number">13.1.2.4. </span>Multi-user interaction with a speech interface<a class="headerlink" href="#multi-user-interaction-with-a-speech-interface" title="Permalink to this headline">¶</a></h4>
@@ -1188,7 +1197,7 @@ protect.</p>
 <div class="section" id="types-of-privacy">
 <h2><span class="section-number">13.3. </span>Types of privacy<a class="headerlink" href="#types-of-privacy" title="Permalink to this headline">¶</a></h2>
 <p>In a more general scope than just speech, privacy can be categorized
-into seven types: <span id="id3">[<a class="reference internal" href="#id5" title="Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In European data protection: coming of age, pages 3–32. Springer, 2013. URL: https://doi.org/10.1007/978-94-007-5170-5_1.">Finn <em>et al.</em>, 2013</a>]</span></p>
+into seven types: <span id="id5">[<a class="reference internal" href="#id18" title="Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In European data protection: coming of age, pages 3–32. Springer, 2013. URL: https://doi.org/10.1007/978-94-007-5170-5_1.">Finn <em>et al.</em>, 2013</a>]</span></p>
 <ul class="simple">
 <li><p><strong>Privacy of the person</strong>, which refers to the privacy with respect
 to our physical body as well as any information about our body such
@@ -1237,7 +1246,7 @@ as the stakeholders. In particular,</p>
 <li><p>Companies can extract information from private users for unethical
 advantage</p>
 <ul>
-<li><p>Insurance policies and mortgages can be denied on based on
+<li><p>Insurance policies and mortgages can be denied based on
 covertly extracted information</p></li>
 <li><p>The price of services can be increased for vulnerable groups</p></li>
 <li><p>Access to information (search results) can be restricted and
@@ -1398,13 +1407,11 @@ yes)?</p>
 </div>
 <div class="section" id="local-edge-processing">
 <h3><span class="section-number">13.6.3. </span>Local/edge processing<a class="headerlink" href="#local-edge-processing" title="Permalink to this headline">¶</a></h3>
-<p>Privacy is an issue only if some other party has access to data about
-you. Data which resides on a device which is in your control is
-therefore relatively safe, assuming that no outsider has access to that
-device. If data is sent to a cloud server then there are more entities
-which could potentially have access to your data. Therefore all storage
-and processing which can be done on your local device is usually by
-design more private than any cloud server.</p>
+<p>Privacy is an issue only if some other party has access to data about you. Data which resides on a device which is in your control is therefore relatively safe, assuming that no outsider has access to that device. If data is sent to a cloud server then there are more entities which could potentially have access to your data. Therefore all storage and processing which can be done on your local device is usually by design more private than any cloud server. Typically, a cloud server would only provide software updates (downlink), but no data would be sent in the other direction (uplink). <span id="id6">[<a class="reference internal" href="#id17" title="Weisong Shi, Jie Cao, Quan Zhang, Youhuizi Li, and Lanyu Xu. Edge computing: vision and challenges. IEEE internet of things journal, 3(5):637–646, 2016. URL: https://doi.org/10.1109/JIOT.2016.2579198.">Shi <em>et al.</em>, 2016</a>]</span></p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_24_0.svg" src="_images/Security_and_privacy_24_0.svg" /></div>
+</div>
 <p>Observe that this does not protect you from other local users. For
 example, if multiple persons are using one smart speaker at home, then
 the other users could have access to information about you through that
@@ -1430,8 +1437,17 @@ load because with a large number of users, the resource requirements
 would likely be more stable.</p></li>
 </ul>
 </div>
+<div class="section" id="anonymization-pseudonymization-and-disentanglement">
+<h3><span class="section-number">13.6.4. </span>Anonymization, pseudonymization and disentanglement<a class="headerlink" href="#anonymization-pseudonymization-and-disentanglement" title="Permalink to this headline">¶</a></h3>
+<p>A central issue with voice communication is that, in addition to the intended message, it also contains so much other information. For example, if you want to order a pizza delivery, the service provider needs to know only the content of the order, destination where the order should be delivered and how it is paid. The provider does not need to know, for example, your state of health or your cultural affiliation. <em>Anonymization</em> refers to methods which try to strip away such private and extra information such that only the intended message remains. With <em>pseudonymization</em> we refer to similar methods, where private information is replaced by some other information. For example, we could replace personal identifying information of a user <em>Alice</em> with an avatar-identity <em>Adam</em>. The process and methodology of separating the different streams of information is known as <em>disentanglement</em>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_27_0.svg" src="_images/Security_and_privacy_27_0.svg" /></div>
+</div>
+<p>An issue with current methodology is that there are no theoretical guarantees of anonymity. That is, we can try to deduce private information from the anonymized data stream, and if we fail, we can say that the anonymization has succeeded with respect our attempts to break it. However, we have no guarantee that some other more advanced method for breaking the anonynization would not succeed.</p>
+</div>
 <div class="section" id="differential-privacy">
-<h3><span class="section-number">13.6.4. </span>Differential privacy<a class="headerlink" href="#differential-privacy" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.6.5. </span>Differential privacy<a class="headerlink" href="#differential-privacy" title="Permalink to this headline">¶</a></h3>
 <p>Even when operating with aggregate data, like the mean user age, it is
 still possible to extract private information in some scenarios. For
 example, if we know the mean user age and the number of users at a time
@@ -1444,6 +1460,10 @@ possible to add noise to any data transfers. Individual data points are
 then obfuscated and cannot be exactly recovered. However, the ensemble
 average can still be deduced if the distribution of the added noise is
 known.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_30_0.svg" src="_images/Security_and_privacy_30_0.svg" /></div>
+</div>
 <p>The required compromise here is that the level of privacy corresponds to
 amount of noise, which is inversely proportional to the accuracy of the
 ensemble mean. That is, if the amount of noise is large, then we need a
@@ -1453,59 +1473,30 @@ guess of an individual data point, but also the ensemble average is
 accurate.</p>
 </div>
 <div class="section" id="federated-learning">
-<h3><span class="section-number">13.6.5. </span>Federated learning<a class="headerlink" href="#federated-learning" title="Permalink to this headline">¶</a></h3>
-<p>To enable machine learning in the cloud without the need to provide
-access to private data, we can use <a class="reference external" href="https://en.wikipedia.org/wiki/Federated_learning">federated
-learning</a>, where
-private data remains on the local device, but only model updates are
-sent to the cloud. Clearly this is approach has better privacy than one
-where all private data is sent to the cloud. However, currently we do
-not yet have clear understanding of the extent of privacy with this type
-of methods; some data is sent to the cloud, but can some private data
-still be traced back to the user?</p>
+<h3><span class="section-number">13.6.6. </span>Federated learning<a class="headerlink" href="#federated-learning" title="Permalink to this headline">¶</a></h3>
+<p>To enable machine learning in the cloud without the need to provide access to private data, we can use <a class="reference external" href="https://en.wikipedia.org/wiki/Federated_learning">federated learning</a>, where private data remains on the local device, but only model updates are sent to the cloud. Clearly this is approach has better privacy than one where all private data is sent to the cloud. At the same time, by combining information from a large number of local devices in the cloud, the machine learning models can be optimized to be highly accurate. However, currently we do not yet have clear understanding of the extent of privacy with this type of methods; some data is sent to the cloud, but can some private data still be traced back to the user?</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_33_0.svg" src="_images/Security_and_privacy_33_0.svg" /></div>
+</div>
 </div>
 <div class="section" id="homomorphic-encryption">
-<h3><span class="section-number">13.6.6. </span>Homomorphic encryption<a class="headerlink" href="#homomorphic-encryption" title="Permalink to this headline">¶</a></h3>
-<p>Suppose a service provider has a proprietary model, say an analysis
-method for Alzheimer’s disease from the voice, and your doctor would
-like to analyse your voice with that method. Naturally your voice is
-also private, so you do not want to send your voice to the third-party
-service provider, but also the service provider does not want to send
-the model to you. <a class="reference external" href="https://en.wikipedia.org/wiki/Homomorphic_encryption">Homomorphic
-encryption</a>
-provides a method for applying the secret model on <em>encrypted</em> data,
-such that you have to only send your data in an encrypted form to the
-service provider. Your doctor would then receive only the final
-diagnosis, but not the model nor your speech data. The concept is in
-principle beautiful, it solves the problem of mutual distrust very
-nicely. However, the compromise is that currently available homomorphic
-encryption methods require that all processing functions can be written
-as polynomial functions. In theory, we can transform any function to a
-corresponding polynomial, but the increase in complexity is often
-dramatic. Consequently, privacy-preserving methods based on homomorphic
-encryption typically have a prohibitively high computational complexity.</p>
+<h3><span class="section-number">13.6.7. </span>Homomorphic encryption<a class="headerlink" href="#homomorphic-encryption" title="Permalink to this headline">¶</a></h3>
+<p>Suppose a service provider has a proprietary model, say an analysis method for Alzheimer’s disease from the voice, and your doctor would like to analyse your voice with that method. Naturally your voice is also private, so you do not want to send your voice to the third-party service provider, but also the service provider does not want to send the model to you. <a class="reference external" href="https://en.wikipedia.org/wiki/Homomorphic_encryption">Homomorphic encryption</a> provides a method for applying the secret model on <em>encrypted</em> data, such that you have to only send your data in an encrypted form to the service provider. Your doctor would then receive only the final diagnosis, but not the model nor your speech data. The concept is in principle beautiful, it solves the problem of mutual distrust very nicely. However, the compromise is that currently available homomorphic encryption methods require that all processing functions can be written as polynomial functions. In theory, we can transform any function to a corresponding polynomial, but the increase in complexity is often dramatic. Consequently, privacy-preserving methods based on homomorphic encryption typically have a prohibitively high computational complexity. <span id="id7">[<a class="reference internal" href="#id13" title="Frederik Armknecht, Colin Boyd, Christopher Carr, Kristian Gjøsteen, Angela Jäschke, Christian A Reuter, and Martin Strand. A guide to fully homomorphic encryption. IACR Cryptology ePrint Archive, 2015:1192, 2015. URL: https://ia.cr/2015/1192.">Armknecht <em>et al.</em>, 2015</a>]</span></p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_35_0.svg" src="_images/Security_and_privacy_35_0.svg" /></div>
+</div>
 </div>
 <div class="section" id="mydata">
-<h3><span class="section-number">13.6.7. </span>myData<a class="headerlink" href="#mydata" title="Permalink to this headline">¶</a></h3>
-<p>In addition to privacy-preserving algorithms, we can also design
-privacy-preserving architectures. The <a class="reference external" href="https://mydata.org/">myData</a> paradigm is based on a
-three-tier design, where the user can choose where all his/her data is
-stored and where the user can give access for service providers to
-his/her data when required. The idea is to separate service providers
-from data storage, such that users have better control over his/her
-data. To transform existing services to adhere with the myData concept
-requires that new storage services for private data are created and that
-APIs between storage and processing services are specified.</p>
-<p>Note that, if a user chooses to store private data on a cloud-server,
-then it is still susceptible for abuse by the storage-service-provider,
-unless appropriate encryption methods are used. However, the user could
-in principle choose to store private data on a edge device, such that
-the storage-service-provider is cut out of the loop.</p>
-<p>A further risk is that in the myData concept, we usually assume that
-data is stored at a single central location, which becomes a central
-point of weakness. Should someone gain illegitimate access to the
-storage, then all your data would be compromised. Distributing data to
-several different storage locations might therefore be reasonable.</p>
+<h3><span class="section-number">13.6.8. </span>myData<a class="headerlink" href="#mydata" title="Permalink to this headline">¶</a></h3>
+<p>In addition to privacy-preserving algorithms, we can also design privacy-preserving architectures. The <a class="reference external" href="https://mydata.org/">myData</a> paradigm is based on a three-tier design, where the user can choose where all his/her data is stored and where the user can give access for service providers to his/her data when required. The idea is to separate service providers from data storage, such that users have better control over his/her data. To transform existing services to adhere with the myData concept requires that new storage services for private data are created and that APIs between storage and processing services are specified. <span id="id8">[<a class="reference internal" href="#id16" title="Antti Poikola and Kai Kuikkaniemi end Harri Honko. Mydata – a nordic model for human-centered personal data management and processing. 2015. URL: http://urn.fi/URN:ISBN:978-952-243-455-5.">Poikola and end Harri Honko, 2015</a>]</span></p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/Security_and_privacy_37_0.svg" src="_images/Security_and_privacy_37_0.svg" /></div>
+</div>
+<p>Note that, if a user chooses to store private data on a cloud-server, then it is still susceptible for abuse by the storage-service-provider, unless appropriate encryption methods are used. However, the user could in principle choose to store private data on a edge device, such that the storage-service-provider is cut out of the loop.</p>
+<p>A further risk is that in the myData concept, we usually assume that data is stored at a single central location, which becomes a central point of weakness. Should someone gain illegitimate access to the storage, then all your data would be compromised. Distributing data to several different storage locations might therefore be reasonable.</p>
 </div>
 </div>
 <div class="section" id="design-goals-human-computer-interfaces-and-user-experience">
@@ -1531,7 +1522,7 @@ speech technology promises to give access to services without the need
 scroll through menus on your washing machine to find that one mode which
 is optimized for white curtains made out of cotton.</p>
 <p>The overall design goal could be that people should be able to <em>trust</em>
-the system. In particular, a trustworthy system will be</p>
+the system. In particular, a trustworthy system will be <span id="id9">[<a class="reference internal" href="#id11" title="S.C. Chen and G.S. Dhillon. Interpreting dimensions of consumer trust in e-commerce. Information Technology and Management, 4:303–318, 2003. doi:https://doi.org/10.1023/A:102296263124.">Chen and Dhillon, 2003</a>, <a class="reference internal" href="#id12" title="Yi Xie and Siqing Peng. How to repair customer trust after negative publicity: the roles of competence, integrity, benevolence, and forgiveness. Psychology &amp; Marketing, 26(7):572-589, 2009. URL: https://onlinelibrary.wiley.com/doi/abs/10.1002/mar.20289, doi:10.1002/mar.20289.">Xie and Peng, 2009</a>]</span></p>
 <ul class="simple">
 <li><p><em>consistent</em>; It does what it says, and it says what it does.</p></li>
 <li><p><em>competent</em>; It is able to do what it should do and what it says it
@@ -1725,19 +1716,40 @@ level of security is usually the domain of military-grade systems.</p>
 <li><p>ISCA Special Interest Group “Security and Privacy in Speech
 Communication”, <a class="reference external" href="https://www.spsc-sig.org/">https://www.spsc-sig.org/</a></p></li>
 </ul>
-<div class="docutils container" id="id4">
+<div class="docutils container" id="id10">
 <dl class="citation">
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id3">FWF13</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id7">ABC+15</a></span></dt>
+<dd><p>Frederik Armknecht, Colin Boyd, Christopher Carr, Kristian Gjøsteen, Angela Jäschke, Christian A Reuter, and Martin Strand. A guide to fully homomorphic encryption. <em>IACR Cryptology ePrint Archive</em>, 2015:1192, 2015. URL: <a class="reference external" href="https://ia.cr/2015/1192">https://ia.cr/2015/1192</a>.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id9">CD03</a></span></dt>
+<dd><p>S.C. Chen and G.S. Dhillon. Interpreting dimensions of consumer trust in e-commerce. <em>Information Technology and Management</em>, 4:303–318, 2003. <a class="reference external" href="https://doi.org/https://doi.org/10.1023/A:102296263124">doi:https://doi.org/10.1023/A:102296263124</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id5">FWF13</a></span></dt>
 <dd><p>Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In <em>European data protection: coming of age</em>, pages 3–32. Springer, 2013. URL: <a class="reference external" href="https://doi.org/10.1007/978-94-007-5170-5_1">https://doi.org/10.1007/978-94-007-5170-5_1</a>.</p>
 </dd>
-<dt class="label" id="id44"><span class="brackets"><a class="fn-backref" href="#id2">Gas18</a></span></dt>
+<dt class="label" id="id57"><span class="brackets"><a class="fn-backref" href="#id3">Gas18</a></span></dt>
 <dd><p>Jessica Gasiorek. <em>Message processing: The science of creating understanding</em>. UH Mānoa Outreach College, 2018. URL: <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">http://pressbooks-dev.oer.hawaii.edu/messageprocessing/</a>.</p>
 </dd>
-<dt class="label" id="id43"><span class="brackets"><a class="fn-backref" href="#id1">Lar19</a></span></dt>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id4">KonigSS+15</a></span></dt>
+<dd><p>Alexandra König, Aharon Satt, Alexander Sorin, Ron Hoory, Orith Toledo-Ronen, Alexandre Derreumaux, Valeria Manera, Frans Verhey, Pauline Aalten, Phillipe H Robert, and others. Automatic speech analysis for the assessment of patients with predementia and Alzheimer's disease. <em>Alzheimer's &amp; Dementia: Diagnosis, Assessment &amp; Disease Monitoring</em>, 1(1):112–124, 2015. URL: <a class="reference external" href="https://doi.org/10.1016/j.dadm.2014.11.012">https://doi.org/10.1016/j.dadm.2014.11.012</a>.</p>
+</dd>
+<dt class="label" id="id56"><span class="brackets"><a class="fn-backref" href="#id1">Lar19</a></span></dt>
 <dd><p>Xabier Lareo. Smart speakers and virtual assistants. <em>TechDispatch #1:</em>, 2019. URL: <a class="reference external" href="https://data.europa.eu/doi/10.2804/004275">https://data.europa.eu/doi/10.2804/004275</a>.</p>
 </dd>
-<dt class="label" id="id51"><span class="brackets"><a class="fn-backref" href="#id1">NJK+19</a></span></dt>
+<dt class="label" id="id64"><span class="brackets"><a class="fn-backref" href="#id1">NJK+19</a></span></dt>
 <dd><p>Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. <em>arXiv preprint arXiv:1907.03458</em>, 2019. URL: <a class="reference external" href="https://doi.org/10.21437/Interspeech.2019-2647">https://doi.org/10.21437/Interspeech.2019-2647</a>.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id2">Pet02</a></span></dt>
+<dd><p>Sandra Petronio. <em>Boundaries of privacy: Dialectics of disclosure</em>. Suny Press, 2002.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id8">PeHH15</a></span></dt>
+<dd><p>Antti Poikola and Kai Kuikkaniemi end Harri Honko. Mydata – a nordic model for human-centered personal data management and processing. 2015. URL: <a class="reference external" href="http://urn.fi/URN:ISBN:978-952-243-455-5">http://urn.fi/URN:ISBN:978-952-243-455-5</a>.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id6">SCZ+16</a></span></dt>
+<dd><p>Weisong Shi, Jie Cao, Quan Zhang, Youhuizi Li, and Lanyu Xu. Edge computing: vision and challenges. <em>IEEE internet of things journal</em>, 3(5):637–646, 2016. URL: <a class="reference external" href="https://doi.org/10.1109/JIOT.2016.2579198">https://doi.org/10.1109/JIOT.2016.2579198</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id9">XP09</a></span></dt>
+<dd><p>Yi Xie and Siqing Peng. How to repair customer trust after negative publicity: the roles of competence, integrity, benevolence, and forgiveness. <em>Psychology &amp; Marketing</em>, 26(7):572–589, 2009. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/mar.20289">https://onlinelibrary.wiley.com/doi/abs/10.1002/mar.20289</a>, <a class="reference external" href="https://doi.org/10.1002/mar.20289">doi:10.1002/mar.20289</a>.</p>
 </dd>
 </dl>
 </div>
