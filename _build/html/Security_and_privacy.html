@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -1035,7 +1037,7 @@ listen to them and sometimes even recording them is restricted. Covert
 listening is usually allowed only for the police and even for them only
 in specially regulated situations, such as with a permission granted by
 a court or judge.</p>
-<p><span id="id1">[<a class="reference internal" href="#id56" title="Xabier Lareo. Smart speakers and virtual assistants. TechDispatch #1:, 2019. URL: https://data.europa.eu/doi/10.2804/004275.">Lareo, 2019</a>, <a class="reference internal" href="#id64" title="Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. arXiv preprint arXiv:1907.03458, 2019. URL: https://doi.org/10.21437/Interspeech.2019-2647.">Nautsch <em>et al.</em>, 2019</a>]</span></p>
+<p><span id="id1">[<a class="reference internal" href="#id59" title="Xabier Lareo. Smart speakers and virtual assistants. TechDispatch #1:, 2019. URL: https://data.europa.eu/doi/10.2804/004275.">Lareo, 2019</a>, <a class="reference internal" href="#id67" title="Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. arXiv preprint arXiv:1907.03458, 2019. URL: https://doi.org/10.21437/Interspeech.2019-2647.">Nautsch <em>et al.</em>, 2019</a>]</span></p>
 <div class="section" id="system-models">
 <h2><span class="section-number">13.1. </span>System models<a class="headerlink" href="#system-models" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="all-human-interaction">
@@ -1062,7 +1064,7 @@ a court or judge.</p>
 <div class="section" id="ownership-and-personal-privacy">
 <h4><span class="section-number">13.1.1.3. </span>Ownership and personal privacy<a class="headerlink" href="#ownership-and-personal-privacy" title="Permalink to this headline">¶</a></h4>
 <p>Privacy is closely connected to ownership of immaterial property, that is, information. Such ownership can also be translated to the question of <em>who has the control</em> over some information? In terms of <em>personal privacy</em>, it is clear that it relates to information to which a single person can claim ownership.</p>
-<p>Speech is more complicated. Speech is a form of communication and thus relates to an interaction between two parties. Dialogues can also commonly lead to co-creation of meaning, where new information is generated through the dialogue in a form which none of the involved parties could have alone produced <span id="id3">[<a class="reference internal" href="#id57" title="Jessica Gasiorek. Message processing: The science of creating understanding. UH Mānoa Outreach College, 2018. URL: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/.">Gasiorek, 2018</a>]</span>. None of the users can thus claim sole ownership of the information, but the ownership is shared. Currently we do not have the tools for handling such shared ownership.</p>
+<p>Speech is more complicated. Speech is a form of communication and thus relates to an interaction between two parties. Dialogues can also commonly lead to co-creation of meaning, where new information is generated through the dialogue in a form which none of the involved parties could have alone produced <span id="id3">[<a class="reference internal" href="#id60" title="Jessica Gasiorek. Message processing: The science of creating understanding. UH Mānoa Outreach College, 2018. URL: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/.">Gasiorek, 2018</a>]</span>. None of the users can thus claim sole ownership of the information, but the ownership is shared. Currently we do not have the tools for handling such shared ownership.</p>
 </div>
 </div>
 <div class="section" id="interactions-which-involve-devices-or-services">
@@ -1197,7 +1199,7 @@ protect.</p>
 <div class="section" id="types-of-privacy">
 <h2><span class="section-number">13.3. </span>Types of privacy<a class="headerlink" href="#types-of-privacy" title="Permalink to this headline">¶</a></h2>
 <p>In a more general scope than just speech, privacy can be categorized
-into seven types: <span id="id5">[<a class="reference internal" href="#id18" title="Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In European data protection: coming of age, pages 3–32. Springer, 2013. URL: https://doi.org/10.1007/978-94-007-5170-5_1.">Finn <em>et al.</em>, 2013</a>]</span></p>
+into seven types: <span id="id5">[<a class="reference internal" href="#id21" title="Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In European data protection: coming of age, pages 3–32. Springer, 2013. URL: https://doi.org/10.1007/978-94-007-5170-5_1.">Finn <em>et al.</em>, 2013</a>]</span></p>
 <ul class="simple">
 <li><p><strong>Privacy of the person</strong>, which refers to the privacy with respect
 to our physical body as well as any information about our body such
@@ -1724,19 +1726,19 @@ Communication”, <a class="reference external" href="https://www.spsc-sig.org/"
 <dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id9">CD03</a></span></dt>
 <dd><p>S.C. Chen and G.S. Dhillon. Interpreting dimensions of consumer trust in e-commerce. <em>Information Technology and Management</em>, 4:303–318, 2003. <a class="reference external" href="https://doi.org/https://doi.org/10.1023/A:102296263124">doi:https://doi.org/10.1023/A:102296263124</a>.</p>
 </dd>
-<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id5">FWF13</a></span></dt>
+<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id5">FWF13</a></span></dt>
 <dd><p>Rachel L Finn, David Wright, and Michael Friedewald. Seven types of privacy. In <em>European data protection: coming of age</em>, pages 3–32. Springer, 2013. URL: <a class="reference external" href="https://doi.org/10.1007/978-94-007-5170-5_1">https://doi.org/10.1007/978-94-007-5170-5_1</a>.</p>
 </dd>
-<dt class="label" id="id57"><span class="brackets"><a class="fn-backref" href="#id3">Gas18</a></span></dt>
+<dt class="label" id="id60"><span class="brackets"><a class="fn-backref" href="#id3">Gas18</a></span></dt>
 <dd><p>Jessica Gasiorek. <em>Message processing: The science of creating understanding</em>. UH Mānoa Outreach College, 2018. URL: <a class="reference external" href="http://pressbooks-dev.oer.hawaii.edu/messageprocessing/">http://pressbooks-dev.oer.hawaii.edu/messageprocessing/</a>.</p>
 </dd>
 <dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id4">KonigSS+15</a></span></dt>
 <dd><p>Alexandra König, Aharon Satt, Alexander Sorin, Ron Hoory, Orith Toledo-Ronen, Alexandre Derreumaux, Valeria Manera, Frans Verhey, Pauline Aalten, Phillipe H Robert, and others. Automatic speech analysis for the assessment of patients with predementia and Alzheimer's disease. <em>Alzheimer's &amp; Dementia: Diagnosis, Assessment &amp; Disease Monitoring</em>, 1(1):112–124, 2015. URL: <a class="reference external" href="https://doi.org/10.1016/j.dadm.2014.11.012">https://doi.org/10.1016/j.dadm.2014.11.012</a>.</p>
 </dd>
-<dt class="label" id="id56"><span class="brackets"><a class="fn-backref" href="#id1">Lar19</a></span></dt>
+<dt class="label" id="id59"><span class="brackets"><a class="fn-backref" href="#id1">Lar19</a></span></dt>
 <dd><p>Xabier Lareo. Smart speakers and virtual assistants. <em>TechDispatch #1:</em>, 2019. URL: <a class="reference external" href="https://data.europa.eu/doi/10.2804/004275">https://data.europa.eu/doi/10.2804/004275</a>.</p>
 </dd>
-<dt class="label" id="id64"><span class="brackets"><a class="fn-backref" href="#id1">NJK+19</a></span></dt>
+<dt class="label" id="id67"><span class="brackets"><a class="fn-backref" href="#id1">NJK+19</a></span></dt>
 <dd><p>Andreas Nautsch, Catherine Jasserand, Els Kindt, Massimiliano Todisco, Isabel Trancoso, and Nicholas Evans. The gdpr &amp; speech data: reflections of legal and technology communities, first steps towards a common understanding. <em>arXiv preprint arXiv:1907.03458</em>, 2019. URL: <a class="reference external" href="https://doi.org/10.21437/Interspeech.2019-2647">https://doi.org/10.21437/Interspeech.2019-2647</a>.</p>
 </dd>
 <dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id2">Pet02</a></span></dt>

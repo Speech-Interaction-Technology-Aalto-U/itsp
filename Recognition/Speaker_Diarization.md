@@ -1,6 +1,6 @@
 # Speaker Diarization
 
-### Introduction to Speaker Diarization
+## Introduction to Speaker Diarization
 
 Speaker diarization is the process of segmenting and clustering a speech
 recording into homogeneous regions and answers the question “who spoke
@@ -76,7 +76,7 @@ clustering.
 ![](missing_picture)
 Bottom-Up and Top-down approaches to clustering
 
-### Approaches to Speaker Diarization
+## Approaches to Speaker Diarization
 
   
 
@@ -146,7 +146,7 @@ likelihood that the segments originated from the same or different
 speakers.  The proposed neural based system matches or exceeds the
 performance of state-of-the-art baselines.
 
-### Evaluation Metrics
+## Evaluation Metrics
 
 Diarization Error Rate (DER) is the metric used to measure the
 performance of speaker diarization systems. It is measured as the

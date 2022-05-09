@@ -1,6 +1,6 @@
 # Speaker Recognition and Verification
 
-### Introduction to Speaker Recognition
+## Introduction to Speaker Recognition
 
 Speaker recognition is the task of identifying a speaker using their
 voice. Speaker recognition is classified into two parts: speaker
@@ -54,7 +54,7 @@ include:
 4.  Transmission channel such as landline, mobile phone, microphone and
     voice over Internet protocol (VoIP).
 
-### Front-end Processing
+## Front-end Processing
 
 Many front-end processing are often used to process the speech signals
 and to extract the features which are used in the speaker verification
@@ -89,7 +89,7 @@ detection (VAD), feature extraction and channel compensation techniques;
     Factor Analysis (JFA) and i-vectors are used to combat enrolment and
     verification mismatch.
 
-### Speaker Modeling Techniques
+## Speaker Modeling Techniques
 
 One of the crucial issues in speaker diarization is the techniques
 employed for speaker modeling. Several modeling techniques have been
@@ -307,7 +307,7 @@ i-vectors, not their magnitude. Since the non-speaker information such
 as session and channel variabilities affect the i-vector magnitude,
 removing the magnitudes can increase the robustness of i-vector systems.
 
-#### Probabilistic Linear Discriminant Analysis 
+### Probabilistic Linear Discriminant Analysis 
 
 The i-vector representation followed by probabilistic linear
 discriminant analysis (PLDA) modeling technique is the state-of-the-art
@@ -420,7 +420,7 @@ feature vectors, e.g., MFCCs, as inputs. Recently, there have been
 several attempts to build an end-to-end speaker recognition system using
 DL though most of them focus on text-dependent speaker recognition.
 
-### Applications of Speaker Recognition
+## Applications of Speaker Recognition
 
 -   Transaction authentication – Toll fraud prevention, telephone credit
     card purchases, telephone brokerage (e.g., stock trading) 
@@ -435,13 +435,13 @@ DL though most of them focus on text-dependent speaker recognition.
 
 -   Forensics – Voice sample matching
 
-### Performance Evaluations
+## Performance Evaluations
 
 The performance of the speaker verification is measured in terms of
 errors. The types of error and evaluation metrics commonly used in
 speaker verification systems are the following.
 
-### Types of errors
+## Types of errors
 
 False acceptance: A false acceptance occurs when the speech segments
 from an imposter speaker are falsely accepted as a target speaker by the
@@ -463,7 +463,7 @@ attempts} $$
 
   
 
-### Performance metrics
+## Performance metrics
 
   
 

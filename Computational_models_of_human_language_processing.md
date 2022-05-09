@@ -40,7 +40,7 @@ coordination between multiple agents (see, e.g.,  {cite:t}`steels1997synthetic,k
 ![basic_modeling_.schematic.png](attachments/180302220.png)
 **Figure 1:** A high-level schematic view of a typical computational model development and evaluation process.
 
-### Human cognition as a sensorimotor information processing system
+## Human cognition as a sensorimotor information processing system
 
 Computational modeling research is based on the metaphor of human brain
 as a computational information processing system. From an external
@@ -111,7 +111,7 @@ available. By applying a combination of speech processing and machine
 learning techniques to data representative of infant language
 experiences, explanation proposals for such a process can be created.
 
-#### Computational modeling versus cognitive computationalism
+### Computational modeling versus cognitive computationalism
 
 Note that computational modeling and *representations* often studied in
 the models should not be confused with classical
@@ -141,7 +141,7 @@ assumptions. Additional theoretical loading comes from the *data* and
 *evaluation protocols* chosen to investigate the models and in terms of
 how the modeling findings are interpreted.
 
-###  Role of computational models in scientific research
+##  Role of computational models in scientific research
 
 Computational modeling has a role in scientific theory development and
 hypothesis testing by providing the means to test high-level theories of
@@ -186,7 +186,7 @@ individual studies into holistic theoretical frameworks (e.g.,
 understanding how phonemic, lexical, and syntactic learning are
 dependent on each other in early language development). 
 
-### Examples of computational modeling research
+## Examples of computational modeling research
 
 ***Computational models of child language development***: Computational
 models of language learning aim at understanding how human children
@@ -284,7 +284,7 @@ signaling systems (as a social system) or language skills (as subjective
 capabilities) can emerge from such conditions.  
     For overviews, see {cite:t}`steels1997synthetic,kirby2002natural`.
 
-### References and further reading
+## References and further reading
 
 {cite:empty}`oudeyer2019computational`
 

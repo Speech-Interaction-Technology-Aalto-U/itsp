@@ -39,8 +39,8 @@ microphones with input signals $x_{k}(t)$, where $k$ and $t$ are
 the microphone and time indices. We assume that the desired source is
 sufficiently far away that we can approximate it with a plane wave. Then
 the signal will arrive at the microphones at different times  $
-\Delta t_{x_k} $ and we can calculate time time difference of
-arrival (TDOA) of each microphone $ t_{x_k} = \Delta
+\Delta t_{x_k} $ and we can calculate time [time difference of
+arrival (TDOA)](tdoa.ipynb) of each microphone $ t_{x_k} = \Delta
 t_{x_k}-\Delta t_{x_1} $ where we used microphone $k=1$ as a
 reference point. The delayed signals thus have $ x_k(t) = x(t-\Delta
 t_{x_k}) = x\left(t-\Delta t_{x_k}+\Delta t_{x_1} - \Delta

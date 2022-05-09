@@ -2,10 +2,17 @@
 **2nd Edition**
 
 
-This is an open access and creative commons book of speech processing, intended as pedagogical material for engineering students.
+This is an open access and creative commons book of speech processing, intended as pedagogical material for engineering students. Hosted by [Aalto University](https://aalto.fi).
+
+## Table of Contents
 
 ```{tableofcontents}
 ```
+
+## Related sources
+- [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) (Dan Jurafsky and James H. Martin, 2022)
+- [Message Processing: The Science of Creating Understanding](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/), (Jessica Gasiorek, accessed 9.5.2022)
+
 
 ## Contributing
 

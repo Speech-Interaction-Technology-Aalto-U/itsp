@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# (stft)=
 # # Spectrogram and the STFT
 # 
 # We have intuitive notion of what a high or low pitch means. Pitch refers
@@ -43,6 +44,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io import wavfile
 import scipy
+import scipy.fft
 
 
 # read from storage
