@@ -1,1 +1,0 @@
-# Bandwidth extension (BWE)
