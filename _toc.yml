@@ -96,6 +96,9 @@ chapters:
   - file: Enhancement/Echo_cancellation.md
   - file: Enhancement/Bandwidth_extension_BWE.md
   - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.md
+    sections:
+    - file: Enhancement/tdoa.ipynb
 - file: Computational_models_of_human_language_processing.md
 - file: Security_and_privacy.ipynb
+- file: Glossary.md
 - file: References.md
