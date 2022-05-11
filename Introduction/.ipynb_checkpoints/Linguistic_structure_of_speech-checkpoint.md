@@ -99,6 +99,7 @@ all \[r\] sounds belong to the same phone type. Token refers to an
 individual realization of a type. For instance, word "roar" has two
 \[r\] tokens in it.
 
+(content:phones)=
 ### Phones
 
 [Phones](https://en.wikipedia.org/wiki/Phone_(phonetics)) are the
@@ -207,6 +208,7 @@ language, coarticulation can have a large effect on the acoustic form
 that phones take in actual continuous speech, introducing additional
 non-phonemic variability (see below) in the acoustical form of phones.
 
+(content:phonemes)=
 #### Phones vs. phonemes
 
 As mentioned above, phones are sounds of a language that have an

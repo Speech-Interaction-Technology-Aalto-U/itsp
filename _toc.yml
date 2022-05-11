@@ -4,7 +4,11 @@ root: index
 options:
   numbered: true
 chapters:
-- file: Preface
+- file: Preface.md
+  sections:
+  - file: Preface/Using_this_document.md
+  - file: Preface/authors.md
+  - file: Preface/developers.md
 - file: Introduction
   sections:
   - file: Introduction/Why_speech_processing.md
