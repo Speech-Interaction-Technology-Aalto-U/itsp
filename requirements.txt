@@ -1,0 +1,8 @@
+numpy>=1.21
+scipy>=1.5
+matplotlib>=3.5
+pytorch>=1.12
+torchaudio>=0.12
+jupyter>=1.0
+jupyterlab>=3.3.4
+ipython>=7.32
