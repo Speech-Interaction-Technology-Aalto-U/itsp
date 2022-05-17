@@ -6,3 +6,4 @@ torchaudio>=0.12
 jupyter>=1.0
 jupyterlab>=3.3.4
 ipython>=7.32
+librosa>=0.9.1
