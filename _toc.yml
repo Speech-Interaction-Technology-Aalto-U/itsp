@@ -31,7 +31,7 @@ chapters:
   - file: Representations/Spectrogram_and_the_STFT.ipynb
   - file: Representations/Autocorrelation_and_autocovariance.ipynb
   - file: Representations/Melcepstrum.ipynb
-  - file: Representations/Linear_prediction.md
+  - file: Representations/Linear_prediction.ipynb
   - file: Representations/Fundamental_frequency_F0.ipynb
   - file: Representations/Zero-crossing_rate.md
   - file: Representations/Deltas_and_Delta-deltas.md

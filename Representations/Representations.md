@@ -9,7 +9,7 @@
 4.  [Spectrogram and the STFT](Spectrogram_and_the_STFT.ipynb)
 5.  [Autocorrelation and autocovariance](Autocorrelation_and_autocovariance.md)
 6.  [Cepstrum and MFCC](Melcepstrum.ipynb)
-7.  [Linear prediction](Linear_prediction.md)
+7.  [Linear prediction](Linear_prediction.ipynb)
 8.  [Fundamental frequency (F0)](Fundamental_frequency_F0.ipynb)
 9.  [Zero-crossing rate](Zero-crossing_rate.md)
 10. [Deltas and Delta-deltas](Deltas_and_Delta-deltas.md)
