@@ -1,9 +1,12 @@
 numpy>=1.21
 scipy>=1.5
 matplotlib>=3.5
-pytorch>=1.12
-torchaudio>=0.12
 jupyter>=1.0
 jupyterlab>=3.3.4
 ipython>=7.32
 librosa>=0.9.1
+
+-f https://download.pytorch.org/whl/torch_stable.html 
+torch==1.4.0+cpu 
+-f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.5.0+cpu
