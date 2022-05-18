@@ -20,6 +20,16 @@ is minimized and 2) lossless coding of the quantized signal. In this
 sense, even if lossless and lossy coding are clearly different methods,
 a lossless coding module is often included also in lossy codecs.
 
+```{sidebar} Naïve coding
+A naive encoding of a set of numbers, with 2 bits per symbol.
+
+| number | symbol | bit-string | length |
+|--------|--------|------------|--------|
+| -1     | a      | 00         | 2      |
+|  0     | b      | 01         | 2      |
+| +1     | c      | 10         | 2      |
+
+```
 
 Entropy coding operates on an abstract level such that it can operate on
 any set of symbols as long as we have information about the
@@ -36,17 +46,22 @@ hence this encoding uses 2 bits per symbol. Observe, however, that the
 bit-string 11 is not used, which means that the encoding is inefficient.
 
 
-A naive encoding of a set of numbers, with 2 bits per symbol.
-
-
-| number | symbol | bit-string | length |
-|--------|--------|------------|--------|
-| -1     | a      | 00         | 2      |
-|  0     | b      | 01         | 2      |
-| +1     | c      | 10         | 2      |
-
 
 ## Vector coding
+
+```{sidebar} Vector coding
+A naive encoding of a set of numbers, with 2 bits per symbol.
+
+| numbers    | symbols | bit-string | length |
+|------------|---------|------------|--------|
+| -1, -1, -1 | aaa     | 00000      | 5      |
+| -1, -1, 0  | aab     | 00001      | 5      |
+| -1, -1, +1 | aac     | 00010      | 5      |
+| -1, 0 -1   | aba     | 00011      | 5      |
+| -1, 0, 0   | abb     | 00100      | 5      |
+| ...        | ...     | ...        | ...    |
+| +1, +1, +1 | ccc     | 11011      | 5      |
+```
 
 To take better use of all bits, we can instead of single symbols,
 consider a vector of symbols $ x_1,x_2,x_3 $ . With 3 possible
@@ -63,21 +78,20 @@ quantization with a given set of symbols, whereas vector coding is
 lossless coding of vectors of symbols.
 
 
-A naive encoding of a set of numbers, with 2 bits per symbol.
 
-
-| numbers    | symbols | bit-string | length |
-|------------|---------|------------|--------|
-| -1, -1, -1 | aaa     | 00000      | 5      |
-| -1, -1, 0  | aab     | 00001      | 5      |
-| -1, -1, +1 | aac     | 00010      | 5      |
-| -1, 0 -1   | aba     | 00011      | 5      |
-| -1, 0, 0   | abb     | 00100      | 5      |
-| ...        | ...     | ...        | ...    |
-| +1, +1, +1 | ccc     | 11011      | 5      |
 
 
 ## Variable length and Huffman coding
+
+```{sidebar} Huffman coding
+An illustrative encoding of a set of numbers, with 1.5 bits per symbol.
+
+| number | symbol | probability $P_{k}$ | bit-string | length $L_{k}$ |
+|--------|--------|-----------------------------|------------|------------------------|
+| -1     | a      | 0.25                        | 00         | 2                      |
+|  0     | b      | 0.5                         | 1          | 1                      |
+| +1     | c      | 0.25                        | 01         | 2                      |
+```
 
 A central concept in entropy coding *variable length* coding, where
 symbols can be encoded with bit-strings of varying lengths. In our above
@@ -104,21 +118,29 @@ applicable without approximations of probabilities, which make the
 coding suboptimal.
 
 
-An illustrative encoding of a set of numbers, with 1.5 bits per symbol.
-
-
-| number | symbol | probability $P_{k}$ | bit-string | length $L_{k}$ |
-|--------|--------|-----------------------------|------------|------------------------|
-| -1     | a      | 0.25                        | 00         | 2                      |
-|  0     | b      | 0.5                         | 1          | 1                      |
-| +1     | c      | 0.25                        | 01         | 2                      |
 
 
 ## Arithmetic coding
 
+```{sidebar} Arithmetic coding 1
+Illustrative set of symbols and their corresponding probabilities.
+
+
+| symbol $k$| probability $P_k$ | interval $s_k \dots s_{k+1}$ | bits per symbol $\log_2(P_k)$ |
+| ---- | ---- | ---- | ---- |
+| 0 |0.40 |0.00 ... 0.40 |1.32
+| 1 |0.27 |0.40 ... 0.67 |1.89
+| 2 |0.12 |0.67 ... 0.79 |3.05
+| 3 |0.08 |0.79 ... 0.87 |3.64
+| 4 | 0.07 |0.87 ... 0.94 |3.84
+| 5 | 0.06 |0.94 ... 1.00 |4.06
+```
+
+
 To further improve on coding efficiency, we can combine vector coding
 with Huffman coding in a method known as [*arithmetic
-coding*](https://en.wikipedia.org/wiki/Arithmetic_coding). It uses the
+coding*](https://en.wikipedia.org/wiki/Arithmetic_coding) 
+{cite}`rissanen1979arithmetic`. It uses the
 probability of symbols to jointly encode a sequence symbols. For
 example, consider the set of symbols 0....5 on the right with
 corresponding occurrence probabilities $P_{k}$. Further suppose
@@ -126,6 +148,21 @@ that we are supposed to encode the string "130". The first step is to
 assign every symbol to a unique segment  $ [s_k,\,s_{k+1}] $ of
 the interval $ [0,\,1] $ such that the width of the segment
 matches the probability of the symbol $ P_k = s_{k+1}-s_k $ .
+
+
+```{sidebar} Arithmetic coding 2
+The intervals of the second symbol.
+
+| symbol $k$ | interval $s_k' \dots s_{k+1}'$|
+| ---- | ---- |
+|0 |0.4000 ... 0.5080|
+|1 |0.5080 ... 0.5809|
+|2 |0.5809 ... 0.6133|
+|3 |0.6133 ... 0.6349|
+|4 |0.6349 ... 0.6538|
+|5 |0.6538 ... 0.6700|
+```
+
 
 The first symbol is "1" whereby we are assigned to the interval 0.40 ...
 0.67, which we will call the current interval. The central idea of
@@ -148,6 +185,20 @@ $$ s''_k = s'_3 + s'_k(s_4-s_3) = 0.6133 + s'_k\times 0.08\times
 The new intervals are listed on the right. The third symbol is "0" such
 that the last current interval is 0.6133 ... 0.6219, which we will
 denote as $ s_{left} ... s_{right} $ .
+
+```{sidebar} Arithmetic coding 3
+The intervals of the third symbol.
+
+| symbol $k$ | interval $s_k'' \dots s_{k+1}''$|
+| ---- | ---- |
+|0 |0.6133 ... 0.6219|
+|1 |0.6219 ... 0.6278|
+|2 |0.6278 ... 0.6304|
+|3 |0.6404 ... 0.6321|
+|4 |0.6321 ... 0.6336|
+|5 |0.6336 ... 0.6439|
+
+```
 
 The remaining step is to translate the last interval into a string of
 bits. Let us divide the whole interval 0 ... 1 into $2^{B}$
@@ -207,46 +258,17 @@ A few additional points:
     considerably.
 
 
-Illustrative set of symbols and their corresponding probabilities.
 
-
-| symbol $k$| probability $P_k$ | interval $s_k \dots s_{k+1}$ | bits per symbol $\log_2(P_k)$ |
-| ---- | ---- | ---- | ---- |
-| 0 |0.40 |0.00 ... 0.40 |1.32
-| 1 |0.27 |0.40 ... 0.67 |1.89
-| 2 |0.12 |0.67 ... 0.79 |3.05
-| 3 |0.08 |0.79 ... 0.87 |3.64
-| 4 | 0.07 |0.87 ... 0.94 |3.84
-| 5 | 0.06 |0.94 ... 1.00 |4.06
 
 
 
   
 
-The intervals of the second symbol.
 
-| symbol $k$ | interval $s_k' \dots s_{k+1}'$|
-| ---- | ---- |
-|0 |0.4000 ... 0.5080|
-|1 |0.5080 ... 0.5809|
-|2 |0.5809 ... 0.6133|
-|3 |0.6133 ... 0.6349|
-|4 |0.6349 ... 0.6538|
-|5 |0.6538 ... 0.6700|
 
 
   
 
-The intervals of the third symbol.
-
-| symbol $k$ | interval $s_k'' \dots s_{k+1}''$|
-| ---- | ---- |
-|0 |0.6133 ... 0.6219|
-|1 |0.6219 ... 0.6278|
-|2 |0.6278 ... 0.6304|
-|3 |0.6404 ... 0.6321|
-|4 |0.6321 ... 0.6336|
-|5 |0.6336 ... 0.6439|
 
 
 
@@ -273,6 +295,22 @@ refined alternatives include for example [Gaussian mixture models
 
 ## Algebraic coding
 
+```{sidebar} Algebraic coding 
+Illustrative set of an input vector with elements $x_k$ and their corresponding probabilities.
+
+
+| $x_1$ | $x_2$ | $x_3$ | $x_4$ | encoding |
+| ---- | ---- | ---- |---- |----: |
+| +1 | 0 | 0 | 0 | 0 |
+| -1 | 0 | 0 | 0 | 1 |
+|  0 |+1 | 0 | 0 | 2 |
+|  0 |-1 | 0 | 0 | 3 |
+|  0 | 0 |+1 | 0 | 4 |
+|  0 | 0 |-1 | 0 | 5 |
+|  0 | 0 | 0 |+1 | 6 |
+|  0 | 0 | 0 |-1 | 7 |
+
+```
 Suppose we would like to encode a string like "00010000", where "0"s
 happen with a high likelihood and there is only a single "1". We could
 then use arithmetic and parametric coding to encode the probabilities of
@@ -301,6 +339,13 @@ becomes increasingly difficult to find the best quantization of a given
 vector $x$. Still, due to its simplicity and efficiency at low bitrates,
 algebraic coding is so popular in speech coding that the most commonly
 used codec type is known as [Algebraic code-excited linear prediction
-(ACELP)](Code-excited_linear_prediction_CELP_), since it uses algebraic
-coding to encode the residual signal.
+(ACELP)](Code-excited_linear_prediction_CELP.md), since it uses algebraic
+coding to encode the residual signal. {cite}`backstrom2017speech`
 
+
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
