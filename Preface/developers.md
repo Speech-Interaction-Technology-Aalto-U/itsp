@@ -61,3 +61,13 @@ For an example of the use of both hidden and removed codeblocks, see [Enhancemen
 ### References and citations
 
 We use a bibtex based approach stored at [references.bib](../references.bib). For instructions, see e.g. [Jupyter-book/citations and references](https://jupyterbook.org/en/stable/content/citations.html). For an example, see [Computational_models_of_human_language_processing](../Computational_models_of_human_language_processing.md).
+
+
+### Executing notebooks / MyBinder badge
+
+To allow for the user to run the code in notebooks, there needs to be a jupyter server. Such a server can be installed locally (see [Using this document](Using_this_document.ipynb)), but importantly, there are public servers which can be used as well. The simplest approach is to use [mybinder.org](mybinder.org). To make it simple to use, please place a badge on top of the notebook, which directly runs the notebook on the server with the following steps:
+1. Find the github url, folder and filename.
+2. Enter the above in the form at [mybinder.org](mybinder.org).
+3. This autogenerates a command to generate the badge; copy that code to the top of your jupyter notebook.
+4. Be sure to test it by clicking the badge.
+For an example of use, see the page [Noise attenuation](../Enhancement/Noise_attenuation.ipynb).
