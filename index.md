@@ -35,7 +35,7 @@ See also [Instructions for developers](Preface/developers.md).
 
 ## Referencing
 
-> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo and Sneha Das, "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi
+> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das and Esteban Gómez Mellado, "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi
 
 [Bibtex](http://www.bibtex.org/) format:
 
@@ -43,6 +43,6 @@ See also [Instructions for developers](Preface/developers.md).
        title = {Introduction to Speech Processing},
        edition = 2,
        year = 2022,
-       author = {Tom Bäckström and Okko Räsänen and Abraham Zewoudie and Pablo Pérez Zarazaga and Liisa Koivusalo and Sneha Das},
+       author = {Tom Bäckström and Okko Räsänen and Abraham Zewoudie and Pablo Pérez Zarazaga and Liisa Koivusalo and Sneha Das and Esteban Gómez Mellado},
        url = {https://speechprocessingbook.aalto.fi},
        }
