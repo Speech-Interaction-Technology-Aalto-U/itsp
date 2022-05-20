@@ -37,7 +37,7 @@
 
 ### Audio
 
-Recording with python/jupyter is a nightmare, but playing audio works like a dream when using [IPython](https://ipython.org/) and [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/). See [Enhancement/Noise attenuation](../Enhancement/Noise_attenuation.ipynb) for an example. 
+Recording with python/jupyter is a nightmare, but playing audio works like a dream when using [IPython](https://ipython.org/) and [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/). See [Vocoder](content:vocoder) for an example. 
 
 ### Interactive elements
 
