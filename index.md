@@ -16,7 +16,7 @@ This is an open access and creative commons book of speech processing, intended 
 
 ## Contributing
 
-   We welcome all types of useful contributions! See [Contributing](contributing.md).
+   We welcome all types of useful contributions! See [Contributing](contributing.md) and our [code of conduct](code_of_conduct.md).
 
 ## Referencing
 

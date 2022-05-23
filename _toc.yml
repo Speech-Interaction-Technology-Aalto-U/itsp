@@ -9,6 +9,7 @@ chapters:
   - file: Preface/Using_this_document.md
   - file: Preface/authors.md
   - file: Preface/developers.md
+  - file: code_of_conduct.md
 - file: Introduction
   sections:
   - file: Introduction/Why_speech_processing.md

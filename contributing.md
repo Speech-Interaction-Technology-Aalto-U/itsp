@@ -1,6 +1,8 @@
 ## Contributing
 
-We welcome all types of useful contributions! Content contributors will, unless author requests to remain anonymous, be automatically included on the [list of authors](Preface/authors.md) and for bugfixers we will create an "also featuring" list. 
+We welcome all types of useful contributions! See also our [code of conduct](code_of_conduct.md).
+
+Content contributors will, unless author requests to remain anonymous, be automatically included on the [list of authors](Preface/authors.md) and for bugfixers we will create an "also featuring" list. 
 The best way of contributing however depends on type of contribution:
 
 - For small bugfixes
