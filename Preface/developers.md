@@ -17,12 +17,14 @@
     ```
     ![]()
     
-4. The typical use case is that markdown and notebooks are written with [JupyterLab](https://jupyter.org/), which can be started (in the folder of the project) by
+4. The typical use case is that markdown (.md) and notebooks (.ipynb) are written with [JupyterLab](https://jupyter.org/), which can be started (in the folder of the project) by
 
     ```bash
     jupyter lab &
     ```
     ![]()
+
+   The easiest way to start is to write static [Markdown files](https://jupyterbook.org/en/stable/file-types/markdown.html#file-types-markdown). This disadvantage is that then you cannot use live code-examples in your document. Upgrading from markdown to notebooks is however easy.
     
 5. Once you are reasonably happy with your new content, compile the html-book (in the folder of the project) by
 
