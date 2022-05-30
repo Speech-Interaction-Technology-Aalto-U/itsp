@@ -28,7 +28,7 @@ The most prominent categories of speech enhancement are:
     from a mixture, for example, in the classical cocktail-party
     problem, we would like to isolate single speakers when multiple
     people are talking at the same time.
-6.  [Beamforming](Enhancement/Multi-channel_speech_enhancement_and_beamforming.md)
+6.  [Beamforming](Enhancement/Multi-channel_speech_enhancement_and_beamforming.ipynb)
     refers to spatially selective methods, where the objective is
     isolate sounds coming from a particular direction, by using the
     information about the spatial separation of a set of microphones.

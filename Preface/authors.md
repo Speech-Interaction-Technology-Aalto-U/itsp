@@ -9,3 +9,4 @@
 - Liisa Koivusalo
 - [Sneha Das](https://www.dtu.dk/person/sneha-das?id=160076&entity=profile)
 - [Esteban Gómez Mellado](https://www.linkedin.com/in/eagomez/)
+- Mariem Bouafif Mansali

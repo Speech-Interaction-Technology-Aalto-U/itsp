@@ -97,10 +97,10 @@ chapters:
   - file: Transmission/Perceptual_modelling_in_speech_and_audio_coding.md
 - file: Speech_enhancement.md
   sections:
-  - file: Enhancement/Noise_attenuation.md
+  - file: Enhancement/Noise_attenuation.ipynb
   - file: Enhancement/Echo_cancellation.md
   - file: Enhancement/Bandwidth_extension_BWE.md
-  - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.md
+  - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.ipynb
     sections:
     - file: Enhancement/tdoa.ipynb
 - file: Computational_models_of_human_language_processing.md
