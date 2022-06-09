@@ -5,3 +5,4 @@
 - [Measurements for medical applications](Analysis/Measurements_for_medical_applications.md)
 -   [Inverse filtering for glottal activity
     estimation](Analysis/Inverse_filtering_for_glottal_activity_estimation.md)
+- [Forensic speaker recognition](Analysis/Forensic_speaker_recognition.md)

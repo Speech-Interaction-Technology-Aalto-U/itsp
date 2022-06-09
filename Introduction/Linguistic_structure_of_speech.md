@@ -31,8 +31,7 @@ needed to describe structure of spoken language, and one should not
 equate units of written language to that of a spoken one by default.
 Naturally, the two have a systematic relationship in order to enable
 reading and writing. However, this relationship also varies from
-language to another.  *  
-*
+language to another.  
 
 Within the broad field of linguistics, *phonetics* is its branch that
 focuses on understanding the physical basis of speech production, speech
@@ -74,8 +73,8 @@ utterances) consist of non-meaningful units (phones/phonemes) that still
 signify distinctions in meaning. At all levels, units and their relative
 organization are language-dependent, such as which phones, syllables,
 and words are employed and how they are allowed follow each other.
-However, there are also certain common tendencies (aka. *l*[*inguistic
-universals*](https://en.wikipedia.org/wiki/Linguistic_universal)) that
+However, there are also certain common tendencies (aka. [linguistic
+universals](https://en.wikipedia.org/wiki/Linguistic_universal)) that
 result from restrictions in the speech production and perception
 apparati or due to other shared characteristics of [natural
 languages](https://en.wikipedia.org/wiki/Natural_language).

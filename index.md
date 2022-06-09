@@ -2,7 +2,7 @@
 **2nd Edition**
 
 
-This is an open access and creative commons book of speech processing, intended as pedagogical material for engineering students. Hosted by [Aalto University](https://aalto.fi).
+This is an open access and creative commons book of speech processing, intended as pedagogical material for engineering students. Hosted by [Aalto University](https://aalto.fi). 
 
 ## Table of Contents
 
@@ -16,11 +16,11 @@ This is an open access and creative commons book of speech processing, intended 
 
 ## Contributing
 
-   We welcome all types of useful contributions! See [Contributing](contributing.md) and our [code of conduct](code_of_conduct.md).
+   We welcome all types of useful contributions! See [Contributing](contributing.md) and our [code of conduct](code_of_conduct.md). Current [list of authors](Preface/authors.md).
 
 ## Referencing
 
-> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das and Esteban Gómez Mellado, Mariem Bouafif Mansali, "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi
+> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das, Esteban Gómez Mellado, Mariem Bouafif Mansali and Daniel Ramos, "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi
 
 [Bibtex](http://www.bibtex.org/) format:
 
@@ -28,6 +28,6 @@ This is an open access and creative commons book of speech processing, intended 
        title = {Introduction to Speech Processing},
        edition = 2,
        year = 2022,
-       author = {Tom Bäckström and Okko Räsänen and Abraham Zewoudie and Pablo Pérez Zarazaga and Liisa Koivusalo and Sneha Das and Esteban Gómez Mellado and Marieum Bouafif Mansali},
+       author = {Tom Bäckström and Okko Räsänen and Abraham Zewoudie and Pablo Pérez Zarazaga and Liisa Koivusalo and Sneha Das and Esteban Gómez Mellado and Marieum Bouafif Mansali and Daniel Ramos},
        url = {https://speechprocessingbook.aalto.fi},
        }
