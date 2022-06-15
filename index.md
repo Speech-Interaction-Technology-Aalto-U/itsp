@@ -10,9 +10,11 @@ This is an open access and creative commons book of speech processing, intended 
 ```
 
 ## Related Resources
-- [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/), by Dan Jurafsky and James H. Martin, (2022).
-- [Message Processing: The Science of Creating Understanding](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/), by Jessica Gasiorek, (accessed 9.5.2022).
+- [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/), by Dan Jurafsky and James H. Martin, (accessed 15.6.2022). {cite}`jurafsky2021`
+- [Message Processing: The Science of Creating Understanding](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/), by Jessica Gasiorek, (accessed 9.5.2022). {cite}`gasiorek2018message`
+- [Deep Learning](http://www.deeplearningbook.org) by Ian Goodfellow, Yoshua Bengio and Aaron Courville, (accessed 15.6.2022). {cite}`Goodfellow2016`
 
+ 
 
 ## Contributing
 
