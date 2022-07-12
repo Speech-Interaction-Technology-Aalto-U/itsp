@@ -128,6 +128,7 @@ frequencies of the tract. A special vowel called "schwa" (\[ə\])
 corresponds to an articulatory configuration, where jaw, lips, and
 tongue are completely relaxed, hence corresponding a central mid vowel.
 
+![IPA_vowels](attachments/IPA_vowels.png)
 Fig. 2: IPA chart for vowels (reproduced by CC BY-SA 3.0)
 
 Consonants can be categorized in terms of their *manner and place of
