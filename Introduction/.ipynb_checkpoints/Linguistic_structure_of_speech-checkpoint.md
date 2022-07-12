@@ -129,7 +129,7 @@ corresponds to an articulatory configuration, where jaw, lips, and
 tongue are completely relaxed, hence corresponding a central mid vowel.
 
 ![IPA_vowels](attachments/IPA_vowels.png)
-Fig. 2: IPA chart for vowels (reproduced by CC BY-SA 3.0)
+**Fig. 2: IPA chart for vowels (reproduced by CC BY-SA 3.0)**
 
 Consonants can be categorized in terms of their *manner and place of
 articulation.* Figure 3 shows IPA chart for consonants organized in
@@ -492,10 +492,17 @@ can produce much more accurate phonemic transcription and/or timestamps
 for word boundaries than what would be achievable by regular automatic
 speech recognition without the reference text.
 
-  
+
+{cite:empty}`Greenberg2003,Halle2012,Liberman1974,Morais1989,Nespor2011,Nusbaum1991,Pierrehumbert1980,pike1945intonation,wt84`
 
 ## References
 
+
+```{bibliography}
+:filter: docname in docnames
+```
+
+<!--
 - Greenberg, S., Carvey, H., Hitchcock, L., and Chang, S. (2003). Temporal properties of spontaneous speech – a syllable centric perspective. *Speech Communication*, *31*, 465–485,
 <https://doi.org/10.1016/j.wocn.2003.09.005>
 
@@ -514,7 +521,7 @@ speech recognition without the reference text.
 - Pike, K. (1945). The intonation of American English, vol 1. Ann Arbor: University of Michigan Press. pp. 34–35.
 
 - Werker, J. F., & Tees, R. C. (1984). Cross-language speech perception: Evidence for perceptual reorganization during the first year of life. Infant Behavior & Development, 7(1), 49–63. https://doi.org/10.1016/S0163-6383(84)80022-3
-
+-->
   
 Also, substantial reuse of materials from related
 [Wikipedia](https://www.wikipedia.org/) articles.
