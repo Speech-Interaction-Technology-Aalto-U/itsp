@@ -50,6 +50,8 @@ For an example, check out [Representations/Spectrogram and the STFT](../Represen
 
 [Tikz and PGF](https://tikz.dev/) is a combination powerful tool for visualizations inside [LaTeX](https://www.latex-project.org/) documents. These can be incorporated in jupyter notebooks through [itikz](https://pypi.org/project/itikz/). For examples, see [Security and Privacy](../Security_and_privacy.ipynb).
 
+*Tip:* In some scenarios, characters will get messed up when having multiple itikz-elements in a single document. If you're having this issue, please see the solution at the [discussion on Itikz-github](https://github.com/jbn/itikz/issues/28).
+
 ### Hidden and removed codeblocks in Jupyter notebooks
 
 Codeblocks can be used as pedagogical elements, but often there also codeblocks which are just to plot stuff, which is not very interesting for a reader. It is then recommended to *hide* the codeblock to avoid visual clutter. A button "*click to show*" button then appears where the reader can see how the backend works. 
