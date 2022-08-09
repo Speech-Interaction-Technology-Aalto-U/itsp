@@ -23,7 +23,7 @@ achieve high speaker verification performance from relatively short
 utterances, while text-independent systems require long utterances to
 train reliable models and achieve good performance.
 
-![](missing_picture)
+![](attachments/SV_Architecture.png)
 Block diagram of a basic speaker verification system
 
 As it is shown in the above block diagram of a basic speaker
@@ -166,10 +166,9 @@ Then, the sufficient statistics for the weight, mean and variance
 parameters is computed as follows:
 
 $$ n_i=\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior}) \, weight $$
-$$
-E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t
-\;\; mean $$ $$
-E_i(x^2)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t^2
+$$ E_i(x)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t
+\;\; mean $$ 
+$$ E_i(x^2)=\frac{1}{n_i}\sum_{t=1}^{T}Pr(i|x_t,\lambda_{prior})x_t^2
 \;\; variance $$
 
   
@@ -179,10 +178,9 @@ to update the prior sufficient statistics for mixture  $ i $ to
 create the adapted mixture weight, mean and variance for mixture
 $i$ as follows:
 
-$$ w_i=[\alpha^w_in_i/T + (1-\alpha^w_i)w_i]\gamma $$ $$
-\mu_i=\alpha^m_iE_i(x) + (1-\alpha^m_i)\mu_i $$ $$
-\mu^2_i=\alpha^v_iE_i(x^2) +
-(1-\alpha^v_i)(\sigma^2_i+\mu^2_i)-\mu^2_i $$
+$$ w_i=[\alpha^w_in_i/T + (1-\alpha^w_i)w_i]\gamma $$ 
+$$ \mu_i=\alpha^m_iE_i(x) + (1-\alpha^m_i)\mu_i $$ 
+$$ \mu^2_i=\alpha^v_iE_i(x^2) + (1-\alpha^v_i)(\sigma^2_i+\mu^2_i)-\mu^2_i $$
 
   
 
@@ -230,11 +228,11 @@ Baum–Welch statistics are extracted using the UBM.
 Given a sequence of L frames  $ \{y_1,y_2,......,y_n\} $ and a
 UBM  $ \Omega $ composed of $ C $ mixture components defined in
 some feature space of dimension $ F $ , the Baum–Welch statistics
-needed to estimate the i-vector for a given speech utterance  $ u $
+needed to estimate the i-vector mixturefor a given speech utterance  $ u $
 is given by :
 
-$$ N_c=\sum_{t=1}^{L}P(c|y_t,\Omega) $$ $$
-F_c=\sum_{t=1}^{L}P(c|y_t,\Omega)y_t $$
+$$ N_c=\sum_{t=1}^{L}P(c|y_t,\Omega) $$ 
+$$ F_c=\sum_{t=1}^{L}P(c|y_t,\Omega)y_t $$
 
 where  $ m_c $ is the mean of UBM mixture component $ c $ .
 The i-vector for a given utterance can be obtained using the following

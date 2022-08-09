@@ -3,14 +3,14 @@
 Typical tasks in speech processing, where machine learning is often
 applied include:
 
--   *Speech recognition*, which refers to converting an acoustic
+-   [*Speech recognition*](Recognition/Speech_Recognition.md), which refers to converting an acoustic
     waveform of spoken speech to the corresponding text
-    (speech-to-text).
--   *Speaker recognition* and *speaker verification,* which refer to,
+    (speech-to-text). See also [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/), by Dan Jurafsky and James H. Martin, (accessed 15.6.2022). {cite}`jurafsky2021`
+-   [*Speaker recognition* and *speaker verification,*](Recognition/Speaker_Recognition_and_Verification.md) which refer to,
     respectively, identifying the speaker (who is speaking?) and
     verifying whether the speaker is who he claims to be (is it really
     you?).
--   *Speech synthesis*, which entails the creation of a natural sounding
+-   [*Speech synthesis*](Speech_Synthesis.md), which entails the creation of a natural sounding
     speech signal from text input (text-to-speech).
 -   *[Speech enhancement](Speech_enhancement)*, refers to improving a
     recorded speech signal, for example with the objective of removing
