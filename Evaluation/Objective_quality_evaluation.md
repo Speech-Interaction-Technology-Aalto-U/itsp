@@ -141,6 +141,10 @@ Some examples of such performance criteria include:
     works also on small segments of speech. It can be used to for
     detailed analysis of distortions to, for example, which parts of the
     signal contain undesirable distortions.
+    With perceptual weighting coefficients $w_k$ the pSNR is defined as
+    $$
+    D_{pSNR} = \frac{ \sum_{k=0}^{N-1} w_k |X_k|^2 }{ \sum_{k=0}^{N-1} w_k |X_k - \hat X_k|^2 }.
+    $$
 -   *The speech distortion index (SDI)* measures the amount by which a
     desirable speech signal is distorted. In [speech
     enhancement](Speech_enhancement), it is often used in combination
