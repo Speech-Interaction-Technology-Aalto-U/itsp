@@ -128,9 +128,11 @@ Some examples of such performance criteria include:
     undesirable noise components (which includes for example background
     noises, distortions caused by processing algorithms and
     transmission, as well as undesirable competing speakers). With a clean input spectrum $X_k$ and its distorted counterpart $\hat X_k$, the SNR is defined as
+    
     $$
     D_{SNR} = \frac{ \sum_{k=0}^{N-1} |X_k|^2 }{ \sum_{k=0}^{N-1} |X_k - \hat X_k|^2 }.
     $$
+    
     Typically, SNR is presented in units of decibel, obtained by $10\log_{10} D_{SNR}$. The motivation of the SNR is that it reflects the proportion of energy which is distorted. By using a ratio, we thus normalize the error to reflect *accuracy*, rather than error energy.
 -   *Perceptual signal to noise ratio (pSNR)* measures SNR in a
     perceptually motivated domain. Essentially distortions are weighted
@@ -171,13 +173,16 @@ Some examples of such performance criteria include:
     evaluated using such metrics. 
     
 - The [log-spectral distance](https://en.wikipedia.org/wiki/Log-spectral_distance) or log-spectral distortion (LSD) measures spectral error of the log-magnitude spectrum $10\log_{10} P(\omega)$, where $P(\omega)=|X(\omega)|^2$ is the power (energy) of the clean signal spectrum $X(\omega)$. The LSD is then defined using the corrupted spectrum $\hat P(\omega)$ as
-$$
-D_{LS}
-=\sqrt {{\frac {1}{2\pi }}\int _{-\pi }^{\pi }\left[10\log _{10}{\frac {P(\omega )}{{\hat {P}}(\omega )}}\right]^{2}\,d\omega } =\sqrt {{\frac {1}{2\pi }}\int _{-\pi }^{\pi }\left[10\log _{10} {P(\omega )}-10\log _{10}{\hat {P}}(\omega )\right]^{2}\,d\omega }.
-$$
-In practical applications the integral needs to be replaced with a summation such as 
-$$
-D_{LS}
-=\sqrt {{\frac {1}{N }}\sum _{k=0}^{N-1 }\left[10\log _{10}{\frac {P_k}{{\hat {P}}_k}}\right]^{2} }, $$
-where $N$ is the number of spectral components. Observe that the LSD thus corresponds to the mean of the squared error in the log-domain. The LSD is motivated by the fact that human perception of distortion is approximately logarithmic.
-  
+
+   $$
+    D_{LS}
+    =\sqrt {{\frac {1}{2\pi }}\int _{-\pi }^{\pi }\left[10\log _{10}{\frac {P(\omega )}{{\hat {P}}(\omega )}}\right]^{2}\,d\omega } =\sqrt {{\frac {1}{2\pi }}\int _{-\pi }^{\pi }\left[10\log _{10} {P(\omega )}-10\log _{10}{\hat {P}}(\omega )\right]^{2}\,d\omega }.
+    $$
+
+    In practical applications the integral needs to be replaced with a summation such as 
+    
+    $$
+    D_{LS}
+    =\sqrt {{\frac {1}{N }}\sum _{k=0}^{N-1 }\left[10\log _{10}{\frac {P_k}{{\hat {P}}_k}}\right]^{2} }, $$
+    
+    where $N$ is the number of spectral components. Observe that the LSD thus corresponds to the mean of the squared error in the log-domain. The LSD is motivated by the fact that human perception of distortion is approximately logarithmic.
