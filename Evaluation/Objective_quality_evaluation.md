@@ -40,7 +40,7 @@ Some of the most frequently used objective measures include:
     [ITU-T Recommendation P.862: Perceptual evaluation of speech quality
     (PESQ): An objective method for end-to-end speech quality assessment
     of narrow-band telephone networks and speech
-    codecs](https://www.itu.int/rec/T-REC-P.862/en) (2001). It is thus
+    codecs](https://www.itu.int/rec/T-REC-P.862/en) (2001) {cite}`rix2001perceptual`. It is thus
     an evaluation method designed explicitly for telecommunications
     applications. It estimates the mean score of an P.800 ACR test.  
     PESQ accepts only narrow-band input and is *not directly applicable*
@@ -75,7 +75,7 @@ Some of the most frequently used objective measures include:
     ([POLQA](https://en.wikipedia.org/wiki/POLQA "POLQA")) is the
     successor of PESQ and defined in [ITU-T Recommendation P.863:
     Perceptual objective listening quality
-    assessment](http://www.itu.int/rec/T-REC-P.863/en). It is important
+    assessment](http://www.itu.int/rec/T-REC-P.863/en) {cite}`beerends2013perceptual`. It is important
     to notice that for most practical purposes, POLQA is better than
     PESQ. It has a wider range of applications and acceptable
     degradation types and the output is more reliable. However, from a
@@ -89,7 +89,7 @@ Some of the most frequently used objective measures include:
     objective evaluation of speech.
 -   Perceptual Evaluation of Audio Quality
     ([PEAQ](https://en.wikipedia.org/wiki/PEAQ "PEAQ")) evaluates,
-    instead of only speech, also other types of audio samples. It is
+    instead of only speech, also other types of audio samples {cite}`thiede2000peaq`. It is
     therefore less accurate with respect to distortions specific to
     speech signals, but it generalizes better to other audio such as
     music and background noises. The measure is defined in
@@ -98,7 +98,7 @@ Some of the most frequently used objective measures include:
     perceived audio quality (PEAQ).
 -   The [short-term objective intelligibility
     (STOI)](https://ieeexplore.ieee.org/document/5713237) measure
-    focuses on how *intelligible* a speech sample is. It is thus clearly
+    focuses on how *intelligible* a speech sample is {cite}`taal2011algorithm`. It is thus clearly
     focused on lower-quality scenarios where speech is so badly
     corrupted that it is hard to understand what is said. Like all
     objective measures, it is not a completely reliable estimate of
@@ -191,4 +191,13 @@ Some examples of such performance criteria include:
     D_{LS}
     =\sqrt {{\frac {1}{N }}\sum _{k=0}^{N-1 }\left[10\log _{10}{\frac {P_k}{{\hat {P}}_k}}\right]^{2} }, $$
     
-    where $N$ is the number of spectral components. Observe that the LSD thus corresponds to the mean of the squared error in the log-domain. The LSD is motivated by the fact that human perception of distortion is approximately logarithmic.
+    where $N$ is the number of spectral components. Observe that the LSD thus corresponds to the mean of the squared error in the log-domain. The LSD is motivated by the fact that human perception of distortion is approximately logarithmic {cite}`gray1976distance`.
+    
+    
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
+
