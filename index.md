@@ -13,7 +13,7 @@ This is an open access and creative commons book of speech processing, intended 
 - [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/), by Dan Jurafsky and James H. Martin, (accessed 15.6.2022). {cite}`jurafsky2021`
 - [Message Processing: The Science of Creating Understanding](http://pressbooks-dev.oer.hawaii.edu/messageprocessing/), by Jessica Gasiorek, (accessed 9.5.2022). {cite}`gasiorek2018message`
 - [Deep Learning](http://www.deeplearningbook.org) by Ian Goodfellow, Yoshua Bengio and Aaron Courville, (accessed 15.6.2022). {cite}`Goodfellow2016`
-
+- [Spectral Audio Signal Processing](https://ccrma.stanford.edu/~jos/sasp/), by Julius O. Smith, (accessed 23.8.2022). {cite}`smith2011spectral`
  
 
 ## Contributing
