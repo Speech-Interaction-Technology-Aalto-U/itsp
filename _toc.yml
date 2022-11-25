@@ -104,6 +104,7 @@ chapters:
     sections:
     - file: Enhancement/tdoa.ipynb
 - file: Computational_models_of_human_language_processing.md
+- file: SpeechData.ipynb
 - file: Security_and_privacy.ipynb
 - file: Glossary.md
 - file: References.md

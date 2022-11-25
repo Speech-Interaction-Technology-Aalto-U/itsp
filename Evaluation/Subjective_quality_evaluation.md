@@ -29,7 +29,7 @@ setup, subjects listen to sound samples and evaluate their quality.
 
 Photo by Anthony Brolin on Unsplash
 
-
+(aspects_of_quality)=
 ## Aspects of quality
 
 Observe that the appropriate evaluation questions are tightly linked to
