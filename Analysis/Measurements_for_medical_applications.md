@@ -1,6 +1,7 @@
-# Glottal inverse filtering
+# Measurements for medical analysis of speech
+## Glottal inverse filtering
 
-## Background
+### Background
 
 Speech signals can be roughly divided into three main categories
 according to their production mechanism {cite}`Flanagan`. These three
@@ -115,7 +116,7 @@ the speech signal through the vocal tract inverse filter. This process
 to estimate the glottal excitation from speech pressure signal recorded
 by a microphone is known as glottal inverse filtering (GIF) {cite}`Paavo11`.
 
-## Glottal inverse filtering methods
+### Glottal inverse filtering methods
 
 The estimation of the glottal excitation based on GIF has been studied
 since the 1950's. The early studies used analog antiresonance circuits
@@ -154,7 +155,7 @@ as an anticausal signal. These signals are separated by a mixed-phase
 decomposition using analysis synchronized with the time instants of
 glottal closure.
 
-# Speech-based biomarking of state of health
+## Speech-based biomarking of state of health
 
 The main function of speech is to enable communication between people by
 transferring linguistic information between speakers. In addition to its
@@ -170,7 +171,7 @@ learning methodologies and has become an area of increasing interest in
 speech technology. The major issues underpinning this research topic
 will be shortly described in this section.
 
-## Benefits of the speech-based biomarking technology
+### Benefits of the speech-based biomarking technology
 
 The speech-based biomarking of state of health should not be seen as a
 technology to replace the true clinical diagnosis and care of patients.
@@ -190,7 +191,7 @@ biomarking does not replace clinical examinations, it can be used in
 preventive healthcare technology to detect diseases at an early stage
 and to track physiological changes caused by the disease.
 
-## Machine learning tasks used in the study area
+### Machine learning tasks used in the study area
 
 The most widely studied task in the topic is the detection task, that
 is, the binary classification problem in which speakers with a certain
@@ -208,7 +209,7 @@ classification problem related to dysarthria {cite}`NarendraA21`. Some
 studies have addressed progression of the underlying disorder using
 longitudinal analysis (e.g. {cite}`arias2018speaker`).
 
-## Technologies for the speech-based detection of disorders
+### Technologies for the speech-based detection of disorders
 
 Let us next take a closer look at the technologies that have been used
 in the detection task described above. The technologies developed can be
@@ -270,7 +271,7 @@ the amount of training data is typically limited in the study area.
 Therefore, classical pipeline systems are still a valid choice to build
 machine learning detection systems.
 
-## Disorders
+### Disorders
 
 Neurodegenerative diseases, particularly Parkinson's disease and
 Alzheimer's disease, are becoming prevalent globally due to aging of the
@@ -286,7 +287,7 @@ production disorders (e.g. {cite}`GarciaMG19`) and sleep apnea (e.g.
 addressed the detection of it either from speech or from voice signals
 such as coughs (e.g. {cite}`schuller2021interspeech,sharma2022towards`).
 
-## Speech databases and speaking tasks
+### Speech databases and speaking tasks
 
 Studying biomarking of state of health involves using data-driven
 approaches where network parameters are trained using real speech

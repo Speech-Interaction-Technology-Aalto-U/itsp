@@ -73,7 +73,6 @@ chapters:
         title: Electroglottography (Wikipedia)
       - url: https://en.wikipedia.org/wiki/Videokymography
         title: Videokymography (Wikipedia)
-      - file: Analysis/Inverse_filtering_for_glottal_activity_estimation.md
   - file: Analysis/Forensic_speaker_recognition.md
 - file: Recognition_tasks_in_speech_processing.md
   sections:
