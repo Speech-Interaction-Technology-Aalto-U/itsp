@@ -22,7 +22,7 @@ This is an open access and creative commons book of speech processing, intended 
 
 ## Referencing
 
-> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das, Esteban Gómez Mellado, Mariem Bouafif Mansali and Daniel Ramos, "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi, DOI: [10.5281/zenodo.6821775](https://doi.org/10.5281/zenodo.6821775).
+> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das, Esteban Gómez Mellado, Mariem Bouafif Mansali, Daniel Ramos, Sudarsana Kadiri and Paavo Alku "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi, DOI: [10.5281/zenodo.6821775](https://doi.org/10.5281/zenodo.6821775).
 
 [Bibtex](http://www.bibtex.org/) format:
 
@@ -30,7 +30,7 @@ This is an open access and creative commons book of speech processing, intended 
        title = {Introduction to Speech Processing},
        edition = 2,
        year = 2022,
-       author = {Tom Bäckström and Okko Räsänen and Abraham Zewoudie and Pablo Pérez Zarazaga and Liisa Koivusalo and Sneha Das and Esteban Gómez Mellado and Marieum Bouafif Mansali and Daniel Ramos},
+       author = {Tom Bäckström and Okko Räsänen and Abraham Zewoudie and Pablo Pérez Zarazaga and Liisa Koivusalo and Sneha Das and Esteban Gómez Mellado and Marieum Bouafif Mansali and Daniel Ramos and Sudarsana Kadiri and Paavo Alku},
        url = {https://speechprocessingbook.aalto.fi},
        doi = {10.5281/zenodo.6821775},
        }

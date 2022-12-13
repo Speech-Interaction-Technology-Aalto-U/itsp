@@ -11,3 +11,5 @@
 - [Esteban Gómez Mellado](https://www.linkedin.com/in/eagomez/)
 - Mariem Bouafif Mansali
 - [Daniel Ramos](http://arantxa.ii.uam.es/~dramos/index.html)
+- [Sudarsana Kadiri](https://people.aalto.fi/sudarsana.kadiri)
+- [Paavo Alku](https://people.aalto.fi/paavo.alku)
