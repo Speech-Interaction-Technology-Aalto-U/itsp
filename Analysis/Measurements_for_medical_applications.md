@@ -250,7 +250,7 @@ part, the system is tested for an unseen speech signal. Classifier can
 be, for example, SVM.
 ```
 
-```{figure} illustrations/Fig3.png
+```{figure} illustrations/Fig3.jpeg
 :name: fig3
 An example of a CNN-based deep learning classification system (healthy
 vs. disordered).
