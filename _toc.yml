@@ -56,6 +56,7 @@ chapters:
   - file: Modelling/Neural_networks.md
   - file: Modelling/Non-negative_Matrix_and_Tensor_Factorization.md
   - file: Modelling/Vocoder.ipynb
+  - file: Modelling/griffinlim.ipynb
 - file: Evaluation_of_speech_processing_methods
   sections:
   - file: Evaluation/Subjective_quality_evaluation.md
