@@ -1,5 +1,7 @@
 # Transmission, storage and telecommunication
 
+For a comprehensive review of speech coding, see {cite:t}`oshaughnessy2023coding`.
+
 1.  [Design goals](Transmission/Design_goals.md)
 3.  Basic tools
     1.  [Modified-discrete cosine transform
