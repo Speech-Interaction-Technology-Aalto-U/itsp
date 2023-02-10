@@ -12,7 +12,8 @@ average).
 It is then clear that [*subjective
 evaluation*](Subjective_quality_evaluation) is always the "true" measure
 of performance and objective evaluation is an approximation thereof. In
-this sense, subjective evaluation is "better". However, there are many
+this sense, subjective evaluation is "better". In fact, there are plenty of examples where objective quality estimators give the opposite result of the subjective preference {cite:p}`manocha2022audio`.
+However, there are many
 good reasons to use objective instead of subjective evaluation:
 
 -   *Subjective evaluation is expensive*; a test requires that a large
