@@ -38,4 +38,12 @@ parse:
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
   myst_dmath_double_inline: true  # Allow display math ($$) within an inline context
 
-    
+# Information about where the book exists on the web
+repository:
+  url                       : https://github.com/Speech-Interaction-Technology-Aalto-U/itsp
+  branch                    : master 
+  
+launch_buttons:
+  notebook_interface: "jupyterlab"  # or "classic"
+  binderhub_url: "https://mybinder.org" 
+  colab_url: "https://colab.research.google.com"
