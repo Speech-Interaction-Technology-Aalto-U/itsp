@@ -74,7 +74,7 @@ chapters:
         title: Electroglottography (Wikipedia)
       - url: https://en.wikipedia.org/wiki/Videokymography
         title: Videokymography (Wikipedia)
-  - file: Analysis/Forensic_speaker_recognition.md
+  - file: Analysis/Forensic_speaker_recognition.ipynb
 - file: Recognition_tasks_in_speech_processing.md
   sections:
   - file: Recognition/Voice_activity_detection.ipynb

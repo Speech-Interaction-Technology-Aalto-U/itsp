@@ -502,4 +502,6 @@ C_{fa}P_{fa}P_{impostor}] $$
 alarm rates recorded from the trials, and the other parameters are
 adjusted to suit the evaluation of application-specific requirements.
 
- 
+
+## See also
+- [](forensic-analysis)
