@@ -91,7 +91,7 @@ $$ L_{\text{ov}}=10\,\log _{10}\left({\frac
 
 Since the energy of a sinusoid with maximum amplitude is $\sqrt{\frac12}$ of the maximum-amplitude square wave, then its dBov
 is $-3.01$. Observe that dBov values are always negative. dBFS is a
-similar
+similar measure.
 
 In typical cases, input speech signals are normalized to $-26$ dBov such
 that moderate processing of the signal is unlikely to cause clipping.

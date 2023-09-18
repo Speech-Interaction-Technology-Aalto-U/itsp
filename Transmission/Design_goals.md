@@ -24,12 +24,12 @@ goals are for example:
     segments of an original and reconstructed signals, we can easily
     hear minute differences, which would never be perceived in a
     realistic use-case.
--   *Intelligibility *such that a listener can interpret the linguistic
+-   *Intelligibility* such that a listener can interpret the linguistic
     meaning of the reproduced signal.
 -   *Delay* in the communication path, end-to-end, should be within
     reasonable limits (e.g. below 150 ms). A higher delay can impede the
     naturalness of a dialogue.
--   *Noisyness *caused by low-accuracy quantization and background
+-   *Noisyness* caused by low-accuracy quantization and background
     noises should be minimized.
 -   *Distortions* of the speech signal to the amount the original signal
     is perceived to be changed by the processing. 
@@ -112,11 +112,11 @@ configuration can be one of the following:
     many receivers, we would then prefer that decoding the signal does
     not require much resources. In practice that means that the sender
     side (encoder) can use proportionally more resources.
--   *Many-to-many;* the typical teleconferencing application, often
+-   *Many-to-many*; the typical teleconferencing application, often
     implemented with a cloud-server, such that merging of individual
     speakers can be done centrally, such that bandwidth to the many
     receivers can be saved.
--   *Many-to-one; *could be a distributed sensor-array scenario, where
+-   *Many-to-one*; could be a distributed sensor-array scenario, where
     multiple devices in a room jointly record speech. Since we then have
     many encoders, they should be very simple and a majority of the
     intelligence and computational resources should be at the receiver
