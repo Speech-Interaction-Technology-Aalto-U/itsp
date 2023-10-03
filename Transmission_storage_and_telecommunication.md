@@ -1,6 +1,6 @@
 # Transmission, storage and telecommunication
 
-For a comprehensive review of speech coding, see {cite:t}`oshaughnessy2023coding`.
+For a comprehensive review of speech coding, see {cite}`oshaughnessy2023coding`.
 
 1.  [Design goals](Transmission/Design_goals.md)
 3.  Basic tools
