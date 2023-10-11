@@ -37,17 +37,18 @@ $$L = \sum_{t=1}^T ||\textup{\textbf{y}}^{*}[t+k]-\textup{\textbf{y}}[t+k]||_{1}
 In the original APC, the encoder was implemented as a 3-layer MLP and the context model was implemented as a stack of LSTM layers (1--4 depending on the configuration) (Chung et al, 2019). The prediction distance *k* was varied from 1 to 20 steps (10-200 ms), with approx. 5 steps (50 ms) being commonly used in later use cases (REFS).
 
 
-<img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="700"/>
+
  
 **Contrastive Predictive Coding** (CPC; van den Oord et al., 2018) is conceptually similar to APC in terms of predicting future speech using an encoder and a context model. However, instead of predicting spectral envelope of the speech at a single target distance *k*, CPC learns to predict its own latent vectors **z**(*t*+*k*) for all $k \in {1, 2, ..., K}$ and using a separate linear projection **W**$_k$ for each of the prediction distances. This means that CPC learns the predictor and the representations to predict simultaneously during training. When the model is allowed to invent its own prediction targets, conventional distance-based losses (e.g., L1 or L2 loss) cannot be used for model optimization due to the risk of *representation collapse*. During the collapse, the model learns a trivial solution for the problem, such as encoding all speech frames and their predictions with the same constant values. This minimizes the loss very efficiently, but the resulting representations do not carry any information of the underlying signal. In CPC, this is solved by using a so-called *contrastive loss*: instead of minimizing the distance of predicted and true future **z**($t+k$) vectors, the model should learn to distinguish *true future* observations (aka. "positive samples") from other, usually random, observations **z**(*t*) produced by the same encoder ("negative samples"). Technically, this is implemented using a so-called InfoNCE loss:
 
 
 <img src="attachments/SSL/CPC_equation.png" alt="CPC equation" width="700" class="center"/>
 
+[sample selection etc].
 
+<img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="700"/>
 
  
-In general, the input signal features and prediction targets can be defined in various ways, depending on the algorithm and aims of the self-supervised learning. For instance, temporal prediction of prosodic parameters can be used to enforce the model to learn prosodic representations for the training language (Juraj ref).
 
 ### Masking-based SSL
  
@@ -70,6 +71,8 @@ Fig. X illustrates the basic structure of MLP (left) and CNN (right) encoders ap
 
 [CREATE A DETAILED FIG OF MLP VS STRIDED CONVOLUTIONS]
 
+
+
 **Advantages of waveform inputs**
 
 - Point 1 
@@ -81,10 +84,21 @@ Fig. X illustrates the basic structure of MLP (left) and CNN (right) encoders ap
 - Point 4
 
 
+In general, the input signal features and prediction targets of SSL algorithms can be defined in various ways, depending on the algorithm and aims of the self-supervised learning. For instance, temporal prediction of prosodic parameters can be used to enforce the model to learn prosodic representations for the training language (REF JURAJ et al.).
+
+
 
 ## Combining SSL with downstream tasks
 
-Once an SSL model is trained in a self-supervised manner without data labels,  ... SUPERB ref.
+Once an SSL model is trained in a self-supervised manner without data labels, there are two basic ways to use the model: 1) using the model as a fixed feature extractor to provide speech features for a downstream task, or 2) using the model as a part of an end-to-end downstream task system. 
+
+In the first case, the pre-trained SSL model can simply be used as a feature extraction tool. Speech data is given as an input to the model, and then the corresponding hidden layer activations resulting from the forward pass of the model are extracted as the output features. For instance, in APC and CPC models it is common to extract encoder outputs **z**[*t*] or context vectors  **c**[*t*] as short-term features for the signal at each time-step *t*. However, activations of any hidden layer of an SSL model can be used, and the performance of the resulting features depends on the task and SSL model at hand. Usage of SSL models as frozen feature extractors is also commonly used in benchmarks used to compare performance of different SSL algorithms (SUPERB REF).
+
+In the alternative use of SSL models, the pre-trained layers and weights of an SSL model are included as a part of a downstream task model. Depending on the model and task, it is sometimes possible to directly fine-tune the SSL model to the task by simply adding an appropriate task-specific classification or regression layer after a chosen hidden layer (see the previous paragraph) and then fine-tuning some or all layers of the model using a loss function appropriate for the task. Alternatively, several new trainable layers are connected to the SSL model layers, and some or all of the layers of the resulting combined model are then trained for the task. The advantage of this approach is that the SSL model, including its acoustic encoder, can benefit from the further training that optimizes the entire pipeline for the task at hand. The downside is that fine-tuning the entire model using a dataset of limited size can result in overfitting or catastrophic forgetting in the model. This is especially the case when there is a large number of parameters in the combined pipeline. Different targeted strategies can be applied to mitigate such problems, which are beyond the scope of the present text. 
+
+## Benchmarking SSL models
+
+... SUPERB ref.
 
 
 
