@@ -1,6 +1,6 @@
 # Self-supervised learning
 
-Self-supervised learning (SSL) refers to a family of machine learning algorithms that are used  to learn useful signal representations from data without any supporting information, such as task-specific data labels. Instead of extracting manually specified signal features, such as MFCCs (see REF), SSL algorithms *learn the features* by taking statistical properties of the input data into acocunt.  The word *useful* refers to signal representations that can act as informative features in a downstream task or a variety of tasks. Alternatively, a pre-trained SSL model can be used as a starting point for model development for a downstream task, such as augmenting the SSL model with a classification layer (or layers) and then fine-tuning the model to a particular speech processing task of interest. 
+Self-supervised learning (SSL) refers to a family of machine learning algorithms that are used  to learn useful signal representations from data without any supporting information, such as task-specific data labels. Instead of extracting manually specified signal features, such as MFCCs (see REF), SSL algorithms *learn the features* by taking statistical properties of the input data into acocunt.  The word *useful* refers to signal representations that can act as powerful features in a particular downstream task or a variety of tasks, for which labeled training data exists. A pre-trained SSL model itself can also be used as a starting point for model training for a downstream task. This is usually done by augmenting a trained SSL model with a small number of additional classification layers, and then fine-tuning the new layers or the entire model to the task using the labeled data.
 
 In general, SSL algorithms belong to the family of unsupervised learning algorithms and they are practically implemented as deep neural networks. The reason they are referred to as *self-supervised* comes from the optimization criterion used to train the models. Classical unsupervised learning operates by performing unsupervised data clustering using a heuristic algorithm (as in k-means) or by modeling the data distribution directly with a generative model (as in Gaussian mixture models, hidden-Markov models, or autoencoders). SSL algorithms, on the other hand, can be viewed as regression models (or classifiers) that try to perform regression from the input data to representations derived from the same input data. 
 
@@ -12,7 +12,9 @@ For instance, in case of speech data, one such a regression task is to predict t
 **Figure 1:** A schematic view of APC model for self-supervised learning. Speech signal is first represented by log-Mel spectral envelope features **y**(t). APC encoder, usually implemented as a multilayer perceptron (MLP), processes each spectral frame one-by-one and transforms them into latent representations **z**(t). The history of **z**(t) values up to present time, $t \in [... ,t_0-2, t_0-1, t_0]$, is processed by a context model (e.g., a RNN, Transformer or CNN), producing a context embedding **c**($t_0$). The context embedding is then projected linearly to produce a prediction  **y***(${t_0}+k$) of a future log-Mel frame **y**(${t_0}+k$) at the given prediction distance *k*. Mean absolute error between the predicted and true future frame is then used as the loss function and minimized during neural network training. After the training, latent vectors **z**(t) or context vectors **c**(t) can be used as inputs to a downstream task.
 
 
-The advantage of SSL methods is that they do not require labeled data to operate, which allows their training on much larger datasets than what is typically available for a speech processing task. For instance, consider the case of deploying a speech emotion recognition (SER) system for a new use context: There may only be a few hours of representative speech data with emotion labels to train the system. However, there may be hundreds or thousands of hours of unlabeled data available in the same or similar language. By first learning the general characteristics of speech with SSL, and then using the SSL model or its features as the starting point for an emotion classifier, a potentially much more accurate model can be created. In practice, SSL pre-training has turned out to be so useful that a large proportion of modern speech applications, such as automatic speech recognition, nowadays make use of it as an integral part of system development (ref).
+The advantage of SSL methods is that they do not require labeled data to operate, which allows their training on much larger datasets than what is typically available for a speech processing task. For instance, consider the case of deploying an automatic speech recognition (ASR) system for a new language or dialect: There may only be a few hours of representative speech data with phonemic or text transcriptions to train the system. However, there may be substantially more unlabeled speech data available in the same or similar languages. By first learning the general acoustic and statistical characteristics of speech with SSL, one can then fine-tune the system to connect the learned representations with symbolic linguistic representations of the language. This potentially results in a much more accurate ASR model than what could be achieved by applying normal supervised learning to the small labeled data directly. 
+
+In practice, SSL-based pre-training has turned out to be so powerful that a large proportion of modern speech technology systems make use of it as an integral part of the system development (ref).
 
 ## Two basic types of SSL models for speech
 
@@ -22,9 +24,15 @@ State-of-the-art speech SSL models can be characterized by two basic approaches:
 
 In the prediction based models, the task of the model is to predict future evolution of the speech signal, given access to a series of past observations. 
 
-In **APC** (Fig. 1), the inputs and prediction targets of the neural network consist of log-Mel features, and the prediction distance *k* (in frames) is a hyperparameter defined by the user.  The model itself consists of ...  [EXPLAIN]
+In **APC** (Fig. 1), the inputs and prediction targets of the neural network consist of log-Mel features, and the prediction distance *k* (in frames) is a hyperparameter defined by the user.  The model itself consists of an MLP-encoder to convert the log-Mel features **y** into latent representations **z**, and a temporal context model that is responsible for accumulating the history of ... **z**[*t*-2], **z**[*t*-1], **z**[*t*] into a context vector **c**[*t*]. At every time-step, the context vector is then mapped into a prediction **y***[*t*+*k*] of a future log-Mel frame at *t*+*k* using a learnable linear projection **y***[*t*+*k*]=**c**[*t*]<sup>T</sup>**W**.
 
-The model is trained by performing predictions for every frame in the training data and using backpropagation to minimize the mean absolute error (MAE) between the predicted and actual future frames. [ADD MATH for loss]
+The model is trained by minimizing the mean absolute error (MAE; aka. L1 loss) between the predicted and actual inputs across all data $t \in [1, 2, ..., T]$:
+
+$L = \sum_{t=1}^{T} ||\textup{\textbf{y}}^{*}[t+k]-\textup{\textbf{y}}[t+k]||_{1}$
+
+In the original APC, the encoder was implemented as a 3-layer MLP and the context model was implemented as a stack of LSTM layers (1--4 depending on the configuration) (Chung et al, 2019). The prediction distance *k* was varied from 1 to 20 steps (10-200 ms), with approx. 5 steps (50 ms) being commonly used in later use cases (REFS).
+
+
  
 **Contrastive Predictive Coding** (CPC; van den Oord et al., 2018) is conceptually similar to APC in terms of predicting future speech using an encoder and a context model. However, instead of predicting spectral envelope of the speech at a single target distance *k*, CPC learns to predict its own latent vectors **z**(*t*+*k*) for all $k \in {1, 2, ..., K}$ and using a separate linear projection **W**$_k$ for each of the prediction distances. This means that CPC learns the predictor and the representations to predict simultaneously during training. When the model is allowed to invent its own prediction targets, conventional distance-based losses (e.g., L1 or L2 loss) cannot be used for model optimization due to the risk of *representation collapse*. During the collapse, the model learns a trivial solution for the problem, such as encoding all speech frames and their predictions with the same constant values. This minimizes the loss very efficiently, but the resulting representations do not carry any information of the underlying signal. In CPC, this is solved by using a so-called *contrastive loss*: instead of minimizing the distance of predicted and true future **z**($t+k$) vectors, the model should learn to distinguish *true future* observations (aka. "positive samples") from other, usually random, observations **z**(*t*) produced by the same encoder ("negative samples"). Technically, this is implemented using a so-called InfoNCE loss:
 
@@ -40,9 +48,39 @@ In general, the input signal features and prediction targets can be defined in v
 
 - Masking: Wav2Vec2.0, HuBERT.
 
+## Choosing between waveform and acoustic feature inputs
+
+In the above examples, input to the model is in the form of log-Mel filterbank features, which means that phase information of the signal has been discarded. Also, the less filterbank channels are used, the more the spectral envelope is averaged, which results in some loss of spectral detail, especially at high frequencies.
+
+In theory, use of the original (digitized) acoustic waveform would provide a more general starting point for representation learning. This is since there is no manually introduced loss of signal information before the SSL stage, which may provide additional performance benefits in tasks where the filterbank representation is not optimal. In fact, many of the SSL algorithms have been originally proposed as models that operate directly on the input waveform, typically sampled at 16 kHz. 
+
+In practice, many of the widely used SSL algorithms, such as CPC, Wav2Vec2.0, or HuBERT can use waveform or filterbank features interchangeably. The main difference is the two input types require a different type of encoder (see also Figs. 1–3): 
+
+*A multilayer perceptron (MLP)* can be used for filterbank features, if the features are extracted at a typical frame rate (e.g., one frame every 10 ms). In this case, the goal of the encoder is to perform a non-linear transformation on each of the frames representing spectral envelope of the input to a latent space. In the MLP, processing of each filterbank frame is done independently of the neighboring frames, meaning that the frame rate of the encoder output is the same as in the input. Since the MLP is optimized as a part of the entire SSL model training, it learns to represent filterbank information in a manner that supports the self-supervised learning task. As a concrete example, APC reference implementation uses 3 feed-forward layers with ReLu activations as the encoder for 80-dimensional log-Mel spectrograms (Chung et al., 2019).
+
+*A convolutional neural network (CNN)* is commonly employed as the encoder when waveforms are used as inputs. In this case, the encoder serves two purposes: 1) conversion of the input signal into a form that is useful for the SSL task (as in the filterbank case), and 2) downsampling of the signal from the original waveform sampling rate (e.g., 16 kHz) to a frame-rate compatible with the rest of the architecture and the downstream tasks, such as one frame every 10 ms (the same as in the filterbank case). In other words, CNN can be seen as a learnable non-linear filterbank that replaces FFT magnitude spectrum calculation, filterbank design, and non-linear learnable MLP of the alternative approach. Technically speaking, a typical CNN encoder could consist of 5 CNN layers, where strided convolutions are employed for efficient processing of the time-domain signal, and where the receptive field size of the CNN corresponds to a similar 20--35 ms time-scale as in standard filterbank feature calculation (e.g., van den Oord et al., 2018).
+
+Fig. X illustrates the basic structure of MLP (left) and CNN (right) encoders applied to the same input data.     
+
+[CREATE A DETAILED FIG OF MLP VS STRIDED CONVOLUTIONS]
+
+**Advantages of waveform inputs**
+
+- Point 1 
+- Point 2
+
+**Advantages of filterbank features**
+
+- Point 3
+- Point 4
+
+
+
 ## Combining SSL with downstream tasks
 
 Once an SSL model is trained in a self-supervised manner without data labels,  ... SUPERB ref.
+
+
 
 ## References
 
@@ -55,4 +93,6 @@ Wav2Vec2.0
 HuBERT
 CPC
 Data2Vec2.0
+
+
 
