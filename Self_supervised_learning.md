@@ -40,7 +40,8 @@ In the original APC, the encoder was implemented as a 3-layer MLP and the contex
  
 **Contrastive Predictive Coding** (CPC; van den Oord et al., 2018) is conceptually similar to APC in terms of predicting future speech using an encoder and a context model. However, instead of predicting spectral envelope of the speech at a single target distance *k*, CPC learns to predict its own latent vectors **z**(*t*+*k*) for all $k \in {1, 2, ..., K}$ and using a separate linear projection **W**$_k$ for each of the prediction distances. This means that CPC learns the predictor and the representations to predict simultaneously during training. When the model is allowed to invent its own prediction targets, conventional distance-based losses (e.g., L1 or L2 loss) cannot be used for model optimization due to the risk of *representation collapse*. During the collapse, the model learns a trivial solution for the problem, such as encoding all speech frames and their predictions with the same constant values. This minimizes the loss very efficiently, but the resulting representations do not carry any information of the underlying signal. In CPC, this is solved by using a so-called *contrastive loss*: instead of minimizing the distance of predicted and true future **z**($t+k$) vectors, the model should learn to distinguish *true future* observations (aka. "positive samples") from other, usually random, observations **z**(*t*) produced by the same encoder ("negative samples"). Technically, this is implemented using a so-called InfoNCE loss:
 
-[ADD InfoNCE MATH]
+$$L = \sum^{T}_{t=1}-\textup{log}\sum^{K}_{k=1} \frac{\textup{exp}(\mathbf{z}[t+k]^\textup{T}\mathbf{z}^*[t+k])}
+{\sum_{z_- \in Z_{neg}}\textup{exp}(\mathbf{z}_-[t+k]^\textup{T}\mathbf{z}^*[t+k])+\textup{exp}(\mathbf{z}[t+k]^\textup{T}\mathbf{z}^*[t+k])}$$
 
 
 <img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="800"/>
