@@ -30,6 +30,7 @@ The model is trained by performing predictions for every frame in the training d
 [ADD InfoNCE MATH]
 
 ![CPC basic schematic](attachments/SSL/CPC_schematic.png)
+<img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="300"/>
  
 In general, the input signal features and prediction targets can be defined in various ways, depending on the algorithm and aims of the self-supervised learning. For instance, temporal prediction of prosodic parameters can be used to enforce the model to learn prosodic representations for the training language (Juraj ref).
 
