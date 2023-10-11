@@ -6,7 +6,8 @@ In general, SSL algorithms belong to the family of unsupervised learning algorit
 
 For instance, in case of speech data, one such a regression task is to predict the spectral envelope of future speech observations, given access to a series of past observations up to present time. When a deep neural network is tasked with this prediction problem and optimized to solve it, the network has to learn higher-level properties of the data in order to solve the problem adequately. Note that the task has to be difficult enough, so that it cannot be solved by trivial means (e.g., linear interpolation from the observed values). Fig. 1 illustrates a self-supervised speech prediction task, as it is implemented in Autoregressive Predictive Coding (APC) algorithm (Chung et al., 2019).   
 
-![APC basic schematic](attachments/SSL/APC_schematic.png)
+
+<img src="attachments/SSL/APC_schematic.png" alt="APC basic schematic" width="800"/>
 
 **Figure 1:** A schematic view of APC model for self-supervised learning. Speech signal is first represented by log-Mel spectral envelope features **y**(t). APC encoder, usually implemented as a multilayer perceptron (MLP), processes each spectral frame one-by-one and transforms them into latent representations **z**(t). The history of **z**(t) values up to present time, $t \in [... ,t_0-2, t_0-1, t_0]$, is processed by a context model (e.g., a RNN, Transformer or CNN), producing a context embedding **c**($t_0$). The context embedding is then projected linearly to produce a prediction  **y***(${t_0}+k$) of a future log-Mel frame **y**(${t_0}+k$) at the given prediction distance *k*. Mean absolute error between the predicted and true future frame is then used as the loss function and minimized during neural network training. After the training, latent vectors **z**(t) or context vectors **c**(t) can be used as inputs to a downstream task.
 
@@ -29,8 +30,8 @@ The model is trained by performing predictions for every frame in the training d
 
 [ADD InfoNCE MATH]
 
-![CPC basic schematic](attachments/SSL/CPC_schematic.png)
-<img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="300"/>
+
+<img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="800"/>
  
 In general, the input signal features and prediction targets can be defined in various ways, depending on the algorithm and aims of the self-supervised learning. For instance, temporal prediction of prosodic parameters can be used to enforce the model to learn prosodic representations for the training language (Juraj ref).
 
