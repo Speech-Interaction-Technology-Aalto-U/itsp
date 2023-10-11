@@ -30,7 +30,7 @@ The model is trained by minimizing the mean absolute error (MAE; aka. L1 loss) b
 
 
 
-$$L = \sum_{t} ||\textup{\textbf{y}}^{*}[t+k]-\textup{\textbf{y}}[t+k]||_{1}$$
+$$L = \sum_{t=1}^T ||\textup{\textbf{y}}^{*}[t+k]-\textup{\textbf{y}}[t+k]||_{1}$$
 
 
 
