@@ -42,6 +42,8 @@ In the original APC, the encoder was implemented as a 3-layer MLP and the contex
 
 $$L = \sum^{T}_{t=1}-\textup{log}\sum^{K}_{k=1} \frac{\textup{exp}(\mathbf{z}[t+k]^\textup{T}\mathbf{z}^*[t+k])}{\sum_{z_- \in Z_{neg}}\textup{exp}(\mathbf{z}_-[t+k]^\textup{T}\mathbf{z}^*[t+k])+\textup{exp}(\mathbf{z}[t+k]^\textup{T}\mathbf{z}^*[t+k])}$$
 
+<img src="attachments/SSL/CPC_equation.png" alt="CPC equation" width="500"/>
+
 
 <img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="800"/>
  
