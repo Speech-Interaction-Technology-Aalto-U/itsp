@@ -16,7 +16,7 @@ def stft(data,fs,window_length_ms=30,window_step_ms=20,windowing_function=None):
     window_count = int( (total_length-window_length)/window_step) + 1
     
     spectrum_length = int((window_length)/2)+1
-    spectrogram = np.zeros((window_count,spectrum_length),dtype=np.complex)
+    spectrogram = np.zeros((window_count,spectrum_length),dtype=complex)
 
     for k in range(window_count):
         starting_position = k*window_step
