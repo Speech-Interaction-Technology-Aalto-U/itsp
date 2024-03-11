@@ -13,12 +13,13 @@ html:
   extra_footer: |
     <p>
     <img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width: 0;" alt="Creative Commons License" />
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.    
     </p>
 sphinx:
   config:
     html_show_copyright: false
     bibtex_reference_style: author_year
+    language: en
     
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 

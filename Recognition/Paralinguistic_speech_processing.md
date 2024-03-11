@@ -1,6 +1,6 @@
 # Paralinguistic speech processing
 
-Paralinguistic speech processing (PSP) refers to analysis of speech
+Paralinguistic speech processing (PSP) refers to analysis of speech 
 signals with the aim of extracting information beyond the linguistic
 content of speech (hence paralinguistic = alongside linguistic
 content; see also {cite:t}`schuller2013computational`). In other words, PSP does

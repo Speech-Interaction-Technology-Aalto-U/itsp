@@ -22,9 +22,9 @@ The most prominent categories of speech enhancement are:
     which convert a signal at a lower sampling rate to a higher sampling
     rate and fills the missing range of the spectrum with some plausible
     content.
-4.  Dereverberation refers to methods which attenuate the effect of room
+4.  *Dereverberation* refers to methods which attenuate the effect of room
     acoustics on the desired signal.
-5.  Source separation methods try to extract sounds of single sources
+5.  *Source separation* methods try to extract sounds of single sources
     from a mixture, for example, in the classical cocktail-party
     problem, we would like to isolate single speakers when multiple
     people are talking at the same time.
@@ -32,6 +32,7 @@ The most prominent categories of speech enhancement are:
     refers to spatially selective methods, where the objective is
     isolate sounds coming from a particular direction, by using the
     information about the spatial separation of a set of microphones.
+7.  *Active noise cancellation* methods aim to attenuate noises in the 
 
 The objective of speech enhancement however requires a bit more
 consideration. In its most classical form, the objective is to extract a
