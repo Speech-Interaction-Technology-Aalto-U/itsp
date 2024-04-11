@@ -224,10 +224,10 @@ are also distinct phonemes /k/ and /b/, as they change the meaning of
 the otherwise identical word. Also note that \[k\] \[ae\] \[t\] and
 \[b\] \[ae\] \[t\] are so-called *minimal pairs*, as they only differ by
 one phoneme. A good rule of thumb is that *phones are defined in terms
-of their articulatory or acoustic properties,* whereas *each* *phonemic
+of their articulatory or acoustic properties,* whereas *each phonemic
 category consists of all possible sounds that can be substituted for
 each other without affecting the meaning of any word in the given
-language. *
+language.*
 
 *Allophones* are the alternative phones that all stand for the same
 phoneme in the given language. For instance, phones \[r\] and \[l\] can
