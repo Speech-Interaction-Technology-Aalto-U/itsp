@@ -73,7 +73,7 @@ This refers to the fact that meaningful units of speech (words,
 utterances) consist of non-meaningful units (phones/phonemes) that still
 signify distinctions in meaning. At all levels, units and their relative
 organization are language-dependent, such as which phones, syllables,
-and words are employed and how they are allowed follow each other.
+and words are employed and how they are allowed to follow each other.
 However, there are also certain common tendencies (aka. [linguistic
 universals](https://en.wikipedia.org/wiki/Linguistic_universal)) that
 result from restrictions in the speech production and perception
