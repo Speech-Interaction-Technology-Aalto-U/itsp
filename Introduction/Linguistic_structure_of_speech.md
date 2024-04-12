@@ -330,7 +330,7 @@ contrast to written language, where *a sentence* is one grammatical
 expression with a communicated meaning, utterances in spoken language
 can vary from individual words to much longer streams of words and
 grammatical constructs. In other words, speech does not consist of
-clearly delinated sentences (or clauses), but of speaking acts of
+clearly delineated sentences (or clauses), but of speaking acts of
 varying durations. Speakers may use
 [*fillers*](https://en.wikipedia.org/wiki/Filler_(linguistics)) (aka.
 *hesitations*, *filled pauses*) such as "*uhm*" or "*ah*" or prolonged
