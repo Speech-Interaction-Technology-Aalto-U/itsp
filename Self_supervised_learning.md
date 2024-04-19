@@ -1,10 +1,10 @@
 # Self-supervised learning
 
-Self-supervised learning (SSL) refers to a family of machine learning algorithms that are used  to learn useful signal representations from data without any supporting information, such as task-specific data labels. Instead of extracting manually specified signal features, such as MFCCs (see REF), SSL algorithms *learn the features* by taking statistical properties of the input data into acocunt.  The word *useful* refers to signal representations that can act as powerful features in a particular downstream task or a variety of tasks, for which labeled training data exists. A pre-trained SSL model itself can also be used as a starting point for model training for a downstream task. This is usually done by augmenting a trained SSL model with a small number of additional classification layers, and then fine-tuning the new layers or the entire model to the task using the labeled data.
+Self-supervised learning (SSL) refers to a family of artificial neural network models that are used  to learn useful signal representations from data without any supporting information, such as task-specific data labels. Instead of extracting manually specified signal features, such as MFCCs (see REF), SSL algorithms *learn the features* by taking statistical properties of the input data into acocunt.  The concept of *useful features* refers to signal representations that can act as powerful features in a particular downstream task or a variety of tasks, for which labeled training data exists. Besides acting as a feature extractor, a pre-trained SSL model (neural network) can also be used as a model that is then trained for a downstream task. This is usually done by augmenting a trained SSL model with a small number of additional classification layers, and then training the new layers or the entire model to the target task using labeled data related to the task. This process is called model fine-tuning.
 
-In general, SSL algorithms belong to the family of unsupervised learning algorithms and they are practically implemented as deep neural networks. The reason they are referred to as *self-supervised* comes from the optimization criterion used to train the models. Classical unsupervised learning operates by performing unsupervised data clustering using a heuristic algorithm (as in k-means) or by modeling the data distribution directly with a generative model (as in Gaussian mixture models, hidden-Markov models, or autoencoders). SSL algorithms, on the other hand, can be viewed as regression models (or classifiers) that try to perform regression from the input data to representations derived from the same input data. 
+In general, SSL algorithms belong to the family of unsupervised learning algorithms and they are practically implemented as deep neural networks. The reason they are referred to as *self-supervised* comes from the optimization criterion used to train the models. Classical unsupervised learning operates by performing unsupervised data clustering using a heuristic algorithm (as in k-means) or by modeling the data distribution directly with a generative model (as in Gaussian mixture models, hidden-Markov models, or autoencoders). SSL algorithms, on the other hand, can be viewed as regression models (or classifiers) that try to perform regression mapping from the input data to model's own internal representations derived from the same input data. 
 
-For instance, in case of speech data, one such a regression task is to predict the spectral envelope of future speech observations, given access to a series of past observations up to present time. When a deep neural network is tasked with this prediction problem and optimized to solve it, the network has to learn higher-level properties of the data in order to solve the problem adequately. Note that the task has to be difficult enough, so that it cannot be solved by trivial means (e.g., linear interpolation from the observed values). Fig. 1 illustrates a self-supervised speech prediction task, as it is implemented in Autoregressive Predictive Coding (APC) algorithm (Chung et al., 2019).   
+In case of speech data, one example of a self-supervised regression task is to predict the input speech signal over time. When a deep neural network is tasked with this prediction problem and optimized to solve it, the network has to learn higher-level properties of the data in order to solve the problem adequately. Note that the task has to be difficult enough, so that it cannot be solved by trivial means (e.g., linear interpolation from the observed values). Fig. 1 illustrates a self-supervised speech prediction task, as it is implemented in Autoregressive Predictive Coding (APC) algorithm (Chung et al., 2019). In the APC model, the task of the model is to predict spectral envelope features (e.g., log-Mel spectra or MFCCs) approximately 50 ms in the future, given access to the current and past observations of the input spectrum.   
 
 
 <img src="attachments/SSL/APC_schematic.png" alt="APC basic schematic" width="650"/>
@@ -18,11 +18,11 @@ In practice, SSL-based pre-training has turned out to be so powerful that a larg
 
 ## Two basic types of SSL models for speech
 
-State-of-the-art speech SSL models can be characterized by two basic approaches: prediction- and masking-based models. 
+State-of-the-art SSL models for speech data can be categorized into two basic approaches: prediction and masking based models. 
 
 ### Prediction-based SSL
 
-In the prediction based models, the task of the model is to predict future evolution of the speech signal, given access to a series of past observations. 
+In the prediction based models, the task of the model is to predict future evolution of the speech signal, given access to a series of past observations. This makes the models causal, as they do not access future speech observations in the generation of their latent representations.
 
 In **APC** (Fig. 1), the inputs and prediction targets of the neural network consist of log-Mel features, and the prediction distance *k* (in frames) is a hyperparameter defined by the user.  The model itself consists of an MLP-encoder to convert the log-Mel features **y** into latent representations **z**, and a temporal context model that is responsible for accumulating the history of ... **z**[*t*-2], **z**[*t*-1], **z**[*t*] into a context vector **c**[*t*]. At every time-step, the context vector is then mapped into a prediction **y***[*t*+*k*] of a future log-Mel frame at *t*+*k* using a learnable linear projection **y***[*t*+*k*]=**c**[*t*]<sup>T</sup>**W**.
 
@@ -39,21 +39,33 @@ In the original APC, the encoder was implemented as a 3-layer MLP and the contex
 
 
  
-**Contrastive Predictive Coding** (CPC; van den Oord et al., 2018) is conceptually similar to APC in terms of predicting future speech using an encoder and a context model. However, instead of predicting spectral envelope of the speech at a single target distance *k*, CPC learns to predict its own latent vectors **z**(*t*+*k*) for all $k \in {1, 2, ..., K}$ and using a separate linear projection **W**$_k$ for each of the prediction distances. This means that CPC learns the predictor and the representations to predict simultaneously during training. When the model is allowed to invent its own prediction targets, conventional distance-based losses (e.g., L1 or L2 loss) cannot be used for model optimization due to the risk of *representation collapse*. During the collapse, the model learns a trivial solution for the problem, such as encoding all speech frames and their predictions with the same constant values. This minimizes the loss very efficiently, but the resulting representations do not carry any information of the underlying signal. In CPC, this is solved by using a so-called *contrastive loss*: instead of minimizing the distance of predicted and true future **z**($t+k$) vectors, the model should learn to distinguish *true future* observations (aka. "positive samples") from other, usually random, observations **z**(*t*) produced by the same encoder ("negative samples"). Technically, this is implemented using a so-called InfoNCE loss:
+**Contrastive Predictive Coding** (CPC; van den Oord et al., 2018) is conceptually similar to APC in terms of predicting future speech using an encoder and a context model. However, instead of predicting spectral envelope of the speech at a single target distance *k*, CPC learns to predict its own latent vectors **z**(*t*+*k*) for all $k \in {1, 2, ..., K}$ and using a separate linear projection **W**$_k$ for each of the prediction distances. This means that CPC learns the predictor and the representations to predict simultaneously during training. When the model is allowed to invent its own prediction targets, conventional distance-based losses (e.g., L1 or L2 loss) cannot be used for model optimization due to the risk of *representation collapse*. During the collapse, the model learns a trivial solution for the problem, such as encoding all speech frames and their predictions with the same constant values. This minimizes the loss very efficiently, but the resulting representations do not carry any information of the underlying signal. In CPC, representation collapse is avoided by using a so-called *contrastive loss*: instead of minimizing the distance of predicted and true future **z**($t+k$) vectors, the model should learn to distinguish *true future* observations (aka. "positive samples") from other, usually random, observations **z**(*t*) produced by the same encoder ("negative samples"). Technically, this is implemented using a so-called InfoNCE loss:
 
 
 <img src="attachments/SSL/CPC_equation.png" alt="CPC equation" width="700" class="center"/>
 
 [sample selection etc].
 
-<img src="attachments/SSL/CPC_schematic.png" alt="CPC basic schematic" width="700"/>
+<img src="attachments/SSL/CPC_schematic_waveform.png" alt="CPC basic schematic" width="700"/>
 
+**Figure 2:** [ADD CPC CAPTION]
  
 
 ### Masking-based SSL
  
+In contrast to temporal prediction SSL models, masking based models attempt to predict parts of input data that are masked (hidden) from the network. In image domain, this would correspond to a learning problem where parts of an image are hidden from the network, and the network has to infer the contents of the hidden area using the surrounding visible parts of the image. In case of speech, the model typically observes several seconds of speech (e.g., an utterance), and then several temporal spans rangin from tens to hundreds of milliseconds in duration are hidden from the model. Similar to CPC (see above), the model's task is then to infer what kind of latent representations the model itself would generate from the masked regions, and doing this by using comparable latent reprensetations derived from the visible parts of the signal.
 
-- Masking: Wav2Vec2.0, HuBERT.
+
+One example of a masking based SSL is the wav2vec2.0 architecture, which is illustrated in Fig. 3,   
+
+
+<img src="attachments/SSL/wav2vec2_schematic.png" alt="Wav2vec2.0 basic schematic" width="700"/>
+
+**Figure 3:** An illustration of wav2vec2.0 algorithm by Baevski et al. (2020). A CNN encoder produces latent short-term representations from an input waveform, one latent vector per 10 ms. A subset of these latents is then masked, and the unmasked latents are passed to a Transformer-based context model. In parallel the masked latents are vector quantized (VQ) in a separate processing branch using a learnable codebook. During training time, the model is optimized such that the Transformer correctly predicts the VQ latents of the masked input sections. A separate diversity loss is applied to the VQ to ensure that the quantization results in rich use of the quantization codebook.   
+
+
+
+Other popular masking based models include, e.g., HuBERT (ref) and data2vec (ref) algorithms.
 
 ## Choosing between waveform and acoustic feature inputs
 
@@ -75,13 +87,16 @@ Fig. X illustrates the basic structure of MLP (left) and CNN (right) encoders ap
 
 **Advantages of waveform inputs**
 
-- Point 1 
-- Point 2
+- All information in the signal is available to the SSL process, including signal phase and high-frequency details.
+
 
 **Advantages of filterbank features**
 
-- Point 3
-- Point 4
+- Discards signal phase, which is not traditionally considered as important for many speech tasks and that tends to vary across recording setups and channels.
+- Lower-dimensional input enables simpler models and faster learning, and from potentially smaller data, as the model does not have to learn to interpret time-domain signals. 
+
+ 
+
 
 
 In general, the input signal features and prediction targets of SSL algorithms can be defined in various ways, depending on the algorithm and aims of the self-supervised learning. For instance, temporal prediction of prosodic parameters can be used to enforce the model to learn prosodic representations for the training language (REF JURAJ et al.).
@@ -98,7 +113,8 @@ In the alternative use of SSL models, the pre-trained layers and weights of an S
 
 ## Benchmarking SSL models
 
-... SUPERB ref.
+Given the fast pace of the development of SSL methods, it may be difficult to identify the most suitable method for a particular use case. This is where standardized benchmarks for SSL performance can be of use. One such benchmark is the Speech processing Universal PERformance Benchmark (SUPERB) benchmark (Yang et al., 2021). SUPERB consists of several downstream tasks in which representations from a pre-trained SSL encoder are tested as features. These tasks include automatic speech recognition, phoneme recognition, speaker identification, speaker verification, speaker diarization, speech emotion recognition, and many more. Performance of different SSL methods in these tasks are listed on a leaderboard available at [https://superbbenchmark.org/](https://superbbenchmark.org/), allowing straightforward comparison of alternative methods. 
+
 
 
 
