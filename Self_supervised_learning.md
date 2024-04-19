@@ -79,9 +79,13 @@ In practice, many of the widely used SSL algorithms, such as CPC, Wav2Vec2.0, or
 
 *A convolutional neural network (CNN)* is commonly employed as the encoder when waveforms are used as inputs. In this case, the encoder serves two purposes: 1) conversion of the input signal into a form that is useful for the SSL task (as in the filterbank case), and 2) downsampling of the signal from the original waveform sampling rate (e.g., 16 kHz) to a frame-rate compatible with the rest of the architecture and the downstream tasks, such as one frame every 10 ms (the same as in the filterbank case). In other words, CNN can be seen as a learnable non-linear filterbank that replaces FFT magnitude spectrum calculation, filterbank design, and non-linear learnable MLP of the alternative approach. Technically speaking, a typical CNN encoder could consist of 5 CNN layers, where strided convolutions are employed for efficient processing of the time-domain signal, and where the receptive field size of the CNN corresponds to a similar 20--35 ms time-scale as in standard filterbank feature calculation (e.g., van den Oord et al., 2018).
 
-Fig. X illustrates the basic structure of MLP (left) and CNN (right) encoders applied to the same input data.     
+Fig. 4 illustrates the basic structure of MLP (left) and CNN (right) encoders applied to the same input data.     
 
-[CREATE A DETAILED FIG OF MLP VS STRIDED CONVOLUTIONS]
+<img src="attachments/SSL/SSL_waveform_vs_features.png" alt="Waveform_vs_features_comparison" width="700"/>
+
+**Figure 4:** An illustration of CPC algorithm with two types of inputs: spectral features (left) and acoustic waveforms (right). Note the use of CNN encoder for waveforms and MLP for spectral feature frames. The core learning principles of CPC are the same in both cases, but the model naturally cannot recover information lost during the feature extraction process (such as phase information in case of log-Mel features).   
+
+
 
 
 
