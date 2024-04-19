@@ -124,11 +124,11 @@ estimate of the label.
 
 In many cases, information extraction can also be implemented as a
 signal processing task, where we use prior knowledge of the signal to
-device our algorithm. For example, for estimating the [fundamental
+devise our algorithm. For example, for estimating the [fundamental
 frequency](Fundamental_frequency_F0_) (pitch) of a speech signal, we can
-readily use our knowledge to device efficient algorithms. Such
+readily use our knowledge to devise efficient algorithms. Such
 algorithms are usually an order of magnitude simpler than machine
-learning methods, but if the task is complicated, then the accuracy the
+learning methods, but if the task is complicated, then the accuracy of the
 output is reduced correspondingly.
 
 ![struct2](attachments/165138741.png)
