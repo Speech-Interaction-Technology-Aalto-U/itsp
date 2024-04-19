@@ -81,7 +81,7 @@ In practice, many of the widely used SSL algorithms, such as CPC, Wav2Vec2.0, or
 
 Fig. 4 illustrates the basic structure of MLP (left) and CNN (right) encoders applied to the same input data.     
 
-<img src="attachments/SSL/SSL_waveform_vs_features.png" alt="Waveform_vs_features_comparison" width="700"/>
+<img src="attachments/SSL/SSL_waveform_vs_features.png" alt="Waveform_vs_features_comparison" width="850"/>
 
 **Figure 4:** An illustration of CPC algorithm with two types of inputs: spectral features (left) and acoustic waveforms (right). Note the use of CNN encoder for waveforms and MLP for spectral feature frames. The core learning principles of CPC are the same in both cases, but the model naturally cannot recover information lost during the feature extraction process (such as phase information in case of log-Mel features).   
 
