@@ -176,7 +176,7 @@ an answer, in text from.
 ## Processing and preprocessing
 
 Irrespective of application, most systems which operate with speech
-signals suffer from similar type so of problems;
+signals suffer from similar types of problems;
 
 -   The main application is expensive to run, so it would be useful to
     have a pre-processing unit which detects when it makes sense to
