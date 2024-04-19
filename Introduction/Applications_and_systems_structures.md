@@ -108,7 +108,7 @@ We can extract many types of information from a speech signal, like
 [text content](Speech_Recognition) and [speaker
 identity](Speaker_Recognition_and_Verification). Many such forms of
 information can be categorized by *labels*, that is, we give a label to
-a particular speech signal. That label can be for example to word which
+a particular speech signal. That label can be, for example, the word which
 was pronounced or the speaker identity. Alternatively, such extracted
 information can be continuous-valued, such as the age of the speaker or
 mood (how glad/angry are you?), but we can treat both types of
