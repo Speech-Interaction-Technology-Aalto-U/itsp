@@ -42,10 +42,10 @@ modeled by the language model.
 -   Feature Extraction: It converts the speech signal into a sequence of
     acoustic feature vectors. These observations should be compact and
     carry sufficient information for recognition in the later stage.
--   Acoustic Model: It Contains a statistical representation of the
+-   Acoustic Model: It contains a statistical representation of the
     distinct sounds that make up each word in the Language Model or
     Grammar.  Each distinct sound corresponds to a phoneme.
--   Language Model: It contain a very large list of words and their
+-   Language Model: It contains a very large list of words and their
     probability of occurrence in a given sequence.
 -   Decoder: It is a software program that takes the sounds spoken by a
     user and searches the acoustic Model for the equivalent sounds. 
@@ -243,7 +243,7 @@ LVCSR are:
     in the HMM-based models, there is usually an internal representation
     for pronunciation of a character chain. 
 
-These features of of end-to-end LVCSR model enables to greatly simplify
+These features of end-to-end LVCSR model enables to greatly simplify
 the construction and training of speech recognition models.
 
 The end-to-end model are mainly divided into three different categories
