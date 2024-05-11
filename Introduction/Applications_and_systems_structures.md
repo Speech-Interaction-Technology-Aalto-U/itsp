@@ -14,7 +14,7 @@ Speech processing is used in, for example;
         [Zoom](https://en.wikipedia.org/wiki/Zoom_Video_Communications)
     -   Podcasts, digital radio and TV
     -   Virtual reality and gaming applications
--   Speech operated virtual assistants, like
+-   Speech-operated virtual assistants, like
     [Siri](https://en.wikipedia.org/wiki/Siri),
     [Alexa](https://en.wikipedia.org/wiki/Amazon_Alexa), [Google
     Assistant](https://en.wikipedia.org/wiki/Google_Assistant),
@@ -30,7 +30,7 @@ Speech processing is used in, for example;
     -   Recorded notes from doctors
 -   Microphones and microphone systems
     -   Headsets, with or without noise attenuation, with or without
-        active noise cancelling
+        active noise canceling
     -   Stage microphones (related to audio processing)
 -   Studio recording systems (related to audio processing)  
     -   [Autotune](https://en.wikipedia.org/wiki/Auto-Tune)
@@ -139,7 +139,7 @@ When we want to make a computer speak, we need a speech synthesiser,
 which takes text as input and outputs speech. It is thus the reverse of
 the information extraction -task, in that the roles of speech and labels
 (text) have been switched (see figure on the right). As in information
-extraction, also here we can also use simpler methods when applicable.
+extraction, here we can also use simpler methods when applicable.
 The classical method is concatenative synthesis, where segments of
 speech, from a database, are fused together to form continuous
 sentences. Such methods are common for example in public announcement
