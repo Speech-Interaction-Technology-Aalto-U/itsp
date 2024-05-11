@@ -412,7 +412,7 @@ syllables within a word, and where multiple stressed syllables can be
 divided into those with primary and secondary stress. For instance,
 Finnish as nearly always primary stress on the first syllable of the
 word, and secondary stress falls on the following odd-numbered
-syllables. In English, words tend to have stress on on the initial
+syllables. In English, words tend to have stress on the initial
 syllables, but there are multiple exceptions to this (e.g., word
 "*guitar*", where the stress is on "-tar").  Some languages are
 sometimes considered to be completely void of stress.
