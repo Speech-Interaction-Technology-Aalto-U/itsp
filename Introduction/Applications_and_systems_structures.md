@@ -169,14 +169,14 @@ methods described in the following section. Natural language
 understanding assigns meaning to a sequence of words, dialogue
 management maps that to a specific action, implemented by the
 actuator(s), and natural language generation refers to the generation of
-an answer, in text from.
+an answer, in text form.
 
 ![struct4](attachments/165139542.png)
 
 ## Processing and preprocessing
 
-Irrespective of application, most systems which operate with speech
-signals suffer from similar type so of problems;
+Irrespective of the application, most systems that operate with speech
+signals suffer from similar types of problems:
 
 -   The main application is expensive to run, so it would be useful to
     have a pre-processing unit which detects when it makes sense to
