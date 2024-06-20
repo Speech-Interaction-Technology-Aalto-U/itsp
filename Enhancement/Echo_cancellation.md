@@ -1,6 +1,5 @@
 # Echo cancellation
 
-
 A frequently occurring distortion in speech telecommunication scenarios
 is echoes, which have either an electric or acoustic cause. Electric
 echoes appear in analogue networks at points of impedance mismatch.

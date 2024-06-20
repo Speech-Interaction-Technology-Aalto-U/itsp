@@ -20,6 +20,8 @@ sphinx:
     html_show_copyright: false
     bibtex_reference_style: author_year
     language: en
+  extensions:
+    - sphinxcontrib.mermaid
     
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 

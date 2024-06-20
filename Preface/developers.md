@@ -12,8 +12,10 @@
 3. Many chapters require further packages, which you should install if you plan to compile the whole book (not always required).
 
     ```bash
-    conda install numpy scipy matplotlib ipython ipywidgets jupyterlab   
+    conda install numpy scipy matplotlib ipython ipywidgets jupyterlab=4.1
+    conda install pytorch torchvision torchaudio -c pytorch 
     pip install itikz
+    conda install texlive
     ```
     ![]()
     
