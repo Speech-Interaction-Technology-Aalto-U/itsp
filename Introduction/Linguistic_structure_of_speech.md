@@ -73,7 +73,7 @@ This refers to the fact that meaningful units of speech (words,
 utterances) consist of non-meaningful units (phones/phonemes) that still
 signify distinctions in meaning. At all levels, units and their relative
 organization are language-dependent, such as which phones, syllables,
-and words are employed and how they are allowed follow each other.
+and words are employed and how they are allowed to follow each other.
 However, there are also certain common tendencies (aka. [linguistic
 universals](https://en.wikipedia.org/wiki/Linguistic_universal)) that
 result from restrictions in the speech production and perception
@@ -224,10 +224,10 @@ are also distinct phonemes /k/ and /b/, as they change the meaning of
 the otherwise identical word. Also note that \[k\] \[ae\] \[t\] and
 \[b\] \[ae\] \[t\] are so-called *minimal pairs*, as they only differ by
 one phoneme. A good rule of thumb is that *phones are defined in terms
-of their articulatory or acoustic properties,* whereas *each* *phonemic
+of their articulatory or acoustic properties,* whereas *each phonemic
 category consists of all possible sounds that can be substituted for
 each other without affecting the meaning of any word in the given
-language. *
+language.*
 
 *Allophones* are the alternative phones that all stand for the same
 phoneme in the given language. For instance, phones \[r\] and \[l\] can
@@ -330,7 +330,7 @@ contrast to written language, where *a sentence* is one grammatical
 expression with a communicated meaning, utterances in spoken language
 can vary from individual words to much longer streams of words and
 grammatical constructs. In other words, speech does not consist of
-clearly delinated sentences (or clauses), but of speaking acts of
+clearly delineated sentences (or clauses), but of speaking acts of
 varying durations. Speakers may use
 [*fillers*](https://en.wikipedia.org/wiki/Filler_(linguistics)) (aka.
 *hesitations*, *filled pauses*) such as "*uhm*" or "*ah*" or prolonged
