@@ -1,6 +1,7 @@
 # Glossary
 
 ```{glossary}
+
 Backchannel
   Speech is an *interaction*, where parties are in a constant communication. Though speakers generally take turns such that only one speaker 'has the turn' and speaks at a time, the other, listening participants actively participate in the interaction by nodding or shaking their heads in agreement or disagreement, or by corresponding interjection such as '*Uh-oh*', '*Yeah*', and '*Huh?*'. See also [Backchannel (linguistics) / Wikipedia](https://en.wikipedia.org/wiki/Backchannel_(linguistics)).
   
@@ -33,4 +34,5 @@ Subjective test
 
 Turn-taking
   Humans are generally able to follow only one speech message at a time. In a dialogue, it is therefore important that only one person is speaking at a time. The organization of a dialogue to agree on who 'has the turn' and is currently 'in turn' to speak, is known as turn-taking. See also [Turn taking / Wikipedia](https://en.wikipedia.org/wiki/Turn-taking).
+  
 ```

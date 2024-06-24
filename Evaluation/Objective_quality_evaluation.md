@@ -1,16 +1,17 @@
+(content:objectiveevaluation)=
 # Objective quality evaluation
 
 ## Objective estimators for perceptual quality
 
 With "objective evaluation" we usually refer to *estimators of
 perceptual quality*, where the objective is to predict the mean output
-of a [subjective listening](Subjective_quality_evaluation) test using an
+of a [subjective listening](content:subjectiveevaluation) test using an
 algorithm. That is, we want a computer to listen to a sound sample and
 try to "guess" what a human listener would say about its quality (on
 average).
 
 It is then clear that [*subjective
-evaluation*](Subjective_quality_evaluation) is always the "true" measure
+evaluation*](content:subjectiveevaluation) is always the "true" measure
 of performance and objective evaluation is an approximation thereof. In
 this sense, subjective evaluation is "better". In fact, there are plenty of examples where objective quality estimators give the opposite result of the subjective preference {cite:p}`manocha2022audio`.
 However, there are many
@@ -69,8 +70,8 @@ Some of the most frequently used objective measures include:
     unreliable results. An important missing feature are distortions
     caused by spectral processing, such as musical noise. Specifically,
     for example, using PESQ to evaluate [speech
-    enhancement](Speech_enhancement) methods based on processing in the
-    [STFT](Spectrogram_and_the_STFT) domain, *can give unreliable
+    enhancement](content:enhancement) methods based on processing in the
+    [STFT](stft) domain, *can give unreliable
     results*.
 -   Perceptual Objective Listening Quality Assessment
     ([POLQA](https://en.wikipedia.org/wiki/POLQA "POLQA")) is the
@@ -150,7 +151,7 @@ Some examples of such performance criteria include:
     
 -   *The speech distortion index (SDI)* measures the amount by which a
     desirable speech signal is distorted. In [speech
-    enhancement](Speech_enhancement), it is often used in combination
+    enhancement](content:enhancement), it is often used in combination
     with the *noise attenuation factor* (NAF), which measures the amount
     by which undesirable noises are removed. It is clear that by doing
     nothing, we obtain a perfect SDI and by setting the output to zero,

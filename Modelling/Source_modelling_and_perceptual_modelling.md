@@ -9,7 +9,7 @@ interactions, such that it becomes difficult to separate them.
 -   *Source models* characterize the objective properties of a signal. A
     source model can for example describe the statistical distribution
     of speech signals and their characteristics. One such model would be
-    a model of the [fundamental frequency](Fundamental_frequency_F0);
+    a model of the [fundamental frequency](content:f0);
     voiced signals have a fundamental frequency and we can specify the
     range where fundamental frequencies of speech signals can lie. Other
     obvious characteristics of speech signals we can model include the

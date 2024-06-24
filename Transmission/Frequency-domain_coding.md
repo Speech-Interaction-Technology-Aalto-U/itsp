@@ -3,7 +3,7 @@
 
 In audio coding, the classical approach is based on coding in the
 frequency domain, which means that we are coding a [time-frequency
-representation](Spectrogram_and_the_STFT) of the signal. Such coding
+representation](stft) of the signal. Such coding
 methods are especially suitable for signals which have prolonged
 stationary parts, such as many instrument-sounds, which are often
 stationary for the duration of a note, more or less. Frequency-domain
@@ -12,7 +12,7 @@ quantization accuracy is chosen with a [perceptual
 model](Perceptual_modelling_in_speech_and_audio_coding).
 
 Classical speech coding is however based on [code-excited linear
-prediction (CELP)](Code-excited_linear_prediction_CELP_), which is a
+prediction (CELP)](Code-excited_linear_prediction_CELP), which is a
 fundamentally different paradigm. In modern (mobile) applications, these
 two modalities, speech and audio are often intertwined and we would like
 to be able to encode all types of sounds. For example, a movie can have
@@ -35,7 +35,7 @@ frequency-domain coding and they switch between these modes depending on
 the content.
 
 More specifically, frequency-domain codecs are based on a time-frequency
-transform such as the [MDCT](Modified_discrete_cosine_transform_MDCT_),
+transform such as the [MDCT](Modified_discrete_cosine_transform_MDCT.md),
 [perceptual modelling](Perceptual_modelling_in_speech_and_audio_coding)
 to choose the quantization accuracy, and [entropy
 coding](Entropy_coding) to transmit the quantized signal with the least

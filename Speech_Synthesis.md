@@ -1,3 +1,4 @@
+(content:synthesis)=
 # Speech Synthesis
 
 Speech synthesis systems aim at producing intelligible speech signals
@@ -85,7 +86,7 @@ complexity constraints.
 
 Speech quality and intelligibility a speech synthesizer are typically
 evaluated using [subjective listening
-tests.](Subjective_quality_evaluation)
+tests.](content:subjectiveevaluation)
 
   
 

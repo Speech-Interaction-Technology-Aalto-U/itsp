@@ -1,3 +1,4 @@
+(content:enhancement)=
 # Speech enhancement
 
 When using speech technology in real environments, we are often faced
@@ -18,7 +19,7 @@ The most prominent categories of speech enhancement are:
 2.  [Echo cancellation](Enhancement/Echo_cancellation.md) and feedback cancellation are
     used when the sound played from a loudspeaker is picked up by a
     microphone distorting the desired signal.
-3.  [Bandwidth extensions](Enhancement/Bandwidth_extension_BWE.md) refers to methods
+3.  [Bandwidth extensions](Enhancement/Bandwidth_extension_BWE.ipynb) refers to methods
     which convert a signal at a lower sampling rate to a higher sampling
     rate and fills the missing range of the spectrum with some plausible
     content.

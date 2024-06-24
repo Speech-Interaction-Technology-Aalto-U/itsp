@@ -1,3 +1,4 @@
+(content:subjectiveevaluation)=
 # Subjective quality evaluation
 
 In speech processing applications where humans are the end-users, there
@@ -244,7 +245,7 @@ different ways, for example:
     signal. We would therefore never be able to compare performance to
     the target, but only absolute quality.  
     In some cases it is also possible that some [speech
-    enhancement](Speech_enhancement) methods improve quality such that
+    enhancement](content:enhancement) methods improve quality such that
     the output sounds better than the original non-distorted sound!
 -   In some experimental designs, the subject can listen to sounds many
     times, even in a loop. That way we make sure that the subject hears

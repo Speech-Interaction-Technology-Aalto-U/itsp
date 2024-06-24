@@ -1,3 +1,4 @@
+(content:vq)=
 # Vector quantization (VQ)
 
 
@@ -136,7 +137,7 @@ until the output is sufficiently good.
 
 ### Optimization with machine learning platforms
 
-A modern approach to modelling is [machine learning](Neural_networks.ipynb), where complex phenomena are modelled with neural networks. Typically they are trained with [gradient-descent](https://en.wikipedia.org/wiki/Gradient_descent) type methods, where parameters are iteratively nudged towards the minimum, by following the steepest gradient. Since such gradients can be automatically derived on machine learning platforms (using the [chain rule](https://en.wikipedia.org/wiki/Chain_rule)), they can be applied on very complex models. Consequently, they have become very popular and succesful. 
+A modern approach to modelling is [machine learning](content:nn), where complex phenomena are modelled with neural networks. Typically they are trained with [gradient-descent](https://en.wikipedia.org/wiki/Gradient_descent) type methods, where parameters are iteratively nudged towards the minimum, by following the steepest gradient. Since such gradients can be automatically derived on machine learning platforms (using the [chain rule](https://en.wikipedia.org/wiki/Chain_rule)), they can be applied on very complex models. Consequently, they have become very popular and succesful. 
 
 The same type of training can be readily applied to vector quantizers as well. However, there is a practical problem with this approach. Estimation of the gradients of the parameters with the chain-rule requires that *all* intermediate gradients are non-zero. Quantizers are however piece-wise constant such that their gradients are uniformly zero, thus disabling the chain rule and gradient descent for all parameters which lie behind the quantizer in the computational graph. A practical solution is known as pass-through, where gradients are passed unchanged through the quantizer. This approximation is simple to implement and provides often adequate performance.
 
@@ -185,10 +186,10 @@ complexity.
 
 Probably the most important application where vector quantization is
 used in speech processing, is [speech
-coding](Transmission_storage_and_telecommunication) with [Code-excited
-linear prediction (CELP)](Code-excited_linear_prediction_CELP_), where
+coding](content:telecom) with [Code-excited
+linear prediction (CELP)](content:CELP), where
 
--   [linear predictive coefficients (LPC)](Linear_prediction) are
+-   [linear predictive coefficients (LPC)](content:linearprediction) are
     transformed to line spectral frequencies (LSFs), which are often
     encoded with multi-stage vector quantizers. 
 -   gains (signal energy) of the residual and long term prediction are
@@ -197,7 +198,7 @@ linear prediction (CELP)](Code-excited_linear_prediction_CELP_), where
 Other typical applications include
 
 -   In optimization of [Gaussian mixture models
-    (GMMs)](Gaussian_mixture_model_GMM_), it is useful to use vector
+    (GMMs)](content:gmm), it is useful to use vector
     quantization to find a first-guess of the means of each mixture.
 
 

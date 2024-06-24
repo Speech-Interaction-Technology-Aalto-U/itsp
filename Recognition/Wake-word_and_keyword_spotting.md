@@ -8,7 +8,7 @@ most of the time, speech devices are just sitting there waiting for
 instructions when nobody is speaking. Speech recognition algorithms
 moreover use a lot of computational resources such that it would be
 wasteful to have them analyse sounds when there is no speech present.
-[Voice activity detection (VAD)](Voice_activity_detection_VAD_) takes
+[Voice activity detection (VAD)](content:vad) takes
 care of the first part, to detect whether speech is present or not, such
 that all activities are in a sleep mode when speech is not present.
 
@@ -32,8 +32,8 @@ overall cost of the device.
 
 The overall structure of of keyword-spotting algorithms is illustrated
 below. The input speech signal is first converted to a feature
-representation, such as [MFCCs](Cepstrum_and_MFCC), which are fed to a
-[neural network](Neural_networks), and the output is the likelihood of
+representation, such as [MFCCs](content:mfcc), which are fed to a
+[neural network](content:nn), and the output is the likelihood of
 each keyword.
 
 ![keyword_flow.png](attachments/155474775.png)

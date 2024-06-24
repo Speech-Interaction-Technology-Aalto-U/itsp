@@ -72,7 +72,7 @@ improvement. However, we still have 5 unused bit-strings, which shows
 that this encoding is sub-optimal.
 
 Note that there are immediate parallels with *[vector quantization
-(VQ)](Vector_quantization_VQ_)* though the two methods are not the same.
+(VQ)](content:vq)* though the two methods are not the same.
 In short, vector quantization is lossy coding, which finds the best
 quantization with a given set of symbols, whereas vector coding is
 lossless coding of vectors of symbols.
@@ -223,8 +223,8 @@ A few additional points:
     encode 3 samples, which gives 2.3 bits per sample. The actual number
     of bits thus does not perfectly coincide with the average bit-rate.
 
--   In [a practical
-    implementation](Implementation_of_an_Arithmetic_Coder) of a decoder,
+-   In a practical
+    implementation of a decoder,
     we need to either know the number of symbols or bits, transmit the
     number of symbols or bits separately, or we need to use a special
     symbol which signifies end-of-string.
@@ -238,7 +238,7 @@ A few additional points:
     always less than 1 bit for the whole string, which is acceptable
     when we send a large amount of symbols in a string.
 
--   Direct [implementation](Implementation_of_an_Arithmetic_Coder) of
+-   Direct implementation of
     the above description would be cumbersome since the intervals
     rapidly become smaller than what can be expressed by discrete
     arithmetic (fixed or floating point). Usually therefore algorithms
@@ -248,7 +248,7 @@ A few additional points:
     0.5, such that the first bit has to be 1, corresponding to the
     interval 0.5 ... 0.1.
 
--   The specific [implementation](Implementation_of_an_Arithmetic_Coder)
+-   The specific implementation
     is rather involved and sensitive to errors.
 
 -   Algorithmic complexity of an arithmetic coder is usually reasonable,
@@ -290,7 +290,7 @@ frequency-domain coding to encode individual spectral components. We can
 then assume that spectral components follow a Laplacian distribution and
 derive the probabilities $P_{k}$ using that distribution. More
 refined alternatives include for example [Gaussian mixture models
-(GMMs).](Gaussian_mixture_model_GMM_)
+(GMMs).](content:gmm)
 
 
 ## Algebraic coding

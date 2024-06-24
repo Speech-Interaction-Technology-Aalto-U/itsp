@@ -16,22 +16,22 @@ on variants of CELP.
 
 
 As an overview, CELP is based on a source-filter model of speech, where
-[linear prediction](Linear_prediction) is used to model the filtering
+[linear prediction](content:linearprediction) is used to model the filtering
 effect of the vocal tract (and other effects) and this filter is excited
 by the speech source, viz. the glottal source and turbulent noise.
 Typically, the [pitch or fundamental frequency
-model](Fundamental_frequency_F0_) is a long-term prediction (LTP)
+model](content:f0) is a long-term prediction (LTP)
 filter, which is just a linear predictor with a long delay. To model
 noise, CELP codecs usually use a [vector
-codebook](Vector_quantization_VQ_). The codebook contribution is often
+codebook](content:vq). The codebook contribution is often
 optimized with analysis-by-synthesis, where the output of different
 quantizations are synthesised and the synthesised outputs are evaluated
 to choose the best quantization. The evaluation uses [perceptual
 weighting](Perceptual_modelling_in_speech_and_audio_coding) such that
 the subjective, perceptual quality can be compared.
 
-Since [linear prediction](Linear_prediction) and [fundamental frequency
-modelling](Fundamental_frequency_F0_) are described in detail elsewhere,
+Since [linear prediction](content:linearprediction) and [fundamental frequency
+modelling](content:f0) are described in detail elsewhere,
 below we will discuss only overall encoder/decoder structure, perceptual
 evaluation, noise modelling and analysis-by-synthesis.
 

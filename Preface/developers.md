@@ -46,7 +46,7 @@ Recording with python/jupyter is a nightmare, but playing audio works like a dre
 ### Interactive elements
 
 Some demonstrations are best when readers get to modify parameters themselves and to observe the output. [IPython](https://ipython.org/) and [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/) allows doing that. Unfortunately, some of the more advanced interactive elements currently require a running jupyter/python kernel (i.e. have to run the notebook on a server).
-For an example, check out [Representations/Spectrogram and the STFT](../Representations/Spectrogram_and_the_STFT.ipynb).
+For an example, check out [Representations/Spectrogram and the STFT](stft).
 
 ### Flow graphs and other static visualizations
 
@@ -71,9 +71,9 @@ We use a bibtex based approach stored at [references.bib](../references.bib). Fo
 
 ### Executing notebooks / MyBinder badge
 
-To allow for the user to run the code in notebooks, there needs to be a jupyter server. Such a server can be installed locally (see [Using this document](Using_this_document.ipynb)), but importantly, there are public servers which can be used as well. The simplest approach is to use [mybinder.org](mybinder.org). To make it simple to use, please place a badge on top of the notebook, which directly runs the notebook on the server with the following steps:
+To allow for the user to run the code in notebooks, there needs to be a jupyter server. Such a server can be installed locally (see [Using this document](Using_this_document.ipynb)), but importantly, there are public servers which can be used as well. The simplest approach is to use [mybinder.org](https://mybinder.org). To make it simple to use, please place a badge on top of the notebook, which directly runs the notebook on the server with the following steps:
 1. Find the github url, folder and filename.
-2. Enter the above in the form at [mybinder.org](mybinder.org).
+2. Enter the above in the form at [mybinder.org](https://mybinder.org).
 3. This autogenerates a command to generate the badge; copy that code to the top of your jupyter notebook.
 4. Be sure to test it by clicking the badge.
 For an example of use, see the page [Noise attenuation](../Enhancement/Noise_attenuation.ipynb).

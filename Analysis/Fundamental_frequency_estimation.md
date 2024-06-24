@@ -1,13 +1,13 @@
 # Fundamental frequency estimation
 
 
-The [fundamental frequency (F0)](Fundamental_frequency_F0) is central
+The [fundamental frequency (F0)](content:f0) is central
 in describing speech signals whereby we need methods for estimating the
 $F_0$ from speech signals. In speech analysis applications, it can be
 informative to study the absolute value of the fundamental frequency as
 such, but more commonly, extraction of the $F_0$ is usually a
 pre-processing step. For example, in [recognition
-tasks](Recognition_tasks_in_speech_processing), $F_0$ is often used as a
+tasks](content:recotasks), $F_0$ is often used as a
 feature for machine learning methods. A voice activity detector could,
 for instance, set a lower and higher threshold on the $F_0$, such that
 sounds with an $F_0$ outside the valid range would be classified as
@@ -18,13 +18,13 @@ The fundamental frequency is visible in multiple different domains:
 -   In an acoustic time-signal, the $F_0$ is visible as a repetition after
     every $T$ samples.
 -   In the [autocovariance or
-    -correlation](Autocorrelation_and_autocovariance), the $F_0$ is visible
+    -correlation](content:xcorr), the $F_0$ is visible
     as a peak at lag $T$ as well as its integer multiples $kT$.
 -   In the magnitude, power or log-magnitude
-    [spectrum](Spectrogram_and_the_STFT), the $F_0$ is visible as a peak at
+    [spectrum](stft), the $F_0$ is visible as a peak at
     the frequency $F_0=F_{s}/T$, as well as its integer
     multiples, where $F_{s}$ is the sampling frequency.
--   In the [cepstrum](Cepstrum_and_MFCC), the $F_0$ is visible as a peak at
+-   In the [cepstrum](content:mfcc), the $F_0$ is visible as a peak at
     quefrency $T$ as well as its integer multiples $kT$.
 
 Consequently, we can use any of these domains to estimate the

@@ -90,11 +90,11 @@ various settings.
 Also note that the distinction between PSP systems and other established
 areas of speech processing is not always clear-cut. For instance,
 automated methods for speech [intelligibility
-assessment](Objective_quality_evaluation) are also focusing on
+assessment](content:objectiveevaluation) are also focusing on
 extralinguistic factors, and the task of speaker recognition was already
 mentioned at the beginning of this section. In addition, more flexible
 control of speaking style is an ongoing topic of research in [speech
-synthesis](Speech_Synthesis), where the research focus is gradually
+synthesis](content:synthesis), where the research focus is gradually
 changing from the production of high-quality to speech to creation of
 systems capable of richer vocalic expression. However, there is no need
 for a strict distinction of PSP from other types of processing tasks,

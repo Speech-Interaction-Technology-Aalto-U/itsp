@@ -1,3 +1,4 @@
+(content:telecom)=
 # Transmission, storage and telecommunication
 
 For a comprehensive review of speech coding, see {cite}`oshaughnessy2023coding`.
@@ -10,7 +11,7 @@ For a comprehensive review of speech coding, see {cite}`oshaughnessy2023coding`.
     3.  [Perceptual modelling in speech and audio
         coding](Transmission/Perceptual_modelling_in_speech_and_audio_coding.md)
     4.  [Vector quantization (VQ)](Modelling/Vector_quantization_VQ.md)
-    5.  [Linear prediction](Representations/Linear_prediction.md)
+    5.  [Linear prediction](Representations/Linear_prediction.ipynb)
 4.  [Code-excited linear prediction
     (CELP)](Transmission/Code-excited_linear_prediction_CELP.md)
 5.  [Frequency-domain coding](Transmission/Frequency-domain_coding.md)

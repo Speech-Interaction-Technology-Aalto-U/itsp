@@ -21,7 +21,7 @@ relying on pre-recorded segments. These statistical models are learned
 from speech corpora using machine learning techniques, and they encode
 information of how speech evolves as a function of time in the context
 of a given input text.  In this respect, SPSS systems can be viewed as a
-mirror image of [ASR](Speech_Recognition) systems: while an ASR system
+mirror image of [ASR](content:asr) systems: while an ASR system
 tries to convert speech from acoustic features to a string of words
 using machine learning models, an SPSS system tries to convert a string
 of words into acoustic features or directly to the acoustic waveform
@@ -106,18 +106,18 @@ of a raw waveform — a typical length of one vowel — would correspond to
 0.08 s\16 kHz = 1280-dimensional amplitude vector, and that this
 vector could take countless of shapes for perceptually highly similar
 sounds. Moreover, the values encoded in this vector would be highly
-correlated with each other (see [LPC](Linear_prediction)). Given the
+correlated with each other (see [LPC](content:linearprediction)). Given the
 high dimensionality, variability, and redundant nature of the waveform
 signal representation, it is not an attractive target for statistical
 parametric modeling with classical machine learning techniques (but see
 also Neural SPSS below).
 
 However, as we remember from speech feature extraction (see, e.g.,
-[SFFT](Spectrogram_and_the_STFT)), speech signal can be considered as
+[SFFT](stft)), speech signal can be considered as
 quasi-stationary in short windows of approx. 10–30 ms in duration.
 Speech contents of the signal within these short windows can be
 described using a set of spectral and source features (such as
-[MFCCs](Cepstrum_and_MFCC) and [F0](Fundamental_frequency_F0_)) that are
+[MFCCs](content:mfcc) and [F0](content:f0)) that are
 assumed to be fixed for that window. When extracting the features in a
 sliding window with short (e.g., 10 ms) window steps, the overall
 structure of the signal can be captured with a much lower dimensional
