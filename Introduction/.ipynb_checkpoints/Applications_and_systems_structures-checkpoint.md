@@ -108,7 +108,7 @@ We can extract many types of information from a speech signal, like
 [text content](content:asr) and [speaker
 identity](content:sid). Many such forms of
 information can be categorized by *labels*, that is, we give a label to
-a particular speech signal. That label can be for example to word which
+a particular speech signal. That label can be, for example, the word which
 was pronounced or the speaker identity. Alternatively, such extracted
 information can be continuous-valued, such as the age of the speaker or
 mood (how glad/angry are you?), but we can treat both types of
@@ -128,7 +128,7 @@ device our algorithm. For example, for estimating the [fundamental
 frequency](content:f0) (pitch) of a speech signal, we can
 readily use our knowledge to device efficient algorithms. Such
 algorithms are usually an order of magnitude simpler than machine
-learning methods, but if the task is complicated, then the accuracy the
+learning methods, but if the task is complicated, then the accuracy of the
 output is reduced correspondingly.
 
 ![struct2](attachments/165138741.png)
@@ -176,7 +176,7 @@ an answer, in text from.
 ## Processing and preprocessing
 
 Irrespective of application, most systems which operate with speech
-signals suffer from similar type so of problems;
+signals suffer from similar types of problems;
 
 -   The main application is expensive to run, so it would be useful to
     have a pre-processing unit which detects when it makes sense to
