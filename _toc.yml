@@ -103,6 +103,7 @@ chapters:
   - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.ipynb
     sections:
     - file: Enhancement/tdoa.ipynb
+- file: Self_supervised_learning.md
 - file: Computational_models_of_human_language_processing.md
 - file: ResearchandDevelopment.md
   sections:
