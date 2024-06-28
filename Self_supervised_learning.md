@@ -6,8 +6,8 @@ In general, SSL algorithms belong to the family of unsupervised learning algorit
 
 In case of speech data, one example of a self-supervised regression task is to predict the input speech signal over time. When a deep neural network is tasked with this prediction problem and optimized to solve it, the network has to learn higher-level properties of the data in order to solve the problem adequately. Note that the task has to be difficult enough, so that it cannot be solved by trivial means (e.g., linear interpolation from the observed values). Fig. 1 illustrates a self-supervised speech prediction task, as it is implemented in Autoregressive Predictive Coding (APC) algorithm (Chung et al., 2019). In the APC model, the task of the model is to predict spectral envelope features (e.g., log-Mel spectra or MFCCs) approximately 50 ms in the future, given access to the current and past observations of the input features.   
 
-
-<img src="attachments/SSL/APC_schematic.png" alt="APC basic schematic" width="650"/>
+![APC basic schematic](attachments/SSL/APC_schematic.png)
+<!-- <img src="attachments/SSL/APC_schematic.png" alt="APC basic schematic" width="650"/> -->
 
 **Figure 1:** A schematic view of APC model for self-supervised learning. Speech signal is represented by spectral envelope features **y**(t), such as log-mel spectra. The APC model consists of a set of recurrent neural network layers that process the history of **y**[t] values up to present time, $t \in [... ,t_0-2, t_0-1, t_0]$, producing a context representation **c**($t_0$). The context vector is then projected linearly to produce a prediction  **y***[${t_0}+k$] of a future spectral frame **y**[${t_0}+k$] at the given prediction distance *k*. The mean absolute error between the predicted and true future frame is then used as the loss function and minimized during neural network training. After the training, latent vectors **z**(t) or context representation vectors **c**(t) can be used as inputs to a downstream task.
 
@@ -24,13 +24,15 @@ SSL models for speech data can be categorized into two basic approaches: predict
 
 In the prediction-based models, the task of the neural network is to predict future evolution of the speech signal, given access to a series of past observations. This makes the models causal, as they do not access future speech observations during generation of their latent representations.
 
-In **APC** (Fig. 1), the inputs and prediction targets of the neural network consist of spectral feautres (e.g. log-mel features), and the prediction distance *k* (in frames) is a hyperparameter defined by the user. The model itself consists of a stack of recurrent neural layers that are responsible for accumulating the history of observations... **y**[*t*-2], **y**[*t*-1], **y**[*t*] into a context vector **c**[*t*]. At every time step, the context vector is then mapped into a prediction **y***[*t*+*k*] of a future feature frame at *t*+*k* using a learnable linear projection **y***[*t*+*k*]=**c**[*t*]<sup>T</sup>**W**.
+In **APC** (Fig. 1), the inputs and prediction targets of the neural network consist of spectral feautres (e.g. log-mel features), and the prediction distance *k* (in frames) is a hyperparameter defined by the user. The model itself consists of a stack of recurrent neural layers that are responsible for accumulating the history of observations... **y**[*t*-2], **y**[*t*-1], **y**[*t*] into a context vector **c**[*t*]. At every time step, the context vector is then mapped into a prediction **y***[*t*+*k*] of a future feature frame at *t*+*k* using a learnable linear projection* **y**[*t*+*k*]=**c**[*t*]<sup>T</sup>**W**.
 
 The model is trained by minimizing the mean absolute error (MAE; aka. L1 loss) between the predicted and actual inputs across all data $t \in [1, 2, ..., T]$:
 
 
 
-$$L = \sum_{t=1}^T ||\textup{\textbf{y}}^{*}[t+k]-\textup{\textbf{y}}[t+k]||_{1}$$
+$$
+L = \sum_{t=1}^T ||{\textbf{y}}^{*}[t+k]-{\textbf{y}}[t+k]||_{1}
+$$
 
 
 After the training, the context vectors **c**[*t*], or latent representations **z**[*t*] corresponding to activations of a chosen hidden RNN layer, can be used as features for a downstream task.  
@@ -42,15 +44,17 @@ In the original APC paper, the context model was implemented as a stack of recur
  
 **Contrastive Predictive Coding** (CPC; van den Oord et al., 2018), illustrated in Fig. 2, is conceptually similar to APC in terms of predicting future speech using an encoder and a context model. However, instead of predicting spectral envelope of the speech at a single target distance *k*, CPC learns to predict its own latent vectors **z**[*t*+*k*] for all $k \in {1, 2, ..., K}$ and using a separate linear projection **W**$_k$ for each of the prediction distances. This means that CPC simultaneously learns the predictor and the representations to predict during training. 
 
-<img src="attachments/SSL/CPC_schematic_waveform.png" alt="CPC basic schematic" width="700"/>
-
+![CPC basic schematic](attachments/SSL/CPC_schematic_waveform.png)
+<!-- <img src="attachments/SSL/CPC_schematic_waveform.png" alt="CPC basic schematic" width="700"/>
+ -->
+ 
 **Figure 2:** Illustration of the CPC algorithm (van den Oord et al., 2018). An encoder maps the input speech waveform into latent representations **z**[*t*]. An RNN-based context-model, followed by distance-specific linear mappings **W**$_k$, is then used to predict future **z**[*t*+1], **z**[*t*+2], ..., **z**[*t*+*K*] for each *t* in the input. At training time, a contrastive InfoNCE loss is used to optimize the predictions such that the model learns to differentiate true future latents from false futures (negative samples) drawn from the pool of latents corresponding to other time points in the input data.
 
 When a model is allowed to invent its own prediction targets, conventional distance-based losses (e.g., L1 or L2 loss) cannot be used for model optimization due to the risk of *representation collapse*. During the collapse, the model learns a trivial solution for the problem, such as encoding all speech frames and their predictions with the same constant values. Although this minimizes the loss very efficiently, the resulting representations do not carry any information of the underlying signal. In CPC, representation collapse is avoided by using a so-called *contrastive loss* (Gutmann & Hyvärinen, 2010): instead of minimizing the distance of predicted and true future **z**[$t+k$] vectors, the model is optimized to distinguish *true future* observations (aka. "positive samples") from other, usually random, observations **z**$_n$[*t*] produced by the same encoder ("negative samples"). Technically, this is implemented using a so-called InfoNCE loss:
 
-
-<img src="attachments/SSL/CPC_equation.png" alt="CPC equation" width="700" class="center"/>
-
+![CPC equation](attachments/SSL/CPC_equation.png)
+<!-- <img src="attachments/SSL/CPC_equation.png" alt="CPC equation" width="700" class="center"/>
+ -->
 By jointly optimizing the representations and their predictions, CPC learns latent representations **z**[*t*] and context representations **c**[*t*] that encode different aspects of the input speech, such as phonemic units and speaker identities, a in well-separable manner (van den Oord et al., 2018). 
 
 Note that the standard CPC uses waveforms instead of spectral features as the input, and therefore a CNN encoder is applied to map the speech into the latent space **z**[*t*] (see Fig. 2). However, the core CPC learning mechanism can also be appied to spectral feature inputs, in which case MLP encoder would be typically instead of a CNN (e.g., Chung et al., 2019; see also *"Choosing between waveform and acoustic feature inputs"* section below). 
@@ -68,9 +72,9 @@ In contrast to temporal prediction SSL models, masking based models attempt to p
 
 One example of a masking based SSL is the wav2vec2.0 model (Baevski et al., 2020) illustrated in Fig. 3. In wav2vec2.0, a CNN is first used to encode speech waveform into latent **z**[*t*] similarly to CPC. However, instead of predicting in time, a subset of **z**[*t*] are masked from the subsequent Transformer layers, and the task of the final Transformer layer is to output correct predictions **c**[*t*] for the masked segments by using the surrounding context as a cue. Instead of predicting the original **z**[*t*] directly, the masked **z**[*t*] are first vector quantized (VQ) into **q**[*t*] with a learnable codebook, making the prediction targets categorical in nature. Contrastive loss is then used to optimize the network for the prediction task. An additional auxiliary loss called *diversity loss* is added to the total optimization loss with a weight of $\alpha$ to ensure that the VQ process results in a hetereogenous distribution of quantization outputs. 
 
-
-<img src="attachments/SSL/wav2vec2_schematic.png" alt="Wav2vec2.0 basic schematic" width="700"/>
-
+![Wav2vec2.0 basic schematic](attachments/SSL/wav2vec2_schematic.png)
+<!-- <img src="attachments/SSL/wav2vec2_schematic.png" alt="Wav2vec2.0 basic schematic" width="700"/>
+ -->
 **Figure 3:** An illustration of wav2vec2.0 algorithm by Baevski et al. (2020). A CNN encoder produces latent short-term representations from an input waveform, one latent vector per 10 ms. A subset of these latents is then masked, and the unmasked latents are passed to a Transformer-based context model. In parallel the masked latents are vector quantized (VQ) in a separate processing branch using a learnable codebook. During training time, the model is optimized such that the Transformer correctly predicts the VQ latents of the masked input sections. A separate diversity loss is applied to the VQ to ensure that the quantization results in rich use of the quantization codebook.   
 
 
@@ -91,9 +95,9 @@ In the above examples, input to the APC model consisted of spectral features, su
 
 In contrast, CPC and wav2vec2.0 used acoustic waveforms as their default inputs. In theory, the use of the acoustic waveform provides a more general starting point for representation learning, since there is no loss of information before the SSL stage. This may provide some performance advantage over spectral features in tasks where the chosen filterbank representation is not optimal, and where there is enough data to train the waveform encoder. 
 
-
-<img src="attachments/SSL/SSL_waveform_vs_features.png" alt="Waveform_vs_features_comparison" width="850"/>
-
+![Waveform_vs_features_comparison](attachments/SSL/SSL_waveform_vs_features.png)
+<!-- <img src="attachments/SSL/SSL_waveform_vs_features.png" alt="Waveform_vs_features_comparison" width="850"/>
+ -->
 **Figure 4:** An illustration of CPC algorithm with two types of inputs: spectral features (left) and acoustic waveforms (right). Note the use of CNN encoder for waveforms and MLP for spectral feature frames. The core learning principles of CPC are the same in both cases, but the model naturally cannot recover information lost during the feature extraction process (such as phase information in case of log-Mel features).   
 
 
