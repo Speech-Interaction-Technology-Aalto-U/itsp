@@ -4,12 +4,13 @@ root: index
 options:
   numbered: true
 chapters:
-- file: Preface
+- file: Preface/Preface.md
   sections:
   - file: Preface/Using_this_document.md
   - file: Preface/authors.md
   - file: Preface/developers.md
-  - file: code_of_conduct.md
+  - file: Preface/contributing.md
+  - file: Preface/code_of_conduct.md
 - file: Introduction
   sections:
   - file: Introduction/Why_speech_processing.md
@@ -24,12 +25,12 @@ chapters:
     title: Social and cognitive processes in human communication (external)
 - file: Representations/Representations.md
   sections:
-  - file: Representations/Short-time_analysis.ipynb
-  - file: Representations/Short-time_processing.ipynb
   - file: Representations/Waveform.ipynb
   - file: Representations/Windowing.md
-  - file: Representations/Signal_energy_loudness_and_decibel.md
   - file: Representations/Spectrogram_and_the_STFT.ipynb
+  - file: Representations/Short-time_analysis.ipynb
+  - file: Representations/Short-time_processing.ipynb
+  - file: Representations/Signal_energy_loudness_and_decibel.md
   - file: Representations/Autocorrelation_and_autocovariance.ipynb
   - file: Representations/Melcepstrum.ipynb
   - file: Representations/Linear_prediction.ipynb

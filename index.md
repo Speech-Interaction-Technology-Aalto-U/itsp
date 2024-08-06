@@ -4,7 +4,7 @@
 
 This is an open access and creative commons book of speech processing, intended as pedagogical material for engineering students. Hosted by [Aalto University](https://aalto.fi). 
 
-Instructions for {ref}`content:usingthisbook`.
+Instructions for {ref}`content:usingthisbook`. 
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ Instructions for {ref}`content:usingthisbook`.
 
 ## Contributing
 
-   We welcome all types of useful contributions! See [Contributing](contributing.md) and our [code of conduct](code_of_conduct.md). Current [list of authors](Preface/authors.md).
+   We welcome all types of useful contributions! See [Contributing](Preface/contributing.md) and our [Preface/code of conduct](Preface/code_of_conduct.md). Current [list of authors](Preface/authors.md).
 
 ## Referencing
 
