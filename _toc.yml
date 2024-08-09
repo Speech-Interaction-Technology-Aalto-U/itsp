@@ -66,7 +66,6 @@ chapters:
   - file: Evaluation/Analysis_of_evaluation_results.ipynb
 - file: Speech_analysis.md
   sections:
-  - file: Analysis/Fundamental_frequency_estimation.md
   - url: https://en.wikipedia.org/wiki/Voice_analysis
     title: Voice and speech analysis (Wikipedia)
   - file: Analysis/Measurements_for_medical_applications.md
