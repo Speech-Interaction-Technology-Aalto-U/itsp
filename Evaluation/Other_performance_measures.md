@@ -3,10 +3,10 @@
 
 ## Computational Complexity
 
-On an application level, speech processing algorithms usually are used
-in low-resource devices like mobile phones. Mobile devices have limited
-computational capabilities and, in order to preserve their battery, it
-is important to design efficient algorithms for them. There are multiple
+On an application level, speech processing algorithms are usually used
+on low-resource devices like mobile phones. Mobile devices have limited
+computational capabilities, so it
+is important to design efficient algorithms for them to preserve their battery. There are multiple
 ways of analyzing the computational complexity of an algorithm depending
 on the stage of the design process or the purpose of the final
 application:
@@ -19,13 +19,13 @@ application:
 
 The complexity of an algorithm is usually understood as a measurement of
 the time that an algorithm would take to complete, given an input of
-size n. When the size of the input grows, the computing time should
+size n. When the input size grows, the computing time should
 remain within a practical bound. For this reason, complexity is measured
 asymptotically as n approaches infinity. The most popular representation
 of algorithmic complexity is the Big-O notation. The Big-O notation
 gives an upper bound to the growth of the computing time of an
-algorithm. This proves especially useful, because this notation allows
-us to compare algorithms in worst case scenarios. Figure 1 shows the
+algorithm. This proves especially useful because this notation allows
+us to compare algorithms in worst-case scenarios. Figure 1 shows the
 growth rate of different Big-O notations with respect to the input size.
 
 For example, a complexity of O(n), read as "O n complexity', represents
@@ -54,7 +54,7 @@ Some examples of every type of complexity are:
         multiplication).  
           
 -   O(n log n) - The "log n" term is added when O(n<sup>2</sup>)
-    algorithms are performed with Divide and Conquer techniques to
+    algorithms are performed with divide-and-conquer techniques to
     increase their efficiency.
     -   Fast Fourier Transform.  
           
@@ -75,15 +75,14 @@ Some examples of every type of complexity are:
 
   
 
-The Big-O notations gives us an intuitive idea of the complexity of
+The Big-O notations give us an intuitive idea of the complexity of
 specific algorithms. This allows us to compare which algorithm to use
 and choose the most efficient option. However, in applications like
 speech coding, it is important to know the exact number of operations
-that the system needs to perform in order to process each frame of
-audio.
+the system needs to perform to process each audio frame.
 
 The ITU-T provides guidelines to measure the number of operations in a
-program. This measurement takes into account that not all the operations
+program. This measurement considers that not all the operations
 have the same computational load and scales their values accordingly.
 For example, a logarithm is a much heavier operation than an addition.
 The final result is represented as Weighed Million Operations Per Second
@@ -100,7 +99,7 @@ carried out.
 ![bigo](attachments/175510471.png)
 
 **Figure 1:** Evolution of computation time for multiple Big-O notations
-dependint on the input size.
+dependent on the input size.
 
   
 
