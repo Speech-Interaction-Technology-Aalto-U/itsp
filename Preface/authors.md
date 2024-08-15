@@ -1,3 +1,4 @@
+(content:authors)=
 # List of authors
 
 <!-- remember to update also the files _config.yml and index.md -->
@@ -11,5 +12,6 @@
 - [Esteban Gómez Mellado](https://www.linkedin.com/in/eagomez/)
 - Mariem Bouafif Mansali
 - [Daniel Ramos](http://arantxa.ii.uam.es/~dramos/index.html)
-- [Sudarsana Kadiri](https://people.aalto.fi/sudarsana.kadiri)
-- [Paavo Alku](https://people.aalto.fi/paavo.alku)
+- [Sudarsana Kadiri](https://www.isi.edu/directory/skadiri/)
+- [Paavo Alku](https://research.aalto.fi/en/persons/paavo-alku)
+- [Mohammad Hassan Vali](https://research.aalto.fi/en/persons/mohammadhassan-vali)

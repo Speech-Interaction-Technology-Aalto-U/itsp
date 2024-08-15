@@ -30,7 +30,7 @@ Sampling rate
   The frequency at which the time-domain signal is sampled (measured). See also [Waveform/Sampling rate](content:samplingrate).
   
 Subjective test
-  An evaluation methodology where a human subject rates a characteristic of a system or signal. See also [Subjective quality evaluation](Evaluation/Subjective_quality_evaluation.md)
+  An evaluation methodology where a human subject rates a characteristic of a system or signal. See also [Subjective quality evaluation](content:subjectiveevaluation)
 
 Turn-taking
   Humans are generally able to follow only one speech message at a time. In a dialogue, it is therefore important that only one person is speaking at a time. The organization of a dialogue to agree on who 'has the turn' and is currently 'in turn' to speak, is known as turn-taking. See also [Turn taking / Wikipedia](https://en.wikipedia.org/wiki/Turn-taking).

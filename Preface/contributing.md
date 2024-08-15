@@ -1,8 +1,8 @@
 ## Contributing
 
-We welcome all types of useful contributions! See also our [code of conduct](code_of_conduct.md).
+We welcome all types of useful contributions! See also our [code of conduct](content:codeofconduct).
 
-Content contributors will, unless author requests to remain anonymous, be automatically included on the [list of authors](Preface/authors.md) and for bugfixers we will create an "also featuring" list. 
+Content contributors will, unless author requests to remain anonymous, be automatically included on the [list of authors](content:authors) and for bugfixers we will create an "also featuring" list. 
 The best way of contributing however depends on type of contribution:
 
 - For small bugfixes
@@ -15,5 +15,5 @@ The best way of contributing however depends on type of contribution:
 
 The source material is stored at [https://github.com/Speech-Interaction-Technology-Aalto-U/itsp](https://github.com/Speech-Interaction-Technology-Aalto-U/itsp). 
 
-See also [Instructions for developers](Preface/developers.md).
+See also [Instructions for developers](content:developers).
 
