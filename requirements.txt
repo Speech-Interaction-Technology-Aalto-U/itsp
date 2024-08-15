@@ -1,6 +1,4 @@
 altair==5.4.0
-frontend==0.0.3
-helper_functions==2.0.11
 ipython==8.15.0
 ipywidgets==8.0.4
 librosa==0.10.2.post1
@@ -10,3 +8,4 @@ pandas==2.2.2
 scipy==1.14.0
 torch==2.0.1
 torchaudio==2.0.2
+pytorch-cuda=11.8
