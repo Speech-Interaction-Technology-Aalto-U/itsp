@@ -52,7 +52,7 @@ chapters:
   - file: Modelling/Source_modelling_and_perceptual_modelling.md
   - file: Modelling/Linear_regression.md
   - file: Modelling/Sub-space_models.md
-  - file: Modelling/Vector_quantization_VQ.md
+  - file: Modelling/Vector_Quantization.ipynb
   - file: Modelling/Gaussian_mixture_model_GMM.md
   - file: Modelling/Neural_networks.md
   - file: Modelling/Non-negative_Matrix_and_Tensor_Factorization.md
