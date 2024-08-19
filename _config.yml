@@ -44,7 +44,7 @@ parse:
 # Information about where the book exists on the web
 repository:
   url                       : https://github.com/Speech-Interaction-Technology-Aalto-U/itsp
-  branch                    : master 
+  branch                    : main
   
 launch_buttons:
   notebook_interface: "jupyterlab"  # or "classic"
