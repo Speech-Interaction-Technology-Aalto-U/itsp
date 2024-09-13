@@ -36,7 +36,7 @@ The idea is that $H$ is a fixed matrix corresponding to our model of the
 signal, viz. the source model. It describes typical types features of
 the data. With the weights $W$, we interpolate between the columns
 of $H$. In some sense, this is then a generalization of a codebook (see
-[vector quantization](Vector_quantization_VQ.md)), but such that we
+[vector quantization](content:vq)), but such that we
 interpolate between codevectors. In addition, we require that all
 elements of $W$ and $H$ are non-negative, such that we ensure that $V$
 is also non-negative.
