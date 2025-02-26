@@ -191,10 +191,10 @@ Finally, as we mention above, the main problem that adaptive filters
 face in real-life communication applicatoins is double talk. In a common
 interaction between two people, it is very likely that both speakers are
 active at the same time. In the echo cancellation framework, that means
-that both far-end signal *x(n)* and near-end *s(n)* will be present in
+that both far-end signal *y(n)* and near-end *s(n)* will be present in
 the mixture. As the adaptive filter tries to minimize the error between
 the far-end signal and the recorded one, in the presence of double-talk
-the filter will likely diverge and remove or distort the near-end signal
+the filter will likely diverge and add distortion to the near-end signal
 instead of reducing the echo feedback.
 
 To reduce the effect of double-talk in the adaptation process, it is
@@ -220,9 +220,15 @@ double-talk, but most of them are based on three main ideas:
         configuration and changes in the echo path during communication
         might trigger the double-talk detection.
 -   Normalized Cross-Correlation (NCC):
-    -   This method measures the similarity between the input and
-        processed signals.
-    -   It is more robust to noise than the energy levels.
+    -   This method measures the correlation between the input *d(n)*
+        and the processed error signal *e(n)*. When *s(n)* is present
+        in *d(n)*, the correlation between term will be higher due to
+        *s(n)* remaining present in the error signal if $\hat{y}(n)$
+        was estimated correctly.
+    -   Alternatively, there is no double-talk if *s(n)* is not present,
+        and assuming a converged filter, *e(n)* will only contain noise,
+        thus resulting in a lower correlation.
+    -   This method is more robust to noise than the energy levels.
     -   The value of NCC will be close to 1 when double-talk is present,
         and 0 when it is not. Therefore, the NCC can be used as a
         scaling factor for the learning rate.
