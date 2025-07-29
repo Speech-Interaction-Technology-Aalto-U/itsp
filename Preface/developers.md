@@ -4,23 +4,26 @@
 ## Getting started
 
 1. Download the source material from [https://github.com/Speech-Interaction-Technology-Aalto-U/itsp](https://github.com/Speech-Interaction-Technology-Aalto-U/itsp). 
-2. Install required packages with e.g. [conda/anaconda](https://www.anaconda.com/products/distribution)
+2. Install required packages with e.g. 
 
    ```bash
-   conda install jupyter-book   
+   pip install jupyter-book   
    ```
    ![]()
 3. Many chapters require further packages, which you should install if you plan to compile the whole book (not always required).
 
     ```bash
-    conda install numpy scipy matplotlib ipython ipywidgets jupyterlab=4.1
-    conda install pytorch torchvision torchaudio -c pytorch 
+    pip install numpy scipy matplotlib ipython ipywidgets jupyterlab
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
     pip install itikz
-    conda install texlive
+    pip install librosa
+    pip install speechbrain
     ```
     ![]()
+
+   Texlive is also needed in some chapters. Observe that speechbrain is picky about the python version and 
     
-4. The typical use case is that markdown (.md) and notebooks (.ipynb) are written with [JupyterLab](https://jupyter.org/), which can be started (in the folder of the project) by
+5. The typical use case is that markdown (.md) and notebooks (.ipynb) are written with [JupyterLab](https://jupyter.org/), which can be started (in the folder of the project) by
 
     ```bash
     jupyter lab &
@@ -29,7 +32,7 @@
 
    The easiest way to start is to write static [Markdown files](https://jupyterbook.org/en/stable/file-types/markdown.html#file-types-markdown). This disadvantage is that then you cannot use live code-examples in your document. Upgrading from markdown to notebooks is however easy.
     
-5. Once you are reasonably happy with your new content, compile the html-book (in the folder of the project) by
+6. Once you are reasonably happy with your new content, compile the html-book (in the folder of the project) by
 
     ```bash
     jupyter-book build .
