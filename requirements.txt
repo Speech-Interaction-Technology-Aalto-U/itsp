@@ -2,9 +2,13 @@ altair
 ipython
 ipywidgets
 librosa
+kalpy
 matplotlib
+Montreal-Forced-Aligner
 numpy
 pandas
+pybind11
 scipy
 torch
 torchaudio
+wrapt
