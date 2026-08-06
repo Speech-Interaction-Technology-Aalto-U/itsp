@@ -40,7 +40,8 @@ membrane lining) of the vocal folds. This airflow excitation waveform is
 formally known as the glottal volume velocity waveform, but it is
 typically called shortly the glottal excitation. The word glottal comes
 from the orifice (i.e. opening) between the two vibrating vocal folds,
-the glottis ({numref}`fig1`).
+the glottis ({numref}`Gray956`).
+
 The glottal excitation has an important role in speech communication
 because it is the acoustical source for most of the speech sounds that
 we use in our daily speech communication. Vibration of the vocal folds
@@ -56,13 +57,18 @@ of their speech to sound, for example, breathy or pressed. For more
 information about analysis and utilization of voice source information,
 the reader is referred to the review article by {cite}`excreview`.
 
-```{figure} illustrations/Fig1.png
-:name: fig1
+```{figure} illustrations/Gray956.png
+:name: Gray956
 Vocal folds (left), seen from above. The open space between the vocal
-folds is called the glottis. The glottis is open in the upper panel and
-closed in the lower panel. The vocal folds are located in the larynx
-(right).
+folds is called the glottis. By Henry Vandyke Carter - Henry Gray (1918) Anatomy of the Human Body (See "Book" section below)Bartleby.com: Gray's Anatomy, Plate 956, Public Domain, (https://commons.wikimedia.org/w/index.php?curid=244424)[https://commons.wikimedia.org/w/index.php?curid=244424]
 ```
+
+```{figure} illustrations/Illu07_larynx02.jpg
+:name: Illu07_larynx02
+The glottis is open in the left panel and
+closed in the right panel. By Henry Vandyke Carter - Henry Gray (1918) Anatomy of the Human Body (See "Book" section below)Bartleby.com: Gray's Anatomy, Plate 956, Public Domain, https://commons.wikimedia.org/w/index.php?curid=244424
+```
+
 
 The vocal folds are located in the neck, covered and surrounded by
 cartilages. Direct measurement of the vocal folds is therefore

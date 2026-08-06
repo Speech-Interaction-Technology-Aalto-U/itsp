@@ -136,4 +136,7 @@ Given the fast pace of the development of SSL methods, it may be difficult to id
 
 
 
+```{bibliography}
+:filter: docname in docnames
+```
 
