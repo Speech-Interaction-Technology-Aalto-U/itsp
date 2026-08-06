@@ -71,9 +71,9 @@ are removed. 
 
 A further aspect of enhancement is intelligibility and pleasantness; as
 a starting point, observe that the speech of some people is by nature
-difficult to understand or otherwise just annoying (unpleasant). It then
-conceivable that we device some processing which improves the speech
-signal to better than the original. What "sounds better" is however a
+difficult to understand or otherwise just annoying (unpleasant). It then becomes
+conceivable that we devise some processing which improves the speech
+signal to be better than the original. What "sounds better" is however a
 difficult concept, since we do not have unambiguous measures for "how
 good it sounds" and opinions between listeners will certainly diverge.
 
