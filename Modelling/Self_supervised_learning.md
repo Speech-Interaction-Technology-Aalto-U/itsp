@@ -63,7 +63,7 @@ Note that the standard CPC uses waveforms instead of spectral features as the in
 
 **On the context models of prediction-based algorithms**
 
-Both APC and CPC originally use RNN-based context models (LSTMs for APC, GRUs for CPC). However, other architectures capable of temporal modeling may as well be used. These include Transformers (see, e.g., Chung & Glass, 2019, for Transformer-based APC) or WaveNet-like CNN layers that make use of dilated convolutions to efficiently capture long temporal contexts {cite}`oord2016wavenet`. 
+Both APC and CPC originally use RNN-based context models (LSTMs for APC, GRUs for CPC). However, other architectures capable of temporal modeling may as well be used. These include Transformers (see, e.g., {cite}`chung2019unsupervised`, for Transformer-based APC) or WaveNet-like CNN layers that make use of dilated convolutions to efficiently capture long temporal contexts {cite}`oord2016wavenet`. 
  
 
 ### Masking-based SSL
