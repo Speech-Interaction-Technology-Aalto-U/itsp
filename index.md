@@ -9,6 +9,7 @@ Instructions for {ref}`content:usingthisbook`.
 ## Table of Contents
 
 ```{tableofcontents}
+:depth:1
 ```
 
 ## Related Resources
@@ -24,7 +25,7 @@ Instructions for {ref}`content:usingthisbook`.
 
 ## Referencing
 
-> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das, Esteban Gómez Mellado, Mariem Bouafif Mansali, Daniel Ramos, Sudarsana Kadiri, Paavo Alku, and Mohammad Hassan Vali "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi, DOI: [10.5281/zenodo.6821775](https://doi.org/10.5281/zenodo.6821775).
+> Tom Bäckström, Okko Räsänen, Abraham Zewoudie, Pablo Pérez Zarazaga, Liisa Koivusalo, Sneha Das, Esteban Gómez Mellado, Mariem Bouafif Mansali, Daniel Ramos, Sudarsana Kadiri, Paavo Alku, and Mohammad Hassan Vali "*Introduction to Speech Processing*", 2nd Edition, 2022. URL: https://speechprocessingbook.aalto.fi, DOI: 10.5281/zenodo.6821775
 
 [Bibtex](http://www.bibtex.org/) format:
 
