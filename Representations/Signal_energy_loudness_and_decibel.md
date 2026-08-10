@@ -12,7 +12,7 @@ interpret *x* as the displacement of a pendulum.
 
 Since the amplitude of an oscillating signal varies through the period
 of the oscillation, it does not usually make sense to estimate the
-instantaneous energy, but only averaged over some [window](Windowing).
+instantaneous energy, but only averaged over some [window](#content:Windowing).
 Observe however that the windowing function reduces the average energy
 (it multiplies the signal by a quantity smaller than unity), which
 introduces a bias that should be corrected if an estimate of the
@@ -23,7 +23,7 @@ Typical alternative energy estimates:
 
 -   Energy can be calculated over *spectral bands*, often called energy
     bands, that is, a range of frequencies of a [time-frequency
-    transform](Spectrogram_and_the_STFT), such as 0 to 1000 Hz, 1000 Hz
+    transform](#stft), such as 0 to 1000 Hz, 1000 Hz
     to 2000 Hz and so one for 1 kHz bands. Observe that the bands should
     be wide enough that they have a "large" number  of frequency
     components within them such that the variance can be estimated. Such
