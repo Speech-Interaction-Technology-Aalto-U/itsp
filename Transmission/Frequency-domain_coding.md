@@ -3,7 +3,7 @@
 
 In audio coding, the classical approach is based on coding in the
 frequency domain, which means that we are coding a [time-frequency
-representation](stft) of the signal. Such coding
+representation](#stft) of the signal. Such coding
 methods are especially suitable for signals which have prolonged
 stationary parts, such as many instrument-sounds, which are often
 stationary for the duration of a note, more or less. Frequency-domain

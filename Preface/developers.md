@@ -9,7 +9,7 @@
    ```bash
    pip install jupyter-book   
    ```
-   ![]()
+   
 3. Many chapters require further packages, which you should install if you plan to compile the whole book (not always required).
 
     ```bash
@@ -19,7 +19,7 @@
     pip install librosa
     pip install speechbrain
     ```
-    ![]()
+    
 
    Texlive is also needed in some chapters. Observe that speechbrain is picky about the python version and 
     
@@ -28,7 +28,7 @@
     ```bash
     jupyter lab &
     ```
-    ![]()
+    
 
    The easiest way to start is to write static [Markdown files](https://jupyterbook.org/en/stable/file-types/markdown.html#file-types-markdown). This disadvantage is that then you cannot use live code-examples in your document. Upgrading from markdown to notebooks is however easy.
     
@@ -37,7 +37,7 @@
     ```bash
     jupyter-book build .
     ```
-    ![]()    
+        
     Verify that the html-book looks like intended - some elements might work slightly differently.
     
     

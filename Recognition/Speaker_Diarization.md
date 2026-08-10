@@ -10,10 +10,10 @@ speech segments from the non-speech ones. Secondly, it detects speaker
 change points to segment the audio data. Finally, it groups these
 segmented regions into speaker homogeneous clusters. 
 
-  
+<!--
 ![](missing_picture)
 An overview of a speaker diarization system.
-
+-->
   
 
 Although there are many different approaches to perform speaker
@@ -72,9 +72,10 @@ speech segments, and the initial clusters are split iteratively until a
 stopping criterion is met. It is not as widely used as the bottom-up
 clustering.
 
-  
+<!--
 ![](missing_picture)
 Bottom-Up and Top-down approaches to clustering
+-->
 
 ## Approaches to Speaker Diarization
 

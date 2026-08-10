@@ -18,12 +18,7 @@ project:
     - .DS_Store
     - '**.ipynb_checkpoints'
   github: Speech-Interaction-Technology-Aalto-U/itsp
-  thebe:
-    binder:
-      repo: Speech-Interaction-Technology-Aalto-U/itsp
-      provider: github
-      url: https://mybinder.org
-      ref: main
+  jupyter: true
   bibliography:
     - references.bib
   toc:

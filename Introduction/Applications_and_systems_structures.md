@@ -8,7 +8,7 @@ Speech processing is used in, for example;
     -   Phones and mobile phones
     -   Teleconferencing systems
     -   Voice-over-IP, like
-        [Skype](##https://en.wikipedia.org/wiki/Skype), [Google
+        [Skype](https://en.wikipedia.org/wiki/Skype), [Google
         Hangouts](https://en.wikipedia.org/wiki/Google_Hangouts),
         [Facetime](https://en.wikipedia.org/wiki/FaceTime),
         [Zoom](https://en.wikipedia.org/wiki/Zoom_Video_Communications)

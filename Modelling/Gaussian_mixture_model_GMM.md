@@ -75,7 +75,7 @@ where the weights $ \alpha_k $ add up to unity $ \sum_{k=1}^K
     of each mixture component and thus obtain the likelihood that the
     signal is speech or noise.
 -   In [transmission
-    applications](content:telecom), our
+    applications](#content:telecom), our
     objective is to model the signal such that we can transmit likely
     signals with a small amount of bits and unlikely signals with a
     large number of bits. If we train a GMM on a speech database, we can

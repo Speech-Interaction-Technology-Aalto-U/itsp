@@ -25,6 +25,7 @@ utterances, while text-independent systems require long utterances to
 train reliable models and achieve good performance.
 
 ![](attachments/SV_Architecture.png)
+
 Block diagram of a basic speaker verification system
 
 As it is shown in the above block diagram of a basic speaker
@@ -143,6 +144,7 @@ ML parameters are obtained iteratively using expectation-maximization
 $\bar{\lambda} $  based on a given model $\lambda$ such that $p(X|\bar{\lambda}) \ge p(X|\lambda) $ . 
 
 ![image2020-1-20_15-34-38.png](attachments/165126354.png)
+
 Example of
 speaker model adaptation
 
@@ -253,6 +255,7 @@ residual variability not captured by the total variability matrix $ T
 $ .
 
 ![image2020-1-20_20-26-53.png](attachments/165126497.png)
+
 Process of
 i-Vector extraction
 
@@ -320,6 +323,7 @@ speaker diarization.
   
 
 ![image2020-1-20_21-46-46.png](attachments/165126539.png)
+
 Example of PLDA model
 
 In PLDA, assuming that the training data consists of $J$
@@ -505,4 +509,4 @@ adjusted to suit the evaluation of application-specific requirements.
 
 
 ## See also
-- [](forensic-analysis)
+- [](#forensic-analysis)

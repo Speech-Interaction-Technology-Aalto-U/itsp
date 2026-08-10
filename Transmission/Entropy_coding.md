@@ -72,7 +72,7 @@ improvement. However, we still have 5 unused bit-strings, which shows
 that this encoding is sub-optimal.
 
 Note that there are immediate parallels with *[vector quantization
-(VQ)](content:vq)* though the two methods are not the same.
+(VQ)](#content:vq)* though the two methods are not the same.
 In short, vector quantization is lossy coding, which finds the best
 quantization with a given set of symbols, whereas vector coding is
 lossless coding of vectors of symbols.
@@ -290,7 +290,7 @@ frequency-domain coding to encode individual spectral components. We can
 then assume that spectral components follow a Laplacian distribution and
 derive the probabilities $P_{k}$ using that distribution. More
 refined alternatives include for example [Gaussian mixture models
-(GMMs).](content:gmm)
+(GMMs).](#content:gmm)
 
 
 ## Algebraic coding
@@ -339,7 +339,7 @@ becomes increasingly difficult to find the best quantization of a given
 vector $x$. Still, due to its simplicity and efficiency at low bitrates,
 algebraic coding is so popular in speech coding that the most commonly
 used codec type is known as [Algebraic code-excited linear prediction
-(ACELP)](Code-excited_linear_prediction_CELP.md), since it uses algebraic
+(ACELP)](code-excited_linear_prediction_CELP.md), since it uses algebraic
 coding to encode the residual signal. {cite}`backstrom2017speech`
 
 

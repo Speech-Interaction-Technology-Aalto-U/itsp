@@ -1,6 +1,7 @@
 # Introduction to Speech Processing
 **2nd Edition**
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Speech-Interaction-Technology-Aalto-U/itsp/HEAD)
 
 This is an open access and creative commons book of speech processing, intended as pedagogical material for engineering students. Hosted by [Aalto University](https://aalto.fi). 
 
