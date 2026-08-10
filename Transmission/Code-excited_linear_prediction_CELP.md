@@ -38,6 +38,7 @@ evaluation, noise modelling and analysis-by-synthesis.
 
 
 ![celp.png](attachments/175511854.png) 
+
 The source-filter model of CELP codecs.
 
 
@@ -90,6 +91,7 @@ CELP decoder structure
   
 
 ![celp3.png](attachments/175511879.png)
+
 CELP encoder structure
 
 ## Perceptual quality evaluation

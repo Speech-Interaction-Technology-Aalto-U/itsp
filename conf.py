@@ -35,4 +35,4 @@ numfig = True
 pygments_style = 'sphinx'
 suppress_warnings = ['myst.domains']
 use_jupyterbook_latex = True
-use_multitoc_numbering = True
+#use_multitoc_numbering = True

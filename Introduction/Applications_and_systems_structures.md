@@ -50,12 +50,18 @@ Speech processing is used in, for example;
         [Alzheimer](https://en.wikipedia.org/wiki/Alzheimer%27s_disease)
         detection)
 
-![app1](attachments/165138615.jpeg)
-![app2](attachments/165138616.png)
-![app4](attachments/165138617.png)
-![app3](attachments/165138618.png)
-![app3](attachments/165138684.png)
+```{figure}
+:class: grid grid-cols-5 items-end gap-4
+![](attachments/165138615.jpeg)
 
+![](attachments/165138616.png)
+
+![](attachments/165138617.png)
+
+![](attachments/165138618.png)
+
+![](attachments/165138684.png)
+```
 
 Such applications can be categorized according to functionality, roughly
 as:

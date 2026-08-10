@@ -26,7 +26,7 @@ probability of the word sequence,  $ P(H) $ , and normalized by the
 marginal likelihood of observation sequences, $ P(O) $ :
 
 $$ \hat H= \operatorname*{argmax}_H \; \frac {P(O|H)\;P(H)}
-{P(O)} $$ $$ \hat H= \operatorname*{argmax}_H \; P(O|H)\;P(H)
+{P(O)} \sim \operatorname*{argmax}_H \; P(O|H)\;P(H)
 $$
 
   
@@ -58,6 +58,7 @@ modeled by the language model.
     the calling program. 
 
 ![ASR.png](attachments/165127140.png)
+
 Architecture of an ASR system
 
 ## Types of ASR
@@ -215,6 +216,7 @@ that directly maps input audio sequence to sequence of words or other
 graphemes.
 
 ![untitled.png](attachments/165127650.png) 
+
 Function structure of end-to-end model
 
 Most end-to-end speech recognition models include the following parts:

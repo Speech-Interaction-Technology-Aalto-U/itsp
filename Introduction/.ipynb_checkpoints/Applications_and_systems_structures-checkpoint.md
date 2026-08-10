@@ -14,7 +14,7 @@ Speech processing is used in, for example;
         [Zoom](https://en.wikipedia.org/wiki/Zoom_Video_Communications)
     -   Podcasts, digital radio and TV
     -   Virtual reality and gaming applications
--   Speech operated virtual assistants, like
+-   Speech-operated virtual assistants, like
     [Siri](https://en.wikipedia.org/wiki/Siri),
     [Alexa](https://en.wikipedia.org/wiki/Amazon_Alexa), [Google
     Assistant](https://en.wikipedia.org/wiki/Google_Assistant),
@@ -30,7 +30,7 @@ Speech processing is used in, for example;
     -   Recorded notes from doctors
 -   Microphones and microphone systems
     -   Headsets, with or without noise attenuation, with or without
-        active noise cancelling
+        active noise canceling
     -   Stage microphones (related to audio processing)
 -   Studio recording systems (related to audio processing)  
     -   [Autotune](https://en.wikipedia.org/wiki/Auto-Tune)
@@ -50,12 +50,18 @@ Speech processing is used in, for example;
         [Alzheimer](https://en.wikipedia.org/wiki/Alzheimer%27s_disease)
         detection)
 
-![app1](attachments/165138615.jpeg)
-![app2](attachments/165138616.png)
-![app4](attachments/165138617.png)
-![app3](attachments/165138618.png)
-![app3](attachments/165138684.png)
+```{figure}
+:class: grid grid-cols-5 items-end gap-4
+![](attachments/165138615.jpeg)
 
+![](attachments/165138616.png)
+
+![](attachments/165138617.png)
+
+![](attachments/165138618.png)
+
+![](attachments/165138684.png)
+```
 
 Such applications can be categorized according to functionality, roughly
 as:
@@ -124,9 +130,9 @@ estimate of the label.
 
 In many cases, information extraction can also be implemented as a
 signal processing task, where we use prior knowledge of the signal to
-device our algorithm. For example, for estimating the [fundamental
+devise our algorithm. For example, for estimating the [fundamental
 frequency](content:f0) (pitch) of a speech signal, we can
-readily use our knowledge to device efficient algorithms. Such
+readily use our knowledge to devise efficient algorithms. Such
 algorithms are usually an order of magnitude simpler than machine
 learning methods, but if the task is complicated, then the accuracy of the
 output is reduced correspondingly.
@@ -139,7 +145,7 @@ When we want to make a computer speak, we need a speech synthesiser,
 which takes text as input and outputs speech. It is thus the reverse of
 the information extraction -task, in that the roles of speech and labels
 (text) have been switched (see figure on the right). As in information
-extraction, also here we can also use simpler methods when applicable.
+extraction, here we can also use simpler methods when applicable.
 The classical method is concatenative synthesis, where segments of
 speech, from a database, are fused together to form continuous
 sentences. Such methods are common for example in public announcement

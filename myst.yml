@@ -1,0 +1,143 @@
+version: 1
+project:
+  title: Introduction to Speech Processing
+  authors:
+    - name: Tom Bäckström
+    - name: Okko Räsänen
+    - name: Abraham Zewoudie
+    - name: Pablo Pérez Zarazaga
+    - name: Liisa Koivusalo
+    - name: Sneha Das
+    - name: Esteban Gómez Mellado
+    - name: Mariem Bouafif Mansali
+    - name: Daniel Ramos
+    - name: Mohammad Hassan Vali
+  exclude:
+    - _build
+    - Thumbs.db
+    - .DS_Store
+    - '**.ipynb_checkpoints'
+  github: Speech-Interaction-Technology-Aalto-U/itsp
+  thebe:
+    binder:
+      repo: Speech-Interaction-Technology-Aalto-U/itsp
+      provider: github
+      url: https://mybinder.org
+      ref: main
+  bibliography:
+    - references.bib
+  toc:
+    - file: index.md
+    - file: Preface/Preface_.md
+      children:
+        - file: Preface/Using_this_document.ipynb
+        - file: Preface/authors.md
+        - file: Preface/developers.md
+        - file: Preface/contributing.md
+        - file: Preface/code_of_conduct.md
+    - file: Introduction.md
+      children:
+        - file: Introduction/Why_speech_processing.md
+        - file: Introduction/Speech_production_and_acoustic_properties.ipynb
+        - url: https://en.wikipedia.org/wiki/Speech_perception
+          title: Speech perception (Wikipedia)
+        - file: Introduction/Linguistic_structure_of_speech.md
+        - url: https://en.wikipedia.org/wiki/Speech-language_pathology
+          title: Speech-language pathology (Wikipedia)
+        - file: Introduction/Applications_and_systems_structures.md
+        - url: http://pressbooks-dev.oer.hawaii.edu/messageprocessing/
+          title: Social and cognitive processes in human communication (external)
+    - file: Representations/Representations.md
+      children:
+        - file: Representations/Waveform.ipynb
+        - file: Representations/Windowing.ipynb
+        - file: Representations/Spectrogram_and_the_STFT.ipynb
+        - file: Representations/Short-time_analysis.ipynb
+        - file: Representations/Short-time_processing.ipynb
+        - file: Representations/Signal_energy_loudness_and_decibel.md
+        - file: Representations/Autocorrelation_and_autocovariance.ipynb
+        - file: Representations/Melcepstrum.ipynb
+        - file: Representations/Linear_prediction.ipynb
+        - file: Representations/Fundamental_frequency_F0.ipynb
+        - file: Representations/Zero-crossing_rate.ipynb
+        - file: Representations/Deltas_and_Delta-deltas.md
+        - file: Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.ipynb
+        - file: Representations/Jitter_and_shimmer.md
+        - url: https://en.wikipedia.org/wiki/Crest_factor
+    - file: Pre-processing.md
+      children:
+        - file: Preprocessing/Pre-emphasis.md
+        - url: https://en.wikipedia.org/wiki/Noise_gate
+          title: Noise gate (Wikipedia)
+        - url: https://en.wikipedia.org/wiki/Dynamic_range_compression
+          title: Dynamic Range Compression (Wikipedia)
+    - file: Modelling_tools_in_speech_processing.md
+      children:
+        - file: Modelling/Source_modelling_and_perceptual_modelling.md
+        - file: Modelling/Linear_regression.ipynb
+        - file: Modelling/Sub-space_models.md
+        - file: Modelling/Vector_Quantization.ipynb
+        - file: Modelling/Gaussian_mixture_model_GMM.md
+        - file: Modelling/Neural_networks.ipynb
+        - file: Modelling/Non-negative_Matrix_and_Tensor_Factorization.md
+        - file: Modelling/Self_supervised_learning.md
+        - file: Modelling/Vocoder.ipynb
+        - file: Modelling/griffinlim.ipynb
+    - file: Evaluation_of_speech_processing_methods.md
+      children:
+        - file: Evaluation/Subjective_quality_evaluation.ipynb
+        - file: Evaluation/Objective_quality_evaluation.md
+        - file: Evaluation/Other_performance_measures.md
+        - file: Evaluation/Analysis_of_evaluation_results.ipynb
+    - file: Speech_analysis.md
+      children:
+        - url: https://en.wikipedia.org/wiki/Voice_analysis
+          title: Voice and speech analysis (Wikipedia)
+        - file: Analysis/Measurements_for_medical_applications.md
+          children:
+            - url: https://en.wikipedia.org/wiki/Electroglottograph
+              title: Electroglottography (Wikipedia)
+            - url: https://en.wikipedia.org/wiki/Videokymography
+              title: Videokymography (Wikipedia)
+        - file: Analysis/Forensic_speaker_recognition.ipynb
+    - file: Recognition_tasks_in_speech_processing.md
+      children:
+        - file: Recognition/Voice_activity_detection.ipynb
+        - file: Recognition/Wake-word_and_keyword_spotting.md
+        - file: Recognition/Speech_Recognition.md
+        - file: Recognition/Speaker_Recognition_and_Verification.md
+        - file: Recognition/Speaker_Diarization.md
+        - file: Recognition/Paralinguistic_speech_processing.md
+    - file: Speech_Synthesis.md
+      children:
+        - file: Synthesis/Concatenative_speech_synthesis.md
+        - file: Synthesis/Statistical_parametric_speech_synthesis.md
+    - file: Transmission_storage_and_telecommunication.md
+      children:
+        - file: Transmission/Design_goals.md
+        - file: Transmission/Code-excited_linear_prediction_CELP.md
+        - file: Transmission/Frequency-domain_coding.md
+        - file: Transmission/MDCT.ipynb
+        - file: Transmission/Entropy_coding.md
+        - file: Transmission/Perceptual_modelling_in_speech_and_audio_coding.md
+    - file: Speech_enhancement.md
+      children:
+        - file: Enhancement/Noise_attenuation.ipynb
+        - file: Enhancement/Echo_cancellation.md
+        - file: Enhancement/Bandwidth_extension_BWE.ipynb
+        - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.ipynb
+          children:
+            - file: Enhancement/tdoa.ipynb
+    - file: Computational_models_of_human_language_processing.md
+    - file: ResearchandDevelopment.md
+      children:
+        - file: ResearchandDevelopment/ExperimentDesign.ipynb
+        - file: ResearchandDevelopment/SpeechData.ipynb
+    - file: Security_and_privacy.ipynb
+    - file: Glossary.md
+    - file: References.md
+site:
+  options:
+    logo: logo.png
+    folders: true
+  template: book-theme

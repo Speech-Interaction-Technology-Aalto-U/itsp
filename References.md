@@ -1,5 +1,5 @@
 # References
 
-```{bibliography}
-:style: unsrt
+
+```{bibliography} 
 ```

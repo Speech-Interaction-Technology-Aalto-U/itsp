@@ -38,6 +38,7 @@ coordination between multiple agents (see, e.g.,  {cite:t}`steels1997synthetic,k
 
   
 ![basic_modeling_.schematic.png](attachments/180302220.png)
+
 **Figure 1:** A high-level schematic view of a typical computational model development and evaluation process.
 
 ## Human cognition as a sensorimotor information processing system
@@ -160,6 +161,7 @@ behavioral experiments.
 
   
 ![role_of_comp_mods](attachments/180300259.png)
+
 **Figure 2:**
 Different aspects of human language processing research and how they
 interact.  
@@ -286,7 +288,7 @@ capabilities) can emerge from such conditions.
 
 ## References and further reading
 
-{cite:empty}`oudeyer2019computational`
+{cite}`oudeyer2019computational`
 
 
 Birkholz, P.: VocalTractLab: <http://www.vocaltractlab.de/> \[for work

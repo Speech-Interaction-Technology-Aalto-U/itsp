@@ -78,9 +78,10 @@ However, there are also certain common tendencies (aka. [linguistic
 universals](https://en.wikipedia.org/wiki/Linguistic_universal)) that
 result from restrictions in the speech production and perception
 apparati or due to other shared characteristics of [natural
-languages](https://en.wikipedia.org/wiki/Natural_language).
+languages](https://en.wikipedia.org/wiki/Natural_language). 
 
-![hierarcy](attachments/197424504.png)
+![hierarcy](./attachments/197424504.png)
+
 **Fig. 1:**
 **An example of the hierarchical organization of speech in terms of
 phones, syllables, and words for an Estonian speech sample. Two
@@ -130,6 +131,7 @@ corresponds to an articulatory configuration, where jaw, lips, and
 tongue are completely relaxed, hence corresponding a central mid vowel.
 
 ![IPA_vowels](attachments/IPA_vowels.png)
+
 **Fig. 2: IPA chart for vowels (reproduced by CC BY-SA 3.0)**
 
 Consonants can be categorized in terms of their *manner and place of
@@ -177,6 +179,7 @@ categorize them, and an interested reader is suggested to consult some
 phonetics textbook for more information.
 
 ![consonants](attachments/197423276.png)
+
 **Fig.3: IPA chart for pulmonic consonants (reproduced by CC BY-SA
 3.0).**
 
