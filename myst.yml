@@ -5,7 +5,7 @@ project:
     - name: Tom Bäckström
     - name: Okko Räsänen
     - name: Abraham Zewoudie
-    - name: Pablo Pérez Zarazaga
+    - name: Pablo Pérmyst init --write-tocez Zarazaga
     - name: Liisa Koivusalo
     - name: Sneha Das
     - name: Esteban Gómez Mellado
@@ -17,8 +17,15 @@ project:
     - Thumbs.db
     - .DS_Store
     - '**.ipynb_checkpoints'
+  exports:
+    - format: pdf
   github: Speech-Interaction-Technology-Aalto-U/itsp
-  jupyter: true
+  thebe:
+    binder:
+      repo: Speech-Interaction-Technology-Aalto-U/itsp
+      provider: github
+      url: https://mybinder.org
+      ref: main
   bibliography:
     - references.bib
   toc:

@@ -2,9 +2,7 @@ altair
 ipython
 ipywidgets
 librosa
-kalpy
 matplotlib
-Montreal-Forced-Aligner
 numpy
 pandas
 pybind11
