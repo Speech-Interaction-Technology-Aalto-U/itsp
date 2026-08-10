@@ -300,41 +300,18 @@ any other machine learning domain.
 
 ### Further reading
 
-Kawahara, K., Masuda-Katsuse, I., and de Cheveigné , A. (1999).
-Restructuring speech representations using a pitch-adaptive
-time–frequency smoothing and an instantaneous-frequency-based F0
-extraction: Possible role of a repetitive structure in sounds, Speech
-Communication, 27, 187–207. (STRAIGHT vocoder)
+- https://doi.org/10.1016/S0167-6393(98)00085-5
 
-Yamagishi, J. (2006). An introduction to HMM-based speech synthesis. 
+- Yamagishi, J. (2006). An introduction to HMM-based speech synthesis. 
 <https://wiki.inf.ed.ac.uk/pub/CSTR/TrajectoryModelling/HTS-Introduction.pdf>  
 (introduction to HMM-based SPSS)
 
-Shen, J. et al. (2017). Natural TTS synthesis by conditioning WaveNet on
-Mel spectrogram predictions. ArXiV pre-print:
-<https://arxiv.org/abs/1712.05884>   (Tacotron 2)
+- https://doi.org/10.1109/ICASSP.2018.8461368
 
-Tokuda, K., Nankaku, Y., Toda, T., Zen, H., Yamagishi, Y., and Oura, K.
-(2013). Speech synthesis based on hidden Markov models. *Proceedings of
-the IEEE*, 101, 1234–1252. (introduction to SPSS)*  
-*
+- https://doi.org/10.1109/JPROC.2013.2251852
 
-van den Oord, A., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O.,
-Graves, A., Kalchbrenner, N., Senior, A., and Kavukcuoglu, K. (2016).
-*WaveNet: A generative model for raw audio.* * ArXiV pre-print:
-<https://arxiv.org/pdf/1609.03499.pdf>  (WaveNet original paper)*  
-*
+- https://doi.org/10.48550/arXiv.1609.03499
 
-Wu, Z., Watts, O., and King, S. (2016). Merlin: An Open Source Neural
-Network Speech Synthesis System. *In Proc. 9th ISCA Speech Synthesis
-Workshop (SSW9)*, September 2016, Sunnyvale, CA,
-USA  <https://github.com/CSTR-Edinburgh/merlin> (Merlin toolkit for
-synthesis)*  
-*
+- https://doi.org/10.21437/SSW.2016-33
 
-Zen, H., Tokuda, K., and Black, A. W. (2009). Statistical parametric
-speech synthesis. **Speech Communication**, 51, 1039–1064.
-<https://www.sciencedirect.com/science/article/pii/S0167639309000648>
-(introduction to SPSS)*  
-*
-
+- https://doi.org/10.1016/j.specom.2009.04.004

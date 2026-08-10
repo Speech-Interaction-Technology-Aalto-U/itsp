@@ -73,8 +73,3 @@ collect our own. You can just imagine the workload required to collect
 
 
 
-## References
-
-```{bibliography}
-:filter: docname in docnames
-```

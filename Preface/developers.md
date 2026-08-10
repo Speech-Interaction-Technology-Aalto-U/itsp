@@ -45,12 +45,12 @@
 
 ### Audio
 
-Recording with python/jupyter is a nightmare, but playing audio works like a dream when using [IPython](https://ipython.org/) and [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/). See [Vocoder](content:vocoder) for an example. 
+Recording with python/jupyter is a nightmare, but playing audio works like a dream when using [IPython](https://ipython.org/) and [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/). See [Vocoder](#content:vocoder) for an example. 
 
 ### Interactive elements
 
 Some demonstrations are best when readers get to modify parameters themselves and to observe the output. [IPython](https://ipython.org/) and [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/) allows doing that. Unfortunately, some of the more advanced interactive elements currently require a running jupyter/python kernel (i.e. have to run the notebook on a server).
-For an example, check out [Representations/Spectrogram and the STFT](stft).
+For an example, check out [Representations/Spectrogram and the STFT](#stft).
 
 ### Flow graphs and other static visualizations
 

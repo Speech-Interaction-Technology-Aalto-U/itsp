@@ -387,8 +387,3 @@ with at least one error.
 
   
 
-### References
-
-```{bibliography}
-:filter: docname in docnames
-```

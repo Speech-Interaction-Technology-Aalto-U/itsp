@@ -135,7 +135,6 @@ project:
         - file: ResearchandDevelopment/SpeechData.ipynb
     - file: Security_and_privacy.ipynb
     - file: Glossary.md
-    - file: References.md
 site:
   options:
     logo: logo.png

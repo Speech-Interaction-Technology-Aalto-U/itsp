@@ -316,9 +316,3 @@ speaker is asked to repeat three-syllable units (i.e. /pa/-/ta/-/ka/).
 The DDK task is widely used in studying Parkinson's disease
 {cite}`rusz2011quantitative`.
 
-## References
-
-
-```{bibliography}
-:filter: docname in docnames
-```

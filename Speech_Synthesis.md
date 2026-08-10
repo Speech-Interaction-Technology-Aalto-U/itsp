@@ -67,6 +67,7 @@ synthesis](Synthesis/Concatenative_speech_synthesis.md) or [statistical parametr
 are described in more detail in their respective sub-sections. 
 
 ![synthesis_basic_schematic](Synthesis/attachments/175517689.png)
+
 **Figure 1:** The basic structure of a speech synthesis system.**  
 
 
@@ -86,7 +87,7 @@ complexity constraints.
 
 Speech quality and intelligibility a speech synthesizer are typically
 evaluated using [subjective listening
-tests.](content:subjectiveevaluation)
+tests.](#content:subjectiveevaluation)
 
   
 

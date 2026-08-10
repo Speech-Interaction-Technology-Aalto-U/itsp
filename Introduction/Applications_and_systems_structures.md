@@ -8,7 +8,7 @@ Speech processing is used in, for example;
     -   Phones and mobile phones
     -   Teleconferencing systems
     -   Voice-over-IP, like
-        [Skype](https://en.wikipedia.org/wiki/Skype), [Google
+        [Skype](##https://en.wikipedia.org/wiki/Skype), [Google
         Hangouts](https://en.wikipedia.org/wiki/Google_Hangouts),
         [Facetime](https://en.wikipedia.org/wiki/FaceTime),
         [Zoom](https://en.wikipedia.org/wiki/Zoom_Video_Communications)
@@ -111,8 +111,8 @@ voice activity detection (see below).
 ### Information extraction
 
 We can extract many types of information from a speech signal, like
-[text content](content:asr) and [speaker
-identity](content:sid). Many such forms of
+[text content](#content:asr) and [speaker
+identity](#content:sid). Many such forms of
 information can be categorized by *labels*, that is, we give a label to
 a particular speech signal. That label can be, for example, the word which
 was pronounced or the speaker identity. Alternatively, such extracted
@@ -131,7 +131,7 @@ estimate of the label.
 In many cases, information extraction can also be implemented as a
 signal processing task, where we use prior knowledge of the signal to
 devise our algorithm. For example, for estimating the [fundamental
-frequency](content:f0) (pitch) of a speech signal, we can
+frequency](#content:f0) (pitch) of a speech signal, we can
 readily use our knowledge to devise efficient algorithms. Such
 algorithms are usually an order of magnitude simpler than machine
 learning methods, but if the task is complicated, then the accuracy of the
@@ -197,7 +197,7 @@ Such functions typically constitute the acoustic front-end.
 ### Voice activity detection
 
 When there is no speech, most speech processing operations are
-meaningless. [Voice activity detection](content:vad)
+meaningless. [Voice activity detection](#content:vad)
 refers to the classification of signal segments according to whether
 they contain speech or not.
 

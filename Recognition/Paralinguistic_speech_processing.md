@@ -90,11 +90,11 @@ various settings.
 Also note that the distinction between PSP systems and other established
 areas of speech processing is not always clear-cut. For instance,
 automated methods for speech [intelligibility
-assessment](content:objectiveevaluation) are also focusing on
+assessment](#content:objectiveevaluation) are also focusing on
 extralinguistic factors, and the task of speaker recognition was already
 mentioned at the beginning of this section. In addition, more flexible
 control of speaking style is an ongoing topic of research in [speech
-synthesis](content:synthesis), where the research focus is gradually
+synthesis](#content:synthesis), where the research focus is gradually
 changing from the production of high-quality to speech to creation of
 systems capable of richer vocalic expression. However, there is no need
 for a strict distinction of PSP from other types of processing tasks,
@@ -381,12 +381,7 @@ to their analysis problems.
 
 ## Further reading and materials on PSP 
 
-{cite:empty}`eyben2010opensmile,baevski2020wav2vec,chung2019unsupervised,boser1992training,wu2015deep`
-
-
-```{bibliography}
-:filter: docname in docnames
-```
+{cite}`eyben2010opensmile,baevski2020wav2vec,chung2019unsupervised,boser1992training,wu2015deep`
 
 Schuller, B. et al.: Computational Paralinguistic Challenge. WWW-site:
 <http://www.compare.openaudio.eu/>, last accessed 11th October 2020.

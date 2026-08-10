@@ -496,15 +496,10 @@ can produce much more accurate phonemic transcription and/or timestamps
 for word boundaries than what would be achievable by regular automatic
 speech recognition without the reference text.
 
+## Further reading and used materials
 
-{cite:empty}`Greenberg2003,Halle2012,Liberman1974,Morais1989,Nespor2011,Nusbaum1991,Pierrehumbert1980,pike1945intonation,wt84`
+{cite}`Greenberg2003,Halle2012,Liberman1974,Morais1989,Nespor2011,Nusbaum1991,Pierrehumbert1980,pike1945intonation,wt84`
 
-## References
-
-
-```{bibliography}
-:filter: docname in docnames
-```
 
 <!--
 - Greenberg, S., Carvey, H., Hitchcock, L., and Chang, S. (2003). Temporal properties of spontaneous speech – a syllable centric perspective. *Speech Communication*, *31*, 465–485,
@@ -527,6 +522,6 @@ speech recognition without the reference text.
 - Werker, J. F., & Tees, R. C. (1984). Cross-language speech perception: Evidence for perceptual reorganization during the first year of life. Infant Behavior & Development, 7(1), 49–63. https://doi.org/10.1016/S0163-6383(84)80022-3
 -->
   
-Also, substantial reuse of materials from related
+Substantial reuse of materials from related
 [Wikipedia](https://www.wikipedia.org/) articles.
 

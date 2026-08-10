@@ -217,17 +217,3 @@ another.
 
   
 
-## Further reading
-
-
-
-```{bibliography}
-:filter: docname in docnames
-```
-
-  
-<!--
-![CSS_cost_schematic.png](attachments/180303393.png)
-![CSS_cost_schematic.png](attachments/180303625.png)
-![CSS_search_trellis.png](attachments/180303624.png)
--->

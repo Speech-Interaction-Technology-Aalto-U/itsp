@@ -343,9 +343,3 @@ used codec type is known as [Algebraic code-excited linear prediction
 coding to encode the residual signal. {cite}`backstrom2017speech`
 
 
-
-## References
-
-```{bibliography}
-:filter: docname in docnames
-```

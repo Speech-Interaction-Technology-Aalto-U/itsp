@@ -36,7 +36,7 @@ The idea is that $H$ is a fixed matrix corresponding to our model of the
 signal, viz. the source model. It describes typical types features of
 the data. With the weights $W$, we interpolate between the columns
 of $H$. In some sense, this is then a generalization of a codebook (see
-[vector quantization](content:vq)), but such that we
+[vector quantization](#content:vq)), but such that we
 interpolate between codevectors. In addition, we require that all
 elements of $W$ and $H$ are non-negative, such that we ensure that $V$
 is also non-negative.
@@ -70,7 +70,7 @@ with the interfering other sources. For example, we might want to
 extract a speech signal corrupted by noise by extracting the dimensions
 corresponding to speech and removing those dimensions which correspond
 to noise.
-
+ 
 Note however that NMF-type methods extract only the power (or magnitude)
 spectrum of the desired signal. In contrast, usually the input signal is
 a time-frequency representation which has also a phase-component. After
@@ -79,6 +79,6 @@ phase-component of the signal. Such methods will be discussed in the
 [speech enhancement](../Speech_enhancement.md) chapter of this document.
 
 
-For more information, see the Wikipedia article: [Non-negative matrix
+For more information, see {cite}`vincent2018audio` or the Wikipedia article: [Non-negative matrix
 factorization](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization).
 
