@@ -19,6 +19,86 @@ project:
     - '**.ipynb_checkpoints'
   exports:
     - format: pdf
+      template: plain_latex_book
+      output: _build/pdf/itsp.pdf
+      articles:
+        - file: index.md
+        - file: Preface/Preface_.md
+        - file: Preface/Using_this_document.ipynb
+        - file: Preface/authors.md
+        - file: Preface/developers.md
+        - file: Preface/contributing.md
+        - file: Preface/code_of_conduct.md
+        - file: Introduction.md
+        - file: Introduction/Why_speech_processing.md
+        - file: Introduction/Speech_production_and_acoustic_properties.ipynb
+        - file: Introduction/Linguistic_structure_of_speech.md
+        - file: Introduction/Applications_and_systems_structures.md
+        - file: Representations/Representations.md
+        - file: Representations/Waveform.ipynb
+        - file: Representations/Windowing.ipynb
+        - file: Representations/Spectrogram_and_the_STFT.ipynb
+        - file: Representations/Short-time_analysis.ipynb
+        - file: Representations/Short-time_processing.ipynb
+        - file: Representations/Signal_energy_loudness_and_decibel.md
+        - file: Representations/Autocorrelation_and_autocovariance.ipynb
+        - file: Representations/Melcepstrum.ipynb
+        - file: Representations/Linear_prediction.ipynb
+        - file: Representations/Fundamental_frequency_F0.ipynb
+        - file: Representations/Zero-crossing_rate.ipynb
+        - file: Representations/Deltas_and_Delta-deltas.md
+        - file: Representations/Pitch-Synchoronous_Overlap-Add_PSOLA.ipynb
+        - file: Representations/Jitter_and_shimmer.md
+        - file: Pre-processing.md
+        - file: Preprocessing/Pre-emphasis.md
+        - file: Modelling_tools_in_speech_processing.md
+        - file: Modelling/Source_modelling_and_perceptual_modelling.md
+        - file: Modelling/Linear_regression.ipynb
+        - file: Modelling/Sub-space_models.md
+        - file: Modelling/Vector_Quantization.ipynb
+        - file: Modelling/Gaussian_mixture_model_GMM.md
+        - file: Modelling/Neural_networks.ipynb
+        - file: Modelling/Non-negative_Matrix_and_Tensor_Factorization.md
+        - file: Modelling/Self_supervised_learning.md
+        - file: Modelling/Vocoder.ipynb
+        - file: Modelling/griffinlim.ipynb
+        - file: Evaluation_of_speech_processing_methods.md
+        - file: Evaluation/Subjective_quality_evaluation.ipynb
+        - file: Evaluation/Objective_quality_evaluation.md
+        - file: Evaluation/Other_performance_measures.md
+        - file: Evaluation/Analysis_of_evaluation_results.ipynb
+        - file: Speech_analysis.md
+        - file: Analysis/Measurements_for_medical_applications.md
+        - file: Analysis/Forensic_speaker_recognition.ipynb
+        - file: Recognition_tasks_in_speech_processing.md
+        - file: Recognition/Voice_activity_detection.ipynb
+        - file: Recognition/Wake-word_and_keyword_spotting.md
+        - file: Recognition/Speech_Recognition.md
+        - file: Recognition/Speaker_Recognition_and_Verification.md
+        - file: Recognition/Speaker_Diarization.md
+        - file: Recognition/Paralinguistic_speech_processing.md
+        - file: Speech_Synthesis.md
+        - file: Synthesis/Concatenative_speech_synthesis.md
+        - file: Synthesis/Statistical_parametric_speech_synthesis.md
+        - file: Transmission_storage_and_telecommunication.md
+        - file: Transmission/Design_goals.md
+        - file: Transmission/Code-excited_linear_prediction_CELP.md
+        - file: Transmission/Frequency-domain_coding.md
+        - file: Transmission/MDCT.ipynb
+        - file: Transmission/Entropy_coding.md
+        - file: Transmission/Perceptual_modelling_in_speech_and_audio_coding.md
+        - file: Speech_enhancement.md
+        - file: Enhancement/Noise_attenuation.ipynb
+        - file: Enhancement/Echo_cancellation.md
+        - file: Enhancement/Bandwidth_extension_BWE.ipynb
+        - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.ipynb
+        - file: Enhancement/tdoa.ipynb
+        - file: Computational_models_of_human_language_processing.md
+        - file: ResearchandDevelopment.md
+        - file: ResearchandDevelopment/ExperimentDesign.ipynb
+        - file: ResearchandDevelopment/SpeechData.ipynb
+        - file: Security_and_privacy.ipynb
+        - file: Glossary.md
   github: Speech-Interaction-Technology-Aalto-U/itsp
   thebe:
     binder:
