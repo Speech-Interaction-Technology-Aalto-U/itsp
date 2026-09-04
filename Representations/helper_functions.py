@@ -78,17 +78,20 @@ def mel2freq(m): return 700*(10**(m/2595) - 1)
 
 def melfilterbank(speclen, maxfreq, melbands = 20):
     maxmel = freq2mel(maxfreq)
-    mel_idx = np.array(np.arange(.5,melbands,1)/melbands)*maxmel
+    # melbands filters need melbands+2 boundary points (each filter k uses the
+    # triple freq_idx[k], freq_idx[k+1], freq_idx[k+2] as its rising edge, peak
+    # and falling edge)
+    mel_idx = np.array(np.arange(.5,melbands+2,1)/(melbands+2))*maxmel
     freq_idx = mel2freq(mel_idx)
 
     melfilterbank = np.zeros((speclen,melbands))
     freqvec = np.arange(0,speclen,1)*maxfreq/speclen
-    for k in range(melbands-2):    
+    for k in range(melbands):
         if k>0:
             upslope = (freqvec-freq_idx[k])/(freq_idx[k+1]-freq_idx[k])
         else:
             upslope = 1 + 0*freqvec
-        if k<melbands-3:
+        if k<melbands-1:
             downslope = 1 - (freqvec-freq_idx[k+1])/(freq_idx[k+2]-freq_idx[k+1])
         else:
             downslope = 1 + 0*freqvec
