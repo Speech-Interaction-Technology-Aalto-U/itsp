@@ -98,10 +98,10 @@ that moderate processing of the signal is unlikely to cause clipping.
 
   
 ![spectrum](attachments/149885445.png)
+
 ![db spectrum](attachments/149885446.png)
 
-The energy (power) of a speech signal spectrum (above) and its logarithm
-on the decibel scale (lower).
+The energy (power) of a speech signal spectrum (above) and its logarithm on the decibel scale (lower).
 
 
 
