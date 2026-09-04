@@ -5,6 +5,7 @@ librosa
 matplotlib
 numpy
 pandas
+penn
 pybind11
 scipy
 torch
