@@ -8,6 +8,7 @@ pandas
 penn
 pybind11
 scipy
+speechbrain
 torch
 torchaudio
 wrapt
