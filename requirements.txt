@@ -1,9 +1,11 @@
 altair
+gdown
 ipython
 ipywidgets
 librosa
 matplotlib
 numpy
+omegaconf
 pandas
 penn
 pybind11
