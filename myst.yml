@@ -89,7 +89,7 @@ project:
         - file: Transmission/Perceptual_modelling_in_speech_and_audio_coding.md
         - file: Speech_enhancement.md
         - file: Enhancement/Noise_attenuation.ipynb
-        - file: Enhancement/Echo_cancellation.md
+        - file: Enhancement/Echo_cancellation.ipynb
         - file: Enhancement/Bandwidth_extension_BWE.ipynb
         - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.ipynb
         - file: Enhancement/tdoa.ipynb
@@ -205,7 +205,7 @@ project:
     - file: Speech_enhancement.md
       children:
         - file: Enhancement/Noise_attenuation.ipynb
-        - file: Enhancement/Echo_cancellation.md
+        - file: Enhancement/Echo_cancellation.ipynb
         - file: Enhancement/Bandwidth_extension_BWE.ipynb
         - file: Enhancement/Multi-channel_speech_enhancement_and_beamforming.ipynb
           children:

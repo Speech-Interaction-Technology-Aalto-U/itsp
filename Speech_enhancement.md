@@ -16,7 +16,7 @@ The most prominent categories of speech enhancement are:
 
 1.  [Noise attenuation](Enhancement/Noise_attenuation.ipynb), where we try to extract the
     desired speech signalm when distorted by background noise(s).
-2.  [Echo cancellation](Enhancement/Echo_cancellation.md) and feedback cancellation are
+2.  [Echo cancellation](Enhancement/Echo_cancellation.ipynb) and feedback cancellation are
     used when the sound played from a loudspeaker is picked up by a
     microphone distorting the desired signal.
 3.  [Bandwidth extensions](Enhancement/Bandwidth_extension_BWE.ipynb) refers to methods
