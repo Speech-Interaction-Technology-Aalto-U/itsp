@@ -1,4 +1,6 @@
 altair
+clearvoice
+imageio-ffmpeg
 ipython
 ipywidgets
 librosa
@@ -9,6 +11,7 @@ penn
 pybind11
 scipy
 speechbrain
-torch
-torchaudio
+torch==2.11.0
+torchaudio==2.11.0
+torchvision==0.26.0
 wrapt

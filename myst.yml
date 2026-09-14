@@ -82,7 +82,7 @@ project:
         - file: Synthesis/Statistical_parametric_speech_synthesis.md
         - file: Transmission_storage_and_telecommunication.md
         - file: Transmission/Design_goals.md
-        - file: Transmission/Code-excited_linear_prediction_CELP.md
+        - file: Transmission/Code-excited_linear_prediction_CELP.ipynb
         - file: Transmission/Frequency-domain_coding.md
         - file: Transmission/MDCT.ipynb
         - file: Transmission/Entropy_coding.md
@@ -197,7 +197,7 @@ project:
     - file: Transmission_storage_and_telecommunication.md
       children:
         - file: Transmission/Design_goals.md
-        - file: Transmission/Code-excited_linear_prediction_CELP.md
+        - file: Transmission/Code-excited_linear_prediction_CELP.ipynb
         - file: Transmission/Frequency-domain_coding.md
         - file: Transmission/MDCT.ipynb
         - file: Transmission/Entropy_coding.md

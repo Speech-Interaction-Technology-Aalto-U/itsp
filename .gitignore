@@ -1,4 +1,5 @@
 pretrained_models/
+checkpoints/
 
 # Emacs backups
 *~
