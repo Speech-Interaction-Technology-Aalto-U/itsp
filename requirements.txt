@@ -1,11 +1,13 @@
 altair
 clearvoice
+gdown
 imageio-ffmpeg
 ipython
 ipywidgets
 librosa
 matplotlib
 numpy
+omegaconf
 pandas
 penn
 pybind11
