@@ -1,3 +1,4 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 altair
 encodec
 gdown
@@ -13,6 +14,6 @@ penn
 pybind11
 scipy
 speechbrain
-torch==2.11.0
-torchaudio==2.11.0
+torch==2.11.0+cpu
+torchaudio==2.11.0+cpu
 wrapt
