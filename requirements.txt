@@ -1,5 +1,6 @@
 altair
 clearvoice
+encodec
 gdown
 imageio-ffmpeg
 ipython
