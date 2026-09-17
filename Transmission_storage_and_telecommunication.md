@@ -13,5 +13,5 @@ For a comprehensive review of speech coding, see {cite}`oshaughnessy2023coding`.
     4.  [Vector quantization (VQ)](#content:vq)
     5.  [Linear prediction](Representations/Linear_prediction.ipynb)
 4.  [Code-excited linear prediction
-    (CELP)](Transmission/Code-excited_linear_prediction_CELP.md)
+    (CELP)](Transmission/Code-excited_linear_prediction_CELP.ipynb)
 5.  [Frequency-domain coding](Transmission/Frequency-domain_coding.md)

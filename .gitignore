@@ -1,4 +1,5 @@
 pretrained_models/
+checkpoints/
 
 # Files downloaded at runtime by Enhancement/Bandwidth_extension_BWE.ipynb
 # (vendored AERO source + pretrained checkpoint, fetched fresh each time)
