@@ -9,10 +9,10 @@ distance refers to location, but speech coding can be (and is often)
 used for storing speech signals (such that distance refers to distance
 in *time*). {cite:p}`backstrom2017speech`
 
-In particular, aspects of quality which we can be included in our design
+In particular, aspects of quality which can be included in our design
 goals are for example:
 
--   *Acoustic quality* in the sense that the the reproduced acoustical
+-   *Acoustic quality* in the sense that the reproduced acoustical
     signal should be similar to the original signal (measured for
     example in terms of signal to noise ratio or a perceptually weighted
     variant thereof).
@@ -29,11 +29,11 @@ goals are for example:
 -   *Delay* in the communication path, end-to-end, should be within
     reasonable limits (e.g. below 150 ms). A higher delay can impede the
     naturalness of a dialogue.
--   *Noisyness* caused by low-accuracy quantization and background
+-   *Noisiness* caused by low-accuracy quantization and background
     noises should be minimized.
--   *Distortions* of the speech signal to the amount the original signal
-    is perceived to be changed by the processing. 
--   *Naturalness* of the speech signal refers to high natural vs.
+-   *Distortions* refers to the amount the speech signal is perceived
+    to be changed by the processing.
+-   *Naturalness* of the speech signal refers to how natural vs.
     non-natural a speech signal sounds. For example, some types of
     non-natural speech signals could be such which sound robotic,
     metallic or muffled.
@@ -45,45 +45,30 @@ goals are for example:
 -   *Annoyance* is closely related to listening effort, in that a signal
     which is intelligible can have so severe distortions, noisiness or
     transmission delays that it is really annoying. Usually annoyance
-    thus also increase listening effort. 
--   *Perception of distance* is the a feeling that the participant has
+    thus also increases listening effort.
+-   *Perception of distance* is the feeling that the participant has
     of the distance between participants. The main contributor to the
     perception of distance is probably room acoustics, such that if the
-    distance between speaker and microphone is large, than the listener
+    distance between speaker and microphone is large, then the listener
     feels distant to the speaker. It affects for example the intimacy of
     a discussion, such that it is hard to feel intimate if the distance
     is large.
 
 It is clear that different types of quality are prominent at different
 levels of coding-accuracy, which in turn is a function of available
-bitrate (bandwidth). As a rough characterization, with current
-technology, the quality-issues we optimize at different bitrates are:
+bitrate (bandwidth). As a rough characterization, with classic signal processing (non-neural) codecs, the quality-issues we optimize at different bitrates are:
 
--   At extremely low bitrates (below 1kbp/s), we cannot hope to encode
-    speech at high quality. At best, we can hope to retain
-    *intelligibility*. 
--   At very low bitrates (1-2 kbp/s), intelligibility can usually be
-    preserved, but speech signals can still be distorted and noisy, such
-    that we want to minimize *listening effort*.
--   At low rates (3-8 kbps/s), we often have to balance between avoiding
-    noisyness, distortions, annoyance and naturalness. In other words,
-    we can often reduce noisyness by making the signal more muffled, but
-    that would reduce naturalness. It is then very much a question of
-    individual taste to choose which balance of distortions is best.
--   At medium rates (8-16 kbp/s), speech signals can already be coded
-    with a high quality such that we can try to minimize the number of
-    audible (perceivable) distortions. At these rates telecommunication
-    systems can often, in practice, be transparent in the sense that
-    users are not actively aware of any distortions, even if they would
-    clearly notice distortions in a comparison with the original signal.
--   At high rates (above 16 kbp/s), it should in general be possible to
-    encode speech signals at a perceptual transparent level. However, if
-    computational resources are limited and in applications which
-    require extremely low delay, distortions can still be audible.
+-   At extremely low bitrates (below 1 kbit/s), classic codecs cannot hope to encode speech at high quality. At best, we can hope to retain *intelligibility* sufficient only for military applications.
+-   At very low bitrates (1-2 kbit/s), intelligibility can usually be preserved, but speech signals can still be distorted and noisy, such that we want to minimize *listening effort*.
+-   At low rates (3-8 kbit/s), we often have to balance between avoiding noisiness, distortions, annoyance and naturalness. In other words, we can often reduce noisiness by making the signal more muffled, but that would reduce naturalness. It is then very much a question of individual taste to choose which balance of distortions is best.
+-   At medium rates (8-16 kbit/s), speech signals can already be coded with a high quality such that we can try to minimize the number of audible (perceivable) distortions. At these rates telecommunication systems can often, in practice, be transparent in the sense that users are not actively aware of any distortions, even if they would clearly notice distortions in a comparison with the original signal.
+-   At high rates (above 16 kbit/s), it should in general be possible to encode speech signals at a perceptual transparent level. However, if computational resources are limited and in applications which require extremely low delay, distortions can still be audible.
 
-Performance of a codec is however always a compromise between quality
-and resources. By increasing the amount of computational resources (or
-bandwidth) we can improve quality ad infinitum. The most important
+With neural speech codecs, the quality trade-offs are somewhat different {cite:p}`zeghidour2021soundstream,defossez2022encodec,kumar2023dac`:
+- Even at very low bitrates, 0.5-2 kbit/s, the sound quality can be relatively good such that the output sounds like the same speaker as the input. However, *intelligibility* can be compromised, especially in the presence of background noises. The issue is that, because quantization happens at a higher abstraction level, the errors caused are also on a higher abstraction level. So rather than a distorted sound, we may have distorted phonemes. 
+- At a bitrate around 6 kbit/s, the sound quality can be expected to reach toll-quality, that is, usable in everyday applications without particular restrictions. 
+
+Performance of a codec is however always a compromise between quality and resources. By increasing the amount of computational resources (or bandwidth) we can improve quality ad infinitum. The most important
 limited resources are
 
 -   Bandwidth, that is, the bit-rate at which we can transmit data. It
@@ -125,7 +110,7 @@ configuration can be one of the following:
 The overall design is also influenced by the type of transmission link.
 In particular, the first few generations of digital mobile phones
 operated with
-[circuited-switched](https://en.wikipedia.org/wiki/Circuit_switching)
+[circuit-switched](https://en.wikipedia.org/wiki/Circuit_switching)
 networks, where a fixed amount of bandwidth is allocated to every
 connection. Newer networks are however based on
 [packet-switched](https://en.wikipedia.org/wiki/Packet_switching)
@@ -154,6 +139,12 @@ However, we could encode speech with much higher efficiency, if we were
 allowed to use previous packets to predict the current packet. The
 likelihood of lost packets thus dictates the compromise between
 sensitivity to lost packets and coding (compression) efficiency.
+
+Observe that the usefulness of very low rates, below roughly 5-7 kbit/s, is narrower than the 7-32 kbit/s range. The bottleneck is caused by the *fixed* overheads in the transmission layer, where every packet carries regardless of its payload size: a typical RTP/UDP/IP header stack adds around 40 bytes per packet for IPv4 (RTP 12 bytes + UDP 8 bytes + IP 20 bytes), before any link-layer framing is even added. With 20 ms steps between windows, we have 50 windows per second; if each packet carries only one window, a codec running at 5.9 kbit/s contributes only around 15 bytes of payload per packet - so roughly 70% of every packet is header, not speech data. Lowering the codec bitrate further barely reduces the bandwidth actually used, since the packet is already dominated by fixed overhead, and the marginal benefit of further compression all but disappears.
+
+The only way to recover further bandwidth savings below this point is to amortize the header cost over several frames per packet, by increasing the delay between transmissions - the same delay-versus-efficiency tradeoff as above, just applied at the low-bitrate end rather than at the packet-size limit. This pattern appears in other low-rate speech RTP formats too: [RFC 3558](https://www.rfc-editor.org/rfc/rfc3558) (EVRC/SMV) and [RFC 4788](https://www.rfc-editor.org/rfc/rfc4788), for instance, define bundled or interleaved packet formats specifically to amortize the RTP header over more than one speech frame.
+
+Rates below roughly 5-6 kbit/s are thus not very useful in everyday, low-delay use cases without such frame bundling, but remain relevant in special applications that can tolerate the extra delay or where bandwidth is severely constrained, such as military and satellite communication, as well as storage. Another potential application is cases where some other information is transmitted in the same packets, such as multi-channel audio or multimedia. The sanity can however again be contested, as the single-channel quality might not be sufficiently high to warrant multi-channel audio, and transmission of video requires several orders of magnitude larger capacity anyway, so greedy optimization of speech compression brings only very marginal benefit in the total budget.
 
 
 ## References
