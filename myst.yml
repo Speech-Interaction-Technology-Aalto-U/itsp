@@ -67,6 +67,7 @@ project:
         - file: Evaluation/Objective_quality_evaluation.md
         - file: Evaluation/Other_performance_measures.md
         - file: Evaluation/Analysis_of_evaluation_results.ipynb
+        - file: Evaluation/Evaluation_in_the_product_life-cycle.md
         - file: Speech_analysis.md
         - file: Analysis/Measurements_for_medical_applications.md
         - file: Analysis/Forensic_speaker_recognition.ipynb
@@ -171,6 +172,7 @@ project:
         - file: Evaluation/Objective_quality_evaluation.md
         - file: Evaluation/Other_performance_measures.md
         - file: Evaluation/Analysis_of_evaluation_results.ipynb
+        - file: Evaluation/Evaluation_in_the_product_life-cycle.md
     - file: Speech_analysis.md
       children:
         - url: https://en.wikipedia.org/wiki/Voice_analysis

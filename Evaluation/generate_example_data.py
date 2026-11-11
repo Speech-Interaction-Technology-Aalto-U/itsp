@@ -9,21 +9,21 @@ df = pd.DataFrame({
     'Method A': np.random.normal(10., 2., N),
     'Method B': np.random.normal(11., 2., N)
 })
-df.to_pickle('example1.pkl')
+df.to_pickle('example_data/example1.pkl')
 
 # Smaller overlap
 df = pd.DataFrame({
     'Method A': np.random.normal(10., .5, N),
     'Method B': np.random.normal(11., .5, N)
 })
-df.to_pickle('example2.pkl')
+df.to_pickle('example_data/example2.pkl')
 
 # Very small overlap
 df = pd.DataFrame({
     'Method A': np.random.normal(10., .2, N),
     'Method B': np.random.normal(11., .2, N)
 })
-df.to_pickle('example3.pkl')
+df.to_pickle('example_data/example3.pkl')
 
 # Skewed distributions
 x1 = np.sum(np.random.randn(N,6)**2,axis=1)
@@ -37,7 +37,7 @@ df = pd.DataFrame({
     'Method B': x2
 })
 
-df.to_pickle('example4.pkl')
+df.to_pickle('example_data/example4.pkl')
 
 # Bimodal distributions
 x1 = np.random.normal(10., .5, N)
@@ -51,7 +51,7 @@ df = pd.DataFrame({
     'Method B': x2
 })
 
-df.to_pickle('example5.pkl')
+df.to_pickle('example_data/example5.pkl')
 
 
 # Uncorrelated data
@@ -59,7 +59,7 @@ df = pd.DataFrame({
     'Measurement A': np.random.normal(10., 2., N),
     'Measurement B': np.random.normal(11., 2., N)
 })
-df.to_pickle('example6.pkl')
+df.to_pickle('example_data/example6.pkl')
 
 
 
@@ -72,7 +72,7 @@ df = pd.DataFrame({
     'Measurement A': x[:,0],
     'Measurement B': x[:,1]
 })
-df.to_pickle('example7.pkl')
+df.to_pickle('example_data/example7.pkl')
 
 
 
@@ -89,7 +89,7 @@ df = pd.DataFrame({
     'Measurement A': x[:,0],
     'Measurement B': x[:,1]
 })
-df.to_pickle('example8.pkl')
+df.to_pickle('example_data/example8.pkl')
 
 # Multidimensional
 df = pd.DataFrame({
@@ -100,7 +100,7 @@ df = pd.DataFrame({
     'E': np.random.normal(8, 1., N),
     'F': np.random.normal(3, 1.5, N)
 })
-df.to_pickle('example9.pkl')
+df.to_pickle('example_data/example9.pkl')
 
 
 
