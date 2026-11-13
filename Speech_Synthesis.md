@@ -115,8 +115,6 @@ See also [Security and privacy](#privacy).
 - Xie et al., *Towards controllable speech synthesis in the era of large language models* {cite}`xie2025controllable`. A survey of recent systems, with a focus on how to control them.
 - Simon King, *Using Speech Synthesis to give Everyone their own Voice*, University of Edinburgh. Video ([link](https://www.youtube.com/watch?v=xzL-pxcpo-E)). An overview of unit selection and statistical parametric synthesis, with sound examples, and of voice banking.
 
-## References
-
 ```{bibliography}
 :filter: docname in docnames
 ```

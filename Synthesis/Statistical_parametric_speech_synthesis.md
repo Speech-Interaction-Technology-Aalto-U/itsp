@@ -253,8 +253,6 @@ predicting the average.
   pitch-adaptive time–frequency smoothing* {cite}`kawahara1999restructuring`.
   The STRAIGHT vocoder, which was widely used in SPSS.
 
-### References
-
 ```{bibliography}
 :filter: docname in docnames
 ```

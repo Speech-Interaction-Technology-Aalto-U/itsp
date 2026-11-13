@@ -55,8 +55,6 @@ Despite the large amount of data, many needs are not met.
 
 **Shared benchmarks.** There are few fixed, openly available test sets and listening-test protocols for zero-shot, expressive and conversational synthesis, so results from different papers are hard to compare.
 
-## References
-
 ```{bibliography}
 :filter: docname in docnames
 ```

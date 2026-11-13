@@ -230,8 +230,6 @@ voice prompt, and continue speaking in the same way. Unlike unit
 selection, they do not copy pieces of the recording but learn how to
 imitate it.
 
-### References
-
 ```{bibliography}
 :filter: docname in docnames
 ```
