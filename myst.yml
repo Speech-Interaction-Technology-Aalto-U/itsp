@@ -81,10 +81,10 @@ project:
         - file: Speech_Synthesis.md
         - file: Synthesis/Concatenative_speech_synthesis.md
         - file: Synthesis/Statistical_parametric_speech_synthesis.md
-        - file: Synthesis/Neural_vocoders.md
-        - file: Synthesis/Neural_acoustic_models.md
-        - file: Synthesis/Large-scale_and_zero-shot_synthesis.md
-        - file: Synthesis/Expressive_and_controllable_synthesis.md
+        - file: Synthesis/Neural_vocoders.ipynb
+        - file: Synthesis/Neural_acoustic_models.ipynb
+        - file: Synthesis/Large-scale_and_zero-shot_synthesis.ipynb
+        - file: Synthesis/Expressive_and_controllable_synthesis.ipynb
         - file: Synthesis/Data_for_speech_synthesis.md
         - file: Transmission_storage_and_telecommunication.md
         - file: Transmission/Design_goals.md
@@ -201,10 +201,10 @@ project:
       children:
         - file: Synthesis/Concatenative_speech_synthesis.md
         - file: Synthesis/Statistical_parametric_speech_synthesis.md
-        - file: Synthesis/Neural_vocoders.md
-        - file: Synthesis/Neural_acoustic_models.md
-        - file: Synthesis/Large-scale_and_zero-shot_synthesis.md
-        - file: Synthesis/Expressive_and_controllable_synthesis.md
+        - file: Synthesis/Neural_vocoders.ipynb
+        - file: Synthesis/Neural_acoustic_models.ipynb
+        - file: Synthesis/Large-scale_and_zero-shot_synthesis.ipynb
+        - file: Synthesis/Expressive_and_controllable_synthesis.ipynb
         - file: Synthesis/Data_for_speech_synthesis.md
     - file: Transmission_storage_and_telecommunication.md
       children:
