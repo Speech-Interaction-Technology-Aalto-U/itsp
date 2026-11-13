@@ -1,9 +1,14 @@
+(content:concatenative)=
 # Concatenative speech synthesis
 
-*Concantenative speech synthesis* (CSS), also known as *unit selection
-speech synthesis*, is one of the two primary modern speech synthesis
-techniques together with [statistical parametric speech
-synthesis](Statistical_parametric_speech_synthesis). As the name
+*Concatenative speech synthesis* (CSS), also known as *unit selection
+speech synthesis*, was together with [statistical parametric speech
+synthesis](#content:spss) one of the two main speech synthesis
+techniques from the late 1990s until about 2016–2018. Since then, it has
+mostly been replaced by neural methods (see [Speech
+synthesis](#content:synthesis)). Its ideas are still useful for
+understanding speech synthesis, such as the target and join costs
+described below, and it is still used in some applications. As the name
 suggests, CSS is based on concatenation of pre-recorded speech segments
 in order to create intelligible high-quality speech. The advantage of
 this approach is extremely high naturalness of the produced speech, as
@@ -213,7 +218,20 @@ estimation of phoneme-specific weights for each subcost, as the
 perceptually critical cues may differ from a phonetic context to
 another.
 
-  
+### From unit selection to neural synthesis
 
-  
+Unit selection produces natural speech because it reuses real recordings,
+but it can only reproduce the voice and style that were recorded.
+Neural synthesis learns a model of speech instead, which can be changed
+and combined in ways that recordings cannot. Interestingly, the newest
+[zero-shot systems](#content:zeroshotsynthesis) bring back part of the
+idea of unit selection: they take a short recording of a voice, the
+voice prompt, and continue speaking in the same way. Unlike unit
+selection, they do not copy pieces of the recording but learn how to
+imitate it.
 
+### References
+
+```{bibliography}
+:filter: docname in docnames
+```

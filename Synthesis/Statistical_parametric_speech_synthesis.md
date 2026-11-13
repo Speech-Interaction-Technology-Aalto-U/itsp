@@ -1,3 +1,4 @@
+(content:spss)=
 # Statistical parametric speech synthesis
   
 
@@ -13,8 +14,8 @@ modifications to the sound that are common in everyday human
 communication. 
 
 As an alternative to the concatenative approach, statistical parametric
-speech synthesis (SPSS) is another TTS approach that has become highly
-popular in the speech technology field. This is because it addresses the
+speech synthesis (SPSS) became the other main TTS approach in the 2000s
+and 2010s {cite}`zen2009statistical,tokuda2013speech`. This is because it addresses the
 main limitation of the concatenative systems — the lack of flexibility —
 by generating the speech using statistical models of speech instead of
 relying on pre-recorded segments. These statistical models are learned
@@ -222,96 +223,38 @@ place in a stochastic generative model, sound quality of the used
 vocoders, and potential problems in robust statistical model estimation
 from finite data.
 
-  
+### From statistical to neural models
 
-### Neural SPSS
+The first step from HMM-based to neural synthesis kept the structure of
+SPSS but replaced its statistical model. A deep neural network predicted
+the vocoder features of each frame from the linguistic features, in place
+of the HMM states and decision trees {cite}`zen2013statistical`. Later
+systems used better network designs and recurrent networks, and open
+toolkits such as Merlin {cite}`wu2016merlin` made such systems easy to
+build. These systems sounded better than HMM-based ones, but they still
+needed a separate duration model and a classical vocoder, and the vocoder
+remained the main reason why the speech sounded buzzy and muffled.
 
-Recent advances in artificial neural networks (ANNs) have also led to
-new developments in SPSS beyond the classical HMM-GMM framework. In
-terms of vocoding, WaveNet (van den Oord et al., 2016) is a highly
-influential neural network waveform generator that can produce
-high-quality speech. It is based on an autoregressive convolutional
-neural network (CNN) architecture and it operates directly on the speech
-waveforms.  Given a history of previous waveform samples and some
-"conditioning" information on what type of signal should be produced,
-the model predicts the most likely next speech waveform sample at each
-time step. For instance, WaveNet can be trained to produce speech from
-spectral features such as log-Mel energies and F0 information. Although
-WaveNet can reach near-human naturalness of the produced speech (with
-certain limitations), waveform-level autoregressive processing is also
-computationally extremely expensive. Development of computationally
-flexible high-quality neural vocoders is therefore still an active
-research area.
-
-In addition to vocoding, neural networks have become commonplace
-replacements for the HMM-GMM in the feature generation stage. For
-instance, deep feed-forward networks or LSTMs can be utilized in the
-feature generation. Since LSTMs are especially good at modeling temporal
-dependencies, they can theoretically handle larger temporal ambiguity
-and variability between the input linguistic specifications and the
-target vocoder features.
-
-Given sufficient training data, it is also possible to implement the
-entire chain from written text to the synthesized waveform using a
-neural network system. Tacotron 2 is an example of such a system, where
-the input text is processed by a sequence-to-sequence ANN model to
-directly create a log-Mel spectrogram corresponding to the input text
-(i.e., without a dedicated text analysis module). The spectrogram is
-then fed to the WaveNet module (see above) to produce the speech signal.
-As a result, Tacotron 2 and the Wavenet vocoder can together achieve
-highly impressive speech quality. The advantage of these type end-to-end
-approaches is that there are fewer assumptions regarding what kind of
-intermediate representations are good for the task at hand, reducing the
-risk that the pre-specified operations and representations cause a loss
-of relevant information in the pipeline. There is also no need for deep
-understanding of the linguistic structure underlying written and spoken
-language or access to pre-existing text analysis tools, making
-deployment of the systems possible for any language with sufficient
-training data (text and corresponding speech). Since all the components
-are based on differentiable neural network operations, it is also
-possible to jointly optimize the entire chain from waveform generation
-to text processing. In principle, neural SPSS systems are also highly
-flexible, as basically any type of side information can be injected to
-the system to adjust the characteristics of the produced speech.
-
-Neural systems, however, also have their drawbacks. The amount of data
-and computational resources required to train these systems can be high.
-Runtime computational requirements of neural vocoders may also be
-problematic in some applications, although recent advances in vocoders
-and in parallelization of the computations has already led to
-significant advances in this respect. Another issue is the lack of
-interpretability and transparency of model parameters: while parameters
-of classical models such as HMMs and GMMs have relatively clear
-relationship with what are the inputs and outputs of the system, the
-same is not true for ANNs with multiple layers. This makes it much more
-difficult to understand the behavior of the model, especially when
-trying to overcome problems in model performance. Lack of transparency
-and interpretability also means that manual control of characteristics
-of the produced speech is more difficult. Finally, adaptation of the
-models to new data (e.g., a new speaker or speaking style) cannot make
-use of the well-understood mathematical solutions available to the
-classical models. In contrast, the design, training, and adaptation of
-ANNs are much more heuristics-driven, similarly to the use of ANNs in
-any other machine learning domain.
-
-  
-
-  
+The next steps replaced the vocoder with a [neural
+vocoder](#content:neuralvocoders) and then the whole chain from text to
+spectrogram with a [neural acoustic model](#content:neuralacousticmodels).
+Many ideas of SPSS live on in these models, for example explicit
+duration and F0 prediction, and the problem of over-smoothing caused by
+predicting the average.
 
 ### Further reading
 
-- https://doi.org/10.1016/S0167-6393(98)00085-5
+- Zen, Tokuda and Black, *Statistical parametric speech synthesis*
+  {cite}`zen2009statistical`. A review of HMM-based synthesis.
+- Tokuda et al., *Speech synthesis based on hidden Markov models*
+  {cite}`tokuda2013speech`. An overview of HMM-based synthesis and its
+  extensions.
+- Kawahara et al., *Restructuring speech representations using a
+  pitch-adaptive time–frequency smoothing* {cite}`kawahara1999restructuring`.
+  The STRAIGHT vocoder, which was widely used in SPSS.
 
-- Yamagishi, J. (2006). An introduction to HMM-based speech synthesis. 
-<https://wiki.inf.ed.ac.uk/pub/CSTR/TrajectoryModelling/HTS-Introduction.pdf>  
-(introduction to HMM-based SPSS)
+### References
 
-- https://doi.org/10.1109/ICASSP.2018.8461368
-
-- https://doi.org/10.1109/JPROC.2013.2251852
-
-- https://doi.org/10.48550/arXiv.1609.03499
-
-- https://doi.org/10.21437/SSW.2016-33
-
-- https://doi.org/10.1016/j.specom.2009.04.004
+```{bibliography}
+:filter: docname in docnames
+```
