@@ -94,7 +94,10 @@ The main safeguards are
 
 - **consent**: a person's voice should only be cloned with their permission, and the data used to train a system should be collected with the consent of the speakers,
 - **watermarking**: the system hides a signal in the generated speech that cannot be heard but can be detected later {cite}`sanroman2024proactive` (see the example in [Large-scale and zero-shot synthesis](#content:zeroshotsynthesis)), and
-- **detection**: classifiers that tell synthetic speech from real speech. The ASVspoof challenges have compared such methods since 2015 {cite}`wang2020asvspoof`. Detection is an arms race, because detectors must also work for synthesis methods that did not exist when they were trained.
+- **detection**: classifiers that tell synthetic speech from real speech. The ASVspoof challenges have compared such methods since 2015 {cite}`wang2020asvspoof`. Detection is an arms race, because detectors must also work for synthesis methods that did not exist when they were trained, and
+- **provenance**: instead of trying to spot fakes, genuine material carries signed metadata that says where it comes from and how it has been edited.
+
+Watermarking and detection both look for traces of synthesis in the signal. Better synthesis methods, or attacks that remove watermarks, can hide those traces, so both remain a game of cat and mouse. Provenance turns the question around. A recording device or editing tool signs the material and its history with public-key cryptography, the same method that is used for signed PDF documents and secure websites. The C2PA standard (Coalition for Content Provenance and Authenticity) defines such signed *content credentials* {cite}`collomosse2024authenticity`. If newsrooms, courts and other trusted sources accept only material with valid provenance, the burden moves from detecting fakes to signing genuine material. A better synthesis method does not help a forger, because it cannot produce a valid signature. For this reason, many researchers see provenance as the most promising long-term approach. It needs, however, wide adoption: microphones, cameras and editing tools must sign their output, and receivers must treat unsigned material as unverified. A signature also shows only who vouches for a recording, not that what it says is true.
 
 See also [Security and privacy](#privacy).
 
